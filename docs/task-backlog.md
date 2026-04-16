@@ -1,0 +1,74 @@
+# Task Backlog
+
+## Status Legend
+
+- `planned`: scoped and ready, but not started
+- `in_progress`: currently being worked
+- `blocked`: waiting on an external dependency or unresolved issue
+- `done`: completed and accepted into the active baseline
+
+## Priority Legend
+
+- `P0`: repository safety, governance, or blocking execution work
+- `P1`: important quality or delivery work that should follow soon
+- `P2`: valuable follow-up work that can wait until the higher-priority backlog is stable
+
+## Backlog by Phase
+
+### `P0` Repo and Docs Governance
+
+| Task ID | Phase | Priority | Status | Title | Deliverable | Depends On | Definition of Done |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| `P0-T001` | `P0` | `P0` | `done` | Initialize local git repo | local `main` branch with baseline commit | none | repository is initialized locally, baseline workspace is committed, and `node_modules/` is not tracked |
+| `P0-T002` | `P0` | `P0` | `done` | Create docs index and roadmap | `docs/README.md` and `docs/roadmap.md` | `P0-T001` | both files exist and describe ownership, phases, and current truth sources |
+| `P0-T003` | `P0` | `P0` | `in_progress` | Add README links to management docs | root `README.md` management-doc section | `P0-T002` | root README links to docs index, roadmap, and task backlog |
+| `P0-T004` | `P0` | `P0` | `done` | Define artifact tracking policy | `docs/git-workflow.md` tracked-vs-ignored section | `P0-T001` | tracked folders and ignored folders are explicit and match `.gitignore` policy |
+| `P0-T005` | `P0` | `P0` | `done` | Document branch and commit conventions | `docs/git-workflow.md` branch and commit sections | `P0-T001` | branch format `codex/<area>-<slug>` and commit prefixes are documented |
+
+### `P1` Source Collection and Licensing Hardening
+
+| Task ID | Phase | Priority | Status | Title | Deliverable | Depends On | Definition of Done |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| `P1-T001` | `P1` | `P1` | `blocked` | Resolve or document `403` source-fetch failures | updated source policy and fallback notes | `P0-T002` | each blocked source is either fetchable or documented with reason, impact, and fallback |
+| `P1-T002` | `P1` | `P1` | `planned` | Review source classifications and license usage | source-policy notes in docs | `P1-T001` | `redistributable`, `derived-only`, and `reference-only` usage is reviewed for current sources |
+| `P1-T003` | `P1` | `P2` | `planned` | Prepare first release checklist | release checklist section or file | `P0-T005`, `P4-T002` | checklist covers source, validation, known gaps, and tag readiness |
+
+### `P2` Spectral Data and Material Fidelity
+
+| Task ID | Phase | Priority | Status | Title | Deliverable | Depends On | Definition of Done |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| `P2-T001` | `P2` | `P1` | `planned` | Address generator timestamp churn for tracked outputs | reproducibility policy and follow-up implementation task | `P0-T004` | timestamp-only diffs are documented, detectable, and scheduled for implementation |
+| `P2-T002` | `P2` | `P1` | `planned` | Split proxy-vs-measured spectral assets clearly in docs | updated asset policy and overview notes | `P0-T002` | docs make the proxy/measured boundary explicit for materials and backlog items |
+| `P2-T003` | `P2` | `P2` | `planned` | Prioritize measured replacement backlog | ranked measurement plan | `P1-T002`, `P2-T002` | automotive SRF, signal SPD, wet-road BRDF, and retroreflective BRDF are ranked by impact and difficulty |
+
+### `P3` Geometry, Templates, and Asset Coverage
+
+| Task ID | Phase | Priority | Status | Title | Deliverable | Depends On | Definition of Done |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| `P3-T001` | `P3` | `P1` | `planned` | Define acceptance criteria for asset additions | acceptance rules in `docs/asset-spec.md` | `P0-T002` | new asset additions have naming, manifest, validation, and provenance criteria |
+| `P3-T002` | `P3` | `P2` | `planned` | Review catalog coverage against roadmap phases | gap summary by asset family | `P3-T001` | missing or weak asset families are documented by priority |
+
+### `P4` Scenario, Validation, and Reproducibility
+
+| Task ID | Phase | Priority | Status | Title | Deliverable | Depends On | Definition of Done |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| `P4-T001` | `P4` | `P1` | `planned` | Harden rebuild review policy for generated outputs | rebuild review checklist in git workflow | `P2-T001` | semantic vs timestamp-only rebuild changes can be reviewed consistently |
+| `P4-T002` | `P4` | `P1` | `planned` | Define milestone validation checklist | documented milestone validation gates | `P3-T001` | milestone review includes schema, export, visual, semantic, and backlog checks |
+
+### `P5` Measurement Replacement and Release Hardening
+
+| Task ID | Phase | Priority | Status | Title | Deliverable | Depends On | Definition of Done |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| `P5-T001` | `P5` | `P2` | `planned` | Document release/tag policy for first formal milestone | tag and release section in git workflow | `P1-T003`, `P4-T002` | first release rules are documented without assuming a remote host |
+
+## Blocked Items
+
+- `P1-T001`: blocked by external `403` responses for Mapillary help pages, the USGS landing page, and the UNECE page during automated fetch.
+
+## Deferred Items
+
+- measured replacement of automotive sensor SRF
+- measured replacement of traffic-signal and headlamp SPD
+- wet-road spectral BRDF acquisition
+- retroreflective sheeting BRDF acquisition
+
