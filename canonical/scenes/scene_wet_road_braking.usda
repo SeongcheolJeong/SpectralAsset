@@ -1,0 +1,51 @@
+#usda 1.0
+(
+    defaultPrim = "scene_wet_road_braking"
+    upAxis = "Y"
+    metersPerUnit = 1
+)
+
+def Xform "scene_wet_road_braking" {
+    def Xform "road_0" (
+        references = @../geometry/usd/road_asphalt_wet.usda@</road_asphalt_wet>
+    ) {
+        double3 xformOp:translate = (0.000000, 0.000000, 0.000000)
+        float xformOp:rotateY = 0.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
+    def Xform "crosswalk_0" (
+        references = @../geometry/usd/marking_crosswalk.usda@</marking_crosswalk>
+    ) {
+        double3 xformOp:translate = (0.000000, 0.030000, 0.800000)
+        float xformOp:rotateY = 90.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
+    def Xform "stopline_0" (
+        references = @../geometry/usd/marking_stop_line.usda@</marking_stop_line>
+    ) {
+        double3 xformOp:translate = (0.000000, 0.030000, 0.200000)
+        float xformOp:rotateY = 0.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
+    def Xform "signal_0" (
+        references = @../geometry/usd/signal_vehicle_vertical_3_aspect.usda@</signal_vehicle_vertical_3_aspect>
+    ) {
+        double3 xformOp:translate = (-1.600000, 0.000000, -0.800000)
+        float xformOp:rotateY = 0.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
+    def Xform "yield_0" (
+        references = @../geometry/usd/sign_yield.usda@</sign_yield>
+    ) {
+        double3 xformOp:translate = (1.800000, 0.000000, 1.400000)
+        float xformOp:rotateY = 180.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
+    def Xform "school_0" (
+        references = @../geometry/usd/sign_school_warning.usda@</sign_school_warning>
+    ) {
+        double3 xformOp:translate = (1.800000, 0.000000, -1.400000)
+        float xformOp:rotateY = 180.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
+}

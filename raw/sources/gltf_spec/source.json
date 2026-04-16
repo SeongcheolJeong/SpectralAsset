@@ -1,0 +1,11 @@
+{
+  "id": "gltf_spec",
+  "url": "https://registry.khronos.org/glTF/specs/2.0/glTF-2.0.html",
+  "file_name": "glTF-2.0.html",
+  "classification": "reference-only",
+  "license_summary": "Khronos specification reference",
+  "fetched_at": "2026-04-16T10:10:40+00:00",
+  "status": "downloaded",
+  "sha256": "5172dfcdaa14b59686bcd0d2289bc7f704ce1ec9a779334ba03ac46e54de0408",
+  "size_bytes": 1549751
+}

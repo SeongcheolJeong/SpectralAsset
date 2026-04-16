@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://spectralasset.local/schemas/emissive_profile.schema.json",
+  "type": "object",
+  "required": [
+    "id",
+    "spd_ref",
+    "state_map",
+    "nominal_luminance_cd_m2",
+    "temperature_c",
+    "driver_mode",
+    "provenance"
+  ],
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "spd_ref": {},
+    "state_map": {
+      "type": "object"
+    },
+    "nominal_luminance_cd_m2": {},
+    "temperature_c": {
+      "type": "number"
+    },
+    "driver_mode": {
+      "type": "string"
+    },
+    "provenance": {
+      "type": "object"
+    },
+    "license": {
+      "type": "object"
+    }
+  },
+  "additionalProperties": true
+}
+

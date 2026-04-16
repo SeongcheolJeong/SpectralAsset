@@ -1,0 +1,51 @@
+{
+  "id": "mat_sign_blue",
+  "material_type": "reflective",
+  "quantity_type": "reflectance",
+  "wavelength_grid_ref": "grid_master_350_1700_1nm",
+  "source_curve_refs": [
+    {
+      "curve_id": "mat_sign_blue_reflectance",
+      "role": "primary",
+      "path": "canonical/spectra/mat_sign_blue_reflectance.npz",
+      "wavelength_key": "wavelength_nm",
+      "value_key": "values"
+    }
+  ],
+  "pbr_fallback": {
+    "baseColorFactor": [
+      0.39754350040344216,
+      0.9487373054897058,
+      1.0,
+      1.0
+    ],
+    "metallicFactor": 0.0,
+    "roughnessFactor": 0.8
+  },
+  "sample_state": "dry",
+  "geometry_conditions": {
+    "retroreflective_gain_curve": null,
+    "wet_overlay": false,
+    "film_thickness_mm": null,
+    "specular_boost": null
+  },
+  "uncertainty": {
+    "type": "proxy_or_open_standard",
+    "note": "v1 uses project-generated proxy curves where measured automotive-grade datasets are unavailable."
+  },
+  "license": {
+    "spdx": "LicenseRef-ProjectGenerated",
+    "redistribution": "project-generated derivative metadata and proxy curves"
+  },
+  "provenance": {
+    "generated_at": "2026-04-16T10:10:40+00:00",
+    "generated_by": "scripts/build_asset_pack.py",
+    "source_ids": [
+      "cie_d65_csv",
+      "astm_g173_zip",
+      "usgs_spectral_library_page",
+      "ecostress_spectral_library_page"
+    ]
+  },
+  "svg_fill": "#65f2ff"
+}

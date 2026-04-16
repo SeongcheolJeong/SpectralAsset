@@ -1,0 +1,11 @@
+{
+  "id": "libradtran_home",
+  "url": "https://www.libradtran.org/",
+  "file_name": "index.html",
+  "classification": "reference-only",
+  "license_summary": "Official documentation reference",
+  "fetched_at": "2026-04-16T10:10:40+00:00",
+  "status": "downloaded",
+  "sha256": "0feccb6455615ab275d85ab779f16a27f22c78d171d6f2fbafee91dbe6190e5b",
+  "size_bytes": 11487
+}

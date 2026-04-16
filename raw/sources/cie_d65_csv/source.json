@@ -1,0 +1,11 @@
+{
+  "id": "cie_d65_csv",
+  "url": "https://files.cie.co.at/CIE_std_illum_D65.csv",
+  "file_name": "CIE_std_illum_D65.csv",
+  "classification": "redistributable",
+  "license_summary": "CIE dataset with citation required",
+  "fetched_at": "2026-04-16T10:10:40+00:00",
+  "status": "downloaded",
+  "sha256": "e76f210bffff3d552ef7113025da5f325d5dfec200dd4b878b1a2f3a507032cb",
+  "size_bytes": 6820
+}

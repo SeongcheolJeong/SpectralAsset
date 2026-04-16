@@ -1,0 +1,69 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://spectralasset.local/schemas/spectral_material.schema.json",
+  "type": "object",
+  "required": [
+    "id",
+    "material_type",
+    "quantity_type",
+    "wavelength_grid_ref",
+    "source_curve_refs",
+    "pbr_fallback",
+    "sample_state",
+    "geometry_conditions",
+    "uncertainty",
+    "license",
+    "provenance"
+  ],
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "material_type": {
+      "type": "string",
+      "enum": [
+        "reflective",
+        "transmissive",
+        "emissive",
+        "retroreflective",
+        "wet_overlay"
+      ]
+    },
+    "quantity_type": {
+      "type": "string"
+    },
+    "wavelength_grid_ref": {
+      "type": "string"
+    },
+    "source_curve_refs": {
+      "type": "array"
+    },
+    "pbr_fallback": {
+      "type": "object"
+    },
+    "sample_state": {
+      "type": "string",
+      "enum": [
+        "dry",
+        "wet",
+        "aged",
+        "dusty",
+        "coated"
+      ]
+    },
+    "geometry_conditions": {
+      "type": "object"
+    },
+    "uncertainty": {
+      "type": "object"
+    },
+    "license": {
+      "type": "object"
+    },
+    "provenance": {
+      "type": "object"
+    }
+  },
+  "additionalProperties": true
+}
+

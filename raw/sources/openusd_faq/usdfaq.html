@@ -1,0 +1,1842 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>USD Frequently Asked Questions &mdash; Universal Scene Description 26.03 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+      <link rel="stylesheet" type="text/css" href="_static/css/pxr_custom.css?v=f3eac5de" />
+
+  
+    <link rel="shortcut icon" href="https://openusd.org/images/USDIcon.ico"/>
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=5b3ff6df"></script>
+      <script src="_static/doctools.js?v=9a2dae69"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/design-tabs.js?v=f930bc37"></script>
+      <script src="_static/js/versions.js?v=aa17b01a"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Maximizing USD Performance" href="maxperf.html" />
+    <link rel="prev" title="UsdShade Material Assignment" href="wp_usdshade.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #606060" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Universal Scene Description
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Learn</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction to USD</a></li>
+<li class="toctree-l1"><a class="reference internal" href="intro_to_openexec.html">Introduction to OpenExec</a></li>
+<li class="toctree-l1"><a class="reference internal" href="glossary.html">Terms and Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tut_usd_tutorials.html">Tutorials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tut_helloworld.html">Hello World - Creating Your First USD Stage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tut_helloworld_redux.html">Hello World Redux - Using Generic Prims</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tut_inspect_and_author_props.html">Inspecting and Authoring Properties</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tut_referencing_layers.html">Referencing Layers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tut_converting_between_layer_formats.html">Converting Between Layer Formats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tut_traversing_stage.html">Traversing a Stage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tut_authoring_variants.html">Authoring Variants</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tut_variants_example_in_katana.html">Variants Example in Katana</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tut_xforms.html">Transformations, Animation, and Layer Offsets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tut_simple_shading.html">Simple Shading in USD</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tut_end_to_end.html">End to End Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tut_houdini_example.html">Houdini USD Example Workflow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tut_generating_new_schema.html">Generating New Schema Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tut_usdview_plugin.html">Creating a Usdview Plugin</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="dl_downloads.html">Downloads and Videos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usd_products.html">Products Using USD</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">User Guides</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="user_guides/collections_and_patterns.html">Collections and Patterns</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="user_guides/collections_and_patterns.html#basic-usage">Basic Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_guides/collections_and_patterns.html#relationship-mode-collections">Relationship-Mode Collections</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="user_guides/collections_and_patterns.html#configuring-relationship-mode-collections">Configuring Relationship-Mode Collections</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="user_guides/collections_and_patterns.html#pattern-based-collections">Pattern-Based Collections</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="user_guides/collections_and_patterns.html#path-expressions">Path Expressions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="user_guides/collections_and_patterns.html#path-patterns">Path Patterns</a></li>
+<li class="toctree-l4"><a class="reference internal" href="user_guides/collections_and_patterns.html#additional-expressions-considerations">Additional Expressions Considerations</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="user_guides/collections_and_patterns.html#configuring-pattern-based-collections">Configuring Pattern-Based Collections</a></li>
+<li class="toctree-l3"><a class="reference internal" href="user_guides/collections_and_patterns.html#getting-the-expression-for-a-relationship-mode-collection">Getting the Expression for a Relationship-Mode Collection</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="user_guides/color_user_guide.html">Color</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="user_guides/color_user_guide.html#working-with-color-in-openusd">Working With Color in OpenUSD</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="user_guides/color_user_guide.html#color-spaces-supported-by-openusd">Color Spaces Supported by OpenUSD</a></li>
+<li class="toctree-l3"><a class="reference internal" href="user_guides/color_user_guide.html#working-with-color-space-schemas">Working With Color Space Schemas</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="user_guides/color_user_guide.html#color-space-inheritance-and-resolution">Color Space Inheritance and Resolution</a></li>
+<li class="toctree-l4"><a class="reference internal" href="user_guides/color_user_guide.html#default-color-space">Default Color Space</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="user_guides/color_user_guide.html#what-is-a-color-space">What is a Color Space?</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="user_guides/color_user_guide.html#gamut-limitations-and-considerations">Gamut Limitations and Considerations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="user_guides/color_user_guide.html#common-white-points">Common White Points</a></li>
+<li class="toctree-l3"><a class="reference internal" href="user_guides/color_user_guide.html#linear-vs-non-linear-spaces">Linear vs. Non-Linear Spaces</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="user_guides/color_user_guide.html#considerations-in-content-creation">Considerations in Content Creation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_guides/color_user_guide.html#glossary-of-color-terms">Glossary of Color Terms</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="user_guides/namespace_editing.html">Namespace Editing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="user_guides/namespace_editing.html#using-usdnamespaceeditor">Using UsdNamespaceEditor</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="user_guides/namespace_editing.html#setting-editor-options">Setting Editor Options</a></li>
+<li class="toctree-l3"><a class="reference internal" href="user_guides/namespace_editing.html#working-with-relocates">Working With Relocates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="user_guides/namespace_editing.html#fixing-paths-for-moved-objects">Fixing Paths For Moved Objects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="user_guides/namespace_editing.html#applying-edits-to-dependent-stages">Applying Edits to Dependent Stages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="user_guides/namespace_editing.html#batch-edits">Batch Edits</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="user_guides/namespace_editing.html#namespace-editing-best-practices">Namespace Editing Best Practices</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="user_guides/namespace_editing.html#use-canapplyedits-to-validate-edit-operations">Use CanApplyEdits() To Validate Edit Operations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="user_guides/namespace_editing.html#built-in-properties-from-schemas-are-not-editable">Built-In Properties From Schemas Are Not Editable</a></li>
+<li class="toctree-l3"><a class="reference internal" href="user_guides/namespace_editing.html#be-aware-of-relocates-performance-impact">Be Aware of Relocates Performance Impact</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="user_guides/render_user_guide.html">Rendering with USD</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="user_guides/render_user_guide.html#configuring-imageable-content">Configuring Imageable Content</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="user_guides/render_user_guide.html#configuring-the-stage-coordinate-system">Configuring the Stage Coordinate System</a></li>
+<li class="toctree-l3"><a class="reference internal" href="user_guides/render_user_guide.html#understanding-render-visibility">Understanding Render Visibility</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="user_guides/render_user_guide.html#using-the-visibility-attribute">Using the Visibility Attribute</a></li>
+<li class="toctree-l4"><a class="reference internal" href="user_guides/render_user_guide.html#using-imageable-purpose">Using Imageable Purpose</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="user_guides/render_user_guide.html#understanding-intrinsic-and-explicit-normals">Understanding Intrinsic and Explicit Normals</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="user_guides/render_user_guide.html#working-with-lights">Working with Lights</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="user_guides/render_user_guide.html#using-light-linking-to-filter-objects-affected-by-lights">Using Light-linking to Filter Objects Affected by Lights</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="user_guides/render_user_guide.html#working-with-materials">Working with Materials</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="user_guides/render_user_guide.html#using-the-usd-preview-material">Using the USD Preview Material</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="user_guides/render_user_guide.html#using-glslfx-shaders">Using GLSLFX Shaders</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="user_guides/render_user_guide.html#working-with-primvars">Working with Primvars</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="user_guides/render_user_guide.html#primvar-interpolation">Primvar Interpolation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="user_guides/render_user_guide.html#indexed-primvars">Indexed Primvars</a></li>
+<li class="toctree-l4"><a class="reference internal" href="user_guides/render_user_guide.html#consuming-primvars-in-materials">Consuming Primvars in Materials</a></li>
+<li class="toctree-l4"><a class="reference internal" href="user_guides/render_user_guide.html#material-primvar-fallbacks">Material Primvar Fallbacks</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="user_guides/render_user_guide.html#using-material-binding-purpose">Using Material Binding Purpose</a></li>
+<li class="toctree-l3"><a class="reference internal" href="user_guides/render_user_guide.html#binding-materials-to-collections">Binding Materials to Collections</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="user_guides/render_user_guide.html#setting-collection-binding-strength">Setting Collection Binding Strength</a></li>
+<li class="toctree-l4"><a class="reference internal" href="user_guides/render_user_guide.html#combining-collection-binding-with-material-binding-purpose">Combining Collection Binding with Material Binding Purpose</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="user_guides/render_user_guide.html#using-material-render-contexts">Using Material Render Contexts</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="user_guides/render_user_guide.html#working-with-image-file-formats">Working With Image File Formats</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="user_guides/render_user_guide.html#guidelines-for-all-supported-image-formats">Guidelines for All Supported Image Formats</a></li>
+<li class="toctree-l3"><a class="reference internal" href="user_guides/render_user_guide.html#jpeg">JPEG</a></li>
+<li class="toctree-l3"><a class="reference internal" href="user_guides/render_user_guide.html#png">PNG</a></li>
+<li class="toctree-l3"><a class="reference internal" href="user_guides/render_user_guide.html#openexr">OpenEXR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="user_guides/render_user_guide.html#av1-image-file-format-avif">AV1 Image File Format (AVIF)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="user_guides/render_user_guide.html#defining-the-render-camera">Defining the Render Camera</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="user_guides/render_user_guide.html#configuring-motion-blur">Configuring Motion Blur</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="user_guides/render_user_guide.html#configuring-render-settings">Configuring Render Settings</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="user_guides/primvars.html">Primvars</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="user_guides/primvars.html#primvar-interpolation-modes">Primvar Interpolation Modes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="user_guides/primvars.html#constant-interpolation">Constant Interpolation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="user_guides/primvars.html#uniform-interpolation">Uniform Interpolation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="user_guides/primvars.html#vertex-interpolation">Vertex Interpolation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="user_guides/primvars.html#varying-interpolation">Varying Interpolation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="user_guides/primvars.html#facevarying-interpolation">faceVarying Interpolation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="user_guides/primvars.html#primvars-and-the-scene-namespace">Primvars and the Scene Namespace</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_guides/primvars.html#indexed-primvars">Indexed Primvars</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="user_guides/primvars.html#indexed-primvars-and-attribute-blocks">Indexed Primvars and Attribute Blocks</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="user_guides/primvars.html#primvar-element-size">Primvar Element Size</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="user_guides/schemas/index.html">Schema Domains</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="user_guides/schemas/usdLux/usdLux_toc.html">Lights (usdLux)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="user_guides/schemas/usdLux/overview.html">Overview</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="user_guides/schemas/usdLux/overview.html#usdlux-schemas-and-concepts">UsdLux Schemas and Concepts</a></li>
+<li class="toctree-l4"><a class="reference internal" href="user_guides/schemas/usdLux/overview.html#light-units">Light Units</a></li>
+<li class="toctree-l4"><a class="reference internal" href="user_guides/schemas/usdLux/overview.html#understanding-light-contributions">Understanding Light Contributions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="user_guides/schemas/usdLux/overview.html#light-shaping">Light Shaping</a></li>
+<li class="toctree-l4"><a class="reference internal" href="user_guides/schemas/usdLux/overview.html#shadows">Shadows</a></li>
+<li class="toctree-l4"><a class="reference internal" href="user_guides/schemas/usdLux/overview.html#mesh-lights">Mesh Lights</a></li>
+<li class="toctree-l4"><a class="reference internal" href="user_guides/schemas/usdLux/overview.html#light-linking-and-shadow-linking">Light-linking and Shadow-linking</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="user_guides/schemas/usdLux/BoundableLightBase.html">BoundableLightBase</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="user_guides/schemas/usdLux/BoundableLightBase.html#properties">Properties</a></li>
+<li class="toctree-l4"><a class="reference internal" href="user_guides/schemas/usdLux/BoundableLightBase.html#inherited-properties-boundable">Inherited Properties (<span class="xref std std-ref">Boundable</span>)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="user_guides/schemas/usdLux/BoundableLightBase.html#inherited-properties-xformable">Inherited Properties (<span class="xref std std-ref">Xformable</span>)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="user_guides/schemas/usdLux/BoundableLightBase.html#inherited-properties-imageable">Inherited Properties (<span class="xref std std-ref">Imageable</span>)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="user_guides/schemas/usdLux/CylinderLight.html">CylinderLight</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="user_guides/schemas/usdLux/CylinderLight.html#properties">Properties</a></li>
+<li class="toctree-l4"><a class="reference internal" href="user_guides/schemas/usdLux/CylinderLight.html#inherited-properties-boundable">Inherited Properties (<span class="xref std std-ref">Boundable</span>)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="user_guides/schemas/usdLux/CylinderLight.html#inherited-properties-xformable">Inherited Properties (<span class="xref std std-ref">Xformable</span>)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="user_guides/schemas/usdLux/CylinderLight.html#inherited-properties-imageable">Inherited Properties (<span class="xref std std-ref">Imageable</span>)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="user_guides/schemas/usdLux/DiskLight.html">DiskLight</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="user_guides/schemas/usdLux/DiskLight.html#properties">Properties</a></li>
+<li class="toctree-l4"><a class="reference internal" href="user_guides/schemas/usdLux/DiskLight.html#inherited-properties-boundable">Inherited Properties (<span class="xref std std-ref">Boundable</span>)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="user_guides/schemas/usdLux/DiskLight.html#inherited-properties-xformable">Inherited Properties (<span class="xref std std-ref">Xformable</span>)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="user_guides/schemas/usdLux/DiskLight.html#inherited-properties-imageable">Inherited Properties (<span class="xref std std-ref">Imageable</span>)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="user_guides/schemas/usdLux/DistantLight.html">DistantLight</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="user_guides/schemas/usdLux/DistantLight.html#properties">Properties</a></li>
+<li class="toctree-l4"><a class="reference internal" href="user_guides/schemas/usdLux/DistantLight.html#inherited-properties-xformable">Inherited Properties (<span class="xref std std-ref">Xformable</span>)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="user_guides/schemas/usdLux/DistantLight.html#inherited-properties-imageable">Inherited Properties (<span class="xref std std-ref">Imageable</span>)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="user_guides/schemas/usdLux/DomeLight.html">DomeLight</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="user_guides/schemas/usdLux/DomeLight.html#properties">Properties</a></li>
+<li class="toctree-l4"><a class="reference internal" href="user_guides/schemas/usdLux/DomeLight.html#inherited-properties-xformable">Inherited Properties (<span class="xref std std-ref">Xformable</span>)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="user_guides/schemas/usdLux/DomeLight.html#inherited-properties-imageable">Inherited Properties (<span class="xref std std-ref">Imageable</span>)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="user_guides/schemas/usdLux/DomeLight_1.html">DomeLight_1</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="user_guides/schemas/usdLux/DomeLight_1.html#properties">Properties</a></li>
+<li class="toctree-l4"><a class="reference internal" href="user_guides/schemas/usdLux/DomeLight_1.html#inherited-properties-xformable">Inherited Properties (<span class="xref std std-ref">Xformable</span>)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="user_guides/schemas/usdLux/DomeLight_1.html#inherited-properties-imageable">Inherited Properties (<span class="xref std std-ref">Imageable</span>)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="user_guides/schemas/usdLux/GeometryLight.html">GeometryLight</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="user_guides/schemas/usdLux/GeometryLight.html#properties">Properties</a></li>
+<li class="toctree-l4"><a class="reference internal" href="user_guides/schemas/usdLux/GeometryLight.html#inherited-properties-xformable">Inherited Properties (<span class="xref std std-ref">Xformable</span>)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="user_guides/schemas/usdLux/GeometryLight.html#inherited-properties-imageable">Inherited Properties (<span class="xref std std-ref">Imageable</span>)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="user_guides/schemas/usdLux/LightAPI.html">LightAPI</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="user_guides/schemas/usdLux/LightAPI.html#properties">Properties</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="user_guides/schemas/usdLux/LightFilter.html">LightFilter</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="user_guides/schemas/usdLux/LightFilter.html#properties">Properties</a></li>
+<li class="toctree-l4"><a class="reference internal" href="user_guides/schemas/usdLux/LightFilter.html#inherited-properties-xformable">Inherited Properties (<span class="xref std std-ref">Xformable</span>)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="user_guides/schemas/usdLux/LightFilter.html#inherited-properties-imageable">Inherited Properties (<span class="xref std std-ref">Imageable</span>)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="user_guides/schemas/usdLux/LightListAPI.html">LightListAPI</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="user_guides/schemas/usdLux/LightListAPI.html#properties">Properties</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="user_guides/schemas/usdLux/ListAPI.html">ListAPI</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="user_guides/schemas/usdLux/ListAPI.html#properties">Properties</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="user_guides/schemas/usdLux/MeshLightAPI.html">MeshLightAPI</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="user_guides/schemas/usdLux/MeshLightAPI.html#properties">Properties</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="user_guides/schemas/usdLux/NonboundableLightBase.html">NonboundableLightBase</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="user_guides/schemas/usdLux/NonboundableLightBase.html#properties">Properties</a></li>
+<li class="toctree-l4"><a class="reference internal" href="user_guides/schemas/usdLux/NonboundableLightBase.html#inherited-properties-xformable">Inherited Properties (<span class="xref std std-ref">Xformable</span>)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="user_guides/schemas/usdLux/NonboundableLightBase.html#inherited-properties-imageable">Inherited Properties (<span class="xref std std-ref">Imageable</span>)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="user_guides/schemas/usdLux/PluginLight.html">PluginLight</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="user_guides/schemas/usdLux/PluginLight.html#properties">Properties</a></li>
+<li class="toctree-l4"><a class="reference internal" href="user_guides/schemas/usdLux/PluginLight.html#inherited-properties-xformable">Inherited Properties (<span class="xref std std-ref">Xformable</span>)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="user_guides/schemas/usdLux/PluginLight.html#inherited-properties-imageable">Inherited Properties (<span class="xref std std-ref">Imageable</span>)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="user_guides/schemas/usdLux/PluginLightFilter.html">PluginLightFilter</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="user_guides/schemas/usdLux/PluginLightFilter.html#properties">Properties</a></li>
+<li class="toctree-l4"><a class="reference internal" href="user_guides/schemas/usdLux/PluginLightFilter.html#inherited-properties-lightfilter">Inherited Properties (<span class="xref std std-ref">LightFilter</span>)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="user_guides/schemas/usdLux/PluginLightFilter.html#inherited-properties-xformable">Inherited Properties (<span class="xref std std-ref">Xformable</span>)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="user_guides/schemas/usdLux/PluginLightFilter.html#inherited-properties-imageable">Inherited Properties (<span class="xref std std-ref">Imageable</span>)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="user_guides/schemas/usdLux/PortalLight.html">PortalLight</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="user_guides/schemas/usdLux/PortalLight.html#properties">Properties</a></li>
+<li class="toctree-l4"><a class="reference internal" href="user_guides/schemas/usdLux/PortalLight.html#inherited-properties-boundable">Inherited Properties (<span class="xref std std-ref">Boundable</span>)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="user_guides/schemas/usdLux/PortalLight.html#inherited-properties-xformable">Inherited Properties (<span class="xref std std-ref">Xformable</span>)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="user_guides/schemas/usdLux/PortalLight.html#inherited-properties-imageable">Inherited Properties (<span class="xref std std-ref">Imageable</span>)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="user_guides/schemas/usdLux/RectLight.html">RectLight</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="user_guides/schemas/usdLux/RectLight.html#properties">Properties</a></li>
+<li class="toctree-l4"><a class="reference internal" href="user_guides/schemas/usdLux/RectLight.html#inherited-properties-boundable">Inherited Properties (<span class="xref std std-ref">Boundable</span>)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="user_guides/schemas/usdLux/RectLight.html#inherited-properties-xformable">Inherited Properties (<span class="xref std std-ref">Xformable</span>)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="user_guides/schemas/usdLux/RectLight.html#inherited-properties-imageable">Inherited Properties (<span class="xref std std-ref">Imageable</span>)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="user_guides/schemas/usdLux/ShadowAPI.html">ShadowAPI</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="user_guides/schemas/usdLux/ShadowAPI.html#properties">Properties</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="user_guides/schemas/usdLux/ShapingAPI.html">ShapingAPI</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="user_guides/schemas/usdLux/ShapingAPI.html#properties">Properties</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="user_guides/schemas/usdLux/SphereLight.html">SphereLight</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="user_guides/schemas/usdLux/SphereLight.html#properties">Properties</a></li>
+<li class="toctree-l4"><a class="reference internal" href="user_guides/schemas/usdLux/SphereLight.html#inherited-properties-boundable">Inherited Properties (<span class="xref std std-ref">Boundable</span>)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="user_guides/schemas/usdLux/SphereLight.html#inherited-properties-xformable">Inherited Properties (<span class="xref std std-ref">Xformable</span>)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="user_guides/schemas/usdLux/SphereLight.html#inherited-properties-imageable">Inherited Properties (<span class="xref std std-ref">Imageable</span>)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="user_guides/schemas/usdLux/VolumeLightAPI.html">VolumeLightAPI</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="user_guides/schemas/usdLux/VolumeLightAPI.html#properties">Properties</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="user_guides/schemas/usdMedia/usdMedia_toc.html">Media (usdMedia)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="user_guides/schemas/usdMedia/overview.html">Overview</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="user_guides/schemas/usdMedia/overview.html#working-with-media">Working With Media</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="user_guides/schemas/usdMedia/AssetPreviewsAPI.html">AssetPreviewsAPI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="user_guides/schemas/usdMedia/SpatialAudio.html">SpatialAudio</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="user_guides/schemas/usdMedia/SpatialAudio.html#spatialaudio-and-layer-offsets">SpatialAudio and Layer Offsets</a></li>
+<li class="toctree-l4"><a class="reference internal" href="user_guides/schemas/usdMedia/SpatialAudio.html#properties">Properties</a></li>
+<li class="toctree-l4"><a class="reference internal" href="user_guides/schemas/usdMedia/SpatialAudio.html#inherited-properties-xformable">Inherited Properties (<span class="xref std std-ref">Xformable</span>)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="user_guides/schemas/usdMedia/SpatialAudio.html#inherited-properties-imageable">Inherited Properties (<span class="xref std std-ref">Imageable</span>)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="user_guides/schemas/usdRender/usdRender_toc.html">Render (usdRender)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="user_guides/schemas/usdRender/overview.html">Overview</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="user_guides/schemas/usdRender/overview.html#best-practices">Best Practices</a></li>
+<li class="toctree-l4"><a class="reference internal" href="user_guides/schemas/usdRender/overview.html#using-usdrender-to-control-how-prims-are-rendered">Using UsdRender to Control How Prims Are Rendered</a></li>
+<li class="toctree-l4"><a class="reference internal" href="user_guides/schemas/usdRender/overview.html#working-with-renderproduct">Working with RenderProduct</a></li>
+<li class="toctree-l4"><a class="reference internal" href="user_guides/schemas/usdRender/overview.html#configuring-multi-pass-renders-with-renderpass">Configuring Multi-pass Renders with RenderPass</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="user_guides/schemas/usdRender/RenderPass.html">RenderPass</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="user_guides/schemas/usdRender/RenderPass.html#properties">Properties</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="user_guides/schemas/usdRender/RenderProduct.html">RenderProduct</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="user_guides/schemas/usdRender/RenderProduct.html#properties">Properties</a></li>
+<li class="toctree-l4"><a class="reference internal" href="user_guides/schemas/usdRender/RenderProduct.html#inherited-properties-rendersettingsbase">Inherited Properties (<span class="xref std std-ref">RenderSettingsBase</span>)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="user_guides/schemas/usdRender/RenderSettings.html">RenderSettings</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="user_guides/schemas/usdRender/RenderSettings.html#properties">Properties</a></li>
+<li class="toctree-l4"><a class="reference internal" href="user_guides/schemas/usdRender/RenderSettings.html#inherited-properties-rendersettingsbase">Inherited Properties (<span class="xref std std-ref">RenderSettingsBase</span>)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="user_guides/schemas/usdRender/RenderSettingsBase.html">RenderSettingsBase</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="user_guides/schemas/usdRender/RenderSettingsBase.html#properties">Properties</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="user_guides/schemas/usdRender/RenderVar.html">RenderVar</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="user_guides/schemas/usdRender/RenderVar.html#properties">Properties</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="user_guides/schemas/usdUI/usdUI_toc.html">UI (usdUI)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="user_guides/schemas/usdUI/overview.html">Overview</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="user_guides/schemas/usdUI/overview.html#working-with-node-graphs">Working With Node Graphs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="user_guides/schemas/usdUI/overview.html#working-with-accessibility-information">Working With Accessibility Information</a></li>
+<li class="toctree-l4"><a class="reference internal" href="user_guides/schemas/usdUI/overview.html#working-with-ui-hints">Working With UI Hints</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="user_guides/schemas/usdUI/AttributeHints.html">AttributeHints</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="user_guides/schemas/usdUI/AttributeHints.html#attributehints-fields">AttributeHints fields</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="user_guides/schemas/usdUI/ObjectHints.html">ObjectHints</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="user_guides/schemas/usdUI/ObjectHints.html#objecthints-fields">ObjectHints fields</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="user_guides/schemas/usdUI/PrimHints.html">PrimHints</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="user_guides/schemas/usdUI/PrimHints.html#primhints-fields">PrimHints fields</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="user_guides/schemas/usdUI/PropertyHints.html">PropertyHints</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="user_guides/schemas/usdUI/PropertyHints.html#propertyhints-fields">PropertyHints fields</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="user_guides/schemas/usdUI/AccessibilityAPI.html">AccessibilityAPI</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="user_guides/schemas/usdUI/AccessibilityAPI.html#properties">Properties</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="user_guides/schemas/usdUI/Backdrop.html">Backdrop</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="user_guides/schemas/usdUI/Backdrop.html#properties">Properties</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="user_guides/schemas/usdUI/NodeGraphNodeAPI.html">NodeGraphNodeAPI</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="user_guides/schemas/usdUI/NodeGraphNodeAPI.html#properties">Properties</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="user_guides/schemas/usdUI/SceneGraphPrimAPI.html">SceneGraphPrimAPI</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="user_guides/schemas/usdUI/SceneGraphPrimAPI.html#properties">Properties</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="user_guides/schemas/usdVol/usdVol_toc.html">Volumes (usdVol)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="user_guides/schemas/usdVol/overview.html">Overview</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="user_guides/schemas/usdVol/overview.html#working-with-volumes">Working With Volumes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="user_guides/schemas/usdVol/overview.html#working-with-fields">Working With Fields</a></li>
+<li class="toctree-l4"><a class="reference internal" href="user_guides/schemas/usdVol/overview.html#working-with-particle-fields">Working With Particle Fields</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="user_guides/schemas/usdVol/Field3DAsset.html">Field3DAsset</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="user_guides/schemas/usdVol/Field3DAsset.html#properties">Properties</a></li>
+<li class="toctree-l4"><a class="reference internal" href="user_guides/schemas/usdVol/Field3DAsset.html#inherited-properties-volumefieldasset">Inherited Properties (<span class="xref std std-ref">VolumeFieldAsset</span>)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="user_guides/schemas/usdVol/Field3DAsset.html#inherited-properties-xformable">Inherited Properties (<span class="xref std std-ref">Xformable</span>)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="user_guides/schemas/usdVol/Field3DAsset.html#inherited-properties-imageable">Inherited Properties (<span class="xref std std-ref">Imageable</span>)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="user_guides/schemas/usdVol/FieldAsset.html">FieldAsset</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="user_guides/schemas/usdVol/FieldAsset.html#properties">Properties</a></li>
+<li class="toctree-l4"><a class="reference internal" href="user_guides/schemas/usdVol/FieldAsset.html#inherited-properties-volumefieldasset">Inherited Properties (<span class="xref std std-ref">VolumeFieldAsset</span>)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="user_guides/schemas/usdVol/FieldAsset.html#inherited-properties-xformable">Inherited Properties (<span class="xref std std-ref">Xformable</span>)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="user_guides/schemas/usdVol/FieldAsset.html#inherited-properties-imageable">Inherited Properties (<span class="xref std std-ref">Imageable</span>)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="user_guides/schemas/usdVol/FieldBase.html">FieldBase</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="user_guides/schemas/usdVol/FieldBase.html#properties">Properties</a></li>
+<li class="toctree-l4"><a class="reference internal" href="user_guides/schemas/usdVol/FieldBase.html#inherited-properties-xformable">Inherited Properties (<span class="xref std std-ref">Xformable</span>)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="user_guides/schemas/usdVol/FieldBase.html#inherited-properties-imageable">Inherited Properties (<span class="xref std std-ref">Imageable</span>)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="user_guides/schemas/usdVol/OpenVDBAsset.html">OpenVDBAsset</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="user_guides/schemas/usdVol/OpenVDBAsset.html#properties">Properties</a></li>
+<li class="toctree-l4"><a class="reference internal" href="user_guides/schemas/usdVol/OpenVDBAsset.html#inherited-properties-volumefieldasset">Inherited Properties (<span class="xref std std-ref">VolumeFieldAsset</span>)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="user_guides/schemas/usdVol/OpenVDBAsset.html#inherited-properties-xformable">Inherited Properties (<span class="xref std std-ref">Xformable</span>)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="user_guides/schemas/usdVol/OpenVDBAsset.html#inherited-properties-imageable">Inherited Properties (<span class="xref std std-ref">Imageable</span>)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="user_guides/schemas/usdVol/ParticleField.html">ParticleField</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="user_guides/schemas/usdVol/ParticleField.html#properties">Properties</a></li>
+<li class="toctree-l4"><a class="reference internal" href="user_guides/schemas/usdVol/ParticleField.html#inherited-properties-gprim">Inherited Properties (<span class="xref std std-ref">Gprim</span>)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="user_guides/schemas/usdVol/ParticleField.html#inherited-properties-boundable">Inherited Properties (<span class="xref std std-ref">Boundable</span>)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="user_guides/schemas/usdVol/ParticleField.html#inherited-properties-xformable">Inherited Properties (<span class="xref std std-ref">Xformable</span>)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="user_guides/schemas/usdVol/ParticleField.html#inherited-properties-imageable">Inherited Properties (<span class="xref std std-ref">Imageable</span>)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="user_guides/schemas/usdVol/ParticleField3DGaussianSplat.html">ParticleField3DGaussianSplat</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="user_guides/schemas/usdVol/ParticleField3DGaussianSplat.html#properties">Properties</a></li>
+<li class="toctree-l4"><a class="reference internal" href="user_guides/schemas/usdVol/ParticleField3DGaussianSplat.html#inherited-properties-gprim">Inherited Properties (<span class="xref std std-ref">Gprim</span>)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="user_guides/schemas/usdVol/ParticleField3DGaussianSplat.html#inherited-properties-boundable">Inherited Properties (<span class="xref std std-ref">Boundable</span>)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="user_guides/schemas/usdVol/ParticleField3DGaussianSplat.html#inherited-properties-xformable">Inherited Properties (<span class="xref std std-ref">Xformable</span>)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="user_guides/schemas/usdVol/ParticleField3DGaussianSplat.html#inherited-properties-imageable">Inherited Properties (<span class="xref std std-ref">Imageable</span>)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="user_guides/schemas/usdVol/ParticleFieldKernelBaseAPI.html">ParticleFieldKernelBaseAPI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="user_guides/schemas/usdVol/ParticleFieldKernelConstantSurfletAPI.html">ParticleFieldKernelConstantSurfletAPI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="user_guides/schemas/usdVol/ParticleFieldKernelGaussianEllipsoidAPI.html">ParticleFieldKernelGaussianEllipsoidAPI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="user_guides/schemas/usdVol/ParticleFieldKernelGaussianSurfletAPI.html">ParticleFieldKernelGaussianSurfletAPI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="user_guides/schemas/usdVol/ParticleFieldOpacityAttributeAPI.html">ParticleFieldOpacityAttributeAPI</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="user_guides/schemas/usdVol/ParticleFieldOpacityAttributeAPI.html#properties">Properties</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="user_guides/schemas/usdVol/ParticleFieldOrientationAttributeAPI.html">ParticleFieldOrientationAttributeAPI</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="user_guides/schemas/usdVol/ParticleFieldOrientationAttributeAPI.html#properties">Properties</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="user_guides/schemas/usdVol/ParticleFieldPositionAttributeAPI.html">ParticleFieldPositionAttributeAPI</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="user_guides/schemas/usdVol/ParticleFieldPositionAttributeAPI.html#properties">Properties</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="user_guides/schemas/usdVol/ParticleFieldPositionBaseAPI.html">ParticleFieldPositionBaseAPI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="user_guides/schemas/usdVol/ParticleFieldRadianceBaseAPI.html">ParticleFieldRadianceBaseAPI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="user_guides/schemas/usdVol/ParticleFieldScaleAttributeAPI.html">ParticleFieldScaleAttributeAPI</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="user_guides/schemas/usdVol/ParticleFieldScaleAttributeAPI.html#properties">Properties</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="user_guides/schemas/usdVol/ParticleFieldSphericalHarmonicsAttributeAPI.html">ParticleFieldSphericalHarmonicsAttributeAPI</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="user_guides/schemas/usdVol/ParticleFieldSphericalHarmonicsAttributeAPI.html#properties">Properties</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="user_guides/schemas/usdVol/Volume.html">Volume</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="user_guides/schemas/usdVol/Volume.html#properties">Properties</a></li>
+<li class="toctree-l4"><a class="reference internal" href="user_guides/schemas/usdVol/Volume.html#inherited-properties-gprim">Inherited Properties (<span class="xref std std-ref">Gprim</span>)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="user_guides/schemas/usdVol/Volume.html#inherited-properties-boundable">Inherited Properties (<span class="xref std std-ref">Boundable</span>)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="user_guides/schemas/usdVol/Volume.html#inherited-properties-xformable">Inherited Properties (<span class="xref std std-ref">Xformable</span>)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="user_guides/schemas/usdVol/Volume.html#inherited-properties-imageable">Inherited Properties (<span class="xref std std-ref">Imageable</span>)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="user_guides/schemas/usdVol/VolumeFieldAsset.html">VolumeFieldAsset</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="user_guides/schemas/usdVol/VolumeFieldAsset.html#properties">Properties</a></li>
+<li class="toctree-l4"><a class="reference internal" href="user_guides/schemas/usdVol/VolumeFieldAsset.html#inherited-properties-xformable">Inherited Properties (<span class="xref std std-ref">Xformable</span>)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="user_guides/schemas/usdVol/VolumeFieldAsset.html#inherited-properties-imageable">Inherited Properties (<span class="xref std std-ref">Imageable</span>)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="user_guides/schemas/usdVol/VolumeFieldBase.html">VolumeFieldBase</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="user_guides/schemas/usdVol/VolumeFieldBase.html#properties">Properties</a></li>
+<li class="toctree-l4"><a class="reference internal" href="user_guides/schemas/usdVol/VolumeFieldBase.html#inherited-properties-xformable">Inherited Properties (<span class="xref std std-ref">Xformable</span>)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="user_guides/schemas/usdVol/VolumeFieldBase.html#inherited-properties-imageable">Inherited Properties (<span class="xref std std-ref">Imageable</span>)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="user_guides/variable_expressions.html">Variable Expressions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="user_guides/variable_expressions.html#defining-expression-variables-in-a-layer">Defining Expression Variables in a Layer</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="user_guides/variable_expressions.html#string"><span class="mono">string</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="user_guides/variable_expressions.html#bool"><span class="mono">bool</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="user_guides/variable_expressions.html#int64"><span class="mono">int64</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="user_guides/variable_expressions.html#type"><span class="mono">&lt;type&gt;[]</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="user_guides/variable_expressions.html#none"><span class="mono">None</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="user_guides/variable_expressions.html#expression-variables-and-composition">Expression Variables and Composition</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="user_guides/variable_expressions.html#authoring-variable-expressions">Authoring Variable Expressions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_guides/variable_expressions.html#expression-function-reference">Expression Function Reference</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="user_guides/variable_expressions.html#defined-variable-name"><span class="mono">defined(&lt;variable name&gt;, …)</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="user_guides/variable_expressions.html#if-condition-true-value-false-value"><span class="mono">if(&lt;condition&gt;, &lt;true-value&gt;, &lt;false-value&gt;)</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="user_guides/variable_expressions.html#if-condition-true-value"><span class="mono">if(&lt;condition&gt;, &lt;true-value&gt;)</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="user_guides/variable_expressions.html#and-x-y"><span class="mono">and(&lt;x&gt;, &lt;y&gt;, …)</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="user_guides/variable_expressions.html#or-x-y"><span class="mono">or(&lt;x&gt;, &lt;y&gt;, …)</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="user_guides/variable_expressions.html#not-x"><span class="mono">not(&lt;x&gt;)</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="user_guides/variable_expressions.html#eq-x-y"><span class="mono">eq(&lt;x&gt;, &lt;y&gt;)</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="user_guides/variable_expressions.html#neq-x-y"><span class="mono">neq(&lt;x&gt;, &lt;y&gt;)</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="user_guides/variable_expressions.html#lt-x-y"><span class="mono">lt(&lt;x&gt;, &lt;y&gt;)</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="user_guides/variable_expressions.html#leq-x-y"><span class="mono">leq(&lt;x&gt;, &lt;y&gt;)</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="user_guides/variable_expressions.html#gt-x-y"><span class="mono">gt(&lt;x&gt;, &lt;y&gt;)</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="user_guides/variable_expressions.html#geq-x-y"><span class="mono">geq(&lt;x&gt;, &lt;y&gt;)</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="user_guides/variable_expressions.html#contains-list-or-string-value"><span class="mono">contains(&lt;list_or_string&gt;, &lt;value&gt;)</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="user_guides/variable_expressions.html#at-list-or-string-index"><span class="mono">at(&lt;list_or_string&gt;, &lt;index&gt;)</span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="user_guides/variable_expressions.html#len-list-or-string"><span class="mono">len(&lt;list_or_string&gt;)</span></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="user_guides/variable_expressions.html#examples">Examples</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="user_guides/variable_expressions.html#flexible-variant-selections">Flexible Variant Selections</a></li>
+<li class="toctree-l3"><a class="reference internal" href="user_guides/variable_expressions.html#asset-valued-texture-file-attribute">Asset-valued Texture File Attribute</a></li>
+<li class="toctree-l3"><a class="reference internal" href="user_guides/variable_expressions.html#conditionally-include-sublayers">Conditionally Include Sublayers</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="apiDocs.html">API Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="toolset.html">Toolset</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="toolset.html#usdedit">usdedit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toolset.html#usdcat">usdcat</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toolset.html#usddiff">usddiff</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toolset.html#usdview">usdview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toolset.html#usdrecord">usdrecord</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toolset.html#usdresolve">usdresolve</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toolset.html#usdtree">usdtree</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toolset.html#usdzip">usdzip</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toolset.html#usdchecker">usdchecker</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toolset.html#usdfixbrokenpixarschemas">usdfixbrokenpixarschemas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toolset.html#usdstitch">usdstitch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toolset.html#usdstitchclips">usdstitchclips</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toolset.html#usddumpcrate">usddumpcrate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toolset.html#sdfdump">sdfdump</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toolset.html#sdffilter">sdffilter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toolset.html#usdmeasureperformance">usdmeasureperformance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toolset.html#usdgenschema">usdGenSchema</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toolset.html#usdgenschemafromsdr">usdgenschemafromsdr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toolset.html#usdinitschema">usdInitSchema</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="spec.html">Specifications</a><ul>
+<li class="toctree-l2"><a class="reference external" href="https://aousd.org/blog/foundations-of-open-3d-development-introducing-aousd-core-specification-1-0/">USD Core Specification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spec_usdpreviewsurface.html">UsdPreviewSurface Specification</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="spec_usdpreviewsurface.html#goal">Goal</a></li>
+<li class="toctree-l3"><a class="reference internal" href="spec_usdpreviewsurface.html#core-nodes">Core Nodes</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="spec_usdpreviewsurface.html#preview-surface">Preview Surface</a></li>
+<li class="toctree-l4"><a class="reference internal" href="spec_usdpreviewsurface.html#texture-reader">Texture Reader</a></li>
+<li class="toctree-l4"><a class="reference internal" href="spec_usdpreviewsurface.html#primvar-reader">Primvar Reader</a></li>
+<li class="toctree-l4"><a class="reference internal" href="spec_usdpreviewsurface.html#transform2d">Transform2d</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="spec_usdpreviewsurface.html#usd-sample">USD Sample</a></li>
+<li class="toctree-l3"><a class="reference internal" href="spec_usdpreviewsurface.html#other-notes">Other Notes</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="spec_usdpreviewsurface.html#texture-coordinate-orientation-in-usd">Texture Coordinate Orientation in USD</a></li>
+<li class="toctree-l4"><a class="reference internal" href="spec_usdpreviewsurface.html#roughness-vs-glossiness">Roughness vs Glossiness</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="spec_usdpreviewsurface.html#changes-by-version">Changes, by Version</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="spec_usdpreviewsurface.html#version-2-0-initial-public-specification">Version 2.0 - Initial Public Specification</a></li>
+<li class="toctree-l4"><a class="reference internal" href="spec_usdpreviewsurface.html#version-2-2-before-type-changes">Version 2.2 - Before Type Changes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="spec_usdpreviewsurface.html#version-2-3">Version 2.3</a></li>
+<li class="toctree-l4"><a class="reference internal" href="spec_usdpreviewsurface.html#version-2-4">Version 2.4</a></li>
+<li class="toctree-l4"><a class="reference internal" href="spec_usdpreviewsurface.html#version-2-5">Version 2.5</a></li>
+<li class="toctree-l4"><a class="reference internal" href="spec_usdpreviewsurface.html#version-2-6-current-head">Version 2.6 - Current Head</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="spec_usdz.html">Usdz File Format Specification</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="spec_usdz.html#purpose">Purpose</a></li>
+<li class="toctree-l3"><a class="reference internal" href="spec_usdz.html#usdz-specification">Usdz Specification</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="spec_usdz.html#foundation">Foundation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="spec_usdz.html#zip-constraints">Zip Constraints</a></li>
+<li class="toctree-l4"><a class="reference internal" href="spec_usdz.html#layout">Layout</a></li>
+<li class="toctree-l4"><a class="reference internal" href="spec_usdz.html#file-types">File Types</a></li>
+<li class="toctree-l4"><a class="reference internal" href="spec_usdz.html#usd-constraints">USD Constraints</a></li>
+<li class="toctree-l4"><a class="reference internal" href="spec_usdz.html#editability">Editability</a></li>
+<li class="toctree-l4"><a class="reference internal" href="spec_usdz.html#accessibility">Accessibility</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="spec_usdz.html#packaging-considerations-for-streaming-and-encapsulation">Packaging Considerations for Streaming and Encapsulation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="spec_usdz.html#file-ordering-within-package-for-streaming">File Ordering Within Package for Streaming</a></li>
+<li class="toctree-l4"><a class="reference internal" href="spec_usdz.html#usdz-reproducibleresults">For Reproducible Results, Encapsulate Using Anchored Asset Paths</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="spec_usdz.html#mime-type">MIME Type</a></li>
+<li class="toctree-l3"><a class="reference internal" href="spec_usdz.html#toolset">Toolset</a></li>
+<li class="toctree-l3"><a class="reference internal" href="spec_usdz.html#changes-by-version">Changes, by Version</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="spec_usdz.html#version-1-3-current-head">Version 1.3 - Current Head</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="wp.html">Proposals</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="wp_usdlux_for_geometry_lights.html">Adapting UsdLux to Accommodate Geometry Lights</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="wp_usdlux_for_geometry_lights.html#introduction-and-background">Introduction and Background</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="wp_usdlux_for_geometry_lights.html#mesh-light-support-in-the-industry">Mesh Light Support in the Industry</a></li>
+<li class="toctree-l4"><a class="reference internal" href="wp_usdlux_for_geometry_lights.html#goals">Goals</a></li>
+<li class="toctree-l4"><a class="reference internal" href="wp_usdlux_for_geometry_lights.html#workflow-considerations">Workflow Considerations</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="wp_usdlux_for_geometry_lights.html#design-space-and-issues">Design Space and Issues</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="wp_usdlux_for_geometry_lights.html#dual-prim-geometry-light-problems">Dual-Prim Geometry Light Problems</a></li>
+<li class="toctree-l4"><a class="reference internal" href="wp_usdlux_for_geometry_lights.html#single-prim-geometry-light">Single-Prim Geometry Light</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="wp_usdlux_for_geometry_lights.html#usdlux-lightapi-om">UsdLux LightAPI OM</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="wp_usdlux_for_geometry_lights.html#light-lightapi">Light -&gt; LightAPI</a></li>
+<li class="toctree-l4"><a class="reference internal" href="wp_usdlux_for_geometry_lights.html#introduce-convenience-base-classes">Introduce Convenience Base Classes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="wp_usdlux_for_geometry_lights.html#preserve-existing-usdlux-concrete-schemas">Preserve Existing UsdLux Concrete Schemas</a></li>
+<li class="toctree-l4"><a class="reference internal" href="wp_usdlux_for_geometry_lights.html#deprecate-geometrylight">Deprecate GeometryLight</a></li>
+<li class="toctree-l4"><a class="reference internal" href="wp_usdlux_for_geometry_lights.html#how-do-we-identify-the-appropriate-sdrshadernode-for-a-light">How do we Identify the Appropriate SdrShaderNode for a Light?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="wp_usdlux_for_geometry_lights.html#lights-with-materials">Lights with Materials?</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="wp_usdlux_for_geometry_lights.html#proposal-and-behaviors">Proposal and Behaviors</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="wp_usdlux_for_geometry_lights.html#shading-and-emission">Shading and Emission</a></li>
+<li class="toctree-l4"><a class="reference internal" href="wp_usdlux_for_geometry_lights.html#volumes">Volumes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="wp_usdlux_for_geometry_lights.html#primvars-in-light-networks">Primvars in Light Networks</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="wp_usdlux_for_renderers.html">Adapting UsdLux to the Needs of Renderers</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="wp_usdlux_for_renderers.html#background-and-goals">Background and Goals</a></li>
+<li class="toctree-l3"><a class="reference internal" href="wp_usdlux_for_renderers.html#foundational-technologies-in-usd">Foundational Technologies in USD</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="wp_usdlux_for_renderers.html#sdr">Sdr</a></li>
+<li class="toctree-l4"><a class="reference internal" href="wp_usdlux_for_renderers.html#usd-schemas">USD Schemas</a></li>
+<li class="toctree-l4"><a class="reference internal" href="wp_usdlux_for_renderers.html#usdimaging-and-hydra">UsdImaging and Hydra</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="wp_usdlux_for_renderers.html#proposals">Proposals</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="wp_usdlux_for_renderers.html#changes-to-usdlux">Changes to UsdLux</a></li>
+<li class="toctree-l4"><a class="reference internal" href="wp_usdlux_for_renderers.html#changes-to-usdimaging">Changes to UsdImaging</a></li>
+<li class="toctree-l4"><a class="reference internal" href="wp_usdlux_for_renderers.html#changes-to-hd">Changes to Hd</a></li>
+<li class="toctree-l4"><a class="reference internal" href="wp_usdlux_for_renderers.html#changes-to-hdprman-and-other-render-delegates">Changes to HdPrman and Other Render Delegates</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="wp_asset_previews.html">Asset Previews in USD</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="wp_asset_previews.html#introduction">Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="wp_asset_previews.html#proposal">Proposal</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="wp_asset_previews.html#object-model">Object Model</a></li>
+<li class="toctree-l4"><a class="reference internal" href="wp_asset_previews.html#concrete-encoding">Concrete Encoding</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="wp_asset_previews.html#schema">Schema</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="wp_ar2.html">Asset Resolution (Ar) 2.0</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="wp_ar2.html#background-and-goals">Background and Goals</a></li>
+<li class="toctree-l3"><a class="reference internal" href="wp_ar2.html#tasks">Tasks</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="wp_ar2.html#general-cleanup">General Cleanup</a></li>
+<li class="toctree-l4"><a class="reference internal" href="wp_ar2.html#add-documentation-and-examples">Add Documentation and Examples</a></li>
+<li class="toctree-l4"><a class="reference internal" href="wp_ar2.html#add-identifier-concept">Add Identifier Concept</a></li>
+<li class="toctree-l4"><a class="reference internal" href="wp_ar2.html#remove-repository-and-search-path">Remove Repository and Search Path</a></li>
+<li class="toctree-l4"><a class="reference internal" href="wp_ar2.html#improve-resolve-and-asset-info">Improve Resolve and Asset Info</a></li>
+<li class="toctree-l4"><a class="reference internal" href="wp_ar2.html#remove-filesystem-specific-code">Remove Filesystem-specific Code</a></li>
+<li class="toctree-l4"><a class="reference internal" href="wp_ar2.html#add-asset-writing-interface">Add Asset Writing Interface</a></li>
+<li class="toctree-l4"><a class="reference internal" href="wp_ar2.html#add-uri-resolvers">Add URI Resolvers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="wp_ar2.html#allow-creation-of-arresolvercontext-from-strings">Allow Creation of ArResolverContext From Strings</a></li>
+<li class="toctree-l4"><a class="reference internal" href="wp_ar2.html#remove-arresolver-configureresolverforasset">Remove ArResolver::ConfigureResolverForAsset</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="wp_ar2.html#rollout-and-transition">Rollout and Transition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="wp_ar2.html#proposed-api">Proposed API</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="wp_coordsys.html">Coordinate Systems in USD Proposal</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="wp_coordsys.html#purpose">Purpose</a></li>
+<li class="toctree-l3"><a class="reference internal" href="wp_coordsys.html#requirements">Requirements</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="wp_coordsys.html#coordinate-systems-are-identified-by-name-in-shaders">Coordinate Systems are Identified by Name in Shaders</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="wp_coordsys.html#proposed-api-schema">Proposed API Schema</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="wp_coordsys.html#recording-a-frame-of-reference">Recording a Frame of Reference</a></li>
+<li class="toctree-l4"><a class="reference internal" href="wp_coordsys.html#binding-frames-of-reference">Binding Frames of Reference</a></li>
+<li class="toctree-l4"><a class="reference internal" href="wp_coordsys.html#coordsysapi">CoordSysAPI</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="wp_coordsys.html#usd-sample-and-analysis">USD Sample and Analysis</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="wp_coordsys.html#analysis-coordinate-systems-evaluated">Analysis: Coordinate Systems Evaluated</a></li>
+<li class="toctree-l4"><a class="reference internal" href="wp_coordsys.html#analysis-coordinate-system-binding-and-consumption">Analysis: Coordinate System Binding and Consumption</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="wp_coordsys.html#projections-cameras-and-coordsysapi">Projections, Cameras, and CoordSysAPI</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="wp_connectable_nodes.html">Generalizing Connectable Nodes Beyond UsdShade</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="wp_connectable_nodes.html#background-and-goals">Background and Goals</a></li>
+<li class="toctree-l3"><a class="reference internal" href="wp_connectable_nodes.html#proposal">Proposal</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="wp_connectable_nodes.html#node-definition-as-api-schema">Node Definition as API Schema</a></li>
+<li class="toctree-l4"><a class="reference internal" href="wp_connectable_nodes.html#plugin-defined-connectableapi-behavior">Plugin-defined ConnectableAPI Behavior</a></li>
+<li class="toctree-l4"><a class="reference internal" href="wp_connectable_nodes.html#connectability-rules-for-usdshade-types">Connectability Rules for UsdShade Types</a></li>
+<li class="toctree-l4"><a class="reference internal" href="wp_connectable_nodes.html#intended-use-in-usdlux-and-usdri-renderman-usd-schema">Intended use in UsdLux and UsdRi (RenderMan USD schema)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="wp_connectable_nodes.html#discussion">Discussion</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="wp_connectable_nodes.html#sdr-ndr">Sdr &amp; Ndr</a></li>
+<li class="toctree-l4"><a class="reference internal" href="wp_connectable_nodes.html#flexibility-of-connectability-callbacks">Flexibility of Connectability Callbacks</a></li>
+<li class="toctree-l4"><a class="reference internal" href="wp_connectable_nodes.html#non-shading-networks">Non-shading Networks</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="wp_render_settings.html">Render Settings in USD Proposal</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="wp_render_settings.html#purpose-and-scope">Purpose and Scope</a></li>
+<li class="toctree-l3"><a class="reference internal" href="wp_render_settings.html#overall-design-and-concerns">Overall Design and Concerns</a></li>
+<li class="toctree-l3"><a class="reference internal" href="wp_render_settings.html#concrete-schemas">Concrete Schemas</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="wp_render_settings.html#renderer-specific-schemas">Renderer-Specific Schemas</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="wp_render_settings.html#prim-and-scene-organization">Prim and Scene Organization</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="wp_render_settings.html#discovering-render-settings">Discovering Render Settings</a></li>
+<li class="toctree-l4"><a class="reference internal" href="wp_render_settings.html#selecting-and-combining-render-settings">Selecting and Combining Render Settings</a></li>
+<li class="toctree-l4"><a class="reference internal" href="wp_render_settings.html#grouping-rendervars-and-renderproducts">Grouping RenderVars and RenderProducts</a></li>
+<li class="toctree-l4"><a class="reference internal" href="wp_render_settings.html#discovering-all-potential-shader-based-rendervars">Discovering All Potential Shader-based RenderVars</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="wp_render_settings.html#workflow-considerations">Workflow Considerations</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="wp_render_settings.html#interactive-vs-batch-rendering">Interactive vs. Batch Rendering</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="wp_render_settings.html#examples">Examples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="wp_render_settings.html#discussion-and-questions">Discussion and Questions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="wp_render_settings.html#id-variables">ID variables</a></li>
+<li class="toctree-l4"><a class="reference internal" href="wp_render_settings.html#stereo-rendering">Stereo Rendering</a></li>
+<li class="toctree-l4"><a class="reference internal" href="wp_render_settings.html#camera-exposure-curves">Camera Exposure Curves</a></li>
+<li class="toctree-l4"><a class="reference internal" href="wp_render_settings.html#denoising-color-correction-and-tasks">Denoising, Color Correction, and Tasks</a></li>
+<li class="toctree-l4"><a class="reference internal" href="wp_render_settings.html#why-locality-of-overrides-is-valuable">Why Locality of Overrides is Valuable</a></li>
+<li class="toctree-l4"><a class="reference internal" href="wp_render_settings.html#image-mapping-related-options-on-camera-or-rendersettings">Image-Mapping-Related Options on Camera or RenderSettings?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="wp_render_settings.html#crop-windows-and-region-of-interest">Crop Windows and Region-of-Interest</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="wp_rigid_body_physics.html">Rigid Body Physics in USD Proposal</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="wp_rigid_body_physics.html#purpose-and-scope">Purpose and Scope</a></li>
+<li class="toctree-l3"><a class="reference internal" href="wp_rigid_body_physics.html#overall-design-concerns">Overall Design Concerns</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="wp_rigid_body_physics.html#rigid-body-simulation-primer">Rigid Body Simulation Primer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="wp_rigid_body_physics.html#usd-implementation">USD Implementation</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="wp_rigid_body_physics.html#concrete-schemas">Concrete Schemas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="wp_rigid_body_physics.html#examples">Examples</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="wp_rigid_body_physics.html#box-on-box">Box on Box</a></li>
+<li class="toctree-l4"><a class="reference internal" href="wp_rigid_body_physics.html#box-on-quad">Box on Quad</a></li>
+<li class="toctree-l4"><a class="reference internal" href="wp_rigid_body_physics.html#spheres-with-materials">Spheres with Materials</a></li>
+<li class="toctree-l4"><a class="reference internal" href="wp_rigid_body_physics.html#group-filtering">Group Filtering</a></li>
+<li class="toctree-l4"><a class="reference internal" href="wp_rigid_body_physics.html#pair-filtering">Pair Filtering</a></li>
+<li class="toctree-l4"><a class="reference internal" href="wp_rigid_body_physics.html#joint">Joint</a></li>
+<li class="toctree-l4"><a class="reference internal" href="wp_rigid_body_physics.html#distance-joint">Distance Joint</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="wp_schema_versioning.html">Schema Versioning in USD</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="wp_schema_versioning.html#introduction">Introduction</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="wp_schema_versioning.html#challenges-to-schema-versioning-in-usd">Challenges to Schema Versioning in USD</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="wp_schema_versioning.html#proposal-for-per-schema-versioning">Proposal for Per-Schema Versioning</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="wp_schema_versioning.html#version-representation-in-schemas">Version Representation in Schemas</a></li>
+<li class="toctree-l4"><a class="reference internal" href="wp_schema_versioning.html#schema-registry">Schema Registry</a></li>
+<li class="toctree-l4"><a class="reference internal" href="wp_schema_versioning.html#usdprim-schema-related-api">UsdPrim Schema-related API</a></li>
+<li class="toctree-l4"><a class="reference internal" href="wp_schema_versioning.html#considerations-for-auto-apply-api-schemas">Considerations for Auto-apply API Schemas</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="wp_schema_versioning.html#risks-questions-limitations">Risks, Questions, Limitations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="wp_schema_versioning.html#guidelines-for-schema-versioning">Guidelines for Schema Versioning</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="wp_schema_versioning.html#criteria-for-versioning">Criteria for Versioning</a></li>
+<li class="toctree-l4"><a class="reference internal" href="wp_schema_versioning.html#do-not-version-a-schema-when">Do not Version a Schema When…</a></li>
+<li class="toctree-l4"><a class="reference internal" href="wp_schema_versioning.html#do-version-a-schema-when">Do Version a Schema When…</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="wp_schema_versioning.html#pixar-examples-past-and-future">Pixar Examples, Past and Future</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="wp_schema_versioning.html#usdlux-connectability">UsdLux Connectability</a></li>
+<li class="toctree-l4"><a class="reference internal" href="wp_schema_versioning.html#light-lightapi">Light → LightAPI</a></li>
+<li class="toctree-l4"><a class="reference internal" href="wp_schema_versioning.html#visibility-to-visibilityapi">Visibility to VisibilityAPI</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="wp_schema_versioning.html#schemaversioning-codegen-support">Possible Code Generation Changes to Support Versioning</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="wp_schema_versioning.html#base-schema-class-is-always-the-latest-version-of-the-family">Base Schema Class is Always the Latest Version of the Family</a></li>
+<li class="toctree-l4"><a class="reference internal" href="wp_schema_versioning.html#class-per-version-with-typedef-mapping-to-current-or-latest-version-class">Class Per Version with Typedef Mapping to “Current” or “Latest” Version-Class</a></li>
+<li class="toctree-l4"><a class="reference internal" href="wp_schema_versioning.html#single-c-class-that-provides-api-for-all-versions-of-the-schema-family">Single C++ Class That Provides API for ALL Versions of the Schema Family</a></li>
+<li class="toctree-l4"><a class="reference internal" href="wp_schema_versioning.html#compatible-cluster-classes-with-disambiguating-method-names">“Compatible Cluster” Classes with Disambiguating Method Names</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="wp_stage_variables.html">Stage Variable Expressions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="wp_usdaudio.html">UsdAudio Proposal</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="wp_usdaudio.html#goal">Goal</a></li>
+<li class="toctree-l3"><a class="reference internal" href="wp_usdaudio.html#initial-requirements">Initial Requirements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="wp_usdaudio.html#proposed-prim-schema">Proposed Prim Schema</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="wp_usdaudio.html#spatialaudio">SpatialAudio</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="wp_usdaudio.html#usd-sample">USD Sample</a></li>
+<li class="toctree-l3"><a class="reference internal" href="wp_usdaudio.html#other-notes-questions">Other Notes/Questions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="wp_usdaudio.html#sdftimecode-and-time-scaling">SdfTimeCode and Time Scaling</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="wp_usdshade.html">UsdShade Material Assignment</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="wp_usdshade.html#background">Background</a></li>
+<li class="toctree-l3"><a class="reference internal" href="wp_usdshade.html#basic-proposal-for-collection-based-assignment">Basic Proposal for Collection-Based Assignment</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="wp_usdshade.html#example-collection-based-assignment">Example Collection-Based Assignment</a></li>
+<li class="toctree-l4"><a class="reference internal" href="wp_usdshade.html#refinement-1-specifying-binding-strength">Refinement 1: Specifying Binding Strength</a></li>
+<li class="toctree-l4"><a class="reference internal" href="wp_usdshade.html#refinement-2-material-purpose">Refinement 2: Material Purpose</a></li>
+<li class="toctree-l4"><a class="reference internal" href="wp_usdshade.html#material-resolve-determining-the-bound-material-for-any-geometry-prim">Material Resolve: Determining the Bound Material for any Geometry Prim</a></li>
+<li class="toctree-l4"><a class="reference internal" href="wp_usdshade.html#usdshade-api">UsdShade API</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="wp_usdshade.html#analysis-of-collection-based-binding">Analysis of Collection-Based Binding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="wp_usdshade.html#integration">Integration</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="wp_usdshade.html#katana-import">Katana Import</a></li>
+<li class="toctree-l4"><a class="reference internal" href="wp_usdshade.html#maya-i-o">Maya I/O</a></li>
+<li class="toctree-l4"><a class="reference internal" href="wp_usdshade.html#houdini">Houdini</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="wp_usdshade.html#remaining-questions">Remaining Questions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="wp_usdshade.html#performance">Performance</a></li>
+<li class="toctree-l4"><a class="reference internal" href="wp_usdshade.html#implication-on-renderer-instancing">Implication on Renderer Instancing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="wp_usdshade.html#material-layering">Material Layering</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">FAQ</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#general-questions">General Questions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#what-is-usd-and-why-should-i-use-it">What is USD and why should I use it?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#what-programming-languages-are-supported">What programming languages are supported?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#isn-t-usd-just-another-file-format">Isn’t USD just another file format?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#so-what-file-formats-does-usd-support">So what file formats does USD support?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#what-file-format-is-my-usd-file">What file format is my <span class="mono">.usd</span> file?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#what-character-encoding-does-usda-support">What character encoding does <span class="mono">.usda</span> support?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#how-can-i-convert-usd-files-between-binary-and-text">How can I convert USD files between binary and text?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#what-data-types-are-supported">What data types are supported?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#what-does-a-usd-file-look-like">What does a USD file look like?</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#subtler-aspects-of-scene-description-and-composition">Subtler Aspects of Scene Description and Composition</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#i-have-some-layers-i-want-to-combine-should-i-use-sublayers-or-references">I have some layers I want to combine: Should I use SubLayers or References?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#what-happens-to-overs-when-their-underlying-prim-is-moved-to-a-different-location-in-the-scenegraph">What happens to “overs” when their underlying prim is moved to a different location in the scenegraph?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#when-can-you-delete-a-reference-or-other-deletable-thing">When can you delete a reference (or other deletable thing)?</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#list-edited-string-token-and-int-metadata">List-edited string, token, and int metadata</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#list-edited-relationships-and-connections">List-edited relationships and connections</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#list-edited-composition-arcs">List-edited composition arcs</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#what-s-the-difference-between-an-over-and-a-typeless-def">What’s the difference between an “over” and a “typeless def” ?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#why-can-t-i-instance-a-leaf-mesh-prim-directly">Why Can’t I Instance a Leaf Mesh Prim Directly?</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#build-and-runtime-issues">Build and Runtime Issues</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#how-do-i-use-the-tf-debug-mechanism">How do I use the <code class="docutils literal notranslate"><span class="pre">TF_DEBUG</span></code> mechanism?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#why-isn-t-python-finding-usd-modules">Why Isn’t Python Finding USD Modules?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#why-isn-t-this-plugin-being-built">Why Isn’t This Plugin Being Built?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#why-doesn-t-the-openusd-runtime-recognize-the-usd-file-format">Why doesn’t the OpenUSD runtime recognize the USD file format?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#why-isn-t-my-app-finding-usd-dlls-and-plugins-on-windows">Why Isn’t My App Finding USD DLLs and Plugins on Windows?</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="maxperf.html">Performance Considerations</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="maxperf.html#use-an-allocator-optimized-for-multithreading">Use an allocator optimized for multithreading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="maxperf.html#use-binary-usd-files-for-geometry-and-shading-caches">Use binary “.usd” files for geometry and shading caches</a></li>
+<li class="toctree-l2"><a class="reference internal" href="maxperf.html#package-assets-with-payloads">Package assets with payloads</a></li>
+<li class="toctree-l2"><a class="reference internal" href="maxperf.html#what-makes-a-usd-scene-heavy-expensive">What makes a USD scene heavy/expensive?</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ref_performance_metrics.html">Performance Metrics</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ref_performance_metrics.html#what-we-measure">What We Measure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ref_performance_metrics.html#what-environment-is-used">What Environment Is Used</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ref_performance_metrics.html#linux">Linux</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ref_performance_metrics.html#macos">macOS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ref_performance_metrics.html#windows">Windows</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ref_performance_metrics.html#usd-build">USD Build</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ref_performance_metrics.html#metrics">Metrics</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ref_performance_metrics.html#performance-graphs-per-platform">Performance Graphs Per Platform</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ref_performance_metrics.html#standard-shader-ball">Standard Shader Ball</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ref_performance_metrics.html#kitchen-set">Kitchen Set</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ref_performance_metrics.html#alab">ALab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ref_performance_metrics.html#moore-lane">Moore Lane</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ref_performance_metrics.html#running-performance-metrics-locally">Running Performance Metrics Locally</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ref_performance_metrics.html#adding-custom-metrics">Adding Custom Metrics</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="plugins.html">Third Party Plugins</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="plugins_renderman.html">RenderMan USD Imaging Plugin</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="plugins_renderman.html#configuration">Configuration</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="plugins_renderman.html#building-hdprman">Building hdPrman</a></li>
+<li class="toctree-l4"><a class="reference internal" href="plugins_renderman.html#running-hdprman">Running hdPrman</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="plugins_renderman.html#developer">Developer</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="plugins_renderman.html#supported-render-pass-aovs">Supported Render Pass AOVs</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="plugins_alembic.html">Alembic USD Plugin</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="plugins_alembic.html#known-limitations">Known Limitations</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Collaborate</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/PixarAnimationStudios/OpenUSD">Source Code &#64; GitHub</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://forum.openusd.org">OpenUSD Forum</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing_to_usd.html">Contributing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="contributing_to_usd.html#contributor-license-agreement">Contributor License Agreement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contributing_to_usd.html#coding-conventions">Coding Conventions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contributing_to_usd.html#pull-request-guidelines">Pull Request Guidelines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contributing_to_usd.html#git-workflow">Git Workflow</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="contributing_to_usd.html#github-issues">GitHub Issues</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="contributing_to_usd.html#making-major-changes">Making Major Changes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="contributing_to_usd.html#step-1-get-consensus-for-major-changes">Step 1. Get consensus for major changes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="contributing_to_usd.html#step-2-make-code-changes">Step 2. Make code changes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="contributing_to_usd.html#step-3-test-code-changes">Step 3. Test code changes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="contributing_to_usd.html#step-4-submit-code-for-review">Step 4. Submit code for review</a></li>
+<li class="toctree-l3"><a class="reference internal" href="contributing_to_usd.html#step-5-pixar-will-test-and-land-your-changes">Step 5. Pixar will test and land your changes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="contributors.html">Contributors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="release_schedule.html">Release Schedule</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Press</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="press_opensource_release.html">Open Source Release</a></li>
+<li class="toctree-l1"><a class="reference internal" href="press_opensource_announce.html">Open Source Announcement</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #606060" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Universal Scene Description</a>
+      </nav>
+
+      <div class="wy-nav-content">
+  <style>
+    .version_warning {
+        margin-bottom: 10px;
+    }
+  </style>
+  <div class="version_warning_placeholder"></div>
+  
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">USD Frequently Asked Questions</li>
+  <li class="wy-breadcrumbs-aside">
+    <div class="version_switcher_placeholder"></div>
+  </li>
+
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="usd-frequently-asked-questions">
+<h1>USD Frequently Asked Questions<a class="headerlink" href="#usd-frequently-asked-questions" title="Link to this heading"></a></h1>
+<nav class="contents local" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#general-questions" id="id9">General Questions</a></p>
+<ul>
+<li><p><a class="reference internal" href="#what-is-usd-and-why-should-i-use-it" id="id10">What is USD and why should I use it?</a></p></li>
+<li><p><a class="reference internal" href="#what-programming-languages-are-supported" id="id11">What programming languages are supported?</a></p></li>
+<li><p><a class="reference internal" href="#isn-t-usd-just-another-file-format" id="id12">Isn’t USD just another file format?</a></p></li>
+<li><p><a class="reference internal" href="#so-what-file-formats-does-usd-support" id="id13">So what file formats does USD support?</a></p></li>
+<li><p><a class="reference internal" href="#what-file-format-is-my-usd-file" id="id14">What file format is my <span class="mono">.usd</span> file?</a></p></li>
+<li><p><a class="reference internal" href="#what-character-encoding-does-usda-support" id="id15">What character encoding does <span class="mono">.usda</span> support?</a></p></li>
+<li><p><a class="reference internal" href="#how-can-i-convert-usd-files-between-binary-and-text" id="id16">How can I convert USD files between binary and text?</a></p></li>
+<li><p><a class="reference internal" href="#what-data-types-are-supported" id="id17">What data types are supported?</a></p></li>
+<li><p><a class="reference internal" href="#what-does-a-usd-file-look-like" id="id18">What does a USD file look like?</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#subtler-aspects-of-scene-description-and-composition" id="id19">Subtler Aspects of Scene Description and Composition</a></p>
+<ul>
+<li><p><a class="reference internal" href="#i-have-some-layers-i-want-to-combine-should-i-use-sublayers-or-references" id="id20">I have some layers I want to combine: Should I use SubLayers or References?</a></p></li>
+<li><p><a class="reference internal" href="#what-happens-to-overs-when-their-underlying-prim-is-moved-to-a-different-location-in-the-scenegraph" id="id21">What happens to “overs” when their underlying prim is moved to a different location in the scenegraph?</a></p></li>
+<li><p><a class="reference internal" href="#when-can-you-delete-a-reference-or-other-deletable-thing" id="id22">When can you delete a reference (or other deletable thing)?</a></p></li>
+<li><p><a class="reference internal" href="#what-s-the-difference-between-an-over-and-a-typeless-def" id="id23">What’s the difference between an “over” and a “typeless def” ?</a></p></li>
+<li><p><a class="reference internal" href="#why-can-t-i-instance-a-leaf-mesh-prim-directly" id="id24">Why Can’t I Instance a Leaf Mesh Prim Directly?</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#build-and-runtime-issues" id="id25">Build and Runtime Issues</a></p>
+<ul>
+<li><p><a class="reference internal" href="#how-do-i-use-the-tf-debug-mechanism" id="id26">How do I use the <code class="docutils literal notranslate"><span class="pre">TF_DEBUG</span></code> mechanism?</a></p></li>
+<li><p><a class="reference internal" href="#why-isn-t-python-finding-usd-modules" id="id27">Why Isn’t Python Finding USD Modules?</a></p></li>
+<li><p><a class="reference internal" href="#why-isn-t-this-plugin-being-built" id="id28">Why Isn’t This Plugin Being Built?</a></p></li>
+<li><p><a class="reference internal" href="#why-doesn-t-the-openusd-runtime-recognize-the-usd-file-format" id="id29">Why doesn’t the OpenUSD runtime recognize the USD file format?</a></p></li>
+<li><p><a class="reference internal" href="#why-isn-t-my-app-finding-usd-dlls-and-plugins-on-windows" id="id30">Why Isn’t My App Finding USD DLLs and Plugins on Windows?</a></p></li>
+</ul>
+</li>
+</ul>
+</nav>
+<section id="general-questions">
+<h2><a class="toc-backref" href="#id9" role="doc-backlink">General Questions</a><a class="headerlink" href="#general-questions" title="Link to this heading"></a></h2>
+<section id="what-is-usd-and-why-should-i-use-it">
+<h3><a class="toc-backref" href="#id10" role="doc-backlink">What is USD and why should I use it?</a><a class="headerlink" href="#what-is-usd-and-why-should-i-use-it" title="Link to this heading"></a></h3>
+<p>USD stands for “Universal Scene Description.” It is a system for encoding
+scalable, hierarchically organized, static and time-sampled data, for the
+primary purpose of interchanging and augmenting the data between cooperating
+digital content creation applications. USD also provides a rich set of
+composition operators, including asset and file references and variants, that
+let consumers aggregate multiple assets into a single scenegraph while still
+allowing for sparse overrides.</p>
+<p>See the <a class="reference external" href="api/_usd__overview_and_purpose.html">Overview and Purpose</a>
+section of the USD documentation for a more detailed discussion of what USD is
+(and isn’t).</p>
+</section>
+<section id="what-programming-languages-are-supported">
+<h3><a class="toc-backref" href="#id11" role="doc-backlink">What programming languages are supported?</a><a class="headerlink" href="#what-programming-languages-are-supported" title="Link to this heading"></a></h3>
+<p>USD consists of a set of C++ libraries with Python bindings for scripting.</p>
+</section>
+<section id="isn-t-usd-just-another-file-format">
+<h3><a class="toc-backref" href="#id12" role="doc-backlink">Isn’t USD just another file format?</a><a class="headerlink" href="#isn-t-usd-just-another-file-format" title="Link to this heading"></a></h3>
+<p>No.  While USD does provide interchange services (more below), its
+primary function is to compose together scene description spread across many
+files (or other data sources) in many different formats (extensible via user
+plugins) to present a single hierarchical scenegraph view of the data.  This
+<a class="reference internal" href="glossary.html#usdglossary-stage"><span class="std std-ref">high-performance scenegraph</span></a> helps USD stand on
+its own as <strong>a platform for live, collaborative scene construction.</strong></p>
+<p>Well-known file formats for interchange in the VFX industry like <a class="reference external" href="https://www.loc.gov/preservation/digital/formats/fdd/fdd000507.shtml">OBJ</a>,
+<a class="reference external" href="https://en.wikipedia.org/wiki/FBX">FBX</a>, and <a class="reference external" href="https://www.alembic.io/">Alembic</a> primarily deal with interchanging flat/cached
+geometry, with no facility for assembling assets or editing the data
+directly.  USD <em>does</em> serve the role of an “interchange file format,” more
+comprehensively than previous public efforts, because it already interchanges
+not only geometry, but also shading/materials, lights, rendering,
+linear-blend skinning and blend-shape animation, rigid body physics, and is
+extensible along numerous axes.</p>
+<p><strong>But USD possesses key features that distinguish it from interchange file
+formats: its composition engine and high-performance scenegraph.</strong> USD’s
+native file formats encode <a class="reference internal" href="glossary.html#usdglossary-compositionarcs"><span class="std std-ref">Composition Arcs</span></a> that weave
+small (or large) scene components into assemblies, environments, and complete
+scenes, wherein each “elemental” asset can be efficiently shared between
+instances and scenes, and retain its integrity thanks to USD’s many
+non-destructive editing features.  USD’s many plugin points, including
+<a class="reference external" href="api/ar_page_front.html">customizable asset-resolution behavior</a>, the
+ability to add new data schemas and associated imaging behaviors, and the
+ability to teach USD how to read other file formats, provide great power in
+adapting USD into existing pipelines and infrastructure.</p>
+<p>Pixar continues to focus on the scalability and performance of USD’s
+<a class="reference internal" href="glossary.html#usdglossary-stage"><span class="std std-ref">live scenegraph</span></a>, which presents the “composed view”
+of all the references, layerings, variations, and other <em>arcs</em> encoded in the
+scene’s assets.  But in addition to providing efficient, on-demand access to
+all data contained in the scene, the scenegraph is also <em>interactive</em>,
+allowing both destructive and non-destructive scene editing, <strong>with features
+designed to foster multi-user collaboration.</strong> These features, in combination
+with the modern <a class="reference internal" href="glossary.html#hydra"><span class="std std-ref">Hydra</span></a> rendering architecture that sits on top
+of USD’s scenegraph and is included in the USD distribution, have attracted a
+growing number of software vendors to use USD in its “live” capacity as an
+integral part of the user-experience, rather than simply as an interchange.</p>
+</section>
+<section id="so-what-file-formats-does-usd-support">
+<h3><a class="toc-backref" href="#id13" role="doc-backlink">So what file formats does USD support?</a><a class="headerlink" href="#so-what-file-formats-does-usd-support" title="Link to this heading"></a></h3>
+<p>Out of the box, USD the following three file formats:</p>
+<blockquote>
+<div><table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Extension</p></th>
+<th class="head"><p>Content</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="mono">.usda</span></p></td>
+<td><p>Human-readable UTF-8 text</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="mono">.usdc</span></p></td>
+<td><p>Random-access “Crate” binary</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="mono">.usd</span></p></td>
+<td><p>Either of the above</p></td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<p>It also includes plugins that provide support for
+reading and writing <a class="reference internal" href="plugins_alembic.html"><span class="doc">Alembic</span></a> files, and for reading
+<a class="reference external" href="http://www.materialx.org/">MaterialX files</a>.  Developers can extend
+USD to read and write from other file formats by writing a plugin that will
+translate the data in that format to the USD scenegraph.</p>
+</section>
+<section id="what-file-format-is-my-usd-file">
+<h3><a class="toc-backref" href="#id14" role="doc-backlink">What file format is my <span class="mono">.usd</span> file?</a><a class="headerlink" href="#what-file-format-is-my-usd-file" title="Link to this heading"></a></h3>
+<p>As shown in the table above, USD files created with the plain
+<span class="mono">.usd</span> extension, can be either binary-backed
+<a class="reference internal" href="glossary.html#crate-file-format"><span class="std std-ref">Crate</span></a> files, or text files.
+This can be advantageous in certain scenarios; for example, if one has USD
+files which contain references to plain <span class="mono">.usd</span> assets, those assets
+can be converted between binary and text without changing the sources which
+refer to them.</p>
+<p>When authoring USD, the underlying format or encoding of the <span class="mono">.usd</span>
+extension can be specified using <a class="reference external" href="./api/class_sdf_layer.html#a1dfd2030337b6243cd6424fce7397590">FileFormatArguments</a> as observed
+in <a class="reference external" href="./api/class_sdf_layer.html#aad57cd44403a4f95a2bb6c730fa1b0f5">SdfLayer::CreateNew</a> or <a class="reference external" href="./api/class_sdf_layer.html#aef819927fc1ad0d6fc5ad5fefb58dcdf">SdfLayer::Export</a>.</p>
+<p>Developers can also use the <span class="target" id="index-0"></span><code class="xref std std-envvar docutils literal notranslate"><span class="pre">USD_DEFAULT_FILE_FORMAT</span></code> environment
+variable to control the default underlying format. The environment variable is
+used when the underlying format is not explicitly specified through
+<a class="reference external" href="./api/class_sdf_layer.html#a1dfd2030337b6243cd6424fce7397590">FileFormatArguments</a>. Valid values for the
+<span class="target" id="index-1"></span><code class="xref std std-envvar docutils literal notranslate"><span class="pre">USD_DEFAULT_FILE_FORMAT</span></code> environment variable and their behaviors are
+detailed below:</p>
+<blockquote>
+<div><table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>USD_DEFAULT_FILE_FORMAT Value</p></th>
+<th class="head"><p><span class="mono">.usd</span> Encoding Used</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>&lt;unset&gt;</p></td>
+<td><p>Random-access “Crate” binary</p></td>
+</tr>
+<tr class="row-odd"><td><p>usdc</p></td>
+<td><p>Random-access “Crate” binary</p></td>
+</tr>
+<tr class="row-even"><td><p>usda</p></td>
+<td><p>Human-readable UTF-8 text</p></td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+</section>
+<section id="what-character-encoding-does-usda-support">
+<h3><a class="toc-backref" href="#id15" role="doc-backlink">What character encoding does <span class="mono">.usda</span> support?</a><a class="headerlink" href="#what-character-encoding-does-usda-support" title="Link to this heading"></a></h3>
+<p>The <span class="mono">.usda</span> file format encodes text as UTF-8.</p>
+<p>As of the 24.03 release, USD extends UTF-8 support to path and metadata
+identifiers.</p>
+<p>USD does not enforce or apply Unicode normalization. As an example, the
+second letter in München can be represented in UTF-8 by a single code point
+(the code point for ü) or two code points (u with an umlaut modifier) – to USD,
+these two representations of München are distinct. While USD does not enforce a
+normalization form, Unicode “Normalization Form C” (NFC) is preferred when
+creating new tokens and paths.</p>
+<p>See <a class="reference external" href="api/_usd__page__u_t_f_8.html">Unicode in USD</a> for more details on best practices when working
+with UTF-8 encoded content in <cite>.usda</cite> files.</p>
+</section>
+<section id="how-can-i-convert-usd-files-between-binary-and-text">
+<h3><a class="toc-backref" href="#id16" role="doc-backlink">How can I convert USD files between binary and text?</a><a class="headerlink" href="#how-can-i-convert-usd-files-between-binary-and-text" title="Link to this heading"></a></h3>
+<p><a class="reference internal" href="toolset.html#usdcat"><span class="std std-ref">usdcat</span></a> can be used to convert files between file
+formats. With plain, <span class="mono">.usd</span> files, you can change them using the
+<code class="xref std std-option docutils literal notranslate"><span class="pre">--usdFormat</span></code> option.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Although you can specify <code class="xref std std-option docutils literal notranslate"><span class="pre">--usdFormat</span> <span class="pre">usdc</span></code>, it is not necessary, since
+the <code class="xref std std-option docutils literal notranslate"><span class="pre">--out</span> <span class="pre">file.usd</span></code> argument will, by default choose the usdc format.</p>
+</div>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>usdcat<span class="w"> </span>file.usd<span class="w"> </span>--out<span class="w"> </span>file.usd<span class="w"> </span>--usdFormat<span class="w"> </span>usda
+</pre></div>
+</div>
+<p>Alternatively, one can convert files using the explicit file extensions, such as
+<span class="mono">usda</span> and <span class="mono">usdc</span>, directly.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>usdcat<span class="w"> </span>file.usd<span class="w"> </span>--out<span class="w"> </span>file.usdc
+</pre></div>
+</div>
+<p>For more information on USD file formats, see
+<a class="reference internal" href="tut_converting_between_layer_formats.html"><span class="doc">Converting Between Layer Formats</span></a>.</p>
+</section>
+<section id="what-data-types-are-supported">
+<h3><a class="toc-backref" href="#id17" role="doc-backlink">What data types are supported?</a><a class="headerlink" href="#what-data-types-are-supported" title="Link to this heading"></a></h3>
+<p>See the <a class="reference external" href="api/_usd__page__datatypes.html">Basic Datatypes for Scene Description</a> section of
+the USD documentation for a complete list of supported data types. USD does
+<strong>not</strong> support the addition of new basic datatypes via plugin.</p>
+</section>
+<section id="what-does-a-usd-file-look-like">
+<h3><a class="toc-backref" href="#id18" role="doc-backlink">What does a USD file look like?</a><a class="headerlink" href="#what-does-a-usd-file-look-like" title="Link to this heading"></a></h3>
+<p>Here’s an example using references, inheritance, and variants. This is the
+representation generated by the native text file format, whose extension is
+<span class="mono">.usda</span>.</p>
+<div class="literal-block-wrapper docutils container" id="id3">
+<div class="code-block-caption"><span class="caption-text">solarSystem.usda</span><a class="headerlink" href="#id3" title="Link to this code"></a></div>
+<div class="highlight-usda notranslate"><div class="highlight"><pre><span></span><span class="c1">#usda 1.0</span>
+
+<span class="k k-Tokens">class</span><span class="w"> </span><span class="s">&quot;_class_Planet&quot;</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="kt">bool</span><span class="w"> </span><span class="na">has_life</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>False
+<span class="p">}</span>
+
+<span class="k k-Tokens">def</span><span class="w"> </span>Xform<span class="w"> </span><span class="s">&quot;SolarSystem&quot;</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k k-Tokens">def</span><span class="w"> </span><span class="s">&quot;Earth&quot;</span><span class="w"> </span><span class="p">(</span>
+<span class="w">        </span><span class="k k-Tokens">references</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="si">@./planet.usda@</span><span class="nn">&lt;/Planet&gt;</span>
+<span class="w">    </span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="kt">bool</span><span class="w"> </span><span class="na">has_life</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>True
+<span class="w">        </span><span class="kt">string</span><span class="w"> </span><span class="na">color</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;blue&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k k-Tokens">def</span><span class="w"> </span><span class="s">&quot;Mars&quot;</span><span class="w"> </span><span class="p">(</span>
+<span class="w">        </span><span class="k k-Tokens">references</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="si">@./planet.usda@</span><span class="nn">&lt;/Planet&gt;</span>
+<span class="w">    </span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="kt">string</span><span class="w"> </span><span class="na">color</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;red&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k k-Tokens">def</span><span class="w"> </span><span class="s">&quot;Saturn&quot;</span><span class="w"> </span><span class="p">(</span>
+<span class="w">        </span><span class="k k-Tokens">references</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="si">@./planet.usda@</span><span class="nn">&lt;/Planet&gt;</span>
+<span class="w">        </span><span class="k k-Tokens">variants</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="kt">string</span><span class="w"> </span><span class="na">rings</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;with_rings&quot;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="kt">string</span><span class="w"> </span><span class="na">color</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;beige&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id4">
+<div class="code-block-caption"><span class="caption-text">planet.usda</span><a class="headerlink" href="#id4" title="Link to this code"></a></div>
+<div class="highlight-usda notranslate"><div class="highlight"><pre><span></span><span class="c1">#usda 1.0</span>
+
+<span class="k k-Tokens">class</span><span class="w"> </span><span class="s">&quot;_class_Planet&quot;</span>
+<span class="p">{</span>
+<span class="p">}</span>
+
+<span class="k k-Tokens">def</span><span class="w"> </span>Sphere<span class="w"> </span><span class="s">&quot;Planet&quot;</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="k k-Tokens">inherits</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nn">&lt;/_class_Planet&gt;</span>
+<span class="w">    </span><span class="n n-Builtins">kind</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;model&quot;</span>
+<span class="w">    </span><span class="k k-Tokens">variantSets</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;rings&quot;</span>
+<span class="w">    </span><span class="k k-Tokens">variants</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kt">string</span><span class="w"> </span><span class="na">rings</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;none&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k k-Tokens">variantSet</span><span class="w"> </span><span class="s">&quot;rings&quot;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="s">&quot;none&quot;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="kt">bool</span><span class="w"> </span><span class="na">has_rings</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>False
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="s">&quot;with_rings&quot;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="kt">bool</span><span class="w"> </span><span class="na">has_rings</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>True
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<p>This example is purely illustrative. It does not make use of all of the
+composition operators that USD provides and should not necessarily be taken as a
+model for how assets should be structured. Different users have different needs;
+USD simply provides the data encoding and composition operators and lets users
+decide how best to construct their assets.</p>
+<p>The <a class="reference internal" href="tut_usd_tutorials.html"><span class="doc">USD Tutorials</span></a> page contains more examples as well as
+demonstrations of how to construct those examples using the provided APIs.</p>
+</section>
+</section>
+<section id="subtler-aspects-of-scene-description-and-composition">
+<h2><a class="toc-backref" href="#id19" role="doc-backlink">Subtler Aspects of Scene Description and Composition</a><a class="headerlink" href="#subtler-aspects-of-scene-description-and-composition" title="Link to this heading"></a></h2>
+<section id="i-have-some-layers-i-want-to-combine-should-i-use-sublayers-or-references">
+<h3><a class="toc-backref" href="#id20" role="doc-backlink">I have some layers I want to combine: Should I use SubLayers or References?</a><a class="headerlink" href="#i-have-some-layers-i-want-to-combine-should-i-use-sublayers-or-references" title="Link to this heading"></a></h3>
+<p>If you have two or more layers that you want to combine so that they override in
+a particular order, you have two simple options, <a class="reference internal" href="glossary.html#usdglossary-sublayers"><span class="std std-ref">SubLayers</span></a> and
+<a class="reference internal" href="glossary.html#usdglossary-references"><span class="std std-ref">References</span></a>. Which one you should choose depends on both the
+contents of the layers and what you will need to do with the resulting
+composition.</p>
+<p><strong>If it satisfies your requirements, prefer sublayering over referencing.</strong></p>
+<p>Sublayering has the following advantages:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Sublayering is the simplest <a class="reference internal" href="glossary.html#usdglossary-compositionarcs"><span class="std std-ref">Composition Arc</span></a>
+and results in the most compact runtime data structures and efficient
+<a class="reference internal" href="glossary.html#usdglossary-valueresolution"><span class="std std-ref">Value Resolution</span></a>.</p></li>
+<li><p>Layers combined via sublayering can easily participate in
+<a class="reference external" href="./api/class_usd_stage.html#a8af4162fe11cc6a5f21a39e770d397c2">UsdStage Layer Muting</a>.</p></li>
+<li><p>Choosing layers to edit via <a class="reference internal" href="glossary.html#edittarget"><span class="std std-ref">Edit Targets</span></a>
+is most straightforward for layers combined via sublayering.</p></li>
+</ul>
+</div></blockquote>
+<p><strong>What requirements might make SubLayering inappropriate?</strong></p>
+<blockquote>
+<div><ul>
+<li><p>If the layers you need to combine to do not share the same namespace,
+sublayering will simply “overlay” the different namespaces without any
+possibility of renaming parts of the namespace. By contrast, references
+allow you to remap specific prims into a different namespace. For example,
+the prim <span class="mono sdfpath">/Bob</span> in the file <span class="mono">Bob.usd</span> can be
+<em>renamed</em> to <span class="mono sdfpath">/Bob_1</span> as it is referenced onto the prim
+<span class="mono sdfpath">/Characters/Bob_1</span> in the file <span class="mono">lineup.usd</span>.</p>
+<blockquote>
+<div></div></blockquote>
+</li>
+<li><p>Related to the first point, if one or more of your layers contains root
+prims that you do not want “exposed” in the resulting composition,
+references provide a means of doing so: because each time you add a
+reference you target a specific prim within a layer, you may pick out just
+the prims you want/need in the composed result. You can add as many
+references (even on the same prim) as you require, targeting different
+prims in the same layer - even targeting prims in the same layer in which
+you are adding the reference.</p>
+<blockquote>
+<div></div></blockquote>
+</li>
+<li><p>If you want to add <a class="reference internal" href="glossary.html#usdglossary-variantset"><span class="std std-ref">VariantSets</span></a>
+that override the result of your composition, you will need to reference
+your results together rather than sublayer them - or add another layer
+into the mix so that you can reference in the root layer of your sublayer
+stack. This is because the data in the layers that you SubLayer form the
+<strong>L</strong> in <a class="reference internal" href="glossary.html#usdglossary-livrpsstrengthordering"><span class="std std-ref">LIVERPS Strength Ordering</span></a>,
+whereas opinions from VariantSets form the <strong>V</strong>, so anything defined in
+VariantSets will be <em>weaker</em> than the data in your sublayers. By
+extension, if you want to compose several layers into the existing file
+<span class="mono">root.usd</span>, if you sublayer them into <span class="mono">root.usd</span>,
+the direct opinions they contain will be stronger than any Inherits or
+VariantSet opinions in <span class="mono">root.usd</span>, whereas if you reference
+them in, their opinions will be weaker than any Inherits or VariantSets.</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="what-happens-to-overs-when-their-underlying-prim-is-moved-to-a-different-location-in-the-scenegraph">
+<h3><a class="toc-backref" href="#id21" role="doc-backlink">What happens to “overs” when their underlying prim is moved to a different location in the scenegraph?</a><a class="headerlink" href="#what-happens-to-overs-when-their-underlying-prim-is-moved-to-a-different-location-in-the-scenegraph" title="Link to this heading"></a></h3>
+<p>USD allows sparse overrides on assets that are brought in to the scenegraph via
+one of the various composition operators. These overrides are referred to as
+“overs.” For instance, consider the following example involving sublayers:</p>
+<div class="literal-block-wrapper docutils container" id="id5">
+<div class="code-block-caption"><span class="caption-text">sequence.usda</span><a class="headerlink" href="#id5" title="Link to this code"></a></div>
+<div class="highlight-usda notranslate"><div class="highlight"><pre><span></span><span class="c1">#usda 1.0</span>
+
+<span class="k k-Tokens">def</span><span class="w"> </span>Xform<span class="w"> </span><span class="s">&quot;World&quot;</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k k-Tokens">def</span><span class="w"> </span>Xform<span class="w"> </span><span class="s">&quot;Sets&quot;</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k k-Tokens">def</span><span class="w"> </span>Xform<span class="w"> </span><span class="s">&quot;Bookshelf&quot;</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="k k-Tokens">def</span><span class="w"> </span>Xform<span class="w"> </span><span class="s">&quot;Book_1&quot;</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="kt">string</span><span class="w"> </span><span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Toy Story&quot;</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="k k-Tokens">def</span><span class="w"> </span>Xform<span class="w"> </span><span class="s">&quot;Desk&quot;</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<p>In this example, the book defined in <span class="mono">sequence.usda</span> has the title
+“Toy Story”. However, this layer is brought in to shot.usda via a sublayer
+statement, and the book’s title is overridden to “Wall-E.” The question is: what
+happens if a user independently working on <span class="mono">sequence.usda</span> moves
+<span class="mono">Book_1</span> to <span class="mono">Desk</span>, or if <span class="mono">Book_1</span> is renamed to
+<span class="mono">Video_1</span>?  In such a case, the “over” in <span class="mono">shot.usda</span> would
+be “orphaned” and be ignored when composing and evaluating
+<span class="mono sdfpath">/World/Sets/Desk/Book_1</span> in <span class="mono">shot.usda</span>. It is the
+responsibility of the user working on <span class="mono">sequence.usda</span> to ensure that
+<span class="mono">shot.usda</span> is updated to avoid this problem.</p>
+</section>
+<section id="when-can-you-delete-a-reference-or-other-deletable-thing">
+<h3><a class="toc-backref" href="#id22" role="doc-backlink">When can you delete a reference (or other deletable thing)?</a><a class="headerlink" href="#when-can-you-delete-a-reference-or-other-deletable-thing" title="Link to this heading"></a></h3>
+<p>USD allows several kinds of data (including <a class="reference internal" href="glossary.html#usdglossary-compositionarcs"><span class="std std-ref">composition arcs</span></a>)
+to be <a class="reference internal" href="glossary.html#list-editing"><span class="std std-ref">list-edited</span></a>, i.e. prepending, appending, and
+deleting elements in a strong layer from a list that has been built up in weaker
+layers. In addition to all composition arcs except <a class="reference internal" href="glossary.html#usdglossary-sublayers"><span class="std std-ref">SubLayers</span></a>,
+you can also list-edit <a class="reference internal" href="glossary.html#usdglossary-relationship"><span class="std std-ref">Relationships</span></a>,
+<a class="reference internal" href="glossary.html#attribute-connection"><span class="std std-ref">Attribute Connections</span></a>, and custom
+string, token, and int metadata declared in <span class="mono">plugInfo.json</span> files. For
+any datatype that <em>can</em> be list-edited, it is syntactically legal and
+semantically meaningful to place a <strong>delete</strong> operator at any site (any path in
+any layer) on which the data can be hosted. What <strong>effect</strong> the delete will have
+depends on the type of the data, and is different for each of three categories
+of data.</p>
+<section id="list-edited-string-token-and-int-metadata">
+<h4>List-edited string, token, and int metadata<a class="headerlink" href="#list-edited-string-token-and-int-metadata" title="Link to this heading"></a></h4>
+<p>Custom, list-edited metadata is the simplest case. Items can be removed from
+the list (actually <em>ordered set</em>, since list-editing in USD de-duplicates items
+added more than once) anywhere in the composition graph.</p>
+</section>
+<section id="list-edited-relationships-and-connections">
+<h4>List-edited relationships and connections<a class="headerlink" href="#list-edited-relationships-and-connections" title="Link to this heading"></a></h4>
+<p>Similarly to custom, list-edited metadata, <a class="reference internal" href="glossary.html#usdglossary-relationship"><span class="std std-ref">relationship</span></a> and <a class="reference internal" href="glossary.html#usdglossary-connection"><span class="std std-ref">connection</span></a> targets can
+be removed (and added!)  anywhere in a composition graph. However, because most
+authoring takes place in the root <a class="reference internal" href="glossary.html#usdglossary-layerstack"><span class="std std-ref">layerStack</span></a> of
+a composed <a class="reference internal" href="glossary.html#usdglossary-stage"><span class="std std-ref">UsdStage</span></a>, we stipulate that when you delete a
+relationship or connection target, you specify <strong>not</strong> the originally authored
+path, but the translation of the path into the root layerStack. This is because
+one of the key behaviors USD provides as part of “composing a scene” is making
+sure that all paths are presented to you in the final namespace of the Stage
+that you open; See <a class="reference internal" href="glossary.html#usdglossary-pathtranslation"><span class="std std-ref">Path Translation</span></a> for an
+example that includes deleting a relationship target that was defined “across”
+two levels of referencing.</p>
+</section>
+<section id="list-edited-composition-arcs">
+<h4>List-edited composition arcs<a class="headerlink" href="#list-edited-composition-arcs" title="Link to this heading"></a></h4>
+<p>Meaningfully deleting composition arcs imposes some restrictions, because of the
+central aspect of <em>encapsulation</em> in USD composition. Encapsulation means that
+whenever you use a references, relocates, payload, inherits, variantSet, or
+specializes arc on a prim, <strong>the result that gets woven into the composition is
+immutable by stronger layers</strong> - values can be overridden, and objects can be
+added, but the “internal referencing structure” of the arc’s target cannot be
+changed. This is important for several reasons:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>It makes the <a class="reference internal" href="glossary.html#usdglossary-livrpsstrengthordering"><span class="std std-ref">LIVERPS composition algorithm</span></a>
+explainable and (more easily) understandable, because it is
+properly recursive.</p></li>
+<li><p>It enables more efficient composition engine implementations, because it
+allows great sharing of composition (sub)results</p></li>
+<li><p>It preserves strength ordering of the internal referencing structure - we
+will explain this more below.</p></li>
+</ul>
+</div></blockquote>
+<p>The rule, therefore, for meaningfully deleting composition arcs, is that you can
+only remove an arc if it was introduced in the same layerStack, <a class="reference internal" href="glossary.html#usdglossary-layerstack"><span class="std std-ref">as
+discussed with an example here</span></a>. This means you cannot
+delete a reference that was introduced from across another reference.</p>
+<p>There is a single exception to composition encapsulation in which we do allow a
+stronger layer to control how composition across an arc behaves, which is
+<a class="reference internal" href="glossary.html#usdglossary-variantset"><span class="std std-ref">variant selections</span></a>, and we <em>can</em>, with some
+preparatory work, use them to <em>effectively</em> delete arcs from across other arcs,
+though doing so may produce undesirable results! The whole point of variantSets
+in USD is to be able to make a <em>selection,</em> non-destructively, in an overriding
+layer, that will “pierce composition encapsulation” to guide which variant of a
+variantSet should be chosen and composed, regardless of how distant (in terms of
+composition arcs traversed) the actual variant definition(s) may be from the
+selection.</p>
+<p>Therefore, in a context in which we would ordinarily just add a reference, if we
+instead create a variantSet with a single variant, and add the reference on the
+variant instead of on the prim itself, then in a stronger referencing context
+across an arbitrary number of arcs, we can simply add and select another variant
+to the variantSet, and add a different reference there. Because no such variant
+exists <em>inside</em> the referenced asset, the original reference will not be
+processed.</p>
+<p>While this “works”, it creates a “strength inversion” that will likely be
+undesirable in most scenarios, and is a key reason why we believe encapsulation
+to be so valuable. The reference that you are adding in the outer referencing
+context will now be stronger than the context (and opinions) from which the
+original reference was introduced, so any overrides that context applied will no
+longer be overrides - they will instead be “underrides” because they are
+weaker. If you think of this in terms of building an environment out of
+referenced component models, you will see the problem with employing this
+technique at a shot-level in which the environment is referenced in: the
+environment places each object with transform overrides. But those overrides
+will now be weaker than the default transformation of the “swapped in” component
+at the shot level, and so its positioning will need to be redone or recovered
+manually from the environment layer. This will be true for all overrides the
+environment makes for each component-to-be-replaced. Following is a (very
+contrived, for brevity) example of how this technique works and doesn’t
+work. Given:</p>
+<div class="literal-block-wrapper docutils container" id="id6">
+<div class="code-block-caption"><span class="caption-text">assets.usd</span><a class="headerlink" href="#id6" title="Link to this code"></a></div>
+<div class="highlight-usda notranslate"><div class="highlight"><pre><span></span><span class="c1">#usda 1.0</span>
+
+<span class="k k-Tokens">def</span><span class="w"> </span>Xform<span class="w"> </span><span class="s">&quot;CubeModel&quot;</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k k-Token">custom</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="na">levelOfNesting</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span>
+
+<span class="w">    </span><span class="k k-Tokens">def</span><span class="w"> </span>Cube<span class="w"> </span><span class="s">&quot;Gprim&quot;</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k k-Tokens">def</span><span class="w"> </span>Xform<span class="w"> </span><span class="s">&quot;SphereModel&quot;</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k k-Token">custom</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="na">levelOfNesting</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span>
+
+<span class="w">    </span><span class="k k-Tokens">def</span><span class="w"> </span>Sphere<span class="w"> </span><span class="s">&quot;Gprim&quot;</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<p>then we can construct an assembly that dresses in an instance of one of the
+models, inside a variantSet:</p>
+<div class="literal-block-wrapper docutils container" id="id7">
+<div class="code-block-caption"><span class="caption-text">assembly.usd</span><a class="headerlink" href="#id7" title="Link to this code"></a></div>
+<div class="highlight-usda notranslate"><div class="highlight"><pre><span></span><span class="c1">#usda 1.0</span>
+<span class="p">(</span>
+<span class="w">    </span><span class="n n-Builtins">defaultPrim</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;FlexibleSet&quot;</span>
+<span class="p">)</span>
+
+<span class="k k-Tokens">def</span><span class="w"> </span>Xform<span class="w"> </span><span class="s">&quot;FlexibleSet&quot;</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k k-Tokens">def</span><span class="w"> </span><span class="s">&quot;Model_1&quot;</span><span class="w"> </span><span class="p">(</span>
+<span class="w">        </span><span class="kt">prepend</span><span class="w"> </span><span class="na">variantSets</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;dressingVariant&quot;</span>
+<span class="w">        </span><span class="k k-Tokens">variants</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="kt">string</span><span class="w"> </span><span class="na">dressingVariant</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;default&quot;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k k-Tokens">variantSet</span><span class="w"> </span><span class="s">&quot;dressingVariant&quot;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="s">&quot;default&quot;</span><span class="w"> </span><span class="p">(</span>
+<span class="w">                </span><span class="k k-Tokens">references</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="si">@assets.usd@</span><span class="nn">&lt;/CubeModel&gt;</span>
+<span class="w">            </span><span class="p">)</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="c1"># Anything added at the set level has nesting level 1</span>
+<span class="w">        </span><span class="k k-Token">custom</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="na">levelOfNesting</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<p>Finally, in a shot, we can replace the assembly’s reference at
+<span class="mono">Model_1</span> by adding a new variant for <em>dressingVariant</em> and adding a
+new reference inside the variant:</p>
+<div class="literal-block-wrapper docutils container" id="id8">
+<div class="code-block-caption"><span class="caption-text">shot.usd</span><a class="headerlink" href="#id8" title="Link to this code"></a></div>
+<div class="highlight-usda notranslate"><div class="highlight"><pre><span></span><span class="c1">#usda 1.0</span>
+<span class="p">(</span>
+<span class="w">    </span><span class="n n-Builtins">defaultPrim</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;World&quot;</span>
+<span class="p">)</span>
+
+<span class="k k-Tokens">def</span><span class="w"> </span>Xform<span class="w"> </span><span class="s">&quot;World&quot;</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k k-Tokens">def</span><span class="w"> </span><span class="s">&quot;ShapeFactory&quot;</span><span class="w"> </span><span class="p">(</span>
+<span class="w">        </span><span class="k k-Tokens">references</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="si">@assembly.usd@</span>
+<span class="w">    </span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k k-Tokens">over</span><span class="w"> </span><span class="s">&quot;Model_1&quot;</span><span class="w"> </span><span class="p">(</span>
+<span class="w">            </span><span class="kt">prepend</span><span class="w"> </span><span class="na">variantSets</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;dressingVariant&quot;</span>
+<span class="w">            </span><span class="k k-Tokens">variants</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="kt">string</span><span class="w"> </span><span class="na">dressingVariant</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;shotOverride_1&quot;</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="k k-Tokens">variantSet</span><span class="w"> </span><span class="s">&quot;dressingVariant&quot;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="s">&quot;shotOverride_1&quot;</span><span class="w"> </span><span class="p">(</span>
+<span class="w">                    </span><span class="k k-Tokens">references</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="si">@assets.usd@</span><span class="nn">&lt;/SphereModel&gt;</span>
+<span class="w">                </span><span class="p">)</span>
+<span class="w">                </span><span class="p">{</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<p>If one were to inspect <span class="mono">shot.usd</span> in <strong class="program">usdview's</strong> Composition
+inspector, one would find no trace of <span class="mono sdfpath">/CubeModel</span> from
+<span class="mono">assets.usd</span> in the <a class="reference internal" href="glossary.html#usdglossary-index"><span class="std std-ref">Index</span></a> for
+<span class="mono sdfpath">/World/ShapeFactory/Model_1</span>, so we <em>have</em> succesfully replaced it
+from across a reference. However, on the composed stage, the value of
+<span class="mono sdfpath">/World/ShapeFactory/Model_1.levelOfNesting</span> has been reset to zero,
+which is unintuitive and almost certainly undesirable; The value of one is still
+present in the property’s <a class="reference internal" href="glossary.html#propertystack"><span class="std std-ref">PropertyStack</span></a> , but it
+is now weaker than the value coming from the referenced leaf asset. By toggling
+the selection for <em>dressingVariant</em> in the Metadata inspector, you can see the
+value of <em>levelOfNesting</em> bounce between zero and one.</p>
+<p>We neither endorse nor discourage use of this construct, but simply wish to
+emphasize that it should be approached with care, when its use is warranted.</p>
+</section>
+</section>
+<section id="what-s-the-difference-between-an-over-and-a-typeless-def">
+<h3><a class="toc-backref" href="#id23" role="doc-backlink">What’s the difference between an “over” and a “typeless def” ?</a><a class="headerlink" href="#what-s-the-difference-between-an-over-and-a-typeless-def" title="Link to this heading"></a></h3>
+<p>In a lot of usd files, I see something like:</p>
+<div class="highlight-usda notranslate"><div class="highlight"><pre><span></span><span class="k k-Tokens">def</span><span class="w"> </span><span class="s">&quot;MyModel&quot;</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="k k-Tokens">payload</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="si">@./MyModel_payload.usd@</span>
+<span class="p">)</span>
+<span class="p">{</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Since we’re not saying what type of prim “MyModel” is at this level, why isn’t
+it just</p>
+<div class="highlight-usda notranslate"><div class="highlight"><pre><span></span><span class="k k-Tokens">over</span><span class="w"> </span><span class="s">&quot;MyModel&quot;</span>
+</pre></div>
+</div>
+<p><strong>Answer</strong> : When you <em>def</em> a prim, you’re providing more information to the
+system than when you <em>over</em> a prim.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><strong>def</strong> means “Even though I may not be declaring a typed prim in this
+layer, by the time the <a class="reference external" href="./api/class_usd_stage.html">UsdStage</a> has finished composing, I
+<strong>expect</strong> a type to have been provided by referenced/layered scene
+description” (in the example, presumably the type would be provided by the
+layer targeted by the <em>payload</em> arc.</p></li>
+<li><p><strong>over</strong> means “If some referenced layer happens to define this prim, then
+layer the information I contain onto it; but if not, just consider this
+information ancillary”</p></li>
+</ul>
+</div></blockquote>
+<p>This distinction is actually used in the Usd core to define, for e.g., default
+stage traversal behavior, as <a class="reference external" href="./api/class_usd_prim.html#a2619563fc9180d8ead597944fd7f6ec7">UsdPrim::GetChildren</a>
+only iterates over a prim’s <em>defined</em> children (regardless of whether they
+possess a type in the current view of the stage), skipping prims that are just
+<em>over</em>.</p>
+</section>
+<section id="why-can-t-i-instance-a-leaf-mesh-prim-directly">
+<h3><a class="toc-backref" href="#id24" role="doc-backlink">Why Can’t I Instance a Leaf Mesh Prim Directly?</a><a class="headerlink" href="#why-can-t-i-instance-a-leaf-mesh-prim-directly" title="Link to this heading"></a></h3>
+<p><a class="reference internal" href="glossary.html#usdglossary-instancing"><span class="std std-ref">USD Native Instancing</span></a> makes no restrictions on what
+“source scene description” can and cannot be instanced. A UsdStage is perfectly
+happy to have instances that target a single, leaf, source prim, although the
+“implicit prototype” that gets created as a result will be empty, and for that
+reason the instancing, in such a case, is meaningless, from a composition-cost
+and data sharing perspective. Perhaps most importantly, it is also meaningless
+from the perspective of being able to assume that <em>anything</em> is actually the
+same or similar between two instances of the same implicit prototype, because you
+can override <strong>any</strong> property or metadata of any instance - only prims <strong>beneath
+the implicit prototype’s root</strong> are protected from being overridden,
+per-prototype, and in this case there are none.</p>
+<p>Our imaging system, <a class="reference internal" href="glossary.html#hydra"><span class="std std-ref">Hydra</span></a>, cares very much about that
+last property, or lack thereof. Every renderer of which we’re aware that
+supports instancing requires that the basic geometric properties of a Mesh (or
+other gprim) <strong>must be unvarying</strong> across instances since it is the tessellation
+and storage/indexing costs of said geometry that we are trying to share for
+scalability. The UsdImaging Hydra scene delegate, therefore, imposes a further
+restriction on “meaningful” instancing and considers any “leaf instanced gprims”
+to be an error condition for which we issue a warning and do not image
+anything. To do otherwise would force the scene delegate to compare/hash all the
+“relevant” properties up-front to create buckets of “really instanceable
+instances”, since Hydra passes instances to render delegates in an explicit form
+that would otherwise assume the characteristics of the first instance it sees,
+dropping any variation in the other instances, thus potentially losing artistic
+intent, and producing non-deterministic results.  Therefore we felt it better to
+treat this as an error condition, since we do <strong>not</strong> want to impose full
+instance deduplication on the scene delegate, and it is part of the “USD
+philosophy” that consumers of scene description should not need to care about
+where in the composition graph particular opinions come from.</p>
+<p>Some DCC’s that support instancing do so with an “explicit”, relationship-based
+(or equivalent) scheme, and in such schemes (as with <span class="mono">UsdGeomPointInstancer</span>),
+single gprim instancing is not problematic, because the “overrides” (which are
+generally selective/restrictive) are on separate prims from the prototype prims,
+and therefore the overrides are easy to identify. We realize that in this
+specific case, the USD model of instancing may be less user-friendly at first
+glance, but we wanted our instancing mechanism to be a natural extension of
+USD’s powerful composition operators, which provides pipeline benefits (such as
+the ability to de-instance and re-instance with a trivial, non-destructive edit,
+without losing any overrides) and scalability benefits (as mentioned in the
+glossary entry, instances from different assets can “unify” and share prototypes
+when assembled into an aggregate or scene), and the reality for Pixar is that we
+rarely instance single gprims, rather instancing entire models or parts of
+models.</p>
+</section>
+</section>
+<section id="build-and-runtime-issues">
+<h2><a class="toc-backref" href="#id25" role="doc-backlink">Build and Runtime Issues</a><a class="headerlink" href="#build-and-runtime-issues" title="Link to this heading"></a></h2>
+<section id="how-do-i-use-the-tf-debug-mechanism">
+<h3><a class="toc-backref" href="#id26" role="doc-backlink">How do I use the <code class="docutils literal notranslate"><span class="pre">TF_DEBUG</span></code> mechanism?</a><a class="headerlink" href="#how-do-i-use-the-tf-debug-mechanism" title="Link to this heading"></a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">TF_DEBUG</span></code> mechanism is a powerful tool for debugging USD applications. It
+allows you to enable and disable debugging output at runtime, and to control
+which debug output is generated. The <code class="docutils literal notranslate"><span class="pre">TF_DEBUG</span></code> mechanism is controlled by an
+environment variable, :envvar:<code class="docutils literal notranslate"><span class="pre">TF_DEBUG</span></code>. The value of the variable is a
+space-separated list of debug categories.</p>
+<p>Searching the OpenUSD source code for the <code class="docutils literal notranslate"><span class="pre">TF_DEBUG</span></code> macro reveals all the
+possible debug categories.</p>
+<p>For example, searching the code base, we discover <code class="docutils literal notranslate"><span class="pre">HD_VARYING_STATE</span></code> is a debug
+category that can be enabled to print out the varying state of Hydra prims.</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">TF_DEBUG</span><span class="p">(</span><span class="n">HD_VARYING_STATE</span><span class="p">).</span><span class="n">Msg</span><span class="p">(</span><span class="s">&quot;New Varying State %s: %s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">...</span>
+</pre></div>
+</div>
+<p>We can enable that debug output by setting :envvar:<code class="docutils literal notranslate"><span class="pre">TF_DEBUG</span></code> to include that
+category:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="nv">TF_DEBUG</span><span class="o">=</span><span class="s2">&quot;HD_VARYING_STATE&quot;</span>
+</pre></div>
+</div>
+<p>Simple wildcards are supported, but only at the end of a category name. For
+example, to enable all debug output from the <code class="docutils literal notranslate"><span class="pre">HD</span></code> category, you can use:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="nv">TF_DEBUG</span><span class="o">=</span><span class="s2">&quot;HD*&quot;</span>
+</pre></div>
+</div>
+<p>Categories may be suppressed with a leading <cite>-</cite> character. This example</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="nv">TF_DEBUG</span><span class="o">=</span><span class="s2">&quot;FOO_* BAR_* -BAR_VERY_NOISY HD_VARYING_STATE&quot;</span>
+</pre></div>
+</div>
+<p>enables everything in the <code class="docutils literal notranslate"><span class="pre">FOO_</span></code> and <code class="docutils literal notranslate"><span class="pre">BAR_</span></code> categories, adds
+<code class="docutils literal notranslate"><span class="pre">HD_VARYING_STATE</span></code> and specifically disables <code class="docutils literal notranslate"><span class="pre">BAR_VERY_NOISY</span></code> from the
+<code class="docutils literal notranslate"><span class="pre">BAR</span></code> category.</p>
+<p>It is also possible to control the debug output from C++ or Python code using
+the <code class="docutils literal notranslate"><span class="pre">TfDebug</span></code> API; please refer to the header file, <code class="file docutils literal notranslate"><span class="pre">pxr/base/tf/debug.h</span></code>
+for more information.</p>
+</section>
+<section id="why-isn-t-python-finding-usd-modules">
+<h3><a class="toc-backref" href="#id27" role="doc-backlink">Why Isn’t Python Finding USD Modules?</a><a class="headerlink" href="#why-isn-t-python-finding-usd-modules" title="Link to this heading"></a></h3>
+<p>If you get an error message when using USD’s Python bindings like this:</p>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gt">Traceback (most recent call last):</span>
+  File <span class="nb">&quot;&lt;stdin&gt;&quot;</span>, line <span class="m">1</span>, in <span class="n">&lt;module&gt;</span>
+<span class="gr">ImportError</span>: <span class="n">No module named pxr</span>
+</pre></div>
+</div>
+<p>Make sure that the <span class="target" id="index-2"></span><code class="xref std std-envvar docutils literal notranslate"><span class="pre">PYTHONPATH</span></code> environment variable includes
+the directory containing the USD Python modules:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="nv">PYTHONPATH</span><span class="o">=</span><span class="nv">$PYTHONPATH</span>:&lt;inst&gt;/lib/python
+</pre></div>
+</div>
+<p>Where <code class="file docutils literal notranslate"><span class="pre">&lt;inst&gt;</span></code> represents the <strong class="makevar">CMAKE_INSTALL_PREFIX</strong> set in your
+build configuration. See <a class="reference external" href="https://github.com/PixarAnimationStudios/OpenUSD/blob/release/BUILDING.md">Advanced Build Configuration</a> for
+more information.</p>
+</section>
+<section id="why-isn-t-this-plugin-being-built">
+<h3><a class="toc-backref" href="#id28" role="doc-backlink">Why Isn’t This Plugin Being Built?</a><a class="headerlink" href="#why-isn-t-this-plugin-being-built" title="Link to this heading"></a></h3>
+<p>The plugins included in the USD distribution are disabled by default.
+See <a class="reference external" href="https://github.com/PixarAnimationStudios/OpenUSD/blob/release/BUILDING.md">Advanced Build Configuration</a> for
+instructions on how to enable these plugins.</p>
+</section>
+<section id="why-doesn-t-the-openusd-runtime-recognize-the-usd-file-format">
+<h3><a class="toc-backref" href="#id29" role="doc-backlink">Why doesn’t the OpenUSD runtime recognize the USD file format?</a><a class="headerlink" href="#why-doesn-t-the-openusd-runtime-recognize-the-usd-file-format" title="Link to this heading"></a></h3>
+<p>If you get an error message like this:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>ERROR:<span class="w"> </span>USD<span class="w"> </span>format<span class="w"> </span>not<span class="w"> </span>recognized:<span class="w"> </span>&lt;filename&gt;.usd
+</pre></div>
+</div>
+<p>A common cause of this issue is that the plugins usd requires to read specific
+formats were not found. The runtime looks for the plugins in a particular set
+of directories, which are revealed by setting up the <code class="docutils literal notranslate"><span class="pre">PXR_PLUGINPATH_NAME</span></code>
+variable. The following example shows a developer debugging accordingly.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">set</span><span class="w"> </span><span class="nv">PXR_PLUGINPATH_NAME</span><span class="o">=</span>S:/dev/libs/OpenUSD/plugin/usd
+<span class="nb">set</span><span class="w"> </span><span class="nv">TF_DEBUG</span><span class="o">=</span>PLUG_INFO_SEARCH
+yourMain.exe
+</pre></div>
+</div>
+<p>Assuming the plugins really are at that path, usd files will load. Note that the
+hydra plugins may exist a different location, and that location must also be
+specified via the environment variable.</p>
+</section>
+<section id="why-isn-t-my-app-finding-usd-dlls-and-plugins-on-windows">
+<h3><a class="toc-backref" href="#id30" role="doc-backlink">Why Isn’t My App Finding USD DLLs and Plugins on Windows?</a><a class="headerlink" href="#why-isn-t-my-app-finding-usd-dlls-and-plugins-on-windows" title="Link to this heading"></a></h3>
+<p>If you get errors similar to “This program can’t start because USD_AR.DLL is
+missing from your computer” or “Failed to load plugin ‘usd’: The specified
+module could not be found” when running your app, this means the USD DLLs or
+USD plugins can’t be located at runtime.</p>
+<p>One way to fix this is to install the USD DLLs and USD plugins in the same
+directory as your executable. For example, if you built <code class="docutils literal notranslate"><span class="pre">MyCustomUSDTool.exe</span></code>
+and installed it into <code class="docutils literal notranslate"><span class="pre">C:\MyPrograms\MyCustomUSDTool\</span></code>, your directory layout
+might look something like:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>C:\MyPrograms\MyCustomUSDTool\MyCustomTool.exe
+C:\MyPrograms\MyCustomUSDTool\tbb.dll
+C:\MyPrograms\MyCustomUSDTool\usd_ar.dll
+C:\MyPrograms\MyCustomUSDTool\(...remaining USD DLLs...)
+C:\MyPrograms\MyCustomUSDTool\usd\plugInfo.json
+C:\MyPrograms\MyCustomUSDTool\usd\ar\resources\plugInfo.json
+C:\MyPrograms\MyCustomUSDTool\usd\(...remaining core USD plugin directories and files...)
+C:\MyPrograms\MyCustomUSDTool\usd\(...other non-core plugin directories as needed...)
+</pre></div>
+</div>
+<p>Another approach is to install your DLLs and plugins to a directory that is
+added to your Windows <span class="target" id="index-3"></span><code class="xref std std-envvar docutils literal notranslate"><span class="pre">PATH</span></code> environment variable. See <a class="reference external" href="https://learn.microsoft.com/en-us/windows/win32/dlls/dynamic-link-library-search-order">Dynamic-link
+library search order</a>
+for more details on how Windows searches for DLLs at runtime.</p>
+<p>If you prefer not to have to install a large number of DLLs, you can build a
+single monolithic USD DLL using the <span class="mono">PXR_BUILD_MONOLITHIC</span> cmake flag. See
+<a class="reference external" href="https://github.com/PixarAnimationStudios/OpenUSD/blob/release/BUILDING.md">Advanced Build Configuration</a> for
+more information. Note that you will still need to install the USD plugins
+directory along with the monolithic USD DLL.</p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="wp_usdshade.html" class="btn btn-neutral float-left" title="UsdShade Material Assignment" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="maxperf.html" class="btn btn-neutral float-right" title="Maximizing USD Performance" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Pixar Animation Studios.</p>
+  </div>
+
+   
+<!-- Additional content for Read-the-Docs theme footer, see https://github.com/readthedocs/sphinx_rtd_theme/blob/master/sphinx_rtd_theme/footer.html --> 
+<a class="usd-tos-footer-style" href="https://disneytermsofuse.com/">Terms of Use</a>
+
+
+</footer>
+        </div>
+
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script> 
+
+</body>
+</html>

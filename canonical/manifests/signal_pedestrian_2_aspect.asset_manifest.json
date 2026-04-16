@@ -1,0 +1,81 @@
+{
+  "id": "signal_pedestrian_2_aspect",
+  "family": "traffic_light",
+  "semantic_class": "traffic_light.pedestrian",
+  "variant_key": "pedestrian.2_aspect",
+  "dimensions_m": {
+    "width": 0.42,
+    "height": 1.96,
+    "depth": 0.16
+  },
+  "lods": [
+    {
+      "name": "LOD0",
+      "triangle_count": 216,
+      "usd_scope": "/signal_pedestrian_2_aspect/LOD0",
+      "gltf_node_prefix": "LOD0"
+    },
+    {
+      "name": "LOD1",
+      "triangle_count": 152,
+      "usd_scope": "/signal_pedestrian_2_aspect/LOD1",
+      "gltf_node_prefix": "LOD1"
+    }
+  ],
+  "collider": {
+    "type": "box",
+    "width": 0.42,
+    "height": 0.76,
+    "depth": 0.16
+  },
+  "anchor_points": {
+    "mount_point": {
+      "x": 0.0,
+      "y": 1.2,
+      "z": -0.08
+    },
+    "front_center": {
+      "x": 0.0,
+      "y": 1.58,
+      "z": 0.08
+    }
+  },
+  "materials": [
+    "mat_metal_galvanized",
+    "mat_signal_housing",
+    "mat_signal_ped_red_off",
+    "mat_signal_ped_white_off"
+  ],
+  "states": {
+    "off": {
+      "emissive_profile": "emissive_pedestrian_standard",
+      "state_key": "off"
+    },
+    "active_red": {
+      "emissive_profile": "emissive_pedestrian_standard",
+      "state_key": "red"
+    },
+    "active_yellow": {
+      "emissive_profile": "emissive_pedestrian_standard",
+      "state_key": "yellow"
+    },
+    "active_green": {
+      "emissive_profile": "emissive_pedestrian_standard",
+      "state_key": "green"
+    }
+  },
+  "export_targets": {
+    "usd_ascii": "canonical/geometry/usd/signal_pedestrian_2_aspect.usda",
+    "usd_binary": "exports/usd/signal_pedestrian_2_aspect.usdc",
+    "gltf_binary": "exports/gltf/signal_pedestrian_2_aspect.glb"
+  },
+  "license": {
+    "spdx": "LicenseRef-ProjectGenerated",
+    "redistribution": "geometry, manifests, and templates generated in-repo"
+  },
+  "provenance": {
+    "generated_at": "2026-04-16T10:10:40+00:00",
+    "generated_by": "scripts/build_asset_pack.py",
+    "note": "Generated signal housing geometry with state-driven emissive profile bindings."
+  }
+}

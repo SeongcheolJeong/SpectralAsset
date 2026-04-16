@@ -1,0 +1,329 @@
+{
+  "generated_at": "2026-04-16T10:10:40+00:00",
+  "scenes": [
+    {
+      "id": "scene_sign_test_lane",
+      "scenario_profile": "scenario_clear_noon",
+      "placements": [
+        {
+          "asset_id": "road_asphalt_dry",
+          "name": "road_0",
+          "translate": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotate_y": 0.0
+        },
+        {
+          "asset_id": "marking_lane_white",
+          "name": "lane_0",
+          "translate": [
+            -0.9,
+            0.03,
+            0.0
+          ],
+          "rotate_y": 0.0
+        },
+        {
+          "asset_id": "marking_lane_white",
+          "name": "lane_1",
+          "translate": [
+            0.9,
+            0.03,
+            0.0
+          ],
+          "rotate_y": 0.0
+        },
+        {
+          "asset_id": "sign_stop",
+          "name": "sign_stop_0",
+          "translate": [
+            -1.8,
+            0.0,
+            -1.0
+          ],
+          "rotate_y": 0.0
+        },
+        {
+          "asset_id": "sign_speed_limit_50",
+          "name": "sign_speed_0",
+          "translate": [
+            -1.8,
+            0.0,
+            0.4
+          ],
+          "rotate_y": 0.0
+        },
+        {
+          "asset_id": "sign_pedestrian_crossing",
+          "name": "sign_cross_0",
+          "translate": [
+            -1.8,
+            0.0,
+            1.8
+          ],
+          "rotate_y": 0.0
+        },
+        {
+          "asset_id": "sign_curve_left",
+          "name": "sign_curve_0",
+          "translate": [
+            1.8,
+            0.0,
+            -0.6
+          ],
+          "rotate_y": 180.0
+        },
+        {
+          "asset_id": "sign_signal_ahead",
+          "name": "sign_signal_0",
+          "translate": [
+            1.8,
+            0.0,
+            0.9
+          ],
+          "rotate_y": 180.0
+        }
+      ],
+      "export_targets": {
+        "usd_ascii": "canonical/scenes/scene_sign_test_lane.usda",
+        "usd_binary": "exports/usd/scene_sign_test_lane.usdc",
+        "gltf_binary": "exports/gltf/scene_sign_test_lane.glb"
+      }
+    },
+    {
+      "id": "scene_signalized_intersection",
+      "scenario_profile": "scenario_overcast_day",
+      "placements": [
+        {
+          "asset_id": "road_asphalt_dry",
+          "name": "road_main",
+          "translate": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotate_y": 0.0
+        },
+        {
+          "asset_id": "road_asphalt_dry",
+          "name": "road_cross",
+          "translate": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotate_y": 90.0
+        },
+        {
+          "asset_id": "marking_crosswalk",
+          "name": "crosswalk_0",
+          "translate": [
+            0.0,
+            0.03,
+            -1.1
+          ],
+          "rotate_y": 90.0
+        },
+        {
+          "asset_id": "marking_stop_line",
+          "name": "stopline_0",
+          "translate": [
+            0.0,
+            0.03,
+            -1.7
+          ],
+          "rotate_y": 0.0
+        },
+        {
+          "asset_id": "furniture_signal_pole",
+          "name": "pole_0",
+          "translate": [
+            -2.0,
+            0.0,
+            -2.0
+          ],
+          "rotate_y": 0.0
+        },
+        {
+          "asset_id": "signal_vehicle_vertical_3_aspect",
+          "name": "signal_0",
+          "translate": [
+            -0.5,
+            0.0,
+            -2.0
+          ],
+          "rotate_y": 0.0
+        },
+        {
+          "asset_id": "signal_vehicle_horizontal_3_aspect",
+          "name": "signal_1",
+          "translate": [
+            2.0,
+            0.0,
+            -0.5
+          ],
+          "rotate_y": 90.0
+        },
+        {
+          "asset_id": "signal_pedestrian_2_aspect",
+          "name": "ped_signal_0",
+          "translate": [
+            1.8,
+            0.0,
+            -1.2
+          ],
+          "rotate_y": 180.0
+        }
+      ],
+      "export_targets": {
+        "usd_ascii": "canonical/scenes/scene_signalized_intersection.usda",
+        "usd_binary": "exports/usd/scene_signalized_intersection.usdc",
+        "gltf_binary": "exports/gltf/scene_signalized_intersection.glb"
+      }
+    },
+    {
+      "id": "scene_night_retroreflection",
+      "scenario_profile": "scenario_urban_night",
+      "placements": [
+        {
+          "asset_id": "road_asphalt_dry",
+          "name": "road_0",
+          "translate": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotate_y": 0.0
+        },
+        {
+          "asset_id": "sign_stop",
+          "name": "sign_stop_0",
+          "translate": [
+            -1.8,
+            0.0,
+            -0.8
+          ],
+          "rotate_y": 0.0
+        },
+        {
+          "asset_id": "sign_merge",
+          "name": "sign_merge_0",
+          "translate": [
+            -1.8,
+            0.0,
+            0.8
+          ],
+          "rotate_y": 0.0
+        },
+        {
+          "asset_id": "sign_variable_message",
+          "name": "vms_0",
+          "translate": [
+            1.5,
+            0.0,
+            0.0
+          ],
+          "rotate_y": 180.0
+        },
+        {
+          "asset_id": "marking_lane_white",
+          "name": "lane_0",
+          "translate": [
+            0.0,
+            0.03,
+            0.0
+          ],
+          "rotate_y": 0.0
+        },
+        {
+          "asset_id": "signal_vehicle_vertical_3_aspect",
+          "name": "signal_0",
+          "translate": [
+            1.8,
+            0.0,
+            -1.2
+          ],
+          "rotate_y": 180.0
+        }
+      ],
+      "export_targets": {
+        "usd_ascii": "canonical/scenes/scene_night_retroreflection.usda",
+        "usd_binary": "exports/usd/scene_night_retroreflection.usdc",
+        "gltf_binary": "exports/gltf/scene_night_retroreflection.glb"
+      }
+    },
+    {
+      "id": "scene_wet_road_braking",
+      "scenario_profile": "scenario_wet_dusk",
+      "placements": [
+        {
+          "asset_id": "road_asphalt_wet",
+          "name": "road_0",
+          "translate": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "rotate_y": 0.0
+        },
+        {
+          "asset_id": "marking_crosswalk",
+          "name": "crosswalk_0",
+          "translate": [
+            0.0,
+            0.03,
+            0.8
+          ],
+          "rotate_y": 90.0
+        },
+        {
+          "asset_id": "marking_stop_line",
+          "name": "stopline_0",
+          "translate": [
+            0.0,
+            0.03,
+            0.2
+          ],
+          "rotate_y": 0.0
+        },
+        {
+          "asset_id": "signal_vehicle_vertical_3_aspect",
+          "name": "signal_0",
+          "translate": [
+            -1.6,
+            0.0,
+            -0.8
+          ],
+          "rotate_y": 0.0
+        },
+        {
+          "asset_id": "sign_yield",
+          "name": "yield_0",
+          "translate": [
+            1.8,
+            0.0,
+            1.4
+          ],
+          "rotate_y": 180.0
+        },
+        {
+          "asset_id": "sign_school_warning",
+          "name": "school_0",
+          "translate": [
+            1.8,
+            0.0,
+            -1.4
+          ],
+          "rotate_y": 180.0
+        }
+      ],
+      "export_targets": {
+        "usd_ascii": "canonical/scenes/scene_wet_road_braking.usda",
+        "usd_binary": "exports/usd/scene_wet_road_braking.usdc",
+        "gltf_binary": "exports/gltf/scene_wet_road_braking.glb"
+      }
+    }
+  ]
+}

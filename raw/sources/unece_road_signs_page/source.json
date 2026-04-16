@@ -1,0 +1,10 @@
+{
+  "id": "unece_road_signs_page",
+  "url": "https://unece.org/info/Transport/Road-Traffic-and-Road-Safety/pub/2637",
+  "file_name": "road_signs_and_signals.html",
+  "classification": "reference-only",
+  "license_summary": "Official UNECE reference page",
+  "fetched_at": "2026-04-16T10:10:40+00:00",
+  "status": "fetch_failed",
+  "error": "curl: (56) The requested URL returned error: 403"
+}

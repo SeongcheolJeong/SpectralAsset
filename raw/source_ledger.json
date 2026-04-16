@@ -1,0 +1,166 @@
+{
+  "generated_at": "2026-04-16T10:10:40+00:00",
+  "sources": [
+    {
+      "id": "cie_d65_csv",
+      "url": "https://files.cie.co.at/CIE_std_illum_D65.csv",
+      "file_name": "CIE_std_illum_D65.csv",
+      "classification": "redistributable",
+      "license_summary": "CIE dataset with citation required",
+      "fetched_at": "2026-04-16T10:10:40+00:00",
+      "status": "downloaded",
+      "sha256": "e76f210bffff3d552ef7113025da5f325d5dfec200dd4b878b1a2f3a507032cb",
+      "size_bytes": 6820
+    },
+    {
+      "id": "cie_d65_metadata",
+      "url": "https://files.cie.co.at/CIE_std_illum_D65.csv_metadata.json",
+      "file_name": "CIE_std_illum_D65.csv_metadata.json",
+      "classification": "redistributable",
+      "license_summary": "CIE metadata with DOI",
+      "fetched_at": "2026-04-16T10:10:40+00:00",
+      "status": "downloaded",
+      "sha256": "de1ed36015fce537045791505f87f80eed5c508267af384f537ab94f29f01657",
+      "size_bytes": 2666
+    },
+    {
+      "id": "astm_g173_zip",
+      "url": "https://www.nlr.gov/media/docs/libraries/grid/zip/astmg173.zip?sfvrsn=1ef05e45_5",
+      "file_name": "astmg173.zip",
+      "classification": "derived-only",
+      "license_summary": "NLR data disclaimer applies",
+      "fetched_at": "2026-04-16T10:10:40+00:00",
+      "status": "downloaded",
+      "sha256": "de6ed831cd7426d9a7147d5c0a48b1e67a483cb7f8ecd6d3ae846848154a5657",
+      "size_bytes": 25833
+    },
+    {
+      "id": "aeronet_quality_assurance_pdf",
+      "url": "https://aeronet.gsfc.nasa.gov/new_web/Documents/AERONETcriteria_final1.pdf",
+      "file_name": "AERONETcriteria_final1.pdf",
+      "classification": "reference-only",
+      "license_summary": "NASA documentation",
+      "fetched_at": "2026-04-16T10:10:40+00:00",
+      "status": "downloaded",
+      "sha256": "e32fd08d1bfa4ee4d557d68b94abb87ce341b23fe4c1ac0d61df69259fd18dea",
+      "size_bytes": 1447567
+    },
+    {
+      "id": "libradtran_home",
+      "url": "https://www.libradtran.org/",
+      "file_name": "index.html",
+      "classification": "reference-only",
+      "license_summary": "Official documentation reference",
+      "fetched_at": "2026-04-16T10:10:40+00:00",
+      "status": "downloaded",
+      "sha256": "0feccb6455615ab275d85ab779f16a27f22c78d171d6f2fbafee91dbe6190e5b",
+      "size_bytes": 11487
+    },
+    {
+      "id": "osm_traffic_sign_wiki",
+      "url": "https://wiki.openstreetmap.org/wiki/Key:traffic_sign",
+      "file_name": "traffic_sign.html",
+      "classification": "reference-only",
+      "license_summary": "OpenStreetMap Wiki reference",
+      "fetched_at": "2026-04-16T10:10:40+00:00",
+      "status": "downloaded",
+      "sha256": "dc6de8c4c631f43e8d9bdabed0f65aecad12577749ebafe796c7d87f6baab8bc",
+      "size_bytes": 333376
+    },
+    {
+      "id": "mapillary_sign_help",
+      "url": "https://help.mapillary.com/hc/en-us/articles/360003021432-Exploring-traffic-signs",
+      "file_name": "exploring_traffic_signs.html",
+      "classification": "reference-only",
+      "license_summary": "Mapillary help reference",
+      "fetched_at": "2026-04-16T10:10:40+00:00",
+      "status": "fetch_failed",
+      "error": "curl: (56) The requested URL returned error: 403"
+    },
+    {
+      "id": "mapillary_download_help",
+      "url": "https://help.mapillary.com/hc/en-us/articles/4407521157138-Downloading-map-data-via-the-Mapillary-web-app",
+      "file_name": "downloading_map_data.html",
+      "classification": "reference-only",
+      "license_summary": "Mapillary help reference",
+      "fetched_at": "2026-04-16T10:10:40+00:00",
+      "status": "fetch_failed",
+      "error": "curl: (56) The requested URL returned error: 403"
+    },
+    {
+      "id": "openusd_faq",
+      "url": "https://openusd.org/release/usdfaq.html",
+      "file_name": "usdfaq.html",
+      "classification": "reference-only",
+      "license_summary": "OpenUSD documentation reference",
+      "fetched_at": "2026-04-16T10:10:40+00:00",
+      "status": "downloaded",
+      "sha256": "918cd52d5175d392197edf850c7bf9ff4ed9a91499457e7602c509d365b7c3b3",
+      "size_bytes": 166727
+    },
+    {
+      "id": "gltf_spec",
+      "url": "https://registry.khronos.org/glTF/specs/2.0/glTF-2.0.html",
+      "file_name": "glTF-2.0.html",
+      "classification": "reference-only",
+      "license_summary": "Khronos specification reference",
+      "fetched_at": "2026-04-16T10:10:40+00:00",
+      "status": "downloaded",
+      "sha256": "5172dfcdaa14b59686bcd0d2289bc7f704ce1ec9a779334ba03ac46e54de0408",
+      "size_bytes": 1549751
+    },
+    {
+      "id": "polyhaven_license",
+      "url": "https://polyhaven.com/license",
+      "file_name": "license.html",
+      "classification": "reference-only",
+      "license_summary": "Poly Haven CC0 reference",
+      "fetched_at": "2026-04-16T10:10:40+00:00",
+      "status": "downloaded",
+      "sha256": "4fcfd1dcb93f4997b15160a1b92866f9e0ef313a8c9b5419b5690d6f95a308bb",
+      "size_bytes": 52468
+    },
+    {
+      "id": "ambientcg_license",
+      "url": "https://docs.ambientcg.com/license/",
+      "file_name": "license.html",
+      "classification": "reference-only",
+      "license_summary": "ambientCG CC0 reference",
+      "fetched_at": "2026-04-16T10:10:40+00:00",
+      "status": "downloaded",
+      "sha256": "60138e09b277c89977841462634b36e99d7bae5b77174777813502069c59461c",
+      "size_bytes": 34106
+    },
+    {
+      "id": "usgs_spectral_library_page",
+      "url": "https://www.usgs.gov/data/usgs-spectral-library-version-7-data",
+      "file_name": "usgs_spectral_library_v7.html",
+      "classification": "reference-only",
+      "license_summary": "USGS landing page reference",
+      "fetched_at": "2026-04-16T10:10:40+00:00",
+      "status": "fetch_failed",
+      "error": "curl: (22) The requested URL returned error: 403"
+    },
+    {
+      "id": "ecostress_spectral_library_page",
+      "url": "https://speclib.jpl.nasa.gov/",
+      "file_name": "index.html",
+      "classification": "reference-only",
+      "license_summary": "ECOSTRESS landing page reference",
+      "fetched_at": "2026-04-16T10:10:40+00:00",
+      "status": "downloaded",
+      "sha256": "7b94c1d1a8968c1e23008a12d52d349e813e009f2f33f1560b06afcb1b721f16",
+      "size_bytes": 21028
+    },
+    {
+      "id": "unece_road_signs_page",
+      "url": "https://unece.org/info/Transport/Road-Traffic-and-Road-Safety/pub/2637",
+      "file_name": "road_signs_and_signals.html",
+      "classification": "reference-only",
+      "license_summary": "Official UNECE reference page",
+      "fetched_at": "2026-04-16T10:10:40+00:00",
+      "status": "fetch_failed",
+      "error": "curl: (56) The requested URL returned error: 403"
+    }
+  ]
+}

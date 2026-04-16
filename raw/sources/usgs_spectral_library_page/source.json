@@ -1,0 +1,10 @@
+{
+  "id": "usgs_spectral_library_page",
+  "url": "https://www.usgs.gov/data/usgs-spectral-library-version-7-data",
+  "file_name": "usgs_spectral_library_v7.html",
+  "classification": "reference-only",
+  "license_summary": "USGS landing page reference",
+  "fetched_at": "2026-04-16T10:10:40+00:00",
+  "status": "fetch_failed",
+  "error": "curl: (22) The requested URL returned error: 403"
+}

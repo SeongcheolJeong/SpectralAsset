@@ -1,0 +1,65 @@
+#usda 1.0
+(
+    defaultPrim = "scene_sign_test_lane"
+    upAxis = "Y"
+    metersPerUnit = 1
+)
+
+def Xform "scene_sign_test_lane" {
+    def Xform "road_0" (
+        references = @../geometry/usd/road_asphalt_dry.usda@</road_asphalt_dry>
+    ) {
+        double3 xformOp:translate = (0.000000, 0.000000, 0.000000)
+        float xformOp:rotateY = 0.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
+    def Xform "lane_0" (
+        references = @../geometry/usd/marking_lane_white.usda@</marking_lane_white>
+    ) {
+        double3 xformOp:translate = (-0.900000, 0.030000, 0.000000)
+        float xformOp:rotateY = 0.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
+    def Xform "lane_1" (
+        references = @../geometry/usd/marking_lane_white.usda@</marking_lane_white>
+    ) {
+        double3 xformOp:translate = (0.900000, 0.030000, 0.000000)
+        float xformOp:rotateY = 0.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
+    def Xform "sign_stop_0" (
+        references = @../geometry/usd/sign_stop.usda@</sign_stop>
+    ) {
+        double3 xformOp:translate = (-1.800000, 0.000000, -1.000000)
+        float xformOp:rotateY = 0.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
+    def Xform "sign_speed_0" (
+        references = @../geometry/usd/sign_speed_limit_50.usda@</sign_speed_limit_50>
+    ) {
+        double3 xformOp:translate = (-1.800000, 0.000000, 0.400000)
+        float xformOp:rotateY = 0.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
+    def Xform "sign_cross_0" (
+        references = @../geometry/usd/sign_pedestrian_crossing.usda@</sign_pedestrian_crossing>
+    ) {
+        double3 xformOp:translate = (-1.800000, 0.000000, 1.800000)
+        float xformOp:rotateY = 0.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
+    def Xform "sign_curve_0" (
+        references = @../geometry/usd/sign_curve_left.usda@</sign_curve_left>
+    ) {
+        double3 xformOp:translate = (1.800000, 0.000000, -0.600000)
+        float xformOp:rotateY = 180.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
+    def Xform "sign_signal_0" (
+        references = @../geometry/usd/sign_signal_ahead.usda@</sign_signal_ahead>
+    ) {
+        double3 xformOp:translate = (1.800000, 0.000000, 0.900000)
+        float xformOp:rotateY = 180.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
+}

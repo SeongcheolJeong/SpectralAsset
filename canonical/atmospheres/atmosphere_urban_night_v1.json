@@ -1,0 +1,10 @@
+{
+  "id": "atmosphere_urban_night_v1",
+  "aod_550": 0.21,
+  "visibility_km": 12.0,
+  "cloud_fraction": 0.15,
+  "source_ids": [
+    "aeronet_quality_assurance_pdf",
+    "libradtran_home"
+  ]
+}

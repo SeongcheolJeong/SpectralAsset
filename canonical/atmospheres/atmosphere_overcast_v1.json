@@ -1,0 +1,10 @@
+{
+  "id": "atmosphere_overcast_v1",
+  "aod_550": 0.18,
+  "visibility_km": 18.0,
+  "cloud_fraction": 0.95,
+  "source_ids": [
+    "aeronet_quality_assurance_pdf",
+    "libradtran_home"
+  ]
+}

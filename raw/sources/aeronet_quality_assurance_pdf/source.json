@@ -1,0 +1,11 @@
+{
+  "id": "aeronet_quality_assurance_pdf",
+  "url": "https://aeronet.gsfc.nasa.gov/new_web/Documents/AERONETcriteria_final1.pdf",
+  "file_name": "AERONETcriteria_final1.pdf",
+  "classification": "reference-only",
+  "license_summary": "NASA documentation",
+  "fetched_at": "2026-04-16T10:10:40+00:00",
+  "status": "downloaded",
+  "sha256": "e32fd08d1bfa4ee4d557d68b94abb87ce341b23fe4c1ac0d61df69259fd18dea",
+  "size_bytes": 1447567
+}

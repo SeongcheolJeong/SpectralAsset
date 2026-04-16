@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-04-16T10:10:40+00:00",
+  "items": [
+    {
+      "id": "automotive_sensor_srf",
+      "status": "backlog_measured_required"
+    },
+    {
+      "id": "traffic_signal_headlamp_spd",
+      "status": "backlog_measured_required"
+    },
+    {
+      "id": "wet_road_spectral_brdf",
+      "status": "backlog_measured_required"
+    },
+    {
+      "id": "retroreflective_sheeting_brdf",
+      "status": "backlog_measured_required"
+    }
+  ]
+}

@@ -1,0 +1,215 @@
+{
+  "generated_at": "2026-04-16T10:10:40+00:00",
+  "assets": [
+    {
+      "id": "sign_stop",
+      "family": "traffic_sign",
+      "semantic_class": "regulatory.stop",
+      "variant_key": "vienna_core.stop"
+    },
+    {
+      "id": "sign_yield",
+      "family": "traffic_sign",
+      "semantic_class": "regulatory.yield",
+      "variant_key": "vienna_core.give_way"
+    },
+    {
+      "id": "sign_no_entry",
+      "family": "traffic_sign",
+      "semantic_class": "regulatory.no_entry",
+      "variant_key": "vienna_core.no_entry"
+    },
+    {
+      "id": "sign_speed_limit_50",
+      "family": "traffic_sign",
+      "semantic_class": "regulatory.speed_limit",
+      "variant_key": "vienna_core.speed_limit_50"
+    },
+    {
+      "id": "sign_turn_restriction_left",
+      "family": "traffic_sign",
+      "semantic_class": "regulatory.turn_restriction",
+      "variant_key": "vienna_core.no_left_turn"
+    },
+    {
+      "id": "sign_mandatory_direction_right",
+      "family": "traffic_sign",
+      "semantic_class": "mandatory.direction",
+      "variant_key": "vienna_core.turn_right"
+    },
+    {
+      "id": "sign_pedestrian_crossing",
+      "family": "traffic_sign",
+      "semantic_class": "information.pedestrian_crossing",
+      "variant_key": "vienna_core.pedestrian_crossing"
+    },
+    {
+      "id": "sign_school_warning",
+      "family": "traffic_sign",
+      "semantic_class": "warning.school_zone",
+      "variant_key": "vienna_core.school_warning"
+    },
+    {
+      "id": "sign_signal_ahead",
+      "family": "traffic_sign",
+      "semantic_class": "warning.signal_ahead",
+      "variant_key": "vienna_core.signal_ahead"
+    },
+    {
+      "id": "sign_merge",
+      "family": "traffic_sign",
+      "semantic_class": "warning.merge",
+      "variant_key": "vienna_core.merge"
+    },
+    {
+      "id": "sign_curve_left",
+      "family": "traffic_sign",
+      "semantic_class": "warning.curve",
+      "variant_key": "vienna_core.curve_left"
+    },
+    {
+      "id": "sign_construction_warning",
+      "family": "traffic_sign",
+      "semantic_class": "warning.construction",
+      "variant_key": "vienna_core.roadworks"
+    },
+    {
+      "id": "sign_parking",
+      "family": "traffic_sign",
+      "semantic_class": "information.parking",
+      "variant_key": "vienna_core.parking"
+    },
+    {
+      "id": "sign_bus_stop",
+      "family": "traffic_sign",
+      "semantic_class": "information.bus_stop",
+      "variant_key": "vienna_core.bus_stop"
+    },
+    {
+      "id": "sign_one_way",
+      "family": "traffic_sign",
+      "semantic_class": "information.one_way",
+      "variant_key": "vienna_core.one_way"
+    },
+    {
+      "id": "sign_lane_direction",
+      "family": "traffic_sign",
+      "semantic_class": "information.lane_direction",
+      "variant_key": "vienna_core.lane_direction"
+    },
+    {
+      "id": "sign_railroad_warning",
+      "family": "traffic_sign",
+      "semantic_class": "warning.railroad",
+      "variant_key": "vienna_core.railroad_warning"
+    },
+    {
+      "id": "sign_variable_message",
+      "family": "traffic_sign",
+      "semantic_class": "information.variable_message",
+      "variant_key": "vienna_core.variable_message"
+    },
+    {
+      "id": "signal_vehicle_vertical_3_aspect",
+      "family": "traffic_light",
+      "semantic_class": "traffic_light.vehicle",
+      "variant_key": "vehicle.vertical.3_aspect"
+    },
+    {
+      "id": "signal_vehicle_horizontal_3_aspect",
+      "family": "traffic_light",
+      "semantic_class": "traffic_light.vehicle",
+      "variant_key": "vehicle.horizontal.3_aspect"
+    },
+    {
+      "id": "signal_protected_turn_4_aspect",
+      "family": "traffic_light",
+      "semantic_class": "traffic_light.vehicle_protected_turn",
+      "variant_key": "vehicle.protected_turn.4_aspect"
+    },
+    {
+      "id": "signal_pedestrian_2_aspect",
+      "family": "traffic_light",
+      "semantic_class": "traffic_light.pedestrian",
+      "variant_key": "pedestrian.2_aspect"
+    },
+    {
+      "id": "signal_pedestrian_countdown_housing",
+      "family": "traffic_light",
+      "semantic_class": "traffic_light.pedestrian_countdown",
+      "variant_key": "pedestrian.countdown"
+    },
+    {
+      "id": "road_asphalt_dry",
+      "family": "road_surface",
+      "semantic_class": "road.asphalt",
+      "variant_key": "dry"
+    },
+    {
+      "id": "road_asphalt_wet",
+      "family": "road_surface",
+      "semantic_class": "road.asphalt",
+      "variant_key": "wet"
+    },
+    {
+      "id": "road_concrete",
+      "family": "road_surface",
+      "semantic_class": "road.concrete",
+      "variant_key": "default"
+    },
+    {
+      "id": "road_curb_segment",
+      "family": "road_furniture",
+      "semantic_class": "road.curb",
+      "variant_key": "default"
+    },
+    {
+      "id": "road_sidewalk_panel",
+      "family": "road_surface",
+      "semantic_class": "road.sidewalk",
+      "variant_key": "default"
+    },
+    {
+      "id": "marking_lane_white",
+      "family": "road_marking",
+      "semantic_class": "marking.lane",
+      "variant_key": "white"
+    },
+    {
+      "id": "marking_lane_yellow",
+      "family": "road_marking",
+      "semantic_class": "marking.lane",
+      "variant_key": "yellow"
+    },
+    {
+      "id": "marking_stop_line",
+      "family": "road_marking",
+      "semantic_class": "marking.stop_line",
+      "variant_key": "white"
+    },
+    {
+      "id": "marking_crosswalk",
+      "family": "road_marking",
+      "semantic_class": "marking.crosswalk",
+      "variant_key": "ladder"
+    },
+    {
+      "id": "furniture_sign_pole",
+      "family": "road_furniture",
+      "semantic_class": "furniture.sign_pole",
+      "variant_key": "default"
+    },
+    {
+      "id": "furniture_signal_pole",
+      "family": "road_furniture",
+      "semantic_class": "furniture.signal_pole",
+      "variant_key": "mast_arm"
+    },
+    {
+      "id": "furniture_guardrail_bollard_set",
+      "family": "road_furniture",
+      "semantic_class": "furniture.guardrail_bollard",
+      "variant_key": "default"
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "id": "mapillary_download_help",
+  "url": "https://help.mapillary.com/hc/en-us/articles/4407521157138-Downloading-map-data-via-the-Mapillary-web-app",
+  "file_name": "downloading_map_data.html",
+  "classification": "reference-only",
+  "license_summary": "Mapillary help reference",
+  "fetched_at": "2026-04-16T10:10:40+00:00",
+  "status": "fetch_failed",
+  "error": "curl: (56) The requested URL returned error: 403"
+}

@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://spectralasset.local/schemas/scenario_profile.schema.json",
+  "type": "object",
+  "required": [
+    "id",
+    "illuminant_ref",
+    "atmosphere_ref",
+    "surface_state_overrides",
+    "sensor_branch",
+    "weather_flags"
+  ],
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "illuminant_ref": {},
+    "atmosphere_ref": {},
+    "surface_state_overrides": {
+      "type": "object"
+    },
+    "sensor_branch": {
+      "type": "string",
+      "enum": [
+        "rgb",
+        "rgb_nir"
+      ]
+    },
+    "weather_flags": {
+      "type": "object"
+    },
+    "license": {
+      "type": "object"
+    },
+    "provenance": {
+      "type": "object"
+    }
+  },
+  "additionalProperties": true
+}
+

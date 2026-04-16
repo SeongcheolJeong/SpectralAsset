@@ -1,0 +1,22 @@
+{
+  "id": "scenario_overcast_day",
+  "illuminant_ref": "canonical/spectra/illuminant_d65.npz",
+  "atmosphere_ref": "canonical/atmospheres/atmosphere_overcast_v1.json",
+  "surface_state_overrides": {
+    "road.asphalt": "road_asphalt_dry"
+  },
+  "sensor_branch": "rgb_nir",
+  "weather_flags": {
+    "daylight": true,
+    "wet": false,
+    "night": false,
+    "cloudy": true
+  },
+  "license": {
+    "spdx": "LicenseRef-ProjectGenerated"
+  },
+  "provenance": {
+    "generated_at": "2026-04-16T10:10:40+00:00",
+    "generated_by": "scripts/build_asset_pack.py"
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "id": "emissive_pedestrian_countdown",
+  "spd_ref": {
+    "red": "canonical/spectra/spd_led_red.npz",
+    "walk": "canonical/spectra/spd_led_pedestrian_white.npz",
+    "countdown": "canonical/spectra/spd_led_countdown_amber.npz"
+  },
+  "state_map": {
+    "off": {},
+    "dont_walk": {
+      "lens_ped_red": "spd_led_red"
+    },
+    "walk": {
+      "lens_ped_white": "spd_led_pedestrian_white"
+    },
+    "countdown": {
+      "display_countdown": "spd_led_countdown_amber"
+    }
+  },
+  "nominal_luminance_cd_m2": {
+    "red": 5400,
+    "walk": 6200,
+    "countdown": 5800
+  },
+  "temperature_c": 25.0,
+  "driver_mode": "steady_dc",
+  "license": {
+    "spdx": "LicenseRef-ProjectGenerated"
+  },
+  "provenance": {
+    "generated_at": "2026-04-16T10:10:40+00:00",
+    "generated_by": "scripts/build_asset_pack.py",
+    "note": "Proxy pedestrian countdown SPD."
+  }
+}

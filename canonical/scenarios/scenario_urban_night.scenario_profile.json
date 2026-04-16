@@ -1,0 +1,21 @@
+{
+  "id": "scenario_urban_night",
+  "illuminant_ref": "canonical/spectra/illuminant_urban_night_mix.npz",
+  "atmosphere_ref": "canonical/atmospheres/atmosphere_urban_night_v1.json",
+  "surface_state_overrides": {
+    "road.asphalt": "road_asphalt_dry"
+  },
+  "sensor_branch": "rgb_nir",
+  "weather_flags": {
+    "daylight": false,
+    "wet": false,
+    "night": true
+  },
+  "license": {
+    "spdx": "LicenseRef-ProjectGenerated"
+  },
+  "provenance": {
+    "generated_at": "2026-04-16T10:10:40+00:00",
+    "generated_by": "scripts/build_asset_pack.py"
+  }
+}

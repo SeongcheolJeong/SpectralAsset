@@ -1,0 +1,71 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://spectralasset.local/schemas/asset_manifest.schema.json",
+  "type": "object",
+  "required": [
+    "id",
+    "family",
+    "semantic_class",
+    "variant_key",
+    "dimensions_m",
+    "lods",
+    "collider",
+    "anchor_points",
+    "materials",
+    "states",
+    "export_targets"
+  ],
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "family": {
+      "type": "string",
+      "enum": [
+        "traffic_sign",
+        "traffic_light",
+        "road_surface",
+        "road_marking",
+        "road_furniture"
+      ]
+    },
+    "semantic_class": {
+      "type": "string"
+    },
+    "variant_key": {
+      "type": "string"
+    },
+    "dimensions_m": {
+      "type": "object"
+    },
+    "lods": {
+      "type": "array"
+    },
+    "collider": {
+      "type": "object"
+    },
+    "anchor_points": {
+      "type": "object"
+    },
+    "materials": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "states": {
+      "type": "object"
+    },
+    "export_targets": {
+      "type": "object"
+    },
+    "license": {
+      "type": "object"
+    },
+    "provenance": {
+      "type": "object"
+    }
+  },
+  "additionalProperties": true
+}
+

@@ -1,0 +1,22 @@
+{
+  "id": "scenario_wet_dusk",
+  "illuminant_ref": "canonical/spectra/illuminant_wet_dusk_mix.npz",
+  "atmosphere_ref": "canonical/atmospheres/atmosphere_wet_dusk_v1.json",
+  "surface_state_overrides": {
+    "road.asphalt": "road_asphalt_wet"
+  },
+  "sensor_branch": "rgb_nir",
+  "weather_flags": {
+    "daylight": false,
+    "wet": true,
+    "night": false,
+    "dusk": true
+  },
+  "license": {
+    "spdx": "LicenseRef-ProjectGenerated"
+  },
+  "provenance": {
+    "generated_at": "2026-04-16T10:10:40+00:00",
+    "generated_by": "scripts/build_asset_pack.py"
+  }
+}

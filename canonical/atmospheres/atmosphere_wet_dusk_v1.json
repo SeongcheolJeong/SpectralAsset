@@ -1,0 +1,11 @@
+{
+  "id": "atmosphere_wet_dusk_v1",
+  "aod_550": 0.16,
+  "visibility_km": 10.0,
+  "cloud_fraction": 0.6,
+  "rain_rate_mm_h": 1.2,
+  "source_ids": [
+    "aeronet_quality_assurance_pdf",
+    "libradtran_home"
+  ]
+}

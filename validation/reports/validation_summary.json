@@ -1,0 +1,42 @@
+{
+  "generated_at": "2026-04-16T10:10:40+00:00",
+  "asset_count": 35,
+  "material_count": 20,
+  "emissive_profile_count": 4,
+  "scenario_count": 4,
+  "asset_validation_errors": [],
+  "material_validation_errors": [],
+  "emissive_validation_errors": [],
+  "scenario_validation_errors": [],
+  "usd_validation_failures": [],
+  "visual_validation": {
+    "clear_day_legibility": "pass",
+    "urban_night_legibility": "pass"
+  },
+  "wet_road_validation": {
+    "status": "pass",
+    "observation": "wet asphalt pbr fallback uses lower diffuse reflectance and higher specular response than dry asphalt"
+  },
+  "state_validation": {
+    "status": "pass",
+    "observation": "traffic light manifests swap emissive profile state bindings without changing geometry files"
+  },
+  "semantic_validation": {
+    "status": "pass",
+    "stable_semantic_classes": true
+  },
+  "scale_validation": {
+    "status": "pass",
+    "failures": []
+  },
+  "spectral_coverage_validation": {
+    "status": "pass",
+    "materials_with_400_1100_coverage": 20
+  },
+  "release_gates": {
+    "wired_asset_ratio": 1.0,
+    "assets_with_license_and_provenance_ratio": 1.0,
+    "all_backlog_marked_measured_required": true,
+    "passes": true
+  }
+}

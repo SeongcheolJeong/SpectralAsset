@@ -1,0 +1,11 @@
+{
+  "id": "ecostress_spectral_library_page",
+  "url": "https://speclib.jpl.nasa.gov/",
+  "file_name": "index.html",
+  "classification": "reference-only",
+  "license_summary": "ECOSTRESS landing page reference",
+  "fetched_at": "2026-04-16T10:10:40+00:00",
+  "status": "downloaded",
+  "sha256": "7b94c1d1a8968c1e23008a12d52d349e813e009f2f33f1560b06afcb1b721f16",
+  "size_bytes": 21028
+}

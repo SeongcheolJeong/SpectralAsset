@@ -1,0 +1,11 @@
+{
+  "id": "openusd_faq",
+  "url": "https://openusd.org/release/usdfaq.html",
+  "file_name": "usdfaq.html",
+  "classification": "reference-only",
+  "license_summary": "OpenUSD documentation reference",
+  "fetched_at": "2026-04-16T10:10:40+00:00",
+  "status": "downloaded",
+  "sha256": "918cd52d5175d392197edf850c7bf9ff4ed9a91499457e7602c509d365b7c3b3",
+  "size_bytes": 166727
+}

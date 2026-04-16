@@ -1,0 +1,40 @@
+{
+  "id": "emissive_protected_turn",
+  "spd_ref": {
+    "red": "canonical/spectra/spd_led_red.npz",
+    "yellow": "canonical/spectra/spd_led_yellow.npz",
+    "green": "canonical/spectra/spd_led_green.npz",
+    "arrow": "canonical/spectra/spd_led_green.npz"
+  },
+  "state_map": {
+    "off": {},
+    "red": {
+      "lens_red": "spd_led_red"
+    },
+    "yellow": {
+      "lens_yellow": "spd_led_yellow"
+    },
+    "green": {
+      "lens_green": "spd_led_green"
+    },
+    "green_arrow": {
+      "lens_arrow": "spd_led_green"
+    }
+  },
+  "nominal_luminance_cd_m2": {
+    "red": 7000,
+    "yellow": 6500,
+    "green": 8000,
+    "arrow": 7600
+  },
+  "temperature_c": 25.0,
+  "driver_mode": "steady_dc",
+  "license": {
+    "spdx": "LicenseRef-ProjectGenerated"
+  },
+  "provenance": {
+    "generated_at": "2026-04-16T10:10:40+00:00",
+    "generated_by": "scripts/build_asset_pack.py",
+    "note": "Proxy protected-turn SPD."
+  }
+}

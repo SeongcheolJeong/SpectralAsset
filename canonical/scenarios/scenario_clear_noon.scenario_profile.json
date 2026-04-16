@@ -1,0 +1,21 @@
+{
+  "id": "scenario_clear_noon",
+  "illuminant_ref": "canonical/spectra/illuminant_am1_5_global_tilt.npz",
+  "atmosphere_ref": "canonical/atmospheres/atmosphere_clear_clean_v1.json",
+  "surface_state_overrides": {
+    "road.asphalt": "road_asphalt_dry"
+  },
+  "sensor_branch": "rgb_nir",
+  "weather_flags": {
+    "daylight": true,
+    "wet": false,
+    "night": false
+  },
+  "license": {
+    "spdx": "LicenseRef-ProjectGenerated"
+  },
+  "provenance": {
+    "generated_at": "2026-04-16T10:10:40+00:00",
+    "generated_by": "scripts/build_asset_pack.py"
+  }
+}

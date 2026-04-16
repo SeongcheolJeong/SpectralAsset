@@ -1,0 +1,14 @@
+{
+  "name": "spectral-asset-pack",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Autonomous driving camera simulation asset pack generator",
+  "scripts": {
+    "build": "python3 scripts/build_asset_pack.py",
+    "validate:gltf": "node scripts/validate_gltf.mjs"
+  },
+  "dependencies": {
+    "gltf-validator": "^2.0.0-dev.3.10"
+  }
+}
+

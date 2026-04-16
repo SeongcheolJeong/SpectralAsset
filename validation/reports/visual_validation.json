@@ -1,0 +1,155 @@
+{
+  "generated_at": "2026-04-16T10:10:40+00:00",
+  "clear_day_legibility": {
+    "sign_stop": {
+      "5m": "pass",
+      "15m": "pass",
+      "30m": "pass",
+      "60m": "pass"
+    },
+    "sign_yield": {
+      "5m": "pass",
+      "15m": "pass",
+      "30m": "pass",
+      "60m": "pass"
+    },
+    "sign_no_entry": {
+      "5m": "pass",
+      "15m": "pass",
+      "30m": "pass",
+      "60m": "pass"
+    },
+    "sign_speed_limit_50": {
+      "5m": "pass",
+      "15m": "pass",
+      "30m": "pass",
+      "60m": "pass"
+    },
+    "sign_turn_restriction_left": {
+      "5m": "pass",
+      "15m": "pass",
+      "30m": "pass",
+      "60m": "pass"
+    },
+    "sign_mandatory_direction_right": {
+      "5m": "pass",
+      "15m": "pass",
+      "30m": "pass",
+      "60m": "pass"
+    },
+    "sign_pedestrian_crossing": {
+      "5m": "pass",
+      "15m": "pass",
+      "30m": "pass",
+      "60m": "pass"
+    },
+    "sign_school_warning": {
+      "5m": "pass",
+      "15m": "pass",
+      "30m": "pass",
+      "60m": "pass"
+    },
+    "sign_signal_ahead": {
+      "5m": "pass",
+      "15m": "pass",
+      "30m": "pass",
+      "60m": "pass"
+    },
+    "sign_merge": {
+      "5m": "pass",
+      "15m": "pass",
+      "30m": "pass",
+      "60m": "pass"
+    },
+    "sign_curve_left": {
+      "5m": "pass",
+      "15m": "pass",
+      "30m": "pass",
+      "60m": "pass"
+    },
+    "sign_construction_warning": {
+      "5m": "pass",
+      "15m": "pass",
+      "30m": "pass",
+      "60m": "pass"
+    },
+    "sign_parking": {
+      "5m": "pass",
+      "15m": "pass",
+      "30m": "pass",
+      "60m": "pass"
+    },
+    "sign_bus_stop": {
+      "5m": "pass",
+      "15m": "pass",
+      "30m": "pass",
+      "60m": "pass"
+    },
+    "sign_one_way": {
+      "5m": "pass",
+      "15m": "pass",
+      "30m": "pass",
+      "60m": "pass"
+    },
+    "sign_lane_direction": {
+      "5m": "pass",
+      "15m": "pass",
+      "30m": "pass",
+      "60m": "pass"
+    },
+    "sign_railroad_warning": {
+      "5m": "pass",
+      "15m": "pass",
+      "30m": "pass",
+      "60m": "pass"
+    },
+    "sign_variable_message": {
+      "5m": "pass",
+      "15m": "pass",
+      "30m": "pass",
+      "60m": "pass"
+    }
+  },
+  "urban_night_legibility": {
+    "sign_stop": {
+      "5m": "pass",
+      "15m": "pass",
+      "30m": "pass"
+    },
+    "sign_yield": {
+      "5m": "pass",
+      "15m": "pass",
+      "30m": "pass"
+    },
+    "sign_no_entry": {
+      "5m": "pass",
+      "15m": "pass",
+      "30m": "pass"
+    },
+    "sign_speed_limit_50": {
+      "5m": "pass",
+      "15m": "pass",
+      "30m": "pass"
+    },
+    "sign_turn_restriction_left": {
+      "5m": "pass",
+      "15m": "pass",
+      "30m": "pass"
+    },
+    "sign_mandatory_direction_right": {
+      "5m": "pass",
+      "15m": "pass",
+      "30m": "pass"
+    },
+    "sign_pedestrian_crossing": {
+      "5m": "pass",
+      "15m": "pass",
+      "30m": "pass"
+    },
+    "sign_school_warning": {
+      "5m": "pass",
+      "15m": "pass",
+      "30m": "pass"
+    }
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "id": "osm_traffic_sign_wiki",
+  "url": "https://wiki.openstreetmap.org/wiki/Key:traffic_sign",
+  "file_name": "traffic_sign.html",
+  "classification": "reference-only",
+  "license_summary": "OpenStreetMap Wiki reference",
+  "fetched_at": "2026-04-16T10:10:40+00:00",
+  "status": "downloaded",
+  "sha256": "dc6de8c4c631f43e8d9bdabed0f65aecad12577749ebafe796c7d87f6baab8bc",
+  "size_bytes": 333376
+}
