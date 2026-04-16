@@ -9,6 +9,8 @@
 - phase roadmap and task backlog for long-running work
 - source-policy documentation for source classifications and blocked-source handling
 - milestone validation checklist and first release checklist
+- measured-replacement priority doc for the four remaining proxy-to-measured backlog items
+- catalog gap review for family-by-family asset coverage depth
 
 ### Changed
 
@@ -16,6 +18,7 @@
 - blocked `403` source pages are explicitly documented with impact and fallback handling instead of remaining only as ledger failures
 - rebuild tooling now preserves prior tracked timestamps by default to reduce non-semantic diff churn
 - build tooling now reuses frozen raw sources by default and requires explicit opt-in for source refreshes
+- backlog governance now ranks measurement backlog items and documents that the current catalog is count-complete but not depth-complete
 
 ## Baseline
 
@@ -34,5 +37,5 @@
 ### Known Gaps
 
 - `403` fetch failures remain for several external reference pages
-- generated outputs contain `generated_at` timestamps and can produce non-semantic rebuild diffs
+- generated outputs still contain `generated_at` metadata, but default tooling now preserves prior values and explicit refreshes remain review-sensitive
 - automotive sensor SRF, signal/headlamp SPD, wet-road BRDF, and retroreflective BRDF remain measurement backlog items

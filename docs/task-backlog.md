@@ -39,14 +39,14 @@
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | `P2-T001` | `P2` | `P1` | `done` | Address generator timestamp churn for tracked outputs | reproducibility policy and follow-up implementation task | `P0-T004` | timestamp-only diffs are documented, detectable, and scheduled for implementation |
 | `P2-T002` | `P2` | `P1` | `done` | Split proxy-vs-measured spectral assets clearly in docs | updated asset policy and overview notes | `P0-T002` | docs make the proxy/measured boundary explicit for materials and backlog items |
-| `P2-T003` | `P2` | `P2` | `planned` | Prioritize measured replacement backlog | ranked measurement plan | `P1-T002`, `P2-T002` | automotive SRF, signal SPD, wet-road BRDF, and retroreflective BRDF are ranked by impact and difficulty |
+| `P2-T003` | `P2` | `P2` | `done` | Prioritize measured replacement backlog | ranked measurement plan | `P1-T002`, `P2-T002` | automotive SRF, signal SPD, wet-road BRDF, and retroreflective BRDF are ranked by impact and difficulty |
 
 ### `P3` Geometry, Templates, and Asset Coverage
 
 | Task ID | Phase | Priority | Status | Title | Deliverable | Depends On | Definition of Done |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | `P3-T001` | `P3` | `P1` | `done` | Define acceptance criteria for asset additions | acceptance rules in `docs/asset-spec.md` | `P0-T002` | new asset additions have naming, manifest, validation, and provenance criteria |
-| `P3-T002` | `P3` | `P2` | `planned` | Review catalog coverage against roadmap phases | gap summary by asset family | `P3-T001` | missing or weak asset families are documented by priority |
+| `P3-T002` | `P3` | `P2` | `done` | Review catalog coverage against roadmap phases | gap summary by asset family | `P3-T001` | missing or weak asset families are documented by priority |
 
 ### `P4` Scenario, Validation, and Reproducibility
 
@@ -68,7 +68,8 @@
 
 ## Deferred Items
 
-- measured replacement of automotive sensor SRF
-- measured replacement of traffic-signal and headlamp SPD
-- wet-road spectral BRDF acquisition
-- retroreflective sheeting BRDF acquisition
+- measured replacement of automotive sensor SRF, ranked first in [measurement-priorities.md](measurement-priorities.md)
+- measured replacement of traffic-signal and headlamp SPD, ranked second in [measurement-priorities.md](measurement-priorities.md)
+- retroreflective sheeting BRDF acquisition, ranked third in [measurement-priorities.md](measurement-priorities.md)
+- wet-road spectral BRDF acquisition, ranked fourth in [measurement-priorities.md](measurement-priorities.md)
+- asset-family expansion beyond the current `v1.0` count-complete baseline, prioritized in [catalog-gap-review.md](catalog-gap-review.md)

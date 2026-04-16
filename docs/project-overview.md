@@ -60,6 +60,8 @@ Current backlog items from [../validation/reports/measurement_backlog.json](../v
 - wet-road spectral BRDF
 - retroreflective sheeting BRDF
 
+Current priority order for these measured replacements is documented in [measurement-priorities.md](measurement-priorities.md).
+
 ## Current Validation Status
 
 Current truth from [../validation/reports/validation_summary.json](../validation/reports/validation_summary.json):
@@ -83,3 +85,4 @@ Current source-fetch failures from [../raw/source_ledger.json](../raw/source_led
 
 Fallback handling for these blocked sources is documented in [source-policy.md](source-policy.md).
 Milestone validation gates are documented in [validation-checklist.md](validation-checklist.md).
+Family-by-family catalog depth gaps are documented in [catalog-gap-review.md](catalog-gap-review.md).
