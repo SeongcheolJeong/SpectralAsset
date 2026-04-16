@@ -42,7 +42,7 @@ Additional baseline facts:
 - `schemas/`: JSON schema definitions for manifest/profile types
 - `scripts/`: asset-pack generator and glTF validator wrapper
 - `validation/`: generated reports summarizing coverage and checks
-- `docs/`: management docs for roadmap, backlog, asset policy, and git workflow
+- `docs/`: management docs for roadmap, backlog, asset policy, source handling, and git workflow
 
 ## Known Constraints
 
@@ -81,3 +81,4 @@ Current source-fetch failures from [../raw/source_ledger.json](../raw/source_led
 - `usgs_spectral_library_page`: `403`
 - `unece_road_signs_page`: `403`
 
+Fallback handling for these blocked sources is documented in [source-policy.md](source-policy.md).

@@ -7,10 +7,12 @@
 - project-management doc set under `docs/`
 - local-first git workflow definition
 - phase roadmap and task backlog for long-running work
+- source-policy documentation for source classifications and blocked-source handling
 
 ### Changed
 
 - repository governance now treats generated assets, exports, raw-source records, and validation outputs as tracked artifacts
+- blocked `403` source pages are explicitly documented with impact and fallback handling instead of remaining only as ledger failures
 
 ## Baseline
 

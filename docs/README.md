@@ -8,6 +8,7 @@ This directory is the management layer for the autonomous-driving camera simulat
 - [roadmap.md](roadmap.md): phase-level delivery plan from repo governance through release hardening
 - [task-backlog.md](task-backlog.md): live backlog with task IDs, priorities, dependencies, and done criteria
 - [asset-spec.md](asset-spec.md): naming, catalog, manifest, and asset-acceptance contract
+- [source-policy.md](source-policy.md): source classifications, blocked-source handling, and licensing-use notes
 - [git-workflow.md](git-workflow.md): local-first git operating rules for this repository
 - [../CHANGELOG.md](../CHANGELOG.md): human-readable history of baseline and future changes
 
@@ -17,6 +18,7 @@ This directory is the management layer for the autonomous-driving camera simulat
 - Update [roadmap.md](roadmap.md) only when phase boundaries, goals, or dependency order change.
 - Update [task-backlog.md](task-backlog.md) for all task status changes. This is the only live task board.
 - Update [asset-spec.md](asset-spec.md) before changing naming rules, manifest contracts, or asset acceptance rules.
+- Update [source-policy.md](source-policy.md) when source classifications, fetch status handling, or licensing-use assumptions change.
 - Update [git-workflow.md](git-workflow.md) before changing branch, merge, artifact-tracking, or release policy.
 - Update [../CHANGELOG.md](../CHANGELOG.md) when work is merged to `main` or when a baseline/release-worthy milestone is created.
 
@@ -35,4 +37,3 @@ This directory is the management layer for the autonomous-driving camera simulat
 - [../validation/reports/gltf_validation.json](../validation/reports/gltf_validation.json): glTF validation coverage for generated exports
 - [../raw/source_ledger.json](../raw/source_ledger.json): raw-source fetch status, checksum ledger, and current 403 failures
 - [../scripts/build_asset_pack.py](../scripts/build_asset_pack.py): generator rules, catalog definitions, naming, and `generated_at` timestamp behavior
-

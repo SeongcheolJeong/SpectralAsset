@@ -29,8 +29,8 @@
 
 | Task ID | Phase | Priority | Status | Title | Deliverable | Depends On | Definition of Done |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| `P1-T001` | `P1` | `P1` | `blocked` | Resolve or document `403` source-fetch failures | updated source policy and fallback notes | `P0-T002` | each blocked source is either fetchable or documented with reason, impact, and fallback |
-| `P1-T002` | `P1` | `P1` | `planned` | Review source classifications and license usage | source-policy notes in docs | `P1-T001` | `redistributable`, `derived-only`, and `reference-only` usage is reviewed for current sources |
+| `P1-T001` | `P1` | `P1` | `done` | Resolve or document `403` source-fetch failures | updated source policy and fallback notes | `P0-T002` | each blocked source is either fetchable or documented with reason, impact, and fallback |
+| `P1-T002` | `P1` | `P1` | `done` | Review source classifications and license usage | source-policy notes in docs | `P1-T001` | `redistributable`, `derived-only`, and `reference-only` usage is reviewed for current sources |
 | `P1-T003` | `P1` | `P2` | `planned` | Prepare first release checklist | release checklist section or file | `P0-T005`, `P4-T002` | checklist covers source, validation, known gaps, and tag readiness |
 
 ### `P2` Spectral Data and Material Fidelity
@@ -63,7 +63,8 @@
 
 ## Blocked Items
 
-- `P1-T001`: blocked by external `403` responses for Mapillary help pages, the USGS landing page, and the UNECE page during automated fetch.
+- No active blocked tasks in the current documentation/governance phase.
+- External `403` source pages still exist, but they are now documented with fallback handling in `docs/source-policy.md`.
 
 ## Deferred Items
 
