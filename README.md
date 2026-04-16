@@ -37,7 +37,8 @@ For deterministic rebuild review, the generator now preserves the previous track
 - scenarios now bind to `canonical/camera/camera_reference_rgb_nir_v1.camera_profile.json`
 - selected USGS v7 dry-material baselines are used for asphalt, concrete, and galvanized metal
 - wet asphalt is currently a measured-derived material built from the measured dry asphalt baseline plus the tracked wet modifier
-- sign sheeting, road-marking retroreflection, and traffic-signal emitter SPDs still remain proxy in this phase
+- vehicle and protected-turn traffic-signal emissive profiles now use vendor-derived public LED fits
+- sign sheeting, road-marking retroreflection, pedestrian/countdown emitter SPDs, and measured traffic-signal/headlamp capture still remain incomplete in this phase
 
 ## Local Source Root
 
@@ -59,6 +60,6 @@ For deterministic rebuild review, the generator now preserves the previous track
 The generated reports explicitly track these gaps as `backlog_measured_required`:
 
 - automotive RGB/NIR sensor SRF
-- real traffic-signal/headlamp SPD
+- measured traffic-signal/headlamp SPD
 - wet-road spectral BRDF
 - retroreflective sheeting BRDF

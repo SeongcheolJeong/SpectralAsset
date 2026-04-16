@@ -8,6 +8,7 @@ Current baseline note:
 
 - dry asphalt, concrete, and galvanized metal have already been promoted from a frozen selected USGS v7 subset
 - wet asphalt is now a measured-derived material rather than a fully proxy dry/wet pair
+- vehicle and protected-turn traffic-signal emissive profiles now use vendor-derived public LED fits, but measured emitter replacement is still pending
 - the ranked backlog below therefore stays focused on the remaining high-impact camera, emitter, and BRDF gaps
 
 ## Inputs
@@ -60,7 +61,7 @@ Difficulty scale:
 ## Current Release Implication
 
 - `automotive_sensor_srf` is the highest-value fidelity upgrade for the whole repository.
-- `traffic_signal_headlamp_spd` is the fastest night-scene realism win.
+- `traffic_signal_headlamp_spd` remains the fastest measured night-scene realism win even though vehicle and protected-turn traffic-signal profiles now use vendor-derived public fits.
 - `retroreflective_sheeting_brdf` is the highest-risk remaining gap for sign realism after SPD replacement.
 - `wet_road_spectral_brdf` stays on the critical backlog, but current v1 scope makes it narrower than the other three items.
 - dry road/support material baselines are no longer the first material-fidelity gap because selected USGS v7 measured baselines are now active in the repository.

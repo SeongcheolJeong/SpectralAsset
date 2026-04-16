@@ -1,0 +1,13 @@
+{
+  "id": "osram_ly_q976_01_pdf",
+  "origin_type": "url",
+  "url": "https://look.ams-osram.com/m/677a16122cf90bd5/original/LY-Q976-01.pdf",
+  "file_name": "LY-Q976-01.pdf",
+  "classification": "reference-only",
+  "license_summary": "ams-OSRAM official yellow LED datasheet used for vendor-derived traffic-signal SPD fitting",
+  "path": "raw/sources/osram_ly_q976_01_pdf/LY-Q976-01.pdf",
+  "fetched_at": "2026-04-16T10:10:40+00:00",
+  "status": "downloaded",
+  "sha256": "cdb06135f0765f05079d535d4c95286dc2ab825274eb0911de59ab29d306a144",
+  "size_bytes": 1991312
+}

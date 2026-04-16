@@ -41,6 +41,12 @@
     "project_proxy": 16,
     "vendor_derived": 0
   },
+  "emissive_profile_quality_summary": {
+    "measured_derivative": 0,
+    "measured_standard": 0,
+    "project_proxy": 2,
+    "vendor_derived": 2
+  },
   "camera_profile_quality_summary": {
     "measured_derivative": 0,
     "measured_standard": 0,

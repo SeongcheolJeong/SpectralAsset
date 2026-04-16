@@ -23,11 +23,14 @@
 - build tooling now freezes a selected local USGS v7 subset into tracked `raw/` inputs instead of relying on the full local mirror
 - scenarios now reference a generic `RGB+NIR` camera profile
 - dry asphalt, concrete, and galvanized metal are now measured USGS-derived baselines, and wet asphalt is a measured-derived material
+- vehicle and protected-turn traffic-signal emissive profiles now use vendor-derived public LED fits from tracked ams-OSRAM datasheets
+- urban night illuminant generation now reuses the same vendor-derived signal color fits instead of the older hard-coded proxy peaks
 
 ### Validation
 
 - validation summary now includes `1` camera profile and zero camera-profile validation errors
 - material quality summary now reports `3` `measured_standard`, `1` `measured_derivative`, `16` `project_proxy`, and `0` `vendor_derived` materials
+- emissive profile quality summary now distinguishes vendor-derived vehicle/protected-turn profiles from remaining proxy pedestrian/countdown profiles
 
 ## Baseline
 

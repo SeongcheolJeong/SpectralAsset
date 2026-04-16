@@ -222,7 +222,55 @@ SOURCE_DEFS = [
         "classification": "reference-only",
         "license_summary": "Sony official image-sensor PDF with near-infrared sensitivity claim",
     },
+    {
+        "id": "osram_lr_q976_01_pdf",
+        "url": "https://look.ams-osram.com/m/4c6f3e4bd792ccdf/original/LR-Q976-01.pdf",
+        "file_name": "LR-Q976-01.pdf",
+        "classification": "reference-only",
+        "license_summary": "ams-OSRAM official red LED datasheet used for vendor-derived traffic-signal SPD fitting",
+    },
+    {
+        "id": "osram_ly_q976_01_pdf",
+        "url": "https://look.ams-osram.com/m/677a16122cf90bd5/original/LY-Q976-01.pdf",
+        "file_name": "LY-Q976-01.pdf",
+        "classification": "reference-only",
+        "license_summary": "ams-OSRAM official yellow LED datasheet used for vendor-derived traffic-signal SPD fitting",
+    },
+    {
+        "id": "osram_ltrb_rasf_01_pdf",
+        "url": "https://look.ams-osram.com/m/2d62a008e17fb3a1/original/LTRB-RASF-01.pdf",
+        "file_name": "LTRB-RASF-01.pdf",
+        "classification": "reference-only",
+        "license_summary": "ams-OSRAM official true-green RGB LED datasheet used for vendor-derived traffic-signal SPD fitting",
+    },
 ]
+
+SIGNAL_VENDOR_SPD_SPECS = {
+    "red": {
+        "curve_name": "spd_signal_red_vendor_ref",
+        "source_id": "osram_lr_q976_01_pdf",
+        "peak_nm": 628.0,
+        "dominant_nm": 623.0,
+        "fwhm_nm": 15.0,
+        "datasheet": "ams-OSRAM LR Q976.01, Version 1.3, 2025-07-29",
+    },
+    "yellow": {
+        "curve_name": "spd_signal_yellow_vendor_ref",
+        "source_id": "osram_ly_q976_01_pdf",
+        "peak_nm": 592.0,
+        "dominant_nm": 589.0,
+        "fwhm_nm": 14.0,
+        "datasheet": "ams-OSRAM LY Q976.01, Version 1.3, 2025-07-29",
+    },
+    "green": {
+        "curve_name": "spd_signal_green_vendor_ref",
+        "source_id": "osram_ltrb_rasf_01_pdf",
+        "peak_nm": 525.0,
+        "dominant_nm": 530.0,
+        "fwhm_nm": 30.0,
+        "datasheet": "ams-OSRAM LTRB RASF.01, Version 1.1, 2025-02-03",
+    },
+}
 
 USGS_WAVELENGTH_SOURCE = {
     "id": "usgs_asdfr_wavelengths_2151",
@@ -758,6 +806,28 @@ def interpolate(points: Sequence[Tuple[float, float]], grid: Sequence[int]) -> L
 
 def gaussian(grid: Sequence[int], center: float, sigma: float, amplitude: float, base: float = 0.0) -> List[float]:
     return [base + amplitude * math.exp(-0.5 * ((w - center) / sigma) ** 2) for w in grid]
+
+
+def fwhm_to_sigma(fwhm_nm: float) -> float:
+    return fwhm_nm / (2.0 * math.sqrt(2.0 * math.log(2.0)))
+
+
+def build_vendor_signal_spd_curves() -> Dict[str, Dict]:
+    spectra_dir = REPO_ROOT / "canonical" / "spectra"
+    curves = {}
+    for state, spec in SIGNAL_VENDOR_SPD_SPECS.items():
+        values = normalize_unit_peak(gaussian(MASTER_GRID, spec["peak_nm"], fwhm_to_sigma(spec["fwhm_nm"]), 1.0))
+        write_npz(spectra_dir / f"{spec['curve_name']}.npz", {"wavelength_nm": MASTER_GRID, "values": values})
+        curves[state] = {
+            "curve_name": spec["curve_name"],
+            "values": values,
+            "source_id": spec["source_id"],
+            "peak_nm": spec["peak_nm"],
+            "dominant_nm": spec["dominant_nm"],
+            "fwhm_nm": spec["fwhm_nm"],
+            "datasheet": spec["datasheet"],
+        }
+    return curves
 
 
 def clamp_list(values: Sequence[float], lower: float = 0.0, upper: float = 1.0) -> List[float]:
@@ -1820,7 +1890,7 @@ def write_camera_profiles() -> List[Dict]:
     return [profile]
 
 
-def generate_standard_spectra() -> Dict[str, List[float]]:
+def generate_standard_spectra(signal_vendor_curves: Dict[str, Dict]) -> Dict[str, List[float]]:
     cie = interpolate(load_cie_d65(), MASTER_GRID)
     astm = load_astm_g173()
     global_tilt = interpolate(astm["global_tilt"], MASTER_GRID)
@@ -1830,7 +1900,14 @@ def generate_standard_spectra() -> Dict[str, List[float]]:
     write_npz(REPO_ROOT / "canonical" / "spectra" / "illuminant_am1_5_global_tilt.npz", {"wavelength_nm": MASTER_GRID, "values": global_tilt})
     write_npz(REPO_ROOT / "canonical" / "spectra" / "illuminant_am1_5_direct.npz", {"wavelength_nm": MASTER_GRID, "values": direct})
     write_npz(REPO_ROOT / "canonical" / "spectra" / "illuminant_am0_extraterrestrial.npz", {"wavelength_nm": MASTER_GRID, "values": extraterrestrial})
-    urban_night = [red * 0.38 + yellow * 0.22 + green * 0.12 + 0.15 for red, yellow, green in zip(gaussian(MASTER_GRID, 625.0, 16.0, 1.0), gaussian(MASTER_GRID, 592.0, 18.0, 1.0), gaussian(MASTER_GRID, 530.0, 18.0, 0.6))]
+    urban_night = [
+        red * 0.38 + yellow * 0.22 + green * 0.12 + 0.15
+        for red, yellow, green in zip(
+            signal_vendor_curves["red"]["values"],
+            signal_vendor_curves["yellow"]["values"],
+            signal_vendor_curves["green"]["values"],
+        )
+    ]
     wet_dusk = [d65 * 0.36 + am * 0.24 for d65, am in zip(cie, global_tilt)]
     write_npz(REPO_ROOT / "canonical" / "spectra" / "illuminant_urban_night_mix.npz", {"wavelength_nm": MASTER_GRID, "values": urban_night})
     write_npz(REPO_ROOT / "canonical" / "spectra" / "illuminant_wet_dusk_mix.npz", {"wavelength_nm": MASTER_GRID, "values": wet_dusk})
@@ -2099,52 +2176,73 @@ def write_asset_geometry_and_exports(assets: List[Dict], asset_meshes: Dict[str,
     return exported
 
 
-def write_emissive_profiles() -> List[Dict]:
+def write_emissive_profiles(signal_vendor_curves: Dict[str, Dict]) -> List[Dict]:
+    vehicle_signal_source_ids = [
+        SIGNAL_VENDOR_SPD_SPECS["red"]["source_id"],
+        SIGNAL_VENDOR_SPD_SPECS["yellow"]["source_id"],
+        SIGNAL_VENDOR_SPD_SPECS["green"]["source_id"],
+    ]
     profiles = [
         {
             "id": "emissive_vehicle_standard",
             "spd_ref": {
-                "red": "canonical/spectra/spd_led_red.npz",
-                "yellow": "canonical/spectra/spd_led_yellow.npz",
-                "green": "canonical/spectra/spd_led_green.npz",
+                "red": f"canonical/spectra/{signal_vendor_curves['red']['curve_name']}.npz",
+                "yellow": f"canonical/spectra/{signal_vendor_curves['yellow']['curve_name']}.npz",
+                "green": f"canonical/spectra/{signal_vendor_curves['green']['curve_name']}.npz",
             },
             "state_map": {
                 "off": {},
-                "red": {"lens_red": "spd_led_red"},
-                "yellow": {"lens_yellow": "spd_led_yellow"},
-                "green": {"lens_green": "spd_led_green"},
-                "flashing_yellow": {"lens_yellow": "spd_led_yellow"},
+                "red": {"lens_red": signal_vendor_curves["red"]["curve_name"]},
+                "yellow": {"lens_yellow": signal_vendor_curves["yellow"]["curve_name"]},
+                "green": {"lens_green": signal_vendor_curves["green"]["curve_name"]},
+                "flashing_yellow": {"lens_yellow": signal_vendor_curves["yellow"]["curve_name"]},
             },
             "nominal_luminance_cd_m2": {"red": 7000, "yellow": 6500, "green": 8000},
             "temperature_c": 25.0,
             "driver_mode": "steady_dc",
-            "source_quality": "project_proxy",
-            "source_ids": [],
-            "license": {"spdx": "LicenseRef-ProjectGenerated"},
-            "provenance": {"generated_at": GENERATED_AT, "generated_by": "scripts/build_asset_pack.py", "source_ids": [], "note": "Proxy traffic signal SPD."},
+            "source_quality": "vendor_derived",
+            "source_ids": vehicle_signal_source_ids,
+            "license": {
+                "spdx": "LicenseRef-VendorDerived",
+                "redistribution": "Derived traffic-signal SPD metadata and fitted curves from public ams-OSRAM datasheets.",
+            },
+            "provenance": {
+                "generated_at": GENERATED_AT,
+                "generated_by": "scripts/build_asset_pack.py",
+                "source_ids": vehicle_signal_source_ids,
+                "note": "Vendor-derived traffic-signal SPD fit from public ams-OSRAM red, yellow, and true-green LED datasheets.",
+            },
         },
         {
             "id": "emissive_protected_turn",
             "spd_ref": {
-                "red": "canonical/spectra/spd_led_red.npz",
-                "yellow": "canonical/spectra/spd_led_yellow.npz",
-                "green": "canonical/spectra/spd_led_green.npz",
-                "arrow": "canonical/spectra/spd_led_green.npz",
+                "red": f"canonical/spectra/{signal_vendor_curves['red']['curve_name']}.npz",
+                "yellow": f"canonical/spectra/{signal_vendor_curves['yellow']['curve_name']}.npz",
+                "green": f"canonical/spectra/{signal_vendor_curves['green']['curve_name']}.npz",
+                "arrow": f"canonical/spectra/{signal_vendor_curves['green']['curve_name']}.npz",
             },
             "state_map": {
                 "off": {},
-                "red": {"lens_red": "spd_led_red"},
-                "yellow": {"lens_yellow": "spd_led_yellow"},
-                "green": {"lens_green": "spd_led_green"},
-                "green_arrow": {"lens_arrow": "spd_led_green"},
+                "red": {"lens_red": signal_vendor_curves["red"]["curve_name"]},
+                "yellow": {"lens_yellow": signal_vendor_curves["yellow"]["curve_name"]},
+                "green": {"lens_green": signal_vendor_curves["green"]["curve_name"]},
+                "green_arrow": {"lens_arrow": signal_vendor_curves["green"]["curve_name"]},
             },
             "nominal_luminance_cd_m2": {"red": 7000, "yellow": 6500, "green": 8000, "arrow": 7600},
             "temperature_c": 25.0,
             "driver_mode": "steady_dc",
-            "source_quality": "project_proxy",
-            "source_ids": [],
-            "license": {"spdx": "LicenseRef-ProjectGenerated"},
-            "provenance": {"generated_at": GENERATED_AT, "generated_by": "scripts/build_asset_pack.py", "source_ids": [], "note": "Proxy protected-turn SPD."},
+            "source_quality": "vendor_derived",
+            "source_ids": vehicle_signal_source_ids,
+            "license": {
+                "spdx": "LicenseRef-VendorDerived",
+                "redistribution": "Derived traffic-signal SPD metadata and fitted curves from public ams-OSRAM datasheets.",
+            },
+            "provenance": {
+                "generated_at": GENERATED_AT,
+                "generated_by": "scripts/build_asset_pack.py",
+                "source_ids": vehicle_signal_source_ids,
+                "note": "Vendor-derived protected-turn traffic-signal SPD fit from public ams-OSRAM red, yellow, and true-green LED datasheets.",
+            },
         },
         {
             "id": "emissive_pedestrian_standard",
@@ -2410,6 +2508,28 @@ def validate_emissive(profile: Dict, known_source_ids: Sequence[str]) -> List[st
     if profile.get("source_quality") not in SOURCE_QUALITY_ENUM:
         errors.append(f"{profile['id']}: invalid source_quality")
     errors.extend(validate_source_ids(profile["id"], profile.get("source_ids", []), known_source_ids))
+    spd_ref = profile.get("spd_ref", {})
+    if not isinstance(spd_ref, dict):
+        errors.append(f"{profile['id']}: spd_ref must be an object")
+        return errors
+    for state_id, curve_path in spd_ref.items():
+        path = REPO_ROOT / curve_path
+        if not path.exists():
+            errors.append(f"{profile['id']}: missing spd_ref path for {state_id}")
+            continue
+        arrays = read_npz(path)
+        wavelengths = arrays["wavelength_nm"]
+        values = arrays["values"]
+        if min(wavelengths) > 400 or max(wavelengths) < 1100:
+            errors.append(f"{profile['id']}: spd_ref for {state_id} lacks 400-1100 coverage")
+        if min(values) < -1e-6:
+            errors.append(f"{profile['id']}: spd_ref for {state_id} contains negative values")
+    for mapping in profile.get("state_map", {}).values():
+        if not isinstance(mapping, dict):
+            continue
+        for curve_id in mapping.values():
+            if curve_id not in {Path(path).stem for path in spd_ref.values()}:
+                errors.append(f"{profile['id']}: state_map references unknown curve_id {curve_id}")
     return errors
 
 
@@ -2592,6 +2712,10 @@ def build_reports(assets: List[Dict], materials: Dict[str, Dict], emissive_profi
             quality: len([material for material in materials.values() if material.get("source_quality") == quality])
             for quality in sorted(SOURCE_QUALITY_ENUM)
         },
+        "emissive_profile_quality_summary": {
+            quality: len([profile for profile in emissive_profiles if profile.get("source_quality") == quality])
+            for quality in sorted(SOURCE_QUALITY_ENUM)
+        },
         "camera_profile_quality_summary": {
             quality: len([profile for profile in camera_profiles if profile.get("source_quality") == quality])
             for quality in sorted(SOURCE_QUALITY_ENUM)
@@ -2617,12 +2741,13 @@ def build_reports(assets: List[Dict], materials: Dict[str, Dict], emissive_profi
 def main() -> int:
     clean_generated_dirs()
     ledger = download_sources()
-    standards = generate_standard_spectra()
+    signal_vendor_curves = build_vendor_signal_spd_curves()
+    standards = generate_standard_spectra(signal_vendor_curves)
     materials = make_materials(standards["illuminant_d65"])
     camera_profiles = write_camera_profiles()
     assets, asset_meshes = build_assets(materials)
     usd_status = write_asset_geometry_and_exports(assets, asset_meshes, materials)
-    emissive_profiles = write_emissive_profiles()
+    emissive_profiles = write_emissive_profiles(signal_vendor_curves)
     atmospheres, scenarios = write_scenarios_and_atmospheres(camera_profiles[0]["id"])
     write_scenes(asset_meshes, materials)
     summary = build_reports(assets, materials, emissive_profiles, camera_profiles, scenarios, usd_status, ledger)

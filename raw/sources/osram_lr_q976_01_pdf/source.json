@@ -1,0 +1,13 @@
+{
+  "id": "osram_lr_q976_01_pdf",
+  "origin_type": "url",
+  "url": "https://look.ams-osram.com/m/4c6f3e4bd792ccdf/original/LR-Q976-01.pdf",
+  "file_name": "LR-Q976-01.pdf",
+  "classification": "reference-only",
+  "license_summary": "ams-OSRAM official red LED datasheet used for vendor-derived traffic-signal SPD fitting",
+  "path": "raw/sources/osram_lr_q976_01_pdf/LR-Q976-01.pdf",
+  "fetched_at": "2026-04-16T10:10:40+00:00",
+  "status": "downloaded",
+  "sha256": "f64133d025c3c1226954fd7f59b5d39fe6ff6d11ea8c7114122177be2aeb2044",
+  "size_bytes": 1976457
+}

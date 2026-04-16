@@ -33,8 +33,9 @@ Additional baseline facts:
 
 - `39` GLB files currently validate with `0` errors and `0` warnings in [../validation/reports/gltf_validation.json](../validation/reports/gltf_validation.json)
 - release gates currently pass for the generated baseline
-- raw-source ledger currently tracks `28` source entries
+- raw-source ledger currently tracks `31` source entries
 - material quality summary currently reports `3` `measured_standard`, `1` `measured_derivative`, `16` `project_proxy`, and `0` `vendor_derived` materials
+- emissive-profile quality summary currently reports `2` `vendor_derived` and `2` `project_proxy` profiles
 
 ## Repository Structure
 
@@ -51,6 +52,7 @@ Additional baseline facts:
 - Several external reference pages currently fail automated fetch with `403` and only have failure records in the source ledger.
 - The full local `usgs_splib07/` mirror is intentionally not tracked; only the selected frozen subset in `raw/sources/usgs_splib07_selected/` is part of the repository baseline.
 - Many spectral assets are still proxy curves, even though dry asphalt, concrete, and galvanized metal now use measured USGS-derived baselines.
+- Vehicle and protected-turn traffic-signal SPDs now use vendor-derived public fits, but pedestrian/countdown emitters and all measured emitter replacements are still incomplete.
 - Generated files still include `generated_at` metadata, but the generator and validator now preserve the previous value by default so clean rebuilds do not churn timestamps unless explicitly overridden.
 - The repository is local-first only; remote collaboration rules are documented but not yet activated.
 
@@ -59,9 +61,11 @@ Additional baseline facts:
 Current backlog items from [../validation/reports/measurement_backlog.json](../validation/reports/measurement_backlog.json):
 
 - automotive RGB/NIR sensor spectral response
-- traffic signal and headlamp SPD replacement data
+- measured traffic signal and headlamp SPD replacement data
 - wet-road spectral BRDF
 - retroreflective sheeting BRDF
+
+The traffic-signal/headlamp backlog item remains open even though vehicle and protected-turn signal profiles now use vendor-derived public LED fits; the repository still lacks measured capture data and any headlamp-bound replacement curves.
 
 Current priority order for these measured replacements is documented in [measurement-priorities.md](measurement-priorities.md).
 

@@ -62,6 +62,9 @@ Current examples:
 - `usgs_spectral_library_page`
 - `ecostress_spectral_library_page`
 - `unece_road_signs_page`
+- `osram_lr_q976_01_pdf`
+- `osram_ly_q976_01_pdf`
+- `osram_ltrb_rasf_01_pdf`
 - `mapillary_sign_help`
 - `mapillary_download_help`
 
@@ -92,6 +95,9 @@ Operational rule:
 | `basler_color_emva_knowledge` | `reference-only` | `downloaded` | camera-profile vendor-derived context | public documentation used for generic camera-profile derivation |
 | `sony_imx900_product_page` | `reference-only` | `downloaded` | camera-profile vendor-derived context | public Sony sensor page for NIR-sensitive profile assumptions |
 | `sony_isx016_pdf` | `reference-only` | `downloaded` | camera-profile vendor-derived context | official Sony PDF with NIR sensitivity claim |
+| `osram_lr_q976_01_pdf` | `reference-only` | `downloaded` | vehicle-signal red SPD vendor-derived fit | official ams-OSRAM red LED datasheet used for fitted signal SPD |
+| `osram_ly_q976_01_pdf` | `reference-only` | `downloaded` | vehicle-signal yellow SPD vendor-derived fit | official ams-OSRAM yellow LED datasheet used for fitted signal SPD |
+| `osram_ltrb_rasf_01_pdf` | `reference-only` | `downloaded` | vehicle-signal green SPD vendor-derived fit | official ams-OSRAM true-green LED datasheet used for fitted signal SPD |
 | `usgs_asdfr_wavelengths_2151` | `redistributable` | `copied_from_local` | wavelength basis for selected USGS materials | tracked selected local subset entry |
 | `usgs_gds376_asphalt_road_old` | `redistributable` | `copied_from_local` | measured dry asphalt baseline | actively bound to `mat_asphalt_dry` |
 | `usgs_gds375_concrete_road` | `redistributable` | `copied_from_local` | measured concrete baseline | actively bound to `mat_concrete` |

@@ -1,0 +1,13 @@
+{
+  "id": "osram_ltrb_rasf_01_pdf",
+  "origin_type": "url",
+  "url": "https://look.ams-osram.com/m/2d62a008e17fb3a1/original/LTRB-RASF-01.pdf",
+  "file_name": "LTRB-RASF-01.pdf",
+  "classification": "reference-only",
+  "license_summary": "ams-OSRAM official true-green RGB LED datasheet used for vendor-derived traffic-signal SPD fitting",
+  "path": "raw/sources/osram_ltrb_rasf_01_pdf/LTRB-RASF-01.pdf",
+  "fetched_at": "2026-04-16T10:10:40+00:00",
+  "status": "downloaded",
+  "sha256": "454dd581b912b79ab780349c67ff56adad46fa128e1213b80d950534790aba74",
+  "size_bytes": 2358088
+}

@@ -109,6 +109,8 @@ These are profiles derived from public vendor documentation rather than a direct
 Examples:
 
 - `camera_reference_rgb_nir_v1.camera_profile.json`
+- `emissive_vehicle_standard.emissive_profile.json`
+- `emissive_protected_turn.emissive_profile.json`
 
 ### `project_proxy`
 
@@ -119,7 +121,7 @@ Examples:
 - sign reflectance curves such as `mat_sign_stop_red_reflectance.npz`
 - road and marking curves such as `mat_marking_white_reflectance.npz`
 - modifier curves such as `mat_retroreflective_gain.npz`
-- emissive SPDs such as `spd_led_red.npz`
+- pedestrian and countdown emissive SPDs such as `spd_led_red.npz` and `spd_led_countdown_amber.npz`
 - optics/transmittance proxies such as `mat_glass_lens_transmittance.npz`
 
 Upgrade rule:
@@ -153,7 +155,8 @@ Asset addition acceptance criteria:
 The current repository mixes open standards, frozen source references, vendor-derived profiles, and project-generated proxy data. Until measured replacements land:
 
 - sign and marking materials remain simulation proxies rather than measured traffic-control coatings
-- traffic-light emissive SPDs are placeholders for measured replacements
+- vehicle and protected-turn traffic-signal SPDs are vendor-derived fits rather than measured captures
+- pedestrian red/walk/countdown emissive SPDs still remain proxy curves
 - wet-road and retroreflective behavior remain approximation-heavy
 - the generic camera profile is vendor-derived rather than a measured single-SKU automotive SRF
 - docs and backlog must continue to distinguish measured truth from proxy assets

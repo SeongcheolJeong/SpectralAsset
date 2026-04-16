@@ -1,23 +1,23 @@
 {
   "id": "emissive_vehicle_standard",
   "spd_ref": {
-    "red": "canonical/spectra/spd_led_red.npz",
-    "yellow": "canonical/spectra/spd_led_yellow.npz",
-    "green": "canonical/spectra/spd_led_green.npz"
+    "red": "canonical/spectra/spd_signal_red_vendor_ref.npz",
+    "yellow": "canonical/spectra/spd_signal_yellow_vendor_ref.npz",
+    "green": "canonical/spectra/spd_signal_green_vendor_ref.npz"
   },
   "state_map": {
     "off": {},
     "red": {
-      "lens_red": "spd_led_red"
+      "lens_red": "spd_signal_red_vendor_ref"
     },
     "yellow": {
-      "lens_yellow": "spd_led_yellow"
+      "lens_yellow": "spd_signal_yellow_vendor_ref"
     },
     "green": {
-      "lens_green": "spd_led_green"
+      "lens_green": "spd_signal_green_vendor_ref"
     },
     "flashing_yellow": {
-      "lens_yellow": "spd_led_yellow"
+      "lens_yellow": "spd_signal_yellow_vendor_ref"
     }
   },
   "nominal_luminance_cd_m2": {
@@ -27,15 +27,24 @@
   },
   "temperature_c": 25.0,
   "driver_mode": "steady_dc",
-  "source_quality": "project_proxy",
-  "source_ids": [],
+  "source_quality": "vendor_derived",
+  "source_ids": [
+    "osram_lr_q976_01_pdf",
+    "osram_ly_q976_01_pdf",
+    "osram_ltrb_rasf_01_pdf"
+  ],
   "license": {
-    "spdx": "LicenseRef-ProjectGenerated"
+    "spdx": "LicenseRef-VendorDerived",
+    "redistribution": "Derived traffic-signal SPD metadata and fitted curves from public ams-OSRAM datasheets."
   },
   "provenance": {
     "generated_at": "2026-04-16T10:10:40+00:00",
     "generated_by": "scripts/build_asset_pack.py",
-    "source_ids": [],
-    "note": "Proxy traffic signal SPD."
+    "source_ids": [
+      "osram_lr_q976_01_pdf",
+      "osram_ly_q976_01_pdf",
+      "osram_ltrb_rasf_01_pdf"
+    ],
+    "note": "Vendor-derived traffic-signal SPD fit from public ams-OSRAM red, yellow, and true-green LED datasheets."
   }
 }
