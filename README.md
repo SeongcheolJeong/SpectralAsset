@@ -54,6 +54,8 @@ For deterministic rebuild review, the generator now preserves the previous track
 - [docs/roadmap.md](docs/roadmap.md): phase-level delivery plan
 - [docs/task-backlog.md](docs/task-backlog.md): live backlog and task status
 - [docs/git-workflow.md](docs/git-workflow.md): local-first git workflow and tracked-artifact policy
+- [docs/created-assets.md](docs/created-assets.md): explanation of what the generated asset pack contains
+- [docs/file-formats.md](docs/file-formats.md): explanation of `.npz`, `.json`, `USD`, and related file types
 - [docs/usgs-ingest.md](docs/usgs-ingest.md): selected USGS subset ingest and binding rules
 - [docs/camera-profile.md](docs/camera-profile.md): generic camera-profile contract and current limitations
 

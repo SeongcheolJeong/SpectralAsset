@@ -7,6 +7,7 @@
 - project-management doc set under `docs/`
 - local-first git workflow definition
 - phase roadmap and task backlog for long-running work
+- explanation docs for generated assets and file formats
 - source-policy documentation for source classifications and blocked-source handling
 - milestone validation checklist and first release checklist
 - measured-replacement priority doc for the four remaining proxy-to-measured backlog items
