@@ -16,7 +16,56 @@ from typing import Dict, Iterable, List, Optional, Sequence, Tuple
 
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
-GENERATED_AT = dt.datetime.now(dt.timezone.utc).replace(microsecond=0).isoformat()
+
+
+def parse_iso8601(value: str) -> str:
+    normalized = value.strip()
+    if normalized.endswith("Z"):
+        normalized = normalized[:-1] + "+00:00"
+    parsed = dt.datetime.fromisoformat(normalized)
+    if parsed.tzinfo is None:
+        parsed = parsed.replace(tzinfo=dt.timezone.utc)
+    return parsed.astimezone(dt.timezone.utc).replace(microsecond=0).isoformat()
+
+
+def load_existing_generated_at(path: Path) -> Optional[str]:
+    if not path.exists():
+        return None
+    try:
+        payload = json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError):
+        return None
+    value = payload.get("generated_at")
+    if not isinstance(value, str):
+        return None
+    try:
+        return parse_iso8601(value)
+    except ValueError:
+        return None
+
+
+def resolve_generated_at() -> str:
+    build_timestamp = os.getenv("BUILD_TIMESTAMP")
+    if build_timestamp:
+        return parse_iso8601(build_timestamp)
+
+    source_date_epoch = os.getenv("SOURCE_DATE_EPOCH")
+    if source_date_epoch:
+        epoch = int(source_date_epoch)
+        return dt.datetime.fromtimestamp(epoch, tz=dt.timezone.utc).replace(microsecond=0).isoformat()
+
+    for rel_path in [
+        "validation/reports/validation_summary.json",
+        "raw/source_ledger.json",
+    ]:
+        existing = load_existing_generated_at(REPO_ROOT / rel_path)
+        if existing:
+            return existing
+
+    return dt.datetime.now(dt.timezone.utc).replace(microsecond=0).isoformat()
+
+
+GENERATED_AT = resolve_generated_at()
 
 MASTER_GRID = list(range(350, 1701))
 RUNTIME_GRID = list(range(400, 1101, 5))
@@ -157,7 +206,7 @@ def ensure_dirs() -> None:
 
 
 def clean_generated_dirs() -> None:
-    for rel in ["canonical", "exports", "raw/sources", "validation/reports"]:
+    for rel in ["canonical", "exports", "validation/reports"]:
         target = REPO_ROOT / rel
         if target.exists():
             shutil.rmtree(target)
@@ -193,18 +242,78 @@ def run(args: Sequence[str], cwd: Optional[Path] = None) -> subprocess.Completed
     )
 
 
+def fixed_zipinfo(filename: str) -> zipfile.ZipInfo:
+    timestamp = dt.datetime.fromisoformat(GENERATED_AT).astimezone(dt.timezone.utc)
+    info = zipfile.ZipInfo(filename)
+    info.date_time = (timestamp.year, timestamp.month, timestamp.day, timestamp.hour, timestamp.minute, timestamp.second)
+    info.compress_type = zipfile.ZIP_DEFLATED
+    return info
+
+
+def load_existing_source_entry(path: Path) -> Optional[Dict]:
+    if not path.exists():
+        return None
+    try:
+        return json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError):
+        return None
+
+
 def download_sources() -> List[Dict]:
     ledger = []
+    refresh_sources = os.getenv("REFRESH_SOURCES") == "1"
     for source in SOURCE_DEFS:
         target_dir = REPO_ROOT / "raw" / "sources" / source["id"]
         target_dir.mkdir(parents=True, exist_ok=True)
         target_file = target_dir / source["file_name"]
+        source_json_path = target_dir / "source.json"
+        existing_entry = load_existing_source_entry(source_json_path)
+        preserved_fetched_at = GENERATED_AT
+        if existing_entry and isinstance(existing_entry.get("fetched_at"), str):
+            preserved_fetched_at = existing_entry["fetched_at"]
+
+        if not refresh_sources:
+            if target_file.exists():
+                entry = {
+                    "id": source["id"],
+                    "url": source["url"],
+                    "file_name": source["file_name"],
+                    "classification": source["classification"],
+                    "license_summary": source["license_summary"],
+                    "fetched_at": preserved_fetched_at,
+                    "status": "downloaded",
+                    "sha256": sha256_file(target_file),
+                    "size_bytes": target_file.stat().st_size,
+                }
+                write_json(source_json_path, entry)
+                ledger.append(entry)
+                continue
+
+            if existing_entry and existing_entry.get("status") == "fetch_failed":
+                entry = {
+                    "id": source["id"],
+                    "url": source["url"],
+                    "file_name": source["file_name"],
+                    "classification": source["classification"],
+                    "license_summary": source["license_summary"],
+                    "fetched_at": preserved_fetched_at,
+                    "status": "fetch_failed",
+                    "error": existing_entry.get("error", "preserved previous fetch failure"),
+                }
+                write_json(source_json_path, entry)
+                ledger.append(entry)
+                continue
+
         cmd = [
             "curl",
             "-L",
             "--fail",
             "--silent",
             "--show-error",
+            "--connect-timeout",
+            "20",
+            "--max-time",
+            "60",
             "-A",
             "Mozilla/5.0",
             "-o",
@@ -237,7 +346,7 @@ def download_sources() -> List[Dict]:
                     "error": result.stderr.strip() or result.stdout.strip() or "unknown curl error",
                 }
             )
-        write_json(target_dir / "source.json", entry)
+        write_json(source_json_path, entry)
         ledger.append(entry)
     write_json(REPO_ROOT / "raw" / "source_ledger.json", {"generated_at": GENERATED_AT, "sources": ledger})
     return ledger
@@ -258,7 +367,7 @@ def write_npz(path: Path, arrays: Dict[str, Sequence[float]]) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     with zipfile.ZipFile(path, "w", compression=zipfile.ZIP_DEFLATED) as archive:
         for name, values in arrays.items():
-            archive.writestr(f"{name}.npy", npy_bytes(values))
+            archive.writestr(fixed_zipinfo(f"{name}.npy"), npy_bytes(values))
 
 
 def read_npz(path: Path) -> Dict[str, List[float]]:
