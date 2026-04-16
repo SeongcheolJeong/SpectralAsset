@@ -27,6 +27,7 @@
 - urban night illuminant generation now reuses the same vendor-derived signal color fits instead of the older hard-coded proxy peaks
 - camera generation now emits both `camera_reference_rgb_nir_v1` and the active `camera_reference_rgb_nir_v2` profile
 - scenarios now reference `camera_reference_rgb_nir_v2`, which uses per-channel optics/filter behavior and tracked donor QE reference curves from the official `MT9M034` datasheet
+- the ON Semiconductor `MT9M034` donor PDF is now frozen from a local copy into tracked `raw/` instead of remaining only as a `fetch_failed` source-ledger entry
 
 ### Validation
 

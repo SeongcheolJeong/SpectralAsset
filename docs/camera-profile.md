@@ -33,7 +33,7 @@ The goal is to make scenarios reference a concrete camera profile instead of onl
 - uses tracked donor/reference curves from the official `MT9M034` datasheet
 - uses `channel_optics_transmittance_refs` so `RGB` and `NIR` can have different optics/filter behavior
 - records `reference_curve_refs`, `derivation_method`, and `replaces_profile_id`
-- the official `MT9M034` PDF URL currently remains a preserved `fetch_failed` ledger entry, so the donor QE curves are tracked as explicit project-authored control points rather than parsed from a frozen raw PDF
+- the official `MT9M034` PDF is now frozen from a local copy in `raw/sources/onsemi_mt9m034_pdf/`, while the donor QE curves remain tracked as explicit project-authored control points rather than parsed directly from the PDF
 
 ## Raw vs Effective SRF
 

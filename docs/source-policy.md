@@ -96,7 +96,7 @@ Operational rule:
 | `basler_color_emva_knowledge` | `reference-only` | `downloaded` | camera-profile vendor-derived context | public documentation used for generic camera-profile derivation |
 | `sony_imx900_product_page` | `reference-only` | `downloaded` | camera-profile vendor-derived context | public Sony sensor page for NIR-sensitive profile assumptions |
 | `sony_isx016_pdf` | `reference-only` | `downloaded` | camera-profile vendor-derived context | official Sony PDF with NIR sensitivity claim |
-| `onsemi_mt9m034_pdf` | `reference-only` | `fetch_failed` | camera-profile donor QE reference | official ON Semiconductor MT9M034 datasheet URL currently blocks automated GET with `403`; provenance retained via failure record |
+| `onsemi_mt9m034_pdf` | `reference-only` | `copied_from_local` | camera-profile donor QE reference | official ON Semiconductor MT9M034 datasheet frozen from a local copy because automated GET from the public URL returns `403` |
 | `osram_lr_q976_01_pdf` | `reference-only` | `downloaded` | vehicle-signal red SPD vendor-derived fit | official ams-OSRAM red LED datasheet used for fitted signal SPD |
 | `osram_ly_q976_01_pdf` | `reference-only` | `downloaded` | vehicle-signal yellow SPD vendor-derived fit | official ams-OSRAM yellow LED datasheet used for fitted signal SPD |
 | `osram_ltrb_rasf_01_pdf` | `reference-only` | `downloaded` | vehicle-signal green SPD vendor-derived fit | official ams-OSRAM true-green LED datasheet used for fitted signal SPD |
@@ -154,12 +154,13 @@ Operational rule:
 ### `onsemi_mt9m034_pdf`
 
 - Failure mode: automated `curl` GET returns `403`, even though the official URL is valid for `HEAD`
-- Impact: medium
-  - this source anchors the donor QE provenance for `camera_reference_rgb_nir_v2`, but the generator currently uses tracked project-authored control points rather than parsing the PDF directly
+- Impact: low to medium
+  - this source anchors the donor QE provenance for `camera_reference_rgb_nir_v2`, but the repository now has a working local-copy fallback
 - Current fallback:
-  - keep the failure record in `raw/sources/onsemi_mt9m034_pdf/`
+  - keep the official URL in the source ledger for provenance
+  - copy the local file `MT9M034-D.PDF` into `raw/sources/onsemi_mt9m034_pdf/mt9m034-d.pdf`
   - keep the `MT9M034` donor QE control points explicit in `scripts/build_asset_pack.py`
-  - treat the raw official PDF as an unresolved provenance-fetch gap until a manual capture or a vendor-accessible download path is available
+  - continue treating direct automated vendor download as blocked unless the official GET path becomes accessible later
 
 ## Operational Rules for New Sources
 

@@ -55,7 +55,7 @@ Additional baseline facts:
 - Many spectral assets are still proxy curves, even though dry asphalt, concrete, and galvanized metal now use measured USGS-derived baselines.
 - Vehicle and protected-turn traffic-signal SPDs now use vendor-derived public fits, but pedestrian/countdown emitters and all measured emitter replacements are still incomplete.
 - `camera_reference_rgb_nir_v2` is now the active generic reference camera, but it remains a public-doc vendor-derived profile rather than a measured automotive SRF.
-- the official `onsemi_mt9m034_pdf` source is currently preserved as a `fetch_failed` ledger entry because automated GET requests return `403`
+- the official `onsemi_mt9m034_pdf` URL still blocks automated GET with `403`, so the repository now freezes a local copy of that PDF into tracked `raw/`
 - Generated files still include `generated_at` metadata, but the generator and validator now preserve the previous value by default so clean rebuilds do not churn timestamps unless explicitly overridden.
 - The repository is local-first only; remote collaboration rules are documented but not yet activated.
 
@@ -92,7 +92,6 @@ Current source-fetch failures from [../raw/source_ledger.json](../raw/source_led
 
 - `mapillary_sign_help`: `403`
 - `mapillary_download_help`: `403`
-- `onsemi_mt9m034_pdf`: `403`
 - `usgs_spectral_library_page`: `403`
 - `unece_road_signs_page`: `403`
 

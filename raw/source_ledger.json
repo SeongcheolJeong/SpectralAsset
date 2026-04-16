@@ -233,15 +233,17 @@
     },
     {
       "id": "onsemi_mt9m034_pdf",
-      "origin_type": "url",
+      "origin_type": "local_path",
       "url": "https://www.onsemi.com/pdf/datasheet/mt9m034-d.pdf",
       "file_name": "mt9m034-d.pdf",
       "classification": "reference-only",
       "license_summary": "ON Semiconductor official MT9M034 datasheet used for vendor-derived camera QE reference fitting",
       "path": "raw/sources/onsemi_mt9m034_pdf/mt9m034-d.pdf",
-      "fetched_at": "2026-04-16T10:10:40+00:00",
-      "status": "fetch_failed",
-      "error": "curl: (22) The requested URL returned error: 403"
+      "copied_from": "MT9M034-D.PDF",
+      "copied_at": "2026-04-16T10:10:40+00:00",
+      "status": "copied_from_local",
+      "sha256": "d9affbfc9541de4f6d2913fc705d1b92d304653fabf9de4d11c6a165956847bc",
+      "size_bytes": 802571
     },
     {
       "id": "osram_lr_q976_01_pdf",

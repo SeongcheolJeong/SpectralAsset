@@ -226,6 +226,7 @@ SOURCE_DEFS = [
         "id": "onsemi_mt9m034_pdf",
         "url": "https://www.onsemi.com/pdf/datasheet/mt9m034-d.pdf",
         "file_name": "mt9m034-d.pdf",
+        "local_fallback_path": "MT9M034-D.PDF",
         "classification": "reference-only",
         "license_summary": "ON Semiconductor official MT9M034 datasheet used for vendor-derived camera QE reference fitting",
     },
@@ -668,6 +669,42 @@ def freeze_selected_usgs_sources() -> List[Dict]:
     return ledger_entries
 
 
+def build_local_fallback_url_entry(source: Dict, target_file: Path, source_json_path: Path) -> Optional[Dict]:
+    fallback_rel = source.get("local_fallback_path")
+    if not isinstance(fallback_rel, str) or not fallback_rel:
+        return None
+    fallback_path = REPO_ROOT / fallback_rel
+    if not fallback_path.exists():
+        return None
+    existing_entry = load_existing_source_entry(source_json_path)
+    if (
+        not target_file.exists()
+        or not isinstance(existing_entry, dict)
+        or existing_entry.get("origin_type") != "local_path"
+        or existing_entry.get("copied_from") != fallback_rel
+    ):
+        shutil.copy2(fallback_path, target_file)
+    copied_at = GENERATED_AT
+    if isinstance(existing_entry, dict) and isinstance(existing_entry.get("copied_at"), str) and existing_entry.get("copied_from") == fallback_rel:
+        copied_at = existing_entry["copied_at"]
+    entry = {
+        "id": source["id"],
+        "origin_type": "local_path",
+        "url": source["url"],
+        "file_name": source["file_name"],
+        "classification": source["classification"],
+        "license_summary": source["license_summary"],
+        "path": relative_posix(target_file),
+        "copied_from": fallback_rel,
+        "copied_at": copied_at,
+        "status": "copied_from_local",
+        "sha256": sha256_file(target_file),
+        "size_bytes": target_file.stat().st_size,
+    }
+    write_json(source_json_path, entry)
+    return entry
+
+
 def download_sources() -> List[Dict]:
     ledger = []
     refresh_sources = os.getenv("REFRESH_SOURCES") == "1"
@@ -680,6 +717,11 @@ def download_sources() -> List[Dict]:
         preserved_fetched_at = GENERATED_AT
         if existing_entry and isinstance(existing_entry.get("fetched_at"), str):
             preserved_fetched_at = existing_entry["fetched_at"]
+
+        local_fallback_entry = build_local_fallback_url_entry(source, target_file, source_json_path)
+        if local_fallback_entry is not None:
+            ledger.append(local_fallback_entry)
+            continue
 
         if not refresh_sources:
             if target_file.exists():
