@@ -33,6 +33,13 @@ node scripts/validate_gltf.mjs exports/gltf validation/reports/gltf_validation.j
 - Sensor branch: `RGB+NIR` silicon camera
 - v1 uses measured standards for daylight inputs and project-generated proxy spectra for several materials that still require measured replacement
 
+## Project Management Docs
+
+- [docs/README.md](docs/README.md): management-doc index and update rules
+- [docs/roadmap.md](docs/roadmap.md): phase-level delivery plan
+- [docs/task-backlog.md](docs/task-backlog.md): live backlog and task status
+- [docs/git-workflow.md](docs/git-workflow.md): local-first git workflow and tracked-artifact policy
+
 ## Known Measurement Backlog
 
 The generated reports explicitly track these gaps as `backlog_measured_required`:
@@ -41,4 +48,3 @@ The generated reports explicitly track these gaps as `backlog_measured_required`
 - real traffic-signal/headlamp SPD
 - wet-road spectral BRDF
 - retroreflective sheeting BRDF
-

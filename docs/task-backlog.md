@@ -21,7 +21,7 @@
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | `P0-T001` | `P0` | `P0` | `done` | Initialize local git repo | local `main` branch with baseline commit | none | repository is initialized locally, baseline workspace is committed, and `node_modules/` is not tracked |
 | `P0-T002` | `P0` | `P0` | `done` | Create docs index and roadmap | `docs/README.md` and `docs/roadmap.md` | `P0-T001` | both files exist and describe ownership, phases, and current truth sources |
-| `P0-T003` | `P0` | `P0` | `in_progress` | Add README links to management docs | root `README.md` management-doc section | `P0-T002` | root README links to docs index, roadmap, and task backlog |
+| `P0-T003` | `P0` | `P0` | `done` | Add README links to management docs | root `README.md` management-doc section | `P0-T002` | root README links to docs index, roadmap, and task backlog |
 | `P0-T004` | `P0` | `P0` | `done` | Define artifact tracking policy | `docs/git-workflow.md` tracked-vs-ignored section | `P0-T001` | tracked folders and ignored folders are explicit and match `.gitignore` policy |
 | `P0-T005` | `P0` | `P0` | `done` | Document branch and commit conventions | `docs/git-workflow.md` branch and commit sections | `P0-T001` | branch format `codex/<area>-<slug>` and commit prefixes are documented |
 
@@ -71,4 +71,3 @@
 - measured replacement of traffic-signal and headlamp SPD
 - wet-road spectral BRDF acquisition
 - retroreflective sheeting BRDF acquisition
-
