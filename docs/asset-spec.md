@@ -73,6 +73,44 @@ Operational rule:
 - generated outputs are version-controlled because review and milestone comparison must work from git alone
 - rebuilds must still be reviewed for semantic changes versus timestamp-only churn
 
+## Fidelity Tiers
+
+The repository currently uses three fidelity tiers. This split must stay explicit in docs, reviews, and future upgrades.
+
+### Tier A: Open Measured Standards
+
+These are standards or published reference datasets with direct physical meaning and strong provenance.
+
+Examples:
+
+- `illuminant_d65.npz`
+- `illuminant_am1_5_global_tilt.npz`
+- `illuminant_am1_5_direct.npz`
+
+### Tier B: Project Proxy Spectral Curves
+
+These are project-generated curves used to approximate material behavior where measured automotive-grade data is not yet available.
+
+Examples:
+
+- sign reflectance curves such as `mat_sign_stop_red_reflectance.npz`
+- road and marking curves such as `mat_asphalt_dry_reflectance.npz`
+- modifier curves such as `mat_retroreflective_gain.npz`
+
+### Tier C: Project Proxy Emissive Curves
+
+These are project-generated SPDs used for traffic lights and similar emitters until measured replacements land.
+
+Examples:
+
+- `spd_led_red.npz`
+- `spd_led_green.npz`
+- `spd_led_countdown_amber.npz`
+
+Upgrade rule:
+
+- a proxy asset can be promoted to measured status only after its raw source, acquisition conditions, uncertainty, and provenance are recorded in tracked project metadata
+
 ## Validation Expectations
 
 Every accepted asset addition should satisfy these expectations:
@@ -91,6 +129,8 @@ Asset addition acceptance criteria:
 - geometry/export files are generated successfully
 - validation impact is reviewed
 - provenance and license notes are present
+- measured or proxy status is explicitly stated for any new spectral input
+- checklist items in [validation-checklist.md](validation-checklist.md) are either passed or consciously deferred with a written reason
 
 ## Proxy-Data Limitations
 
@@ -101,3 +141,7 @@ The current repository mixes open standards, frozen source references, and proje
 - wet-road and retroreflective behavior remain approximation-heavy
 - docs and backlog must continue to distinguish measured truth from proxy assets
 
+Current policy:
+
+- tier labels must be visible in docs and review context even when filenames do not include a `proxy` suffix
+- measured replacements should preserve stable IDs where possible and record the fidelity change in [../CHANGELOG.md](../CHANGELOG.md)

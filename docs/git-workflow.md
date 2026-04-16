@@ -104,18 +104,25 @@ Rules:
 - do not commit rebuild output blindly
 - identify whether diffs are semantic or only metadata churn
 - treat `generated_at` changes by themselves as non-semantic churn
+- default rebuilds should preserve the prior `generated_at` value when a previous tracked report exists
+- use `BUILD_TIMESTAMP` or `SOURCE_DATE_EPOCH` only when an explicit timestamp refresh is intended
+- default rebuilds should preserve previously frozen raw sources; use `REFRESH_SOURCES=1` only when an explicit refetch is intended
 - if a rebuild changes only timestamps, do not commit it unless the commit purpose is an explicit baseline refresh
 - if a rebuild changes assets semantically, update docs and validation context with the reason
 
-Current known issue:
+Current implementation:
 
-- [../scripts/build_asset_pack.py](../scripts/build_asset_pack.py) embeds `generated_at` timestamps in many tracked files, so clean rebuilds can produce noisy diffs
+- [../scripts/build_asset_pack.py](../scripts/build_asset_pack.py) preserves the previous tracked `generated_at` value by default and supports explicit overrides through `BUILD_TIMESTAMP` or `SOURCE_DATE_EPOCH`
+- [../scripts/build_asset_pack.py](../scripts/build_asset_pack.py) preserves previously downloaded raw sources by default and only refetches when `REFRESH_SOURCES=1` is set
+- [../scripts/validate_gltf.mjs](../scripts/validate_gltf.mjs) follows the same rule for `validation/reports/gltf_validation.json`
+- semantic rebuild review should still use [validation-checklist.md](validation-checklist.md)
 
 ## Release/Tag Policy
 
 - no release tags are created during the local bootstrap phase
 - first formal milestone tags should be annotated and follow `v0.x.y`
 - only tag after validation, source-policy review, and known-gap review are complete
+- use [release-checklist.md](release-checklist.md) before creating a milestone tag
 
 ## Future Remote-Hosting Notes
 
@@ -123,4 +130,3 @@ Current known issue:
 - when a remote is added later, keep `main` as the protected/default branch
 - mirror the existing branch naming and commit conventions
 - add PR/review templates only after the local workflow is stable
-

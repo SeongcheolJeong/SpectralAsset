@@ -16,6 +16,8 @@ python3 scripts/build_asset_pack.py
 node scripts/validate_gltf.mjs exports/gltf validation/reports/gltf_validation.json
 ```
 
+For deterministic rebuild review, the generator now preserves the previous tracked `generated_at` value by default and reuses frozen raw sources unless you explicitly refresh them. Use `BUILD_TIMESTAMP` or `SOURCE_DATE_EPOCH` only when you intentionally want to refresh timestamps, and `REFRESH_SOURCES=1` only when you intentionally want to refetch raw sources.
+
 `python3 scripts/build_asset_pack.py` is idempotent. It will:
 
 1. create the repository layout

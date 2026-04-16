@@ -9,6 +9,8 @@ This directory is the management layer for the autonomous-driving camera simulat
 - [task-backlog.md](task-backlog.md): live backlog with task IDs, priorities, dependencies, and done criteria
 - [asset-spec.md](asset-spec.md): naming, catalog, manifest, and asset-acceptance contract
 - [source-policy.md](source-policy.md): source classifications, blocked-source handling, and licensing-use notes
+- [validation-checklist.md](validation-checklist.md): milestone validation gates for generated assets and scenes
+- [release-checklist.md](release-checklist.md): first local-release readiness checklist
 - [git-workflow.md](git-workflow.md): local-first git operating rules for this repository
 - [../CHANGELOG.md](../CHANGELOG.md): human-readable history of baseline and future changes
 
@@ -19,6 +21,8 @@ This directory is the management layer for the autonomous-driving camera simulat
 - Update [task-backlog.md](task-backlog.md) for all task status changes. This is the only live task board.
 - Update [asset-spec.md](asset-spec.md) before changing naming rules, manifest contracts, or asset acceptance rules.
 - Update [source-policy.md](source-policy.md) when source classifications, fetch status handling, or licensing-use assumptions change.
+- Update [validation-checklist.md](validation-checklist.md) when milestone validation gates or pass criteria change.
+- Update [release-checklist.md](release-checklist.md) when release readiness rules or release inputs change.
 - Update [git-workflow.md](git-workflow.md) before changing branch, merge, artifact-tracking, or release policy.
 - Update [../CHANGELOG.md](../CHANGELOG.md) when work is merged to `main` or when a baseline/release-worthy milestone is created.
 

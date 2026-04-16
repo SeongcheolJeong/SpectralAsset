@@ -48,7 +48,7 @@ Additional baseline facts:
 
 - Several external reference pages currently fail automated fetch with `403` and only have failure records in the source ledger.
 - Many spectral assets are proxy curves rather than measured automotive-grade data.
-- Generated files include `generated_at` timestamps, so a rebuild can create non-semantic git diffs even when asset content is unchanged.
+- Generated files still include `generated_at` metadata, but the generator and validator now preserve the previous value by default so clean rebuilds do not churn timestamps unless explicitly overridden.
 - The repository is local-first only; remote collaboration rules are documented but not yet activated.
 
 ## Known Measurement Gaps
@@ -82,3 +82,4 @@ Current source-fetch failures from [../raw/source_ledger.json](../raw/source_led
 - `unece_road_signs_page`: `403`
 
 Fallback handling for these blocked sources is documented in [source-policy.md](source-policy.md).
+Milestone validation gates are documented in [validation-checklist.md](validation-checklist.md).

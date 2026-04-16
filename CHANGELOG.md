@@ -8,11 +8,14 @@
 - local-first git workflow definition
 - phase roadmap and task backlog for long-running work
 - source-policy documentation for source classifications and blocked-source handling
+- milestone validation checklist and first release checklist
 
 ### Changed
 
 - repository governance now treats generated assets, exports, raw-source records, and validation outputs as tracked artifacts
 - blocked `403` source pages are explicitly documented with impact and fallback handling instead of remaining only as ledger failures
+- rebuild tooling now preserves prior tracked timestamps by default to reduce non-semantic diff churn
+- build tooling now reuses frozen raw sources by default and requires explicit opt-in for source refreshes
 
 ## Baseline
 
