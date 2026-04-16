@@ -13,6 +13,7 @@ This directory is the management layer for the autonomous-driving camera simulat
 - [camera-profile.md](camera-profile.md): generic `RGB+NIR` camera-profile contract and current vendor-derived limits
 - [created-assets.md](created-assets.md): explanation of what the generated asset pack actually creates and how those files relate
 - [file-formats.md](file-formats.md): explanation of `.npz`, `.json`, `USD`, and related generated file types
+- [pbrt-tutorial.md](pbrt-tutorial.md): workflow for converting the generated assets into a practical `PBRT` rendering pipeline
 - [usgs-ingest.md](usgs-ingest.md): selected USGS v7 subset ingest, active bindings, and reference-only safeguards
 - [source-policy.md](source-policy.md): source classifications, blocked-source handling, and licensing-use notes
 - [validation-checklist.md](validation-checklist.md): milestone validation gates for generated assets and scenes
@@ -31,6 +32,7 @@ This directory is the management layer for the autonomous-driving camera simulat
 - Update [camera-profile.md](camera-profile.md) when camera-profile fields, source-quality assumptions, or scenario binding rules change.
 - Update [created-assets.md](created-assets.md) when generated asset categories, counts, or file relationships change materially.
 - Update [file-formats.md](file-formats.md) when the repository adds a new primary generated format or changes the role of an existing one.
+- Update [pbrt-tutorial.md](pbrt-tutorial.md) when the recommended `PBRT` conversion path, active camera profile, or primary source asset paths change.
 - Update [usgs-ingest.md](usgs-ingest.md) when the selected subset, binding policy, or local-source handling changes.
 - Update [source-policy.md](source-policy.md) when source classifications, fetch status handling, or licensing-use assumptions change.
 - Update [validation-checklist.md](validation-checklist.md) when milestone validation gates or pass criteria change.
