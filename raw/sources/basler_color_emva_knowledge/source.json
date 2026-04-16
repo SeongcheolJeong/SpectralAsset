@@ -1,0 +1,13 @@
+{
+  "id": "basler_color_emva_knowledge",
+  "origin_type": "url",
+  "url": "https://docs.baslerweb.com/knowledge/about-emva1288-reports-for-color-sensors",
+  "file_name": "about-emva1288-reports-for-color-sensors.html",
+  "classification": "reference-only",
+  "license_summary": "Basler public documentation for color-sensor spectral response context",
+  "path": "raw/sources/basler_color_emva_knowledge/about-emva1288-reports-for-color-sensors.html",
+  "fetched_at": "2026-04-16T10:10:40+00:00",
+  "status": "downloaded",
+  "sha256": "7ffa285053f80b0505bf4ab9cd2e0c57f87a121dcfef6314b00513adb5620a36",
+  "size_bytes": 25967
+}

@@ -15,8 +15,8 @@
   "pbr_fallback": {
     "baseColorFactor": [
       1.0,
-      0.9528707760289692,
-      0.5580981950937821,
+      0.9088308479625922,
+      0.5065694301983189,
       1.0
     ],
     "metallicFactor": 0.0,
@@ -29,23 +29,27 @@
     "film_thickness_mm": null,
     "specular_boost": null
   },
+  "source_quality": "measured_standard",
+  "source_ids": [
+    "usgs_asdfr_wavelengths_2151",
+    "usgs_gds376_asphalt_road_old"
+  ],
   "uncertainty": {
-    "type": "proxy_or_open_standard",
-    "note": "v1 uses project-generated proxy curves where measured automotive-grade datasets are unavailable."
+    "type": "measured_open_standard",
+    "note": "Dry road asphalt measured baseline from the selected USGS Spectral Library Version 7 subset."
   },
   "license": {
-    "spdx": "LicenseRef-ProjectGenerated",
-    "redistribution": "project-generated derivative metadata and proxy curves"
+    "spdx": "LicenseRef-USGS-Derived",
+    "redistribution": "Resampled derivative of selected USGS Spectral Library Version 7 local subset data."
   },
   "provenance": {
     "generated_at": "2026-04-16T10:10:40+00:00",
     "generated_by": "scripts/build_asset_pack.py",
     "source_ids": [
-      "cie_d65_csv",
-      "astm_g173_zip",
-      "usgs_spectral_library_page",
-      "ecostress_spectral_library_page"
-    ]
+      "usgs_asdfr_wavelengths_2151",
+      "usgs_gds376_asphalt_road_old"
+    ],
+    "note": "Measured dry road asphalt baseline from USGS v7 sample GDS376."
   },
-  "svg_fill": "#fff38e"
+  "svg_fill": "#ffe881"
 }

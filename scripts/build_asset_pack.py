@@ -6,6 +6,7 @@ import hashlib
 import json
 import math
 import os
+import re
 import shutil
 import struct
 import subprocess
@@ -74,11 +75,14 @@ FAMILY_ENUM = {"traffic_sign", "traffic_light", "road_surface", "road_marking", 
 MATERIAL_ENUM = {"reflective", "transmissive", "emissive", "retroreflective", "wet_overlay"}
 SAMPLE_STATE_ENUM = {"dry", "wet", "aged", "dusty", "coated"}
 SENSOR_BRANCH_ENUM = {"rgb", "rgb_nir"}
+SOURCE_QUALITY_ENUM = {"measured_standard", "measured_derivative", "vendor_derived", "project_proxy"}
+CAMERA_CHANNELS = ("r", "g", "b", "nir")
 
 DIRS = [
     "raw/sources",
     "canonical/spectra",
     "canonical/materials",
+    "canonical/camera",
     "canonical/manifests",
     "canonical/emissive",
     "canonical/scenarios",
@@ -197,6 +201,151 @@ SOURCE_DEFS = [
         "classification": "reference-only",
         "license_summary": "Official UNECE reference page",
     },
+    {
+        "id": "basler_color_emva_knowledge",
+        "url": "https://docs.baslerweb.com/knowledge/about-emva1288-reports-for-color-sensors",
+        "file_name": "about-emva1288-reports-for-color-sensors.html",
+        "classification": "reference-only",
+        "license_summary": "Basler public documentation for color-sensor spectral response context",
+    },
+    {
+        "id": "sony_imx900_product_page",
+        "url": "https://www.sony-semicon.com/en/products/is/industry/gs/imx900.html",
+        "file_name": "imx900.html",
+        "classification": "reference-only",
+        "license_summary": "Sony official product page for near-infrared-sensitive global-shutter sensor",
+    },
+    {
+        "id": "sony_isx016_pdf",
+        "url": "https://www.sony-semicon.com/files/62/pdf/p-15_ISX016.pdf",
+        "file_name": "sony_isx016.pdf",
+        "classification": "reference-only",
+        "license_summary": "Sony official image-sensor PDF with near-infrared sensitivity claim",
+    },
+]
+
+USGS_WAVELENGTH_SOURCE = {
+    "id": "usgs_asdfr_wavelengths_2151",
+    "classification": "redistributable",
+    "license_summary": "USGS Spectral Library Version 7 selected local subset",
+    "selection_role": "wavelength_basis",
+    "local_path": "ASCIIdata/ASCIIdata_splib07b/splib07b_Wavelengths_ASDFR_0.35-2.5microns_2151ch.txt",
+    "file_name": "splib07b_Wavelengths_ASDFR_0.35-2.5microns_2151ch.txt",
+    "notes": "Canonical wavelength basis for selected ASDFR material samples.",
+}
+
+USGS_SAMPLE_SELECTIONS = [
+    {
+        "id": "usgs_gds376_asphalt_road_old",
+        "classification": "redistributable",
+        "license_summary": "USGS Spectral Library Version 7 selected local subset",
+        "selection_role": "active_binding",
+        "curve_name": "src_usgs_gds376_asphalt_road_aref",
+        "bind_material_id": "mat_asphalt_dry",
+        "local_path": "ASCIIdata/ASCIIdata_splib07b/ChapterA_ArtificialMaterials/splib07b_Asphalt_GDS376_Blck_Road_old_ASDFRa_AREF.txt",
+        "file_name": "splib07b_Asphalt_GDS376_Blck_Road_old_ASDFRa_AREF.txt",
+        "metadata_local_path": "HTMLmetadata/Asphalt_GDS376_Blck_Road_old_ASDFRa_AREF.html",
+        "metadata_file_name": "Asphalt_GDS376_Blck_Road_old_ASDFRa_AREF.html",
+        "notes": "Measured dry road asphalt baseline from USGS v7.",
+    },
+    {
+        "id": "usgs_gds375_concrete_road",
+        "classification": "redistributable",
+        "license_summary": "USGS Spectral Library Version 7 selected local subset",
+        "selection_role": "active_binding",
+        "curve_name": "src_usgs_gds375_concrete_road_aref",
+        "bind_material_id": "mat_concrete",
+        "local_path": "ASCIIdata/ASCIIdata_splib07b/ChapterA_ArtificialMaterials/splib07b_Concrete_GDS375_Lt_Gry_Road_ASDFRa_AREF.txt",
+        "file_name": "splib07b_Concrete_GDS375_Lt_Gry_Road_ASDFRa_AREF.txt",
+        "metadata_local_path": "HTMLmetadata/Concrete_GDS375_Lt_Gry_Road_ASDFRa_AREF.html",
+        "metadata_file_name": "Concrete_GDS375_Lt_Gry_Road_ASDFRa_AREF.html",
+        "notes": "Measured concrete road baseline from USGS v7.",
+    },
+    {
+        "id": "usgs_gds334_galvanized_sheet_metal",
+        "classification": "redistributable",
+        "license_summary": "USGS Spectral Library Version 7 selected local subset",
+        "selection_role": "active_binding",
+        "curve_name": "src_usgs_gds334_galvanized_sheet_metal_aref",
+        "bind_material_id": "mat_metal_galvanized",
+        "local_path": "ASCIIdata/ASCIIdata_splib07b/ChapterA_ArtificialMaterials/splib07b_GalvanizedSheetMetal_GDS334_ASDFRa_AREF.txt",
+        "file_name": "splib07b_GalvanizedSheetMetal_GDS334_ASDFRa_AREF.txt",
+        "metadata_local_path": "HTMLmetadata/GalvanizedSheetMetal_GDS334_ASDFRa_AREF.html",
+        "metadata_file_name": "GalvanizedSheetMetal_GDS334_ASDFRa_AREF.html",
+        "notes": "Measured galvanized sheet-metal baseline from USGS v7.",
+    },
+    {
+        "id": "usgs_gds333_painted_aluminum",
+        "classification": "redistributable",
+        "license_summary": "USGS Spectral Library Version 7 selected local subset",
+        "selection_role": "reference_only",
+        "curve_name": "src_usgs_gds333_painted_aluminum_aref",
+        "local_path": "ASCIIdata/ASCIIdata_splib07b/ChapterA_ArtificialMaterials/splib07b_Painted_Aluminum_GDS333_LgGr_ASDFRa_AREF.txt",
+        "file_name": "splib07b_Painted_Aluminum_GDS333_LgGr_ASDFRa_AREF.txt",
+        "metadata_local_path": "HTMLmetadata/Painted_Aluminum_GDS333_LgGr_ASDFRa_AREF.html",
+        "metadata_file_name": "Painted_Aluminum_GDS333_LgGr_ASDFRa_AREF.html",
+        "notes": "Reference-only painted-aluminum color prior; not a traffic-sign sheeting replacement.",
+    },
+    {
+        "id": "usgs_gds338_pvc_white",
+        "classification": "redistributable",
+        "license_summary": "USGS Spectral Library Version 7 selected local subset",
+        "selection_role": "reference_only",
+        "curve_name": "src_usgs_gds338_pvc_white_aref",
+        "local_path": "ASCIIdata/ASCIIdata_splib07b/ChapterA_ArtificialMaterials/splib07b_Plastic_PVC_GDS338_White_ASDFRa_AREF.txt",
+        "file_name": "splib07b_Plastic_PVC_GDS338_White_ASDFRa_AREF.txt",
+        "metadata_local_path": "HTMLmetadata/Plastic_PVC_GDS338_White_ASDFRa_AREF.html",
+        "metadata_file_name": "Plastic_PVC_GDS338_White_ASDFRa_AREF.html",
+        "notes": "Reference-only white plastic prior; not a road-marking or sign-sheeting replacement.",
+    },
+    {
+        "id": "usgs_gds398_vinyl_red_toy",
+        "classification": "redistributable",
+        "license_summary": "USGS Spectral Library Version 7 selected local subset",
+        "selection_role": "reference_only",
+        "curve_name": "src_usgs_gds398_vinyl_red_aref",
+        "local_path": "ASCIIdata/ASCIIdata_splib07b/ChapterA_ArtificialMaterials/splib07b_Plastic_Vinyl_GDS398_Red_Toy_ASDFRa_AREF.txt",
+        "file_name": "splib07b_Plastic_Vinyl_GDS398_Red_Toy_ASDFRa_AREF.txt",
+        "metadata_local_path": "HTMLmetadata/Plastic_Vinyl_GDS398_Red_Toy_ASDFRa_AREF.html",
+        "metadata_file_name": "Plastic_Vinyl_GDS398_Red_Toy_ASDFRa_AREF.html",
+        "notes": "Reference-only red vinyl prior; not a retroreflective traffic-sign replacement.",
+    },
+    {
+        "id": "usgs_gds344_pipe_blue",
+        "classification": "redistributable",
+        "license_summary": "USGS Spectral Library Version 7 selected local subset",
+        "selection_role": "reference_only",
+        "curve_name": "src_usgs_gds344_pipe_blue_aref",
+        "local_path": "ASCIIdata/ASCIIdata_splib07b/ChapterA_ArtificialMaterials/splib07b_Plastic_Pipe_GDS344_Blue_ASDFRa_AREF.txt",
+        "file_name": "splib07b_Plastic_Pipe_GDS344_Blue_ASDFRa_AREF.txt",
+        "metadata_local_path": "HTMLmetadata/Plastic_Pipe_GDS344_Blue_ASDFRa_AREF.html",
+        "metadata_file_name": "Plastic_Pipe_GDS344_Blue_ASDFRa_AREF.html",
+        "notes": "Reference-only blue plastic prior; not a measured traffic-sign sheeting replacement.",
+    },
+    {
+        "id": "usgs_gds382_pete_black",
+        "classification": "redistributable",
+        "license_summary": "USGS Spectral Library Version 7 selected local subset",
+        "selection_role": "reference_only",
+        "curve_name": "src_usgs_gds382_pete_black_aref",
+        "local_path": "ASCIIdata/ASCIIdata_splib07b/ChapterA_ArtificialMaterials/splib07b_Plastic_PETE_GDS382_Black_ASDFRa_AREF.txt",
+        "file_name": "splib07b_Plastic_PETE_GDS382_Black_ASDFRa_AREF.txt",
+        "metadata_local_path": "HTMLmetadata/Plastic_PETE_GDS382_Black_ASDFRa_AREF.html",
+        "metadata_file_name": "Plastic_PETE_GDS382_Black_ASDFRa_AREF.html",
+        "notes": "Reference-only black PET prior; not a sign-face or signal-housing measured replacement.",
+    },
+    {
+        "id": "usgs_spectralon99_white_ref",
+        "classification": "redistributable",
+        "license_summary": "USGS Spectral Library Version 7 selected local subset",
+        "selection_role": "reference_only",
+        "curve_name": "src_usgs_spectralon99_white_aref",
+        "local_path": "ASCIIdata/ASCIIdata_splib07b/ChapterA_ArtificialMaterials/splib07b_Spectralon99WhiteRef_LSPHERE_ASDFRa_AREF.txt",
+        "file_name": "splib07b_Spectralon99WhiteRef_LSPHERE_ASDFRa_AREF.txt",
+        "metadata_local_path": "HTMLmetadata/Spectralon99WhiteRef_LSPHERE_ASDFRa_AREF.html",
+        "metadata_file_name": "Spectralon99WhiteRef_LSPHERE_ASDFRa_AREF.html",
+        "notes": "Reference-only white standard prior; not a direct road-marking replacement.",
+    },
 ]
 
 
@@ -259,6 +408,136 @@ def load_existing_source_entry(path: Path) -> Optional[Dict]:
         return None
 
 
+def relative_posix(path: Path) -> str:
+    return path.relative_to(REPO_ROOT).as_posix()
+
+
+def resolve_usgs_source_root() -> Path:
+    if os.getenv("USGS_SPLIB07_ROOT"):
+        return Path(os.environ["USGS_SPLIB07_ROOT"]).expanduser()
+    return REPO_ROOT / "usgs_splib07"
+
+
+def display_usgs_source_root(root: Path) -> str:
+    return "env:USGS_SPLIB07_ROOT" if os.getenv("USGS_SPLIB07_ROOT") else root.name
+
+
+def build_preserved_local_entry(spec: Dict, source_json_path: Path) -> Optional[Dict]:
+    existing_entry = load_existing_source_entry(source_json_path)
+    if not existing_entry:
+        return None
+    primary_path = REPO_ROOT / existing_entry.get("path", "")
+    metadata_path = REPO_ROOT / existing_entry.get("metadata_path", "") if existing_entry.get("metadata_path") else None
+    if not primary_path.exists():
+        return None
+    if metadata_path and not metadata_path.exists():
+        return None
+    entry = {
+        "id": spec["id"],
+        "origin_type": "local_path",
+        "classification": spec["classification"],
+        "license_summary": spec["license_summary"],
+        "selection_role": spec["selection_role"],
+        "path": existing_entry["path"],
+        "copied_from": spec["local_path"],
+        "copied_at": existing_entry.get("copied_at", GENERATED_AT),
+        "status": "copied_from_local",
+        "sha256": sha256_file(primary_path),
+        "size_bytes": primary_path.stat().st_size,
+        "notes": spec["notes"],
+    }
+    if metadata_path and existing_entry.get("metadata_path"):
+        entry["metadata_path"] = existing_entry["metadata_path"]
+        entry["metadata_copied_from"] = spec["metadata_local_path"]
+        entry["metadata_sha256"] = sha256_file(metadata_path)
+    return entry
+
+
+def freeze_selected_usgs_sources() -> List[Dict]:
+    refresh_sources = os.getenv("REFRESH_SOURCES") == "1"
+    source_root = resolve_usgs_source_root()
+    target_root = REPO_ROOT / "raw" / "sources" / "usgs_splib07_selected"
+    target_root.mkdir(parents=True, exist_ok=True)
+    ledger_entries = []
+    index_inputs = []
+
+    for spec in [USGS_WAVELENGTH_SOURCE, *USGS_SAMPLE_SELECTIONS]:
+        entry_dir = target_root / spec["id"]
+        entry_dir.mkdir(parents=True, exist_ok=True)
+        source_json_path = entry_dir / "source.json"
+        target_file = entry_dir / spec["file_name"]
+        metadata_target = entry_dir / spec["metadata_file_name"] if spec.get("metadata_file_name") else None
+
+        if not refresh_sources:
+            preserved = build_preserved_local_entry(spec, source_json_path)
+            if preserved:
+                write_json(source_json_path, preserved)
+                ledger_entries.append(preserved)
+                index_inputs.append(
+                    {
+                        "id": spec["id"],
+                        "selection_role": spec["selection_role"],
+                        "path": preserved["path"],
+                        "copied_from": preserved["copied_from"],
+                        "sha256": preserved["sha256"],
+                        "notes": spec["notes"],
+                    }
+                )
+                continue
+
+        source_file = source_root / spec["local_path"]
+        if not source_file.exists():
+            raise FileNotFoundError(f"Missing required USGS local source: {source_file}")
+        shutil.copy2(source_file, target_file)
+
+        entry = {
+            "id": spec["id"],
+            "origin_type": "local_path",
+            "classification": spec["classification"],
+            "license_summary": spec["license_summary"],
+            "selection_role": spec["selection_role"],
+            "path": relative_posix(target_file),
+            "copied_from": spec["local_path"],
+            "copied_at": GENERATED_AT,
+            "status": "copied_from_local",
+            "sha256": sha256_file(target_file),
+            "size_bytes": target_file.stat().st_size,
+            "notes": spec["notes"],
+        }
+        if spec.get("metadata_local_path") and metadata_target is not None:
+            metadata_source = source_root / spec["metadata_local_path"]
+            if not metadata_source.exists():
+                raise FileNotFoundError(f"Missing required USGS metadata source: {metadata_source}")
+            shutil.copy2(metadata_source, metadata_target)
+            entry["metadata_path"] = relative_posix(metadata_target)
+            entry["metadata_copied_from"] = spec["metadata_local_path"]
+            entry["metadata_sha256"] = sha256_file(metadata_target)
+        write_json(source_json_path, entry)
+        ledger_entries.append(entry)
+        index_inputs.append(
+            {
+                "id": spec["id"],
+                "selection_role": spec["selection_role"],
+                "path": entry["path"],
+                "copied_from": entry["copied_from"],
+                "sha256": entry["sha256"],
+                "notes": spec["notes"],
+            }
+        )
+
+    write_json(
+        target_root / "index.json",
+        {
+            "generated_at": GENERATED_AT,
+            "local_source_root": display_usgs_source_root(source_root),
+            "selected_inputs": index_inputs,
+            "copied_at": GENERATED_AT,
+            "notes": "Selected USGS Spectral Library v7 subset frozen for reproducible material ingest. The full local mirror is intentionally not tracked.",
+        },
+    )
+    return ledger_entries
+
+
 def download_sources() -> List[Dict]:
     ledger = []
     refresh_sources = os.getenv("REFRESH_SOURCES") == "1"
@@ -276,10 +555,12 @@ def download_sources() -> List[Dict]:
             if target_file.exists():
                 entry = {
                     "id": source["id"],
+                    "origin_type": "url",
                     "url": source["url"],
                     "file_name": source["file_name"],
                     "classification": source["classification"],
                     "license_summary": source["license_summary"],
+                    "path": relative_posix(target_file),
                     "fetched_at": preserved_fetched_at,
                     "status": "downloaded",
                     "sha256": sha256_file(target_file),
@@ -292,10 +573,12 @@ def download_sources() -> List[Dict]:
             if existing_entry and existing_entry.get("status") == "fetch_failed":
                 entry = {
                     "id": source["id"],
+                    "origin_type": "url",
                     "url": source["url"],
                     "file_name": source["file_name"],
                     "classification": source["classification"],
                     "license_summary": source["license_summary"],
+                    "path": relative_posix(target_file),
                     "fetched_at": preserved_fetched_at,
                     "status": "fetch_failed",
                     "error": existing_entry.get("error", "preserved previous fetch failure"),
@@ -323,10 +606,12 @@ def download_sources() -> List[Dict]:
         result = run(cmd)
         entry = {
             "id": source["id"],
+            "origin_type": "url",
             "url": source["url"],
             "file_name": source["file_name"],
             "classification": source["classification"],
             "license_summary": source["license_summary"],
+            "path": relative_posix(target_file),
             "fetched_at": GENERATED_AT,
         }
         if result.returncode == 0 and target_file.exists():
@@ -348,8 +633,63 @@ def download_sources() -> List[Dict]:
             )
         write_json(source_json_path, entry)
         ledger.append(entry)
+    ledger.extend(freeze_selected_usgs_sources())
     write_json(REPO_ROOT / "raw" / "source_ledger.json", {"generated_at": GENERATED_AT, "sources": ledger})
     return ledger
+
+
+def parse_numeric_series_file(path: Path) -> List[float]:
+    values = []
+    with path.open("r", encoding="utf-8", errors="ignore") as handle:
+        for raw_line in handle:
+            line = raw_line.strip()
+            if not line or "Record=" in line:
+                continue
+            values.append(float(line))
+    return values
+
+
+def parse_usgs_metadata_html(path: Path) -> Dict[str, str]:
+    text = path.read_text(encoding="utf-8", errors="ignore")
+    metadata = {}
+    for field in ["TITLE", "SAMPLE_ID", "MATERIAL_TYPE", "MATERIAL", "COLLECTION_LOCALITY"]:
+        match = re.search(rf"{field}:\s*(.*?)\s*(?:<p>|</H3>)", text, re.IGNORECASE | re.DOTALL)
+        if match:
+            metadata[field.lower()] = re.sub(r"<.*?>", "", match.group(1)).strip()
+    return metadata
+
+
+def load_usgs_wavelengths_nm() -> List[float]:
+    wavelength_dir = REPO_ROOT / "raw" / "sources" / "usgs_splib07_selected" / USGS_WAVELENGTH_SOURCE["id"]
+    wavelengths_path = wavelength_dir / USGS_WAVELENGTH_SOURCE["file_name"]
+    values = parse_numeric_series_file(wavelengths_path)
+    if len(values) != 2151:
+        raise ValueError(f"{wavelengths_path} expected 2151 wavelength samples, found {len(values)}")
+    return [value * 1000.0 for value in values]
+
+
+def resample_usgs_aref_curve(values: Sequence[float], wavelengths_nm: Sequence[float]) -> List[float]:
+    if len(values) != 2151:
+        raise ValueError(f"USGS source curve expected 2151 reflectance values, found {len(values)}")
+    if len(values) != len(wavelengths_nm):
+        raise ValueError("USGS source curve length does not match wavelength basis length")
+    points = list(zip(wavelengths_nm, values))
+    return clamp_list(interpolate(points, MASTER_GRID))
+
+
+def load_usgs_selected_curve(spec: Dict, wavelengths_nm: Sequence[float]) -> Dict:
+    source_dir = REPO_ROOT / "raw" / "sources" / "usgs_splib07_selected" / spec["id"]
+    data_path = source_dir / spec["file_name"]
+    metadata_path = source_dir / spec["metadata_file_name"] if spec.get("metadata_file_name") else None
+    values = parse_numeric_series_file(data_path)
+    metadata = parse_usgs_metadata_html(metadata_path) if metadata_path and metadata_path.exists() else {}
+    return {
+        "curve_name": spec["curve_name"],
+        "values": resample_usgs_aref_curve(values, wavelengths_nm),
+        "source_id": spec["id"],
+        "selection_role": spec["selection_role"],
+        "metadata": metadata,
+    }
 
 
 def npy_bytes(values: Sequence[float]) -> bytes:
@@ -422,6 +762,13 @@ def gaussian(grid: Sequence[int], center: float, sigma: float, amplitude: float,
 
 def clamp_list(values: Sequence[float], lower: float = 0.0, upper: float = 1.0) -> List[float]:
     return [max(lower, min(upper, value)) for value in values]
+
+
+def normalize_unit_peak(values: Sequence[float]) -> List[float]:
+    peak = max(values) if values else 0.0
+    if peak <= 0:
+        return [0.0 for _ in values]
+    return [value / peak for value in values]
 
 
 def load_cie_d65() -> List[Tuple[float, float]]:
@@ -1217,7 +1564,7 @@ def write_sign_svg(path: Path, sign_type: str, width: float, height: float, mate
 
 
 def make_materials(illuminant_d65: Sequence[float]) -> Dict[str, Dict]:
-    curves = {
+    proxy_curves = {
         "mat_sign_stop_red_reflectance": clamp_list(interpolate([(350, 0.03), (500, 0.05), (580, 0.35), (620, 0.8), (700, 0.72), (900, 0.45), (1700, 0.22)], MASTER_GRID)),
         "mat_sign_white_reflectance": clamp_list(interpolate([(350, 0.82), (700, 0.9), (1100, 0.82), (1700, 0.72)], MASTER_GRID)),
         "mat_sign_black_reflectance": clamp_list(interpolate([(350, 0.03), (1700, 0.04)], MASTER_GRID)),
@@ -1237,12 +1584,27 @@ def make_materials(illuminant_d65: Sequence[float]) -> Dict[str, Dict]:
         "spd_led_yellow": gaussian(MASTER_GRID, 592.0, 18.0, 1.0),
         "spd_led_green": gaussian(MASTER_GRID, 530.0, 18.0, 1.0),
     }
-    curves["spd_led_pedestrian_white"] = clamp_list(
+    proxy_curves["spd_led_pedestrian_white"] = clamp_list(
         [a + b for a, b in zip(gaussian(MASTER_GRID, 460.0, 28.0, 0.6), gaussian(MASTER_GRID, 580.0, 80.0, 0.9))],
         0.0,
         2.0,
     )
-    curves["spd_led_countdown_amber"] = gaussian(MASTER_GRID, 605.0, 22.0, 1.0)
+    proxy_curves["spd_led_countdown_amber"] = gaussian(MASTER_GRID, 605.0, 22.0, 1.0)
+
+    wavelengths_nm = load_usgs_wavelengths_nm()
+    usgs_curves = {selection["curve_name"]: load_usgs_selected_curve(selection, wavelengths_nm) for selection in USGS_SAMPLE_SELECTIONS}
+
+    curves = dict(proxy_curves)
+    curves["mat_asphalt_dry_reflectance"] = usgs_curves["src_usgs_gds376_asphalt_road_aref"]["values"]
+    curves["mat_concrete_reflectance"] = usgs_curves["src_usgs_gds375_concrete_road_aref"]["values"]
+    curves["mat_metal_galvanized_reflectance"] = usgs_curves["src_usgs_gds334_galvanized_sheet_metal_aref"]["values"]
+
+    proxy_ratio = []
+    for wet_value, dry_value in zip(proxy_curves["mat_asphalt_wet_reflectance"], proxy_curves["mat_asphalt_dry_reflectance"]):
+        proxy_ratio.append(wet_value / max(dry_value, 1e-6))
+    curves["mat_asphalt_wet_reflectance"] = clamp_list(
+        [dry_value * ratio for dry_value, ratio in zip(curves["mat_asphalt_dry_reflectance"], proxy_ratio)]
+    )
 
     material_specs = [
         ("mat_sign_stop_red", "reflective", "reflectance", "dry", ["mat_sign_stop_red_reflectance"], {"roughnessFactor": 0.78}),
@@ -1267,8 +1629,82 @@ def make_materials(illuminant_d65: Sequence[float]) -> Dict[str, Dict]:
         ("mat_vms_panel", "emissive", "reflectance", "dry", ["mat_sign_black_reflectance"], {"roughnessFactor": 0.35}),
     ]
 
+    def proxy_material_meta(note: str = "Project-generated proxy curve.") -> Dict:
+        return {
+            "source_quality": "project_proxy",
+            "source_ids": [],
+            "uncertainty": {
+                "type": "project_proxy",
+                "note": note,
+            },
+            "license": {
+                "spdx": "LicenseRef-ProjectGenerated",
+                "redistribution": "Project-generated derivative metadata and proxy curves.",
+            },
+            "provenance_note": note,
+        }
+
+    material_source_meta = {
+        material_id: proxy_material_meta("Project-generated proxy curve; not yet replaced by a measured automotive-grade or materially equivalent baseline.")
+        for material_id, *_ in material_specs
+    }
+    material_source_meta["mat_asphalt_dry"] = {
+        "source_quality": "measured_standard",
+        "source_ids": [USGS_WAVELENGTH_SOURCE["id"], "usgs_gds376_asphalt_road_old"],
+        "uncertainty": {
+            "type": "measured_open_standard",
+            "note": "Dry road asphalt measured baseline from the selected USGS Spectral Library Version 7 subset.",
+        },
+        "license": {
+            "spdx": "LicenseRef-USGS-Derived",
+            "redistribution": "Resampled derivative of selected USGS Spectral Library Version 7 local subset data.",
+        },
+        "provenance_note": "Measured dry road asphalt baseline from USGS v7 sample GDS376.",
+    }
+    material_source_meta["mat_concrete"] = {
+        "source_quality": "measured_standard",
+        "source_ids": [USGS_WAVELENGTH_SOURCE["id"], "usgs_gds375_concrete_road"],
+        "uncertainty": {
+            "type": "measured_open_standard",
+            "note": "Concrete road measured baseline from the selected USGS Spectral Library Version 7 subset.",
+        },
+        "license": {
+            "spdx": "LicenseRef-USGS-Derived",
+            "redistribution": "Resampled derivative of selected USGS Spectral Library Version 7 local subset data.",
+        },
+        "provenance_note": "Measured concrete baseline from USGS v7 sample GDS375.",
+    }
+    material_source_meta["mat_metal_galvanized"] = {
+        "source_quality": "measured_standard",
+        "source_ids": [USGS_WAVELENGTH_SOURCE["id"], "usgs_gds334_galvanized_sheet_metal"],
+        "uncertainty": {
+            "type": "measured_open_standard",
+            "note": "Galvanized sheet-metal measured baseline from the selected USGS Spectral Library Version 7 subset.",
+        },
+        "license": {
+            "spdx": "LicenseRef-USGS-Derived",
+            "redistribution": "Resampled derivative of selected USGS Spectral Library Version 7 local subset data.",
+        },
+        "provenance_note": "Measured galvanized sheet-metal baseline from USGS v7 sample GDS334.",
+    }
+    material_source_meta["mat_asphalt_wet"] = {
+        "source_quality": "measured_derivative",
+        "source_ids": [USGS_WAVELENGTH_SOURCE["id"], "usgs_gds376_asphalt_road_old"],
+        "uncertainty": {
+            "type": "measured_derivative_plus_proxy_modifier",
+            "note": "Wet asphalt derived from measured USGS dry asphalt baseline with preserved project wet-shape ratio and wet-overlay modifier.",
+        },
+        "license": {
+            "spdx": "LicenseRef-USGS-Derived",
+            "redistribution": "Measured-derived wet asphalt baseline using selected USGS dry asphalt data plus tracked project modifiers.",
+        },
+        "provenance_note": "Measured-derived wet asphalt from USGS v7 dry asphalt sample plus tracked wet proxy ratio.",
+    }
+
     materials = {}
     spectra_dir = REPO_ROOT / "canonical" / "spectra"
+    for curve_name, curve in usgs_curves.items():
+        write_npz(spectra_dir / f"{curve_name}.npz", {"wavelength_nm": MASTER_GRID, "values": curve["values"]})
     for curve_name, values in curves.items():
         write_npz(spectra_dir / f"{curve_name}.npz", {"wavelength_nm": MASTER_GRID, "values": values})
 
@@ -1288,6 +1724,7 @@ def make_materials(illuminant_d65: Sequence[float]) -> Dict[str, Dict]:
         }
         if emissive_factor:
             pbr["emissiveFactor"] = [min(1.0, channel) for channel in emissive_factor]
+        source_meta = material_source_meta[material_id]
         material = {
             "id": material_id,
             "material_type": material_type,
@@ -1311,18 +1748,15 @@ def make_materials(illuminant_d65: Sequence[float]) -> Dict[str, Dict]:
                 "film_thickness_mm": 0.5 if material_type == "wet_overlay" else None,
                 "specular_boost": 1.8 if material_type == "wet_overlay" else None,
             },
-            "uncertainty": {
-                "type": "proxy_or_open_standard",
-                "note": "v1 uses project-generated proxy curves where measured automotive-grade datasets are unavailable.",
-            },
-            "license": {
-                "spdx": "LicenseRef-ProjectGenerated",
-                "redistribution": "project-generated derivative metadata and proxy curves",
-            },
+            "source_quality": source_meta["source_quality"],
+            "source_ids": source_meta["source_ids"],
+            "uncertainty": source_meta["uncertainty"],
+            "license": source_meta["license"],
             "provenance": {
                 "generated_at": GENERATED_AT,
                 "generated_by": "scripts/build_asset_pack.py",
-                "source_ids": ["cie_d65_csv", "astm_g173_zip", "usgs_spectral_library_page", "ecostress_spectral_library_page"],
+                "source_ids": source_meta["source_ids"],
+                "note": source_meta["provenance_note"],
             },
         }
         material["svg_fill"] = material_hex(rgba)
@@ -1332,6 +1766,58 @@ def make_materials(illuminant_d65: Sequence[float]) -> Dict[str, Dict]:
     write_npz(spectra_dir / "grid_master_350_1700_1nm.npz", {"wavelength_nm": MASTER_GRID})
     write_npz(spectra_dir / "grid_runtime_400_1100_5nm.npz", {"wavelength_nm": RUNTIME_GRID})
     return materials
+
+
+def write_camera_profiles() -> List[Dict]:
+    raw_curves = {
+        "r": clamp_list(interpolate([(350, 0.0), (420, 0.01), (480, 0.06), (540, 0.22), (600, 0.84), (640, 1.0), (700, 0.62), (780, 0.14), (900, 0.02), (1100, 0.0), (1700, 0.0)], MASTER_GRID)),
+        "g": clamp_list(interpolate([(350, 0.0), (400, 0.05), (460, 0.46), (520, 1.0), (580, 0.62), (650, 0.1), (760, 0.02), (1100, 0.0), (1700, 0.0)], MASTER_GRID)),
+        "b": clamp_list(interpolate([(350, 0.08), (390, 0.42), (440, 1.0), (500, 0.46), (560, 0.08), (650, 0.01), (1100, 0.0), (1700, 0.0)], MASTER_GRID)),
+        "nir": clamp_list(interpolate([(350, 0.0), (620, 0.0), (680, 0.08), (730, 0.32), (800, 0.82), (860, 1.0), (940, 0.88), (1020, 0.44), (1100, 0.0), (1700, 0.0)], MASTER_GRID)),
+    }
+    optics = clamp_list(interpolate([(350, 0.52), (400, 0.84), (450, 0.9), (700, 0.92), (850, 0.76), (950, 0.64), (1050, 0.36), (1100, 0.08), (1700, 0.0)], MASTER_GRID))
+    effective_curves = {
+        channel: normalize_unit_peak([sample * transmission for sample, transmission in zip(raw_curve, optics)])
+        for channel, raw_curve in raw_curves.items()
+    }
+
+    spectra_dir = REPO_ROOT / "canonical" / "spectra"
+    for channel in CAMERA_CHANNELS:
+        write_npz(spectra_dir / f"cam_ref_rgbnir_{channel}_raw_srf.npz", {"wavelength_nm": MASTER_GRID, "values": raw_curves[channel]})
+        write_npz(spectra_dir / f"cam_ref_rgbnir_{channel}_effective_srf.npz", {"wavelength_nm": MASTER_GRID, "values": effective_curves[channel]})
+    write_npz(spectra_dir / "cam_ref_rgbnir_optics_transmittance.npz", {"wavelength_nm": MASTER_GRID, "values": optics})
+
+    def curve_ref(name: str) -> Dict:
+        return {
+            "path": f"canonical/spectra/{name}.npz",
+            "wavelength_key": "wavelength_nm",
+            "value_key": "values",
+        }
+
+    profile = {
+        "id": "camera_reference_rgb_nir_v1",
+        "sensor_branch": "rgb_nir",
+        "wavelength_grid_ref": "grid_master_350_1700_1nm",
+        "raw_channel_srf_refs": {channel: curve_ref(f"cam_ref_rgbnir_{channel}_raw_srf") for channel in CAMERA_CHANNELS},
+        "optics_transmittance_ref": curve_ref("cam_ref_rgbnir_optics_transmittance"),
+        "effective_channel_srf_refs": {channel: curve_ref(f"cam_ref_rgbnir_{channel}_effective_srf") for channel in CAMERA_CHANNELS},
+        "normalization": {"method": "unit_peak_per_channel_after_optics"},
+        "operating_temperature_c": 25.0,
+        "source_quality": "vendor_derived",
+        "source_ids": ["basler_color_emva_knowledge", "sony_imx900_product_page", "sony_isx016_pdf"],
+        "license": {
+            "spdx": "LicenseRef-VendorDerived",
+            "redistribution": "Derived camera-profile metadata and curves from public vendor documentation and tracked project curve fitting.",
+        },
+        "provenance": {
+            "generated_at": GENERATED_AT,
+            "generated_by": "scripts/build_asset_pack.py",
+            "source_ids": ["basler_color_emva_knowledge", "sony_imx900_product_page", "sony_isx016_pdf"],
+            "note": "Generic RGB+NIR automotive camera profile derived from public vendor documentation; not a measured single-SKU SRF.",
+        },
+    }
+    write_json(REPO_ROOT / "canonical" / "camera" / f"{profile['id']}.camera_profile.json", profile)
+    return [profile]
 
 
 def generate_standard_spectra() -> Dict[str, List[float]]:
@@ -1632,8 +2118,10 @@ def write_emissive_profiles() -> List[Dict]:
             "nominal_luminance_cd_m2": {"red": 7000, "yellow": 6500, "green": 8000},
             "temperature_c": 25.0,
             "driver_mode": "steady_dc",
+            "source_quality": "project_proxy",
+            "source_ids": [],
             "license": {"spdx": "LicenseRef-ProjectGenerated"},
-            "provenance": {"generated_at": GENERATED_AT, "generated_by": "scripts/build_asset_pack.py", "note": "Proxy traffic signal SPD."},
+            "provenance": {"generated_at": GENERATED_AT, "generated_by": "scripts/build_asset_pack.py", "source_ids": [], "note": "Proxy traffic signal SPD."},
         },
         {
             "id": "emissive_protected_turn",
@@ -1653,8 +2141,10 @@ def write_emissive_profiles() -> List[Dict]:
             "nominal_luminance_cd_m2": {"red": 7000, "yellow": 6500, "green": 8000, "arrow": 7600},
             "temperature_c": 25.0,
             "driver_mode": "steady_dc",
+            "source_quality": "project_proxy",
+            "source_ids": [],
             "license": {"spdx": "LicenseRef-ProjectGenerated"},
-            "provenance": {"generated_at": GENERATED_AT, "generated_by": "scripts/build_asset_pack.py", "note": "Proxy protected-turn SPD."},
+            "provenance": {"generated_at": GENERATED_AT, "generated_by": "scripts/build_asset_pack.py", "source_ids": [], "note": "Proxy protected-turn SPD."},
         },
         {
             "id": "emissive_pedestrian_standard",
@@ -1666,8 +2156,10 @@ def write_emissive_profiles() -> List[Dict]:
             "nominal_luminance_cd_m2": {"red": 5400, "walk": 6200},
             "temperature_c": 25.0,
             "driver_mode": "steady_dc",
+            "source_quality": "project_proxy",
+            "source_ids": [],
             "license": {"spdx": "LicenseRef-ProjectGenerated"},
-            "provenance": {"generated_at": GENERATED_AT, "generated_by": "scripts/build_asset_pack.py", "note": "Proxy pedestrian SPD."},
+            "provenance": {"generated_at": GENERATED_AT, "generated_by": "scripts/build_asset_pack.py", "source_ids": [], "note": "Proxy pedestrian SPD."},
         },
         {
             "id": "emissive_pedestrian_countdown",
@@ -1685,8 +2177,10 @@ def write_emissive_profiles() -> List[Dict]:
             "nominal_luminance_cd_m2": {"red": 5400, "walk": 6200, "countdown": 5800},
             "temperature_c": 25.0,
             "driver_mode": "steady_dc",
+            "source_quality": "project_proxy",
+            "source_ids": [],
             "license": {"spdx": "LicenseRef-ProjectGenerated"},
-            "provenance": {"generated_at": GENERATED_AT, "generated_by": "scripts/build_asset_pack.py", "note": "Proxy pedestrian countdown SPD."},
+            "provenance": {"generated_at": GENERATED_AT, "generated_by": "scripts/build_asset_pack.py", "source_ids": [], "note": "Proxy pedestrian countdown SPD."},
         },
     ]
     for profile in profiles:
@@ -1694,7 +2188,7 @@ def write_emissive_profiles() -> List[Dict]:
     return profiles
 
 
-def write_scenarios_and_atmospheres() -> Tuple[List[Dict], List[Dict]]:
+def write_scenarios_and_atmospheres(camera_profile_id: str) -> Tuple[List[Dict], List[Dict]]:
     atmospheres = [
         {"id": "atmosphere_clear_clean_v1", "aod_550": 0.08, "visibility_km": 45.0, "cloud_fraction": 0.0, "source_ids": ["aeronet_quality_assurance_pdf", "libradtran_home"]},
         {"id": "atmosphere_overcast_v1", "aod_550": 0.18, "visibility_km": 18.0, "cloud_fraction": 0.95, "source_ids": ["aeronet_quality_assurance_pdf", "libradtran_home"]},
@@ -1710,6 +2204,7 @@ def write_scenarios_and_atmospheres() -> Tuple[List[Dict], List[Dict]]:
             "atmosphere_ref": "canonical/atmospheres/atmosphere_clear_clean_v1.json",
             "surface_state_overrides": {"road.asphalt": "road_asphalt_dry"},
             "sensor_branch": "rgb_nir",
+            "camera_profile_ref": f"canonical/camera/{camera_profile_id}.camera_profile.json",
             "weather_flags": {"daylight": True, "wet": False, "night": False},
             "license": {"spdx": "LicenseRef-ProjectGenerated"},
             "provenance": {"generated_at": GENERATED_AT, "generated_by": "scripts/build_asset_pack.py"},
@@ -1720,6 +2215,7 @@ def write_scenarios_and_atmospheres() -> Tuple[List[Dict], List[Dict]]:
             "atmosphere_ref": "canonical/atmospheres/atmosphere_overcast_v1.json",
             "surface_state_overrides": {"road.asphalt": "road_asphalt_dry"},
             "sensor_branch": "rgb_nir",
+            "camera_profile_ref": f"canonical/camera/{camera_profile_id}.camera_profile.json",
             "weather_flags": {"daylight": True, "wet": False, "night": False, "cloudy": True},
             "license": {"spdx": "LicenseRef-ProjectGenerated"},
             "provenance": {"generated_at": GENERATED_AT, "generated_by": "scripts/build_asset_pack.py"},
@@ -1730,6 +2226,7 @@ def write_scenarios_and_atmospheres() -> Tuple[List[Dict], List[Dict]]:
             "atmosphere_ref": "canonical/atmospheres/atmosphere_urban_night_v1.json",
             "surface_state_overrides": {"road.asphalt": "road_asphalt_dry"},
             "sensor_branch": "rgb_nir",
+            "camera_profile_ref": f"canonical/camera/{camera_profile_id}.camera_profile.json",
             "weather_flags": {"daylight": False, "wet": False, "night": True},
             "license": {"spdx": "LicenseRef-ProjectGenerated"},
             "provenance": {"generated_at": GENERATED_AT, "generated_by": "scripts/build_asset_pack.py"},
@@ -1740,6 +2237,7 @@ def write_scenarios_and_atmospheres() -> Tuple[List[Dict], List[Dict]]:
             "atmosphere_ref": "canonical/atmospheres/atmosphere_wet_dusk_v1.json",
             "surface_state_overrides": {"road.asphalt": "road_asphalt_wet"},
             "sensor_branch": "rgb_nir",
+            "camera_profile_ref": f"canonical/camera/{camera_profile_id}.camera_profile.json",
             "weather_flags": {"daylight": False, "wet": True, "night": False, "dusk": True},
             "license": {"spdx": "LicenseRef-ProjectGenerated"},
             "provenance": {"generated_at": GENERATED_AT, "generated_by": "scripts/build_asset_pack.py"},
@@ -1872,12 +2370,26 @@ def validate_manifest(asset: Dict) -> List[str]:
     return errors
 
 
-def validate_material(material: Dict) -> List[str]:
+def validate_source_ids(owner_id: str, source_ids: object, known_source_ids: Sequence[str]) -> List[str]:
+    errors = []
+    if not isinstance(source_ids, list):
+        return [f"{owner_id}: source_ids must be a list"]
+    known_ids = set(known_source_ids)
+    for source_id in source_ids:
+        if source_id not in known_ids:
+            errors.append(f"{owner_id}: unresolved source_id {source_id}")
+    return errors
+
+
+def validate_material(material: Dict, known_source_ids: Sequence[str]) -> List[str]:
     errors = []
     if material.get("material_type") not in MATERIAL_ENUM:
         errors.append(f"{material['id']}: invalid material_type")
     if material.get("sample_state") not in SAMPLE_STATE_ENUM:
         errors.append(f"{material['id']}: invalid sample_state")
+    if material.get("source_quality") not in SOURCE_QUALITY_ENUM:
+        errors.append(f"{material['id']}: invalid source_quality")
+    errors.extend(validate_source_ids(material["id"], material.get("source_ids", []), known_source_ids))
     for curve in material.get("source_curve_refs", []):
         path = REPO_ROOT / curve["path"]
         if not path.exists():
@@ -1890,11 +2402,72 @@ def validate_material(material: Dict) -> List[str]:
     return errors
 
 
-def validate_emissive(profile: Dict) -> List[str]:
+def validate_emissive(profile: Dict, known_source_ids: Sequence[str]) -> List[str]:
     errors = []
-    for key in ["id", "spd_ref", "state_map", "nominal_luminance_cd_m2", "temperature_c", "driver_mode", "provenance"]:
+    for key in ["id", "spd_ref", "state_map", "nominal_luminance_cd_m2", "temperature_c", "driver_mode", "source_quality", "source_ids", "provenance"]:
         if key not in profile:
             errors.append(f"{profile.get('id', 'unknown')}: missing {key}")
+    if profile.get("source_quality") not in SOURCE_QUALITY_ENUM:
+        errors.append(f"{profile['id']}: invalid source_quality")
+    errors.extend(validate_source_ids(profile["id"], profile.get("source_ids", []), known_source_ids))
+    return errors
+
+
+def validate_camera_profile(profile: Dict, known_source_ids: Sequence[str]) -> List[str]:
+    errors = []
+    for key in [
+        "id",
+        "sensor_branch",
+        "wavelength_grid_ref",
+        "raw_channel_srf_refs",
+        "optics_transmittance_ref",
+        "effective_channel_srf_refs",
+        "normalization",
+        "operating_temperature_c",
+        "source_quality",
+        "source_ids",
+        "license",
+        "provenance",
+    ]:
+        if key not in profile:
+            errors.append(f"{profile.get('id', 'unknown')}: missing {key}")
+    if profile.get("sensor_branch") not in SENSOR_BRANCH_ENUM:
+        errors.append(f"{profile['id']}: invalid sensor_branch")
+    if profile.get("source_quality") not in SOURCE_QUALITY_ENUM:
+        errors.append(f"{profile['id']}: invalid source_quality")
+    errors.extend(validate_source_ids(profile["id"], profile.get("source_ids", []), known_source_ids))
+    for group_key in ["raw_channel_srf_refs", "effective_channel_srf_refs"]:
+        refs = profile.get(group_key, {})
+        if set(refs.keys()) != set(CAMERA_CHANNELS):
+            errors.append(f"{profile['id']}: {group_key} must contain channels {', '.join(CAMERA_CHANNELS)}")
+            continue
+        for channel, ref in refs.items():
+            path = REPO_ROOT / ref["path"]
+            if not path.exists():
+                errors.append(f"{profile['id']}: missing {group_key} path for {channel}")
+                continue
+            arrays = read_npz(path)
+            wavelengths = arrays[ref["wavelength_key"]]
+            values = arrays[ref["value_key"]]
+            if min(wavelengths) > 400 or max(wavelengths) < 1100:
+                errors.append(f"{profile['id']}: {group_key} for {channel} lacks 400-1100 coverage")
+            if min(values) < -1e-6 or max(values) > 1.000001:
+                errors.append(f"{profile['id']}: {group_key} for {channel} is outside [0, 1]")
+            if group_key == "effective_channel_srf_refs" and abs(max(values) - 1.0) > 1e-6:
+                errors.append(f"{profile['id']}: effective SRF for {channel} is not unit peak normalized")
+    optics_ref = profile.get("optics_transmittance_ref", {})
+    if isinstance(optics_ref, dict):
+        path = REPO_ROOT / optics_ref.get("path", "")
+        if not path.exists():
+            errors.append(f"{profile['id']}: missing optics_transmittance_ref path")
+        else:
+            arrays = read_npz(path)
+            wavelengths = arrays[optics_ref["wavelength_key"]]
+            values = arrays[optics_ref["value_key"]]
+            if min(wavelengths) > 400 or max(wavelengths) < 1100:
+                errors.append(f"{profile['id']}: optics transmittance lacks 400-1100 coverage")
+            if min(values) < -1e-6 or max(values) > 1.000001:
+                errors.append(f"{profile['id']}: optics transmittance is outside [0, 1]")
     return errors
 
 
@@ -1902,9 +2475,13 @@ def validate_scenario(profile: Dict) -> List[str]:
     errors = []
     if profile.get("sensor_branch") not in SENSOR_BRANCH_ENUM:
         errors.append(f"{profile['id']}: invalid sensor_branch")
-    for key in ["id", "illuminant_ref", "atmosphere_ref", "surface_state_overrides", "sensor_branch", "weather_flags"]:
+    for key in ["id", "illuminant_ref", "atmosphere_ref", "surface_state_overrides", "sensor_branch", "camera_profile_ref", "weather_flags"]:
         if key not in profile:
             errors.append(f"{profile.get('id', 'unknown')}: missing {key}")
+    camera_ref = profile.get("camera_profile_ref")
+    if isinstance(camera_ref, str):
+        if not (REPO_ROOT / camera_ref).exists():
+            errors.append(f"{profile['id']}: camera_profile_ref does not resolve")
     return errors
 
 
@@ -1921,14 +2498,16 @@ def compute_scale_within_tolerance(asset: Dict) -> bool:
     return True
 
 
-def build_reports(assets: List[Dict], materials: Dict[str, Dict], emissive_profiles: List[Dict], scenarios: List[Dict], usd_export_status: Dict[str, Dict]) -> Dict:
+def build_reports(assets: List[Dict], materials: Dict[str, Dict], emissive_profiles: List[Dict], camera_profiles: List[Dict], scenarios: List[Dict], usd_export_status: Dict[str, Dict], source_ledger: List[Dict]) -> Dict:
     asset_errors = []
     material_errors = []
     emissive_errors = []
+    camera_profile_errors = []
     scenario_errors = []
     scale_failures = []
     coverage_assets = 0
     assets_with_license = 0
+    known_source_ids = [entry["id"] for entry in source_ledger]
 
     for asset in assets:
         asset_errors.extend(validate_manifest(asset))
@@ -1938,14 +2517,17 @@ def build_reports(assets: List[Dict], materials: Dict[str, Dict], emissive_profi
             scale_failures.append(asset["id"])
 
     for material in materials.values():
-        material_errors.extend(validate_material(material))
+        material_errors.extend(validate_material(material, known_source_ids))
         arrays = read_npz(REPO_ROOT / material["source_curve_refs"][0]["path"])
         wavelengths = arrays["wavelength_nm"]
         if min(wavelengths) <= 400 and max(wavelengths) >= 1100:
             coverage_assets += 1
 
     for profile in emissive_profiles:
-        emissive_errors.extend(validate_emissive(profile))
+        emissive_errors.extend(validate_emissive(profile, known_source_ids))
+
+    for profile in camera_profiles:
+        camera_profile_errors.extend(validate_camera_profile(profile, known_source_ids))
 
     for scenario in scenarios:
         scenario_errors.extend(validate_scenario(scenario))
@@ -1974,10 +2556,12 @@ def build_reports(assets: List[Dict], materials: Dict[str, Dict], emissive_profi
         "asset_count": len(assets),
         "material_count": len(materials),
         "emissive_profile_count": len(emissive_profiles),
+        "camera_profile_count": len(camera_profiles),
         "scenario_count": len(scenarios),
         "asset_validation_errors": asset_errors,
         "material_validation_errors": material_errors,
         "emissive_validation_errors": emissive_errors,
+        "camera_profile_validation_errors": camera_profile_errors,
         "scenario_validation_errors": scenario_errors,
         "usd_validation_failures": usd_failures,
         "visual_validation": {
@@ -2004,11 +2588,19 @@ def build_reports(assets: List[Dict], materials: Dict[str, Dict], emissive_profi
             "status": "pass" if not material_errors else "fail",
             "materials_with_400_1100_coverage": coverage_assets,
         },
+        "material_quality_summary": {
+            quality: len([material for material in materials.values() if material.get("source_quality") == quality])
+            for quality in sorted(SOURCE_QUALITY_ENUM)
+        },
+        "camera_profile_quality_summary": {
+            quality: len([profile for profile in camera_profiles if profile.get("source_quality") == quality])
+            for quality in sorted(SOURCE_QUALITY_ENUM)
+        },
         "release_gates": {
             "wired_asset_ratio": round(len([asset for asset in assets if asset["materials"]]) / len(assets), 3),
             "assets_with_license_and_provenance_ratio": round(assets_with_license / len(assets), 3),
             "all_backlog_marked_measured_required": True,
-            "passes": not (asset_errors or material_errors or emissive_errors or scenario_errors or usd_failures or scale_failures),
+            "passes": not (asset_errors or material_errors or emissive_errors or camera_profile_errors or scenario_errors or usd_failures or scale_failures),
         },
     }
     write_json(REPO_ROOT / "validation" / "reports" / "validation_summary.json", summary)
@@ -2027,12 +2619,13 @@ def main() -> int:
     ledger = download_sources()
     standards = generate_standard_spectra()
     materials = make_materials(standards["illuminant_d65"])
+    camera_profiles = write_camera_profiles()
     assets, asset_meshes = build_assets(materials)
     usd_status = write_asset_geometry_and_exports(assets, asset_meshes, materials)
     emissive_profiles = write_emissive_profiles()
-    atmospheres, scenarios = write_scenarios_and_atmospheres()
+    atmospheres, scenarios = write_scenarios_and_atmospheres(camera_profiles[0]["id"])
     write_scenes(asset_meshes, materials)
-    summary = build_reports(assets, materials, emissive_profiles, scenarios, usd_status)
+    summary = build_reports(assets, materials, emissive_profiles, camera_profiles, scenarios, usd_status, ledger)
     print(json.dumps({"generated_at": GENERATED_AT, "asset_count": len(assets), "source_count": len(ledger), "validation_passes": summary["release_gates"]["passes"]}, indent=2))
     return 0
 

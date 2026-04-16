@@ -1,0 +1,17 @@
+{
+  "id": "usgs_spectralon99_white_ref",
+  "origin_type": "local_path",
+  "classification": "redistributable",
+  "license_summary": "USGS Spectral Library Version 7 selected local subset",
+  "selection_role": "reference_only",
+  "path": "raw/sources/usgs_splib07_selected/usgs_spectralon99_white_ref/splib07b_Spectralon99WhiteRef_LSPHERE_ASDFRa_AREF.txt",
+  "copied_from": "ASCIIdata/ASCIIdata_splib07b/ChapterA_ArtificialMaterials/splib07b_Spectralon99WhiteRef_LSPHERE_ASDFRa_AREF.txt",
+  "copied_at": "2026-04-16T10:10:40+00:00",
+  "status": "copied_from_local",
+  "sha256": "de9551b2e6c766f414d9c0ae821c9d95cd18954abf3d579972b60dd4ff4b4450",
+  "size_bytes": 36632,
+  "notes": "Reference-only white standard prior; not a direct road-marking replacement.",
+  "metadata_path": "raw/sources/usgs_splib07_selected/usgs_spectralon99_white_ref/Spectralon99WhiteRef_LSPHERE_ASDFRa_AREF.html",
+  "metadata_copied_from": "HTMLmetadata/Spectralon99WhiteRef_LSPHERE_ASDFRa_AREF.html",
+  "metadata_sha256": "d883e77681850c962f3e0be121bf9ca5f1c06655bd5d155387ccea19ca2c22fd"
+}

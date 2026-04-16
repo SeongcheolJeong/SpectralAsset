@@ -1,0 +1,17 @@
+{
+  "id": "usgs_gds382_pete_black",
+  "origin_type": "local_path",
+  "classification": "redistributable",
+  "license_summary": "USGS Spectral Library Version 7 selected local subset",
+  "selection_role": "reference_only",
+  "path": "raw/sources/usgs_splib07_selected/usgs_gds382_pete_black/splib07b_Plastic_PETE_GDS382_Black_ASDFRa_AREF.txt",
+  "copied_from": "ASCIIdata/ASCIIdata_splib07b/ChapterA_ArtificialMaterials/splib07b_Plastic_PETE_GDS382_Black_ASDFRa_AREF.txt",
+  "copied_at": "2026-04-16T10:10:40+00:00",
+  "status": "copied_from_local",
+  "sha256": "81cad0107743cff2fbdd038bb20841872ecb1eb3519085c8534f63e01aa59bd9",
+  "size_bytes": 36632,
+  "notes": "Reference-only black PET prior; not a sign-face or signal-housing measured replacement.",
+  "metadata_path": "raw/sources/usgs_splib07_selected/usgs_gds382_pete_black/Plastic_PETE_GDS382_Black_ASDFRa_AREF.html",
+  "metadata_copied_from": "HTMLmetadata/Plastic_PETE_GDS382_Black_ASDFRa_AREF.html",
+  "metadata_sha256": "a2f6675ad4a2f038be2153ff26d8f757a0c858dc46b41a6cec2248dac4f90b05"
+}

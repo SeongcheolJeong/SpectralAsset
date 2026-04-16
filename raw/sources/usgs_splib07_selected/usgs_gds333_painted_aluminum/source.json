@@ -1,0 +1,17 @@
+{
+  "id": "usgs_gds333_painted_aluminum",
+  "origin_type": "local_path",
+  "classification": "redistributable",
+  "license_summary": "USGS Spectral Library Version 7 selected local subset",
+  "selection_role": "reference_only",
+  "path": "raw/sources/usgs_splib07_selected/usgs_gds333_painted_aluminum/splib07b_Painted_Aluminum_GDS333_LgGr_ASDFRa_AREF.txt",
+  "copied_from": "ASCIIdata/ASCIIdata_splib07b/ChapterA_ArtificialMaterials/splib07b_Painted_Aluminum_GDS333_LgGr_ASDFRa_AREF.txt",
+  "copied_at": "2026-04-16T10:10:40+00:00",
+  "status": "copied_from_local",
+  "sha256": "71006a29cc52bab0086f9f584bee651e85ab78d25cfdf2c506beae5d457f7faf",
+  "size_bytes": 36632,
+  "notes": "Reference-only painted-aluminum color prior; not a traffic-sign sheeting replacement.",
+  "metadata_path": "raw/sources/usgs_splib07_selected/usgs_gds333_painted_aluminum/Painted_Aluminum_GDS333_LgGr_ASDFRa_AREF.html",
+  "metadata_copied_from": "HTMLmetadata/Painted_Aluminum_GDS333_LgGr_ASDFRa_AREF.html",
+  "metadata_sha256": "e68763cbc98dd18306f89a92bae707d4b2126d59f91a01691a4714f4045d3170"
+}

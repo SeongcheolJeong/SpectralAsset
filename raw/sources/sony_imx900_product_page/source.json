@@ -1,0 +1,13 @@
+{
+  "id": "sony_imx900_product_page",
+  "origin_type": "url",
+  "url": "https://www.sony-semicon.com/en/products/is/industry/gs/imx900.html",
+  "file_name": "imx900.html",
+  "classification": "reference-only",
+  "license_summary": "Sony official product page for near-infrared-sensitive global-shutter sensor",
+  "path": "raw/sources/sony_imx900_product_page/imx900.html",
+  "fetched_at": "2026-04-16T10:10:40+00:00",
+  "status": "downloaded",
+  "sha256": "d36cfd8b6670de33770f9e1ec3eb0f0cddc7a5660f3a76104cccff7c486e82b3",
+  "size_bytes": 147396
+}

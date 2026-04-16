@@ -1,0 +1,17 @@
+{
+  "id": "usgs_gds376_asphalt_road_old",
+  "origin_type": "local_path",
+  "classification": "redistributable",
+  "license_summary": "USGS Spectral Library Version 7 selected local subset",
+  "selection_role": "active_binding",
+  "path": "raw/sources/usgs_splib07_selected/usgs_gds376_asphalt_road_old/splib07b_Asphalt_GDS376_Blck_Road_old_ASDFRa_AREF.txt",
+  "copied_from": "ASCIIdata/ASCIIdata_splib07b/ChapterA_ArtificialMaterials/splib07b_Asphalt_GDS376_Blck_Road_old_ASDFRa_AREF.txt",
+  "copied_at": "2026-04-16T10:10:40+00:00",
+  "status": "copied_from_local",
+  "sha256": "c057c39d22c6591721d7611addf63e8d73032bf680d152f9cb9a09b0543cf53b",
+  "size_bytes": 36632,
+  "notes": "Measured dry road asphalt baseline from USGS v7.",
+  "metadata_path": "raw/sources/usgs_splib07_selected/usgs_gds376_asphalt_road_old/Asphalt_GDS376_Blck_Road_old_ASDFRa_AREF.html",
+  "metadata_copied_from": "HTMLmetadata/Asphalt_GDS376_Blck_Road_old_ASDFRa_AREF.html",
+  "metadata_sha256": "e14c8348cc148d54ddaa9718b9c515ed93af7c009f8f084d3a2053dd435ed4c1"
+}

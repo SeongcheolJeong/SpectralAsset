@@ -29,12 +29,15 @@
   },
   "temperature_c": 25.0,
   "driver_mode": "steady_dc",
+  "source_quality": "project_proxy",
+  "source_ids": [],
   "license": {
     "spdx": "LicenseRef-ProjectGenerated"
   },
   "provenance": {
     "generated_at": "2026-04-16T10:10:40+00:00",
     "generated_by": "scripts/build_asset_pack.py",
+    "source_ids": [],
     "note": "Proxy protected-turn SPD."
   }
 }

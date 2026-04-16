@@ -1,0 +1,71 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://spectralasset.local/schemas/camera_profile.schema.json",
+  "type": "object",
+  "required": [
+    "id",
+    "sensor_branch",
+    "wavelength_grid_ref",
+    "raw_channel_srf_refs",
+    "optics_transmittance_ref",
+    "effective_channel_srf_refs",
+    "normalization",
+    "operating_temperature_c",
+    "source_quality",
+    "source_ids",
+    "license",
+    "provenance"
+  ],
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "sensor_branch": {
+      "type": "string",
+      "enum": [
+        "rgb",
+        "rgb_nir"
+      ]
+    },
+    "wavelength_grid_ref": {
+      "type": "string"
+    },
+    "raw_channel_srf_refs": {
+      "type": "object"
+    },
+    "optics_transmittance_ref": {
+      "type": "object"
+    },
+    "effective_channel_srf_refs": {
+      "type": "object"
+    },
+    "normalization": {
+      "type": "object"
+    },
+    "operating_temperature_c": {
+      "type": "number"
+    },
+    "source_quality": {
+      "type": "string",
+      "enum": [
+        "measured_standard",
+        "measured_derivative",
+        "vendor_derived",
+        "project_proxy"
+      ]
+    },
+    "source_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "license": {
+      "type": "object"
+    },
+    "provenance": {
+      "type": "object"
+    }
+  },
+  "additionalProperties": true
+}

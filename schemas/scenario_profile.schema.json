@@ -8,6 +8,7 @@
     "atmosphere_ref",
     "surface_state_overrides",
     "sensor_branch",
+    "camera_profile_ref",
     "weather_flags"
   ],
   "properties": {
@@ -26,6 +27,9 @@
         "rgb_nir"
       ]
     },
+    "camera_profile_ref": {
+      "type": "string"
+    },
     "weather_flags": {
       "type": "object"
     },
@@ -38,4 +42,3 @@
   },
   "additionalProperties": true
 }
-

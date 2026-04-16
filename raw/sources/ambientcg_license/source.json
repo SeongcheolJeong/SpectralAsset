@@ -1,9 +1,11 @@
 {
   "id": "ambientcg_license",
+  "origin_type": "url",
   "url": "https://docs.ambientcg.com/license/",
   "file_name": "license.html",
   "classification": "reference-only",
   "license_summary": "ambientCG CC0 reference",
+  "path": "raw/sources/ambientcg_license/license.html",
   "fetched_at": "2026-04-16T10:10:40+00:00",
   "status": "downloaded",
   "sha256": "60138e09b277c89977841462634b36e99d7bae5b77174777813502069c59461c",

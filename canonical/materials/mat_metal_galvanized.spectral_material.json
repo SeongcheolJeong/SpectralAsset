@@ -14,9 +14,9 @@
   ],
   "pbr_fallback": {
     "baseColorFactor": [
+      0.8977357143092634,
       1.0,
-      0.9969790328779152,
-      0.6223113940520303,
+      0.7016542719342708,
       1.0
     ],
     "metallicFactor": 0.12,
@@ -29,23 +29,27 @@
     "film_thickness_mm": null,
     "specular_boost": null
   },
+  "source_quality": "measured_standard",
+  "source_ids": [
+    "usgs_asdfr_wavelengths_2151",
+    "usgs_gds334_galvanized_sheet_metal"
+  ],
   "uncertainty": {
-    "type": "proxy_or_open_standard",
-    "note": "v1 uses project-generated proxy curves where measured automotive-grade datasets are unavailable."
+    "type": "measured_open_standard",
+    "note": "Galvanized sheet-metal measured baseline from the selected USGS Spectral Library Version 7 subset."
   },
   "license": {
-    "spdx": "LicenseRef-ProjectGenerated",
-    "redistribution": "project-generated derivative metadata and proxy curves"
+    "spdx": "LicenseRef-USGS-Derived",
+    "redistribution": "Resampled derivative of selected USGS Spectral Library Version 7 local subset data."
   },
   "provenance": {
     "generated_at": "2026-04-16T10:10:40+00:00",
     "generated_by": "scripts/build_asset_pack.py",
     "source_ids": [
-      "cie_d65_csv",
-      "astm_g173_zip",
-      "usgs_spectral_library_page",
-      "ecostress_spectral_library_page"
-    ]
+      "usgs_asdfr_wavelengths_2151",
+      "usgs_gds334_galvanized_sheet_metal"
+    ],
+    "note": "Measured galvanized sheet-metal baseline from USGS v7 sample GDS334."
   },
-  "svg_fill": "#fffe9f"
+  "svg_fill": "#e5ffb3"
 }

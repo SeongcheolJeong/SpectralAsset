@@ -1,9 +1,11 @@
 {
   "id": "cie_d65_metadata",
+  "origin_type": "url",
   "url": "https://files.cie.co.at/CIE_std_illum_D65.csv_metadata.json",
   "file_name": "CIE_std_illum_D65.csv_metadata.json",
   "classification": "redistributable",
   "license_summary": "CIE metadata with DOI",
+  "path": "raw/sources/cie_d65_metadata/CIE_std_illum_D65.csv_metadata.json",
   "fetched_at": "2026-04-16T10:10:40+00:00",
   "status": "downloaded",
   "sha256": "de1ed36015fce537045791505f87f80eed5c508267af384f537ab94f29f01657",

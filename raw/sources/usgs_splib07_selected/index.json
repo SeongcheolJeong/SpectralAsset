@@ -1,0 +1,88 @@
+{
+  "generated_at": "2026-04-16T10:10:40+00:00",
+  "local_source_root": "usgs_splib07",
+  "selected_inputs": [
+    {
+      "id": "usgs_asdfr_wavelengths_2151",
+      "selection_role": "wavelength_basis",
+      "path": "raw/sources/usgs_splib07_selected/usgs_asdfr_wavelengths_2151/splib07b_Wavelengths_ASDFR_0.35-2.5microns_2151ch.txt",
+      "copied_from": "ASCIIdata/ASCIIdata_splib07b/splib07b_Wavelengths_ASDFR_0.35-2.5microns_2151ch.txt",
+      "sha256": "ac4c20ab8a3a6a2cf1972d0252e69d8e76c4817860d9a7d77e9cc348f065ea51",
+      "notes": "Canonical wavelength basis for selected ASDFR material samples."
+    },
+    {
+      "id": "usgs_gds376_asphalt_road_old",
+      "selection_role": "active_binding",
+      "path": "raw/sources/usgs_splib07_selected/usgs_gds376_asphalt_road_old/splib07b_Asphalt_GDS376_Blck_Road_old_ASDFRa_AREF.txt",
+      "copied_from": "ASCIIdata/ASCIIdata_splib07b/ChapterA_ArtificialMaterials/splib07b_Asphalt_GDS376_Blck_Road_old_ASDFRa_AREF.txt",
+      "sha256": "c057c39d22c6591721d7611addf63e8d73032bf680d152f9cb9a09b0543cf53b",
+      "notes": "Measured dry road asphalt baseline from USGS v7."
+    },
+    {
+      "id": "usgs_gds375_concrete_road",
+      "selection_role": "active_binding",
+      "path": "raw/sources/usgs_splib07_selected/usgs_gds375_concrete_road/splib07b_Concrete_GDS375_Lt_Gry_Road_ASDFRa_AREF.txt",
+      "copied_from": "ASCIIdata/ASCIIdata_splib07b/ChapterA_ArtificialMaterials/splib07b_Concrete_GDS375_Lt_Gry_Road_ASDFRa_AREF.txt",
+      "sha256": "60ba6792394e2669059a00d4479f003195b7c34ab5b07fae0ebd7ac049c6c44f",
+      "notes": "Measured concrete road baseline from USGS v7."
+    },
+    {
+      "id": "usgs_gds334_galvanized_sheet_metal",
+      "selection_role": "active_binding",
+      "path": "raw/sources/usgs_splib07_selected/usgs_gds334_galvanized_sheet_metal/splib07b_GalvanizedSheetMetal_GDS334_ASDFRa_AREF.txt",
+      "copied_from": "ASCIIdata/ASCIIdata_splib07b/ChapterA_ArtificialMaterials/splib07b_GalvanizedSheetMetal_GDS334_ASDFRa_AREF.txt",
+      "sha256": "f3533dd42a7dfe1e8fd568f5ef427ab94dde04f5d1f75b300d3b6276eb319c21",
+      "notes": "Measured galvanized sheet-metal baseline from USGS v7."
+    },
+    {
+      "id": "usgs_gds333_painted_aluminum",
+      "selection_role": "reference_only",
+      "path": "raw/sources/usgs_splib07_selected/usgs_gds333_painted_aluminum/splib07b_Painted_Aluminum_GDS333_LgGr_ASDFRa_AREF.txt",
+      "copied_from": "ASCIIdata/ASCIIdata_splib07b/ChapterA_ArtificialMaterials/splib07b_Painted_Aluminum_GDS333_LgGr_ASDFRa_AREF.txt",
+      "sha256": "71006a29cc52bab0086f9f584bee651e85ab78d25cfdf2c506beae5d457f7faf",
+      "notes": "Reference-only painted-aluminum color prior; not a traffic-sign sheeting replacement."
+    },
+    {
+      "id": "usgs_gds338_pvc_white",
+      "selection_role": "reference_only",
+      "path": "raw/sources/usgs_splib07_selected/usgs_gds338_pvc_white/splib07b_Plastic_PVC_GDS338_White_ASDFRa_AREF.txt",
+      "copied_from": "ASCIIdata/ASCIIdata_splib07b/ChapterA_ArtificialMaterials/splib07b_Plastic_PVC_GDS338_White_ASDFRa_AREF.txt",
+      "sha256": "a5fbd7ccfcbf304b2855855e5a4f2a934f440988daba93008c566acfb560c9d2",
+      "notes": "Reference-only white plastic prior; not a road-marking or sign-sheeting replacement."
+    },
+    {
+      "id": "usgs_gds398_vinyl_red_toy",
+      "selection_role": "reference_only",
+      "path": "raw/sources/usgs_splib07_selected/usgs_gds398_vinyl_red_toy/splib07b_Plastic_Vinyl_GDS398_Red_Toy_ASDFRa_AREF.txt",
+      "copied_from": "ASCIIdata/ASCIIdata_splib07b/ChapterA_ArtificialMaterials/splib07b_Plastic_Vinyl_GDS398_Red_Toy_ASDFRa_AREF.txt",
+      "sha256": "45f39e2e41404872721a88e1a4af316cc7ecfefadf2978f8251835b903c3f59e",
+      "notes": "Reference-only red vinyl prior; not a retroreflective traffic-sign replacement."
+    },
+    {
+      "id": "usgs_gds344_pipe_blue",
+      "selection_role": "reference_only",
+      "path": "raw/sources/usgs_splib07_selected/usgs_gds344_pipe_blue/splib07b_Plastic_Pipe_GDS344_Blue_ASDFRa_AREF.txt",
+      "copied_from": "ASCIIdata/ASCIIdata_splib07b/ChapterA_ArtificialMaterials/splib07b_Plastic_Pipe_GDS344_Blue_ASDFRa_AREF.txt",
+      "sha256": "76dcfe7d910514815c66b5ed3de8a661190e285b97a440566a578f2d3f90e901",
+      "notes": "Reference-only blue plastic prior; not a measured traffic-sign sheeting replacement."
+    },
+    {
+      "id": "usgs_gds382_pete_black",
+      "selection_role": "reference_only",
+      "path": "raw/sources/usgs_splib07_selected/usgs_gds382_pete_black/splib07b_Plastic_PETE_GDS382_Black_ASDFRa_AREF.txt",
+      "copied_from": "ASCIIdata/ASCIIdata_splib07b/ChapterA_ArtificialMaterials/splib07b_Plastic_PETE_GDS382_Black_ASDFRa_AREF.txt",
+      "sha256": "81cad0107743cff2fbdd038bb20841872ecb1eb3519085c8534f63e01aa59bd9",
+      "notes": "Reference-only black PET prior; not a sign-face or signal-housing measured replacement."
+    },
+    {
+      "id": "usgs_spectralon99_white_ref",
+      "selection_role": "reference_only",
+      "path": "raw/sources/usgs_splib07_selected/usgs_spectralon99_white_ref/splib07b_Spectralon99WhiteRef_LSPHERE_ASDFRa_AREF.txt",
+      "copied_from": "ASCIIdata/ASCIIdata_splib07b/ChapterA_ArtificialMaterials/splib07b_Spectralon99WhiteRef_LSPHERE_ASDFRa_AREF.txt",
+      "sha256": "de9551b2e6c766f414d9c0ae821c9d95cd18954abf3d579972b60dd4ff4b4450",
+      "notes": "Reference-only white standard prior; not a direct road-marking replacement."
+    }
+  ],
+  "copied_at": "2026-04-16T10:10:40+00:00",
+  "notes": "Selected USGS Spectral Library v7 subset frozen for reproducible material ingest. The full local mirror is intentionally not tracked."
+}

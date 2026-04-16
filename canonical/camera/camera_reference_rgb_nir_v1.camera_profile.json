@@ -1,0 +1,78 @@
+{
+  "id": "camera_reference_rgb_nir_v1",
+  "sensor_branch": "rgb_nir",
+  "wavelength_grid_ref": "grid_master_350_1700_1nm",
+  "raw_channel_srf_refs": {
+    "r": {
+      "path": "canonical/spectra/cam_ref_rgbnir_r_raw_srf.npz",
+      "wavelength_key": "wavelength_nm",
+      "value_key": "values"
+    },
+    "g": {
+      "path": "canonical/spectra/cam_ref_rgbnir_g_raw_srf.npz",
+      "wavelength_key": "wavelength_nm",
+      "value_key": "values"
+    },
+    "b": {
+      "path": "canonical/spectra/cam_ref_rgbnir_b_raw_srf.npz",
+      "wavelength_key": "wavelength_nm",
+      "value_key": "values"
+    },
+    "nir": {
+      "path": "canonical/spectra/cam_ref_rgbnir_nir_raw_srf.npz",
+      "wavelength_key": "wavelength_nm",
+      "value_key": "values"
+    }
+  },
+  "optics_transmittance_ref": {
+    "path": "canonical/spectra/cam_ref_rgbnir_optics_transmittance.npz",
+    "wavelength_key": "wavelength_nm",
+    "value_key": "values"
+  },
+  "effective_channel_srf_refs": {
+    "r": {
+      "path": "canonical/spectra/cam_ref_rgbnir_r_effective_srf.npz",
+      "wavelength_key": "wavelength_nm",
+      "value_key": "values"
+    },
+    "g": {
+      "path": "canonical/spectra/cam_ref_rgbnir_g_effective_srf.npz",
+      "wavelength_key": "wavelength_nm",
+      "value_key": "values"
+    },
+    "b": {
+      "path": "canonical/spectra/cam_ref_rgbnir_b_effective_srf.npz",
+      "wavelength_key": "wavelength_nm",
+      "value_key": "values"
+    },
+    "nir": {
+      "path": "canonical/spectra/cam_ref_rgbnir_nir_effective_srf.npz",
+      "wavelength_key": "wavelength_nm",
+      "value_key": "values"
+    }
+  },
+  "normalization": {
+    "method": "unit_peak_per_channel_after_optics"
+  },
+  "operating_temperature_c": 25.0,
+  "source_quality": "vendor_derived",
+  "source_ids": [
+    "basler_color_emva_knowledge",
+    "sony_imx900_product_page",
+    "sony_isx016_pdf"
+  ],
+  "license": {
+    "spdx": "LicenseRef-VendorDerived",
+    "redistribution": "Derived camera-profile metadata and curves from public vendor documentation and tracked project curve fitting."
+  },
+  "provenance": {
+    "generated_at": "2026-04-16T10:10:40+00:00",
+    "generated_by": "scripts/build_asset_pack.py",
+    "source_ids": [
+      "basler_color_emva_knowledge",
+      "sony_imx900_product_page",
+      "sony_isx016_pdf"
+    ],
+    "note": "Generic RGB+NIR automotive camera profile derived from public vendor documentation; not a measured single-SKU SRF."
+  }
+}

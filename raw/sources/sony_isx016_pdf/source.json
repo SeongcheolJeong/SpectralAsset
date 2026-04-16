@@ -1,0 +1,13 @@
+{
+  "id": "sony_isx016_pdf",
+  "origin_type": "url",
+  "url": "https://www.sony-semicon.com/files/62/pdf/p-15_ISX016.pdf",
+  "file_name": "sony_isx016.pdf",
+  "classification": "reference-only",
+  "license_summary": "Sony official image-sensor PDF with near-infrared sensitivity claim",
+  "path": "raw/sources/sony_isx016_pdf/sony_isx016.pdf",
+  "fetched_at": "2026-04-16T10:10:40+00:00",
+  "status": "downloaded",
+  "sha256": "be89ee432baa78152dc4f1fb71873291bb03e3ea17dd2410a9d6b5a2100d07e1",
+  "size_bytes": 276159
+}

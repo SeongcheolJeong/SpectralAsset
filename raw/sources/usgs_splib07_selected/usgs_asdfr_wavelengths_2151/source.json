@@ -1,0 +1,14 @@
+{
+  "id": "usgs_asdfr_wavelengths_2151",
+  "origin_type": "local_path",
+  "classification": "redistributable",
+  "license_summary": "USGS Spectral Library Version 7 selected local subset",
+  "selection_role": "wavelength_basis",
+  "path": "raw/sources/usgs_splib07_selected/usgs_asdfr_wavelengths_2151/splib07b_Wavelengths_ASDFR_0.35-2.5microns_2151ch.txt",
+  "copied_from": "ASCIIdata/ASCIIdata_splib07b/splib07b_Wavelengths_ASDFR_0.35-2.5microns_2151ch.txt",
+  "copied_at": "2026-04-16T10:10:40+00:00",
+  "status": "copied_from_local",
+  "sha256": "ac4c20ab8a3a6a2cf1972d0252e69d8e76c4817860d9a7d77e9cc348f065ea51",
+  "size_bytes": 36630,
+  "notes": "Canonical wavelength basis for selected ASDFR material samples."
+}

@@ -22,8 +22,8 @@
   "pbr_fallback": {
     "baseColorFactor": [
       1.0,
-      0.9767807478571497,
-      0.5616481265153318,
+      0.9313070683833912,
+      0.5098806124179841,
       1.0
     ],
     "metallicFactor": 0.0,
@@ -36,23 +36,27 @@
     "film_thickness_mm": 0.5,
     "specular_boost": 1.8
   },
+  "source_quality": "measured_derivative",
+  "source_ids": [
+    "usgs_asdfr_wavelengths_2151",
+    "usgs_gds376_asphalt_road_old"
+  ],
   "uncertainty": {
-    "type": "proxy_or_open_standard",
-    "note": "v1 uses project-generated proxy curves where measured automotive-grade datasets are unavailable."
+    "type": "measured_derivative_plus_proxy_modifier",
+    "note": "Wet asphalt derived from measured USGS dry asphalt baseline with preserved project wet-shape ratio and wet-overlay modifier."
   },
   "license": {
-    "spdx": "LicenseRef-ProjectGenerated",
-    "redistribution": "project-generated derivative metadata and proxy curves"
+    "spdx": "LicenseRef-USGS-Derived",
+    "redistribution": "Measured-derived wet asphalt baseline using selected USGS dry asphalt data plus tracked project modifiers."
   },
   "provenance": {
     "generated_at": "2026-04-16T10:10:40+00:00",
     "generated_by": "scripts/build_asset_pack.py",
     "source_ids": [
-      "cie_d65_csv",
-      "astm_g173_zip",
-      "usgs_spectral_library_page",
-      "ecostress_spectral_library_page"
-    ]
+      "usgs_asdfr_wavelengths_2151",
+      "usgs_gds376_asphalt_road_old"
+    ],
+    "note": "Measured-derived wet asphalt from USGS v7 dry asphalt sample plus tracked wet proxy ratio."
   },
-  "svg_fill": "#fff98f"
+  "svg_fill": "#ffed82"
 }

@@ -10,6 +10,8 @@
     "source_curve_refs",
     "pbr_fallback",
     "sample_state",
+    "source_quality",
+    "source_ids",
     "geometry_conditions",
     "uncertainty",
     "license",
@@ -51,6 +53,21 @@
         "coated"
       ]
     },
+    "source_quality": {
+      "type": "string",
+      "enum": [
+        "measured_standard",
+        "measured_derivative",
+        "vendor_derived",
+        "project_proxy"
+      ]
+    },
+    "source_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
     "geometry_conditions": {
       "type": "object"
     },
@@ -66,4 +83,3 @@
   },
   "additionalProperties": true
 }
-

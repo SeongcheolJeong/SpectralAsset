@@ -3,10 +3,12 @@
   "asset_count": 35,
   "material_count": 20,
   "emissive_profile_count": 4,
+  "camera_profile_count": 1,
   "scenario_count": 4,
   "asset_validation_errors": [],
   "material_validation_errors": [],
   "emissive_validation_errors": [],
+  "camera_profile_validation_errors": [],
   "scenario_validation_errors": [],
   "usd_validation_failures": [],
   "visual_validation": {
@@ -32,6 +34,18 @@
   "spectral_coverage_validation": {
     "status": "pass",
     "materials_with_400_1100_coverage": 20
+  },
+  "material_quality_summary": {
+    "measured_derivative": 1,
+    "measured_standard": 3,
+    "project_proxy": 16,
+    "vendor_derived": 0
+  },
+  "camera_profile_quality_summary": {
+    "measured_derivative": 0,
+    "measured_standard": 0,
+    "project_proxy": 0,
+    "vendor_derived": 1
   },
   "release_gates": {
     "wired_asset_ratio": 1.0,
