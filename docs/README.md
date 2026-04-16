@@ -10,6 +10,8 @@ This directory is the management layer for the autonomous-driving camera simulat
 - [asset-spec.md](asset-spec.md): naming, catalog, manifest, and asset-acceptance contract
 - [measurement-priorities.md](measurement-priorities.md): ranked plan for replacing the current highest-value proxy measurement gaps
 - [catalog-gap-review.md](catalog-gap-review.md): family-by-family review of current asset coverage and the next expansion priorities
+- [camera-profile.md](camera-profile.md): generic `RGB+NIR` camera-profile contract and current vendor-derived limits
+- [usgs-ingest.md](usgs-ingest.md): selected USGS v7 subset ingest, active bindings, and reference-only safeguards
 - [source-policy.md](source-policy.md): source classifications, blocked-source handling, and licensing-use notes
 - [validation-checklist.md](validation-checklist.md): milestone validation gates for generated assets and scenes
 - [release-checklist.md](release-checklist.md): first local-release readiness checklist
@@ -24,6 +26,8 @@ This directory is the management layer for the autonomous-driving camera simulat
 - Update [asset-spec.md](asset-spec.md) before changing naming rules, manifest contracts, or asset acceptance rules.
 - Update [measurement-priorities.md](measurement-priorities.md) when the measured-replacement order or acquisition assumptions change.
 - Update [catalog-gap-review.md](catalog-gap-review.md) when family counts, coverage weaknesses, or expansion priorities change.
+- Update [camera-profile.md](camera-profile.md) when camera-profile fields, source-quality assumptions, or scenario binding rules change.
+- Update [usgs-ingest.md](usgs-ingest.md) when the selected subset, binding policy, or local-source handling changes.
 - Update [source-policy.md](source-policy.md) when source classifications, fetch status handling, or licensing-use assumptions change.
 - Update [validation-checklist.md](validation-checklist.md) when milestone validation gates or pass criteria change.
 - Update [release-checklist.md](release-checklist.md) when release readiness rules or release inputs change.

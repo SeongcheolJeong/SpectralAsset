@@ -22,9 +22,10 @@ For deterministic rebuild review, the generator now preserves the previous track
 
 1. create the repository layout
 2. download and checksum raw source references where practical
-3. normalize official D65 and ASTM G173 inputs
-4. generate proxy spectral materials and emissive SPDs
-5. emit SVG sign templates, USD assets, GLB exports, manifests, scenario profiles, scenes, and reports
+3. freeze the selected local USGS subset into tracked `raw/` inputs when the mirror is available
+4. normalize official D65, ASTM G173, and selected USGS material inputs
+5. generate measured, measured-derived, vendor-derived, and proxy spectral assets as applicable
+6. emit a generic `RGB+NIR` camera profile, SVG sign templates, USD assets, GLB exports, manifests, scenario profiles, scenes, and reports
 6. validate manifests, spectral coverage, and USD parsing
 
 ## Important Defaults
@@ -33,7 +34,16 @@ For deterministic rebuild review, the generator now preserves the previous track
 - Master spectral grid: `350-1700 nm`, `1 nm`
 - Runtime derived grid: `400-1100 nm`, `5 nm`
 - Sensor branch: `RGB+NIR` silicon camera
-- v1 uses measured standards for daylight inputs and project-generated proxy spectra for several materials that still require measured replacement
+- scenarios now bind to `canonical/camera/camera_reference_rgb_nir_v1.camera_profile.json`
+- selected USGS v7 dry-material baselines are used for asphalt, concrete, and galvanized metal
+- wet asphalt is currently a measured-derived material built from the measured dry asphalt baseline plus the tracked wet modifier
+- sign sheeting, road-marking retroreflection, and traffic-signal emitter SPDs still remain proxy in this phase
+
+## Local Source Root
+
+- the full local USGS mirror is expected at `usgs_splib07/` by default or `USGS_SPLIB07_ROOT` if overridden
+- the full mirror is intentionally ignored by git
+- only the selected subset frozen into `raw/sources/usgs_splib07_selected/` is tracked
 
 ## Project Management Docs
 
@@ -41,6 +51,8 @@ For deterministic rebuild review, the generator now preserves the previous track
 - [docs/roadmap.md](docs/roadmap.md): phase-level delivery plan
 - [docs/task-backlog.md](docs/task-backlog.md): live backlog and task status
 - [docs/git-workflow.md](docs/git-workflow.md): local-first git workflow and tracked-artifact policy
+- [docs/usgs-ingest.md](docs/usgs-ingest.md): selected USGS subset ingest and binding rules
+- [docs/camera-profile.md](docs/camera-profile.md): generic camera-profile contract and current limitations
 
 ## Known Measurement Backlog
 

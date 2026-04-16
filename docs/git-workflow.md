@@ -42,12 +42,14 @@ Ignored artifacts:
 - `__pycache__/`
 - `*.pyc`
 - `.DS_Store`
+- `usgs_splib07/`
 - local throwaway temp files not intended as source of truth
 
 Policy:
 
 - generated assets and reports are intentionally tracked
 - dependency directories are not tracked
+- large local source roots such as `usgs_splib07/` are not tracked; only their frozen selected subsets in `raw/` are
 - `package-lock.json` is tracked to keep the validator/runtime environment reproducible
 
 ## Branch Strategy

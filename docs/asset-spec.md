@@ -16,6 +16,7 @@ Current scenario and validation support:
 - `4` validation scenes
 - `20` spectral materials
 - `4` emissive profiles
+- `1` camera profile
 
 ## Naming Conventions
 
@@ -26,6 +27,7 @@ Required file patterns:
 - asset manifest: `<asset_id>.asset_manifest.json`
 - spectral material: `<material_id>.spectral_material.json`
 - emissive profile: `<profile_id>.emissive_profile.json`
+- camera profile: `<camera_id>.camera_profile.json`
 - scenario profile: `<scenario_id>.scenario_profile.json`
 - spectra: `<curve_id>.npz`
 - USD geometry: `<asset_id>.usda`
@@ -39,6 +41,7 @@ Naming domains:
 - asset IDs use family-specific semantic names such as `sign_stop`, `signal_vehicle_vertical_3_aspect`, and `road_asphalt_dry`
 - material IDs use `mat_` prefixes such as `mat_sign_stop_red`
 - emissive profile IDs use `emissive_` prefixes
+- camera profile IDs use `camera_` prefixes
 - scenario IDs use `scenario_` prefixes
 - atmosphere IDs use `atmosphere_` prefixes
 - scene IDs use `scene_` prefixes
@@ -49,7 +52,8 @@ Naming domains:
 - asset manifests reference material IDs used by the asset geometry.
 - spectral materials reference one or more curves in `canonical/spectra/`.
 - traffic-light asset manifests reference emissive profile IDs via state maps.
-- scenario profiles reference illuminants and atmosphere files.
+- camera profiles reference raw/effective SRF curves and an optics-transmittance curve.
+- scenario profiles reference illuminants, atmosphere files, and exactly one camera profile.
 - scenes compose asset instances and point to geometry exports.
 
 ## Generated vs Source-of-Truth Files
@@ -73,11 +77,11 @@ Operational rule:
 - generated outputs are version-controlled because review and milestone comparison must work from git alone
 - rebuilds must still be reviewed for semantic changes versus timestamp-only churn
 
-## Fidelity Tiers
+## Source Quality States
 
-The repository currently uses three fidelity tiers. This split must stay explicit in docs, reviews, and future upgrades.
+The repository currently uses four tracked source-quality states. This split must stay explicit in docs, reviews, and future upgrades.
 
-### Tier A: Open Measured Standards
+### `measured_standard`
 
 These are standards or published reference datasets with direct physical meaning and strong provenance.
 
@@ -86,26 +90,37 @@ Examples:
 - `illuminant_d65.npz`
 - `illuminant_am1_5_global_tilt.npz`
 - `illuminant_am1_5_direct.npz`
+- `mat_asphalt_dry_reflectance.npz`
+- `mat_concrete_reflectance.npz`
+- `mat_metal_galvanized_reflectance.npz`
 
-### Tier B: Project Proxy Spectral Curves
+### `measured_derivative`
+
+These are curves derived from a measured baseline plus a tracked project modifier or transformation.
+
+Examples:
+
+- `mat_asphalt_wet_reflectance.npz`
+
+### `vendor_derived`
+
+These are profiles derived from public vendor documentation rather than a directly frozen measured raw dataset.
+
+Examples:
+
+- `camera_reference_rgb_nir_v1.camera_profile.json`
+
+### `project_proxy`
 
 These are project-generated curves used to approximate material behavior where measured automotive-grade data is not yet available.
 
 Examples:
 
 - sign reflectance curves such as `mat_sign_stop_red_reflectance.npz`
-- road and marking curves such as `mat_asphalt_dry_reflectance.npz`
+- road and marking curves such as `mat_marking_white_reflectance.npz`
 - modifier curves such as `mat_retroreflective_gain.npz`
-
-### Tier C: Project Proxy Emissive Curves
-
-These are project-generated SPDs used for traffic lights and similar emitters until measured replacements land.
-
-Examples:
-
-- `spd_led_red.npz`
-- `spd_led_green.npz`
-- `spd_led_countdown_amber.npz`
+- emissive SPDs such as `spd_led_red.npz`
+- optics/transmittance proxies such as `mat_glass_lens_transmittance.npz`
 
 Upgrade rule:
 
@@ -130,18 +145,20 @@ Asset addition acceptance criteria:
 - validation impact is reviewed
 - provenance and license notes are present
 - measured or proxy status is explicitly stated for any new spectral input
+- `source_quality` and `source_ids` are filled in consistently with the tracked raw-source ledger
 - checklist items in [validation-checklist.md](validation-checklist.md) are either passed or consciously deferred with a written reason
 
 ## Proxy-Data Limitations
 
-The current repository mixes open standards, frozen source references, and project-generated proxy data. Until measured replacements land:
+The current repository mixes open standards, frozen source references, vendor-derived profiles, and project-generated proxy data. Until measured replacements land:
 
-- some materials are simulation proxies rather than measured automotive-grade curves
+- sign and marking materials remain simulation proxies rather than measured traffic-control coatings
 - traffic-light emissive SPDs are placeholders for measured replacements
 - wet-road and retroreflective behavior remain approximation-heavy
+- the generic camera profile is vendor-derived rather than a measured single-SKU automotive SRF
 - docs and backlog must continue to distinguish measured truth from proxy assets
 
 Current policy:
 
-- tier labels must be visible in docs and review context even when filenames do not include a `proxy` suffix
+- source-quality labels must be visible in docs and review context even when filenames do not include a `proxy` suffix
 - measured replacements should preserve stable IDs where possible and record the fidelity change in [../CHANGELOG.md](../CHANGELOG.md)

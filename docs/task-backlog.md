@@ -32,6 +32,7 @@
 | `P1-T001` | `P1` | `P1` | `done` | Resolve or document `403` source-fetch failures | updated source policy and fallback notes | `P0-T002` | each blocked source is either fetchable or documented with reason, impact, and fallback |
 | `P1-T002` | `P1` | `P1` | `done` | Review source classifications and license usage | source-policy notes in docs | `P1-T001` | `redistributable`, `derived-only`, and `reference-only` usage is reviewed for current sources |
 | `P1-T003` | `P1` | `P2` | `done` | Prepare first release checklist | release checklist section or file | `P0-T005`, `P4-T002` | checklist covers source, validation, known gaps, and tag readiness |
+| `P1-T004` | `P1` | `P1` | `done` | Freeze selected local USGS subset into tracked raw inputs | tracked `raw/sources/usgs_splib07_selected/` subset and source-ledger entries | `P1-T002` | selected USGS files are copied into tracked `raw/`, the full local mirror stays ignored, and the ledger records local-path provenance |
 
 ### `P2` Spectral Data and Material Fidelity
 
@@ -40,6 +41,8 @@
 | `P2-T001` | `P2` | `P1` | `done` | Address generator timestamp churn for tracked outputs | reproducibility policy and follow-up implementation task | `P0-T004` | timestamp-only diffs are documented, detectable, and scheduled for implementation |
 | `P2-T002` | `P2` | `P1` | `done` | Split proxy-vs-measured spectral assets clearly in docs | updated asset policy and overview notes | `P0-T002` | docs make the proxy/measured boundary explicit for materials and backlog items |
 | `P2-T003` | `P2` | `P2` | `done` | Prioritize measured replacement backlog | ranked measurement plan | `P1-T002`, `P2-T002` | automotive SRF, signal SPD, wet-road BRDF, and retroreflective BRDF are ranked by impact and difficulty |
+| `P2-T004` | `P2` | `P1` | `done` | Promote dry road and support material baselines from USGS subset | measured dry asphalt, concrete, and galvanized material baselines | `P1-T004` | selected USGS samples drive `mat_asphalt_dry`, `mat_concrete`, and `mat_metal_galvanized` with measured provenance |
+| `P2-T005` | `P2` | `P1` | `done` | Add generic RGB+NIR camera profile and scenario binding | camera profile schema, generated profile, and scenario references | `P0-T002`, `P2-T003` | one generic camera profile exists, scenarios reference it, and validation/reporting cover camera profiles |
 
 ### `P3` Geometry, Templates, and Asset Coverage
 
@@ -72,4 +75,5 @@
 - measured replacement of traffic-signal and headlamp SPD, ranked second in [measurement-priorities.md](measurement-priorities.md)
 - retroreflective sheeting BRDF acquisition, ranked third in [measurement-priorities.md](measurement-priorities.md)
 - wet-road spectral BRDF acquisition, ranked fourth in [measurement-priorities.md](measurement-priorities.md)
+- measured promotion of sign-sheeting and road-marking materials remains deferred because the frozen USGS plastics and pigments are reference-only in this repository phase
 - asset-family expansion beyond the current `v1.0` count-complete baseline, prioritized in [catalog-gap-review.md](catalog-gap-review.md)

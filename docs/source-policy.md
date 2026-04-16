@@ -14,10 +14,24 @@ Current examples:
 
 - `cie_d65_csv`
 - `cie_d65_metadata`
+- selected `usgs_splib07` local subset entries under `raw/sources/usgs_splib07_selected/`
 
 Operational rule:
 
 - keep the raw file, checksum, and source metadata in `raw/sources/<source_id>/`
+- local-path subsets must also record the original local source path and copy timestamp
+
+## Source Origins
+
+Ledger entries may originate from either:
+
+- `url`: downloaded from a remote source into `raw/sources/<source_id>/`
+- `local_path`: copied from a local source root into tracked `raw/`
+
+Current local-path usage:
+
+- `usgs_splib07/` is treated as an ignored local source root
+- only the selected subset frozen into `raw/sources/usgs_splib07_selected/` is tracked
 
 ### `derived-only`
 
@@ -75,6 +89,19 @@ Operational rule:
 | `usgs_spectral_library_page` | `reference-only` | `fetch_failed` | landing-page provenance for spectral library | blocked by remote `403`, fallback documented below |
 | `ecostress_spectral_library_page` | `reference-only` | `downloaded` | landing-page provenance | reference page only |
 | `unece_road_signs_page` | `reference-only` | `fetch_failed` | generic international sign-reference page | blocked by remote `403`, fallback documented below |
+| `basler_color_emva_knowledge` | `reference-only` | `downloaded` | camera-profile vendor-derived context | public documentation used for generic camera-profile derivation |
+| `sony_imx900_product_page` | `reference-only` | `downloaded` | camera-profile vendor-derived context | public Sony sensor page for NIR-sensitive profile assumptions |
+| `sony_isx016_pdf` | `reference-only` | `downloaded` | camera-profile vendor-derived context | official Sony PDF with NIR sensitivity claim |
+| `usgs_asdfr_wavelengths_2151` | `redistributable` | `copied_from_local` | wavelength basis for selected USGS materials | tracked selected local subset entry |
+| `usgs_gds376_asphalt_road_old` | `redistributable` | `copied_from_local` | measured dry asphalt baseline | actively bound to `mat_asphalt_dry` |
+| `usgs_gds375_concrete_road` | `redistributable` | `copied_from_local` | measured concrete baseline | actively bound to `mat_concrete` |
+| `usgs_gds334_galvanized_sheet_metal` | `redistributable` | `copied_from_local` | measured galvanized metal baseline | actively bound to `mat_metal_galvanized` |
+| `usgs_gds333_painted_aluminum` | `redistributable` | `copied_from_local` | color/material reference prior | reference-only, not actively bound |
+| `usgs_gds338_pvc_white` | `redistributable` | `copied_from_local` | color/material reference prior | reference-only, not actively bound |
+| `usgs_gds398_vinyl_red_toy` | `redistributable` | `copied_from_local` | color/material reference prior | reference-only, not actively bound |
+| `usgs_gds344_pipe_blue` | `redistributable` | `copied_from_local` | color/material reference prior | reference-only, not actively bound |
+| `usgs_gds382_pete_black` | `redistributable` | `copied_from_local` | color/material reference prior | reference-only, not actively bound |
+| `usgs_spectralon99_white_ref` | `redistributable` | `copied_from_local` | reflectance reference prior | reference-only, not actively bound |
 
 ## Blocked `403` Sources and Fallback Handling
 
@@ -119,6 +146,7 @@ Operational rule:
 ## Operational Rules for New Sources
 
 - Every new source must have a `source.json` record with `id`, `url`, `classification`, `status`, and fetch timestamp.
+- Local-path sources may use `copied_from` and `copied_at` instead of `url` and `fetched_at`, but they must still carry status, checksum, and classification.
 - Successful fetches must include checksum and file size.
 - Failed fetches must stay in the ledger with the failure reason instead of being removed.
 - A source must not be promoted from `reference-only` to `redistributable` or `derived-only` by assumption; that change requires an explicit term review.
@@ -131,4 +159,3 @@ The blocked `403` sources are documented and no longer treated as silent failure
 - they do not block the tracked generated asset pack
 - they remain provenance gaps to revisit later
 - their fallback path is manual capture or alternate official access when those references become necessary for an actual build step
-

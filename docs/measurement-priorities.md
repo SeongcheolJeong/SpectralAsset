@@ -4,6 +4,12 @@
 
 This document closes `P2-T003` by ranking the current measured-replacement backlog by simulation impact and acquisition difficulty. The ranking below is inferred from the current generated catalog, validation scenes, and research priorities in [../deep-research-report.md](../deep-research-report.md).
 
+Current baseline note:
+
+- dry asphalt, concrete, and galvanized metal have already been promoted from a frozen selected USGS v7 subset
+- wet asphalt is now a measured-derived material rather than a fully proxy dry/wet pair
+- the ranked backlog below therefore stays focused on the remaining high-impact camera, emitter, and BRDF gaps
+
 ## Inputs
 
 - [../validation/reports/measurement_backlog.json](../validation/reports/measurement_backlog.json)
@@ -57,5 +63,6 @@ Difficulty scale:
 - `traffic_signal_headlamp_spd` is the fastest night-scene realism win.
 - `retroreflective_sheeting_brdf` is the highest-risk remaining gap for sign realism after SPD replacement.
 - `wet_road_spectral_brdf` stays on the critical backlog, but current v1 scope makes it narrower than the other three items.
+- dry road/support material baselines are no longer the first material-fidelity gap because selected USGS v7 measured baselines are now active in the repository.
 
 This ranking should be revisited when the catalog or validation-scene mix changes materially.
