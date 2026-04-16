@@ -25,12 +25,15 @@
 - dry asphalt, concrete, and galvanized metal are now measured USGS-derived baselines, and wet asphalt is a measured-derived material
 - vehicle and protected-turn traffic-signal emissive profiles now use vendor-derived public LED fits from tracked ams-OSRAM datasheets
 - urban night illuminant generation now reuses the same vendor-derived signal color fits instead of the older hard-coded proxy peaks
+- camera generation now emits both `camera_reference_rgb_nir_v1` and the active `camera_reference_rgb_nir_v2` profile
+- scenarios now reference `camera_reference_rgb_nir_v2`, which uses per-channel optics/filter behavior and tracked donor QE reference curves from the official `MT9M034` datasheet
 
 ### Validation
 
-- validation summary now includes `1` camera profile and zero camera-profile validation errors
+- validation summary now includes `2` camera profiles and zero camera-profile validation errors
 - material quality summary now reports `3` `measured_standard`, `1` `measured_derivative`, `16` `project_proxy`, and `0` `vendor_derived` materials
 - emissive profile quality summary now distinguishes vendor-derived vehicle/protected-turn profiles from remaining proxy pedestrian/countdown profiles
+- validation summary now distinguishes the active camera profile, per-scenario camera bindings, and donor reference metadata for camera profiles
 
 ## Baseline
 

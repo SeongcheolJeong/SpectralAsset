@@ -2,54 +2,74 @@
 
 ## Purpose
 
-This repository now ships one generic camera profile for scene-to-camera simulation:
+This repository now ships two generic camera profiles for scene-to-camera simulation:
 
 - `canonical/camera/camera_reference_rgb_nir_v1.camera_profile.json`
+- `canonical/camera/camera_reference_rgb_nir_v2.camera_profile.json`
 
-The goal is to make scenarios reference a concrete camera profile instead of only a broad `sensor_branch`.
+The goal is to make scenarios reference a concrete camera profile instead of only a broad `sensor_branch`, while preserving the earlier baseline for comparison.
 
-## Current Profile
+## Current Active Profile
 
-- profile id: `camera_reference_rgb_nir_v1`
+- active profile id: `camera_reference_rgb_nir_v2`
+- retained comparison profile: `camera_reference_rgb_nir_v1`
 - sensor branch: `rgb_nir`
 - channels: `r`, `g`, `b`, `nir`
 - storage grid: `350-1700 nm`, `1 nm`
 - effective target range: `400-1100 nm`
-- current source quality: `vendor_derived`
+- source quality for both current profiles: `vendor_derived`
+
+## v1 vs v2
+
+### `v1`
+
+- earlier generic vendor-derived baseline
+- one shared `optics_transmittance_ref` for all channels
+- built from public vendor context rather than explicit donor QE reference curves
+
+### `v2`
+
+- active generic vendor-derived baseline
+- uses tracked donor/reference curves from the official `MT9M034` datasheet
+- uses `channel_optics_transmittance_refs` so `RGB` and `NIR` can have different optics/filter behavior
+- records `reference_curve_refs`, `derivation_method`, and `replaces_profile_id`
+- the official `MT9M034` PDF URL currently remains a preserved `fetch_failed` ledger entry, so the donor QE curves are tracked as explicit project-authored control points rather than parsed from a frozen raw PDF
 
 ## Raw vs Effective SRF
 
-The profile tracks both raw and effective channel curves.
+Both profiles track raw and effective channel curves.
 
-- raw channel SRF: generic channel sensitivity prior before optics weighting
-- optics transmittance: generic lens/filter stack transmittance prior
-- effective channel SRF: raw channel SRF multiplied by optics transmittance and normalized to unit peak
+- raw channel SRF: channel sensitivity prior before optics weighting
+- optics transmittance:
+  - `v1`: one shared optics curve
+  - `v2`: per-channel optics/filter curves
+- effective channel SRF: raw channel SRF multiplied by the relevant optics curve and normalized to unit peak
 
 Fixed rule:
 
 - `effective_srf = normalize_unit_peak(raw_srf * optics_transmittance)`
 
-## Why This Is `vendor_derived`
+## Why These Are `vendor_derived`
 
-The current profile is derived from public vendor documentation and vendor-adjacent public references, not from a measured single-SKU automotive camera calibration.
+The shipped profiles are derived from public vendor documentation and project-authored curve fitting, not from a measured single-SKU automotive camera calibration.
 
 That means:
 
-- it is more concrete than a pure branch label
-- it is still not a measured automotive SRF replacement
-- it should be treated as a stable generic reference camera, not as ground truth for one exact sensor
+- they are more concrete than a pure branch label
+- they are still not measured automotive SRF replacements
+- they should be treated as stable generic reference cameras, not as ground truth for one exact sensor
 
 ## Scenario Binding
 
-All current scenario profiles now reference the same camera profile:
+All current scenario profiles now reference the active `v2` profile:
 
-- `canonical/camera/camera_reference_rgb_nir_v1.camera_profile.json`
+- `canonical/camera/camera_reference_rgb_nir_v2.camera_profile.json`
 
-This keeps the phase data-first and avoids introducing multiple camera branches before the measured backlog is reduced.
+`v1` stays in the repository for comparison, provenance, and backwards review.
 
 ## Remaining Gaps
 
-This profile does not resolve the measured backlog by itself.
+These profiles do not resolve the measured backlog by themselves.
 
 - automotive sensor SRF remains `backlog_measured_required`
 - traffic-signal and headlamp SPD remain `backlog_measured_required`
@@ -60,5 +80,7 @@ This profile does not resolve the measured backlog by itself.
 
 - scenarios must carry both `sensor_branch` and `camera_profile_ref`
 - camera profiles must carry `source_quality` and `source_ids`
+- camera profiles may use either one shared optics ref or per-channel optics refs
+- `v2` camera profiles carry donor `reference_curve_refs` and explicit `derivation_method` metadata
 - camera profiles must validate that raw and effective curves cover `400-1100 nm`
 - effective channel curves must be unit-peak normalized

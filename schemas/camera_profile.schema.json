@@ -7,7 +7,6 @@
     "sensor_branch",
     "wavelength_grid_ref",
     "raw_channel_srf_refs",
-    "optics_transmittance_ref",
     "effective_channel_srf_refs",
     "normalization",
     "operating_temperature_c",
@@ -19,6 +18,12 @@
   "properties": {
     "id": {
       "type": "string"
+    },
+    "profile_family": {
+      "type": "string",
+      "enum": [
+        "generic_reference"
+      ]
     },
     "sensor_branch": {
       "type": "string",
@@ -36,8 +41,20 @@
     "optics_transmittance_ref": {
       "type": "object"
     },
+    "channel_optics_transmittance_refs": {
+      "type": "object"
+    },
+    "reference_curve_refs": {
+      "type": "object"
+    },
     "effective_channel_srf_refs": {
       "type": "object"
+    },
+    "derivation_method": {
+      "type": "object"
+    },
+    "replaces_profile_id": {
+      "type": "string"
     },
     "normalization": {
       "type": "object"
@@ -67,5 +84,17 @@
       "type": "object"
     }
   },
+  "anyOf": [
+    {
+      "required": [
+        "optics_transmittance_ref"
+      ]
+    },
+    {
+      "required": [
+        "channel_optics_transmittance_refs"
+      ]
+    }
+  ],
   "additionalProperties": true
 }

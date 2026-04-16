@@ -62,6 +62,7 @@ Current examples:
 - `usgs_spectral_library_page`
 - `ecostress_spectral_library_page`
 - `unece_road_signs_page`
+- `onsemi_mt9m034_pdf`
 - `osram_lr_q976_01_pdf`
 - `osram_ly_q976_01_pdf`
 - `osram_ltrb_rasf_01_pdf`
@@ -95,6 +96,7 @@ Operational rule:
 | `basler_color_emva_knowledge` | `reference-only` | `downloaded` | camera-profile vendor-derived context | public documentation used for generic camera-profile derivation |
 | `sony_imx900_product_page` | `reference-only` | `downloaded` | camera-profile vendor-derived context | public Sony sensor page for NIR-sensitive profile assumptions |
 | `sony_isx016_pdf` | `reference-only` | `downloaded` | camera-profile vendor-derived context | official Sony PDF with NIR sensitivity claim |
+| `onsemi_mt9m034_pdf` | `reference-only` | `fetch_failed` | camera-profile donor QE reference | official ON Semiconductor MT9M034 datasheet URL currently blocks automated GET with `403`; provenance retained via failure record |
 | `osram_lr_q976_01_pdf` | `reference-only` | `downloaded` | vehicle-signal red SPD vendor-derived fit | official ams-OSRAM red LED datasheet used for fitted signal SPD |
 | `osram_ly_q976_01_pdf` | `reference-only` | `downloaded` | vehicle-signal yellow SPD vendor-derived fit | official ams-OSRAM yellow LED datasheet used for fitted signal SPD |
 | `osram_ltrb_rasf_01_pdf` | `reference-only` | `downloaded` | vehicle-signal green SPD vendor-derived fit | official ams-OSRAM true-green LED datasheet used for fitted signal SPD |
@@ -148,6 +150,16 @@ Operational rule:
 - Current fallback:
   - keep the failure record in `raw/sources/unece_road_signs_page/`
   - use documented generic international conventions plus existing repo catalog until a manual official capture is added
+
+### `onsemi_mt9m034_pdf`
+
+- Failure mode: automated `curl` GET returns `403`, even though the official URL is valid for `HEAD`
+- Impact: medium
+  - this source anchors the donor QE provenance for `camera_reference_rgb_nir_v2`, but the generator currently uses tracked project-authored control points rather than parsing the PDF directly
+- Current fallback:
+  - keep the failure record in `raw/sources/onsemi_mt9m034_pdf/`
+  - keep the `MT9M034` donor QE control points explicit in `scripts/build_asset_pack.py`
+  - treat the raw official PDF as an unresolved provenance-fetch gap until a manual capture or a vendor-accessible download path is available
 
 ## Operational Rules for New Sources
 

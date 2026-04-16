@@ -25,7 +25,7 @@ Current truth from [../validation/reports/validation_summary.json](../validation
 - `35` assets
 - `20` spectral materials
 - `4` emissive profiles
-- `1` camera profile
+- `2` camera profiles
 - `4` scenario profiles
 - `4` validation scenes
 
@@ -33,9 +33,10 @@ Additional baseline facts:
 
 - `39` GLB files currently validate with `0` errors and `0` warnings in [../validation/reports/gltf_validation.json](../validation/reports/gltf_validation.json)
 - release gates currently pass for the generated baseline
-- raw-source ledger currently tracks `31` source entries
+- raw-source ledger currently tracks `32` source entries
 - material quality summary currently reports `3` `measured_standard`, `1` `measured_derivative`, `16` `project_proxy`, and `0` `vendor_derived` materials
 - emissive-profile quality summary currently reports `2` `vendor_derived` and `2` `project_proxy` profiles
+- camera-profile quality summary currently reports `2` `vendor_derived` profiles, with `camera_reference_rgb_nir_v2` active in all scenarios
 
 ## Repository Structure
 
@@ -53,6 +54,8 @@ Additional baseline facts:
 - The full local `usgs_splib07/` mirror is intentionally not tracked; only the selected frozen subset in `raw/sources/usgs_splib07_selected/` is part of the repository baseline.
 - Many spectral assets are still proxy curves, even though dry asphalt, concrete, and galvanized metal now use measured USGS-derived baselines.
 - Vehicle and protected-turn traffic-signal SPDs now use vendor-derived public fits, but pedestrian/countdown emitters and all measured emitter replacements are still incomplete.
+- `camera_reference_rgb_nir_v2` is now the active generic reference camera, but it remains a public-doc vendor-derived profile rather than a measured automotive SRF.
+- the official `onsemi_mt9m034_pdf` source is currently preserved as a `fetch_failed` ledger entry because automated GET requests return `403`
 - Generated files still include `generated_at` metadata, but the generator and validator now preserve the previous value by default so clean rebuilds do not churn timestamps unless explicitly overridden.
 - The repository is local-first only; remote collaboration rules are documented but not yet activated.
 
@@ -65,6 +68,7 @@ Current backlog items from [../validation/reports/measurement_backlog.json](../v
 - wet-road spectral BRDF
 - retroreflective sheeting BRDF
 
+The automotive sensor backlog item remains open even though `camera_reference_rgb_nir_v2` is now active; the repository still lacks measured automotive SRF data.
 The traffic-signal/headlamp backlog item remains open even though vehicle and protected-turn signal profiles now use vendor-derived public LED fits; the repository still lacks measured capture data and any headlamp-bound replacement curves.
 
 Current priority order for these measured replacements is documented in [measurement-priorities.md](measurement-priorities.md).
@@ -88,6 +92,7 @@ Current source-fetch failures from [../raw/source_ledger.json](../raw/source_led
 
 - `mapillary_sign_help`: `403`
 - `mapillary_download_help`: `403`
+- `onsemi_mt9m034_pdf`: `403`
 - `usgs_spectral_library_page`: `403`
 - `unece_road_signs_page`: `403`
 

@@ -1,0 +1,126 @@
+{
+  "id": "camera_reference_rgb_nir_v2",
+  "profile_family": "generic_reference",
+  "sensor_branch": "rgb_nir",
+  "wavelength_grid_ref": "grid_master_350_1700_1nm",
+  "raw_channel_srf_refs": {
+    "r": {
+      "path": "canonical/spectra/cam_ref_rgbnir_v2_r_raw_srf.npz",
+      "wavelength_key": "wavelength_nm",
+      "value_key": "values"
+    },
+    "g": {
+      "path": "canonical/spectra/cam_ref_rgbnir_v2_g_raw_srf.npz",
+      "wavelength_key": "wavelength_nm",
+      "value_key": "values"
+    },
+    "b": {
+      "path": "canonical/spectra/cam_ref_rgbnir_v2_b_raw_srf.npz",
+      "wavelength_key": "wavelength_nm",
+      "value_key": "values"
+    },
+    "nir": {
+      "path": "canonical/spectra/cam_ref_rgbnir_v2_nir_raw_srf.npz",
+      "wavelength_key": "wavelength_nm",
+      "value_key": "values"
+    }
+  },
+  "channel_optics_transmittance_refs": {
+    "r": {
+      "path": "canonical/spectra/cam_ref_rgbnir_v2_rgb_optics_transmittance.npz",
+      "wavelength_key": "wavelength_nm",
+      "value_key": "values"
+    },
+    "g": {
+      "path": "canonical/spectra/cam_ref_rgbnir_v2_rgb_optics_transmittance.npz",
+      "wavelength_key": "wavelength_nm",
+      "value_key": "values"
+    },
+    "b": {
+      "path": "canonical/spectra/cam_ref_rgbnir_v2_rgb_optics_transmittance.npz",
+      "wavelength_key": "wavelength_nm",
+      "value_key": "values"
+    },
+    "nir": {
+      "path": "canonical/spectra/cam_ref_rgbnir_v2_nir_optics_transmittance.npz",
+      "wavelength_key": "wavelength_nm",
+      "value_key": "values"
+    }
+  },
+  "reference_curve_refs": {
+    "color_r_qe_reference": {
+      "path": "canonical/spectra/src_onsemi_mt9m034_color_r_qe_reference.npz",
+      "wavelength_key": "wavelength_nm",
+      "value_key": "values"
+    },
+    "color_g_qe_reference": {
+      "path": "canonical/spectra/src_onsemi_mt9m034_color_g_qe_reference.npz",
+      "wavelength_key": "wavelength_nm",
+      "value_key": "values"
+    },
+    "color_b_qe_reference": {
+      "path": "canonical/spectra/src_onsemi_mt9m034_color_b_qe_reference.npz",
+      "wavelength_key": "wavelength_nm",
+      "value_key": "values"
+    },
+    "mono_qe_reference": {
+      "path": "canonical/spectra/src_onsemi_mt9m034_mono_qe_reference.npz",
+      "wavelength_key": "wavelength_nm",
+      "value_key": "values"
+    }
+  },
+  "effective_channel_srf_refs": {
+    "r": {
+      "path": "canonical/spectra/cam_ref_rgbnir_v2_r_effective_srf.npz",
+      "wavelength_key": "wavelength_nm",
+      "value_key": "values"
+    },
+    "g": {
+      "path": "canonical/spectra/cam_ref_rgbnir_v2_g_effective_srf.npz",
+      "wavelength_key": "wavelength_nm",
+      "value_key": "values"
+    },
+    "b": {
+      "path": "canonical/spectra/cam_ref_rgbnir_v2_b_effective_srf.npz",
+      "wavelength_key": "wavelength_nm",
+      "value_key": "values"
+    },
+    "nir": {
+      "path": "canonical/spectra/cam_ref_rgbnir_v2_nir_effective_srf.npz",
+      "wavelength_key": "wavelength_nm",
+      "value_key": "values"
+    }
+  },
+  "derivation_method": {
+    "type": "public_doc_curve_fit",
+    "donor_sensor_id": "MT9M034",
+    "note": "Project-authored digitized QE control points from the official ON Semiconductor MT9M034 datasheet, combined with generic RGB IR-cut and NIR-pass optics assumptions."
+  },
+  "replaces_profile_id": "camera_reference_rgb_nir_v1",
+  "normalization": {
+    "method": "unit_peak_per_channel_after_optics"
+  },
+  "operating_temperature_c": 25.0,
+  "source_quality": "vendor_derived",
+  "source_ids": [
+    "onsemi_mt9m034_pdf",
+    "basler_color_emva_knowledge",
+    "sony_imx900_product_page",
+    "sony_isx016_pdf"
+  ],
+  "license": {
+    "spdx": "LicenseRef-VendorDerived",
+    "redistribution": "Derived camera-profile metadata and curves from public vendor documentation and tracked project curve fitting."
+  },
+  "provenance": {
+    "generated_at": "2026-04-16T10:10:40+00:00",
+    "generated_by": "scripts/build_asset_pack.py",
+    "source_ids": [
+      "onsemi_mt9m034_pdf",
+      "basler_color_emva_knowledge",
+      "sony_imx900_product_page",
+      "sony_isx016_pdf"
+    ],
+    "note": "Generic RGB+NIR automotive camera profile derived from official public MT9M034 QE references plus public vendor NIR-sensitive sensor context; not a measured single-SKU SRF."
+  }
+}

@@ -16,7 +16,7 @@ Current scenario and validation support:
 - `4` validation scenes
 - `20` spectral materials
 - `4` emissive profiles
-- `1` camera profile
+- `2` camera profiles
 
 ## Naming Conventions
 
@@ -52,7 +52,7 @@ Naming domains:
 - asset manifests reference material IDs used by the asset geometry.
 - spectral materials reference one or more curves in `canonical/spectra/`.
 - traffic-light asset manifests reference emissive profile IDs via state maps.
-- camera profiles reference raw/effective SRF curves and an optics-transmittance curve.
+- camera profiles reference raw/effective SRF curves and either a shared optics-transmittance curve or per-channel optics/filter curves.
 - scenario profiles reference illuminants, atmosphere files, and exactly one camera profile.
 - scenes compose asset instances and point to geometry exports.
 
@@ -109,6 +109,7 @@ These are profiles derived from public vendor documentation rather than a direct
 Examples:
 
 - `camera_reference_rgb_nir_v1.camera_profile.json`
+- `camera_reference_rgb_nir_v2.camera_profile.json`
 - `emissive_vehicle_standard.emissive_profile.json`
 - `emissive_protected_turn.emissive_profile.json`
 
@@ -158,7 +159,7 @@ The current repository mixes open standards, frozen source references, vendor-de
 - vehicle and protected-turn traffic-signal SPDs are vendor-derived fits rather than measured captures
 - pedestrian red/walk/countdown emissive SPDs still remain proxy curves
 - wet-road and retroreflective behavior remain approximation-heavy
-- the generic camera profile is vendor-derived rather than a measured single-SKU automotive SRF
+- the generic camera profiles are vendor-derived rather than measured single-SKU automotive SRFs
 - docs and backlog must continue to distinguish measured truth from proxy assets
 
 Current policy:

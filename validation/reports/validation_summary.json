@@ -3,7 +3,42 @@
   "asset_count": 35,
   "material_count": 20,
   "emissive_profile_count": 4,
-  "camera_profile_count": 1,
+  "camera_profile_count": 2,
+  "active_camera_profile_id": "camera_reference_rgb_nir_v2",
+  "scenario_camera_profile_refs": {
+    "scenario_clear_noon": "canonical/camera/camera_reference_rgb_nir_v2.camera_profile.json",
+    "scenario_overcast_day": "canonical/camera/camera_reference_rgb_nir_v2.camera_profile.json",
+    "scenario_urban_night": "canonical/camera/camera_reference_rgb_nir_v2.camera_profile.json",
+    "scenario_wet_dusk": "canonical/camera/camera_reference_rgb_nir_v2.camera_profile.json"
+  },
+  "camera_profile_reference_summary": {
+    "camera_reference_rgb_nir_v1": {
+      "reference_curve_ids": [],
+      "has_shared_optics_ref": true,
+      "has_per_channel_optics_refs": false,
+      "source_ids": [
+        "basler_color_emva_knowledge",
+        "sony_imx900_product_page",
+        "sony_isx016_pdf"
+      ]
+    },
+    "camera_reference_rgb_nir_v2": {
+      "reference_curve_ids": [
+        "color_b_qe_reference",
+        "color_g_qe_reference",
+        "color_r_qe_reference",
+        "mono_qe_reference"
+      ],
+      "has_shared_optics_ref": false,
+      "has_per_channel_optics_refs": true,
+      "source_ids": [
+        "onsemi_mt9m034_pdf",
+        "basler_color_emva_knowledge",
+        "sony_imx900_product_page",
+        "sony_isx016_pdf"
+      ]
+    }
+  },
   "scenario_count": 4,
   "asset_validation_errors": [],
   "material_validation_errors": [],
@@ -51,7 +86,7 @@
     "measured_derivative": 0,
     "measured_standard": 0,
     "project_proxy": 0,
-    "vendor_derived": 1
+    "vendor_derived": 2
   },
   "release_gates": {
     "wired_asset_ratio": 1.0,

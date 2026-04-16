@@ -71,7 +71,7 @@
 
 ## Deferred Items
 
-- measured replacement of automotive sensor SRF, ranked first in [measurement-priorities.md](measurement-priorities.md)
+- measured replacement of automotive sensor SRF, ranked first in [measurement-priorities.md](measurement-priorities.md), even though `camera_reference_rgb_nir_v2` is now the active vendor-derived profile
 - measured replacement of traffic-signal and headlamp SPD, ranked second in [measurement-priorities.md](measurement-priorities.md), even though vehicle/protected-turn signal profiles now use vendor-derived public fits
 - retroreflective sheeting BRDF acquisition, ranked third in [measurement-priorities.md](measurement-priorities.md)
 - wet-road spectral BRDF acquisition, ranked fourth in [measurement-priorities.md](measurement-priorities.md)

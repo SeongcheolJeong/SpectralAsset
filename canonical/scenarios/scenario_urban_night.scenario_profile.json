@@ -6,7 +6,7 @@
     "road.asphalt": "road_asphalt_dry"
   },
   "sensor_branch": "rgb_nir",
-  "camera_profile_ref": "canonical/camera/camera_reference_rgb_nir_v1.camera_profile.json",
+  "camera_profile_ref": "canonical/camera/camera_reference_rgb_nir_v2.camera_profile.json",
   "weather_flags": {
     "daylight": false,
     "wet": false,

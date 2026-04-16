@@ -34,10 +34,12 @@ For deterministic rebuild review, the generator now preserves the previous track
 - Master spectral grid: `350-1700 nm`, `1 nm`
 - Runtime derived grid: `400-1100 nm`, `5 nm`
 - Sensor branch: `RGB+NIR` silicon camera
-- scenarios now bind to `canonical/camera/camera_reference_rgb_nir_v1.camera_profile.json`
+- scenarios now bind to `canonical/camera/camera_reference_rgb_nir_v2.camera_profile.json`
+- `camera_reference_rgb_nir_v1` is retained as the earlier vendor-derived baseline for comparison
 - selected USGS v7 dry-material baselines are used for asphalt, concrete, and galvanized metal
 - wet asphalt is currently a measured-derived material built from the measured dry asphalt baseline plus the tracked wet modifier
 - vehicle and protected-turn traffic-signal emissive profiles now use vendor-derived public LED fits
+- camera profiles now support either a shared optics curve or per-channel optics/filter curves
 - sign sheeting, road-marking retroreflection, pedestrian/countdown emitter SPDs, and measured traffic-signal/headlamp capture still remain incomplete in this phase
 
 ## Local Source Root

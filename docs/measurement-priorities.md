@@ -9,6 +9,7 @@ Current baseline note:
 - dry asphalt, concrete, and galvanized metal have already been promoted from a frozen selected USGS v7 subset
 - wet asphalt is now a measured-derived material rather than a fully proxy dry/wet pair
 - vehicle and protected-turn traffic-signal emissive profiles now use vendor-derived public LED fits, but measured emitter replacement is still pending
+- `camera_reference_rgb_nir_v2` is now the active generic reference camera, but the top-ranked automotive SRF backlog still remains measured-required
 - the ranked backlog below therefore stays focused on the remaining high-impact camera, emitter, and BRDF gaps
 
 ## Inputs
@@ -38,7 +39,7 @@ Difficulty scale:
 | Rank | Backlog ID | Impact | Difficulty | Primary Affected Scope | Why It Ranks Here | Recommended Acquisition Path |
 | --- | --- | --- | --- | --- | --- | --- |
 | `1` | `automotive_sensor_srf` | `critical` | `high` | all reflective and emissive assets, every scenario, every validation scene | This is the weighting function for every spectrum-to-camera integration. Improving materials before the sensor response is measured still leaves the camera model underconstrained. | EMVA-style narrowband scan or vendor EMVA/NDA report with per-channel spectral response from `350-1100 nm`, plus operating temperature and optics-stack notes |
-| `2` | `traffic_signal_headlamp_spd` | `high` | `medium` | night scenarios, traffic-light assets, future nighttime validation work | Night rendering and traffic-light state realism depend directly on emitter spectra. The current proxy SPDs are useful, but they are simpler to replace than BRDF gaps and unlock more believable night scenes quickly. | spectroradiometer capture of traffic signals and representative headlamps with state, drive mode, and viewing geometry recorded |
+| `2` | `traffic_signal_headlamp_spd` | `high` | `medium` | night scenarios, traffic-light assets, future nighttime validation work | Night rendering and traffic-light state realism depend directly on emitter spectra. The current vendor-derived signal fits are useful, but measured emitter replacement is still simpler than BRDF gaps and unlocks more believable night scenes quickly. | spectroradiometer capture of traffic signals and representative headlamps with state, drive mode, and viewing geometry recorded |
 | `3` | `retroreflective_sheeting_brdf` | `high` | `very_high` | most traffic signs, future retroreflective marking upgrades, night retroreflection scene | The current sign catalog is broad, so retroreflective error propagates across many assets. It ranks below SPD because the acquisition workflow is harder and more angle-sensitive. | controlled retroreflection or BRDF campaign covering sheeting class, entrance angle, observation angle, dry/aged state, and wavelength coverage |
 | `4` | `wet_road_spectral_brdf` | `high` | `very_high` | wet asphalt material, wet dusk scenario, wet-road braking scene | This matters strongly for wet-road realism, but today it touches fewer shipped assets than sensor SRF or sign retroreflection. It remains a release-relevant gap once the angular measurement rig is available. | goniometric wet-surface campaign covering dry baseline, water-film thickness, roughness, specular lobe shape, and repeated measurements across drying states |
 
@@ -64,6 +65,7 @@ Difficulty scale:
 - `traffic_signal_headlamp_spd` remains the fastest measured night-scene realism win even though vehicle and protected-turn traffic-signal profiles now use vendor-derived public fits.
 - `retroreflective_sheeting_brdf` is the highest-risk remaining gap for sign realism after SPD replacement.
 - `wet_road_spectral_brdf` stays on the critical backlog, but current v1 scope makes it narrower than the other three items.
+- activating `camera_reference_rgb_nir_v2` does not change the measured status of the top-ranked automotive SRF backlog item
 - dry road/support material baselines are no longer the first material-fidelity gap because selected USGS v7 measured baselines are now active in the repository.
 
 This ranking should be revisited when the catalog or validation-scene mix changes materially.

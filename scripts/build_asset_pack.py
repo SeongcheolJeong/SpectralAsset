@@ -223,6 +223,13 @@ SOURCE_DEFS = [
         "license_summary": "Sony official image-sensor PDF with near-infrared sensitivity claim",
     },
     {
+        "id": "onsemi_mt9m034_pdf",
+        "url": "https://www.onsemi.com/pdf/datasheet/mt9m034-d.pdf",
+        "file_name": "mt9m034-d.pdf",
+        "classification": "reference-only",
+        "license_summary": "ON Semiconductor official MT9M034 datasheet used for vendor-derived camera QE reference fitting",
+    },
+    {
         "id": "osram_lr_q976_01_pdf",
         "url": "https://look.ams-osram.com/m/4c6f3e4bd792ccdf/original/LR-Q976-01.pdf",
         "file_name": "LR-Q976-01.pdf",
@@ -271,6 +278,81 @@ SIGNAL_VENDOR_SPD_SPECS = {
         "datasheet": "ams-OSRAM LTRB RASF.01, Version 1.1, 2025-02-03",
     },
 }
+
+MT9M034_COLOR_R_QE_POINTS = [
+    (350.0, 0.0),
+    (400.0, 0.0),
+    (450.0, 0.01),
+    (500.0, 0.06),
+    (550.0, 0.18),
+    (600.0, 0.34),
+    (620.0, 0.39),
+    (650.0, 0.36),
+    (700.0, 0.25),
+    (750.0, 0.16),
+    (800.0, 0.09),
+    (850.0, 0.05),
+    (900.0, 0.03),
+    (950.0, 0.015),
+    (1000.0, 0.008),
+    (1050.0, 0.0),
+    (1100.0, 0.0),
+    (1700.0, 0.0),
+]
+
+MT9M034_COLOR_G_QE_POINTS = [
+    (350.0, 0.0),
+    (400.0, 0.04),
+    (450.0, 0.22),
+    (500.0, 0.42),
+    (540.0, 0.48),
+    (560.0, 0.45),
+    (600.0, 0.28),
+    (650.0, 0.10),
+    (700.0, 0.04),
+    (750.0, 0.02),
+    (800.0, 0.01),
+    (850.0, 0.005),
+    (900.0, 0.002),
+    (1000.0, 0.0),
+    (1100.0, 0.0),
+    (1700.0, 0.0),
+]
+
+MT9M034_COLOR_B_QE_POINTS = [
+    (350.0, 0.02),
+    (380.0, 0.12),
+    (420.0, 0.32),
+    (460.0, 0.43),
+    (490.0, 0.40),
+    (520.0, 0.22),
+    (560.0, 0.06),
+    (600.0, 0.015),
+    (650.0, 0.005),
+    (700.0, 0.0),
+    (1100.0, 0.0),
+    (1700.0, 0.0),
+]
+
+MT9M034_MONO_QE_POINTS = [
+    (350.0, 0.06),
+    (400.0, 0.22),
+    (450.0, 0.38),
+    (500.0, 0.52),
+    (550.0, 0.58),
+    (600.0, 0.60),
+    (650.0, 0.57),
+    (700.0, 0.52),
+    (750.0, 0.46),
+    (800.0, 0.40),
+    (850.0, 0.34),
+    (900.0, 0.28),
+    (950.0, 0.22),
+    (1000.0, 0.16),
+    (1050.0, 0.09),
+    (1100.0, 0.0),
+    (1700.0, 0.0),
+]
 
 USGS_WAVELENGTH_SOURCE = {
     "id": "usgs_asdfr_wavelengths_2151",
@@ -808,6 +890,14 @@ def gaussian(grid: Sequence[int], center: float, sigma: float, amplitude: float,
     return [base + amplitude * math.exp(-0.5 * ((w - center) / sigma) ** 2) for w in grid]
 
 
+def spectral_curve_ref(name: str) -> Dict:
+    return {
+        "path": f"canonical/spectra/{name}.npz",
+        "wavelength_key": "wavelength_nm",
+        "value_key": "values",
+    }
+
+
 def fwhm_to_sigma(fwhm_nm: float) -> float:
     return fwhm_nm / (2.0 * math.sqrt(2.0 * math.log(2.0)))
 
@@ -827,6 +917,27 @@ def build_vendor_signal_spd_curves() -> Dict[str, Dict]:
             "fwhm_nm": spec["fwhm_nm"],
             "datasheet": spec["datasheet"],
         }
+    return curves
+
+
+def smoothstep01(value: float) -> float:
+    clamped = max(0.0, min(1.0, value))
+    return clamped * clamped * (3.0 - 2.0 * clamped)
+
+
+def build_mt9m034_reference_curves() -> Dict[str, List[float]]:
+    donor_specs = {
+        "src_onsemi_mt9m034_color_r_qe_reference": MT9M034_COLOR_R_QE_POINTS,
+        "src_onsemi_mt9m034_color_g_qe_reference": MT9M034_COLOR_G_QE_POINTS,
+        "src_onsemi_mt9m034_color_b_qe_reference": MT9M034_COLOR_B_QE_POINTS,
+        "src_onsemi_mt9m034_mono_qe_reference": MT9M034_MONO_QE_POINTS,
+    }
+    spectra_dir = REPO_ROOT / "canonical" / "spectra"
+    curves = {}
+    for curve_name, points in donor_specs.items():
+        values = clamp_list(interpolate(points, MASTER_GRID))
+        write_npz(spectra_dir / f"{curve_name}.npz", {"wavelength_nm": MASTER_GRID, "values": values})
+        curves[curve_name] = values
     return curves
 
 
@@ -1839,38 +1950,32 @@ def make_materials(illuminant_d65: Sequence[float]) -> Dict[str, Dict]:
 
 
 def write_camera_profiles() -> List[Dict]:
-    raw_curves = {
+    spectra_dir = REPO_ROOT / "canonical" / "spectra"
+
+    raw_curves_v1 = {
         "r": clamp_list(interpolate([(350, 0.0), (420, 0.01), (480, 0.06), (540, 0.22), (600, 0.84), (640, 1.0), (700, 0.62), (780, 0.14), (900, 0.02), (1100, 0.0), (1700, 0.0)], MASTER_GRID)),
         "g": clamp_list(interpolate([(350, 0.0), (400, 0.05), (460, 0.46), (520, 1.0), (580, 0.62), (650, 0.1), (760, 0.02), (1100, 0.0), (1700, 0.0)], MASTER_GRID)),
         "b": clamp_list(interpolate([(350, 0.08), (390, 0.42), (440, 1.0), (500, 0.46), (560, 0.08), (650, 0.01), (1100, 0.0), (1700, 0.0)], MASTER_GRID)),
         "nir": clamp_list(interpolate([(350, 0.0), (620, 0.0), (680, 0.08), (730, 0.32), (800, 0.82), (860, 1.0), (940, 0.88), (1020, 0.44), (1100, 0.0), (1700, 0.0)], MASTER_GRID)),
     }
-    optics = clamp_list(interpolate([(350, 0.52), (400, 0.84), (450, 0.9), (700, 0.92), (850, 0.76), (950, 0.64), (1050, 0.36), (1100, 0.08), (1700, 0.0)], MASTER_GRID))
-    effective_curves = {
-        channel: normalize_unit_peak([sample * transmission for sample, transmission in zip(raw_curve, optics)])
-        for channel, raw_curve in raw_curves.items()
+    optics_v1 = clamp_list(interpolate([(350, 0.52), (400, 0.84), (450, 0.9), (700, 0.92), (850, 0.76), (950, 0.64), (1050, 0.36), (1100, 0.08), (1700, 0.0)], MASTER_GRID))
+    effective_curves_v1 = {
+        channel: normalize_unit_peak([sample * transmission for sample, transmission in zip(raw_curve, optics_v1)])
+        for channel, raw_curve in raw_curves_v1.items()
     }
 
-    spectra_dir = REPO_ROOT / "canonical" / "spectra"
     for channel in CAMERA_CHANNELS:
-        write_npz(spectra_dir / f"cam_ref_rgbnir_{channel}_raw_srf.npz", {"wavelength_nm": MASTER_GRID, "values": raw_curves[channel]})
-        write_npz(spectra_dir / f"cam_ref_rgbnir_{channel}_effective_srf.npz", {"wavelength_nm": MASTER_GRID, "values": effective_curves[channel]})
-    write_npz(spectra_dir / "cam_ref_rgbnir_optics_transmittance.npz", {"wavelength_nm": MASTER_GRID, "values": optics})
+        write_npz(spectra_dir / f"cam_ref_rgbnir_{channel}_raw_srf.npz", {"wavelength_nm": MASTER_GRID, "values": raw_curves_v1[channel]})
+        write_npz(spectra_dir / f"cam_ref_rgbnir_{channel}_effective_srf.npz", {"wavelength_nm": MASTER_GRID, "values": effective_curves_v1[channel]})
+    write_npz(spectra_dir / "cam_ref_rgbnir_optics_transmittance.npz", {"wavelength_nm": MASTER_GRID, "values": optics_v1})
 
-    def curve_ref(name: str) -> Dict:
-        return {
-            "path": f"canonical/spectra/{name}.npz",
-            "wavelength_key": "wavelength_nm",
-            "value_key": "values",
-        }
-
-    profile = {
+    profile_v1 = {
         "id": "camera_reference_rgb_nir_v1",
         "sensor_branch": "rgb_nir",
         "wavelength_grid_ref": "grid_master_350_1700_1nm",
-        "raw_channel_srf_refs": {channel: curve_ref(f"cam_ref_rgbnir_{channel}_raw_srf") for channel in CAMERA_CHANNELS},
-        "optics_transmittance_ref": curve_ref("cam_ref_rgbnir_optics_transmittance"),
-        "effective_channel_srf_refs": {channel: curve_ref(f"cam_ref_rgbnir_{channel}_effective_srf") for channel in CAMERA_CHANNELS},
+        "raw_channel_srf_refs": {channel: spectral_curve_ref(f"cam_ref_rgbnir_{channel}_raw_srf") for channel in CAMERA_CHANNELS},
+        "optics_transmittance_ref": spectral_curve_ref("cam_ref_rgbnir_optics_transmittance"),
+        "effective_channel_srf_refs": {channel: spectral_curve_ref(f"cam_ref_rgbnir_{channel}_effective_srf") for channel in CAMERA_CHANNELS},
         "normalization": {"method": "unit_peak_per_channel_after_optics"},
         "operating_temperature_c": 25.0,
         "source_quality": "vendor_derived",
@@ -1886,8 +1991,121 @@ def write_camera_profiles() -> List[Dict]:
             "note": "Generic RGB+NIR automotive camera profile derived from public vendor documentation; not a measured single-SKU SRF.",
         },
     }
-    write_json(REPO_ROOT / "canonical" / "camera" / f"{profile['id']}.camera_profile.json", profile)
-    return [profile]
+
+    donor_curves = build_mt9m034_reference_curves()
+    raw_curves_v2 = {
+        "r": normalize_unit_peak(donor_curves["src_onsemi_mt9m034_color_r_qe_reference"]),
+        "g": normalize_unit_peak(donor_curves["src_onsemi_mt9m034_color_g_qe_reference"]),
+        "b": normalize_unit_peak(donor_curves["src_onsemi_mt9m034_color_b_qe_reference"]),
+    }
+    nir_gate = []
+    for wavelength in MASTER_GRID:
+        if wavelength <= 620:
+            nir_gate.append(0.0)
+        elif wavelength < 760:
+            nir_gate.append(smoothstep01((wavelength - 620.0) / 140.0))
+        elif wavelength <= 1100:
+            nir_gate.append(1.0)
+        else:
+            nir_gate.append(0.0)
+    raw_curves_v2["nir"] = normalize_unit_peak(
+        [value * gate for value, gate in zip(donor_curves["src_onsemi_mt9m034_mono_qe_reference"], nir_gate)]
+    )
+
+    rgb_optics_v2 = clamp_list(
+        interpolate(
+            [
+                (350, 0.18),
+                (380, 0.42),
+                (420, 0.88),
+                (500, 0.94),
+                (650, 0.94),
+                (700, 0.90),
+                (760, 0.42),
+                (820, 0.08),
+                (900, 0.01),
+                (1100, 0.0),
+                (1700, 0.0),
+            ],
+            MASTER_GRID,
+        )
+    )
+    nir_optics_v2 = clamp_list(
+        interpolate(
+            [
+                (350, 0.0),
+                (550, 0.0),
+                (620, 0.01),
+                (680, 0.08),
+                (720, 0.38),
+                (780, 0.82),
+                (850, 0.92),
+                (950, 0.88),
+                (1050, 0.54),
+                (1100, 0.10),
+                (1700, 0.0),
+            ],
+            MASTER_GRID,
+        )
+    )
+    write_npz(spectra_dir / "cam_ref_rgbnir_v2_rgb_optics_transmittance.npz", {"wavelength_nm": MASTER_GRID, "values": rgb_optics_v2})
+    write_npz(spectra_dir / "cam_ref_rgbnir_v2_nir_optics_transmittance.npz", {"wavelength_nm": MASTER_GRID, "values": nir_optics_v2})
+
+    optics_by_channel_v2 = {"r": rgb_optics_v2, "g": rgb_optics_v2, "b": rgb_optics_v2, "nir": nir_optics_v2}
+    effective_curves_v2 = {
+        channel: normalize_unit_peak([sample * transmission for sample, transmission in zip(raw_curves_v2[channel], optics_by_channel_v2[channel])])
+        for channel in CAMERA_CHANNELS
+    }
+    for channel in CAMERA_CHANNELS:
+        write_npz(spectra_dir / f"cam_ref_rgbnir_v2_{channel}_raw_srf.npz", {"wavelength_nm": MASTER_GRID, "values": raw_curves_v2[channel]})
+        write_npz(spectra_dir / f"cam_ref_rgbnir_v2_{channel}_effective_srf.npz", {"wavelength_nm": MASTER_GRID, "values": effective_curves_v2[channel]})
+
+    v2_source_ids = ["onsemi_mt9m034_pdf", "basler_color_emva_knowledge", "sony_imx900_product_page", "sony_isx016_pdf"]
+    profile_v2 = {
+        "id": "camera_reference_rgb_nir_v2",
+        "profile_family": "generic_reference",
+        "sensor_branch": "rgb_nir",
+        "wavelength_grid_ref": "grid_master_350_1700_1nm",
+        "raw_channel_srf_refs": {channel: spectral_curve_ref(f"cam_ref_rgbnir_v2_{channel}_raw_srf") for channel in CAMERA_CHANNELS},
+        "channel_optics_transmittance_refs": {
+            "r": spectral_curve_ref("cam_ref_rgbnir_v2_rgb_optics_transmittance"),
+            "g": spectral_curve_ref("cam_ref_rgbnir_v2_rgb_optics_transmittance"),
+            "b": spectral_curve_ref("cam_ref_rgbnir_v2_rgb_optics_transmittance"),
+            "nir": spectral_curve_ref("cam_ref_rgbnir_v2_nir_optics_transmittance"),
+        },
+        "reference_curve_refs": {
+            "color_r_qe_reference": spectral_curve_ref("src_onsemi_mt9m034_color_r_qe_reference"),
+            "color_g_qe_reference": spectral_curve_ref("src_onsemi_mt9m034_color_g_qe_reference"),
+            "color_b_qe_reference": spectral_curve_ref("src_onsemi_mt9m034_color_b_qe_reference"),
+            "mono_qe_reference": spectral_curve_ref("src_onsemi_mt9m034_mono_qe_reference"),
+        },
+        "effective_channel_srf_refs": {channel: spectral_curve_ref(f"cam_ref_rgbnir_v2_{channel}_effective_srf") for channel in CAMERA_CHANNELS},
+        "derivation_method": {
+            "type": "public_doc_curve_fit",
+            "donor_sensor_id": "MT9M034",
+            "note": "Project-authored digitized QE control points from the official ON Semiconductor MT9M034 datasheet, combined with generic RGB IR-cut and NIR-pass optics assumptions.",
+        },
+        "replaces_profile_id": "camera_reference_rgb_nir_v1",
+        "normalization": {"method": "unit_peak_per_channel_after_optics"},
+        "operating_temperature_c": 25.0,
+        "source_quality": "vendor_derived",
+        "source_ids": v2_source_ids,
+        "license": {
+            "spdx": "LicenseRef-VendorDerived",
+            "redistribution": "Derived camera-profile metadata and curves from public vendor documentation and tracked project curve fitting.",
+        },
+        "provenance": {
+            "generated_at": GENERATED_AT,
+            "generated_by": "scripts/build_asset_pack.py",
+            "source_ids": v2_source_ids,
+            "note": "Generic RGB+NIR automotive camera profile derived from official public MT9M034 QE references plus public vendor NIR-sensitive sensor context; not a measured single-SKU SRF.",
+        },
+    }
+
+    profiles = [profile_v1, profile_v2]
+    for profile in profiles:
+        write_json(REPO_ROOT / "canonical" / "camera" / f"{profile['id']}.camera_profile.json", profile)
+    return profiles
 
 
 def generate_standard_spectra(signal_vendor_curves: Dict[str, Dict]) -> Dict[str, List[float]]:
@@ -2535,12 +2753,12 @@ def validate_emissive(profile: Dict, known_source_ids: Sequence[str]) -> List[st
 
 def validate_camera_profile(profile: Dict, known_source_ids: Sequence[str]) -> List[str]:
     errors = []
+    profile_id = profile.get("id", "unknown")
     for key in [
         "id",
         "sensor_branch",
         "wavelength_grid_ref",
         "raw_channel_srf_refs",
-        "optics_transmittance_ref",
         "effective_channel_srf_refs",
         "normalization",
         "operating_temperature_c",
@@ -2550,44 +2768,103 @@ def validate_camera_profile(profile: Dict, known_source_ids: Sequence[str]) -> L
         "provenance",
     ]:
         if key not in profile:
-            errors.append(f"{profile.get('id', 'unknown')}: missing {key}")
+            errors.append(f"{profile_id}: missing {key}")
     if profile.get("sensor_branch") not in SENSOR_BRANCH_ENUM:
-        errors.append(f"{profile['id']}: invalid sensor_branch")
+        errors.append(f"{profile_id}: invalid sensor_branch")
     if profile.get("source_quality") not in SOURCE_QUALITY_ENUM:
-        errors.append(f"{profile['id']}: invalid source_quality")
-    errors.extend(validate_source_ids(profile["id"], profile.get("source_ids", []), known_source_ids))
+        errors.append(f"{profile_id}: invalid source_quality")
+    if "profile_family" in profile and profile.get("profile_family") != "generic_reference":
+        errors.append(f"{profile_id}: invalid profile_family")
+    errors.extend(validate_source_ids(profile_id, profile.get("source_ids", []), known_source_ids))
+
+    def load_curve(ref: Dict, label: str) -> Optional[Tuple[List[float], List[float]]]:
+        path = REPO_ROOT / ref.get("path", "")
+        if not path.exists():
+            errors.append(f"{profile_id}: missing {label} path")
+            return None
+        arrays = read_npz(path)
+        wavelengths = arrays[ref["wavelength_key"]]
+        values = arrays[ref["value_key"]]
+        if min(wavelengths) > 400 or max(wavelengths) < 1100:
+            errors.append(f"{profile_id}: {label} lacks 400-1100 coverage")
+        if min(values) < -1e-6 or max(values) > 1.000001:
+            errors.append(f"{profile_id}: {label} is outside [0, 1]")
+        return wavelengths, values
+
     for group_key in ["raw_channel_srf_refs", "effective_channel_srf_refs"]:
         refs = profile.get(group_key, {})
         if set(refs.keys()) != set(CAMERA_CHANNELS):
-            errors.append(f"{profile['id']}: {group_key} must contain channels {', '.join(CAMERA_CHANNELS)}")
+            errors.append(f"{profile_id}: {group_key} must contain channels {', '.join(CAMERA_CHANNELS)}")
             continue
         for channel, ref in refs.items():
-            path = REPO_ROOT / ref["path"]
-            if not path.exists():
-                errors.append(f"{profile['id']}: missing {group_key} path for {channel}")
+            loaded = load_curve(ref, f"{group_key} for {channel}")
+            if loaded is None:
                 continue
-            arrays = read_npz(path)
-            wavelengths = arrays[ref["wavelength_key"]]
-            values = arrays[ref["value_key"]]
-            if min(wavelengths) > 400 or max(wavelengths) < 1100:
-                errors.append(f"{profile['id']}: {group_key} for {channel} lacks 400-1100 coverage")
-            if min(values) < -1e-6 or max(values) > 1.000001:
-                errors.append(f"{profile['id']}: {group_key} for {channel} is outside [0, 1]")
+            wavelengths, values = loaded
             if group_key == "effective_channel_srf_refs" and abs(max(values) - 1.0) > 1e-6:
-                errors.append(f"{profile['id']}: effective SRF for {channel} is not unit peak normalized")
-    optics_ref = profile.get("optics_transmittance_ref", {})
-    if isinstance(optics_ref, dict):
-        path = REPO_ROOT / optics_ref.get("path", "")
-        if not path.exists():
-            errors.append(f"{profile['id']}: missing optics_transmittance_ref path")
+                errors.append(f"{profile_id}: effective SRF for {channel} is not unit peak normalized")
+
+    shared_optics_ref = profile.get("optics_transmittance_ref")
+    channel_optics_refs = profile.get("channel_optics_transmittance_refs")
+    optics_by_channel = {}
+    if isinstance(channel_optics_refs, dict):
+        if set(channel_optics_refs.keys()) != set(CAMERA_CHANNELS):
+            errors.append(f"{profile_id}: channel_optics_transmittance_refs must contain channels {', '.join(CAMERA_CHANNELS)}")
         else:
-            arrays = read_npz(path)
-            wavelengths = arrays[optics_ref["wavelength_key"]]
-            values = arrays[optics_ref["value_key"]]
-            if min(wavelengths) > 400 or max(wavelengths) < 1100:
-                errors.append(f"{profile['id']}: optics transmittance lacks 400-1100 coverage")
-            if min(values) < -1e-6 or max(values) > 1.000001:
-                errors.append(f"{profile['id']}: optics transmittance is outside [0, 1]")
+            for channel, ref in channel_optics_refs.items():
+                loaded = load_curve(ref, f"channel_optics_transmittance_refs for {channel}")
+                if loaded is not None:
+                    optics_by_channel[channel] = loaded[1]
+    elif isinstance(shared_optics_ref, dict):
+        loaded = load_curve(shared_optics_ref, "optics_transmittance_ref")
+        if loaded is not None:
+            for channel in CAMERA_CHANNELS:
+                optics_by_channel[channel] = loaded[1]
+    else:
+        errors.append(f"{profile_id}: missing optics_transmittance_ref or channel_optics_transmittance_refs")
+
+    if profile_id.endswith("_v2") and not isinstance(channel_optics_refs, dict):
+        errors.append(f"{profile_id}: v2 profile must use channel_optics_transmittance_refs")
+
+    reference_curve_refs = profile.get("reference_curve_refs")
+    if reference_curve_refs is not None:
+        if not isinstance(reference_curve_refs, dict) or not reference_curve_refs:
+            errors.append(f"{profile_id}: reference_curve_refs must be a non-empty object when present")
+        else:
+            for ref_name, ref in reference_curve_refs.items():
+                load_curve(ref, f"reference_curve_refs for {ref_name}")
+
+    if "derivation_method" in profile and not isinstance(profile.get("derivation_method"), dict):
+        errors.append(f"{profile_id}: derivation_method must be an object")
+
+    if set(profile.get("raw_channel_srf_refs", {}).keys()) == set(CAMERA_CHANNELS) and set(profile.get("effective_channel_srf_refs", {}).keys()) == set(CAMERA_CHANNELS) and set(optics_by_channel.keys()) == set(CAMERA_CHANNELS):
+        for channel in CAMERA_CHANNELS:
+            raw_arrays = read_npz(REPO_ROOT / profile["raw_channel_srf_refs"][channel]["path"])
+            effective_arrays = read_npz(REPO_ROOT / profile["effective_channel_srf_refs"][channel]["path"])
+            raw_values = raw_arrays[profile["raw_channel_srf_refs"][channel]["value_key"]]
+            effective_values = effective_arrays[profile["effective_channel_srf_refs"][channel]["value_key"]]
+            recomputed = normalize_unit_peak([sample * transmission for sample, transmission in zip(raw_values, optics_by_channel[channel])])
+            max_error = max(abs(expected - actual) for expected, actual in zip(recomputed, effective_values))
+            if max_error > 1e-9:
+                errors.append(f"{profile_id}: effective SRF recomputation mismatch for {channel}")
+            peak_index = max(range(len(effective_values)), key=effective_values.__getitem__)
+            peak_nm = MASTER_GRID[peak_index]
+            if channel == "b" and not (420 <= peak_nm <= 500):
+                errors.append(f"{profile_id}: blue effective peak is outside 420-500 nm")
+            if channel == "g" and not (500 <= peak_nm <= 580):
+                errors.append(f"{profile_id}: green effective peak is outside 500-580 nm")
+            if channel == "r" and not (580 <= peak_nm <= 700):
+                errors.append(f"{profile_id}: red effective peak is outside 580-700 nm")
+            if channel == "nir" and not (760 <= peak_nm <= 950):
+                errors.append(f"{profile_id}: nir effective peak is outside 760-950 nm")
+            if channel in {"r", "g", "b"}:
+                rgb_nir_tail = max(value for wavelength, value in zip(MASTER_GRID, effective_values) if wavelength >= 850)
+                if rgb_nir_tail > 0.08:
+                    errors.append(f"{profile_id}: {channel} effective SRF is too strong above 850 nm")
+            if channel == "nir":
+                nir_visible_leak = max(value for wavelength, value in zip(MASTER_GRID, effective_values) if wavelength <= 550)
+                if nir_visible_leak > 0.03:
+                    errors.append(f"{profile_id}: nir effective SRF is too strong below 550 nm")
     return errors
 
 
@@ -2671,12 +2948,34 @@ def build_reports(assets: List[Dict], materials: Dict[str, Dict], emissive_profi
     }
     write_json(REPO_ROOT / "validation" / "reports" / "visual_validation.json", visual_report)
 
+    def profile_id_from_ref(camera_ref: str) -> str:
+        name = Path(camera_ref).name
+        if name.endswith(".camera_profile.json"):
+            return name[: -len(".camera_profile.json")]
+        return name
+
+    scenario_camera_profile_refs = {scenario["id"]: scenario.get("camera_profile_ref") for scenario in scenarios}
+    unique_profile_ids = sorted({profile_id_from_ref(ref) for ref in scenario_camera_profile_refs.values() if isinstance(ref, str)})
+    active_camera_profile_id = unique_profile_ids[0] if len(unique_profile_ids) == 1 else None
+    camera_profile_reference_summary = {}
+    for profile in camera_profiles:
+        reference_curve_refs = profile.get("reference_curve_refs", {})
+        camera_profile_reference_summary[profile["id"]] = {
+            "reference_curve_ids": sorted(reference_curve_refs.keys()) if isinstance(reference_curve_refs, dict) else [],
+            "has_shared_optics_ref": isinstance(profile.get("optics_transmittance_ref"), dict),
+            "has_per_channel_optics_refs": isinstance(profile.get("channel_optics_transmittance_refs"), dict),
+            "source_ids": profile.get("source_ids", []),
+        }
+
     summary = {
         "generated_at": GENERATED_AT,
         "asset_count": len(assets),
         "material_count": len(materials),
         "emissive_profile_count": len(emissive_profiles),
         "camera_profile_count": len(camera_profiles),
+        "active_camera_profile_id": active_camera_profile_id,
+        "scenario_camera_profile_refs": scenario_camera_profile_refs,
+        "camera_profile_reference_summary": camera_profile_reference_summary,
         "scenario_count": len(scenarios),
         "asset_validation_errors": asset_errors,
         "material_validation_errors": material_errors,
@@ -2745,10 +3044,11 @@ def main() -> int:
     standards = generate_standard_spectra(signal_vendor_curves)
     materials = make_materials(standards["illuminant_d65"])
     camera_profiles = write_camera_profiles()
+    active_camera_profile_id = "camera_reference_rgb_nir_v2"
     assets, asset_meshes = build_assets(materials)
     usd_status = write_asset_geometry_and_exports(assets, asset_meshes, materials)
     emissive_profiles = write_emissive_profiles(signal_vendor_curves)
-    atmospheres, scenarios = write_scenarios_and_atmospheres(camera_profiles[0]["id"])
+    atmospheres, scenarios = write_scenarios_and_atmospheres(active_camera_profile_id)
     write_scenes(asset_meshes, materials)
     summary = build_reports(assets, materials, emissive_profiles, camera_profiles, scenarios, usd_status, ledger)
     print(json.dumps({"generated_at": GENERATED_AT, "asset_count": len(assets), "source_count": len(ledger), "validation_passes": summary["release_gates"]["passes"]}, indent=2))
