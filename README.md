@@ -38,6 +38,7 @@ For deterministic rebuild review, the generator now preserves the previous track
 - `camera_reference_rgb_nir_v1` is retained as the earlier vendor-derived baseline for comparison
 - `camera_reference_rgb_nir_v2` is retained as the pre-`v3` vendor-derived comparison baseline
 - `camera_reference_rgb_nir_v3` is the active vendor-derived public-data baseline built from `MT9M034` RGB donors and a public Balluff `IMX900` mono envelope
+- the first `P3` catalog-expansion batch now adds standalone guardrail, bollard, delineator, cone, barrier, and barricade assets under `road_furniture`
 - selected USGS v7 dry-material baselines are used for asphalt, concrete, and galvanized metal
 - wet asphalt is currently a measured-derived material built from the measured dry asphalt baseline plus the tracked wet modifier
 - vehicle and protected-turn traffic-signal emissive profiles now use vendor-derived public LED fits
@@ -68,6 +69,7 @@ For deterministic rebuild review, the generator now preserves the previous track
 - [docs/README.md](docs/README.md): management-doc index and update rules
 - [docs/roadmap.md](docs/roadmap.md): phase-level delivery plan
 - [docs/task-backlog.md](docs/task-backlog.md): live backlog and task status
+- [docs/catalog-gap-review.md](docs/catalog-gap-review.md): current family-by-family coverage review and next expansion priorities
 - [docs/git-workflow.md](docs/git-workflow.md): local-first git workflow and tracked-artifact policy
 - [docs/created-assets.md](docs/created-assets.md): explanation of what the generated asset pack contains
 - [docs/file-formats.md](docs/file-formats.md): explanation of `.npz`, `.json`, `USD`, and related file types

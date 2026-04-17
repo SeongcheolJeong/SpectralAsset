@@ -36,6 +36,16 @@
           "rotate_y": 0.0
         },
         {
+          "asset_id": "furniture_guardrail_segment",
+          "name": "guardrail_0",
+          "translate": [
+            1.9,
+            0.0,
+            1.6
+          ],
+          "rotate_y": 0.0
+        },
+        {
           "asset_id": "sign_stop",
           "name": "sign_stop_0",
           "translate": [
@@ -147,6 +157,26 @@
           "rotate_y": 0.0
         },
         {
+          "asset_id": "furniture_delineator_post",
+          "name": "delineator_0",
+          "translate": [
+            -1.2,
+            0.0,
+            -1.35
+          ],
+          "rotate_y": 0.0
+        },
+        {
+          "asset_id": "furniture_barricade_panel",
+          "name": "barricade_0",
+          "translate": [
+            2.25,
+            0.0,
+            1.65
+          ],
+          "rotate_y": 90.0
+        },
+        {
           "asset_id": "signal_vehicle_vertical_3_aspect",
           "name": "signal_0",
           "translate": [
@@ -238,6 +268,26 @@
           "rotate_y": 0.0
         },
         {
+          "asset_id": "furniture_bollard_flexible",
+          "name": "bollard_0",
+          "translate": [
+            1.25,
+            0.0,
+            1.05
+          ],
+          "rotate_y": 0.0
+        },
+        {
+          "asset_id": "furniture_delineator_post",
+          "name": "delineator_0",
+          "translate": [
+            -1.15,
+            0.0,
+            1.35
+          ],
+          "rotate_y": 0.0
+        },
+        {
           "asset_id": "signal_vehicle_vertical_3_aspect",
           "name": "signal_0",
           "translate": [
@@ -297,6 +347,26 @@
             -0.8
           ],
           "rotate_y": 0.0
+        },
+        {
+          "asset_id": "furniture_traffic_cone",
+          "name": "cone_0",
+          "translate": [
+            0.92,
+            0.0,
+            -0.55
+          ],
+          "rotate_y": 0.0
+        },
+        {
+          "asset_id": "furniture_water_barrier",
+          "name": "barrier_0",
+          "translate": [
+            -1.9,
+            0.0,
+            1.35
+          ],
+          "rotate_y": 90.0
         },
         {
           "asset_id": "sign_yield",

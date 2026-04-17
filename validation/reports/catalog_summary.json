@@ -210,6 +210,42 @@
       "family": "road_furniture",
       "semantic_class": "furniture.guardrail_bollard",
       "variant_key": "default"
+    },
+    {
+      "id": "furniture_guardrail_segment",
+      "family": "road_furniture",
+      "semantic_class": "furniture.guardrail",
+      "variant_key": "default"
+    },
+    {
+      "id": "furniture_bollard_flexible",
+      "family": "road_furniture",
+      "semantic_class": "furniture.bollard",
+      "variant_key": "flexible_orange"
+    },
+    {
+      "id": "furniture_delineator_post",
+      "family": "road_furniture",
+      "semantic_class": "furniture.delineator",
+      "variant_key": "reflective_post"
+    },
+    {
+      "id": "furniture_traffic_cone",
+      "family": "road_furniture",
+      "semantic_class": "furniture.traffic_cone",
+      "variant_key": "standard_orange"
+    },
+    {
+      "id": "furniture_water_barrier",
+      "family": "road_furniture",
+      "semantic_class": "furniture.barrier",
+      "variant_key": "water_filled_orange"
+    },
+    {
+      "id": "furniture_barricade_panel",
+      "family": "road_furniture",
+      "semantic_class": "furniture.barricade",
+      "variant_key": "work_zone_striped"
     }
   ]
 }

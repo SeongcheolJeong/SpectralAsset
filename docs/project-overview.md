@@ -22,7 +22,7 @@ This repository is not yet targeting release automation or measured replacement 
 
 Current truth from [../validation/reports/validation_summary.json](../validation/reports/validation_summary.json):
 
-- `35` assets
+- `41` assets
 - `20` spectral materials
 - `4` emissive profiles
 - `3` camera profiles
@@ -31,13 +31,14 @@ Current truth from [../validation/reports/validation_summary.json](../validation
 
 Additional baseline facts:
 
-- `39` GLB files currently validate with `0` errors and `0` warnings in [../validation/reports/gltf_validation.json](../validation/reports/gltf_validation.json)
+- `45` GLB files currently validate with `0` errors and `0` warnings in [../validation/reports/gltf_validation.json](../validation/reports/gltf_validation.json)
 - release gates currently pass for the generated baseline
 - raw-source ledger currently tracks `37` source entries
 - material quality summary currently reports `3` `measured_standard`, `1` `measured_derivative`, `16` `project_proxy`, and `0` `vendor_derived` materials
 - emissive-profile quality summary currently reports `2` `vendor_derived` and `2` `project_proxy` profiles
 - camera-profile quality summary currently reports `3` `vendor_derived` profiles, with `camera_reference_rgb_nir_v3` active in all scenarios
 - `urban_night` currently uses public `LED-B4` and `LED-B3` priors for headlamp/streetlight contribution when measured emitter data is absent
+- the first `P3` coverage-expansion batch raised `road_furniture` from `4` to `10` standalone assets without changing the current material or scenario counts
 
 ## Repository Structure
 

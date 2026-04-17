@@ -34,6 +34,20 @@ def Xform "scene_wet_road_braking" {
         float xformOp:rotateY = 0.000000
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
     }
+    def Xform "cone_0" (
+        references = @../geometry/usd/furniture_traffic_cone.usda@</furniture_traffic_cone>
+    ) {
+        double3 xformOp:translate = (0.920000, 0.000000, -0.550000)
+        float xformOp:rotateY = 0.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
+    def Xform "barrier_0" (
+        references = @../geometry/usd/furniture_water_barrier.usda@</furniture_water_barrier>
+    ) {
+        double3 xformOp:translate = (-1.900000, 0.000000, 1.350000)
+        float xformOp:rotateY = 90.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
     def Xform "yield_0" (
         references = @../geometry/usd/sign_yield.usda@</sign_yield>
     ) {

@@ -1,11 +1,39 @@
 {
-  "generated_at": "2026-04-16T10:10:40.000Z",
-  "files_checked": 39,
+  "generated_at": "2026-04-17T13:44:55.168Z",
+  "files_checked": 45,
   "files_with_errors": 0,
   "files_with_warnings": 0,
   "results": [
     {
+      "file": "exports/gltf/furniture_barricade_panel.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
+      "file": "exports/gltf/furniture_bollard_flexible.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
+      "file": "exports/gltf/furniture_delineator_post.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
       "file": "exports/gltf/furniture_guardrail_bollard_set.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
+      "file": "exports/gltf/furniture_guardrail_segment.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
@@ -20,6 +48,20 @@
     },
     {
       "file": "exports/gltf/furniture_signal_pole.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
+      "file": "exports/gltf/furniture_traffic_cone.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
+      "file": "exports/gltf/furniture_water_barrier.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,

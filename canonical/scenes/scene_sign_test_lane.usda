@@ -27,6 +27,13 @@ def Xform "scene_sign_test_lane" {
         float xformOp:rotateY = 0.000000
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
     }
+    def Xform "guardrail_0" (
+        references = @../geometry/usd/furniture_guardrail_segment.usda@</furniture_guardrail_segment>
+    ) {
+        double3 xformOp:translate = (1.900000, 0.000000, 1.600000)
+        float xformOp:rotateY = 0.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
     def Xform "sign_stop_0" (
         references = @../geometry/usd/sign_stop.usda@</sign_stop>
     ) {

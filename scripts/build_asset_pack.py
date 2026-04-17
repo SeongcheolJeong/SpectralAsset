@@ -2874,6 +2874,7 @@ def road_asset_parts(asset_id: str, dimensions: Tuple[float, float, float]) -> D
         "furniture_sign_pole": "mat_metal_galvanized",
         "furniture_signal_pole": "mat_metal_galvanized",
         "furniture_guardrail_bollard_set": "mat_metal_galvanized",
+        "furniture_guardrail_segment": "mat_metal_galvanized",
     }
     if asset_id == "furniture_sign_pole":
         return {
@@ -2900,6 +2901,101 @@ def road_asset_parts(asset_id: str, dimensions: Tuple[float, float, float]) -> D
         lod1.append(make_mesh_part("rail", box_triangles(3.0, 0.12, 0.18, (1.3, 0.72, 0.0)), "mat_metal_galvanized"))
         lod0.append(make_mesh_part("bollard", cylinder_triangles(0.1, 0.8, 18, (3.3, 0.4, 0.0)), "mat_sign_orange"))
         lod1.append(make_mesh_part("bollard", cylinder_triangles(0.1, 0.8, 12, (3.3, 0.4, 0.0)), "mat_sign_orange"))
+        return {"LOD0": lod0, "LOD1": lod1}
+    if asset_id == "furniture_guardrail_segment":
+        lod0 = []
+        lod1 = []
+        for index, offset in enumerate((-1.2, 0.0, 1.2)):
+            lod0.append(make_mesh_part(f"post_{index}", box_triangles(0.12, 0.85, 0.12, (offset, 0.425, 0.0)), "mat_metal_galvanized"))
+            lod1.append(make_mesh_part(f"post_{index}", box_triangles(0.12, 0.85, 0.12, (offset, 0.425, 0.0)), "mat_metal_galvanized"))
+        lod0.append(make_mesh_part("rail_lower", box_triangles(3.0, 0.12, 0.18, (0.0, 0.56, 0.0)), "mat_metal_galvanized"))
+        lod1.append(make_mesh_part("rail_lower", box_triangles(3.0, 0.12, 0.18, (0.0, 0.56, 0.0)), "mat_metal_galvanized"))
+        lod0.append(make_mesh_part("rail_upper", box_triangles(3.0, 0.14, 0.16, (0.0, 0.76, 0.0)), "mat_metal_galvanized"))
+        lod1.append(make_mesh_part("rail_upper", box_triangles(3.0, 0.14, 0.16, (0.0, 0.76, 0.0)), "mat_metal_galvanized"))
+        return {"LOD0": lod0, "LOD1": lod1}
+    if asset_id == "furniture_bollard_flexible":
+        return {
+            "LOD0": [
+                make_mesh_part("base", cylinder_triangles(0.11, 0.06, 20, (0.0, 0.03, 0.0)), "mat_sign_black"),
+                make_mesh_part("shaft", cylinder_triangles(0.055, 0.74, 20, (0.0, 0.43, 0.0)), "mat_sign_orange"),
+                make_mesh_part("band_lower", cylinder_triangles(0.058, 0.08, 20, (0.0, 0.3, 0.0)), "mat_sign_white"),
+                make_mesh_part("band_upper", cylinder_triangles(0.058, 0.08, 20, (0.0, 0.52, 0.0)), "mat_sign_white"),
+            ],
+            "LOD1": [
+                make_mesh_part("base", cylinder_triangles(0.11, 0.06, 14, (0.0, 0.03, 0.0)), "mat_sign_black"),
+                make_mesh_part("shaft", cylinder_triangles(0.055, 0.74, 14, (0.0, 0.43, 0.0)), "mat_sign_orange"),
+                make_mesh_part("band_lower", cylinder_triangles(0.058, 0.08, 14, (0.0, 0.3, 0.0)), "mat_sign_white"),
+                make_mesh_part("band_upper", cylinder_triangles(0.058, 0.08, 14, (0.0, 0.52, 0.0)), "mat_sign_white"),
+            ],
+        }
+    if asset_id == "furniture_delineator_post":
+        return {
+            "LOD0": [
+                make_mesh_part("base", box_triangles(0.18, 0.06, 0.18, (0.0, 0.03, 0.0)), "mat_sign_black"),
+                make_mesh_part("post", box_triangles(0.08, 0.92, 0.08, (0.0, 0.52, 0.0)), "mat_sign_white"),
+                make_mesh_part("band_lower", box_triangles(0.09, 0.12, 0.09, (0.0, 0.38, 0.0)), "mat_sign_orange"),
+                make_mesh_part("band_upper", box_triangles(0.09, 0.12, 0.09, (0.0, 0.62, 0.0)), "mat_sign_orange"),
+            ],
+            "LOD1": [
+                make_mesh_part("base", box_triangles(0.18, 0.06, 0.18, (0.0, 0.03, 0.0)), "mat_sign_black"),
+                make_mesh_part("post", box_triangles(0.08, 0.92, 0.08, (0.0, 0.52, 0.0)), "mat_sign_white"),
+                make_mesh_part("band_lower", box_triangles(0.09, 0.12, 0.09, (0.0, 0.38, 0.0)), "mat_sign_orange"),
+                make_mesh_part("band_upper", box_triangles(0.09, 0.12, 0.09, (0.0, 0.62, 0.0)), "mat_sign_orange"),
+            ],
+        }
+    if asset_id == "furniture_traffic_cone":
+        return {
+            "LOD0": [
+                make_mesh_part("base", box_triangles(0.38, 0.05, 0.38, (0.0, 0.025, 0.0)), "mat_sign_black"),
+                make_mesh_part("body_lower", cylinder_triangles(0.12, 0.3, 18, (0.0, 0.2, 0.0)), "mat_sign_orange"),
+                make_mesh_part("band_center", cylinder_triangles(0.1, 0.08, 18, (0.0, 0.36, 0.0)), "mat_sign_white"),
+                make_mesh_part("body_upper", cylinder_triangles(0.07, 0.22, 18, (0.0, 0.51, 0.0)), "mat_sign_orange"),
+                make_mesh_part("tip", cylinder_triangles(0.035, 0.05, 18, (0.0, 0.645, 0.0)), "mat_sign_white"),
+            ],
+            "LOD1": [
+                make_mesh_part("base", box_triangles(0.38, 0.05, 0.38, (0.0, 0.025, 0.0)), "mat_sign_black"),
+                make_mesh_part("body_lower", cylinder_triangles(0.12, 0.3, 12, (0.0, 0.2, 0.0)), "mat_sign_orange"),
+                make_mesh_part("band_center", cylinder_triangles(0.1, 0.08, 12, (0.0, 0.36, 0.0)), "mat_sign_white"),
+                make_mesh_part("body_upper", cylinder_triangles(0.07, 0.22, 12, (0.0, 0.51, 0.0)), "mat_sign_orange"),
+                make_mesh_part("tip", cylinder_triangles(0.035, 0.05, 12, (0.0, 0.645, 0.0)), "mat_sign_white"),
+            ],
+        }
+    if asset_id == "furniture_water_barrier":
+        return {
+            "LOD0": [
+                make_mesh_part("base", box_triangles(1.8, 0.38, 0.48, (0.0, 0.19, 0.0)), "mat_sign_orange"),
+                make_mesh_part("mid", box_triangles(1.56, 0.24, 0.34, (0.0, 0.5, 0.0)), "mat_sign_orange"),
+                make_mesh_part("top", box_triangles(1.24, 0.14, 0.22, (0.0, 0.69, 0.0)), "mat_sign_orange"),
+                make_mesh_part("stripe", box_triangles(1.18, 0.08, 0.26, (0.0, 0.52, 0.0)), "mat_sign_white"),
+            ],
+            "LOD1": [
+                make_mesh_part("base", box_triangles(1.8, 0.38, 0.48, (0.0, 0.19, 0.0)), "mat_sign_orange"),
+                make_mesh_part("mid", box_triangles(1.56, 0.24, 0.34, (0.0, 0.5, 0.0)), "mat_sign_orange"),
+                make_mesh_part("top", box_triangles(1.24, 0.14, 0.22, (0.0, 0.69, 0.0)), "mat_sign_orange"),
+                make_mesh_part("stripe", box_triangles(1.18, 0.08, 0.26, (0.0, 0.52, 0.0)), "mat_sign_white"),
+            ],
+        }
+    if asset_id == "furniture_barricade_panel":
+        lod0 = [
+            make_mesh_part("leg_left", box_triangles(0.08, 1.0, 0.08, (-0.48, 0.5, -0.14)), "mat_metal_galvanized"),
+            make_mesh_part("leg_right", box_triangles(0.08, 1.0, 0.08, (0.48, 0.5, -0.14)), "mat_metal_galvanized"),
+            make_mesh_part("foot_left", box_triangles(0.42, 0.06, 0.12, (-0.48, 0.03, 0.0)), "mat_sign_black"),
+            make_mesh_part("foot_right", box_triangles(0.42, 0.06, 0.12, (0.48, 0.03, 0.0)), "mat_sign_black"),
+            make_mesh_part("panel_upper", box_triangles(1.18, 0.12, 0.08, (0.0, 0.72, 0.0)), "mat_sign_white"),
+            make_mesh_part("panel_mid", box_triangles(1.18, 0.12, 0.08, (0.0, 0.48, 0.0)), "mat_sign_white"),
+            make_mesh_part("stripe_upper", box_triangles(1.0, 0.06, 0.09, (0.0, 0.72, 0.0)), "mat_sign_orange"),
+            make_mesh_part("stripe_mid", box_triangles(1.0, 0.06, 0.09, (0.0, 0.48, 0.0)), "mat_sign_orange"),
+        ]
+        lod1 = [
+            make_mesh_part("leg_left", box_triangles(0.08, 1.0, 0.08, (-0.48, 0.5, -0.14)), "mat_metal_galvanized"),
+            make_mesh_part("leg_right", box_triangles(0.08, 1.0, 0.08, (0.48, 0.5, -0.14)), "mat_metal_galvanized"),
+            make_mesh_part("foot_left", box_triangles(0.42, 0.06, 0.12, (-0.48, 0.03, 0.0)), "mat_sign_black"),
+            make_mesh_part("foot_right", box_triangles(0.42, 0.06, 0.12, (0.48, 0.03, 0.0)), "mat_sign_black"),
+            make_mesh_part("panel_upper", box_triangles(1.18, 0.12, 0.08, (0.0, 0.72, 0.0)), "mat_sign_white"),
+            make_mesh_part("panel_mid", box_triangles(1.18, 0.12, 0.08, (0.0, 0.48, 0.0)), "mat_sign_white"),
+            make_mesh_part("stripe_upper", box_triangles(1.0, 0.06, 0.09, (0.0, 0.72, 0.0)), "mat_sign_orange"),
+            make_mesh_part("stripe_mid", box_triangles(1.0, 0.06, 0.09, (0.0, 0.48, 0.0)), "mat_sign_orange"),
+        ]
         return {"LOD0": lod0, "LOD1": lod1}
     if asset_id == "marking_crosswalk":
         lod0 = []
@@ -3906,6 +4002,12 @@ def road_definitions() -> List[Dict]:
         {"id": "furniture_sign_pole", "family": "road_furniture", "semantic_class": "furniture.sign_pole", "variant_key": "default", "dimensions": (0.06, 3.2, 0.06)},
         {"id": "furniture_signal_pole", "family": "road_furniture", "semantic_class": "furniture.signal_pole", "variant_key": "mast_arm", "dimensions": (4.0, 5.0, 0.16)},
         {"id": "furniture_guardrail_bollard_set", "family": "road_furniture", "semantic_class": "furniture.guardrail_bollard", "variant_key": "default", "dimensions": (3.5, 0.85, 0.18)},
+        {"id": "furniture_guardrail_segment", "family": "road_furniture", "semantic_class": "furniture.guardrail", "variant_key": "default", "dimensions": (3.0, 0.85, 0.18)},
+        {"id": "furniture_bollard_flexible", "family": "road_furniture", "semantic_class": "furniture.bollard", "variant_key": "flexible_orange", "dimensions": (0.18, 0.8, 0.18)},
+        {"id": "furniture_delineator_post", "family": "road_furniture", "semantic_class": "furniture.delineator", "variant_key": "reflective_post", "dimensions": (0.18, 0.98, 0.18)},
+        {"id": "furniture_traffic_cone", "family": "road_furniture", "semantic_class": "furniture.traffic_cone", "variant_key": "standard_orange", "dimensions": (0.38, 0.7, 0.38)},
+        {"id": "furniture_water_barrier", "family": "road_furniture", "semantic_class": "furniture.barrier", "variant_key": "water_filled_orange", "dimensions": (1.8, 0.76, 0.48)},
+        {"id": "furniture_barricade_panel", "family": "road_furniture", "semantic_class": "furniture.barricade", "variant_key": "work_zone_striped", "dimensions": (1.4, 1.0, 0.48)},
     ]
 
 
@@ -4246,6 +4348,7 @@ def scene_definitions() -> List[Dict]:
                 {"asset_id": "road_asphalt_dry", "name": "road_0", "translate": (0.0, 0.0, 0.0), "rotate_y": 0.0},
                 {"asset_id": "marking_lane_white", "name": "lane_0", "translate": (-0.9, 0.03, 0.0), "rotate_y": 0.0},
                 {"asset_id": "marking_lane_white", "name": "lane_1", "translate": (0.9, 0.03, 0.0), "rotate_y": 0.0},
+                {"asset_id": "furniture_guardrail_segment", "name": "guardrail_0", "translate": (1.9, 0.0, 1.6), "rotate_y": 0.0},
                 {"asset_id": "sign_stop", "name": "sign_stop_0", "translate": (-1.8, 0.0, -1.0), "rotate_y": 0.0},
                 {"asset_id": "sign_speed_limit_50", "name": "sign_speed_0", "translate": (-1.8, 0.0, 0.4), "rotate_y": 0.0},
                 {"asset_id": "sign_pedestrian_crossing", "name": "sign_cross_0", "translate": (-1.8, 0.0, 1.8), "rotate_y": 0.0},
@@ -4262,6 +4365,8 @@ def scene_definitions() -> List[Dict]:
                 {"asset_id": "marking_crosswalk", "name": "crosswalk_0", "translate": (0.0, 0.03, -1.1), "rotate_y": 90.0},
                 {"asset_id": "marking_stop_line", "name": "stopline_0", "translate": (0.0, 0.03, -1.7), "rotate_y": 0.0},
                 {"asset_id": "furniture_signal_pole", "name": "pole_0", "translate": (-2.0, 0.0, -2.0), "rotate_y": 0.0},
+                {"asset_id": "furniture_delineator_post", "name": "delineator_0", "translate": (-1.2, 0.0, -1.35), "rotate_y": 0.0},
+                {"asset_id": "furniture_barricade_panel", "name": "barricade_0", "translate": (2.25, 0.0, 1.65), "rotate_y": 90.0},
                 {"asset_id": "signal_vehicle_vertical_3_aspect", "name": "signal_0", "translate": (-0.5, 0.0, -2.0), "rotate_y": 0.0},
                 {"asset_id": "signal_vehicle_horizontal_3_aspect", "name": "signal_1", "translate": (2.0, 0.0, -0.5), "rotate_y": 90.0},
                 {"asset_id": "signal_pedestrian_2_aspect", "name": "ped_signal_0", "translate": (1.8, 0.0, -1.2), "rotate_y": 180.0},
@@ -4276,6 +4381,8 @@ def scene_definitions() -> List[Dict]:
                 {"asset_id": "sign_merge", "name": "sign_merge_0", "translate": (-1.8, 0.0, 0.8), "rotate_y": 0.0},
                 {"asset_id": "sign_variable_message", "name": "vms_0", "translate": (1.5, 0.0, 0.0), "rotate_y": 180.0},
                 {"asset_id": "marking_lane_white", "name": "lane_0", "translate": (0.0, 0.03, 0.0), "rotate_y": 0.0},
+                {"asset_id": "furniture_bollard_flexible", "name": "bollard_0", "translate": (1.25, 0.0, 1.05), "rotate_y": 0.0},
+                {"asset_id": "furniture_delineator_post", "name": "delineator_0", "translate": (-1.15, 0.0, 1.35), "rotate_y": 0.0},
                 {"asset_id": "signal_vehicle_vertical_3_aspect", "name": "signal_0", "translate": (1.8, 0.0, -1.2), "rotate_y": 180.0},
             ],
         },
@@ -4287,6 +4394,8 @@ def scene_definitions() -> List[Dict]:
                 {"asset_id": "marking_crosswalk", "name": "crosswalk_0", "translate": (0.0, 0.03, 0.8), "rotate_y": 90.0},
                 {"asset_id": "marking_stop_line", "name": "stopline_0", "translate": (0.0, 0.03, 0.2), "rotate_y": 0.0},
                 {"asset_id": "signal_vehicle_vertical_3_aspect", "name": "signal_0", "translate": (-1.6, 0.0, -0.8), "rotate_y": 0.0},
+                {"asset_id": "furniture_traffic_cone", "name": "cone_0", "translate": (0.92, 0.0, -0.55), "rotate_y": 0.0},
+                {"asset_id": "furniture_water_barrier", "name": "barrier_0", "translate": (-1.9, 0.0, 1.35), "rotate_y": 90.0},
                 {"asset_id": "sign_yield", "name": "yield_0", "translate": (1.8, 0.0, 1.4), "rotate_y": 180.0},
                 {"asset_id": "sign_school_warning", "name": "school_0", "translate": (1.8, 0.0, -1.4), "rotate_y": 180.0},
             ],

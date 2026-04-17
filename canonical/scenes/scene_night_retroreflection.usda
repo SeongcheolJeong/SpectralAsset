@@ -41,6 +41,20 @@ def Xform "scene_night_retroreflection" {
         float xformOp:rotateY = 0.000000
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
     }
+    def Xform "bollard_0" (
+        references = @../geometry/usd/furniture_bollard_flexible.usda@</furniture_bollard_flexible>
+    ) {
+        double3 xformOp:translate = (1.250000, 0.000000, 1.050000)
+        float xformOp:rotateY = 0.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
+    def Xform "delineator_0" (
+        references = @../geometry/usd/furniture_delineator_post.usda@</furniture_delineator_post>
+    ) {
+        double3 xformOp:translate = (-1.150000, 0.000000, 1.350000)
+        float xformOp:rotateY = 0.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
     def Xform "signal_0" (
         references = @../geometry/usd/signal_vehicle_vertical_3_aspect.usda@</signal_vehicle_vertical_3_aspect>
     ) {

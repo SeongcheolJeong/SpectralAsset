@@ -41,6 +41,20 @@ def Xform "scene_signalized_intersection" {
         float xformOp:rotateY = 0.000000
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
     }
+    def Xform "delineator_0" (
+        references = @../geometry/usd/furniture_delineator_post.usda@</furniture_delineator_post>
+    ) {
+        double3 xformOp:translate = (-1.200000, 0.000000, -1.350000)
+        float xformOp:rotateY = 0.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
+    def Xform "barricade_0" (
+        references = @../geometry/usd/furniture_barricade_panel.usda@</furniture_barricade_panel>
+    ) {
+        double3 xformOp:translate = (2.250000, 0.000000, 1.650000)
+        float xformOp:rotateY = 90.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
     def Xform "signal_0" (
         references = @../geometry/usd/signal_vehicle_vertical_3_aspect.usda@</signal_vehicle_vertical_3_aspect>
     ) {
