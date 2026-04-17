@@ -146,6 +146,20 @@ def Xform "scene_night_retroreflection" {
         float xformOp:rotateY = 180.000000
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
     }
+    def Xform "rail_vertical_0" (
+        references = @../geometry/usd/signal_rail_crossing_dual_red_vertical.usda@</signal_rail_crossing_dual_red_vertical>
+    ) {
+        double3 xformOp:translate = (-2.250000, 0.000000, -0.100000)
+        float xformOp:rotateY = 0.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
+    def Xform "rail_horizontal_0" (
+        references = @../geometry/usd/signal_rail_crossing_dual_red_horizontal.usda@</signal_rail_crossing_dual_red_horizontal>
+    ) {
+        double3 xformOp:translate = (-2.050000, 0.000000, 0.920000)
+        float xformOp:rotateY = 0.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
     def Xform "beacon_red_0" (
         references = @../geometry/usd/signal_beacon_red_single.usda@</signal_beacon_red_single>
     ) {

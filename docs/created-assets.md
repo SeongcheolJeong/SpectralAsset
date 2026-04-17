@@ -6,9 +6,9 @@ This file explains what the generator actually creates in this repository and ho
 
 Current generated baseline:
 
-- `93` assets
+- `97` assets
 - `22` spectral materials
-- `8` emissive profiles
+- `11` emissive profiles
 - `3` camera profiles
 - `4` scenario profiles
 - `4` validation scenes
@@ -64,6 +64,10 @@ These are signal housings such as:
 - `signal_beacon_red_single`
 - `signal_warning_dual_amber_horizontal`
 - `signal_warning_dual_red_horizontal`
+- `signal_lane_control_overhead_3_aspect`
+- `signal_lane_control_reversible_2_aspect`
+- `signal_rail_crossing_dual_red_vertical`
+- `signal_rail_crossing_dual_red_horizontal`
 
 Each signal usually has:
 
@@ -71,6 +75,11 @@ Each signal usually has:
 - an asset manifest
 - off-state lens materials
 - a linked emissive profile that defines what spectral curve is active in each state
+
+The newer specialized signal heads now also include:
+
+- lane-control state maps for red `X`, yellow merge arrow, and green open-lane arrow behavior
+- rail-crossing state maps for left, right, or paired red flashing behavior
 
 ### `road_surface`
 
@@ -176,6 +185,12 @@ These define emitted light by state for traffic signals and similar assets.
 Example:
 
 - `canonical/emissive/emissive_vehicle_standard.emissive_profile.json`
+
+Current specialized additions include:
+
+- `emissive_lane_control_standard`
+- `emissive_lane_control_reversible`
+- `emissive_rail_crossing_dual_red`
 
 ### Camera profiles
 

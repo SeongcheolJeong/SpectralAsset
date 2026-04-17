@@ -200,6 +200,30 @@
       "variant_key": "warning_flasher.dual_red.horizontal"
     },
     {
+      "id": "signal_lane_control_overhead_3_aspect",
+      "family": "traffic_light",
+      "semantic_class": "traffic_light.lane_control",
+      "variant_key": "lane_control.overhead.3_aspect"
+    },
+    {
+      "id": "signal_lane_control_reversible_2_aspect",
+      "family": "traffic_light",
+      "semantic_class": "traffic_light.lane_control",
+      "variant_key": "lane_control.reversible.2_aspect"
+    },
+    {
+      "id": "signal_rail_crossing_dual_red_vertical",
+      "family": "traffic_light",
+      "semantic_class": "traffic_light.rail_crossing",
+      "variant_key": "rail_crossing.dual_red.vertical"
+    },
+    {
+      "id": "signal_rail_crossing_dual_red_horizontal",
+      "family": "traffic_light",
+      "semantic_class": "traffic_light.rail_crossing",
+      "variant_key": "rail_crossing.dual_red.horizontal"
+    },
+    {
       "id": "road_asphalt_dry",
       "family": "road_surface",
       "semantic_class": "road.asphalt",

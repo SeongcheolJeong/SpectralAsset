@@ -181,6 +181,20 @@ def Xform "scene_signalized_intersection" {
         float xformOp:rotateY = 90.000000
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
     }
+    def Xform "lane_control_overhead_0" (
+        references = @../geometry/usd/signal_lane_control_overhead_3_aspect.usda@</signal_lane_control_overhead_3_aspect>
+    ) {
+        double3 xformOp:translate = (0.300000, 0.000000, -2.350000)
+        float xformOp:rotateY = 0.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
+    def Xform "lane_control_reversible_0" (
+        references = @../geometry/usd/signal_lane_control_reversible_2_aspect.usda@</signal_lane_control_reversible_2_aspect>
+    ) {
+        double3 xformOp:translate = (2.380000, 0.000000, 0.480000)
+        float xformOp:rotateY = 90.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
     def Xform "delineator_0" (
         references = @../geometry/usd/furniture_delineator_post.usda@</furniture_delineator_post>
     ) {

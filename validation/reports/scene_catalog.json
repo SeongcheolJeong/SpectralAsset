@@ -587,6 +587,26 @@
           "rotate_y": 90.0
         },
         {
+          "asset_id": "signal_lane_control_overhead_3_aspect",
+          "name": "lane_control_overhead_0",
+          "translate": [
+            0.3,
+            0.0,
+            -2.35
+          ],
+          "rotate_y": 0.0
+        },
+        {
+          "asset_id": "signal_lane_control_reversible_2_aspect",
+          "name": "lane_control_reversible_0",
+          "translate": [
+            2.38,
+            0.0,
+            0.48
+          ],
+          "rotate_y": 90.0
+        },
+        {
           "asset_id": "furniture_delineator_post",
           "name": "delineator_0",
           "translate": [
@@ -848,6 +868,26 @@
           "rotate_y": 180.0
         },
         {
+          "asset_id": "signal_rail_crossing_dual_red_vertical",
+          "name": "rail_vertical_0",
+          "translate": [
+            -2.25,
+            0.0,
+            -0.1
+          ],
+          "rotate_y": 0.0
+        },
+        {
+          "asset_id": "signal_rail_crossing_dual_red_horizontal",
+          "name": "rail_horizontal_0",
+          "translate": [
+            -2.05,
+            0.0,
+            0.92
+          ],
+          "rotate_y": 0.0
+        },
+        {
           "asset_id": "signal_beacon_red_single",
           "name": "beacon_red_0",
           "translate": [
@@ -1055,6 +1095,16 @@
             1.65,
             0.0,
             1.55
+          ],
+          "rotate_y": 180.0
+        },
+        {
+          "asset_id": "signal_lane_control_reversible_2_aspect",
+          "name": "lane_control_reversible_0",
+          "translate": [
+            2.45,
+            0.0,
+            1.02
           ],
           "rotate_y": 180.0
         },

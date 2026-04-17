@@ -2932,8 +2932,16 @@ def signal_asset_parts(config: Dict) -> Dict[str, List[Dict]]:
         lens_id = lens["material_id"]
         lens_name = lens["name"]
         center = (lens["x"], lens["y"] + 1.2, body_d / 2.0 + 0.015)
-        lod0.append(make_mesh_part(lens_name, cylinder_triangles(lens["radius"], 0.03, 24, center), lens_id))
-        lod1.append(make_mesh_part(lens_name, cylinder_triangles(lens["radius"], 0.03, 16, center), lens_id))
+        shape = lens.get("shape", "cylinder")
+        if shape == "box":
+            lens_width = lens["width"]
+            lens_height = lens["height"]
+            lens_depth = lens.get("depth", 0.03)
+            lod0.append(make_mesh_part(lens_name, box_triangles(lens_width, lens_height, lens_depth, center), lens_id))
+            lod1.append(make_mesh_part(lens_name, box_triangles(lens_width, lens_height, lens_depth, center), lens_id))
+        else:
+            lod0.append(make_mesh_part(lens_name, cylinder_triangles(lens["radius"], 0.03, 24, center), lens_id))
+            lod1.append(make_mesh_part(lens_name, cylinder_triangles(lens["radius"], 0.03, 16, center), lens_id))
     bracket_center = (0.0, 1.28, -0.08)
     lod0.append(make_mesh_part("bracket", box_triangles(body_w * 0.18, 0.18, 0.12, bracket_center), "mat_metal_galvanized"))
     lod1.append(make_mesh_part("bracket", box_triangles(body_w * 0.18, 0.18, 0.12, bracket_center), "mat_metal_galvanized"))
@@ -4740,6 +4748,83 @@ def traffic_light_definitions() -> List[Dict]:
                 "flashing_red_pair": "flashing_red_pair",
             },
         },
+        {
+            "id": "signal_lane_control_overhead_3_aspect",
+            "variant_key": "lane_control.overhead.3_aspect",
+            "semantic_class": "traffic_light.lane_control",
+            "body_w": 0.58,
+            "body_h": 1.18,
+            "body_d": 0.2,
+            "lenses": [
+                {"name": "display_red_x", "x": 0.0, "y": 0.92, "shape": "box", "width": 0.28, "height": 0.18, "material_id": "mat_signal_lens_red_off"},
+                {"name": "display_yellow_arrow", "x": 0.0, "y": 0.59, "shape": "box", "width": 0.28, "height": 0.18, "material_id": "mat_signal_lens_yellow_off"},
+                {"name": "display_green_arrow", "x": 0.0, "y": 0.26, "shape": "box", "width": 0.28, "height": 0.18, "material_id": "mat_signal_lens_green_off"},
+            ],
+            "emissive_profile": "emissive_lane_control_standard",
+            "states": {
+                "off": "off",
+                "lane_closed": "lane_closed",
+                "lane_merge_left": "lane_merge_left",
+                "lane_open": "lane_open",
+                "flashing_yellow_arrow": "flashing_yellow_arrow",
+            },
+        },
+        {
+            "id": "signal_lane_control_reversible_2_aspect",
+            "variant_key": "lane_control.reversible.2_aspect",
+            "semantic_class": "traffic_light.lane_control",
+            "body_w": 0.58,
+            "body_h": 0.84,
+            "body_d": 0.2,
+            "lenses": [
+                {"name": "display_red_x", "x": 0.0, "y": 0.58, "shape": "box", "width": 0.28, "height": 0.18, "material_id": "mat_signal_lens_red_off"},
+                {"name": "display_green_arrow", "x": 0.0, "y": 0.25, "shape": "box", "width": 0.28, "height": 0.18, "material_id": "mat_signal_lens_green_off"},
+            ],
+            "emissive_profile": "emissive_lane_control_reversible",
+            "states": {
+                "off": "off",
+                "lane_closed": "lane_closed",
+                "lane_open": "lane_open",
+            },
+        },
+        {
+            "id": "signal_rail_crossing_dual_red_vertical",
+            "variant_key": "rail_crossing.dual_red.vertical",
+            "semantic_class": "traffic_light.rail_crossing",
+            "body_w": 0.42,
+            "body_h": 0.94,
+            "body_d": 0.2,
+            "lenses": [
+                {"name": "lens_rail_left", "x": 0.0, "y": 0.68, "radius": 0.11, "material_id": "mat_signal_lens_red_off"},
+                {"name": "lens_rail_right", "x": 0.0, "y": 0.28, "radius": 0.11, "material_id": "mat_signal_lens_red_off"},
+            ],
+            "emissive_profile": "emissive_rail_crossing_dual_red",
+            "states": {
+                "off": "off",
+                "flashing_red_left": "flashing_red_left",
+                "flashing_red_right": "flashing_red_right",
+                "flashing_red_pair": "flashing_red_pair",
+            },
+        },
+        {
+            "id": "signal_rail_crossing_dual_red_horizontal",
+            "variant_key": "rail_crossing.dual_red.horizontal",
+            "semantic_class": "traffic_light.rail_crossing",
+            "body_w": 0.9,
+            "body_h": 0.38,
+            "body_d": 0.2,
+            "lenses": [
+                {"name": "lens_rail_left", "x": -0.24, "y": 0.19, "radius": 0.11, "material_id": "mat_signal_lens_red_off"},
+                {"name": "lens_rail_right", "x": 0.24, "y": 0.19, "radius": 0.11, "material_id": "mat_signal_lens_red_off"},
+            ],
+            "emissive_profile": "emissive_rail_crossing_dual_red",
+            "states": {
+                "off": "off",
+                "flashing_red_left": "flashing_red_left",
+                "flashing_red_right": "flashing_red_right",
+                "flashing_red_pair": "flashing_red_pair",
+            },
+        },
     ]
 
 
@@ -5146,6 +5231,84 @@ def write_emissive_profiles(signal_curves: Dict[str, Dict], signal_profile_meta:
                 "note": vehicle_signal_note.replace("traffic-signal SPD", "dual red warning flasher SPD"),
             },
         },
+        {
+            "id": "emissive_lane_control_standard",
+            "spd_ref": {
+                "red": f"canonical/spectra/{signal_curves['red']['curve_name']}.npz",
+                "yellow": f"canonical/spectra/{signal_curves['yellow']['curve_name']}.npz",
+                "green": f"canonical/spectra/{signal_curves['green']['curve_name']}.npz",
+            },
+            "state_map": {
+                "off": {},
+                "lane_closed": {"display_red_x": signal_curves["red"]["curve_name"]},
+                "lane_merge_left": {"display_yellow_arrow": signal_curves["yellow"]["curve_name"]},
+                "lane_open": {"display_green_arrow": signal_curves["green"]["curve_name"]},
+                "flashing_yellow_arrow": {"display_yellow_arrow": signal_curves["yellow"]["curve_name"]},
+            },
+            "nominal_luminance_cd_m2": {"red": 6800, "yellow": 6200, "green": 7600},
+            "temperature_c": 25.0,
+            "driver_mode": "lane_control_controller",
+            "source_quality": vehicle_signal_source_quality,
+            "source_ids": vehicle_signal_source_ids,
+            "license": vehicle_signal_license,
+            "provenance": {
+                "generated_at": GENERATED_AT,
+                "generated_by": "scripts/build_asset_pack.py",
+                "source_ids": vehicle_signal_source_ids,
+                "note": vehicle_signal_note.replace("traffic-signal SPD", "lane-control signal SPD"),
+            },
+        },
+        {
+            "id": "emissive_lane_control_reversible",
+            "spd_ref": {
+                "red": f"canonical/spectra/{signal_curves['red']['curve_name']}.npz",
+                "green": f"canonical/spectra/{signal_curves['green']['curve_name']}.npz",
+            },
+            "state_map": {
+                "off": {},
+                "lane_closed": {"display_red_x": signal_curves["red"]["curve_name"]},
+                "lane_open": {"display_green_arrow": signal_curves["green"]["curve_name"]},
+            },
+            "nominal_luminance_cd_m2": {"red": 6800, "green": 7600},
+            "temperature_c": 25.0,
+            "driver_mode": "lane_control_controller",
+            "source_quality": vehicle_signal_source_quality,
+            "source_ids": vehicle_signal_source_ids,
+            "license": vehicle_signal_license,
+            "provenance": {
+                "generated_at": GENERATED_AT,
+                "generated_by": "scripts/build_asset_pack.py",
+                "source_ids": vehicle_signal_source_ids,
+                "note": vehicle_signal_note.replace("traffic-signal SPD", "reversible lane-control signal SPD"),
+            },
+        },
+        {
+            "id": "emissive_rail_crossing_dual_red",
+            "spd_ref": {
+                "red": f"canonical/spectra/{signal_curves['red']['curve_name']}.npz",
+            },
+            "state_map": {
+                "off": {},
+                "flashing_red_left": {"lens_rail_left": signal_curves["red"]["curve_name"]},
+                "flashing_red_right": {"lens_rail_right": signal_curves["red"]["curve_name"]},
+                "flashing_red_pair": {
+                    "lens_rail_left": signal_curves["red"]["curve_name"],
+                    "lens_rail_right": signal_curves["red"]["curve_name"],
+                },
+            },
+            "nominal_luminance_cd_m2": {"red": 7000},
+            "temperature_c": 25.0,
+            "driver_mode": "rail_crossing_controller",
+            "source_quality": vehicle_signal_source_quality,
+            "source_ids": vehicle_signal_source_ids,
+            "license": vehicle_signal_license,
+            "provenance": {
+                "generated_at": GENERATED_AT,
+                "generated_by": "scripts/build_asset_pack.py",
+                "source_ids": vehicle_signal_source_ids,
+                "note": vehicle_signal_note.replace("traffic-signal SPD", "rail-crossing dual-red signal SPD"),
+            },
+        },
     ]
     optional_reference_curve_refs = signal_profile_meta.get("reference_curve_refs")
     optional_derivation_method = signal_profile_meta.get("derivation_method")
@@ -5306,6 +5469,8 @@ def scene_definitions() -> List[Dict]:
                 {"asset_id": "furniture_signal_side_mount_bracket", "name": "side_mount_0", "translate": (1.72, 0.0, -1.18), "rotate_y": 180.0},
                 {"asset_id": "signal_beacon_amber_single", "name": "beacon_amber_0", "translate": (-2.65, 0.0, 1.3), "rotate_y": 90.0},
                 {"asset_id": "signal_warning_dual_amber_horizontal", "name": "warning_amber_0", "translate": (2.2, 0.0, 1.72), "rotate_y": 90.0},
+                {"asset_id": "signal_lane_control_overhead_3_aspect", "name": "lane_control_overhead_0", "translate": (0.3, 0.0, -2.35), "rotate_y": 0.0},
+                {"asset_id": "signal_lane_control_reversible_2_aspect", "name": "lane_control_reversible_0", "translate": (2.38, 0.0, 0.48), "rotate_y": 90.0},
                 {"asset_id": "furniture_delineator_post", "name": "delineator_0", "translate": (-1.2, 0.0, -1.35), "rotate_y": 0.0},
                 {"asset_id": "furniture_barricade_panel", "name": "barricade_0", "translate": (2.25, 0.0, 1.65), "rotate_y": 90.0},
                 {"asset_id": "signal_vehicle_vertical_3_aspect", "name": "signal_0", "translate": (-0.5, 0.0, -2.0), "rotate_y": 0.0},
@@ -5337,6 +5502,8 @@ def scene_definitions() -> List[Dict]:
                 {"asset_id": "furniture_signal_backplate_vertical", "name": "backplate_vertical_0", "translate": (1.8, 0.0, -1.2), "rotate_y": 180.0},
                 {"asset_id": "furniture_signal_side_mount_bracket", "name": "side_mount_0", "translate": (1.72, 0.0, -1.18), "rotate_y": 180.0},
                 {"asset_id": "signal_warning_dual_red_horizontal", "name": "warning_red_0", "translate": (1.8, 0.0, -1.2), "rotate_y": 180.0},
+                {"asset_id": "signal_rail_crossing_dual_red_vertical", "name": "rail_vertical_0", "translate": (-2.25, 0.0, -0.1), "rotate_y": 0.0},
+                {"asset_id": "signal_rail_crossing_dual_red_horizontal", "name": "rail_horizontal_0", "translate": (-2.05, 0.0, 0.92), "rotate_y": 0.0},
                 {"asset_id": "signal_beacon_red_single", "name": "beacon_red_0", "translate": (-1.9, 0.0, 1.85), "rotate_y": 0.0},
                 {"asset_id": "furniture_bollard_flexible", "name": "bollard_0", "translate": (1.25, 0.0, 1.05), "rotate_y": 0.0},
                 {"asset_id": "furniture_delineator_post", "name": "delineator_0", "translate": (-1.15, 0.0, 1.35), "rotate_y": 0.0},
@@ -5363,6 +5530,7 @@ def scene_definitions() -> List[Dict]:
                 {"asset_id": "furniture_utility_pole_steel", "name": "utility_pole_steel_0", "translate": (3.05, 0.0, 1.85), "rotate_y": 0.0},
                 {"asset_id": "signal_vehicle_vertical_3_aspect", "name": "signal_0", "translate": (-1.6, 0.0, -0.8), "rotate_y": 0.0},
                 {"asset_id": "signal_beacon_amber_single", "name": "beacon_amber_0", "translate": (1.65, 0.0, 1.55), "rotate_y": 180.0},
+                {"asset_id": "signal_lane_control_reversible_2_aspect", "name": "lane_control_reversible_0", "translate": (2.45, 0.0, 1.02), "rotate_y": 180.0},
                 {"asset_id": "furniture_traffic_cone", "name": "cone_0", "translate": (0.92, 0.0, -0.55), "rotate_y": 0.0},
                 {"asset_id": "furniture_water_barrier", "name": "barrier_0", "translate": (-1.9, 0.0, 1.35), "rotate_y": 90.0},
                 {"asset_id": "furniture_sign_back_triangle", "name": "sign_back_triangle_0", "translate": (1.8, 0.0, 1.4), "rotate_y": 180.0},

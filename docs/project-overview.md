@@ -22,28 +22,29 @@ This repository is not yet targeting release automation or measured replacement 
 
 Current truth from [../validation/reports/validation_summary.json](../validation/reports/validation_summary.json):
 
-- `93` assets
+- `97` assets
 - `22` spectral materials
-- `8` emissive profiles
+- `11` emissive profiles
 - `3` camera profiles
 - `4` scenario profiles
 - `4` validation scenes
 
 Additional baseline facts:
 
-- `97` GLB files currently validate with `0` errors and `0` warnings in [../validation/reports/gltf_validation.json](../validation/reports/gltf_validation.json)
+- `101` GLB files currently validate with `0` errors and `0` warnings in [../validation/reports/gltf_validation.json](../validation/reports/gltf_validation.json)
 - release gates currently pass for the generated baseline
 - raw-source ledger currently tracks `37` source entries
 - material quality summary currently reports `3` `measured_standard`, `1` `measured_derivative`, `17` `project_proxy`, and `0` `vendor_derived` materials
-- emissive-profile quality summary currently reports `6` `vendor_derived` and `2` `project_proxy` profiles
+- emissive-profile quality summary currently reports `9` `vendor_derived` and `2` `project_proxy` profiles
 - camera-profile quality summary currently reports `3` `vendor_derived` profiles, with `camera_reference_rgb_nir_v3` active in all scenarios
 - `urban_night` currently uses public `LED-B4` and `LED-B3` priors for headlamp/streetlight contribution when measured emitter data is absent
-- the first eleven `P3` coverage-expansion batches raised `traffic_sign` from `18` to `24` standalone assets, `road_furniture` from `4` to `27`, `road_marking` from `4` to `20`, `road_surface` from `4` to `13`, and `traffic_light` from `5` to `9`
-- traffic-light scenes now place standalone support-context assets including backplates, a mast hanger, side-mount hardware, cabinet variants, a junction box, and follow-up beacon/warning heads
+- the first twelve `P3` coverage-expansion batches raised `traffic_sign` from `18` to `24` standalone assets, `road_furniture` from `4` to `27`, `road_marking` from `4` to `20`, `road_surface` from `4` to `13`, and `traffic_light` from `5` to `13`
+- traffic-light scenes now place standalone support-context assets including backplates, a mast hanger, side-mount hardware, cabinet variants, a junction box, beacon/warning heads, and lane-control or rail-specific heads
 - sign-focused scenes now place standalone sign backs and mounting brackets for representative sign families instead of implying that assembly depth only through the sign meshes
 - sign-focused scenes now also exercise weathered stop, speed-limit, and pedestrian-crossing variants plus English text-bearing one-way and detour panels instead of limiting the sign family to the original symbol-only starter set
 - the current validation scenes now also exercise patched, distressed, and transition road-surface panels instead of only the original clean urban baseline
 - the current validation scenes now also exercise gravel-shoulder, asphalt-to-gravel transition, construction-plate, pothole-distress, and eroded-shoulder surface variants instead of limiting roadway breadth to urban repair panels alone
+- the current validation scenes now also exercise lane-control and rail-crossing signal heads instead of limiting the traffic-light family to vehicle, pedestrian, beacon, and generic warning-flasher variants
 - the current validation scenes now also exercise secondary road-marking variants including worn crossings/stops, yellow centerline families, `ONLY` and `STOP` word legends, and white/yellow/bi-color raised-marker strips
 - the current validation scenes now also exercise utility poles, smaller cabinet/junction variants, and explicit sign/signal attachment hardware
 
