@@ -134,6 +134,48 @@
       "variant_key": "vienna_core.bus_stop"
     },
     {
+      "id": "sign_hospital_arrow_right",
+      "family": "traffic_sign",
+      "semantic_class": "information.hospital",
+      "variant_key": "service.hospital.right"
+    },
+    {
+      "id": "sign_parking_arrow_left",
+      "family": "traffic_sign",
+      "semantic_class": "information.parking",
+      "variant_key": "service.parking.left"
+    },
+    {
+      "id": "sign_hotel_arrow_left",
+      "family": "traffic_sign",
+      "semantic_class": "information.hotel",
+      "variant_key": "service.hotel.left"
+    },
+    {
+      "id": "sign_airport_arrow_right",
+      "family": "traffic_sign",
+      "semantic_class": "information.airport",
+      "variant_key": "locale.eu.airport.right"
+    },
+    {
+      "id": "sign_truck_route_right",
+      "family": "traffic_sign",
+      "semantic_class": "information.truck_route",
+      "variant_key": "route.truck.right"
+    },
+    {
+      "id": "sign_centre_left_text",
+      "family": "traffic_sign",
+      "semantic_class": "information.centre",
+      "variant_key": "locale.uk.centre.left_text"
+    },
+    {
+      "id": "sign_bypass_right_text",
+      "family": "traffic_sign",
+      "semantic_class": "information.bypass",
+      "variant_key": "locale.en.bypass.right_text"
+    },
+    {
       "id": "sign_priority_road",
       "family": "traffic_sign",
       "semantic_class": "regulatory.priority_road",

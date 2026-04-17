@@ -6,7 +6,7 @@ This file explains what the generator actually creates in this repository and ho
 
 Current generated baseline:
 
-- `115` assets
+- `122` assets
 - `23` spectral materials
 - `11` emissive profiles
 - `3` camera profiles
@@ -47,10 +47,17 @@ These are sign objects such as:
 - `sign_stop_ahead_text`
 - `sign_construction_weathered_heavy`
 - `sign_priority_road`
+- `sign_hospital_arrow_right`
+- `sign_parking_arrow_left`
+- `sign_hotel_arrow_left`
+- `sign_airport_arrow_right`
+- `sign_truck_route_right`
+- `sign_centre_left_text`
 - `sign_one_way_text_left`
 - `sign_one_way_text_right`
 - `sign_detour_left_text`
 - `sign_detour_right_text`
+- `sign_bypass_right_text`
 
 Each sign usually has:
 
@@ -60,6 +67,12 @@ Each sign usually has:
 - linked spectral materials such as `mat_sign_stop_red` and `mat_sign_white`
 - optional weathering overlays such as `mat_sign_weathered_film`
 - heavier weathering overlays such as `mat_sign_weathered_heavy_film`
+
+The newer route/service additions now also include:
+
+- service-direction panels such as hospital, parking, and hotel
+- transport or logistics panels such as airport and truck-route signs
+- locale-style wayfinding panels such as `CENTRE` and `BYPASS`
 
 ### `traffic_light`
 

@@ -133,6 +133,48 @@
       "30m": "pass",
       "60m": "pass"
     },
+    "sign_hospital_arrow_right": {
+      "5m": "pass",
+      "15m": "pass",
+      "30m": "pass",
+      "60m": "pass"
+    },
+    "sign_parking_arrow_left": {
+      "5m": "pass",
+      "15m": "pass",
+      "30m": "pass",
+      "60m": "pass"
+    },
+    "sign_hotel_arrow_left": {
+      "5m": "pass",
+      "15m": "pass",
+      "30m": "pass",
+      "60m": "pass"
+    },
+    "sign_airport_arrow_right": {
+      "5m": "pass",
+      "15m": "pass",
+      "30m": "pass",
+      "60m": "pass"
+    },
+    "sign_truck_route_right": {
+      "5m": "pass",
+      "15m": "pass",
+      "30m": "pass",
+      "60m": "pass"
+    },
+    "sign_centre_left_text": {
+      "5m": "pass",
+      "15m": "pass",
+      "30m": "pass",
+      "60m": "pass"
+    },
+    "sign_bypass_right_text": {
+      "5m": "pass",
+      "15m": "pass",
+      "30m": "pass",
+      "60m": "pass"
+    },
     "sign_priority_road": {
       "5m": "pass",
       "15m": "pass",

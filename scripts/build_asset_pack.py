@@ -2479,6 +2479,7 @@ GLYPHS = {
     "9": ["01110", "10001", "10001", "01111", "00001", "00010", "11100"],
     "A": ["00100", "01010", "10001", "10001", "11111", "10001", "10001"],
     "B": ["11110", "10001", "10001", "11110", "10001", "10001", "11110"],
+    "C": ["01110", "10001", "10000", "10000", "10000", "10001", "01110"],
     "D": ["11110", "10001", "10001", "10001", "10001", "10001", "11110"],
     "E": ["11111", "10000", "10000", "11110", "10000", "10000", "11111"],
     "H": ["10001", "10001", "10001", "11111", "10001", "10001", "10001"],
@@ -2583,6 +2584,30 @@ def bus_icon(center: Tuple[float, float], scale: float) -> List[List[Tuple[float
         rect_polygon(x + 0.18 * scale, y - 0.13 * scale, 0.09 * scale, 0.06 * scale),
         circle_polygon(x - 0.14 * scale, y - 0.12 * scale, 0.06 * scale, 14),
         circle_polygon(x + 0.14 * scale, y - 0.12 * scale, 0.06 * scale, 14),
+    ]
+
+
+def truck_icon(center: Tuple[float, float], scale: float) -> List[List[Tuple[float, float]]]:
+    x, y = center
+    return [
+        rect_polygon(x - 0.08 * scale, y + 0.02 * scale, 0.28 * scale, 0.14 * scale),
+        rect_polygon(x + 0.18 * scale, y - 0.01 * scale, 0.14 * scale, 0.12 * scale),
+        rect_polygon(x + 0.2 * scale, y + 0.02 * scale, 0.06 * scale, 0.04 * scale),
+        circle_polygon(x - 0.12 * scale, y - 0.1 * scale, 0.05 * scale, 14),
+        circle_polygon(x + 0.08 * scale, y - 0.1 * scale, 0.05 * scale, 14),
+        circle_polygon(x + 0.24 * scale, y - 0.1 * scale, 0.05 * scale, 14),
+    ]
+
+
+def airplane_icon(center: Tuple[float, float], scale: float) -> List[List[Tuple[float, float]]]:
+    x, y = center
+    return [
+        rect_polygon(x, y, 0.38 * scale, 0.06 * scale),
+        triangle_polygon([(x + 0.24 * scale, y), (x + 0.14 * scale, y + 0.08 * scale), (x + 0.14 * scale, y - 0.08 * scale)]),
+        line_segment_polygon((x - 0.02 * scale, y), (x - 0.2 * scale, y + 0.16 * scale), 0.05 * scale),
+        line_segment_polygon((x - 0.02 * scale, y), (x - 0.2 * scale, y - 0.16 * scale), 0.05 * scale),
+        line_segment_polygon((x + 0.06 * scale, y), (x + 0.16 * scale, y + 0.12 * scale), 0.04 * scale),
+        line_segment_polygon((x + 0.06 * scale, y), (x + 0.16 * scale, y - 0.12 * scale), 0.04 * scale),
     ]
 
 
@@ -2713,6 +2738,41 @@ def sign_layers(sign_type: str) -> List[Tuple[str, List[List[Tuple[float, float]
             ("mat_sign_white", arrow_shapes((-0.18, -0.2), (-0.18, 0.2), 0.08, 0.14, 0.22)
              + arrow_shapes((0.18, -0.2), (0.18, 0.2), 0.08, 0.14, 0.22)
              + arrow_shapes((0.18, 0.0), (-0.06, 0.2), 0.06, 0.12, 0.18)),
+        ]
+    if sign_type == "hospital_arrow_right":
+        return [
+            ("mat_sign_blue", [rect_polygon(0.0, 0.0, 0.95, 0.38)]),
+            ("mat_sign_white", glyph_rects("H", 0.12, 0.18, (-0.24, 0.0)) + arrow_shapes((0.02, 0.0), (0.38, 0.0), 0.08, 0.14, 0.2)),
+        ]
+    if sign_type == "parking_arrow_left":
+        return [
+            ("mat_sign_blue", [rect_polygon(0.0, 0.0, 0.95, 0.38)]),
+            ("mat_sign_white", glyph_rects("P", 0.12, 0.18, (0.24, 0.0)) + arrow_shapes((-0.02, 0.0), (-0.38, 0.0), 0.08, 0.14, 0.2)),
+        ]
+    if sign_type == "hotel_arrow_left":
+        return [
+            ("mat_sign_blue", [rect_polygon(0.0, 0.0, 0.95, 0.38)]),
+            ("mat_sign_white", arrow_shapes((-0.02, 0.0), (-0.38, 0.0), 0.08, 0.14, 0.2) + glyph_rects("HOTEL", 0.4, 0.1, (0.2, 0.0))),
+        ]
+    if sign_type == "airport_arrow_right":
+        return [
+            ("mat_sign_blue", [rect_polygon(0.0, 0.0, 0.95, 0.38)]),
+            ("mat_sign_white", airplane_icon((-0.18, 0.0), 1.0) + arrow_shapes((0.02, 0.0), (0.38, 0.0), 0.08, 0.14, 0.2)),
+        ]
+    if sign_type == "truck_route_right":
+        return [
+            ("mat_sign_blue", [rect_polygon(0.0, 0.0, 0.95, 0.38)]),
+            ("mat_sign_white", truck_icon((-0.18, 0.0), 1.0) + arrow_shapes((0.02, 0.0), (0.38, 0.0), 0.08, 0.14, 0.2)),
+        ]
+    if sign_type == "centre_left_text":
+        return [
+            ("mat_sign_blue", [rect_polygon(0.0, 0.0, 0.95, 0.38)]),
+            ("mat_sign_white", arrow_shapes((-0.02, 0.0), (-0.38, 0.0), 0.08, 0.14, 0.2) + glyph_rects("CENTRE", 0.46, 0.1, (0.2, 0.0))),
+        ]
+    if sign_type == "bypass_right_text":
+        return [
+            ("mat_sign_blue", [rect_polygon(0.0, 0.0, 0.95, 0.38)]),
+            ("mat_sign_white", arrow_shapes((0.02, 0.0), (0.38, 0.0), 0.08, 0.14, 0.2) + glyph_rects("BYPASS", 0.46, 0.1, (-0.18, 0.0))),
         ]
     if sign_type == "priority_road":
         return [
@@ -4816,6 +4876,13 @@ def sign_definitions() -> List[Dict]:
         {"id": "sign_construction_weathered_heavy", "sign_type": "construction_weathered_heavy", "size": (0.8, 0.8), "variant_key": "weathered.roadworks.heavy", "semantic_class": "warning.construction"},
         {"id": "sign_parking", "sign_type": "parking", "size": (0.78, 0.78), "variant_key": "vienna_core.parking", "semantic_class": "information.parking"},
         {"id": "sign_bus_stop", "sign_type": "bus_stop", "size": (0.78, 0.78), "variant_key": "vienna_core.bus_stop", "semantic_class": "information.bus_stop"},
+        {"id": "sign_hospital_arrow_right", "sign_type": "hospital_arrow_right", "size": (1.2, 0.42), "variant_key": "service.hospital.right", "semantic_class": "information.hospital"},
+        {"id": "sign_parking_arrow_left", "sign_type": "parking_arrow_left", "size": (1.2, 0.42), "variant_key": "service.parking.left", "semantic_class": "information.parking"},
+        {"id": "sign_hotel_arrow_left", "sign_type": "hotel_arrow_left", "size": (1.2, 0.42), "variant_key": "service.hotel.left", "semantic_class": "information.hotel"},
+        {"id": "sign_airport_arrow_right", "sign_type": "airport_arrow_right", "size": (1.2, 0.42), "variant_key": "locale.eu.airport.right", "semantic_class": "information.airport"},
+        {"id": "sign_truck_route_right", "sign_type": "truck_route_right", "size": (1.2, 0.42), "variant_key": "route.truck.right", "semantic_class": "information.truck_route"},
+        {"id": "sign_centre_left_text", "sign_type": "centre_left_text", "size": (1.2, 0.42), "variant_key": "locale.uk.centre.left_text", "semantic_class": "information.centre"},
+        {"id": "sign_bypass_right_text", "sign_type": "bypass_right_text", "size": (1.2, 0.42), "variant_key": "locale.en.bypass.right_text", "semantic_class": "information.bypass"},
         {"id": "sign_priority_road", "sign_type": "priority_road", "size": (0.8, 0.8), "variant_key": "locale.eu.priority_road", "semantic_class": "regulatory.priority_road"},
         {"id": "sign_one_way", "sign_type": "one_way", "size": (1.0, 0.36), "variant_key": "vienna_core.one_way", "semantic_class": "information.one_way"},
         {"id": "sign_one_way_text_left", "sign_type": "one_way_text_left", "size": (1.2, 0.42), "variant_key": "locale.en.one_way_left_text", "semantic_class": "information.one_way"},
@@ -5699,10 +5766,27 @@ def scene_definitions() -> List[Dict]:
                 {"asset_id": "furniture_sign_mount_bracket_single", "name": "sign_bracket_rect_1", "translate": (1.8, 0.0, 2.05), "rotate_y": 180.0},
                 {"asset_id": "furniture_sign_back_rectangle_wide", "name": "sign_back_rect_2", "translate": (1.8, 0.0, 2.82), "rotate_y": 180.0},
                 {"asset_id": "furniture_sign_mount_bracket_single", "name": "sign_bracket_rect_2", "translate": (1.8, 0.0, 2.82), "rotate_y": 180.0},
+                {"asset_id": "furniture_sign_back_rectangle_wide", "name": "sign_back_rect_3", "translate": (-3.15, 0.0, -2.75), "rotate_y": 0.0},
+                {"asset_id": "furniture_sign_mount_bracket_single", "name": "sign_bracket_rect_3", "translate": (-3.15, 0.0, -2.75), "rotate_y": 0.0},
+                {"asset_id": "furniture_sign_back_rectangle_wide", "name": "sign_back_rect_4", "translate": (-3.15, 0.0, -1.65), "rotate_y": 0.0},
+                {"asset_id": "furniture_sign_mount_bracket_single", "name": "sign_bracket_rect_4", "translate": (-3.15, 0.0, -1.65), "rotate_y": 0.0},
+                {"asset_id": "furniture_sign_back_rectangle_wide", "name": "sign_back_rect_5", "translate": (-3.15, 0.0, -0.55), "rotate_y": 0.0},
+                {"asset_id": "furniture_sign_mount_bracket_single", "name": "sign_bracket_rect_5", "translate": (-3.15, 0.0, -0.55), "rotate_y": 0.0},
+                {"asset_id": "furniture_sign_back_rectangle_wide", "name": "sign_back_rect_6", "translate": (3.15, 0.0, -2.75), "rotate_y": 180.0},
+                {"asset_id": "furniture_sign_mount_bracket_single", "name": "sign_bracket_rect_6", "translate": (3.15, 0.0, -2.75), "rotate_y": 180.0},
+                {"asset_id": "furniture_sign_back_rectangle_wide", "name": "sign_back_rect_7", "translate": (3.15, 0.0, -1.65), "rotate_y": 180.0},
+                {"asset_id": "furniture_sign_mount_bracket_single", "name": "sign_bracket_rect_7", "translate": (3.15, 0.0, -1.65), "rotate_y": 180.0},
+                {"asset_id": "furniture_sign_back_rectangle_wide", "name": "sign_back_rect_8", "translate": (3.15, 0.0, -0.55), "rotate_y": 180.0},
+                {"asset_id": "furniture_sign_mount_bracket_single", "name": "sign_bracket_rect_8", "translate": (3.15, 0.0, -0.55), "rotate_y": 180.0},
+                {"asset_id": "furniture_sign_back_rectangle_wide", "name": "sign_back_rect_9", "translate": (3.15, 0.0, 0.55), "rotate_y": 180.0},
+                {"asset_id": "furniture_sign_mount_bracket_single", "name": "sign_bracket_rect_9", "translate": (3.15, 0.0, 0.55), "rotate_y": 180.0},
                 {"asset_id": "sign_stop", "name": "sign_stop_0", "translate": (-1.8, 0.0, -1.0), "rotate_y": 0.0},
                 {"asset_id": "sign_speed_limit_50_weathered", "name": "sign_speed_0", "translate": (-1.8, 0.0, 0.4), "rotate_y": 0.0},
                 {"asset_id": "sign_pedestrian_crossing_weathered", "name": "sign_cross_0", "translate": (-1.8, 0.0, 1.8), "rotate_y": 0.0},
                 {"asset_id": "sign_detour_left_text", "name": "sign_detour_0", "translate": (-1.8, 0.0, -2.05), "rotate_y": 0.0},
+                {"asset_id": "sign_hospital_arrow_right", "name": "sign_hospital_0", "translate": (-3.15, 0.0, -2.75), "rotate_y": 0.0},
+                {"asset_id": "sign_parking_arrow_left", "name": "sign_parking_dir_0", "translate": (-3.15, 0.0, -1.65), "rotate_y": 0.0},
+                {"asset_id": "sign_hotel_arrow_left", "name": "sign_hotel_0", "translate": (-3.15, 0.0, -0.55), "rotate_y": 0.0},
                 {"asset_id": "sign_curve_left", "name": "sign_curve_0", "translate": (1.8, 0.0, -0.6), "rotate_y": 180.0},
                 {"asset_id": "sign_stop_ahead_text", "name": "sign_stop_ahead_0", "translate": (1.8, 0.0, -1.05), "rotate_y": 180.0},
                 {"asset_id": "sign_roundabout_mandatory", "name": "sign_roundabout_0", "translate": (1.8, 0.0, -2.15), "rotate_y": 180.0},
@@ -5710,6 +5794,10 @@ def scene_definitions() -> List[Dict]:
                 {"asset_id": "sign_priority_road", "name": "sign_priority_0", "translate": (1.8, 0.0, 1.55), "rotate_y": 180.0},
                 {"asset_id": "sign_one_way_text_right", "name": "sign_one_way_text_0", "translate": (1.8, 0.0, 2.05), "rotate_y": 180.0},
                 {"asset_id": "sign_detour_right_text", "name": "sign_detour_right_0", "translate": (1.8, 0.0, 2.82), "rotate_y": 180.0},
+                {"asset_id": "sign_airport_arrow_right", "name": "sign_airport_0", "translate": (3.15, 0.0, -2.75), "rotate_y": 180.0},
+                {"asset_id": "sign_bypass_right_text", "name": "sign_bypass_0", "translate": (3.15, 0.0, -1.65), "rotate_y": 180.0},
+                {"asset_id": "sign_centre_left_text", "name": "sign_centre_0", "translate": (3.15, 0.0, -0.55), "rotate_y": 180.0},
+                {"asset_id": "sign_truck_route_right", "name": "sign_truck_route_0", "translate": (3.15, 0.0, 0.55), "rotate_y": 180.0},
             ],
         },
         {
@@ -5749,12 +5837,18 @@ def scene_definitions() -> List[Dict]:
                 {"asset_id": "furniture_utility_pull_box", "name": "pull_box_0", "translate": (-2.02, 0.0, -2.96), "rotate_y": 0.0},
                 {"asset_id": "furniture_signal_side_mount_bracket", "name": "side_mount_0", "translate": (1.72, 0.0, -1.18), "rotate_y": 180.0},
                 {"asset_id": "furniture_utility_transformer_padmount", "name": "transformer_0", "translate": (-3.38, 0.0, 2.42), "rotate_y": 0.0},
+                {"asset_id": "furniture_sign_back_rectangle_wide", "name": "sign_back_rect_0", "translate": (-3.2, 0.0, 2.18), "rotate_y": 90.0},
+                {"asset_id": "furniture_sign_mount_bracket_single", "name": "sign_bracket_rect_0", "translate": (-3.2, 0.0, 2.18), "rotate_y": 90.0},
+                {"asset_id": "furniture_sign_back_rectangle_wide", "name": "sign_back_rect_1", "translate": (3.1, 0.0, 2.18), "rotate_y": 270.0},
+                {"asset_id": "furniture_sign_mount_bracket_single", "name": "sign_bracket_rect_1", "translate": (3.1, 0.0, 2.18), "rotate_y": 270.0},
                 {"asset_id": "signal_beacon_amber_single", "name": "beacon_amber_0", "translate": (-2.65, 0.0, 1.3), "rotate_y": 90.0},
                 {"asset_id": "signal_warning_dual_amber_horizontal", "name": "warning_amber_0", "translate": (2.2, 0.0, 1.72), "rotate_y": 90.0},
                 {"asset_id": "signal_lane_control_overhead_3_aspect", "name": "lane_control_overhead_0", "translate": (0.3, 0.0, -2.35), "rotate_y": 0.0},
                 {"asset_id": "signal_lane_control_reversible_2_aspect", "name": "lane_control_reversible_0", "translate": (2.38, 0.0, 0.48), "rotate_y": 90.0},
                 {"asset_id": "furniture_delineator_post", "name": "delineator_0", "translate": (-1.2, 0.0, -1.35), "rotate_y": 0.0},
                 {"asset_id": "furniture_barricade_panel", "name": "barricade_0", "translate": (2.25, 0.0, 1.65), "rotate_y": 90.0},
+                {"asset_id": "sign_airport_arrow_right", "name": "sign_airport_0", "translate": (-3.2, 0.0, 2.18), "rotate_y": 90.0},
+                {"asset_id": "sign_bypass_right_text", "name": "sign_bypass_0", "translate": (3.1, 0.0, 2.18), "rotate_y": 270.0},
                 {"asset_id": "signal_vehicle_vertical_3_aspect", "name": "signal_0", "translate": (-0.5, 0.0, -2.0), "rotate_y": 0.0},
                 {"asset_id": "signal_vehicle_horizontal_3_aspect", "name": "signal_1", "translate": (2.0, 0.0, -0.5), "rotate_y": 90.0},
                 {"asset_id": "signal_pedestrian_2_aspect", "name": "ped_signal_0", "translate": (1.8, 0.0, -1.2), "rotate_y": 180.0},

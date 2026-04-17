@@ -2,9 +2,9 @@
 
 ## Summary
 
-The current generated baseline now exceeds the original `v1.0` count target through the first fifteen `P3` coverage-expansion batches:
+The current generated baseline now exceeds the original `v1.0` count target through the first sixteen `P3` coverage-expansion batches:
 
-- `31` traffic signs
+- `38` traffic signs
 - `13` traffic lights
 - `71` roadway and roadside assets split as `14` road surfaces, `26` road markings, and `31` road-furniture assets
 
@@ -14,7 +14,7 @@ The remaining gaps are now mostly about later roadway breadth, deeper specializa
 
 | Family | Current Count | Planned Count | Count Status | Coverage Assessment | Highest-Priority Gaps | Roadmap Phase Pressure |
 | --- | --- | --- | --- | --- | --- | --- |
-| `traffic_sign` | `31` | `18` | expanded | the baseline now includes heavier-weathered regulatory and construction panels plus locale-oriented priority-road, roundabout, stop-ahead, and detour-right variants, and scenes place separate backs and brackets for representative sign families | bus/truck/service legends, locale-specific wayfinding panels, specialty sign assemblies, measured retroreflective behavior | `P3` for follow-up sign specialization, `P5` for measured sheeting |
+| `traffic_sign` | `38` | `18` | expanded | the baseline now includes heavier-weathered regulatory and construction panels plus route/service and locale-oriented hospital, parking, hotel, airport, truck-route, bypass, centre, priority-road, roundabout, stop-ahead, and detour variants, and scenes place separate backs and brackets for representative sign families | route shields, larger destination stacks, specialty sign assemblies, measured retroreflective behavior | `P3` for follow-up sign specialization, `P5` for measured sheeting |
 | `traffic_light` | `13` | `5` | expanded | core signal-head catalog now includes beacon-style, warning-flasher, lane-control, and rail-crossing heads, and scenes place separate backplates, side-mount hardware, a mast hanger, junction/support cabinets, and utility-tail context as support detail | richer controller/support families beyond the current starter set, transit-priority or specialty arrow families, measured emitter spectra | `P3` for follow-up signal specialization, `P5` for measured SPD |
 | `road_surface` | `14` | part of the expanded post-`v1.0` roadway catalog | expanded | baseline roadway surfaces now include patched asphalt, distressed concrete, asphalt-to-concrete transition, gutter-edge transition, gravel shoulders, asphalt-to-gravel transition, construction-plate repairs, pothole-distress, eroded shoulder edges, and the original dry/wet/sidewalk starter set | lane-drop transitions, crowned rural lane panels, dirt-track variants, bridge-deck joints, and heavier construction staging | `P3` follow-up breadth when scenario scope expands again |
 | `road_marking` | `26` | part of the expanded post-`v1.0` roadway catalog | expanded | directional arrows, edge lines, worn crossing and stop variants, yellow centerline families, bus/bike legends, hatched median/island panels, and white/yellow/bi-color raised-marker strips now exist alongside the baseline lane and stop geometry | boxed lane legends, colored bike/transit surfacing, specialty channelization, measured retroreflective response | `P3` follow-up specialization, `P5` for measured optics |
@@ -22,22 +22,22 @@ The remaining gaps are now mostly about later roadway breadth, deeper specializa
 
 ## Key Findings
 
-- `traffic_sign` is no longer limited to the original Vienna-core starter set: the baseline now includes heavier-weathered yield, no-entry, and construction panels plus locale-oriented priority-road, roundabout, stop-ahead, and detour-right variants, and the scenes place separate sign backs and brackets for representative sign families.
+- `traffic_sign` is no longer limited to the original Vienna-core starter set: the baseline now includes heavier-weathered yield, no-entry, and construction panels plus hospital, parking, hotel, airport, truck-route, bypass, centre, priority-road, roundabout, stop-ahead, and detour variants, and the scenes place separate sign backs and brackets for representative sign families.
 - `traffic_light` is no longer limited to the original five heads: the baseline now includes beacon-style, warning-flasher, lane-control, and rail-crossing units, and the scenes place explicit backplates, mast-hanger context, side-mount brackets, cabinet variants, and a junction box instead of implying all support context through poles alone.
 - `road_surface` is no longer limited to the clean dry/wet urban starter set: the baseline now has patched, distressed, gravel-shoulder, unsealed-transition, construction-plate, pothole, and edge-dropoff panels that make the current scenes less schematic.
 - `road_marking` is no longer minimal: the generator now ships directional arrows, edge-line color variants, worn crossing and stop-line variants, yellow centerline families, bus/bike lane legends, hatched median/island panels, and raised-marker variants that make the scenes less schematic.
 - `road_furniture` now covers much more of the roadside-support tail because the latest batches added utility poles, smaller cabinet/junction variants, service disconnect and metering detail, pull boxes, pad-mount transformers, and explicit sign/signal attachment hardware.
-- `road_marking` now has stronger specialization depth too, so the next obvious expansion target shifts from roadway legends back to broader `traffic_sign` wayfinding depth.
+- `traffic_sign` now has broader route/service and wayfinding depth too, so the next obvious expansion target shifts from sign panels back to `road_surface` follow-up breadth.
 - `traffic_light` still has room to grow, but the remaining gaps are now mostly transit-priority, lane-use nuance, and measured SPD quality rather than missing starter head families.
-- `traffic_sign` now has better assembly, locale, and weathering depth, so its remaining gaps are mostly about specialist route/service families and measured retroreflective behavior rather than missing starter hardware.
+- `traffic_sign` now has better assembly, locale, weathering, and service-wayfinding depth, so its remaining gaps are mostly about route shields, larger destination stacks, and measured retroreflective behavior rather than missing starter hardware.
 
 ## Priority Queue for Next Asset-Coverage Work
 
-1. Return to `traffic_sign` for route/service families and more locale-specific wayfinding panels now that the roadway-specialization batch is in place.
-2. Return to `road_surface` after that for crowned rural lane panels, dirt-track variants, and bridge/joint specialty panels rather than the just-completed shoulder-and-distress batch.
-3. Return to `traffic_light` later for transit-priority or more locale-specific specialty heads after the support-detail backlog settles.
-4. Return to `road_furniture` after that for niche service-assembly or roadside utility detail rather than the just-completed control-tail batch.
-5. Return to `road_marking` after that for boxed transit legends, colored bike/transit surfacing, or more specialized channelization rather than the just-completed bus/bike and hatched-island batch.
+1. Return to `road_surface` for crowned rural lane panels, dirt-track variants, and bridge/joint specialty panels now that the wayfinding sign batch is in place.
+2. Return to `traffic_light` later for transit-priority or more locale-specific specialty heads after the support-detail backlog settles.
+3. Return to `road_furniture` after that for niche service-assembly or roadside utility detail rather than the just-completed control-tail batch.
+4. Return to `road_marking` after that for boxed transit legends, colored bike/transit surfacing, or more specialized channelization rather than the just-completed bus/bike and hatched-island batch.
+5. Return to `traffic_sign` after that for route shields and larger destination stacks rather than the just-completed service-wayfinding panel batch.
 
 ## Phase Mapping
 

@@ -1,6 +1,6 @@
 {
   "generated_at": "2026-04-16T10:10:40.000Z",
-  "files_checked": 119,
+  "files_checked": 126,
   "files_with_errors": 0,
   "files_with_warnings": 0,
   "results": [
@@ -530,7 +530,28 @@
       "messages": []
     },
     {
+      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/sign_airport_arrow_right.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
       "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/sign_bus_stop.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
+      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/sign_bypass_right_text.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
+      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/sign_centre_left_text.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
@@ -566,6 +587,20 @@
     },
     {
       "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/sign_detour_right_text.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
+      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/sign_hospital_arrow_right.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
+      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/sign_hotel_arrow_left.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
@@ -629,6 +664,13 @@
     },
     {
       "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/sign_parking.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
+      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/sign_parking_arrow_left.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
@@ -713,6 +755,13 @@
     },
     {
       "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/sign_stop_weathered.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
+      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/sign_truck_route_right.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,

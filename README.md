@@ -53,6 +53,7 @@ For deterministic rebuild review, the generator now preserves the previous track
 - the thirteenth `P3` expansion batch now adds service-disconnect, meter-pedestal, battery-backup, pull-box, and pad-mount-transformer assets so roadside control-tail detail extends beyond the earlier pole/cabinet/junction starter set
 - the fourteenth `P3` expansion batch now adds priority-road, roundabout, stop-ahead, detour-right, and heavy-weathered sign variants plus a stronger heavy-weathering overlay material so the sign family has broader locale and weathering depth
 - the fifteenth `P3` expansion batch now adds bus/bike legends, hatched median/island panels, and right-turn or straight-right arrow variants so the road-marking family has broader lane-use and channelization depth
+- the sixteenth `P3` expansion batch now adds hospital, parking, hotel, airport, truck-route, bypass, and centre wayfinding panels so the sign family has broader route/service depth
 - selected USGS v7 dry-material baselines are used for asphalt, concrete, and galvanized metal
 - wet asphalt is currently a measured-derived material built from the measured dry asphalt baseline plus the tracked wet modifier
 - vehicle and protected-turn traffic-signal emissive profiles now use vendor-derived public LED fits

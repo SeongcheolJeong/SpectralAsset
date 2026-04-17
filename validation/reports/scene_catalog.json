@@ -326,6 +326,146 @@
           "rotate_y": 180.0
         },
         {
+          "asset_id": "furniture_sign_back_rectangle_wide",
+          "name": "sign_back_rect_3",
+          "translate": [
+            -3.15,
+            0.0,
+            -2.75
+          ],
+          "rotate_y": 0.0
+        },
+        {
+          "asset_id": "furniture_sign_mount_bracket_single",
+          "name": "sign_bracket_rect_3",
+          "translate": [
+            -3.15,
+            0.0,
+            -2.75
+          ],
+          "rotate_y": 0.0
+        },
+        {
+          "asset_id": "furniture_sign_back_rectangle_wide",
+          "name": "sign_back_rect_4",
+          "translate": [
+            -3.15,
+            0.0,
+            -1.65
+          ],
+          "rotate_y": 0.0
+        },
+        {
+          "asset_id": "furniture_sign_mount_bracket_single",
+          "name": "sign_bracket_rect_4",
+          "translate": [
+            -3.15,
+            0.0,
+            -1.65
+          ],
+          "rotate_y": 0.0
+        },
+        {
+          "asset_id": "furniture_sign_back_rectangle_wide",
+          "name": "sign_back_rect_5",
+          "translate": [
+            -3.15,
+            0.0,
+            -0.55
+          ],
+          "rotate_y": 0.0
+        },
+        {
+          "asset_id": "furniture_sign_mount_bracket_single",
+          "name": "sign_bracket_rect_5",
+          "translate": [
+            -3.15,
+            0.0,
+            -0.55
+          ],
+          "rotate_y": 0.0
+        },
+        {
+          "asset_id": "furniture_sign_back_rectangle_wide",
+          "name": "sign_back_rect_6",
+          "translate": [
+            3.15,
+            0.0,
+            -2.75
+          ],
+          "rotate_y": 180.0
+        },
+        {
+          "asset_id": "furniture_sign_mount_bracket_single",
+          "name": "sign_bracket_rect_6",
+          "translate": [
+            3.15,
+            0.0,
+            -2.75
+          ],
+          "rotate_y": 180.0
+        },
+        {
+          "asset_id": "furniture_sign_back_rectangle_wide",
+          "name": "sign_back_rect_7",
+          "translate": [
+            3.15,
+            0.0,
+            -1.65
+          ],
+          "rotate_y": 180.0
+        },
+        {
+          "asset_id": "furniture_sign_mount_bracket_single",
+          "name": "sign_bracket_rect_7",
+          "translate": [
+            3.15,
+            0.0,
+            -1.65
+          ],
+          "rotate_y": 180.0
+        },
+        {
+          "asset_id": "furniture_sign_back_rectangle_wide",
+          "name": "sign_back_rect_8",
+          "translate": [
+            3.15,
+            0.0,
+            -0.55
+          ],
+          "rotate_y": 180.0
+        },
+        {
+          "asset_id": "furniture_sign_mount_bracket_single",
+          "name": "sign_bracket_rect_8",
+          "translate": [
+            3.15,
+            0.0,
+            -0.55
+          ],
+          "rotate_y": 180.0
+        },
+        {
+          "asset_id": "furniture_sign_back_rectangle_wide",
+          "name": "sign_back_rect_9",
+          "translate": [
+            3.15,
+            0.0,
+            0.55
+          ],
+          "rotate_y": 180.0
+        },
+        {
+          "asset_id": "furniture_sign_mount_bracket_single",
+          "name": "sign_bracket_rect_9",
+          "translate": [
+            3.15,
+            0.0,
+            0.55
+          ],
+          "rotate_y": 180.0
+        },
+        {
           "asset_id": "sign_stop",
           "name": "sign_stop_0",
           "translate": [
@@ -362,6 +502,36 @@
             -1.8,
             0.0,
             -2.05
+          ],
+          "rotate_y": 0.0
+        },
+        {
+          "asset_id": "sign_hospital_arrow_right",
+          "name": "sign_hospital_0",
+          "translate": [
+            -3.15,
+            0.0,
+            -2.75
+          ],
+          "rotate_y": 0.0
+        },
+        {
+          "asset_id": "sign_parking_arrow_left",
+          "name": "sign_parking_dir_0",
+          "translate": [
+            -3.15,
+            0.0,
+            -1.65
+          ],
+          "rotate_y": 0.0
+        },
+        {
+          "asset_id": "sign_hotel_arrow_left",
+          "name": "sign_hotel_0",
+          "translate": [
+            -3.15,
+            0.0,
+            -0.55
           ],
           "rotate_y": 0.0
         },
@@ -432,6 +602,46 @@
             1.8,
             0.0,
             2.82
+          ],
+          "rotate_y": 180.0
+        },
+        {
+          "asset_id": "sign_airport_arrow_right",
+          "name": "sign_airport_0",
+          "translate": [
+            3.15,
+            0.0,
+            -2.75
+          ],
+          "rotate_y": 180.0
+        },
+        {
+          "asset_id": "sign_bypass_right_text",
+          "name": "sign_bypass_0",
+          "translate": [
+            3.15,
+            0.0,
+            -1.65
+          ],
+          "rotate_y": 180.0
+        },
+        {
+          "asset_id": "sign_centre_left_text",
+          "name": "sign_centre_0",
+          "translate": [
+            3.15,
+            0.0,
+            -0.55
+          ],
+          "rotate_y": 180.0
+        },
+        {
+          "asset_id": "sign_truck_route_right",
+          "name": "sign_truck_route_0",
+          "translate": [
+            3.15,
+            0.0,
+            0.55
           ],
           "rotate_y": 180.0
         }
@@ -777,6 +987,46 @@
           "rotate_y": 0.0
         },
         {
+          "asset_id": "furniture_sign_back_rectangle_wide",
+          "name": "sign_back_rect_0",
+          "translate": [
+            -3.2,
+            0.0,
+            2.18
+          ],
+          "rotate_y": 90.0
+        },
+        {
+          "asset_id": "furniture_sign_mount_bracket_single",
+          "name": "sign_bracket_rect_0",
+          "translate": [
+            -3.2,
+            0.0,
+            2.18
+          ],
+          "rotate_y": 90.0
+        },
+        {
+          "asset_id": "furniture_sign_back_rectangle_wide",
+          "name": "sign_back_rect_1",
+          "translate": [
+            3.1,
+            0.0,
+            2.18
+          ],
+          "rotate_y": 270.0
+        },
+        {
+          "asset_id": "furniture_sign_mount_bracket_single",
+          "name": "sign_bracket_rect_1",
+          "translate": [
+            3.1,
+            0.0,
+            2.18
+          ],
+          "rotate_y": 270.0
+        },
+        {
           "asset_id": "signal_beacon_amber_single",
           "name": "beacon_amber_0",
           "translate": [
@@ -835,6 +1085,26 @@
             1.65
           ],
           "rotate_y": 90.0
+        },
+        {
+          "asset_id": "sign_airport_arrow_right",
+          "name": "sign_airport_0",
+          "translate": [
+            -3.2,
+            0.0,
+            2.18
+          ],
+          "rotate_y": 90.0
+        },
+        {
+          "asset_id": "sign_bypass_right_text",
+          "name": "sign_bypass_0",
+          "translate": [
+            3.1,
+            0.0,
+            2.18
+          ],
+          "rotate_y": 270.0
         },
         {
           "asset_id": "signal_vehicle_vertical_3_aspect",

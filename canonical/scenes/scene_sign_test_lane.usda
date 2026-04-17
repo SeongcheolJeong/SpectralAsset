@@ -230,6 +230,104 @@ def Xform "scene_sign_test_lane" {
         float xformOp:rotateY = 180.000000
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
     }
+    def Xform "sign_back_rect_3" (
+        references = @../geometry/usd/furniture_sign_back_rectangle_wide.usda@</furniture_sign_back_rectangle_wide>
+    ) {
+        double3 xformOp:translate = (-3.150000, 0.000000, -2.750000)
+        float xformOp:rotateY = 0.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
+    def Xform "sign_bracket_rect_3" (
+        references = @../geometry/usd/furniture_sign_mount_bracket_single.usda@</furniture_sign_mount_bracket_single>
+    ) {
+        double3 xformOp:translate = (-3.150000, 0.000000, -2.750000)
+        float xformOp:rotateY = 0.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
+    def Xform "sign_back_rect_4" (
+        references = @../geometry/usd/furniture_sign_back_rectangle_wide.usda@</furniture_sign_back_rectangle_wide>
+    ) {
+        double3 xformOp:translate = (-3.150000, 0.000000, -1.650000)
+        float xformOp:rotateY = 0.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
+    def Xform "sign_bracket_rect_4" (
+        references = @../geometry/usd/furniture_sign_mount_bracket_single.usda@</furniture_sign_mount_bracket_single>
+    ) {
+        double3 xformOp:translate = (-3.150000, 0.000000, -1.650000)
+        float xformOp:rotateY = 0.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
+    def Xform "sign_back_rect_5" (
+        references = @../geometry/usd/furniture_sign_back_rectangle_wide.usda@</furniture_sign_back_rectangle_wide>
+    ) {
+        double3 xformOp:translate = (-3.150000, 0.000000, -0.550000)
+        float xformOp:rotateY = 0.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
+    def Xform "sign_bracket_rect_5" (
+        references = @../geometry/usd/furniture_sign_mount_bracket_single.usda@</furniture_sign_mount_bracket_single>
+    ) {
+        double3 xformOp:translate = (-3.150000, 0.000000, -0.550000)
+        float xformOp:rotateY = 0.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
+    def Xform "sign_back_rect_6" (
+        references = @../geometry/usd/furniture_sign_back_rectangle_wide.usda@</furniture_sign_back_rectangle_wide>
+    ) {
+        double3 xformOp:translate = (3.150000, 0.000000, -2.750000)
+        float xformOp:rotateY = 180.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
+    def Xform "sign_bracket_rect_6" (
+        references = @../geometry/usd/furniture_sign_mount_bracket_single.usda@</furniture_sign_mount_bracket_single>
+    ) {
+        double3 xformOp:translate = (3.150000, 0.000000, -2.750000)
+        float xformOp:rotateY = 180.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
+    def Xform "sign_back_rect_7" (
+        references = @../geometry/usd/furniture_sign_back_rectangle_wide.usda@</furniture_sign_back_rectangle_wide>
+    ) {
+        double3 xformOp:translate = (3.150000, 0.000000, -1.650000)
+        float xformOp:rotateY = 180.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
+    def Xform "sign_bracket_rect_7" (
+        references = @../geometry/usd/furniture_sign_mount_bracket_single.usda@</furniture_sign_mount_bracket_single>
+    ) {
+        double3 xformOp:translate = (3.150000, 0.000000, -1.650000)
+        float xformOp:rotateY = 180.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
+    def Xform "sign_back_rect_8" (
+        references = @../geometry/usd/furniture_sign_back_rectangle_wide.usda@</furniture_sign_back_rectangle_wide>
+    ) {
+        double3 xformOp:translate = (3.150000, 0.000000, -0.550000)
+        float xformOp:rotateY = 180.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
+    def Xform "sign_bracket_rect_8" (
+        references = @../geometry/usd/furniture_sign_mount_bracket_single.usda@</furniture_sign_mount_bracket_single>
+    ) {
+        double3 xformOp:translate = (3.150000, 0.000000, -0.550000)
+        float xformOp:rotateY = 180.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
+    def Xform "sign_back_rect_9" (
+        references = @../geometry/usd/furniture_sign_back_rectangle_wide.usda@</furniture_sign_back_rectangle_wide>
+    ) {
+        double3 xformOp:translate = (3.150000, 0.000000, 0.550000)
+        float xformOp:rotateY = 180.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
+    def Xform "sign_bracket_rect_9" (
+        references = @../geometry/usd/furniture_sign_mount_bracket_single.usda@</furniture_sign_mount_bracket_single>
+    ) {
+        double3 xformOp:translate = (3.150000, 0.000000, 0.550000)
+        float xformOp:rotateY = 180.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
     def Xform "sign_stop_0" (
         references = @../geometry/usd/sign_stop.usda@</sign_stop>
     ) {
@@ -255,6 +353,27 @@ def Xform "scene_sign_test_lane" {
         references = @../geometry/usd/sign_detour_left_text.usda@</sign_detour_left_text>
     ) {
         double3 xformOp:translate = (-1.800000, 0.000000, -2.050000)
+        float xformOp:rotateY = 0.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
+    def Xform "sign_hospital_0" (
+        references = @../geometry/usd/sign_hospital_arrow_right.usda@</sign_hospital_arrow_right>
+    ) {
+        double3 xformOp:translate = (-3.150000, 0.000000, -2.750000)
+        float xformOp:rotateY = 0.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
+    def Xform "sign_parking_dir_0" (
+        references = @../geometry/usd/sign_parking_arrow_left.usda@</sign_parking_arrow_left>
+    ) {
+        double3 xformOp:translate = (-3.150000, 0.000000, -1.650000)
+        float xformOp:rotateY = 0.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
+    def Xform "sign_hotel_0" (
+        references = @../geometry/usd/sign_hotel_arrow_left.usda@</sign_hotel_arrow_left>
+    ) {
+        double3 xformOp:translate = (-3.150000, 0.000000, -0.550000)
         float xformOp:rotateY = 0.000000
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
     }
@@ -304,6 +423,34 @@ def Xform "scene_sign_test_lane" {
         references = @../geometry/usd/sign_detour_right_text.usda@</sign_detour_right_text>
     ) {
         double3 xformOp:translate = (1.800000, 0.000000, 2.820000)
+        float xformOp:rotateY = 180.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
+    def Xform "sign_airport_0" (
+        references = @../geometry/usd/sign_airport_arrow_right.usda@</sign_airport_arrow_right>
+    ) {
+        double3 xformOp:translate = (3.150000, 0.000000, -2.750000)
+        float xformOp:rotateY = 180.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
+    def Xform "sign_bypass_0" (
+        references = @../geometry/usd/sign_bypass_right_text.usda@</sign_bypass_right_text>
+    ) {
+        double3 xformOp:translate = (3.150000, 0.000000, -1.650000)
+        float xformOp:rotateY = 180.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
+    def Xform "sign_centre_0" (
+        references = @../geometry/usd/sign_centre_left_text.usda@</sign_centre_left_text>
+    ) {
+        double3 xformOp:translate = (3.150000, 0.000000, -0.550000)
+        float xformOp:rotateY = 180.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
+    def Xform "sign_truck_route_0" (
+        references = @../geometry/usd/sign_truck_route_right.usda@</sign_truck_route_right>
+    ) {
+        double3 xformOp:translate = (3.150000, 0.000000, 0.550000)
         float xformOp:rotateY = 180.000000
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
     }
