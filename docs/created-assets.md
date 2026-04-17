@@ -128,6 +128,7 @@ Current profiles:
 
 - `camera_reference_rgb_nir_v1`
 - `camera_reference_rgb_nir_v2`
+- `camera_reference_rgb_nir_v3`
 
 ### Scenarios
 

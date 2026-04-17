@@ -18,6 +18,7 @@
 - measured-replacement priority doc for the four remaining proxy-to-measured backlog items
 - catalog gap review for family-by-family asset coverage depth
 - selected USGS v7 subset ingest documentation and generic camera-profile documentation
+- internet-only public-data upgrade documentation
 
 ### Changed
 
@@ -31,21 +32,24 @@
 - dry asphalt, concrete, and galvanized metal are now measured USGS-derived baselines, and wet asphalt is a measured-derived material
 - vehicle and protected-turn traffic-signal emissive profiles now use vendor-derived public LED fits from tracked ams-OSRAM datasheets
 - urban night illuminant generation now reuses the same vendor-derived signal color fits instead of the older hard-coded proxy peaks
-- camera generation now emits both `camera_reference_rgb_nir_v1` and the active `camera_reference_rgb_nir_v2` profile
-- scenarios now reference `camera_reference_rgb_nir_v2`, which uses per-channel optics/filter behavior and tracked donor QE reference curves from the official `MT9M034` datasheet
+- camera generation now retains `camera_reference_rgb_nir_v1` and `camera_reference_rgb_nir_v2` as vendor-derived comparison baselines
+- scenarios now reference `camera_reference_rgb_nir_v3`, while `camera_reference_rgb_nir_v2` remains available as the pre-`v3` comparison baseline
 - the ON Semiconductor `MT9M034` donor PDF is now frozen from a local copy into tracked `raw/` instead of remaining only as a `fetch_failed` source-ledger entry
-- camera-profile generation now supports an optional frozen measured automotive SRF source with a measured-system activation gate, while keeping `camera_reference_rgb_nir_v2` active when no measured source is present
+- camera-profile generation now supports an optional frozen measured automotive SRF source with a measured-system activation gate, while keeping the strongest available vendor-derived profile active when no measured source is present
 - emissive-profile generation now supports an optional frozen measured traffic-signal/headlamp SPD source with a measured activation gate, while keeping vendor-derived signal SPDs active when no measured source is present
 - measured emitter intake now accepts headlamp-only or streetlight-only datasets for `urban_night` augmentation without requiring measured traffic-signal red/yellow/green curves
 - material generation now supports an optional frozen measured retroreflective source with a shared-gain activation gate, while keeping the proxy retroreflective modifier active when no measured source is present
 - material generation now supports an optional frozen measured wet-road source with a simplified wet-material activation gate, while keeping the measured-derived wet asphalt fallback active when no measured source is present
+- camera generation now emits `camera_reference_rgb_nir_v3` and promotes it to the active generic camera when no measured automotive SRF source is present
+- urban night illuminant generation now uses public `LED-B4` and `LED-B3` priors for headlamp/streetlight contribution when measured emitter data is absent
+- raw-source freezing now tracks public EMVA, Balluff, CIE, and FHWA references for the internet-only public-data upgrade phase
 
 ### Validation
 
-- validation summary now includes `2` camera profiles and zero camera-profile validation errors
+- validation summary now includes `3` camera profiles and zero camera-profile validation errors
 - material quality summary now reports `3` `measured_standard`, `1` `measured_derivative`, `16` `project_proxy`, and `0` `vendor_derived` materials
 - emissive profile quality summary now distinguishes vendor-derived vehicle/protected-turn profiles from remaining proxy pedestrian/countdown profiles
-- validation summary now distinguishes the active camera profile, per-scenario camera bindings, and donor reference metadata for camera profiles
+- validation summary now distinguishes the active camera profile, per-scenario camera bindings, donor reference metadata for camera profiles, and public-data activation for `urban_night`
 
 ## Baseline
 

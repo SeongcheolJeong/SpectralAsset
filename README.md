@@ -26,7 +26,7 @@ For deterministic rebuild review, the generator now preserves the previous track
 4. normalize official D65, ASTM G173, and selected USGS material inputs
 5. generate measured, measured-derived, vendor-derived, and proxy spectral assets as applicable
 6. emit a generic `RGB+NIR` camera profile, SVG sign templates, USD assets, GLB exports, manifests, scenario profiles, scenes, and reports
-6. validate manifests, spectral coverage, and USD parsing
+7. validate manifests, spectral coverage, and USD parsing
 
 ## Important Defaults
 
@@ -34,11 +34,14 @@ For deterministic rebuild review, the generator now preserves the previous track
 - Master spectral grid: `350-1700 nm`, `1 nm`
 - Runtime derived grid: `400-1100 nm`, `5 nm`
 - Sensor branch: `RGB+NIR` silicon camera
-- scenarios now bind to `canonical/camera/camera_reference_rgb_nir_v2.camera_profile.json`
+- scenarios now bind to `canonical/camera/camera_reference_rgb_nir_v3.camera_profile.json`
 - `camera_reference_rgb_nir_v1` is retained as the earlier vendor-derived baseline for comparison
+- `camera_reference_rgb_nir_v2` is retained as the pre-`v3` vendor-derived comparison baseline
+- `camera_reference_rgb_nir_v3` is the active vendor-derived public-data baseline built from `MT9M034` RGB donors and a public Balluff `IMX900` mono envelope
 - selected USGS v7 dry-material baselines are used for asphalt, concrete, and galvanized metal
 - wet asphalt is currently a measured-derived material built from the measured dry asphalt baseline plus the tracked wet modifier
 - vehicle and protected-turn traffic-signal emissive profiles now use vendor-derived public LED fits
+- `urban_night` now uses public `LED-B4` headlamp and `LED-B3` streetlight priors when measured emitter data is absent
 - camera profiles now support either a shared optics curve or per-channel optics/filter curves
 - optional measured automotive camera SRF intake is supported from `automotive_sensor_srf_input/` or `AUTOMOTIVE_SENSOR_SRF_ROOT`, but the current baseline does not include a frozen measured source
 - optional measured traffic-signal/headlamp SPD intake is supported from `traffic_signal_headlamp_spd_input/` or `TRAFFIC_SIGNAL_HEADLAMP_SPD_ROOT`, but the current baseline does not include a frozen measured source
@@ -71,6 +74,7 @@ For deterministic rebuild review, the generator now preserves the previous track
 - [docs/pbrt-tutorial.md](docs/pbrt-tutorial.md): tutorial for using the generated assets as inputs to a `PBRT` rendering workflow
 - [docs/usgs-ingest.md](docs/usgs-ingest.md): selected USGS subset ingest and binding rules
 - [docs/camera-profile.md](docs/camera-profile.md): generic camera-profile contract and current limitations
+- [docs/public-data-upgrade.md](docs/public-data-upgrade.md): internet-only public-data upgrade scope and limits
 - [docs/automotive-srf-intake.md](docs/automotive-srf-intake.md): optional measured automotive camera-SRF intake path and input format
 - [docs/emitter-spd-intake.md](docs/emitter-spd-intake.md): optional measured traffic-signal/headlamp SPD intake path and input format
 - [docs/retroreflective-brdf-intake.md](docs/retroreflective-brdf-intake.md): optional measured retroreflective-sheething input path and the current shared-gain activation rules

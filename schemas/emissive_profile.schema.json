@@ -43,6 +43,12 @@
         "type": "string"
       }
     },
+    "reference_curve_refs": {
+      "type": "object"
+    },
+    "derivation_method": {
+      "type": "object"
+    },
     "provenance": {
       "type": "object"
     },

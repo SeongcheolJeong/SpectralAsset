@@ -1,0 +1,13 @@
+{
+  "id": "emva_1288_standard_pdf",
+  "origin_type": "url",
+  "url": "https://www.emva.org/wp-content/uploads/EMVA1288-3.0.pdf",
+  "file_name": "EMVA1288-3.0.pdf",
+  "classification": "reference-only",
+  "license_summary": "EMVA 1288 standard used as a public derivation-method and terminology reference",
+  "path": "raw/sources/emva_1288_standard_pdf/EMVA1288-3.0.pdf",
+  "fetched_at": "2026-04-16T10:10:40+00:00",
+  "status": "downloaded",
+  "sha256": "3e9aa6ceb4fd5afcf4e90555903c75605be1d13f94941bcdd6da41218cc67c32",
+  "size_bytes": 1129743
+}

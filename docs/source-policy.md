@@ -14,6 +14,8 @@ Current examples:
 
 - `cie_d65_csv`
 - `cie_d65_metadata`
+- `cie_illuminant_a_csv`
+- `cie_led_illuminants_csv`
 - selected `usgs_splib07` local subset entries under `raw/sources/usgs_splib07_selected/`
 
 Operational rule:
@@ -67,6 +69,9 @@ Current examples:
 - `ecostress_spectral_library_page`
 - `unece_road_signs_page`
 - `onsemi_mt9m034_pdf`
+- `emva_1288_standard_pdf`
+- `balluff_imx900_emva_report_pdf`
+- `fhwa_spectral_driver_performance_pdf`
 - `osram_lr_q976_01_pdf`
 - `osram_ly_q976_01_pdf`
 - `osram_ltrb_rasf_01_pdf`
@@ -101,6 +106,11 @@ Operational rule:
 | `sony_imx900_product_page` | `reference-only` | `downloaded` | camera-profile vendor-derived context | public Sony sensor page for NIR-sensitive profile assumptions |
 | `sony_isx016_pdf` | `reference-only` | `downloaded` | camera-profile vendor-derived context | official Sony PDF with NIR sensitivity claim |
 | `onsemi_mt9m034_pdf` | `reference-only` | `copied_from_local` | camera-profile donor QE reference | official ON Semiconductor MT9M034 datasheet frozen from a local copy because automated GET from the public URL returns `403` |
+| `emva_1288_standard_pdf` | `reference-only` | `downloaded` | camera-profile derivation-method reference | public EMVA standard used as a terminology and derivation-method anchor |
+| `balluff_imx900_emva_report_pdf` | `reference-only` | `downloaded` | camera `v3` mono-QE donor reference | public Balluff IMX900 EMVA report used as the mono-envelope donor for `camera_reference_rgb_nir_v3` |
+| `cie_illuminant_a_csv` | `redistributable` | `downloaded` | halogen-like headlamp public prior | direct CIE dataset plus frozen metadata extra file under the same source folder |
+| `cie_led_illuminants_csv` | `redistributable` | `downloaded` | public LED donor set for headlamp/streetlight priors | direct CIE dataset plus frozen metadata extra file under the same source folder |
+| `fhwa_spectral_driver_performance_pdf` | `reference-only` | `downloaded` | night-emitter mix context | FHWA report used for nighttime spectral-mix context only |
 | `osram_lr_q976_01_pdf` | `reference-only` | `downloaded` | vehicle-signal red SPD vendor-derived fit | official ams-OSRAM red LED datasheet used for fitted signal SPD |
 | `osram_ly_q976_01_pdf` | `reference-only` | `downloaded` | vehicle-signal yellow SPD vendor-derived fit | official ams-OSRAM yellow LED datasheet used for fitted signal SPD |
 | `osram_ltrb_rasf_01_pdf` | `reference-only` | `downloaded` | vehicle-signal green SPD vendor-derived fit | official ams-OSRAM true-green LED datasheet used for fitted signal SPD |
@@ -159,7 +169,7 @@ Operational rule:
 
 - Failure mode: automated `curl` GET returns `403`, even though the official URL is valid for `HEAD`
 - Impact: low to medium
-  - this source anchors the donor QE provenance for `camera_reference_rgb_nir_v2`, but the repository now has a working local-copy fallback
+  - this source anchors donor QE provenance for `camera_reference_rgb_nir_v2` and `camera_reference_rgb_nir_v3`, but the repository now has a working local-copy fallback
 - Current fallback:
   - keep the official URL in the source ledger for provenance
   - copy the local file `MT9M034-D.PDF` into `raw/sources/onsemi_mt9m034_pdf/mt9m034-d.pdf`
@@ -169,6 +179,7 @@ Operational rule:
 ## Operational Rules for New Sources
 
 - Every new source must have a `source.json` record with `id`, `url`, `classification`, `status`, and fetch timestamp.
+- URL sources may also record `extra_files` when one source folder intentionally freezes a primary data file plus metadata sidecars.
 - Local-path sources may use `copied_from` and `copied_at` instead of `url` and `fetched_at`, but they must still carry status, checksum, and classification.
 - The optional measured automotive SRF intake path must freeze `metadata.json` and `srf.csv` into `raw/sources/automotive_sensor_srf_measured/` before the generator may activate a measured camera profile.
 - The optional measured emitter SPD intake path must freeze `metadata.json` and `spd.csv` into `raw/sources/traffic_signal_headlamp_spd_measured/` before the generator may activate measured signal curves.

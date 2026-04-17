@@ -1,0 +1,23 @@
+{
+  "id": "cie_led_illuminants_csv",
+  "origin_type": "url",
+  "url": "https://files.cie.co.at/CIE_illum_LEDs_1nm.csv",
+  "file_name": "CIE_illum_LEDs_1nm.csv",
+  "classification": "redistributable",
+  "license_summary": "CIE typical LED illuminants dataset with CC BY-SA 4.0 metadata",
+  "path": "raw/sources/cie_led_illuminants_csv/CIE_illum_LEDs_1nm.csv",
+  "fetched_at": "2026-04-16T10:10:40+00:00",
+  "status": "downloaded",
+  "sha256": "2a065526e1502f138d5b96aa8c9b337320e08667aac028ab5ad428bf1179a4b7",
+  "size_bytes": 63851,
+  "extra_files": [
+    {
+      "file_name": "CIE_illum_LEDs_1nm.csv_metadata.json",
+      "url": "https://files.cie.co.at/CIE_illum_LEDs_1nm.csv_metadata.json",
+      "path": "raw/sources/cie_led_illuminants_csv/CIE_illum_LEDs_1nm.csv_metadata.json",
+      "sha256": "8e95fe131cfff2534aa161846b1b7d113f74781338e85787104661b887f8ff48",
+      "size_bytes": 5298,
+      "role": "metadata"
+    }
+  ]
+}

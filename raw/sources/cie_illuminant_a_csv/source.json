@@ -1,0 +1,23 @@
+{
+  "id": "cie_illuminant_a_csv",
+  "origin_type": "url",
+  "url": "https://files.cie.co.at/CIE_std_illum_A_1nm.csv",
+  "file_name": "CIE_std_illum_A_1nm.csv",
+  "classification": "redistributable",
+  "license_summary": "CIE illuminant A dataset with CC BY-SA 4.0 metadata",
+  "path": "raw/sources/cie_illuminant_a_csv/CIE_std_illum_A_1nm.csv",
+  "fetched_at": "2026-04-16T10:10:40+00:00",
+  "status": "downloaded",
+  "sha256": "61ef23fe146b8b665c74706717ab28cec7db6c9022993490bdc71991f43cb59b",
+  "size_bytes": 6843,
+  "extra_files": [
+    {
+      "file_name": "CIE_std_illum_A_1nm.csv_metadata.json",
+      "url": "https://files.cie.co.at/CIE_std_illum_A_1nm.csv_metadata.json",
+      "path": "raw/sources/cie_illuminant_a_csv/CIE_std_illum_A_1nm.csv_metadata.json",
+      "sha256": "53f2a0bcc0a7262bc9fa0b42ffdbb39082402e26a6d85f04902527684a5902d6",
+      "size_bytes": 2816,
+      "role": "metadata"
+    }
+  ]
+}

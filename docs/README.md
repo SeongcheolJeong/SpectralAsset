@@ -11,6 +11,7 @@ This directory is the management layer for the autonomous-driving camera simulat
 - [measurement-priorities.md](measurement-priorities.md): ranked plan for replacing the current highest-value proxy measurement gaps
 - [catalog-gap-review.md](catalog-gap-review.md): family-by-family review of current asset coverage and the next expansion priorities
 - [camera-profile.md](camera-profile.md): generic `RGB+NIR` camera-profile contract and current vendor-derived limits
+- [public-data-upgrade.md](public-data-upgrade.md): internet-only public-data upgrade scope, active priors, and honesty limits
 - [automotive-srf-intake.md](automotive-srf-intake.md): local measured automotive camera-SRF intake format and activation behavior
 - [emitter-spd-intake.md](emitter-spd-intake.md): local measured traffic-signal/headlamp SPD intake format and activation behavior
 - [retroreflective-brdf-intake.md](retroreflective-brdf-intake.md): local measured retroreflective-sheething input format and the current shared-gain activation behavior
@@ -34,6 +35,7 @@ This directory is the management layer for the autonomous-driving camera simulat
 - Update [measurement-priorities.md](measurement-priorities.md) when the measured-replacement order or acquisition assumptions change.
 - Update [catalog-gap-review.md](catalog-gap-review.md) when family counts, coverage weaknesses, or expansion priorities change.
 - Update [camera-profile.md](camera-profile.md) when camera-profile fields, source-quality assumptions, or scenario binding rules change.
+- Update [public-data-upgrade.md](public-data-upgrade.md) when the active public-data camera/night-emitter priors or their limits change.
 - Update [automotive-srf-intake.md](automotive-srf-intake.md) when the local measured-SRF intake format, activation gate, or input paths change.
 - Update [emitter-spd-intake.md](emitter-spd-intake.md) when the local measured-emitter intake format, activation gate, or active night-emitter behavior changes.
 - Update [retroreflective-brdf-intake.md](retroreflective-brdf-intake.md) when the local measured retroreflective intake format, activation gate, or current shared-gain behavior changes.

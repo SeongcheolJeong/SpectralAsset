@@ -16,7 +16,7 @@ Current scenario and validation support:
 - `4` validation scenes
 - `20` spectral materials
 - `4` emissive profiles
-- `2` camera profiles
+- `3` camera profiles
 
 ## Naming Conventions
 
@@ -110,6 +110,7 @@ Examples:
 
 - `camera_reference_rgb_nir_v1.camera_profile.json`
 - `camera_reference_rgb_nir_v2.camera_profile.json`
+- `camera_reference_rgb_nir_v3.camera_profile.json`
 - `emissive_vehicle_standard.emissive_profile.json`
 - `emissive_protected_turn.emissive_profile.json`
 

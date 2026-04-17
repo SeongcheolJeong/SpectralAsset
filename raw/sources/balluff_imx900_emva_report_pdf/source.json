@@ -1,0 +1,13 @@
+{
+  "id": "balluff_imx900_emva_report_pdf",
+  "origin_type": "url",
+  "url": "https://assets.balluff.com/EMVA1288/PDF/emva1288_report_BVS%20CA-GV1-0032BC_short.pdf",
+  "file_name": "emva1288_report_BVS_CA-GV1-0032BC_short.pdf",
+  "classification": "reference-only",
+  "license_summary": "Balluff public IMX900 EMVA report used as a mono-QE donor reference for camera v3",
+  "path": "raw/sources/balluff_imx900_emva_report_pdf/emva1288_report_BVS_CA-GV1-0032BC_short.pdf",
+  "fetched_at": "2026-04-16T10:10:40+00:00",
+  "status": "downloaded",
+  "sha256": "06ae8d2ebf576b19674d9625df1d4a2f32de2011940098fd273d3c5c9c34db77",
+  "size_bytes": 320506
+}

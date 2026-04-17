@@ -246,6 +246,91 @@
       "size_bytes": 802571
     },
     {
+      "id": "emva_1288_standard_pdf",
+      "origin_type": "url",
+      "url": "https://www.emva.org/wp-content/uploads/EMVA1288-3.0.pdf",
+      "file_name": "EMVA1288-3.0.pdf",
+      "classification": "reference-only",
+      "license_summary": "EMVA 1288 standard used as a public derivation-method and terminology reference",
+      "path": "raw/sources/emva_1288_standard_pdf/EMVA1288-3.0.pdf",
+      "fetched_at": "2026-04-16T10:10:40+00:00",
+      "status": "downloaded",
+      "sha256": "3e9aa6ceb4fd5afcf4e90555903c75605be1d13f94941bcdd6da41218cc67c32",
+      "size_bytes": 1129743
+    },
+    {
+      "id": "balluff_imx900_emva_report_pdf",
+      "origin_type": "url",
+      "url": "https://assets.balluff.com/EMVA1288/PDF/emva1288_report_BVS%20CA-GV1-0032BC_short.pdf",
+      "file_name": "emva1288_report_BVS_CA-GV1-0032BC_short.pdf",
+      "classification": "reference-only",
+      "license_summary": "Balluff public IMX900 EMVA report used as a mono-QE donor reference for camera v3",
+      "path": "raw/sources/balluff_imx900_emva_report_pdf/emva1288_report_BVS_CA-GV1-0032BC_short.pdf",
+      "fetched_at": "2026-04-16T10:10:40+00:00",
+      "status": "downloaded",
+      "sha256": "06ae8d2ebf576b19674d9625df1d4a2f32de2011940098fd273d3c5c9c34db77",
+      "size_bytes": 320506
+    },
+    {
+      "id": "cie_illuminant_a_csv",
+      "origin_type": "url",
+      "url": "https://files.cie.co.at/CIE_std_illum_A_1nm.csv",
+      "file_name": "CIE_std_illum_A_1nm.csv",
+      "classification": "redistributable",
+      "license_summary": "CIE illuminant A dataset with CC BY-SA 4.0 metadata",
+      "path": "raw/sources/cie_illuminant_a_csv/CIE_std_illum_A_1nm.csv",
+      "fetched_at": "2026-04-16T10:10:40+00:00",
+      "status": "downloaded",
+      "sha256": "61ef23fe146b8b665c74706717ab28cec7db6c9022993490bdc71991f43cb59b",
+      "size_bytes": 6843,
+      "extra_files": [
+        {
+          "file_name": "CIE_std_illum_A_1nm.csv_metadata.json",
+          "url": "https://files.cie.co.at/CIE_std_illum_A_1nm.csv_metadata.json",
+          "path": "raw/sources/cie_illuminant_a_csv/CIE_std_illum_A_1nm.csv_metadata.json",
+          "sha256": "53f2a0bcc0a7262bc9fa0b42ffdbb39082402e26a6d85f04902527684a5902d6",
+          "size_bytes": 2816,
+          "role": "metadata"
+        }
+      ]
+    },
+    {
+      "id": "cie_led_illuminants_csv",
+      "origin_type": "url",
+      "url": "https://files.cie.co.at/CIE_illum_LEDs_1nm.csv",
+      "file_name": "CIE_illum_LEDs_1nm.csv",
+      "classification": "redistributable",
+      "license_summary": "CIE typical LED illuminants dataset with CC BY-SA 4.0 metadata",
+      "path": "raw/sources/cie_led_illuminants_csv/CIE_illum_LEDs_1nm.csv",
+      "fetched_at": "2026-04-16T10:10:40+00:00",
+      "status": "downloaded",
+      "sha256": "2a065526e1502f138d5b96aa8c9b337320e08667aac028ab5ad428bf1179a4b7",
+      "size_bytes": 63851,
+      "extra_files": [
+        {
+          "file_name": "CIE_illum_LEDs_1nm.csv_metadata.json",
+          "url": "https://files.cie.co.at/CIE_illum_LEDs_1nm.csv_metadata.json",
+          "path": "raw/sources/cie_led_illuminants_csv/CIE_illum_LEDs_1nm.csv_metadata.json",
+          "sha256": "8e95fe131cfff2534aa161846b1b7d113f74781338e85787104661b887f8ff48",
+          "size_bytes": 5298,
+          "role": "metadata"
+        }
+      ]
+    },
+    {
+      "id": "fhwa_spectral_driver_performance_pdf",
+      "origin_type": "url",
+      "url": "https://www.fhwa.dot.gov/publications/research/safety/15047/15047.pdf",
+      "file_name": "15047.pdf",
+      "classification": "reference-only",
+      "license_summary": "FHWA spectral driver-performance report used as night-emitter mix context",
+      "path": "raw/sources/fhwa_spectral_driver_performance_pdf/15047.pdf",
+      "fetched_at": "2026-04-16T10:10:40+00:00",
+      "status": "downloaded",
+      "sha256": "2f2430a7204b6cc873e81aab847b198d8a54537e913b7fd6f473df6936d3edaf",
+      "size_bytes": 9856008
+    },
+    {
       "id": "osram_lr_q976_01_pdf",
       "origin_type": "url",
       "url": "https://look.ams-osram.com/m/4c6f3e4bd792ccdf/original/LR-Q976-01.pdf",

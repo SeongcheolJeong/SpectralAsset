@@ -8,8 +8,9 @@ Current baseline note:
 
 - dry asphalt, concrete, and galvanized metal have already been promoted from a frozen selected USGS v7 subset
 - wet asphalt is now a measured-derived material rather than a fully proxy dry/wet pair
-- vehicle and protected-turn traffic-signal emissive profiles now use vendor-derived public LED fits, but measured emitter replacement is still pending
-- `camera_reference_rgb_nir_v2` is now the active generic reference camera, but the top-ranked automotive SRF backlog still remains measured-required
+- vehicle and protected-turn traffic-signal emissive profiles now use vendor-derived public LED fits, and `urban_night` now uses public headlamp/streetlight priors, but measured emitter replacement is still pending
+- `camera_reference_rgb_nir_v3` is now the active generic reference camera, but the top-ranked automotive SRF backlog still remains measured-required
+- `urban_night` now uses public `LED-B4` and `LED-B3` priors for headlamp/streetlight contribution when measured emitter data is absent, but the measured emitter backlog still remains open
 - the generator now supports freezing and validating a local measured automotive SRF source, but no such frozen source is currently present in the shipped baseline
 - the generator now supports freezing and validating a local measured traffic-signal/headlamp SPD source, but no such frozen source is currently present in the shipped baseline
 - the generator now supports freezing and validating a local measured retroreflective source for the current shared gain path, but no such frozen source is currently present in the shipped baseline and the full angle-aware BRDF contract is still missing
@@ -67,9 +68,10 @@ Difficulty scale:
 
 - `automotive_sensor_srf` is the highest-value fidelity upgrade for the whole repository.
 - `traffic_signal_headlamp_spd` remains the fastest measured night-scene realism win even though vehicle and protected-turn traffic-signal profiles now use vendor-derived public fits.
+- public headlamp/streetlight priors improve the current night baseline, but they do not remove the need for measured emitter capture.
 - `retroreflective_sheeting_brdf` is the highest-risk remaining gap for sign realism after SPD replacement.
 - `wet_road_spectral_brdf` stays on the critical backlog, but current v1 scope makes it narrower than the other three items.
-- activating `camera_reference_rgb_nir_v2` does not change the measured status of the top-ranked automotive SRF backlog item
+- activating `camera_reference_rgb_nir_v3` does not change the measured status of the top-ranked automotive SRF backlog item
 - adding measured-camera intake support does not change the measured status of the top-ranked automotive SRF backlog item until a real measured source is frozen and activated
 - adding measured-emitter intake support does not change the measured status of the traffic-signal/headlamp backlog item until a real measured source is frozen and activated
 - adding measured retroreflective intake support does not change the measured status of the retroreflective backlog item until a real measured source is frozen, and even then the full BRDF backlog remains open until the angular material contract is expanded

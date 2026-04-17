@@ -71,6 +71,9 @@
 | `P5-T007` | `P5` | `P1` | `blocked` | Freeze a real measured retroreflective source and promote it to the current shared modifier path | frozen measured retroreflective raw source plus active measured modifier curve | `P5-T006` | a real measured retroreflective dataset is present, frozen in `raw/`, and becomes the active shared retroreflective gain curve while the full BRDF backlog remains explicitly open |
 | `P5-T008` | `P5` | `P1` | `done` | Implement measured wet-road intake and activation gate | generator support for frozen measured wet-road input | `P2-T003` | local measured wet-road input can be frozen into tracked `raw/`, measured wet-road curves validate cleanly, and the current wet material path only switches when that source exists |
 | `P5-T009` | `P5` | `P1` | `blocked` | Freeze a real measured wet-road source and promote it to the current wet material path | frozen measured wet-road raw source plus active measured wet curves | `P5-T008` | a real measured wet-road dataset is present, frozen in `raw/`, and becomes the active wet material source while the full BRDF backlog remains explicitly open |
+| `P5-T010` | `P5` | `P1` | `done` | Freeze official public camera and night-emitter source set | tracked EMVA, Balluff, CIE, and FHWA public source entries | `P1-T002` | public camera and night-emitter references are frozen into tracked `raw/` with provenance, checksums, and classification notes |
+| `P5-T011` | `P5` | `P1` | `done` | Activate generic camera v3 and public urban-night priors | active `camera_reference_rgb_nir_v3` profile and public night-emitter priors | `P5-T010`, `P2-T005`, `P5-T004` | `camera_reference_rgb_nir_v3` is active when no measured automotive SRF source exists, and `urban_night` uses public headlamp/streetlight priors when measured emitter data is absent |
+| `P5-T012` | `P5` | `P1` | `done` | Document internet-only public-data upgrade limits | public-data upgrade doc and updated project/source/camera docs | `P5-T011` | docs explain the internet-only upgrade, list exact public sources, and explicitly keep all measured backlog items open |
 
 ## Blocked Items
 
@@ -83,4 +86,5 @@
 ## Deferred Items
 
 - measured promotion of sign-sheeting and road-marking materials remains deferred because the frozen USGS plastics and pigments are reference-only in this repository phase
+- internet-only public tuning for retroreflective and wet-road behavior remains deferred because this phase was intentionally limited to camera SRF and night-emitter priors
 - asset-family expansion beyond the current `v1.0` count-complete baseline, prioritized in [catalog-gap-review.md](catalog-gap-review.md)

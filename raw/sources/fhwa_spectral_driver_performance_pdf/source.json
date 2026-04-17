@@ -1,0 +1,13 @@
+{
+  "id": "fhwa_spectral_driver_performance_pdf",
+  "origin_type": "url",
+  "url": "https://www.fhwa.dot.gov/publications/research/safety/15047/15047.pdf",
+  "file_name": "15047.pdf",
+  "classification": "reference-only",
+  "license_summary": "FHWA spectral driver-performance report used as night-emitter mix context",
+  "path": "raw/sources/fhwa_spectral_driver_performance_pdf/15047.pdf",
+  "fetched_at": "2026-04-16T10:10:40+00:00",
+  "status": "downloaded",
+  "sha256": "2f2430a7204b6cc873e81aab847b198d8a54537e913b7fd6f473df6936d3edaf",
+  "size_bytes": 9856008
+}

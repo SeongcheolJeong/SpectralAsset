@@ -46,5 +46,9 @@
       "osram_ltrb_rasf_01_pdf"
     ],
     "note": "Vendor-derived traffic-signal SPD fit from public ams-OSRAM red, yellow, and true-green LED datasheets."
+  },
+  "derivation_method": {
+    "type": "public_doc_curve_fit",
+    "note": "Gaussian LED fits anchored to official public ams-OSRAM traffic-signal LED datasheets."
   }
 }

@@ -62,7 +62,7 @@ Examples:
 - `canonical/manifests/sign_stop.asset_manifest.json`
 - `canonical/materials/mat_asphalt_dry.spectral_material.json`
 - `canonical/emissive/emissive_vehicle_standard.emissive_profile.json`
-- `canonical/camera/camera_reference_rgb_nir_v2.camera_profile.json`
+- `canonical/camera/camera_reference_rgb_nir_v3.camera_profile.json`
 - `canonical/scenarios/scenario_clear_noon.scenario_profile.json`
 - `validation/reports/validation_summary.json`
 
@@ -177,12 +177,13 @@ That means:
 
 ## Example: one camera profile
 
-For `camera_reference_rgb_nir_v2`:
+For `camera_reference_rgb_nir_v3`:
 
-1. `canonical/camera/camera_reference_rgb_nir_v2.camera_profile.json`
-2. `canonical/spectra/cam_ref_rgbnir_v2_*_raw_srf.npz`
-3. `canonical/spectra/cam_ref_rgbnir_v2_*_effective_srf.npz`
-4. `canonical/spectra/cam_ref_rgbnir_v2_*_optics_transmittance.npz`
+1. `canonical/camera/camera_reference_rgb_nir_v3.camera_profile.json`
+2. `canonical/spectra/cam_ref_rgbnir_v3_*_raw_srf.npz`
+3. `canonical/spectra/cam_ref_rgbnir_v3_*_effective_srf.npz`
+4. `canonical/spectra/cam_ref_rgbnir_v3_rgb_optics_transmittance.npz`
+5. `canonical/spectra/cam_ref_rgbnir_v3_nir_optics_transmittance.npz`
 
 The JSON explains:
 

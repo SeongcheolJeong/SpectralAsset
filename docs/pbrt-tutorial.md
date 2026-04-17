@@ -67,7 +67,7 @@ Use this mapping when building a `PBRT` scene:
 | `canonical/spectra/mat_asphalt_dry_reflectance.npz` | wavelength/value reflectance data | convert to `PBRT` spectrum text |
 | `canonical/emissive/emissive_vehicle_standard.emissive_profile.json` | signal state-to-SPD mapping | tells you which SPD to use for each signal state |
 | `canonical/scenarios/scenario_clear_noon.scenario_profile.json` | lighting/weather/camera selection | use for scene setup, not direct import |
-| `canonical/camera/camera_reference_rgb_nir_v2.camera_profile.json` | camera SRF metadata | usually post-process or custom extension, not direct `PBRT` input |
+| `canonical/camera/camera_reference_rgb_nir_v3.camera_profile.json` | camera SRF metadata | usually post-process or custom extension, not direct `PBRT` input |
 
 ## Recommended Workflow
 
@@ -268,7 +268,7 @@ Practical example:
 
 Current active camera profile:
 
-- `canonical/camera/camera_reference_rgb_nir_v2.camera_profile.json`
+- `canonical/camera/camera_reference_rgb_nir_v3.camera_profile.json`
 
 This file is important, but it is not a direct `PBRT` scene file.
 

@@ -10,7 +10,7 @@ That means:
 
 - the intake path exists
 - vehicle and protected-turn traffic-signal profiles still use vendor-derived public fits
-- the `urban_night` illuminant still uses the active signal curves without measured headlamp or streetlight curves
+- the `urban_night` illuminant now uses public headlamp and streetlight priors when measured emitter data is absent
 - the backlog item `traffic_signal_headlamp_spd` remains open
 
 ## Local Input Root
@@ -142,7 +142,7 @@ When the local input is absent:
 - no measured emitter source is frozen
 - no measured signal SPDs are generated
 - vendor-derived signal curves remain active
-- `urban_night` stays on the active signal curves only
+- `urban_night` uses public headlamp and streetlight priors when those public source files are available, otherwise it falls back to the active signal curves only
 
 ## Activation Gate
 
@@ -168,7 +168,7 @@ Current repo truth:
 - intake support exists
 - no frozen measured traffic-signal or headlamp SPD source is present in the shipped baseline
 - vehicle and protected-turn signal profiles remain `vendor_derived`
-- `urban_night` still lacks measured headlamp or streetlight curves
+- `urban_night` still lacks measured headlamp or streetlight curves, but now uses public `LED-B4` and `LED-B3` priors when measured data is absent
 - `traffic_signal_headlamp_spd` remains `backlog_measured_required`
 
 ## Practical Result

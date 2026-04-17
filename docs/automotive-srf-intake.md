@@ -9,7 +9,7 @@ The repository now supports freezing a measured automotive `RGB+NIR` camera SRF 
 That means:
 
 - the intake path exists
-- the active camera profile is still `camera_reference_rgb_nir_v2`
+- the active camera profile is now `camera_reference_rgb_nir_v3`
 - the measured backlog item `automotive_sensor_srf` remains open until a real measured source is provided
 
 ## Local Input Root
@@ -129,7 +129,7 @@ When the local input is absent:
 
 - no measured automotive SRF source is frozen
 - no measured automotive camera profile is generated
-- `camera_reference_rgb_nir_v2` remains active
+- `camera_reference_rgb_nir_v3` remains active
 
 ## Activation Gate
 
@@ -148,5 +148,5 @@ Current repo truth:
 
 - intake support exists
 - no frozen measured automotive SRF source is present in the shipped baseline
-- `camera_reference_rgb_nir_v2` remains the active profile
+- `camera_reference_rgb_nir_v3` remains the active profile
 - `automotive_sensor_srf` remains `backlog_measured_required`

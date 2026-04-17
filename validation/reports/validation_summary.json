@@ -3,21 +3,29 @@
   "asset_count": 35,
   "material_count": 20,
   "emissive_profile_count": 4,
-  "camera_profile_count": 2,
-  "active_camera_profile_id": "camera_reference_rgb_nir_v2",
-  "camera_profile_activation_reason": "No frozen measured automotive sensor SRF source is available, so camera_reference_rgb_nir_v2 remains active.",
+  "camera_profile_count": 3,
+  "active_camera_profile_id": "camera_reference_rgb_nir_v3",
+  "camera_profile_activation_reason": "No frozen measured automotive sensor SRF source is available, so camera_reference_rgb_nir_v3 is active.",
   "signal_emitter_activation_reason": "No frozen measured traffic-signal/headlamp SPD source is available, so vendor-derived signal SPDs remain active.",
-  "urban_night_illuminant_reason": "Urban night illuminant uses the active signal SPD curves only because no measured headlamp or streetlight SPD source is available.",
+  "urban_night_illuminant_reason": "Urban night illuminant uses active signal curves plus public LED-B4 prior and public headlamp/streetlight priors because no measured headlamp/streetlight source is active.",
+  "urban_night_component_summary": {
+    "signal_red": "active",
+    "signal_yellow": "active",
+    "signal_green": "active",
+    "headlamp_led_lowbeam": "public_active",
+    "headlamp_halogen_lowbeam": "reference_only",
+    "streetlight_led_4000k": "public_active"
+  },
   "retroreflective_activation_reason": "No frozen measured retroreflective sheeting source is available, so the proxy retroreflective gain curve remains active.",
   "wet_road_activation_reason": "No frozen measured wet-road source is available, so the measured-derived wet asphalt path remains active.",
   "scenario_camera_profile_refs": {
-    "scenario_clear_noon": "canonical/camera/camera_reference_rgb_nir_v2.camera_profile.json",
-    "scenario_overcast_day": "canonical/camera/camera_reference_rgb_nir_v2.camera_profile.json",
-    "scenario_urban_night": "canonical/camera/camera_reference_rgb_nir_v2.camera_profile.json",
-    "scenario_wet_dusk": "canonical/camera/camera_reference_rgb_nir_v2.camera_profile.json"
+    "scenario_clear_noon": "canonical/camera/camera_reference_rgb_nir_v3.camera_profile.json",
+    "scenario_overcast_day": "canonical/camera/camera_reference_rgb_nir_v3.camera_profile.json",
+    "scenario_urban_night": "canonical/camera/camera_reference_rgb_nir_v3.camera_profile.json",
+    "scenario_wet_dusk": "canonical/camera/camera_reference_rgb_nir_v3.camera_profile.json"
   },
   "scenario_unique_camera_profile_ids": [
-    "camera_reference_rgb_nir_v2"
+    "camera_reference_rgb_nir_v3"
   ],
   "camera_profile_reference_summary": {
     "camera_reference_rgb_nir_v1": {
@@ -50,6 +58,27 @@
         "basler_color_emva_knowledge",
         "sony_imx900_product_page",
         "sony_isx016_pdf"
+      ]
+    },
+    "camera_reference_rgb_nir_v3": {
+      "reference_curve_ids": [
+        "color_b_qe_reference",
+        "color_g_qe_reference",
+        "color_r_qe_reference",
+        "mono_qe_reference"
+      ],
+      "has_shared_optics_ref": false,
+      "has_per_channel_optics_refs": true,
+      "has_active_channel_refs": true,
+      "response_model": "derived_raw_optics",
+      "profile_family": "generic_reference",
+      "source_ids": [
+        "onsemi_mt9m034_pdf",
+        "balluff_imx900_emva_report_pdf",
+        "basler_color_emva_knowledge",
+        "sony_imx900_product_page",
+        "sony_isx016_pdf",
+        "emva_1288_standard_pdf"
       ]
     }
   },
@@ -100,7 +129,19 @@
     "measured_derivative": 0,
     "measured_standard": 0,
     "project_proxy": 0,
-    "vendor_derived": 2
+    "vendor_derived": 3
+  },
+  "public_data_upgrade_summary": {
+    "camera_v3_active": true,
+    "public_headlamp_prior_active": true,
+    "public_streetlight_prior_active": true,
+    "measured_backlog_status_unchanged": true,
+    "cie_led_headlamp_donor_column": "LED-B4",
+    "cie_led_streetlight_donor_column": "LED-B3",
+    "deferred_items": [
+      "retroreflective_sheeting_brdf",
+      "wet_road_spectral_brdf"
+    ]
   },
   "release_gates": {
     "wired_asset_ratio": 1.0,

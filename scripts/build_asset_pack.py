@@ -242,6 +242,55 @@ SOURCE_DEFS = [
         "license_summary": "ON Semiconductor official MT9M034 datasheet used for vendor-derived camera QE reference fitting",
     },
     {
+        "id": "emva_1288_standard_pdf",
+        "url": "https://www.emva.org/wp-content/uploads/EMVA1288-3.0.pdf",
+        "file_name": "EMVA1288-3.0.pdf",
+        "classification": "reference-only",
+        "license_summary": "EMVA 1288 standard used as a public derivation-method and terminology reference",
+    },
+    {
+        "id": "balluff_imx900_emva_report_pdf",
+        "url": "https://assets.balluff.com/EMVA1288/PDF/emva1288_report_BVS%20CA-GV1-0032BC_short.pdf",
+        "file_name": "emva1288_report_BVS_CA-GV1-0032BC_short.pdf",
+        "classification": "reference-only",
+        "license_summary": "Balluff public IMX900 EMVA report used as a mono-QE donor reference for camera v3",
+    },
+    {
+        "id": "cie_illuminant_a_csv",
+        "url": "https://files.cie.co.at/CIE_std_illum_A_1nm.csv",
+        "file_name": "CIE_std_illum_A_1nm.csv",
+        "classification": "redistributable",
+        "license_summary": "CIE illuminant A dataset with CC BY-SA 4.0 metadata",
+        "extra_files": [
+            {
+                "url": "https://files.cie.co.at/CIE_std_illum_A_1nm.csv_metadata.json",
+                "file_name": "CIE_std_illum_A_1nm.csv_metadata.json",
+                "role": "metadata",
+            }
+        ],
+    },
+    {
+        "id": "cie_led_illuminants_csv",
+        "url": "https://files.cie.co.at/CIE_illum_LEDs_1nm.csv",
+        "file_name": "CIE_illum_LEDs_1nm.csv",
+        "classification": "redistributable",
+        "license_summary": "CIE typical LED illuminants dataset with CC BY-SA 4.0 metadata",
+        "extra_files": [
+            {
+                "url": "https://files.cie.co.at/CIE_illum_LEDs_1nm.csv_metadata.json",
+                "file_name": "CIE_illum_LEDs_1nm.csv_metadata.json",
+                "role": "metadata",
+            }
+        ],
+    },
+    {
+        "id": "fhwa_spectral_driver_performance_pdf",
+        "url": "https://www.fhwa.dot.gov/publications/research/safety/15047/15047.pdf",
+        "file_name": "15047.pdf",
+        "classification": "reference-only",
+        "license_summary": "FHWA spectral driver-performance report used as night-emitter mix context",
+    },
+    {
         "id": "osram_lr_q976_01_pdf",
         "url": "https://look.ams-osram.com/m/4c6f3e4bd792ccdf/original/LR-Q976-01.pdf",
         "file_name": "LR-Q976-01.pdf",
@@ -365,6 +414,51 @@ MT9M034_MONO_QE_POINTS = [
     (1100.0, 0.0),
     (1700.0, 0.0),
 ]
+
+BALLUFF_IMX900_MONO_QE_POINTS = [
+    (350.0, 0.03),
+    (380.0, 0.16),
+    (400.0, 0.28),
+    (450.0, 0.52),
+    (500.0, 0.70),
+    (550.0, 0.80),
+    (600.0, 0.86),
+    (650.0, 0.90),
+    (700.0, 0.91),
+    (750.0, 0.88),
+    (800.0, 0.82),
+    (850.0, 0.72),
+    (900.0, 0.58),
+    (950.0, 0.44),
+    (1000.0, 0.30),
+    (1050.0, 0.16),
+    (1100.0, 0.0),
+    (1700.0, 0.0),
+]
+
+CIE_LED_DEFAULT_COLUMN_ORDER = (
+    "LED-B1",
+    "LED-B2",
+    "LED-B3",
+    "LED-B4",
+    "LED-B5",
+    "LED-BH1",
+    "LED-RGB1",
+    "LED-V1",
+    "LED-V2",
+)
+
+CIE_LED_NOMINAL_CCTS = {
+    "LED-B1": 2733,
+    "LED-B2": 2998,
+    "LED-B3": 4103,
+    "LED-B4": 5109,
+    "LED-B5": 6598,
+    "LED-BH1": 2851,
+    "LED-RGB1": 2840,
+    "LED-V1": 2724,
+    "LED-V2": 4070,
+}
 
 USGS_WAVELENGTH_SOURCE = {
     "id": "usgs_asdfr_wavelengths_2151",
@@ -761,6 +855,62 @@ def build_local_fallback_url_entry(source: Dict, target_file: Path, source_json_
     return entry
 
 
+def build_downloaded_url_entry(source: Dict, target_file: Path, fetched_at: str) -> Optional[Dict]:
+    if not target_file.exists():
+        return None
+    entry = {
+        "id": source["id"],
+        "origin_type": "url",
+        "url": source["url"],
+        "file_name": source["file_name"],
+        "classification": source["classification"],
+        "license_summary": source["license_summary"],
+        "path": relative_posix(target_file),
+        "fetched_at": fetched_at,
+        "status": "downloaded",
+        "sha256": sha256_file(target_file),
+        "size_bytes": target_file.stat().st_size,
+    }
+    extra_entries = []
+    for extra in source.get("extra_files", []):
+        extra_path = target_file.parent / extra["file_name"]
+        if not extra_path.exists():
+            return None
+        extra_entry = {
+            "file_name": extra["file_name"],
+            "url": extra["url"],
+            "path": relative_posix(extra_path),
+            "sha256": sha256_file(extra_path),
+            "size_bytes": extra_path.stat().st_size,
+        }
+        if isinstance(extra.get("role"), str):
+            extra_entry["role"] = extra["role"]
+        extra_entries.append(extra_entry)
+    if extra_entries:
+        entry["extra_files"] = extra_entries
+    return entry
+
+
+def download_url_to_file(url: str, target_file: Path) -> subprocess.CompletedProcess:
+    cmd = [
+        "curl",
+        "-L",
+        "--fail",
+        "--silent",
+        "--show-error",
+        "--connect-timeout",
+        "20",
+        "--max-time",
+        "60",
+        "-A",
+        "Mozilla/5.0",
+        "-o",
+        str(target_file),
+        url,
+    ]
+    return run(cmd)
+
+
 def build_preserved_measured_automotive_srf_entry(source_json_path: Path) -> Optional[Dict]:
     existing_entry = load_existing_source_entry(source_json_path)
     if not isinstance(existing_entry, dict):
@@ -1144,20 +1294,8 @@ def download_sources() -> List[Dict]:
             continue
 
         if not refresh_sources:
-            if target_file.exists():
-                entry = {
-                    "id": source["id"],
-                    "origin_type": "url",
-                    "url": source["url"],
-                    "file_name": source["file_name"],
-                    "classification": source["classification"],
-                    "license_summary": source["license_summary"],
-                    "path": relative_posix(target_file),
-                    "fetched_at": preserved_fetched_at,
-                    "status": "downloaded",
-                    "sha256": sha256_file(target_file),
-                    "size_bytes": target_file.stat().st_size,
-                }
+            entry = build_downloaded_url_entry(source, target_file, preserved_fetched_at)
+            if entry is not None:
                 write_json(source_json_path, entry)
                 ledger.append(entry)
                 continue
@@ -1179,23 +1317,7 @@ def download_sources() -> List[Dict]:
                 ledger.append(entry)
                 continue
 
-        cmd = [
-            "curl",
-            "-L",
-            "--fail",
-            "--silent",
-            "--show-error",
-            "--connect-timeout",
-            "20",
-            "--max-time",
-            "60",
-            "-A",
-            "Mozilla/5.0",
-            "-o",
-            str(target_file),
-            source["url"],
-        ]
-        result = run(cmd)
+        result = download_url_to_file(source["url"], target_file)
         entry = {
             "id": source["id"],
             "origin_type": "url",
@@ -1207,13 +1329,29 @@ def download_sources() -> List[Dict]:
             "fetched_at": GENERATED_AT,
         }
         if result.returncode == 0 and target_file.exists():
-            entry.update(
-                {
-                    "status": "downloaded",
-                    "sha256": sha256_file(target_file),
-                    "size_bytes": target_file.stat().st_size,
-                }
-            )
+            extra_error = None
+            for extra in source.get("extra_files", []):
+                extra_target = target_dir / extra["file_name"]
+                extra_result = download_url_to_file(extra["url"], extra_target)
+                if extra_result.returncode != 0 or not extra_target.exists():
+                    if extra_target.exists():
+                        extra_target.unlink()
+                    extra_error = extra_result.stderr.strip() or extra_result.stdout.strip() or f"failed to fetch {extra['file_name']}"
+                    break
+            if extra_error is None:
+                downloaded_entry = build_downloaded_url_entry(source, target_file, GENERATED_AT)
+                if downloaded_entry is not None:
+                    entry = downloaded_entry
+                else:
+                    extra_error = "downloaded source is missing one or more required extra files"
+            if extra_error is not None:
+                if target_file.exists():
+                    target_file.unlink()
+                for extra in source.get("extra_files", []):
+                    extra_target = target_dir / extra["file_name"]
+                    if extra_target.exists():
+                        extra_target.unlink()
+                entry.update({"status": "fetch_failed", "error": extra_error})
         else:
             if target_file.exists():
                 target_file.unlink()
@@ -2050,6 +2188,15 @@ def build_mt9m034_reference_curves() -> Dict[str, List[float]]:
     return curves
 
 
+def build_balluff_imx900_reference_curve() -> Optional[List[float]]:
+    source_path = REPO_ROOT / "raw" / "sources" / "balluff_imx900_emva_report_pdf" / "emva1288_report_BVS_CA-GV1-0032BC_short.pdf"
+    if not source_path.exists():
+        return None
+    values = normalize_unit_peak(clamp_list(interpolate(BALLUFF_IMX900_MONO_QE_POINTS, MASTER_GRID)))
+    write_npz(REPO_ROOT / "canonical" / "spectra" / "src_balluff_imx900_mono_qe_reference.npz", {"wavelength_nm": MASTER_GRID, "values": values})
+    return values
+
+
 def clamp_list(values: Sequence[float], lower: float = 0.0, upper: float = 1.0) -> List[float]:
     return [max(lower, min(upper, value)) for value in values]
 
@@ -2070,6 +2217,130 @@ def load_cie_d65() -> List[Tuple[float, float]]:
                 continue
             pairs.append((float(row[0]), float(row[1])))
     return pairs
+
+
+def load_cie_illuminant_a() -> List[Tuple[float, float]]:
+    csv_path = REPO_ROOT / "raw" / "sources" / "cie_illuminant_a_csv" / "CIE_std_illum_A_1nm.csv"
+    if not csv_path.exists():
+        raise FileNotFoundError(csv_path)
+    pairs = []
+    with csv_path.open("r", encoding="utf-8") as handle:
+        for row in csv.reader(handle):
+            if not row:
+                continue
+            pairs.append((float(row[0]), float(row[1])))
+    return pairs
+
+
+def load_cie_led_metadata() -> Dict:
+    metadata_path = REPO_ROOT / "raw" / "sources" / "cie_led_illuminants_csv" / "CIE_illum_LEDs_1nm.csv_metadata.json"
+    if not metadata_path.exists():
+        raise FileNotFoundError(metadata_path)
+    return load_json_file(metadata_path)
+
+
+def cie_led_column_order() -> Tuple[str, ...]:
+    try:
+        metadata = load_cie_led_metadata()
+        headers = metadata.get("datatableInfo", {}).get("columnHeaders", [])
+        ordered = tuple(header.get("title") for header in headers[1:] if isinstance(header, dict) and isinstance(header.get("title"), str))
+        if ordered:
+            return ordered
+    except (FileNotFoundError, json.JSONDecodeError, OSError):
+        pass
+    return CIE_LED_DEFAULT_COLUMN_ORDER
+
+
+def load_cie_led_illuminants() -> Dict[str, List[Tuple[float, float]]]:
+    csv_path = REPO_ROOT / "raw" / "sources" / "cie_led_illuminants_csv" / "CIE_illum_LEDs_1nm.csv"
+    if not csv_path.exists():
+        raise FileNotFoundError(csv_path)
+    column_order = cie_led_column_order()
+    curves = {name: [] for name in column_order}
+    with csv_path.open("r", encoding="utf-8") as handle:
+        for row in csv.reader(handle):
+            if not row:
+                continue
+            wavelength = float(row[0])
+            if len(row) < len(column_order) + 1:
+                raise ValueError(f"{csv_path} row has {len(row)} columns; expected at least {len(column_order) + 1}")
+            for index, name in enumerate(column_order, start=1):
+                curves[name].append((wavelength, float(row[index])))
+    return curves
+
+
+def select_cie_led_public_columns() -> Dict[str, str]:
+    candidates = [name for name in cie_led_column_order() if name.startswith("LED-B") and name in CIE_LED_NOMINAL_CCTS]
+    if not candidates:
+        raise ValueError("No phosphor-type CIE LED donor columns are available")
+    headlamp = min(candidates, key=lambda name: (abs(CIE_LED_NOMINAL_CCTS[name] - 5500), name))
+    streetlight = min(candidates, key=lambda name: (abs(CIE_LED_NOMINAL_CCTS[name] - 4000), name))
+    return {"headlamp_led_lowbeam": headlamp, "streetlight_led_4000k": streetlight}
+
+
+def build_public_night_emitter_priors() -> Dict:
+    spectra_dir = REPO_ROOT / "canonical" / "spectra"
+    result = {
+        "available": False,
+        "curves": {},
+        "source_ids": [],
+        "public_headlamp_prior_active": False,
+        "public_streetlight_prior_active": False,
+        "headlamp_led_column": None,
+        "streetlight_led_column": None,
+    }
+
+    illuminant_a_source = REPO_ROOT / "raw" / "sources" / "cie_illuminant_a_csv" / "CIE_std_illum_A_1nm.csv"
+    if illuminant_a_source.exists():
+        illuminant_a_pairs = load_cie_illuminant_a()
+        illuminant_a_values = normalize_unit_peak(clamp_list(interpolate(illuminant_a_pairs, MASTER_GRID), 0.0, 1000.0))
+        write_npz(spectra_dir / "src_cie_illuminant_a_relative_spd.npz", {"wavelength_nm": MASTER_GRID, "values": illuminant_a_values})
+        halogen_values = normalize_unit_peak(illuminant_a_values)
+        write_npz(spectra_dir / "spd_headlamp_halogen_lowbeam_public_ref.npz", {"wavelength_nm": MASTER_GRID, "values": halogen_values})
+        result["curves"]["headlamp_halogen_lowbeam"] = {
+            "curve_name": "spd_headlamp_halogen_lowbeam_public_ref",
+            "values": halogen_values,
+            "source_id": "cie_illuminant_a_csv",
+        }
+        result["source_ids"].append("cie_illuminant_a_csv")
+
+    led_source = REPO_ROOT / "raw" / "sources" / "cie_led_illuminants_csv" / "CIE_illum_LEDs_1nm.csv"
+    if led_source.exists():
+        led_curves = load_cie_led_illuminants()
+        selected_columns = select_cie_led_public_columns()
+        headlamp_column = selected_columns["headlamp_led_lowbeam"]
+        streetlight_column = selected_columns["streetlight_led_4000k"]
+        result["headlamp_led_column"] = headlamp_column
+        result["streetlight_led_column"] = streetlight_column
+
+        for curve_name, column_name in [
+            ("src_cie_led_typical_5500k_relative_spd", headlamp_column),
+            ("src_cie_led_typical_4000k_relative_spd", streetlight_column),
+        ]:
+            padded_points = [(350.0, 0.0), (379.0, 0.0), *led_curves[column_name], (781.0, 0.0), (1700.0, 0.0)]
+            donor_values = normalize_unit_peak(clamp_list(interpolate(padded_points, MASTER_GRID)))
+            write_npz(spectra_dir / f"{curve_name}.npz", {"wavelength_nm": MASTER_GRID, "values": donor_values})
+            if curve_name.endswith("5500k_relative_spd"):
+                public_curve_name = "spd_headlamp_led_lowbeam_public_ref"
+                result["curves"]["headlamp_led_lowbeam"] = {
+                    "curve_name": public_curve_name,
+                    "values": donor_values,
+                    "source_id": "cie_led_illuminants_csv",
+                }
+                result["public_headlamp_prior_active"] = True
+            else:
+                public_curve_name = "spd_streetlight_led_4000k_public_ref"
+                result["curves"]["streetlight_led_4000k"] = {
+                    "curve_name": public_curve_name,
+                    "values": donor_values,
+                    "source_id": "cie_led_illuminants_csv",
+                }
+                result["public_streetlight_prior_active"] = True
+            write_npz(spectra_dir / f"{public_curve_name}.npz", {"wavelength_nm": MASTER_GRID, "values": donor_values})
+        result["source_ids"].append("cie_led_illuminants_csv")
+
+    result["available"] = bool(result["curves"])
+    return result
 
 
 def load_astm_g173() -> Dict[str, List[Tuple[float, float]]]:
@@ -3271,7 +3542,128 @@ def write_camera_profiles() -> Tuple[List[Dict], str, str]:
 
     profiles = [profile_v1, profile_v2]
     active_camera_profile_id = "camera_reference_rgb_nir_v2"
-    activation_reason = "No frozen measured automotive sensor SRF source is available, so camera_reference_rgb_nir_v2 remains active."
+    activation_reason = "No frozen measured automotive sensor SRF source is available, so camera_reference_rgb_nir_v2 remains active because camera_reference_rgb_nir_v3 is not available."
+
+    balluff_curve = build_balluff_imx900_reference_curve()
+    if balluff_curve is not None:
+        raw_curves_v3 = {
+            "r": normalize_unit_peak([value * envelope for value, envelope in zip(donor_curves["src_onsemi_mt9m034_color_r_qe_reference"], balluff_curve)]),
+            "g": normalize_unit_peak([value * envelope for value, envelope in zip(donor_curves["src_onsemi_mt9m034_color_g_qe_reference"], balluff_curve)]),
+            "b": normalize_unit_peak([value * envelope for value, envelope in zip(donor_curves["src_onsemi_mt9m034_color_b_qe_reference"], balluff_curve)]),
+        }
+        nir_gate_v3 = []
+        for wavelength in MASTER_GRID:
+            if wavelength <= 620:
+                nir_gate_v3.append(0.0)
+            elif wavelength < 760:
+                nir_gate_v3.append(smoothstep01((wavelength - 620.0) / 140.0))
+            elif wavelength <= 950:
+                nir_gate_v3.append(1.0)
+            elif wavelength < 1100:
+                nir_gate_v3.append(1.0 - smoothstep01((wavelength - 950.0) / 150.0))
+            else:
+                nir_gate_v3.append(0.0)
+        raw_curves_v3["nir"] = normalize_unit_peak([value * gate for value, gate in zip(balluff_curve, nir_gate_v3)])
+
+        rgb_optics_v3 = clamp_list(
+            interpolate(
+                [
+                    (350, 0.01),
+                    (380, 0.04),
+                    (430, 0.90),
+                    (500, 0.96),
+                    (670, 0.95),
+                    (700, 0.84),
+                    (760, 0.28),
+                    (820, 0.06),
+                    (900, 0.02),
+                    (1100, 0.0),
+                    (1700, 0.0),
+                ],
+                MASTER_GRID,
+            )
+        )
+        nir_optics_v3 = clamp_list(
+            interpolate(
+                [
+                    (350, 0.0),
+                    (620, 0.0),
+                    (680, 0.08),
+                    (720, 0.34),
+                    (780, 0.88),
+                    (850, 0.92),
+                    (950, 0.90),
+                    (1050, 0.48),
+                    (1100, 0.0),
+                    (1700, 0.0),
+                ],
+                MASTER_GRID,
+            )
+        )
+        write_npz(spectra_dir / "cam_ref_rgbnir_v3_rgb_optics_transmittance.npz", {"wavelength_nm": MASTER_GRID, "values": rgb_optics_v3})
+        write_npz(spectra_dir / "cam_ref_rgbnir_v3_nir_optics_transmittance.npz", {"wavelength_nm": MASTER_GRID, "values": nir_optics_v3})
+
+        optics_by_channel_v3 = {"r": rgb_optics_v3, "g": rgb_optics_v3, "b": rgb_optics_v3, "nir": nir_optics_v3}
+        effective_curves_v3 = {
+            channel: normalize_unit_peak([sample * transmission for sample, transmission in zip(raw_curves_v3[channel], optics_by_channel_v3[channel])])
+            for channel in CAMERA_CHANNELS
+        }
+        for channel in CAMERA_CHANNELS:
+            write_npz(spectra_dir / f"cam_ref_rgbnir_v3_{channel}_raw_srf.npz", {"wavelength_nm": MASTER_GRID, "values": raw_curves_v3[channel]})
+            write_npz(spectra_dir / f"cam_ref_rgbnir_v3_{channel}_effective_srf.npz", {"wavelength_nm": MASTER_GRID, "values": effective_curves_v3[channel]})
+
+        v3_source_ids = [
+            "onsemi_mt9m034_pdf",
+            "balluff_imx900_emva_report_pdf",
+            "basler_color_emva_knowledge",
+            "sony_imx900_product_page",
+            "sony_isx016_pdf",
+            "emva_1288_standard_pdf",
+        ]
+        profile_v3 = {
+            "id": "camera_reference_rgb_nir_v3",
+            "profile_family": "generic_reference",
+            "response_model": "derived_raw_optics",
+            "sensor_branch": "rgb_nir",
+            "wavelength_grid_ref": "grid_master_350_1700_1nm",
+            "raw_channel_srf_refs": {channel: spectral_curve_ref(f"cam_ref_rgbnir_v3_{channel}_raw_srf") for channel in CAMERA_CHANNELS},
+            "channel_optics_transmittance_refs": {
+                "r": spectral_curve_ref("cam_ref_rgbnir_v3_rgb_optics_transmittance"),
+                "g": spectral_curve_ref("cam_ref_rgbnir_v3_rgb_optics_transmittance"),
+                "b": spectral_curve_ref("cam_ref_rgbnir_v3_rgb_optics_transmittance"),
+                "nir": spectral_curve_ref("cam_ref_rgbnir_v3_nir_optics_transmittance"),
+            },
+            "reference_curve_refs": {
+                "color_r_qe_reference": spectral_curve_ref("src_onsemi_mt9m034_color_r_qe_reference"),
+                "color_g_qe_reference": spectral_curve_ref("src_onsemi_mt9m034_color_g_qe_reference"),
+                "color_b_qe_reference": spectral_curve_ref("src_onsemi_mt9m034_color_b_qe_reference"),
+                "mono_qe_reference": spectral_curve_ref("src_balluff_imx900_mono_qe_reference"),
+            },
+            "effective_channel_srf_refs": {channel: spectral_curve_ref(f"cam_ref_rgbnir_v3_{channel}_effective_srf") for channel in CAMERA_CHANNELS},
+            "active_channel_srf_refs": {channel: spectral_curve_ref(f"cam_ref_rgbnir_v3_{channel}_effective_srf") for channel in CAMERA_CHANNELS},
+            "derivation_method": {
+                "type": "public_doc_curve_fit",
+                "note": "MT9M034 color donor curves multiplied by a Balluff IMX900 mono-QE envelope, then filtered through generic RGB IR-cut and NIR-pass optics.",
+            },
+            "replaces_profile_id": "camera_reference_rgb_nir_v2",
+            "normalization": {"method": "unit_peak_per_channel_after_optics"},
+            "operating_temperature_c": 25.0,
+            "source_quality": "vendor_derived",
+            "source_ids": v3_source_ids,
+            "license": {
+                "spdx": "LicenseRef-VendorDerived",
+                "redistribution": "Derived camera-profile metadata and curves from public official sensor documentation and tracked project curve fitting.",
+            },
+            "provenance": {
+                "generated_at": GENERATED_AT,
+                "generated_by": "scripts/build_asset_pack.py",
+                "source_ids": v3_source_ids,
+                "note": "Generic RGB+NIR automotive camera profile derived from public MT9M034 color donors, a public Balluff IMX900 mono envelope, and generic optics assumptions; not a measured single-SKU SRF.",
+            },
+        }
+        profiles.append(profile_v3)
+        active_camera_profile_id = "camera_reference_rgb_nir_v3"
+        activation_reason = "No frozen measured automotive sensor SRF source is available, so camera_reference_rgb_nir_v3 is active."
 
     measured_capture = load_measured_automotive_sensor_capture()
     if measured_capture is not None:
@@ -3308,7 +3700,7 @@ def write_camera_profiles() -> Tuple[List[Dict], str, str]:
     return profiles, active_camera_profile_id, activation_reason
 
 
-def generate_standard_spectra(signal_curves: Dict[str, Dict]) -> Tuple[Dict[str, List[float]], str]:
+def generate_standard_spectra(signal_curves: Dict[str, Dict]) -> Tuple[Dict[str, List[float]], str, Dict[str, str], Dict]:
     cie = interpolate(load_cie_d65(), MASTER_GRID)
     astm = load_astm_g173()
     global_tilt = interpolate(astm["global_tilt"], MASTER_GRID)
@@ -3318,19 +3710,42 @@ def generate_standard_spectra(signal_curves: Dict[str, Dict]) -> Tuple[Dict[str,
     write_npz(REPO_ROOT / "canonical" / "spectra" / "illuminant_am1_5_global_tilt.npz", {"wavelength_nm": MASTER_GRID, "values": global_tilt})
     write_npz(REPO_ROOT / "canonical" / "spectra" / "illuminant_am1_5_direct.npz", {"wavelength_nm": MASTER_GRID, "values": direct})
     write_npz(REPO_ROOT / "canonical" / "spectra" / "illuminant_am0_extraterrestrial.npz", {"wavelength_nm": MASTER_GRID, "values": extraterrestrial})
+    public_priors = build_public_night_emitter_priors()
     headlamp_curve = None
     headlamp_label = None
+    streetlight_curve = None
+    urban_night_component_summary = {
+        "signal_red": "active",
+        "signal_yellow": "active",
+        "signal_green": "active",
+        "headlamp_led_lowbeam": "inactive",
+        "headlamp_halogen_lowbeam": "reference_only" if "headlamp_halogen_lowbeam" in public_priors["curves"] else "inactive",
+        "streetlight_led_4000k": "inactive",
+    }
     if "headlamp_led_lowbeam" in signal_curves:
         headlamp_curve = signal_curves["headlamp_led_lowbeam"]["values"]
         headlamp_label = "measured headlamp LED lowbeam"
+        urban_night_component_summary["headlamp_led_lowbeam"] = "measured_active"
     elif "headlamp_halogen_lowbeam" in signal_curves:
         headlamp_curve = signal_curves["headlamp_halogen_lowbeam"]["values"]
         headlamp_label = "measured headlamp halogen lowbeam"
-    streetlight_curve = signal_curves.get("streetlight_led_4000k", {}).get("values")
+        urban_night_component_summary["headlamp_halogen_lowbeam"] = "measured_active"
+    elif "headlamp_led_lowbeam" in public_priors["curves"]:
+        headlamp_curve = public_priors["curves"]["headlamp_led_lowbeam"]["values"]
+        headlamp_label = f"public {public_priors.get('headlamp_led_column', 'LED headlamp')} prior"
+        urban_night_component_summary["headlamp_led_lowbeam"] = "public_active"
+
+    if "streetlight_led_4000k" in signal_curves:
+        streetlight_curve = signal_curves["streetlight_led_4000k"]["values"]
+        urban_night_component_summary["streetlight_led_4000k"] = "measured_active"
+    elif "streetlight_led_4000k" in public_priors["curves"]:
+        streetlight_curve = public_priors["curves"]["streetlight_led_4000k"]["values"]
+        urban_night_component_summary["streetlight_led_4000k"] = "public_active"
+
     if headlamp_curve is not None or streetlight_curve is not None:
         if headlamp_curve is None:
             headlamp_curve = [0.0 for _ in MASTER_GRID]
-            headlamp_label = "no measured headlamp curve"
+            headlamp_label = "no active headlamp curve"
         if streetlight_curve is None:
             streetlight_curve = [0.0 for _ in MASTER_GRID]
         urban_night = [
@@ -3343,7 +3758,10 @@ def generate_standard_spectra(signal_curves: Dict[str, Dict]) -> Tuple[Dict[str,
                 streetlight_curve,
             )
         ]
-        urban_night_reason = f"Urban night illuminant uses active signal curves plus {headlamp_label} and measured streetlight/headlamp data when available."
+        if urban_night_component_summary["headlamp_led_lowbeam"] == "public_active" or urban_night_component_summary["streetlight_led_4000k"] == "public_active":
+            urban_night_reason = f"Urban night illuminant uses active signal curves plus {headlamp_label} and public headlamp/streetlight priors because no measured headlamp/streetlight source is active."
+        else:
+            urban_night_reason = f"Urban night illuminant uses active signal curves plus {headlamp_label} and measured streetlight/headlamp data when available."
     else:
         urban_night = [
             red * 0.38 + yellow * 0.22 + green * 0.12 + 0.15
@@ -3357,6 +3775,15 @@ def generate_standard_spectra(signal_curves: Dict[str, Dict]) -> Tuple[Dict[str,
     wet_dusk = [d65 * 0.36 + am * 0.24 for d65, am in zip(cie, global_tilt)]
     write_npz(REPO_ROOT / "canonical" / "spectra" / "illuminant_urban_night_mix.npz", {"wavelength_nm": MASTER_GRID, "values": urban_night})
     write_npz(REPO_ROOT / "canonical" / "spectra" / "illuminant_wet_dusk_mix.npz", {"wavelength_nm": MASTER_GRID, "values": wet_dusk})
+    public_data_upgrade_summary = {
+        "camera_v3_active": False,
+        "public_headlamp_prior_active": urban_night_component_summary["headlamp_led_lowbeam"] == "public_active",
+        "public_streetlight_prior_active": urban_night_component_summary["streetlight_led_4000k"] == "public_active",
+        "measured_backlog_status_unchanged": True,
+        "cie_led_headlamp_donor_column": public_priors.get("headlamp_led_column"),
+        "cie_led_streetlight_donor_column": public_priors.get("streetlight_led_column"),
+        "deferred_items": ["retroreflective_sheeting_brdf", "wet_road_spectral_brdf"],
+    }
     return {
         "illuminant_d65": cie,
         "illuminant_am1_5_global_tilt": global_tilt,
@@ -3364,7 +3791,7 @@ def generate_standard_spectra(signal_curves: Dict[str, Dict]) -> Tuple[Dict[str,
         "illuminant_am0_extraterrestrial": extraterrestrial,
         "illuminant_urban_night_mix": urban_night,
         "illuminant_wet_dusk_mix": wet_dusk,
-    }, urban_night_reason
+    }, urban_night_reason, urban_night_component_summary, public_data_upgrade_summary
 
 
 def sign_definitions() -> List[Dict]:
@@ -3720,6 +4147,13 @@ def write_emissive_profiles(signal_curves: Dict[str, Dict], signal_profile_meta:
             "provenance": {"generated_at": GENERATED_AT, "generated_by": "scripts/build_asset_pack.py", "source_ids": [], "note": "Proxy pedestrian countdown SPD."},
         },
     ]
+    optional_reference_curve_refs = signal_profile_meta.get("reference_curve_refs")
+    optional_derivation_method = signal_profile_meta.get("derivation_method")
+    for profile in profiles[:2]:
+        if isinstance(optional_reference_curve_refs, dict) and optional_reference_curve_refs:
+            profile["reference_curve_refs"] = optional_reference_curve_refs
+        if isinstance(optional_derivation_method, dict) and optional_derivation_method:
+            profile["derivation_method"] = optional_derivation_method
     for profile in profiles:
         write_json(REPO_ROOT / "canonical" / "emissive" / f"{profile['id']}.emissive_profile.json", profile)
     return profiles
@@ -3969,6 +4403,21 @@ def validate_emissive(profile: Dict, known_source_ids: Sequence[str]) -> List[st
         for curve_id in mapping.values():
             if curve_id not in {Path(path).stem for path in spd_ref.values()}:
                 errors.append(f"{profile['id']}: state_map references unknown curve_id {curve_id}")
+    reference_curve_refs = profile.get("reference_curve_refs")
+    if reference_curve_refs is not None:
+        if not isinstance(reference_curve_refs, dict):
+            errors.append(f"{profile['id']}: reference_curve_refs must be an object when present")
+        else:
+            for ref_name, ref in reference_curve_refs.items():
+                if not isinstance(ref, dict):
+                    errors.append(f"{profile['id']}: reference_curve_refs entry {ref_name} must be an object")
+                    continue
+                path = REPO_ROOT / ref.get("path", "")
+                if not path.exists():
+                    errors.append(f"{profile['id']}: missing reference_curve_refs path for {ref_name}")
+    derivation_method = profile.get("derivation_method")
+    if derivation_method is not None and not isinstance(derivation_method, dict):
+        errors.append(f"{profile['id']}: derivation_method must be an object when present")
     return errors
 
 
@@ -4059,8 +4508,8 @@ def validate_camera_profile(profile: Dict, known_source_ids: Sequence[str]) -> L
         else:
             errors.append(f"{profile_id}: missing optics_transmittance_ref or channel_optics_transmittance_refs")
 
-        if profile_id.endswith("_v2") and not isinstance(channel_optics_refs, dict):
-            errors.append(f"{profile_id}: v2 profile must use channel_optics_transmittance_refs")
+        if profile_id.endswith(("_v2", "_v3")) and not isinstance(channel_optics_refs, dict):
+            errors.append(f"{profile_id}: {profile_id.rsplit('_', 1)[-1]} profile must use channel_optics_transmittance_refs")
         if set(profile.get("raw_channel_srf_refs", {}).keys()) != set(CAMERA_CHANNELS):
             errors.append(f"{profile_id}: raw_channel_srf_refs must contain channels {', '.join(CAMERA_CHANNELS)}")
         if set(profile.get("effective_channel_srf_refs", {}).keys()) != set(CAMERA_CHANNELS):
@@ -4145,7 +4594,7 @@ def compute_scale_within_tolerance(asset: Dict) -> bool:
     return True
 
 
-def build_reports(assets: List[Dict], materials: Dict[str, Dict], emissive_profiles: List[Dict], camera_profiles: List[Dict], scenarios: List[Dict], usd_export_status: Dict[str, Dict], source_ledger: List[Dict], active_camera_profile_id: str, camera_profile_activation_reason: str, signal_emitter_activation_reason: str, urban_night_illuminant_reason: str, retroreflective_activation_reason: str, wet_road_activation_reason: str) -> Dict:
+def build_reports(assets: List[Dict], materials: Dict[str, Dict], emissive_profiles: List[Dict], camera_profiles: List[Dict], scenarios: List[Dict], usd_export_status: Dict[str, Dict], source_ledger: List[Dict], active_camera_profile_id: str, camera_profile_activation_reason: str, signal_emitter_activation_reason: str, urban_night_illuminant_reason: str, urban_night_component_summary: Dict[str, str], public_data_upgrade_summary: Dict, retroreflective_activation_reason: str, wet_road_activation_reason: str) -> Dict:
     asset_errors = []
     material_errors = []
     emissive_errors = []
@@ -4175,6 +4624,14 @@ def build_reports(assets: List[Dict], materials: Dict[str, Dict], emissive_profi
 
     for profile in camera_profiles:
         camera_profile_errors.extend(validate_camera_profile(profile, known_source_ids))
+
+    profile_by_id = {profile["id"]: profile for profile in camera_profiles}
+    if "camera_reference_rgb_nir_v2" in profile_by_id and "camera_reference_rgb_nir_v3" in profile_by_id:
+        for channel in CAMERA_CHANNELS:
+            v2_arrays = read_npz(REPO_ROOT / profile_by_id["camera_reference_rgb_nir_v2"]["effective_channel_srf_refs"][channel]["path"])
+            v3_arrays = read_npz(REPO_ROOT / profile_by_id["camera_reference_rgb_nir_v3"]["effective_channel_srf_refs"][channel]["path"])
+            if all(abs(left - right) <= 1e-12 for left, right in zip(v2_arrays["values"], v3_arrays["values"])):
+                camera_profile_errors.append(f"camera_reference_rgb_nir_v3: effective SRF for {channel} must differ from v2")
 
     for scenario in scenarios:
         scenario_errors.extend(validate_scenario(scenario))
@@ -4229,6 +4686,7 @@ def build_reports(assets: List[Dict], materials: Dict[str, Dict], emissive_profi
         "camera_profile_activation_reason": camera_profile_activation_reason,
         "signal_emitter_activation_reason": signal_emitter_activation_reason,
         "urban_night_illuminant_reason": urban_night_illuminant_reason,
+        "urban_night_component_summary": urban_night_component_summary,
         "retroreflective_activation_reason": retroreflective_activation_reason,
         "wet_road_activation_reason": wet_road_activation_reason,
         "scenario_camera_profile_refs": scenario_camera_profile_refs,
@@ -4277,6 +4735,10 @@ def build_reports(assets: List[Dict], materials: Dict[str, Dict], emissive_profi
             quality: len([profile for profile in camera_profiles if profile.get("source_quality") == quality])
             for quality in sorted(SOURCE_QUALITY_ENUM)
         },
+        "public_data_upgrade_summary": {
+            **public_data_upgrade_summary,
+            "camera_v3_active": active_camera_profile_id == "camera_reference_rgb_nir_v3",
+        },
         "release_gates": {
             "wired_asset_ratio": round(len([asset for asset in assets if asset["materials"]]) / len(assets), 3),
             "assets_with_license_and_provenance_ratio": round(assets_with_license / len(assets), 3),
@@ -4310,6 +4772,10 @@ def main() -> int:
             SIGNAL_VENDOR_SPD_SPECS["yellow"]["source_id"],
             SIGNAL_VENDOR_SPD_SPECS["green"]["source_id"],
         ],
+        "derivation_method": {
+            "type": "public_doc_curve_fit",
+            "note": "Gaussian LED fits anchored to official public ams-OSRAM traffic-signal LED datasheets.",
+        },
         "license": {
             "spdx": "LicenseRef-VendorDerived",
             "redistribution": "Derived traffic-signal SPD metadata and fitted curves from public ams-OSRAM datasheets.",
@@ -4337,7 +4803,7 @@ def main() -> int:
                 signal_emitter_activation_reason = "A frozen measured traffic-signal SPD source is available, so measured traffic-signal SPDs are active for vehicle and protected-turn profiles."
         elif has_measured_headlamp_or_streetlight:
             signal_emitter_activation_reason = "A frozen measured headlamp/streetlight SPD source is available, but the measured traffic-signal red/yellow/green trio is incomplete, so vendor-derived signal SPDs remain active."
-    standards, urban_night_illuminant_reason = generate_standard_spectra(active_signal_curves)
+    standards, urban_night_illuminant_reason, urban_night_component_summary, public_data_upgrade_summary = generate_standard_spectra(active_signal_curves)
     materials, retroreflective_activation_reason, wet_road_activation_reason = make_materials(
         standards["illuminant_d65"],
         measured_retroreflective_capture,
@@ -4361,6 +4827,8 @@ def main() -> int:
         camera_profile_activation_reason,
         signal_emitter_activation_reason,
         urban_night_illuminant_reason,
+        urban_night_component_summary,
+        public_data_upgrade_summary,
         retroreflective_activation_reason,
         wet_road_activation_reason,
     )
