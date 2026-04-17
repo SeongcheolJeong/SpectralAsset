@@ -182,6 +182,12 @@
       "variant_key": "yellow"
     },
     {
+      "id": "marking_lane_white_worn",
+      "family": "road_marking",
+      "semantic_class": "marking.lane",
+      "variant_key": "white_worn"
+    },
+    {
       "id": "marking_stop_line",
       "family": "road_marking",
       "semantic_class": "marking.stop_line",
@@ -192,6 +198,30 @@
       "family": "road_marking",
       "semantic_class": "marking.crosswalk",
       "variant_key": "ladder"
+    },
+    {
+      "id": "marking_edge_line_white",
+      "family": "road_marking",
+      "semantic_class": "marking.edge_line",
+      "variant_key": "solid_white"
+    },
+    {
+      "id": "marking_arrow_straight_white",
+      "family": "road_marking",
+      "semantic_class": "marking.directional_arrow",
+      "variant_key": "straight_white"
+    },
+    {
+      "id": "marking_arrow_turn_left_white",
+      "family": "road_marking",
+      "semantic_class": "marking.directional_arrow",
+      "variant_key": "turn_left_white"
+    },
+    {
+      "id": "marking_chevron_gore_white",
+      "family": "road_marking",
+      "semantic_class": "marking.chevron",
+      "variant_key": "gore_white"
     },
     {
       "id": "furniture_sign_pole",

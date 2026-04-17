@@ -27,6 +27,20 @@ def Xform "scene_wet_road_braking" {
         float xformOp:rotateY = 0.000000
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
     }
+    def Xform "edge_line_0" (
+        references = @../geometry/usd/marking_edge_line_white.usda@</marking_edge_line_white>
+    ) {
+        double3 xformOp:translate = (-1.500000, 0.030000, -0.100000)
+        float xformOp:rotateY = 0.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
+    def Xform "arrow_0" (
+        references = @../geometry/usd/marking_arrow_straight_white.usda@</marking_arrow_straight_white>
+    ) {
+        double3 xformOp:translate = (0.850000, 0.030000, -0.250000)
+        float xformOp:rotateY = 0.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
     def Xform "signal_0" (
         references = @../geometry/usd/signal_vehicle_vertical_3_aspect.usda@</signal_vehicle_vertical_3_aspect>
     ) {

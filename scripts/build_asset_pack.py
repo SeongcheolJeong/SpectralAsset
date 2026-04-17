@@ -2869,13 +2869,22 @@ def road_asset_parts(asset_id: str, dimensions: Tuple[float, float, float]) -> D
         "road_sidewalk_panel": "mat_concrete",
         "marking_lane_white": "mat_marking_white",
         "marking_lane_yellow": "mat_marking_yellow",
+        "marking_lane_white_worn": "mat_marking_white",
         "marking_stop_line": "mat_marking_white",
         "marking_crosswalk": "mat_marking_white",
+        "marking_edge_line_white": "mat_marking_white",
+        "marking_arrow_straight_white": "mat_marking_white",
+        "marking_arrow_turn_left_white": "mat_marking_white",
+        "marking_chevron_gore_white": "mat_marking_white",
         "furniture_sign_pole": "mat_metal_galvanized",
         "furniture_signal_pole": "mat_metal_galvanized",
         "furniture_guardrail_bollard_set": "mat_metal_galvanized",
         "furniture_guardrail_segment": "mat_metal_galvanized",
     }
+    def oriented_box_part(name: str, part_width: float, part_height: float, part_depth: float, center: Tuple[float, float, float], material_id: str, rotate_y_deg: float = 0.0) -> Dict:
+        base = make_mesh_part(name, box_triangles(part_width, part_height, part_depth, (0.0, 0.0, 0.0)), material_id)
+        return combine_with_transform([base], center, rotate_y_deg)[0]
+
     if asset_id == "furniture_sign_pole":
         return {
             "LOD0": [make_mesh_part("pole", cylinder_triangles(0.03, 3.2, 18, (0.0, 1.6, 0.0)), "mat_metal_galvanized")],
@@ -3005,6 +3014,61 @@ def road_asset_parts(asset_id: str, dimensions: Tuple[float, float, float]) -> D
             box = box_triangles(0.32, 0.005, 2.0, (x, 0.0025, 0.0))
             lod0.append(make_mesh_part(f"stripe_{index}", box, "mat_marking_white"))
             lod1.append(make_mesh_part(f"stripe_{index}", box, "mat_marking_white"))
+        return {"LOD0": lod0, "LOD1": lod1}
+    if asset_id == "marking_lane_white_worn":
+        lod0 = []
+        lod1 = []
+        segment_specs = [
+            (-0.74, 0.36, 0.16),
+            (-0.22, 0.22, 0.14),
+            (0.24, 0.42, 0.15),
+            (0.78, 0.28, 0.13),
+            (1.12, 0.16, 0.12),
+        ]
+        for index, (z_center, segment_depth, segment_width) in enumerate(segment_specs):
+            lod0.append(oriented_box_part(f"segment_{index}", segment_width, 0.005, segment_depth, (0.01 if index % 2 == 0 else -0.015, 0.0025, z_center), "mat_marking_white"))
+            lod1.append(oriented_box_part(f"segment_{index}", segment_width, 0.005, max(0.12, segment_depth - 0.06), (0.0, 0.0025, z_center), "mat_marking_white"))
+        return {"LOD0": lod0, "LOD1": lod1}
+    if asset_id == "marking_edge_line_white":
+        return {
+            "LOD0": [make_mesh_part("edge_line", box_triangles(0.18, 0.005, 3.2, (0.0, 0.0025, 0.0)), "mat_marking_white")],
+            "LOD1": [make_mesh_part("edge_line", box_triangles(0.18, 0.005, 3.2, (0.0, 0.0025, 0.0)), "mat_marking_white")],
+        }
+    if asset_id == "marking_arrow_straight_white":
+        lod0 = [
+            oriented_box_part("shaft", 0.18, 0.005, 1.5, (0.0, 0.0025, -0.18), "mat_marking_white"),
+            oriented_box_part("head_cap", 0.46, 0.005, 0.18, (0.0, 0.0025, 0.78), "mat_marking_white"),
+            oriented_box_part("head_left", 0.12, 0.005, 0.72, (-0.2, 0.0025, 0.88), "mat_marking_white", 38.0),
+            oriented_box_part("head_right", 0.12, 0.005, 0.72, (0.2, 0.0025, 0.88), "mat_marking_white", -38.0),
+        ]
+        lod1 = [
+            oriented_box_part("shaft", 0.18, 0.005, 1.5, (0.0, 0.0025, -0.18), "mat_marking_white"),
+            oriented_box_part("head_left", 0.12, 0.005, 0.72, (-0.2, 0.0025, 0.88), "mat_marking_white", 38.0),
+            oriented_box_part("head_right", 0.12, 0.005, 0.72, (0.2, 0.0025, 0.88), "mat_marking_white", -38.0),
+        ]
+        return {"LOD0": lod0, "LOD1": lod1}
+    if asset_id == "marking_arrow_turn_left_white":
+        lod0 = [
+            oriented_box_part("shaft", 0.18, 0.005, 1.25, (0.0, 0.0025, -0.25), "mat_marking_white"),
+            oriented_box_part("arm", 1.0, 0.005, 0.18, (-0.38, 0.0025, 0.3), "mat_marking_white"),
+            oriented_box_part("head_upper", 0.12, 0.005, 0.56, (-0.86, 0.0025, 0.54), "mat_marking_white", 48.0),
+            oriented_box_part("head_lower", 0.12, 0.005, 0.56, (-0.86, 0.0025, 0.06), "mat_marking_white", -48.0),
+        ]
+        lod1 = [
+            oriented_box_part("shaft", 0.18, 0.005, 1.25, (0.0, 0.0025, -0.25), "mat_marking_white"),
+            oriented_box_part("arm", 1.0, 0.005, 0.18, (-0.38, 0.0025, 0.3), "mat_marking_white"),
+            oriented_box_part("head_upper", 0.12, 0.005, 0.56, (-0.86, 0.0025, 0.54), "mat_marking_white", 48.0),
+            oriented_box_part("head_lower", 0.12, 0.005, 0.56, (-0.86, 0.0025, 0.06), "mat_marking_white", -48.0),
+        ]
+        return {"LOD0": lod0, "LOD1": lod1}
+    if asset_id == "marking_chevron_gore_white":
+        lod0 = []
+        lod1 = []
+        chevron_centers = [(-0.48, -0.5), (0.48, -0.5), (-0.48, 0.48), (0.48, 0.48)]
+        chevron_rotations = [35.0, -35.0, 35.0, -35.0]
+        for index, ((x_center, z_center), rotation) in enumerate(zip(chevron_centers, chevron_rotations)):
+            lod0.append(oriented_box_part(f"chevron_{index}", 0.16, 0.005, 1.0, (x_center, 0.0025, z_center), "mat_marking_white", rotation))
+            lod1.append(oriented_box_part(f"chevron_{index}", 0.16, 0.005, 1.0, (x_center, 0.0025, z_center), "mat_marking_white", rotation))
         return {"LOD0": lod0, "LOD1": lod1}
     center = (0.0, height / 2.0, 0.0)
     material_id = material_map[asset_id]
@@ -3997,8 +4061,13 @@ def road_definitions() -> List[Dict]:
         {"id": "road_sidewalk_panel", "family": "road_surface", "semantic_class": "road.sidewalk", "variant_key": "default", "dimensions": (2.4, 0.06, 2.4)},
         {"id": "marking_lane_white", "family": "road_marking", "semantic_class": "marking.lane", "variant_key": "white", "dimensions": (0.16, 0.005, 2.0)},
         {"id": "marking_lane_yellow", "family": "road_marking", "semantic_class": "marking.lane", "variant_key": "yellow", "dimensions": (0.16, 0.005, 2.0)},
+        {"id": "marking_lane_white_worn", "family": "road_marking", "semantic_class": "marking.lane", "variant_key": "white_worn", "dimensions": (0.16, 0.005, 2.0)},
         {"id": "marking_stop_line", "family": "road_marking", "semantic_class": "marking.stop_line", "variant_key": "white", "dimensions": (3.0, 0.005, 0.3)},
         {"id": "marking_crosswalk", "family": "road_marking", "semantic_class": "marking.crosswalk", "variant_key": "ladder", "dimensions": (3.0, 0.005, 2.0)},
+        {"id": "marking_edge_line_white", "family": "road_marking", "semantic_class": "marking.edge_line", "variant_key": "solid_white", "dimensions": (0.18, 0.005, 3.2)},
+        {"id": "marking_arrow_straight_white", "family": "road_marking", "semantic_class": "marking.directional_arrow", "variant_key": "straight_white", "dimensions": (0.9, 0.005, 2.1)},
+        {"id": "marking_arrow_turn_left_white", "family": "road_marking", "semantic_class": "marking.directional_arrow", "variant_key": "turn_left_white", "dimensions": (1.4, 0.005, 1.8)},
+        {"id": "marking_chevron_gore_white", "family": "road_marking", "semantic_class": "marking.chevron", "variant_key": "gore_white", "dimensions": (2.4, 0.005, 2.2)},
         {"id": "furniture_sign_pole", "family": "road_furniture", "semantic_class": "furniture.sign_pole", "variant_key": "default", "dimensions": (0.06, 3.2, 0.06)},
         {"id": "furniture_signal_pole", "family": "road_furniture", "semantic_class": "furniture.signal_pole", "variant_key": "mast_arm", "dimensions": (4.0, 5.0, 0.16)},
         {"id": "furniture_guardrail_bollard_set", "family": "road_furniture", "semantic_class": "furniture.guardrail_bollard", "variant_key": "default", "dimensions": (3.5, 0.85, 0.18)},
@@ -4346,8 +4415,10 @@ def scene_definitions() -> List[Dict]:
             "scenario_profile": "scenario_clear_noon",
             "placements": [
                 {"asset_id": "road_asphalt_dry", "name": "road_0", "translate": (0.0, 0.0, 0.0), "rotate_y": 0.0},
+                {"asset_id": "marking_edge_line_white", "name": "edge_line_0", "translate": (-1.58, 0.03, 0.0), "rotate_y": 0.0},
                 {"asset_id": "marking_lane_white", "name": "lane_0", "translate": (-0.9, 0.03, 0.0), "rotate_y": 0.0},
                 {"asset_id": "marking_lane_white", "name": "lane_1", "translate": (0.9, 0.03, 0.0), "rotate_y": 0.0},
+                {"asset_id": "marking_lane_white_worn", "name": "lane_worn_0", "translate": (0.0, 0.03, 0.2), "rotate_y": 0.0},
                 {"asset_id": "furniture_guardrail_segment", "name": "guardrail_0", "translate": (1.9, 0.0, 1.6), "rotate_y": 0.0},
                 {"asset_id": "sign_stop", "name": "sign_stop_0", "translate": (-1.8, 0.0, -1.0), "rotate_y": 0.0},
                 {"asset_id": "sign_speed_limit_50", "name": "sign_speed_0", "translate": (-1.8, 0.0, 0.4), "rotate_y": 0.0},
@@ -4364,6 +4435,9 @@ def scene_definitions() -> List[Dict]:
                 {"asset_id": "road_asphalt_dry", "name": "road_cross", "translate": (0.0, 0.0, 0.0), "rotate_y": 90.0},
                 {"asset_id": "marking_crosswalk", "name": "crosswalk_0", "translate": (0.0, 0.03, -1.1), "rotate_y": 90.0},
                 {"asset_id": "marking_stop_line", "name": "stopline_0", "translate": (0.0, 0.03, -1.7), "rotate_y": 0.0},
+                {"asset_id": "marking_arrow_straight_white", "name": "arrow_straight_0", "translate": (-0.85, 0.03, 0.75), "rotate_y": 0.0},
+                {"asset_id": "marking_arrow_turn_left_white", "name": "arrow_left_0", "translate": (0.9, 0.03, 0.6), "rotate_y": 0.0},
+                {"asset_id": "marking_chevron_gore_white", "name": "chevron_0", "translate": (1.7, 0.03, 1.0), "rotate_y": 45.0},
                 {"asset_id": "furniture_signal_pole", "name": "pole_0", "translate": (-2.0, 0.0, -2.0), "rotate_y": 0.0},
                 {"asset_id": "furniture_delineator_post", "name": "delineator_0", "translate": (-1.2, 0.0, -1.35), "rotate_y": 0.0},
                 {"asset_id": "furniture_barricade_panel", "name": "barricade_0", "translate": (2.25, 0.0, 1.65), "rotate_y": 90.0},
@@ -4380,7 +4454,8 @@ def scene_definitions() -> List[Dict]:
                 {"asset_id": "sign_stop", "name": "sign_stop_0", "translate": (-1.8, 0.0, -0.8), "rotate_y": 0.0},
                 {"asset_id": "sign_merge", "name": "sign_merge_0", "translate": (-1.8, 0.0, 0.8), "rotate_y": 0.0},
                 {"asset_id": "sign_variable_message", "name": "vms_0", "translate": (1.5, 0.0, 0.0), "rotate_y": 180.0},
-                {"asset_id": "marking_lane_white", "name": "lane_0", "translate": (0.0, 0.03, 0.0), "rotate_y": 0.0},
+                {"asset_id": "marking_lane_white_worn", "name": "lane_0", "translate": (0.0, 0.03, 0.0), "rotate_y": 0.0},
+                {"asset_id": "marking_edge_line_white", "name": "edge_line_0", "translate": (1.55, 0.03, 0.0), "rotate_y": 0.0},
                 {"asset_id": "furniture_bollard_flexible", "name": "bollard_0", "translate": (1.25, 0.0, 1.05), "rotate_y": 0.0},
                 {"asset_id": "furniture_delineator_post", "name": "delineator_0", "translate": (-1.15, 0.0, 1.35), "rotate_y": 0.0},
                 {"asset_id": "signal_vehicle_vertical_3_aspect", "name": "signal_0", "translate": (1.8, 0.0, -1.2), "rotate_y": 180.0},
@@ -4393,6 +4468,8 @@ def scene_definitions() -> List[Dict]:
                 {"asset_id": "road_asphalt_wet", "name": "road_0", "translate": (0.0, 0.0, 0.0), "rotate_y": 0.0},
                 {"asset_id": "marking_crosswalk", "name": "crosswalk_0", "translate": (0.0, 0.03, 0.8), "rotate_y": 90.0},
                 {"asset_id": "marking_stop_line", "name": "stopline_0", "translate": (0.0, 0.03, 0.2), "rotate_y": 0.0},
+                {"asset_id": "marking_edge_line_white", "name": "edge_line_0", "translate": (-1.5, 0.03, -0.1), "rotate_y": 0.0},
+                {"asset_id": "marking_arrow_straight_white", "name": "arrow_0", "translate": (0.85, 0.03, -0.25), "rotate_y": 0.0},
                 {"asset_id": "signal_vehicle_vertical_3_aspect", "name": "signal_0", "translate": (-1.6, 0.0, -0.8), "rotate_y": 0.0},
                 {"asset_id": "furniture_traffic_cone", "name": "cone_0", "translate": (0.92, 0.0, -0.55), "rotate_y": 0.0},
                 {"asset_id": "furniture_water_barrier", "name": "barrier_0", "translate": (-1.9, 0.0, 1.35), "rotate_y": 90.0},

@@ -2,13 +2,13 @@
 
 ## Summary
 
-The current generated baseline now exceeds the original `v1.0` count target through the first `P3` coverage-expansion batch:
+The current generated baseline now exceeds the original `v1.0` count target through the first two `P3` coverage-expansion batches:
 
 - `18` traffic signs
 - `5` traffic lights
-- `18` roadway and roadside assets split as `4` road surfaces, `4` road markings, and `10` road-furniture assets
+- `23` roadway and roadside assets split as `4` road surfaces, `9` road markings, and `10` road-furniture assets
 
-The remaining gaps are now mostly about road-marking breadth, support geometry, assembly depth, and measurement quality rather than headline asset count.
+The remaining gaps are now mostly about traffic-light support geometry, sign assembly depth, road-surface variety, and measurement quality rather than headline asset count.
 
 ## Coverage Snapshot by Family
 
@@ -17,7 +17,7 @@ The remaining gaps are now mostly about road-marking breadth, support geometry, 
 | `traffic_sign` | `18` | `18` | met | broad baseline coverage across regulatory, warning, and information signs | sign-back variants, mounting assemblies, weathering levels, locale/text variants, measured retroreflective behavior | `P3` for geometry/template depth, `P5` for measured sheeting |
 | `traffic_light` | `5` | `5` | met | core signal-head catalog exists | backplates, mast-arm context, cabinet/support variants, beacon-style units, measured emitter spectra | `P3` for support geometry, `P5` for measured SPD |
 | `road_surface` | `4` | part of `12` roadway assets | met | baseline paved urban surfaces are present | patched asphalt, distressed concrete, gravel or shoulder transitions, stronger state variation beyond dry/wet asphalt | `P3` when scenario breadth expands |
-| `road_marking` | `4` | part of `12` roadway assets | met | baseline lane and stop geometry is present | arrows, chevrons, merge/gore markings, edge lines, worn variants, raised markers, measured retroreflective response | `P3` for geometry breadth, `P5` for measured optics |
+| `road_marking` | `9` | part of the expanded post-`v1.0` roadway catalog | expanded | directional arrows, edge lines, chevrons, and one worn lane variant now exist alongside the baseline lane and stop geometry | merge markings, yellow edge variants, worn stop/crosswalk variants, raised markers, measured retroreflective response | `P3` follow-up breadth, `P5` for measured optics |
 | `road_furniture` | `10` | part of the expanded post-`v1.0` roadway catalog | expanded | first expansion batch now separates guardrail, bollards, delineators, cones, barriers, and barricades into standalone assets | utility poles, cabinet/support hardware, sign/signal attachment hardware, and more assembly-specific variants | `P3` follow-up expansion after markings and signal support geometry |
 
 ## Key Findings
@@ -25,17 +25,17 @@ The remaining gaps are now mostly about road-marking breadth, support geometry, 
 - `traffic_sign` meets the target count and covers the intended Vienna-core starter set, but it is still shallow in assembly detail and aging variation.
 - `traffic_light` has the right prefab count, yet most road-intersection context is still implied rather than modeled.
 - `road_surface` supports the current four scenarios, but it will become thin quickly if construction, rural, or damaged-road scenes are added.
-- `road_marking` is adequate for lane-following and stop-line scenes, but it lacks the directional and worn variants needed for denser intersection layouts.
+- `road_marking` is no longer minimal: the generator now ships directional arrows, edge lines, chevrons, and a worn lane variant that make the intersection scenes less schematic.
 - `road_furniture` is no longer the thinnest family because the first expansion batch split multiple roadside objects into standalone assets.
-- `road_marking` is now the most obvious next expansion target because the family still lacks directional, edge-line, and worn-state variants.
-- `traffic_light` remains shallow in support context because poles exist, but backplates, cabinets, and mast-arm-specific hardware are still missing.
+- `traffic_light` is now the most obvious next expansion target because poles exist, but backplates, cabinets, and mast-arm-specific hardware are still missing.
+- `traffic_sign` remains broad by count but shallow by assembly depth because sign backs, brackets, and mounting-hardware variants are still absent.
 
 ## Priority Queue for Next Asset-Coverage Work
 
-1. Expand `road_marking` next with directional arrows, chevrons, edge lines, and worn variants.
-2. Add `traffic_light` support geometry such as mast arms, backplates, cabinets, and intersection hardware.
-3. Add `traffic_sign` assembly depth such as backs, brackets, and localized text/font variants.
-4. Add `road_surface` distress and transition variants when scenario scope broadens beyond the current urban baseline.
+1. Add `traffic_light` support geometry such as mast arms, backplates, cabinets, and intersection hardware.
+2. Add `traffic_sign` assembly depth such as backs, brackets, and localized text/font variants.
+3. Add `road_surface` distress and transition variants when scenario scope broadens beyond the current urban baseline.
+4. Return to `road_marking` for merge markings, yellow edge variants, worn stop/crosswalk variants, and raised markers.
 5. Return to `road_furniture` for attachment hardware, utility poles, and cabinet/support-tail variants after the higher-pressure gaps above are covered.
 
 ## Phase Mapping

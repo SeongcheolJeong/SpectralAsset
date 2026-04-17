@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-04-17T13:44:55.168Z",
-  "files_checked": 45,
+  "generated_at": "2026-04-16T10:10:40.000Z",
+  "files_checked": 50,
   "files_with_errors": 0,
   "files_with_warnings": 0,
   "results": [
@@ -68,6 +68,27 @@
       "messages": []
     },
     {
+      "file": "exports/gltf/marking_arrow_straight_white.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
+      "file": "exports/gltf/marking_arrow_turn_left_white.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
+      "file": "exports/gltf/marking_chevron_gore_white.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
       "file": "exports/gltf/marking_crosswalk.glb",
       "numErrors": 0,
       "numWarnings": 0,
@@ -75,7 +96,21 @@
       "messages": []
     },
     {
+      "file": "exports/gltf/marking_edge_line_white.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
       "file": "exports/gltf/marking_lane_white.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
+      "file": "exports/gltf/marking_lane_white_worn.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
