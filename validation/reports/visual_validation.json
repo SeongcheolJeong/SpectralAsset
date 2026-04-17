@@ -19,7 +19,19 @@
       "30m": "pass",
       "60m": "pass"
     },
+    "sign_yield_weathered_heavy": {
+      "5m": "pass",
+      "15m": "pass",
+      "30m": "pass",
+      "60m": "pass"
+    },
     "sign_no_entry": {
+      "5m": "pass",
+      "15m": "pass",
+      "30m": "pass",
+      "60m": "pass"
+    },
+    "sign_no_entry_weathered_heavy": {
       "5m": "pass",
       "15m": "pass",
       "30m": "pass",
@@ -49,6 +61,12 @@
       "30m": "pass",
       "60m": "pass"
     },
+    "sign_roundabout_mandatory": {
+      "5m": "pass",
+      "15m": "pass",
+      "30m": "pass",
+      "60m": "pass"
+    },
     "sign_pedestrian_crossing": {
       "5m": "pass",
       "15m": "pass",
@@ -73,6 +91,12 @@
       "30m": "pass",
       "60m": "pass"
     },
+    "sign_stop_ahead_text": {
+      "5m": "pass",
+      "15m": "pass",
+      "30m": "pass",
+      "60m": "pass"
+    },
     "sign_merge": {
       "5m": "pass",
       "15m": "pass",
@@ -91,6 +115,12 @@
       "30m": "pass",
       "60m": "pass"
     },
+    "sign_construction_weathered_heavy": {
+      "5m": "pass",
+      "15m": "pass",
+      "30m": "pass",
+      "60m": "pass"
+    },
     "sign_parking": {
       "5m": "pass",
       "15m": "pass",
@@ -98,6 +128,12 @@
       "60m": "pass"
     },
     "sign_bus_stop": {
+      "5m": "pass",
+      "15m": "pass",
+      "30m": "pass",
+      "60m": "pass"
+    },
+    "sign_priority_road": {
       "5m": "pass",
       "15m": "pass",
       "30m": "pass",
@@ -133,6 +169,12 @@
       "30m": "pass",
       "60m": "pass"
     },
+    "sign_detour_right_text": {
+      "5m": "pass",
+      "15m": "pass",
+      "30m": "pass",
+      "60m": "pass"
+    },
     "sign_railroad_warning": {
       "5m": "pass",
       "15m": "pass",
@@ -162,7 +204,17 @@
       "15m": "pass",
       "30m": "pass"
     },
+    "sign_yield_weathered_heavy": {
+      "5m": "pass",
+      "15m": "pass",
+      "30m": "pass"
+    },
     "sign_no_entry": {
+      "5m": "pass",
+      "15m": "pass",
+      "30m": "pass"
+    },
+    "sign_no_entry_weathered_heavy": {
       "5m": "pass",
       "15m": "pass",
       "30m": "pass"
@@ -173,16 +225,6 @@
       "30m": "pass"
     },
     "sign_speed_limit_50_weathered": {
-      "5m": "pass",
-      "15m": "pass",
-      "30m": "pass"
-    },
-    "sign_turn_restriction_left": {
-      "5m": "pass",
-      "15m": "pass",
-      "30m": "pass"
-    },
-    "sign_mandatory_direction_right": {
       "5m": "pass",
       "15m": "pass",
       "30m": "pass"

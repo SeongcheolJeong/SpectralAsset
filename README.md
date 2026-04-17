@@ -51,6 +51,7 @@ For deterministic rebuild review, the generator now preserves the previous track
 - the eleventh `P3` expansion batch now adds gravel-shoulder, asphalt-to-gravel transition, construction-plate, pothole-distress, and eroded-shoulder road-surface variants so roadway breadth extends beyond the earlier urban repair/transition set
 - the twelfth `P3` expansion batch now adds lane-control and rail-crossing signal heads plus dedicated lane-control and rail-specific emissive profiles so the traffic-light family extends beyond vehicle, pedestrian, beacon, and generic flasher heads
 - the thirteenth `P3` expansion batch now adds service-disconnect, meter-pedestal, battery-backup, pull-box, and pad-mount-transformer assets so roadside control-tail detail extends beyond the earlier pole/cabinet/junction starter set
+- the fourteenth `P3` expansion batch now adds priority-road, roundabout, stop-ahead, detour-right, and heavy-weathered sign variants plus a stronger heavy-weathering overlay material so the sign family has broader locale and weathering depth
 - selected USGS v7 dry-material baselines are used for asphalt, concrete, and galvanized metal
 - wet asphalt is currently a measured-derived material built from the measured dry asphalt baseline plus the tracked wet modifier
 - vehicle and protected-turn traffic-signal emissive profiles now use vendor-derived public LED fits

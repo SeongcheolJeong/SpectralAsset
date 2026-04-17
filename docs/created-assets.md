@@ -6,8 +6,8 @@ This file explains what the generator actually creates in this repository and ho
 
 Current generated baseline:
 
-- `102` assets
-- `22` spectral materials
+- `109` assets
+- `23` spectral materials
 - `11` emissive profiles
 - `3` camera profiles
 - `4` scenario profiles
@@ -41,9 +41,16 @@ These are sign objects such as:
 - `sign_speed_limit_50`
 - `sign_speed_limit_50_weathered`
 - `sign_pedestrian_crossing_weathered`
+- `sign_yield_weathered_heavy`
+- `sign_no_entry_weathered_heavy`
+- `sign_roundabout_mandatory`
+- `sign_stop_ahead_text`
+- `sign_construction_weathered_heavy`
+- `sign_priority_road`
 - `sign_one_way_text_left`
 - `sign_one_way_text_right`
 - `sign_detour_left_text`
+- `sign_detour_right_text`
 
 Each sign usually has:
 
@@ -52,6 +59,7 @@ Each sign usually has:
 - an asset manifest in `canonical/manifests/`
 - linked spectral materials such as `mat_sign_stop_red` and `mat_sign_white`
 - optional weathering overlays such as `mat_sign_weathered_film`
+- heavier weathering overlays such as `mat_sign_weathered_heavy_film`
 
 ### `traffic_light`
 

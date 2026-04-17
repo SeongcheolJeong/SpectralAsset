@@ -216,6 +216,46 @@
           "rotate_y": 180.0
         },
         {
+          "asset_id": "furniture_sign_back_square",
+          "name": "sign_back_square_2",
+          "translate": [
+            1.8,
+            0.0,
+            -1.05
+          ],
+          "rotate_y": 180.0
+        },
+        {
+          "asset_id": "furniture_sign_mount_bracket_double",
+          "name": "sign_bracket_square_2",
+          "translate": [
+            1.8,
+            0.0,
+            -1.05
+          ],
+          "rotate_y": 180.0
+        },
+        {
+          "asset_id": "furniture_sign_back_round",
+          "name": "sign_back_round_1",
+          "translate": [
+            1.8,
+            0.0,
+            -2.15
+          ],
+          "rotate_y": 180.0
+        },
+        {
+          "asset_id": "furniture_sign_mount_bracket_single",
+          "name": "sign_bracket_round_1",
+          "translate": [
+            1.8,
+            0.0,
+            -2.15
+          ],
+          "rotate_y": 180.0
+        },
+        {
           "asset_id": "furniture_sign_back_rectangle_wide",
           "name": "sign_back_rect_0",
           "translate": [
@@ -252,6 +292,26 @@
             1.8,
             0.0,
             2.05
+          ],
+          "rotate_y": 180.0
+        },
+        {
+          "asset_id": "furniture_sign_back_rectangle_wide",
+          "name": "sign_back_rect_2",
+          "translate": [
+            1.8,
+            0.0,
+            2.82
+          ],
+          "rotate_y": 180.0
+        },
+        {
+          "asset_id": "furniture_sign_mount_bracket_single",
+          "name": "sign_bracket_rect_2",
+          "translate": [
+            1.8,
+            0.0,
+            2.82
           ],
           "rotate_y": 180.0
         },
@@ -306,6 +366,26 @@
           "rotate_y": 180.0
         },
         {
+          "asset_id": "sign_stop_ahead_text",
+          "name": "sign_stop_ahead_0",
+          "translate": [
+            1.8,
+            0.0,
+            -1.05
+          ],
+          "rotate_y": 180.0
+        },
+        {
+          "asset_id": "sign_roundabout_mandatory",
+          "name": "sign_roundabout_0",
+          "translate": [
+            1.8,
+            0.0,
+            -2.15
+          ],
+          "rotate_y": 180.0
+        },
+        {
           "asset_id": "sign_signal_ahead",
           "name": "sign_signal_0",
           "translate": [
@@ -316,12 +396,32 @@
           "rotate_y": 180.0
         },
         {
+          "asset_id": "sign_priority_road",
+          "name": "sign_priority_0",
+          "translate": [
+            1.8,
+            0.0,
+            1.55
+          ],
+          "rotate_y": 180.0
+        },
+        {
           "asset_id": "sign_one_way_text_right",
           "name": "sign_one_way_text_0",
           "translate": [
             1.8,
             0.0,
             2.05
+          ],
+          "rotate_y": 180.0
+        },
+        {
+          "asset_id": "sign_detour_right_text",
+          "name": "sign_detour_right_0",
+          "translate": [
+            1.8,
+            0.0,
+            2.82
           ],
           "rotate_y": 180.0
         }
@@ -778,6 +878,56 @@
           "rotate_y": 0.0
         },
         {
+          "asset_id": "furniture_sign_back_triangle",
+          "name": "sign_back_triangle_0",
+          "translate": [
+            -1.8,
+            0.0,
+            0.8
+          ],
+          "rotate_y": 0.0
+        },
+        {
+          "asset_id": "furniture_sign_mount_bracket_single",
+          "name": "sign_bracket_triangle_0",
+          "translate": [
+            -1.8,
+            0.0,
+            0.8
+          ],
+          "rotate_y": 0.0
+        },
+        {
+          "asset_id": "sign_yield_weathered_heavy",
+          "name": "sign_yield_heavy_0",
+          "translate": [
+            -1.8,
+            0.0,
+            -2.0
+          ],
+          "rotate_y": 0.0
+        },
+        {
+          "asset_id": "furniture_sign_back_triangle",
+          "name": "sign_back_triangle_1",
+          "translate": [
+            -1.8,
+            0.0,
+            -2.0
+          ],
+          "rotate_y": 0.0
+        },
+        {
+          "asset_id": "furniture_sign_mount_bracket_single",
+          "name": "sign_bracket_triangle_1",
+          "translate": [
+            -1.8,
+            0.0,
+            -2.0
+          ],
+          "rotate_y": 0.0
+        },
+        {
           "asset_id": "sign_one_way_text_left",
           "name": "sign_one_way_text_0",
           "translate": [
@@ -806,6 +956,36 @@
             1.88
           ],
           "rotate_y": 0.0
+        },
+        {
+          "asset_id": "sign_no_entry_weathered_heavy",
+          "name": "sign_no_entry_heavy_0",
+          "translate": [
+            2.55,
+            0.0,
+            -1.58
+          ],
+          "rotate_y": 180.0
+        },
+        {
+          "asset_id": "furniture_sign_back_round",
+          "name": "sign_back_round_0",
+          "translate": [
+            2.55,
+            0.0,
+            -1.58
+          ],
+          "rotate_y": 180.0
+        },
+        {
+          "asset_id": "furniture_sign_mount_bracket_single",
+          "name": "sign_bracket_round_0",
+          "translate": [
+            2.55,
+            0.0,
+            -1.58
+          ],
+          "rotate_y": 180.0
         },
         {
           "asset_id": "sign_variable_message",
@@ -1295,6 +1475,66 @@
             1.8,
             0.0,
             -1.4
+          ],
+          "rotate_y": 180.0
+        },
+        {
+          "asset_id": "furniture_sign_back_square",
+          "name": "sign_back_square_0",
+          "translate": [
+            -1.95,
+            0.0,
+            1.52
+          ],
+          "rotate_y": 90.0
+        },
+        {
+          "asset_id": "furniture_sign_mount_bracket_double",
+          "name": "sign_bracket_square_0",
+          "translate": [
+            -1.95,
+            0.0,
+            1.52
+          ],
+          "rotate_y": 90.0
+        },
+        {
+          "asset_id": "sign_construction_weathered_heavy",
+          "name": "construction_heavy_0",
+          "translate": [
+            -1.95,
+            0.0,
+            1.52
+          ],
+          "rotate_y": 90.0
+        },
+        {
+          "asset_id": "furniture_sign_back_rectangle_wide",
+          "name": "sign_back_rect_1",
+          "translate": [
+            2.65,
+            0.0,
+            1.75
+          ],
+          "rotate_y": 180.0
+        },
+        {
+          "asset_id": "furniture_sign_mount_bracket_single",
+          "name": "sign_bracket_rect_1",
+          "translate": [
+            2.65,
+            0.0,
+            1.75
+          ],
+          "rotate_y": 180.0
+        },
+        {
+          "asset_id": "sign_detour_right_text",
+          "name": "detour_right_0",
+          "translate": [
+            2.65,
+            0.0,
+            1.75
           ],
           "rotate_y": 180.0
         }

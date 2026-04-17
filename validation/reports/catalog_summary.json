@@ -20,10 +20,22 @@
       "variant_key": "vienna_core.give_way"
     },
     {
+      "id": "sign_yield_weathered_heavy",
+      "family": "traffic_sign",
+      "semantic_class": "regulatory.yield",
+      "variant_key": "weathered.yield.heavy"
+    },
+    {
       "id": "sign_no_entry",
       "family": "traffic_sign",
       "semantic_class": "regulatory.no_entry",
       "variant_key": "vienna_core.no_entry"
+    },
+    {
+      "id": "sign_no_entry_weathered_heavy",
+      "family": "traffic_sign",
+      "semantic_class": "regulatory.no_entry",
+      "variant_key": "weathered.no_entry.heavy"
     },
     {
       "id": "sign_speed_limit_50",
@@ -50,6 +62,12 @@
       "variant_key": "vienna_core.turn_right"
     },
     {
+      "id": "sign_roundabout_mandatory",
+      "family": "traffic_sign",
+      "semantic_class": "mandatory.roundabout",
+      "variant_key": "locale.eu.roundabout_mandatory"
+    },
+    {
       "id": "sign_pedestrian_crossing",
       "family": "traffic_sign",
       "semantic_class": "information.pedestrian_crossing",
@@ -74,6 +92,12 @@
       "variant_key": "vienna_core.signal_ahead"
     },
     {
+      "id": "sign_stop_ahead_text",
+      "family": "traffic_sign",
+      "semantic_class": "warning.stop_ahead",
+      "variant_key": "locale.us.stop_ahead_text"
+    },
+    {
       "id": "sign_merge",
       "family": "traffic_sign",
       "semantic_class": "warning.merge",
@@ -92,6 +116,12 @@
       "variant_key": "vienna_core.roadworks"
     },
     {
+      "id": "sign_construction_weathered_heavy",
+      "family": "traffic_sign",
+      "semantic_class": "warning.construction",
+      "variant_key": "weathered.roadworks.heavy"
+    },
+    {
       "id": "sign_parking",
       "family": "traffic_sign",
       "semantic_class": "information.parking",
@@ -102,6 +132,12 @@
       "family": "traffic_sign",
       "semantic_class": "information.bus_stop",
       "variant_key": "vienna_core.bus_stop"
+    },
+    {
+      "id": "sign_priority_road",
+      "family": "traffic_sign",
+      "semantic_class": "regulatory.priority_road",
+      "variant_key": "locale.eu.priority_road"
     },
     {
       "id": "sign_one_way",
@@ -132,6 +168,12 @@
       "family": "traffic_sign",
       "semantic_class": "information.detour",
       "variant_key": "locale.en.detour_left_text"
+    },
+    {
+      "id": "sign_detour_right_text",
+      "family": "traffic_sign",
+      "semantic_class": "information.detour",
+      "variant_key": "locale.en.detour_right_text"
     },
     {
       "id": "sign_railroad_warning",
