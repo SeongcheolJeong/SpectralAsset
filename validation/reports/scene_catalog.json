@@ -16,6 +16,16 @@
           "rotate_y": 0.0
         },
         {
+          "asset_id": "road_gravel_shoulder",
+          "name": "road_shoulder_0",
+          "translate": [
+            4.1,
+            0.0,
+            0.0
+          ],
+          "rotate_y": 0.0
+        },
+        {
           "asset_id": "marking_edge_line_white",
           "name": "edge_line_0",
           "translate": [
@@ -347,6 +357,16 @@
           "rotate_y": 90.0
         },
         {
+          "asset_id": "road_construction_plate_patch",
+          "name": "construction_patch_0",
+          "translate": [
+            4.2,
+            0.0,
+            -0.4
+          ],
+          "rotate_y": 0.0
+        },
+        {
           "asset_id": "marking_crosswalk",
           "name": "crosswalk_0",
           "translate": [
@@ -638,6 +658,16 @@
           "rotate_y": 0.0
         },
         {
+          "asset_id": "road_asphalt_pothole_distressed",
+          "name": "road_pothole_0",
+          "translate": [
+            4.1,
+            0.0,
+            0.2
+          ],
+          "rotate_y": 0.0
+        },
+        {
           "asset_id": "sign_stop_weathered",
           "name": "sign_stop_0",
           "translate": [
@@ -883,6 +913,26 @@
           "name": "road_edge_0",
           "translate": [
             3.2,
+            0.0,
+            0.0
+          ],
+          "rotate_y": 0.0
+        },
+        {
+          "asset_id": "road_asphalt_gravel_transition",
+          "name": "road_transition_0",
+          "translate": [
+            6.4,
+            0.0,
+            0.0
+          ],
+          "rotate_y": 0.0
+        },
+        {
+          "asset_id": "road_eroded_shoulder_edge",
+          "name": "road_edge_dropoff_0",
+          "translate": [
+            9.6,
             0.0,
             0.0
           ],

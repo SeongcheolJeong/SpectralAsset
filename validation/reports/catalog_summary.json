@@ -242,6 +242,36 @@
       "variant_key": "urban_edge"
     },
     {
+      "id": "road_gravel_shoulder",
+      "family": "road_surface",
+      "semantic_class": "road.shoulder",
+      "variant_key": "gravel_compact"
+    },
+    {
+      "id": "road_asphalt_gravel_transition",
+      "family": "road_surface",
+      "semantic_class": "road.transition",
+      "variant_key": "asphalt_to_gravel"
+    },
+    {
+      "id": "road_construction_plate_patch",
+      "family": "road_surface",
+      "semantic_class": "road.asphalt",
+      "variant_key": "construction_plate_patch"
+    },
+    {
+      "id": "road_asphalt_pothole_distressed",
+      "family": "road_surface",
+      "semantic_class": "road.asphalt",
+      "variant_key": "pothole_distressed"
+    },
+    {
+      "id": "road_eroded_shoulder_edge",
+      "family": "road_surface",
+      "semantic_class": "road.shoulder",
+      "variant_key": "eroded_edge"
+    },
+    {
       "id": "road_curb_segment",
       "family": "road_furniture",
       "semantic_class": "road.curb",

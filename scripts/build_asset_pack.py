@@ -2985,6 +2985,11 @@ def road_asset_parts(asset_id: str, dimensions: Tuple[float, float, float]) -> D
         "road_concrete_distressed": "mat_concrete",
         "road_asphalt_concrete_transition": "mat_asphalt_dry",
         "road_gutter_transition": "mat_asphalt_dry",
+        "road_gravel_shoulder": "mat_gravel_compact",
+        "road_asphalt_gravel_transition": "mat_asphalt_dry",
+        "road_construction_plate_patch": "mat_asphalt_dry",
+        "road_asphalt_pothole_distressed": "mat_asphalt_dry",
+        "road_eroded_shoulder_edge": "mat_asphalt_dry",
         "road_curb_segment": "mat_concrete",
         "road_sidewalk_panel": "mat_concrete",
         "marking_lane_white": "mat_marking_white",
@@ -3411,6 +3416,85 @@ def road_asset_parts(asset_id: str, dimensions: Tuple[float, float, float]) -> D
             make_mesh_part("edge_joint", box_triangles(0.08, 0.008, depth, (0.72, 0.024, 0.0)), "mat_asphalt_dry"),
         ]
         return {"LOD0": lod0, "LOD1": lod1}
+    if asset_id == "road_gravel_shoulder":
+        lod0 = [
+            make_mesh_part("lane_edge", box_triangles(1.08, 0.04, depth, (-1.46, 0.02, 0.0)), "mat_asphalt_dry"),
+            make_mesh_part("rumble_strip", box_triangles(0.18, 0.01, depth, (-0.82, 0.025, 0.0)), "mat_concrete"),
+            make_mesh_part("shoulder", box_triangles(2.74, 0.05, depth, (0.63, 0.025, 0.0)), "mat_gravel_compact"),
+            oriented_box_part("track_inner", 0.34, 0.007, 3.26, (0.28, 0.0285, 0.0), "mat_concrete", 2.5),
+            oriented_box_part("track_outer", 0.34, 0.007, 2.92, (1.02, 0.0285, 0.18), "mat_concrete", -3.5),
+            oriented_box_part("berm", 0.22, 0.024, 3.56, (1.76, 0.032, -0.06), "mat_gravel_compact", 4.0),
+        ]
+        lod1 = [
+            make_mesh_part("lane_edge", box_triangles(1.08, 0.04, depth, (-1.46, 0.02, 0.0)), "mat_asphalt_dry"),
+            make_mesh_part("rumble_strip", box_triangles(0.18, 0.01, depth, (-0.82, 0.025, 0.0)), "mat_concrete"),
+            make_mesh_part("shoulder", box_triangles(2.74, 0.05, depth, (0.63, 0.025, 0.0)), "mat_gravel_compact"),
+            oriented_box_part("berm", 0.22, 0.024, 3.56, (1.76, 0.032, -0.06), "mat_gravel_compact", 4.0),
+        ]
+        return {"LOD0": lod0, "LOD1": lod1}
+    if asset_id == "road_asphalt_gravel_transition":
+        lod0 = [
+            make_mesh_part("asphalt_lane", box_triangles(2.18, 0.04, depth, (-0.91, 0.02, 0.0)), "mat_asphalt_dry"),
+            make_mesh_part("gravel_lane", box_triangles(1.82, 0.05, depth, (1.09, 0.025, 0.0)), "mat_gravel_compact"),
+            make_mesh_part("transition_joint", box_triangles(0.22, 0.014, depth, (0.18, 0.027, 0.0)), "mat_concrete"),
+            oriented_box_part("washout", 0.44, 0.012, 1.34, (1.18, 0.031, -0.94), "mat_concrete", 10.0),
+            oriented_box_part("loose_edge", 0.18, 0.018, 3.18, (1.92, 0.028, 0.0), "mat_gravel_compact", -5.0),
+        ]
+        lod1 = [
+            make_mesh_part("asphalt_lane", box_triangles(2.18, 0.04, depth, (-0.91, 0.02, 0.0)), "mat_asphalt_dry"),
+            make_mesh_part("gravel_lane", box_triangles(1.82, 0.05, depth, (1.09, 0.025, 0.0)), "mat_gravel_compact"),
+            make_mesh_part("transition_joint", box_triangles(0.22, 0.014, depth, (0.18, 0.027, 0.0)), "mat_concrete"),
+        ]
+        return {"LOD0": lod0, "LOD1": lod1}
+    if asset_id == "road_construction_plate_patch":
+        lod0 = [
+            make_mesh_part("base", box_triangles(width, height, depth, (0.0, height / 2.0, 0.0)), "mat_asphalt_dry"),
+            make_mesh_part("plate_left", box_triangles(0.96, 0.018, 1.42, (-0.46, 0.029, 0.18)), "mat_metal_galvanized"),
+            make_mesh_part("plate_right", box_triangles(0.96, 0.018, 1.42, (0.54, 0.029, 0.18)), "mat_metal_galvanized"),
+            make_mesh_part("plate_joint", box_triangles(0.08, 0.022, 1.42, (0.04, 0.031, 0.18)), "mat_sign_black"),
+            make_mesh_part("backfill_strip", box_triangles(2.24, 0.01, 0.34, (0.08, 0.025, -1.06)), "mat_concrete"),
+            make_mesh_part("hazard_edge_left", box_triangles(0.08, 0.006, 1.58, (-0.98, 0.032, 0.18)), "mat_marking_yellow"),
+            make_mesh_part("hazard_edge_right", box_triangles(0.08, 0.006, 1.58, (1.06, 0.032, 0.18)), "mat_marking_yellow"),
+        ]
+        lod1 = [
+            make_mesh_part("base", box_triangles(width, height, depth, (0.0, height / 2.0, 0.0)), "mat_asphalt_dry"),
+            make_mesh_part("plate_left", box_triangles(0.96, 0.018, 1.42, (-0.46, 0.029, 0.18)), "mat_metal_galvanized"),
+            make_mesh_part("plate_right", box_triangles(0.96, 0.018, 1.42, (0.54, 0.029, 0.18)), "mat_metal_galvanized"),
+            make_mesh_part("backfill_strip", box_triangles(2.24, 0.01, 0.34, (0.08, 0.025, -1.06)), "mat_concrete"),
+        ]
+        return {"LOD0": lod0, "LOD1": lod1}
+    if asset_id == "road_asphalt_pothole_distressed":
+        lod0 = [
+            make_mesh_part("base", box_triangles(width, height, depth, (0.0, height / 2.0, 0.0)), "mat_asphalt_dry"),
+            make_mesh_part("pothole_major", box_triangles(1.12, 0.018, 0.88, (-0.68, 0.009, 0.56)), "mat_gravel_compact"),
+            make_mesh_part("pothole_minor", box_triangles(0.58, 0.016, 0.52, (0.96, 0.01, -0.92)), "mat_gravel_compact"),
+            oriented_box_part("crack_patch", 0.2, 0.008, 2.02, (0.44, 0.026, 0.0), "mat_concrete", -18.0),
+            oriented_box_part("crack_patch_1", 0.12, 0.006, 1.22, (-1.18, 0.024, -0.84), "mat_concrete", 12.0),
+            oriented_box_part("settled_edge", 0.26, 0.012, 1.64, (1.42, 0.014, 0.92), "mat_gravel_compact", 8.0),
+        ]
+        lod1 = [
+            make_mesh_part("base", box_triangles(width, height, depth, (0.0, height / 2.0, 0.0)), "mat_asphalt_dry"),
+            make_mesh_part("pothole_major", box_triangles(1.12, 0.018, 0.88, (-0.68, 0.009, 0.56)), "mat_gravel_compact"),
+            make_mesh_part("pothole_minor", box_triangles(0.58, 0.016, 0.52, (0.96, 0.01, -0.92)), "mat_gravel_compact"),
+            oriented_box_part("crack_patch", 0.2, 0.008, 2.02, (0.44, 0.026, 0.0), "mat_concrete", -18.0),
+        ]
+        return {"LOD0": lod0, "LOD1": lod1}
+    if asset_id == "road_eroded_shoulder_edge":
+        lod0 = [
+            make_mesh_part("travel_lane", box_triangles(2.44, 0.04, depth, (-0.78, 0.02, 0.0)), "mat_asphalt_dry"),
+            make_mesh_part("dropoff_fill", box_triangles(0.34, 0.026, depth, (0.62, 0.013, 0.0)), "mat_gravel_compact"),
+            make_mesh_part("outer_shoulder", box_triangles(1.22, 0.048, depth, (1.88, 0.024, 0.0)), "mat_gravel_compact"),
+            make_mesh_part("edge_break", box_triangles(0.1, 0.016, depth, (0.1, 0.018, 0.0)), "mat_concrete"),
+            oriented_box_part("wash_rut_0", 0.18, 0.014, 1.74, (1.54, 0.017, -0.82), "mat_concrete", -6.0),
+            oriented_box_part("wash_rut_1", 0.18, 0.014, 1.32, (2.08, 0.017, 0.98), "mat_concrete", 7.0),
+        ]
+        lod1 = [
+            make_mesh_part("travel_lane", box_triangles(2.44, 0.04, depth, (-0.78, 0.02, 0.0)), "mat_asphalt_dry"),
+            make_mesh_part("dropoff_fill", box_triangles(0.34, 0.026, depth, (0.62, 0.013, 0.0)), "mat_gravel_compact"),
+            make_mesh_part("outer_shoulder", box_triangles(1.22, 0.048, depth, (1.88, 0.024, 0.0)), "mat_gravel_compact"),
+            make_mesh_part("edge_break", box_triangles(0.1, 0.016, depth, (0.1, 0.018, 0.0)), "mat_concrete"),
+        ]
+        return {"LOD0": lod0, "LOD1": lod1}
     if asset_id == "marking_crosswalk":
         lod0 = []
         lod1 = []
@@ -3799,6 +3883,7 @@ def make_materials(
         "mat_asphalt_dry_reflectance": clamp_list(interpolate([(350, 0.05), (500, 0.07), (700, 0.09), (900, 0.11), (1100, 0.13), (1700, 0.18)], MASTER_GRID)),
         "mat_asphalt_wet_reflectance": clamp_list(interpolate([(350, 0.03), (500, 0.05), (700, 0.06), (900, 0.08), (1100, 0.1), (1700, 0.15)], MASTER_GRID)),
         "mat_concrete_reflectance": clamp_list(interpolate([(350, 0.24), (500, 0.3), (700, 0.36), (900, 0.42), (1100, 0.45), (1700, 0.5)], MASTER_GRID)),
+        "mat_gravel_compact_reflectance": clamp_list(interpolate([(350, 0.12), (450, 0.18), (550, 0.24), (700, 0.29), (900, 0.33), (1100, 0.34), (1700, 0.3)], MASTER_GRID)),
         "mat_marking_white_reflectance": clamp_list(interpolate([(350, 0.68), (500, 0.78), (700, 0.84), (900, 0.8), (1100, 0.74), (1700, 0.62)], MASTER_GRID)),
         "mat_marking_yellow_reflectance": clamp_list(interpolate([(350, 0.08), (430, 0.18), (520, 0.72), (600, 0.82), (700, 0.64), (1100, 0.42), (1700, 0.28)], MASTER_GRID)),
         "mat_metal_galvanized_reflectance": clamp_list(interpolate([(350, 0.38), (500, 0.46), (700, 0.52), (1100, 0.56), (1700, 0.48)], MASTER_GRID)),
@@ -3844,6 +3929,7 @@ def make_materials(
         ("mat_asphalt_dry", "reflective", "reflectance", "dry", ["mat_asphalt_dry_reflectance"], {"roughnessFactor": 0.95}),
         ("mat_asphalt_wet", "wet_overlay", "reflectance", "wet", ["mat_asphalt_wet_reflectance", "mat_wet_overlay_transmittance"], wet_material_overrides),
         ("mat_concrete", "reflective", "reflectance", "dry", ["mat_concrete_reflectance"], {"roughnessFactor": 0.92}),
+        ("mat_gravel_compact", "reflective", "reflectance", "dry", ["mat_gravel_compact_reflectance"], {"roughnessFactor": 0.98}),
         ("mat_marking_white", "retroreflective", "reflectance", "dry", ["mat_marking_white_reflectance", "mat_retroreflective_gain"], {"roughnessFactor": 0.42}),
         ("mat_marking_yellow", "retroreflective", "reflectance", "dry", ["mat_marking_yellow_reflectance", "mat_retroreflective_gain"], {"roughnessFactor": 0.42}),
         ("mat_metal_galvanized", "reflective", "reflectance", "dry", ["mat_metal_galvanized_reflectance"], {"metallicFactor": 0.12, "roughnessFactor": 0.54}),
@@ -4666,6 +4752,11 @@ def road_definitions() -> List[Dict]:
         {"id": "road_concrete_distressed", "family": "road_surface", "semantic_class": "road.concrete", "variant_key": "distressed", "dimensions": (4.0, 0.05, 4.0)},
         {"id": "road_asphalt_concrete_transition", "family": "road_surface", "semantic_class": "road.transition", "variant_key": "asphalt_to_concrete", "dimensions": (4.0, 0.05, 4.0)},
         {"id": "road_gutter_transition", "family": "road_surface", "semantic_class": "road.gutter_transition", "variant_key": "urban_edge", "dimensions": (4.0, 0.05, 4.0)},
+        {"id": "road_gravel_shoulder", "family": "road_surface", "semantic_class": "road.shoulder", "variant_key": "gravel_compact", "dimensions": (4.0, 0.05, 4.0)},
+        {"id": "road_asphalt_gravel_transition", "family": "road_surface", "semantic_class": "road.transition", "variant_key": "asphalt_to_gravel", "dimensions": (4.0, 0.05, 4.0)},
+        {"id": "road_construction_plate_patch", "family": "road_surface", "semantic_class": "road.asphalt", "variant_key": "construction_plate_patch", "dimensions": (4.0, 0.04, 4.0)},
+        {"id": "road_asphalt_pothole_distressed", "family": "road_surface", "semantic_class": "road.asphalt", "variant_key": "pothole_distressed", "dimensions": (4.0, 0.04, 4.0)},
+        {"id": "road_eroded_shoulder_edge", "family": "road_surface", "semantic_class": "road.shoulder", "variant_key": "eroded_edge", "dimensions": (4.0, 0.05, 4.0)},
         {"id": "road_curb_segment", "family": "road_furniture", "semantic_class": "road.curb", "variant_key": "default", "dimensions": (2.0, 0.18, 0.4)},
         {"id": "road_sidewalk_panel", "family": "road_surface", "semantic_class": "road.sidewalk", "variant_key": "default", "dimensions": (2.4, 0.06, 2.4)},
         {"id": "marking_lane_white", "family": "road_marking", "semantic_class": "marking.lane", "variant_key": "white", "dimensions": (0.16, 0.005, 2.0)},
@@ -5153,6 +5244,7 @@ def scene_definitions() -> List[Dict]:
             "scenario_profile": "scenario_clear_noon",
             "placements": [
                 {"asset_id": "road_asphalt_patched", "name": "road_0", "translate": (0.0, 0.0, 0.0), "rotate_y": 0.0},
+                {"asset_id": "road_gravel_shoulder", "name": "road_shoulder_0", "translate": (4.1, 0.0, 0.0), "rotate_y": 0.0},
                 {"asset_id": "marking_edge_line_white", "name": "edge_line_0", "translate": (-1.58, 0.03, 0.0), "rotate_y": 0.0},
                 {"asset_id": "marking_edge_line_yellow", "name": "edge_line_yellow_0", "translate": (1.58, 0.03, 0.0), "rotate_y": 0.0},
                 {"asset_id": "marking_lane_white", "name": "lane_0", "translate": (-0.9, 0.03, 0.0), "rotate_y": 0.0},
@@ -5191,6 +5283,7 @@ def scene_definitions() -> List[Dict]:
             "placements": [
                 {"asset_id": "road_asphalt_dry", "name": "road_main", "translate": (0.0, 0.0, 0.0), "rotate_y": 0.0},
                 {"asset_id": "road_asphalt_concrete_transition", "name": "road_cross", "translate": (0.0, 0.0, 0.0), "rotate_y": 90.0},
+                {"asset_id": "road_construction_plate_patch", "name": "construction_patch_0", "translate": (4.2, 0.0, -0.4), "rotate_y": 0.0},
                 {"asset_id": "marking_crosswalk", "name": "crosswalk_0", "translate": (0.0, 0.03, -1.1), "rotate_y": 90.0},
                 {"asset_id": "marking_stop_line", "name": "stopline_0", "translate": (0.0, 0.03, -1.7), "rotate_y": 0.0},
                 {"asset_id": "marking_stop_line_worn", "name": "stopline_worn_0", "translate": (0.0, 0.03, 1.62), "rotate_y": 180.0},
@@ -5225,6 +5318,7 @@ def scene_definitions() -> List[Dict]:
             "scenario_profile": "scenario_urban_night",
             "placements": [
                 {"asset_id": "road_concrete_distressed", "name": "road_0", "translate": (0.0, 0.0, 0.0), "rotate_y": 0.0},
+                {"asset_id": "road_asphalt_pothole_distressed", "name": "road_pothole_0", "translate": (4.1, 0.0, 0.2), "rotate_y": 0.0},
                 {"asset_id": "sign_stop_weathered", "name": "sign_stop_0", "translate": (-1.8, 0.0, -0.8), "rotate_y": 0.0},
                 {"asset_id": "furniture_sign_back_octagon", "name": "sign_back_stop_0", "translate": (-1.8, 0.0, -0.8), "rotate_y": 0.0},
                 {"asset_id": "furniture_sign_mount_bracket_double", "name": "sign_bracket_stop_0", "translate": (-1.8, 0.0, -0.8), "rotate_y": 0.0},
@@ -5255,6 +5349,8 @@ def scene_definitions() -> List[Dict]:
             "placements": [
                 {"asset_id": "road_asphalt_wet", "name": "road_0", "translate": (0.0, 0.0, 0.0), "rotate_y": 0.0},
                 {"asset_id": "road_gutter_transition", "name": "road_edge_0", "translate": (3.2, 0.0, 0.0), "rotate_y": 0.0},
+                {"asset_id": "road_asphalt_gravel_transition", "name": "road_transition_0", "translate": (6.4, 0.0, 0.0), "rotate_y": 0.0},
+                {"asset_id": "road_eroded_shoulder_edge", "name": "road_edge_dropoff_0", "translate": (9.6, 0.0, 0.0), "rotate_y": 0.0},
                 {"asset_id": "marking_crosswalk_worn", "name": "crosswalk_0", "translate": (0.0, 0.03, 0.8), "rotate_y": 90.0},
                 {"asset_id": "marking_stop_line_worn", "name": "stopline_0", "translate": (0.0, 0.03, 0.2), "rotate_y": 0.0},
                 {"asset_id": "marking_edge_line_white", "name": "edge_line_0", "translate": (-1.5, 0.03, -0.1), "rotate_y": 0.0},

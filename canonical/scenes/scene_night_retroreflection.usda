@@ -13,6 +13,13 @@ def Xform "scene_night_retroreflection" {
         float xformOp:rotateY = 0.000000
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
     }
+    def Xform "road_pothole_0" (
+        references = @../geometry/usd/road_asphalt_pothole_distressed.usda@</road_asphalt_pothole_distressed>
+    ) {
+        double3 xformOp:translate = (4.100000, 0.000000, 0.200000)
+        float xformOp:rotateY = 0.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
     def Xform "sign_stop_0" (
         references = @../geometry/usd/sign_stop_weathered.usda@</sign_stop_weathered>
     ) {

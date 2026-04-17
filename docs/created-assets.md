@@ -6,8 +6,8 @@ This file explains what the generator actually creates in this repository and ho
 
 Current generated baseline:
 
-- `88` assets
-- `21` spectral materials
+- `93` assets
+- `22` spectral materials
 - `8` emissive profiles
 - `3` camera profiles
 - `4` scenario profiles
@@ -83,9 +83,14 @@ These are reusable road or pavement surfaces such as:
 - `road_concrete_distressed`
 - `road_asphalt_concrete_transition`
 - `road_gutter_transition`
+- `road_gravel_shoulder`
+- `road_asphalt_gravel_transition`
+- `road_construction_plate_patch`
+- `road_asphalt_pothole_distressed`
+- `road_eroded_shoulder_edge`
 - `road_sidewalk_panel`
 
-They mainly depend on spectral material definitions rather than complex state logic, but the newer variants also mix the existing asphalt and concrete materials to represent repairs, joint distress, and urban edge transitions.
+They mainly depend on spectral material definitions rather than complex state logic, but the newer variants now mix asphalt, concrete, steel-plate, and gravel proxy materials to represent repairs, rural shoulders, unsealed transitions, pothole distress, and edge-dropoff conditions.
 
 ### `road_marking`
 

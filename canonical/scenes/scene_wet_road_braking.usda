@@ -20,6 +20,20 @@ def Xform "scene_wet_road_braking" {
         float xformOp:rotateY = 0.000000
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
     }
+    def Xform "road_transition_0" (
+        references = @../geometry/usd/road_asphalt_gravel_transition.usda@</road_asphalt_gravel_transition>
+    ) {
+        double3 xformOp:translate = (6.400000, 0.000000, 0.000000)
+        float xformOp:rotateY = 0.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
+    def Xform "road_edge_dropoff_0" (
+        references = @../geometry/usd/road_eroded_shoulder_edge.usda@</road_eroded_shoulder_edge>
+    ) {
+        double3 xformOp:translate = (9.600000, 0.000000, 0.000000)
+        float xformOp:rotateY = 0.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
     def Xform "crosswalk_0" (
         references = @../geometry/usd/marking_crosswalk_worn.usda@</marking_crosswalk_worn>
     ) {

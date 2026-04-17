@@ -48,6 +48,7 @@ For deterministic rebuild review, the generator now preserves the previous track
 - the eighth `P3` expansion batch now adds beacon-style and warning-flasher signal heads with explicit state maps so the traffic-light family is broader than the original five-head baseline
 - the ninth `P3` expansion batch now adds weathered stop, speed-limit, and pedestrian-crossing signs plus English text-bearing one-way and detour variants so the sign family is no longer limited to symbol-only starter panels
 - the tenth `P3` expansion batch now adds yellow centerline families, `ONLY` and `STOP` lane legends, and yellow/bi-color raised-marker variants so the road-marking family is no longer limited to the earlier arrow-and-edge starter set
+- the eleventh `P3` expansion batch now adds gravel-shoulder, asphalt-to-gravel transition, construction-plate, pothole-distress, and eroded-shoulder road-surface variants so roadway breadth extends beyond the earlier urban repair/transition set
 - selected USGS v7 dry-material baselines are used for asphalt, concrete, and galvanized metal
 - wet asphalt is currently a measured-derived material built from the measured dry asphalt baseline plus the tracked wet modifier
 - vehicle and protected-turn traffic-signal emissive profiles now use vendor-derived public LED fits
