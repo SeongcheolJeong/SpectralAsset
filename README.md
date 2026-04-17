@@ -41,6 +41,7 @@ For deterministic rebuild review, the generator now preserves the previous track
 - the current `P3` catalog-expansion baseline now adds standalone guardrail, bollard, delineator, cone, barrier, and barricade assets under `road_furniture`
 - the second `P3` expansion batch now adds directional arrows, an edge line, a chevron/gore marking, and a worn lane variant under `road_marking`
 - the third `P3` expansion batch now adds signal backplates, a mast hanger, and a controller cabinet so traffic-light scenes can place support context explicitly
+- the fourth `P3` expansion batch now adds standalone sign backs and mounting brackets so sign scenes can place assembly depth explicitly instead of embedding all hardware into the sign meshes
 - selected USGS v7 dry-material baselines are used for asphalt, concrete, and galvanized metal
 - wet asphalt is currently a measured-derived material built from the measured dry asphalt baseline plus the tracked wet modifier
 - vehicle and protected-turn traffic-signal emissive profiles now use vendor-derived public LED fits

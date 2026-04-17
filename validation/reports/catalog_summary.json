@@ -236,6 +236,48 @@
       "variant_key": "mast_arm"
     },
     {
+      "id": "furniture_sign_back_octagon",
+      "family": "road_furniture",
+      "semantic_class": "furniture.sign_back",
+      "variant_key": "octagon_standard"
+    },
+    {
+      "id": "furniture_sign_back_round",
+      "family": "road_furniture",
+      "semantic_class": "furniture.sign_back",
+      "variant_key": "round_standard"
+    },
+    {
+      "id": "furniture_sign_back_triangle",
+      "family": "road_furniture",
+      "semantic_class": "furniture.sign_back",
+      "variant_key": "triangle_yield"
+    },
+    {
+      "id": "furniture_sign_back_square",
+      "family": "road_furniture",
+      "semantic_class": "furniture.sign_back",
+      "variant_key": "square_standard"
+    },
+    {
+      "id": "furniture_sign_back_rectangle_wide",
+      "family": "road_furniture",
+      "semantic_class": "furniture.sign_back",
+      "variant_key": "rectangle_wide"
+    },
+    {
+      "id": "furniture_sign_mount_bracket_single",
+      "family": "road_furniture",
+      "semantic_class": "furniture.sign_mount_bracket",
+      "variant_key": "single_post"
+    },
+    {
+      "id": "furniture_sign_mount_bracket_double",
+      "family": "road_furniture",
+      "semantic_class": "furniture.sign_mount_bracket",
+      "variant_key": "double_post"
+    },
+    {
       "id": "furniture_signal_backplate_vertical",
       "family": "road_furniture",
       "semantic_class": "furniture.signal_backplate",

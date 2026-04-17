@@ -22,6 +22,7 @@
 - first `P3` road-furniture expansion batch with standalone guardrail, bollard, delineator, traffic-cone, water-barrier, and barricade assets
 - second `P3` road-marking expansion batch with directional arrows, an edge line, a chevron/gore marking, and a worn lane variant
 - third `P3` traffic-light support-context batch with signal backplates, a mast hanger, and a controller cabinet
+- fourth `P3` sign-assembly batch with standalone sign backs and mounting brackets
 
 ### Changed
 
@@ -49,11 +50,13 @@
 - existing validation scenes now place selected road-furniture expansion assets so the new coverage is exercised in generated scene exports
 - existing validation scenes now place selected directional and worn road-marking assets so the expanded marking catalog is exercised in scene exports
 - existing validation scenes now place explicit traffic-light support-context assets so intersections no longer imply all signal support through poles alone
-- backlog focus now moves from blocked measurement work to `P3` coverage expansion, with sign assembly depth now next in queue
+- existing validation scenes now place explicit sign backs and brackets so representative sign assemblies no longer imply all depth through the sign meshes alone
+- backlog focus now moves from blocked measurement work to `P3` coverage expansion, with road-surface distress and transition variants now next in queue
 
 ### Validation
 
 - validation summary now reports `50` assets, including `14` `road_furniture` assets and `9` `road_marking` assets after the first three `P3` expansion batches
+- validation summary now reports `57` assets, including `21` `road_furniture` assets and `9` `road_marking` assets after the first four `P3` expansion batches
 - validation summary now includes `3` camera profiles and zero camera-profile validation errors
 - material quality summary now reports `3` `measured_standard`, `1` `measured_derivative`, `16` `project_proxy`, and `0` `vendor_derived` materials
 - emissive profile quality summary now distinguishes vendor-derived vehicle/protected-turn profiles from remaining proxy pedestrian/countdown profiles

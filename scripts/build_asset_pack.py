@@ -2859,6 +2859,41 @@ def signal_asset_parts(config: Dict) -> Dict[str, List[Dict]]:
     return {"LOD0": lod0, "LOD1": lod1}
 
 
+def sign_back_asset_parts(sign_type: str, width: float, height: float, center_y: float, center_z: float, stiffener_offsets: Sequence[float], stiffener_height: float) -> Dict[str, List[Dict]]:
+    plate_shape = sign_layers(sign_type)[0][1][0]
+    scaled_shape = scale_points_2d(plate_shape, width, height)
+    lod0_plate = make_mesh_part(
+        "back_plate",
+        transform_points_in_triangles(extrude_convex_polygon(scaled_shape, 0.012, -0.012), 0.0, center_y, center_z),
+        "mat_metal_galvanized",
+    )
+    lod1_plate = make_mesh_part(
+        "back_plate",
+        transform_points_in_triangles(extrude_convex_polygon(scaled_shape, 0.012, -0.012), 0.0, center_y, center_z),
+        "mat_metal_galvanized",
+    )
+    lod0 = [lod0_plate]
+    lod1 = [lod1_plate]
+    for index, offset_x in enumerate(stiffener_offsets):
+        lod0.append(make_mesh_part(f"stiffener_{index}", box_triangles(0.05, stiffener_height, 0.06, (offset_x, center_y, center_z - 0.035)), "mat_metal_galvanized"))
+    for index, offset_x in enumerate(stiffener_offsets[: max(1, min(len(stiffener_offsets), 2))]):
+        lod1.append(make_mesh_part(f"stiffener_{index}", box_triangles(0.05, stiffener_height, 0.06, (offset_x, center_y, center_z - 0.035)), "mat_metal_galvanized"))
+    return {"LOD0": lod0, "LOD1": lod1}
+
+
+def sign_mount_bracket_parts(rail_width: float, center_y: float, center_z: float, clamp_offsets_x: Sequence[float]) -> Dict[str, List[Dict]]:
+    lod0 = [
+        make_mesh_part("rail_upper", box_triangles(rail_width, 0.045, 0.06, (0.0, center_y + 0.18, center_z)), "mat_metal_galvanized"),
+        make_mesh_part("rail_lower", box_triangles(rail_width, 0.045, 0.06, (0.0, center_y - 0.18, center_z)), "mat_metal_galvanized"),
+    ]
+    lod1 = list(lod0)
+    for index, offset_x in enumerate(clamp_offsets_x):
+        lod0.append(make_mesh_part(f"clamp_{index}", box_triangles(0.08, 0.46, 0.05, (offset_x, center_y, center_z - 0.025)), "mat_metal_galvanized"))
+    for index, offset_x in enumerate(clamp_offsets_x[: max(1, min(len(clamp_offsets_x), 2))]):
+        lod1.append(make_mesh_part(f"clamp_{index}", box_triangles(0.08, 0.46, 0.05, (offset_x, center_y, center_z - 0.025)), "mat_metal_galvanized"))
+    return {"LOD0": lod0, "LOD1": lod1}
+
+
 def road_asset_parts(asset_id: str, dimensions: Tuple[float, float, float]) -> Dict[str, List[Dict]]:
     width, height, depth = dimensions
     material_map = {
@@ -2879,6 +2914,13 @@ def road_asset_parts(asset_id: str, dimensions: Tuple[float, float, float]) -> D
         "furniture_sign_pole": "mat_metal_galvanized",
         "furniture_signal_pole": "mat_metal_galvanized",
         "furniture_signal_mast_hanger": "mat_metal_galvanized",
+        "furniture_sign_back_octagon": "mat_metal_galvanized",
+        "furniture_sign_back_round": "mat_metal_galvanized",
+        "furniture_sign_back_triangle": "mat_metal_galvanized",
+        "furniture_sign_back_square": "mat_metal_galvanized",
+        "furniture_sign_back_rectangle_wide": "mat_metal_galvanized",
+        "furniture_sign_mount_bracket_single": "mat_metal_galvanized",
+        "furniture_sign_mount_bracket_double": "mat_metal_galvanized",
         "furniture_guardrail_bollard_set": "mat_metal_galvanized",
         "furniture_guardrail_segment": "mat_metal_galvanized",
     }
@@ -2901,6 +2943,20 @@ def road_asset_parts(asset_id: str, dimensions: Tuple[float, float, float]) -> D
             make_mesh_part("mast_arm", box_triangles(4.0, 0.14, 0.14, (2.0, 4.6, 0.0)), "mat_metal_galvanized"),
         ]
         return {"LOD0": lod0, "LOD1": lod1}
+    if asset_id == "furniture_sign_back_octagon":
+        return sign_back_asset_parts("stop", 0.8, 0.8, 1.75, -0.09, (-0.18, 0.18), 0.58)
+    if asset_id == "furniture_sign_back_round":
+        return sign_back_asset_parts("speed_limit", 0.76, 0.76, 1.75, -0.09, (0.0,), 0.56)
+    if asset_id == "furniture_sign_back_triangle":
+        return sign_back_asset_parts("yield", 0.94, 0.82, 1.75, -0.09, (0.0,), 0.52)
+    if asset_id == "furniture_sign_back_square":
+        return sign_back_asset_parts("parking", 0.9, 0.9, 1.75, -0.09, (-0.18, 0.18), 0.62)
+    if asset_id == "furniture_sign_back_rectangle_wide":
+        return sign_back_asset_parts("variable_message", 1.2, 0.72, 1.75, -0.09, (-0.24, 0.24), 0.48)
+    if asset_id == "furniture_sign_mount_bracket_single":
+        return sign_mount_bracket_parts(0.42, 1.75, -0.065, (0.0,))
+    if asset_id == "furniture_sign_mount_bracket_double":
+        return sign_mount_bracket_parts(0.82, 1.75, -0.065, (-0.18, 0.18))
     if asset_id == "furniture_signal_backplate_vertical":
         lod0 = [
             make_mesh_part("plate", box_triangles(0.54, 1.42, 0.05, (0.0, 1.78, -0.13)), "mat_signal_housing"),
@@ -4129,6 +4185,13 @@ def road_definitions() -> List[Dict]:
         {"id": "marking_chevron_gore_white", "family": "road_marking", "semantic_class": "marking.chevron", "variant_key": "gore_white", "dimensions": (2.4, 0.005, 2.2)},
         {"id": "furniture_sign_pole", "family": "road_furniture", "semantic_class": "furniture.sign_pole", "variant_key": "default", "dimensions": (0.06, 3.2, 0.06)},
         {"id": "furniture_signal_pole", "family": "road_furniture", "semantic_class": "furniture.signal_pole", "variant_key": "mast_arm", "dimensions": (4.0, 5.0, 0.16)},
+        {"id": "furniture_sign_back_octagon", "family": "road_furniture", "semantic_class": "furniture.sign_back", "variant_key": "octagon_standard", "dimensions": (0.8, 2.16, 0.12)},
+        {"id": "furniture_sign_back_round", "family": "road_furniture", "semantic_class": "furniture.sign_back", "variant_key": "round_standard", "dimensions": (0.76, 2.13, 0.12)},
+        {"id": "furniture_sign_back_triangle", "family": "road_furniture", "semantic_class": "furniture.sign_back", "variant_key": "triangle_yield", "dimensions": (0.94, 2.12, 0.12)},
+        {"id": "furniture_sign_back_square", "family": "road_furniture", "semantic_class": "furniture.sign_back", "variant_key": "square_standard", "dimensions": (0.9, 2.2, 0.12)},
+        {"id": "furniture_sign_back_rectangle_wide", "family": "road_furniture", "semantic_class": "furniture.sign_back", "variant_key": "rectangle_wide", "dimensions": (1.2, 2.11, 0.12)},
+        {"id": "furniture_sign_mount_bracket_single", "family": "road_furniture", "semantic_class": "furniture.sign_mount_bracket", "variant_key": "single_post", "dimensions": (0.42, 2.0, 0.09)},
+        {"id": "furniture_sign_mount_bracket_double", "family": "road_furniture", "semantic_class": "furniture.sign_mount_bracket", "variant_key": "double_post", "dimensions": (0.82, 2.0, 0.09)},
         {"id": "furniture_signal_backplate_vertical", "family": "road_furniture", "semantic_class": "furniture.signal_backplate", "variant_key": "vertical_3_aspect", "dimensions": (0.76, 2.58, 0.24)},
         {"id": "furniture_signal_backplate_horizontal", "family": "road_furniture", "semantic_class": "furniture.signal_backplate", "variant_key": "horizontal_3_aspect", "dimensions": (1.56, 1.76, 0.24)},
         {"id": "furniture_signal_mast_hanger", "family": "road_furniture", "semantic_class": "furniture.signal_hanger", "variant_key": "mast_arm_drop", "dimensions": (0.34, 4.78, 0.16)},
@@ -4483,6 +4546,14 @@ def scene_definitions() -> List[Dict]:
                 {"asset_id": "marking_lane_white", "name": "lane_1", "translate": (0.9, 0.03, 0.0), "rotate_y": 0.0},
                 {"asset_id": "marking_lane_white_worn", "name": "lane_worn_0", "translate": (0.0, 0.03, 0.2), "rotate_y": 0.0},
                 {"asset_id": "furniture_guardrail_segment", "name": "guardrail_0", "translate": (1.9, 0.0, 1.6), "rotate_y": 0.0},
+                {"asset_id": "furniture_sign_back_octagon", "name": "sign_back_stop_0", "translate": (-1.8, 0.0, -1.0), "rotate_y": 0.0},
+                {"asset_id": "furniture_sign_mount_bracket_double", "name": "sign_bracket_stop_0", "translate": (-1.8, 0.0, -1.0), "rotate_y": 0.0},
+                {"asset_id": "furniture_sign_back_round", "name": "sign_back_round_0", "translate": (-1.8, 0.0, 0.4), "rotate_y": 0.0},
+                {"asset_id": "furniture_sign_mount_bracket_single", "name": "sign_bracket_round_0", "translate": (-1.8, 0.0, 0.4), "rotate_y": 0.0},
+                {"asset_id": "furniture_sign_back_square", "name": "sign_back_square_0", "translate": (-1.8, 0.0, 1.8), "rotate_y": 0.0},
+                {"asset_id": "furniture_sign_mount_bracket_double", "name": "sign_bracket_square_0", "translate": (-1.8, 0.0, 1.8), "rotate_y": 0.0},
+                {"asset_id": "furniture_sign_back_square", "name": "sign_back_square_1", "translate": (1.8, 0.0, 0.9), "rotate_y": 180.0},
+                {"asset_id": "furniture_sign_mount_bracket_single", "name": "sign_bracket_square_1", "translate": (1.8, 0.0, 0.9), "rotate_y": 180.0},
                 {"asset_id": "sign_stop", "name": "sign_stop_0", "translate": (-1.8, 0.0, -1.0), "rotate_y": 0.0},
                 {"asset_id": "sign_speed_limit_50", "name": "sign_speed_0", "translate": (-1.8, 0.0, 0.4), "rotate_y": 0.0},
                 {"asset_id": "sign_pedestrian_crossing", "name": "sign_cross_0", "translate": (-1.8, 0.0, 1.8), "rotate_y": 0.0},
@@ -4519,8 +4590,12 @@ def scene_definitions() -> List[Dict]:
             "placements": [
                 {"asset_id": "road_asphalt_dry", "name": "road_0", "translate": (0.0, 0.0, 0.0), "rotate_y": 0.0},
                 {"asset_id": "sign_stop", "name": "sign_stop_0", "translate": (-1.8, 0.0, -0.8), "rotate_y": 0.0},
+                {"asset_id": "furniture_sign_back_octagon", "name": "sign_back_stop_0", "translate": (-1.8, 0.0, -0.8), "rotate_y": 0.0},
+                {"asset_id": "furniture_sign_mount_bracket_double", "name": "sign_bracket_stop_0", "translate": (-1.8, 0.0, -0.8), "rotate_y": 0.0},
                 {"asset_id": "sign_merge", "name": "sign_merge_0", "translate": (-1.8, 0.0, 0.8), "rotate_y": 0.0},
                 {"asset_id": "sign_variable_message", "name": "vms_0", "translate": (1.5, 0.0, 0.0), "rotate_y": 180.0},
+                {"asset_id": "furniture_sign_back_rectangle_wide", "name": "sign_back_rect_0", "translate": (1.5, 0.0, 0.0), "rotate_y": 180.0},
+                {"asset_id": "furniture_sign_mount_bracket_double", "name": "sign_bracket_rect_0", "translate": (1.5, 0.0, 0.0), "rotate_y": 180.0},
                 {"asset_id": "marking_lane_white_worn", "name": "lane_0", "translate": (0.0, 0.03, 0.0), "rotate_y": 0.0},
                 {"asset_id": "marking_edge_line_white", "name": "edge_line_0", "translate": (1.55, 0.03, 0.0), "rotate_y": 0.0},
                 {"asset_id": "furniture_signal_backplate_vertical", "name": "backplate_vertical_0", "translate": (1.8, 0.0, -1.2), "rotate_y": 180.0},
@@ -4543,6 +4618,8 @@ def scene_definitions() -> List[Dict]:
                 {"asset_id": "signal_vehicle_vertical_3_aspect", "name": "signal_0", "translate": (-1.6, 0.0, -0.8), "rotate_y": 0.0},
                 {"asset_id": "furniture_traffic_cone", "name": "cone_0", "translate": (0.92, 0.0, -0.55), "rotate_y": 0.0},
                 {"asset_id": "furniture_water_barrier", "name": "barrier_0", "translate": (-1.9, 0.0, 1.35), "rotate_y": 90.0},
+                {"asset_id": "furniture_sign_back_triangle", "name": "sign_back_triangle_0", "translate": (1.8, 0.0, 1.4), "rotate_y": 180.0},
+                {"asset_id": "furniture_sign_mount_bracket_single", "name": "sign_bracket_triangle_0", "translate": (1.8, 0.0, 1.4), "rotate_y": 180.0},
                 {"asset_id": "sign_yield", "name": "yield_0", "translate": (1.8, 0.0, 1.4), "rotate_y": 180.0},
                 {"asset_id": "sign_school_warning", "name": "school_0", "translate": (1.8, 0.0, -1.4), "rotate_y": 180.0},
             ],

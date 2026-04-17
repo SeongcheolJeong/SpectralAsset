@@ -76,6 +76,20 @@ def Xform "scene_wet_road_braking" {
         float xformOp:rotateY = 90.000000
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
     }
+    def Xform "sign_back_triangle_0" (
+        references = @../geometry/usd/furniture_sign_back_triangle.usda@</furniture_sign_back_triangle>
+    ) {
+        double3 xformOp:translate = (1.800000, 0.000000, 1.400000)
+        float xformOp:rotateY = 180.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
+    def Xform "sign_bracket_triangle_0" (
+        references = @../geometry/usd/furniture_sign_mount_bracket_single.usda@</furniture_sign_mount_bracket_single>
+    ) {
+        double3 xformOp:translate = (1.800000, 0.000000, 1.400000)
+        float xformOp:rotateY = 180.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
     def Xform "yield_0" (
         references = @../geometry/usd/sign_yield.usda@</sign_yield>
     ) {

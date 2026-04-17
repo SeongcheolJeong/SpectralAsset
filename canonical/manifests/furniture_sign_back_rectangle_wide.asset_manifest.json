@@ -1,0 +1,60 @@
+{
+  "id": "furniture_sign_back_rectangle_wide",
+  "family": "road_furniture",
+  "semantic_class": "furniture.sign_back",
+  "variant_key": "rectangle_wide",
+  "dimensions_m": {
+    "width": 1.2,
+    "height": 2.11,
+    "depth": 0.12
+  },
+  "lods": [
+    {
+      "name": "LOD0",
+      "triangle_count": 36,
+      "usd_scope": "/furniture_sign_back_rectangle_wide/LOD0",
+      "gltf_node_prefix": "LOD0"
+    },
+    {
+      "name": "LOD1",
+      "triangle_count": 36,
+      "usd_scope": "/furniture_sign_back_rectangle_wide/LOD1",
+      "gltf_node_prefix": "LOD1"
+    }
+  ],
+  "collider": {
+    "type": "box",
+    "width": 1.2,
+    "height": 2.11,
+    "depth": 0.12
+  },
+  "anchor_points": {
+    "base_center": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    }
+  },
+  "materials": [
+    "mat_metal_galvanized"
+  ],
+  "states": {
+    "default": {
+      "render_profile": "static"
+    }
+  },
+  "export_targets": {
+    "usd_ascii": "canonical/geometry/usd/furniture_sign_back_rectangle_wide.usda",
+    "usd_binary": "exports/usd/furniture_sign_back_rectangle_wide.usdc",
+    "gltf_binary": "exports/gltf/furniture_sign_back_rectangle_wide.glb"
+  },
+  "license": {
+    "spdx": "LicenseRef-ProjectGenerated",
+    "redistribution": "geometry, manifests, and templates generated in-repo"
+  },
+  "provenance": {
+    "generated_at": "2026-04-16T10:10:40+00:00",
+    "generated_by": "scripts/build_asset_pack.py",
+    "note": "Generated reusable road surface, marking, or furniture primitive."
+  }
+}

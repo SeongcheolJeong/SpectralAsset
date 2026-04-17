@@ -20,6 +20,20 @@ def Xform "scene_night_retroreflection" {
         float xformOp:rotateY = 0.000000
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
     }
+    def Xform "sign_back_stop_0" (
+        references = @../geometry/usd/furniture_sign_back_octagon.usda@</furniture_sign_back_octagon>
+    ) {
+        double3 xformOp:translate = (-1.800000, 0.000000, -0.800000)
+        float xformOp:rotateY = 0.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
+    def Xform "sign_bracket_stop_0" (
+        references = @../geometry/usd/furniture_sign_mount_bracket_double.usda@</furniture_sign_mount_bracket_double>
+    ) {
+        double3 xformOp:translate = (-1.800000, 0.000000, -0.800000)
+        float xformOp:rotateY = 0.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
     def Xform "sign_merge_0" (
         references = @../geometry/usd/sign_merge.usda@</sign_merge>
     ) {
@@ -29,6 +43,20 @@ def Xform "scene_night_retroreflection" {
     }
     def Xform "vms_0" (
         references = @../geometry/usd/sign_variable_message.usda@</sign_variable_message>
+    ) {
+        double3 xformOp:translate = (1.500000, 0.000000, 0.000000)
+        float xformOp:rotateY = 180.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
+    def Xform "sign_back_rect_0" (
+        references = @../geometry/usd/furniture_sign_back_rectangle_wide.usda@</furniture_sign_back_rectangle_wide>
+    ) {
+        double3 xformOp:translate = (1.500000, 0.000000, 0.000000)
+        float xformOp:rotateY = 180.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
+    def Xform "sign_bracket_rect_0" (
+        references = @../geometry/usd/furniture_sign_mount_bracket_double.usda@</furniture_sign_mount_bracket_double>
     ) {
         double3 xformOp:translate = (1.500000, 0.000000, 0.000000)
         float xformOp:rotateY = 180.000000

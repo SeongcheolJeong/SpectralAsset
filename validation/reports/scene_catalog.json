@@ -66,6 +66,86 @@
           "rotate_y": 0.0
         },
         {
+          "asset_id": "furniture_sign_back_octagon",
+          "name": "sign_back_stop_0",
+          "translate": [
+            -1.8,
+            0.0,
+            -1.0
+          ],
+          "rotate_y": 0.0
+        },
+        {
+          "asset_id": "furniture_sign_mount_bracket_double",
+          "name": "sign_bracket_stop_0",
+          "translate": [
+            -1.8,
+            0.0,
+            -1.0
+          ],
+          "rotate_y": 0.0
+        },
+        {
+          "asset_id": "furniture_sign_back_round",
+          "name": "sign_back_round_0",
+          "translate": [
+            -1.8,
+            0.0,
+            0.4
+          ],
+          "rotate_y": 0.0
+        },
+        {
+          "asset_id": "furniture_sign_mount_bracket_single",
+          "name": "sign_bracket_round_0",
+          "translate": [
+            -1.8,
+            0.0,
+            0.4
+          ],
+          "rotate_y": 0.0
+        },
+        {
+          "asset_id": "furniture_sign_back_square",
+          "name": "sign_back_square_0",
+          "translate": [
+            -1.8,
+            0.0,
+            1.8
+          ],
+          "rotate_y": 0.0
+        },
+        {
+          "asset_id": "furniture_sign_mount_bracket_double",
+          "name": "sign_bracket_square_0",
+          "translate": [
+            -1.8,
+            0.0,
+            1.8
+          ],
+          "rotate_y": 0.0
+        },
+        {
+          "asset_id": "furniture_sign_back_square",
+          "name": "sign_back_square_1",
+          "translate": [
+            1.8,
+            0.0,
+            0.9
+          ],
+          "rotate_y": 180.0
+        },
+        {
+          "asset_id": "furniture_sign_mount_bracket_single",
+          "name": "sign_bracket_square_1",
+          "translate": [
+            1.8,
+            0.0,
+            0.9
+          ],
+          "rotate_y": 180.0
+        },
+        {
           "asset_id": "sign_stop",
           "name": "sign_stop_0",
           "translate": [
@@ -328,6 +408,26 @@
           "rotate_y": 0.0
         },
         {
+          "asset_id": "furniture_sign_back_octagon",
+          "name": "sign_back_stop_0",
+          "translate": [
+            -1.8,
+            0.0,
+            -0.8
+          ],
+          "rotate_y": 0.0
+        },
+        {
+          "asset_id": "furniture_sign_mount_bracket_double",
+          "name": "sign_bracket_stop_0",
+          "translate": [
+            -1.8,
+            0.0,
+            -0.8
+          ],
+          "rotate_y": 0.0
+        },
+        {
           "asset_id": "sign_merge",
           "name": "sign_merge_0",
           "translate": [
@@ -340,6 +440,26 @@
         {
           "asset_id": "sign_variable_message",
           "name": "vms_0",
+          "translate": [
+            1.5,
+            0.0,
+            0.0
+          ],
+          "rotate_y": 180.0
+        },
+        {
+          "asset_id": "furniture_sign_back_rectangle_wide",
+          "name": "sign_back_rect_0",
+          "translate": [
+            1.5,
+            0.0,
+            0.0
+          ],
+          "rotate_y": 180.0
+        },
+        {
+          "asset_id": "furniture_sign_mount_bracket_double",
+          "name": "sign_bracket_rect_0",
           "translate": [
             1.5,
             0.0,
@@ -517,6 +637,26 @@
             1.35
           ],
           "rotate_y": 90.0
+        },
+        {
+          "asset_id": "furniture_sign_back_triangle",
+          "name": "sign_back_triangle_0",
+          "translate": [
+            1.8,
+            0.0,
+            1.4
+          ],
+          "rotate_y": 180.0
+        },
+        {
+          "asset_id": "furniture_sign_mount_bracket_single",
+          "name": "sign_bracket_triangle_0",
+          "translate": [
+            1.8,
+            0.0,
+            1.4
+          ],
+          "rotate_y": 180.0
         },
         {
           "asset_id": "sign_yield",
