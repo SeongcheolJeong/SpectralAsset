@@ -62,6 +62,34 @@ def Xform "scene_signalized_intersection" {
         float xformOp:rotateY = 0.000000
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
     }
+    def Xform "backplate_vertical_0" (
+        references = @../geometry/usd/furniture_signal_backplate_vertical.usda@</furniture_signal_backplate_vertical>
+    ) {
+        double3 xformOp:translate = (-0.500000, 0.000000, -2.000000)
+        float xformOp:rotateY = 0.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
+    def Xform "backplate_horizontal_0" (
+        references = @../geometry/usd/furniture_signal_backplate_horizontal.usda@</furniture_signal_backplate_horizontal>
+    ) {
+        double3 xformOp:translate = (2.000000, 0.000000, -0.500000)
+        float xformOp:rotateY = 90.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
+    def Xform "mast_hanger_0" (
+        references = @../geometry/usd/furniture_signal_mast_hanger.usda@</furniture_signal_mast_hanger>
+    ) {
+        double3 xformOp:translate = (2.000000, 0.000000, -0.500000)
+        float xformOp:rotateY = 90.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
+    def Xform "cabinet_0" (
+        references = @../geometry/usd/furniture_signal_controller_cabinet.usda@</furniture_signal_controller_cabinet>
+    ) {
+        double3 xformOp:translate = (-2.600000, 0.000000, -2.250000)
+        float xformOp:rotateY = 0.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
     def Xform "delineator_0" (
         references = @../geometry/usd/furniture_delineator_post.usda@</furniture_delineator_post>
     ) {

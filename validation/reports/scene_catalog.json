@@ -207,6 +207,46 @@
           "rotate_y": 0.0
         },
         {
+          "asset_id": "furniture_signal_backplate_vertical",
+          "name": "backplate_vertical_0",
+          "translate": [
+            -0.5,
+            0.0,
+            -2.0
+          ],
+          "rotate_y": 0.0
+        },
+        {
+          "asset_id": "furniture_signal_backplate_horizontal",
+          "name": "backplate_horizontal_0",
+          "translate": [
+            2.0,
+            0.0,
+            -0.5
+          ],
+          "rotate_y": 90.0
+        },
+        {
+          "asset_id": "furniture_signal_mast_hanger",
+          "name": "mast_hanger_0",
+          "translate": [
+            2.0,
+            0.0,
+            -0.5
+          ],
+          "rotate_y": 90.0
+        },
+        {
+          "asset_id": "furniture_signal_controller_cabinet",
+          "name": "cabinet_0",
+          "translate": [
+            -2.6,
+            0.0,
+            -2.25
+          ],
+          "rotate_y": 0.0
+        },
+        {
           "asset_id": "furniture_delineator_post",
           "name": "delineator_0",
           "translate": [
@@ -328,6 +368,16 @@
           "rotate_y": 0.0
         },
         {
+          "asset_id": "furniture_signal_backplate_vertical",
+          "name": "backplate_vertical_0",
+          "translate": [
+            1.8,
+            0.0,
+            -1.2
+          ],
+          "rotate_y": 180.0
+        },
+        {
           "asset_id": "furniture_bollard_flexible",
           "name": "bollard_0",
           "translate": [
@@ -415,6 +465,26 @@
             0.85,
             0.03,
             -0.25
+          ],
+          "rotate_y": 0.0
+        },
+        {
+          "asset_id": "furniture_signal_backplate_vertical",
+          "name": "backplate_vertical_0",
+          "translate": [
+            -1.6,
+            0.0,
+            -0.8
+          ],
+          "rotate_y": 0.0
+        },
+        {
+          "asset_id": "furniture_signal_controller_cabinet",
+          "name": "cabinet_0",
+          "translate": [
+            -2.55,
+            0.0,
+            -0.95
           ],
           "rotate_y": 0.0
         },

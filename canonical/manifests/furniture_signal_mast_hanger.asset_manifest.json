@@ -1,0 +1,60 @@
+{
+  "id": "furniture_signal_mast_hanger",
+  "family": "road_furniture",
+  "semantic_class": "furniture.signal_hanger",
+  "variant_key": "mast_arm_drop",
+  "dimensions_m": {
+    "width": 0.34,
+    "height": 4.78,
+    "depth": 0.16
+  },
+  "lods": [
+    {
+      "name": "LOD0",
+      "triangle_count": 60,
+      "usd_scope": "/furniture_signal_mast_hanger/LOD0",
+      "gltf_node_prefix": "LOD0"
+    },
+    {
+      "name": "LOD1",
+      "triangle_count": 36,
+      "usd_scope": "/furniture_signal_mast_hanger/LOD1",
+      "gltf_node_prefix": "LOD1"
+    }
+  ],
+  "collider": {
+    "type": "box",
+    "width": 0.34,
+    "height": 4.78,
+    "depth": 0.16
+  },
+  "anchor_points": {
+    "base_center": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    }
+  },
+  "materials": [
+    "mat_metal_galvanized"
+  ],
+  "states": {
+    "default": {
+      "render_profile": "static"
+    }
+  },
+  "export_targets": {
+    "usd_ascii": "canonical/geometry/usd/furniture_signal_mast_hanger.usda",
+    "usd_binary": "exports/usd/furniture_signal_mast_hanger.usdc",
+    "gltf_binary": "exports/gltf/furniture_signal_mast_hanger.glb"
+  },
+  "license": {
+    "spdx": "LicenseRef-ProjectGenerated",
+    "redistribution": "geometry, manifests, and templates generated in-repo"
+  },
+  "provenance": {
+    "generated_at": "2026-04-16T10:10:40+00:00",
+    "generated_by": "scripts/build_asset_pack.py",
+    "note": "Generated reusable road surface, marking, or furniture primitive."
+  }
+}

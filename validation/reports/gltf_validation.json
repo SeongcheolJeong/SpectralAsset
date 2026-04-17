@@ -1,6 +1,6 @@
 {
   "generated_at": "2026-04-16T10:10:40.000Z",
-  "files_checked": 50,
+  "files_checked": 54,
   "files_with_errors": 0,
   "files_with_warnings": 0,
   "results": [
@@ -41,6 +41,34 @@
     },
     {
       "file": "exports/gltf/furniture_sign_pole.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
+      "file": "exports/gltf/furniture_signal_backplate_horizontal.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
+      "file": "exports/gltf/furniture_signal_backplate_vertical.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
+      "file": "exports/gltf/furniture_signal_controller_cabinet.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
+      "file": "exports/gltf/furniture_signal_mast_hanger.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,

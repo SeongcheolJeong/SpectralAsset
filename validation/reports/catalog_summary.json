@@ -236,6 +236,30 @@
       "variant_key": "mast_arm"
     },
     {
+      "id": "furniture_signal_backplate_vertical",
+      "family": "road_furniture",
+      "semantic_class": "furniture.signal_backplate",
+      "variant_key": "vertical_3_aspect"
+    },
+    {
+      "id": "furniture_signal_backplate_horizontal",
+      "family": "road_furniture",
+      "semantic_class": "furniture.signal_backplate",
+      "variant_key": "horizontal_3_aspect"
+    },
+    {
+      "id": "furniture_signal_mast_hanger",
+      "family": "road_furniture",
+      "semantic_class": "furniture.signal_hanger",
+      "variant_key": "mast_arm_drop"
+    },
+    {
+      "id": "furniture_signal_controller_cabinet",
+      "family": "road_furniture",
+      "semantic_class": "furniture.signal_controller_cabinet",
+      "variant_key": "double_door"
+    },
+    {
       "id": "furniture_guardrail_bollard_set",
       "family": "road_furniture",
       "semantic_class": "furniture.guardrail_bollard",

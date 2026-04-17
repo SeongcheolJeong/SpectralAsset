@@ -6,7 +6,7 @@ This file explains what the generator actually creates in this repository and ho
 
 Current generated baseline:
 
-- `46` assets
+- `50` assets
 - `20` spectral materials
 - `4` emissive profiles
 - `3` camera profiles
@@ -101,6 +101,10 @@ These are support/context objects such as:
 - `furniture_traffic_cone`
 - `furniture_water_barrier`
 - `furniture_barricade_panel`
+- `furniture_signal_backplate_vertical`
+- `furniture_signal_backplate_horizontal`
+- `furniture_signal_mast_hanger`
+- `furniture_signal_controller_cabinet`
 
 ## Other Generated Objects
 

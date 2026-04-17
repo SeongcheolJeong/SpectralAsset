@@ -21,6 +21,7 @@
 - internet-only public-data upgrade documentation
 - first `P3` road-furniture expansion batch with standalone guardrail, bollard, delineator, traffic-cone, water-barrier, and barricade assets
 - second `P3` road-marking expansion batch with directional arrows, an edge line, a chevron/gore marking, and a worn lane variant
+- third `P3` traffic-light support-context batch with signal backplates, a mast hanger, and a controller cabinet
 
 ### Changed
 
@@ -47,11 +48,12 @@
 - raw-source freezing now tracks public EMVA, Balluff, CIE, and FHWA references for the internet-only public-data upgrade phase
 - existing validation scenes now place selected road-furniture expansion assets so the new coverage is exercised in generated scene exports
 - existing validation scenes now place selected directional and worn road-marking assets so the expanded marking catalog is exercised in scene exports
-- backlog focus now moves from blocked measurement work to `P3` coverage expansion, with traffic-light support geometry now next in queue
+- existing validation scenes now place explicit traffic-light support-context assets so intersections no longer imply all signal support through poles alone
+- backlog focus now moves from blocked measurement work to `P3` coverage expansion, with sign assembly depth now next in queue
 
 ### Validation
 
-- validation summary now reports `46` assets, including `10` `road_furniture` assets and `9` `road_marking` assets after the first two `P3` expansion batches
+- validation summary now reports `50` assets, including `14` `road_furniture` assets and `9` `road_marking` assets after the first three `P3` expansion batches
 - validation summary now includes `3` camera profiles and zero camera-profile validation errors
 - material quality summary now reports `3` `measured_standard`, `1` `measured_derivative`, `16` `project_proxy`, and `0` `vendor_derived` materials
 - emissive profile quality summary now distinguishes vendor-derived vehicle/protected-turn profiles from remaining proxy pedestrian/countdown profiles
