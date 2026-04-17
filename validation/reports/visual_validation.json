@@ -7,6 +7,12 @@
       "30m": "pass",
       "60m": "pass"
     },
+    "sign_stop_weathered": {
+      "5m": "pass",
+      "15m": "pass",
+      "30m": "pass",
+      "60m": "pass"
+    },
     "sign_yield": {
       "5m": "pass",
       "15m": "pass",
@@ -25,6 +31,12 @@
       "30m": "pass",
       "60m": "pass"
     },
+    "sign_speed_limit_50_weathered": {
+      "5m": "pass",
+      "15m": "pass",
+      "30m": "pass",
+      "60m": "pass"
+    },
     "sign_turn_restriction_left": {
       "5m": "pass",
       "15m": "pass",
@@ -38,6 +50,12 @@
       "60m": "pass"
     },
     "sign_pedestrian_crossing": {
+      "5m": "pass",
+      "15m": "pass",
+      "30m": "pass",
+      "60m": "pass"
+    },
+    "sign_pedestrian_crossing_weathered": {
       "5m": "pass",
       "15m": "pass",
       "30m": "pass",
@@ -91,7 +109,25 @@
       "30m": "pass",
       "60m": "pass"
     },
+    "sign_one_way_text_left": {
+      "5m": "pass",
+      "15m": "pass",
+      "30m": "pass",
+      "60m": "pass"
+    },
+    "sign_one_way_text_right": {
+      "5m": "pass",
+      "15m": "pass",
+      "30m": "pass",
+      "60m": "pass"
+    },
     "sign_lane_direction": {
+      "5m": "pass",
+      "15m": "pass",
+      "30m": "pass",
+      "60m": "pass"
+    },
+    "sign_detour_left_text": {
       "5m": "pass",
       "15m": "pass",
       "30m": "pass",
@@ -116,6 +152,11 @@
       "15m": "pass",
       "30m": "pass"
     },
+    "sign_stop_weathered": {
+      "5m": "pass",
+      "15m": "pass",
+      "30m": "pass"
+    },
     "sign_yield": {
       "5m": "pass",
       "15m": "pass",
@@ -131,22 +172,17 @@
       "15m": "pass",
       "30m": "pass"
     },
+    "sign_speed_limit_50_weathered": {
+      "5m": "pass",
+      "15m": "pass",
+      "30m": "pass"
+    },
     "sign_turn_restriction_left": {
       "5m": "pass",
       "15m": "pass",
       "30m": "pass"
     },
     "sign_mandatory_direction_right": {
-      "5m": "pass",
-      "15m": "pass",
-      "30m": "pass"
-    },
-    "sign_pedestrian_crossing": {
-      "5m": "pass",
-      "15m": "pass",
-      "30m": "pass"
-    },
-    "sign_school_warning": {
       "5m": "pass",
       "15m": "pass",
       "30m": "pass"

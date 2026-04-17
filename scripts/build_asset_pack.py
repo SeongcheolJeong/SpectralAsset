@@ -2466,6 +2466,7 @@ def line_segment_polygon(start: Tuple[float, float], end: Tuple[float, float], w
 
 
 GLYPHS = {
+    " ": ["000", "000", "000", "000", "000", "000", "000"],
     "0": ["01110", "10001", "10011", "10101", "11001", "10001", "01110"],
     "1": ["00100", "01100", "00100", "00100", "00100", "00100", "01110"],
     "2": ["01110", "10001", "00001", "00010", "00100", "01000", "11111"],
@@ -2476,12 +2477,20 @@ GLYPHS = {
     "7": ["11111", "00001", "00010", "00100", "01000", "01000", "01000"],
     "8": ["01110", "10001", "10001", "01110", "10001", "10001", "01110"],
     "9": ["01110", "10001", "10001", "01111", "00001", "00010", "11100"],
+    "A": ["00100", "01010", "10001", "10001", "11111", "10001", "10001"],
     "B": ["11110", "10001", "10001", "11110", "10001", "10001", "11110"],
+    "D": ["11110", "10001", "10001", "10001", "10001", "10001", "11110"],
+    "E": ["11111", "10000", "10000", "11110", "10000", "10000", "11111"],
+    "L": ["10000", "10000", "10000", "10000", "10000", "10000", "11111"],
+    "N": ["10001", "11001", "10101", "10011", "10001", "10001", "10001"],
     "O": ["01110", "10001", "10001", "10001", "10001", "10001", "01110"],
     "P": ["11110", "10001", "10001", "11110", "10000", "10000", "10000"],
+    "R": ["11110", "10001", "10001", "11110", "10100", "10010", "10001"],
     "S": ["01111", "10000", "10000", "01110", "00001", "00001", "11110"],
     "T": ["11111", "00100", "00100", "00100", "00100", "00100", "00100"],
     "U": ["10001", "10001", "10001", "10001", "10001", "10001", "01110"],
+    "W": ["10001", "10001", "10001", "10101", "10101", "10101", "01010"],
+    "Y": ["10001", "10001", "01010", "00100", "00100", "00100", "00100"],
 }
 
 
@@ -2659,12 +2668,39 @@ def sign_layers(sign_type: str) -> List[Tuple[str, List[List[Tuple[float, float]
             ("mat_sign_blue", [rect_polygon(0.0, 0.0, 0.95, 0.38)]),
             ("mat_sign_white", arrow_shapes((-0.28, 0.0), (0.28, 0.0), 0.1, 0.16, 0.22)),
         ]
+    if sign_type == "one_way_text_left":
+        return [
+            ("mat_sign_blue", [rect_polygon(0.0, 0.0, 0.95, 0.38)]),
+            (
+                "mat_sign_white",
+                arrow_shapes((-0.02, 0.0), (-0.38, 0.0), 0.08, 0.14, 0.2)
+                + glyph_rects("ONE WAY", 0.46, 0.1, (0.2, 0.0)),
+            ),
+        ]
+    if sign_type == "one_way_text_right":
+        return [
+            ("mat_sign_blue", [rect_polygon(0.0, 0.0, 0.95, 0.38)]),
+            (
+                "mat_sign_white",
+                arrow_shapes((0.02, 0.0), (0.38, 0.0), 0.08, 0.14, 0.2)
+                + glyph_rects("ONE WAY", 0.46, 0.1, (-0.2, 0.0)),
+            ),
+        ]
     if sign_type == "lane_direction":
         return [
             ("mat_sign_blue", [rect_polygon(0.0, 0.0, 0.95, 0.72)]),
             ("mat_sign_white", arrow_shapes((-0.18, -0.2), (-0.18, 0.2), 0.08, 0.14, 0.22)
              + arrow_shapes((0.18, -0.2), (0.18, 0.2), 0.08, 0.14, 0.22)
              + arrow_shapes((0.18, 0.0), (-0.06, 0.2), 0.06, 0.12, 0.18)),
+        ]
+    if sign_type == "detour_left_text":
+        return [
+            ("mat_sign_orange", [rect_polygon(0.0, 0.0, 0.95, 0.38)]),
+            (
+                "mat_sign_black",
+                arrow_shapes((-0.02, 0.0), (-0.38, 0.0), 0.08, 0.14, 0.2)
+                + glyph_rects("DETOUR", 0.46, 0.1, (0.2, 0.0)),
+            ),
         ]
     if sign_type == "railroad_warning":
         return [
@@ -2684,6 +2720,51 @@ def sign_layers(sign_type: str) -> List[Tuple[str, List[List[Tuple[float, float]
         return [
             ("mat_vms_panel", [rect_polygon(0.0, 0.0, 0.95, 0.54)]),
             ("mat_signal_countdown_amber_off", amber_pixels),
+        ]
+    if sign_type == "stop_weathered":
+        outer = regular_polygon(8, 0.48, 22.5)
+        inner = regular_polygon(8, 0.41, 22.5)
+        return [
+            ("mat_sign_white", [outer]),
+            ("mat_sign_stop_red", [inner]),
+            ("mat_sign_white", glyph_rects("STOP", 0.44, 0.22, (0.0, 0.0))),
+            (
+                "mat_sign_weathered_film",
+                [
+                    rect_polygon(-0.08, -0.28, 0.28, 0.11),
+                    rect_polygon(0.18, -0.08, 0.16, 0.08, 11.0),
+                    line_segment_polygon((-0.26, 0.22), (0.14, -0.18), 0.05),
+                    line_segment_polygon((-0.18, 0.02), (0.22, 0.12), 0.035),
+                ],
+            ),
+        ]
+    if sign_type == "speed_limit_weathered":
+        return [
+            ("mat_sign_stop_red", [circle_polygon(0.0, 0.0, 0.46, 40)]),
+            ("mat_sign_white", [circle_polygon(0.0, 0.0, 0.36, 40)]),
+            ("mat_sign_black", glyph_rects("50", 0.34, 0.28, (0.0, 0.0))),
+            (
+                "mat_sign_weathered_film",
+                [
+                    rect_polygon(0.12, 0.18, 0.22, 0.09, -14.0),
+                    rect_polygon(-0.06, -0.22, 0.26, 0.1),
+                    line_segment_polygon((-0.24, 0.16), (0.26, -0.02), 0.04),
+                ],
+            ),
+        ]
+    if sign_type == "pedestrian_crossing_weathered":
+        return [
+            ("mat_sign_blue", [rect_polygon(0.0, 0.0, 0.9, 0.9)]),
+            ("mat_sign_white", [triangle_polygon([(0.0, 0.34), (0.34, -0.28), (-0.34, -0.28)])]),
+            ("mat_sign_black", pedestrian_icon((0.0, -0.02), 0.65)),
+            (
+                "mat_sign_weathered_film",
+                [
+                    rect_polygon(0.18, 0.26, 0.22, 0.12, 12.0),
+                    rect_polygon(-0.18, -0.28, 0.24, 0.1),
+                    line_segment_polygon((-0.22, 0.2), (0.2, -0.16), 0.04),
+                ],
+            ),
         ]
     raise ValueError(f"Unsupported sign type {sign_type}")
 
@@ -3633,6 +3714,7 @@ def make_materials(
         "mat_sign_blue_reflectance": clamp_list(interpolate([(350, 0.14), (430, 0.65), (480, 0.82), (560, 0.22), (700, 0.05), (1700, 0.04)], MASTER_GRID)),
         "mat_sign_yellow_reflectance": clamp_list(interpolate([(350, 0.08), (420, 0.2), (520, 0.78), (600, 0.88), (700, 0.72), (1100, 0.48), (1700, 0.3)], MASTER_GRID)),
         "mat_sign_orange_reflectance": clamp_list(interpolate([(350, 0.06), (450, 0.16), (540, 0.52), (620, 0.82), (700, 0.72), (1100, 0.44), (1700, 0.26)], MASTER_GRID)),
+        "mat_sign_weathered_film_reflectance": clamp_list(interpolate([(350, 0.14), (450, 0.18), (550, 0.24), (700, 0.28), (900, 0.26), (1100, 0.22), (1700, 0.18)], MASTER_GRID)),
         "mat_asphalt_dry_reflectance": clamp_list(interpolate([(350, 0.05), (500, 0.07), (700, 0.09), (900, 0.11), (1100, 0.13), (1700, 0.18)], MASTER_GRID)),
         "mat_asphalt_wet_reflectance": clamp_list(interpolate([(350, 0.03), (500, 0.05), (700, 0.06), (900, 0.08), (1100, 0.1), (1700, 0.15)], MASTER_GRID)),
         "mat_concrete_reflectance": clamp_list(interpolate([(350, 0.24), (500, 0.3), (700, 0.36), (900, 0.42), (1100, 0.45), (1700, 0.5)], MASTER_GRID)),
@@ -3677,6 +3759,7 @@ def make_materials(
         ("mat_sign_blue", "reflective", "reflectance", "dry", ["mat_sign_blue_reflectance"], {"roughnessFactor": 0.8}),
         ("mat_sign_yellow", "reflective", "reflectance", "dry", ["mat_sign_yellow_reflectance"], {"roughnessFactor": 0.8}),
         ("mat_sign_orange", "reflective", "reflectance", "dry", ["mat_sign_orange_reflectance"], {"roughnessFactor": 0.8}),
+        ("mat_sign_weathered_film", "reflective", "reflectance", "aged", ["mat_sign_weathered_film_reflectance"], {"roughnessFactor": 0.93}),
         ("mat_asphalt_dry", "reflective", "reflectance", "dry", ["mat_asphalt_dry_reflectance"], {"roughnessFactor": 0.95}),
         ("mat_asphalt_wet", "wet_overlay", "reflectance", "wet", ["mat_asphalt_wet_reflectance", "mat_wet_overlay_transmittance"], wet_material_overrides),
         ("mat_concrete", "reflective", "reflectance", "dry", ["mat_concrete_reflectance"], {"roughnessFactor": 0.92}),
@@ -4294,12 +4377,15 @@ def generate_standard_spectra(signal_curves: Dict[str, Dict]) -> Tuple[Dict[str,
 def sign_definitions() -> List[Dict]:
     return [
         {"id": "sign_stop", "sign_type": "stop", "size": (0.78, 0.78), "variant_key": "vienna_core.stop", "semantic_class": "regulatory.stop"},
+        {"id": "sign_stop_weathered", "sign_type": "stop_weathered", "size": (0.78, 0.78), "variant_key": "weathered.stop.medium", "semantic_class": "regulatory.stop"},
         {"id": "sign_yield", "sign_type": "yield", "size": (0.9, 0.78), "variant_key": "vienna_core.give_way", "semantic_class": "regulatory.yield"},
         {"id": "sign_no_entry", "sign_type": "no_entry", "size": (0.75, 0.75), "variant_key": "vienna_core.no_entry", "semantic_class": "regulatory.no_entry"},
         {"id": "sign_speed_limit_50", "sign_type": "speed_limit", "size": (0.75, 0.75), "variant_key": "vienna_core.speed_limit_50", "semantic_class": "regulatory.speed_limit"},
+        {"id": "sign_speed_limit_50_weathered", "sign_type": "speed_limit_weathered", "size": (0.75, 0.75), "variant_key": "weathered.speed_limit_50.medium", "semantic_class": "regulatory.speed_limit"},
         {"id": "sign_turn_restriction_left", "sign_type": "turn_restriction", "size": (0.75, 0.75), "variant_key": "vienna_core.no_left_turn", "semantic_class": "regulatory.turn_restriction"},
         {"id": "sign_mandatory_direction_right", "sign_type": "mandatory_direction", "size": (0.75, 0.75), "variant_key": "vienna_core.turn_right", "semantic_class": "mandatory.direction"},
         {"id": "sign_pedestrian_crossing", "sign_type": "pedestrian_crossing", "size": (0.82, 0.82), "variant_key": "vienna_core.pedestrian_crossing", "semantic_class": "information.pedestrian_crossing"},
+        {"id": "sign_pedestrian_crossing_weathered", "sign_type": "pedestrian_crossing_weathered", "size": (0.82, 0.82), "variant_key": "weathered.pedestrian_crossing.medium", "semantic_class": "information.pedestrian_crossing"},
         {"id": "sign_school_warning", "sign_type": "school_warning", "size": (0.8, 0.8), "variant_key": "vienna_core.school_warning", "semantic_class": "warning.school_zone"},
         {"id": "sign_signal_ahead", "sign_type": "signal_ahead", "size": (0.8, 0.8), "variant_key": "vienna_core.signal_ahead", "semantic_class": "warning.signal_ahead"},
         {"id": "sign_merge", "sign_type": "merge", "size": (0.8, 0.8), "variant_key": "vienna_core.merge", "semantic_class": "warning.merge"},
@@ -4308,7 +4394,10 @@ def sign_definitions() -> List[Dict]:
         {"id": "sign_parking", "sign_type": "parking", "size": (0.78, 0.78), "variant_key": "vienna_core.parking", "semantic_class": "information.parking"},
         {"id": "sign_bus_stop", "sign_type": "bus_stop", "size": (0.78, 0.78), "variant_key": "vienna_core.bus_stop", "semantic_class": "information.bus_stop"},
         {"id": "sign_one_way", "sign_type": "one_way", "size": (1.0, 0.36), "variant_key": "vienna_core.one_way", "semantic_class": "information.one_way"},
+        {"id": "sign_one_way_text_left", "sign_type": "one_way_text_left", "size": (1.2, 0.42), "variant_key": "locale.en.one_way_left_text", "semantic_class": "information.one_way"},
+        {"id": "sign_one_way_text_right", "sign_type": "one_way_text_right", "size": (1.2, 0.42), "variant_key": "locale.en.one_way_right_text", "semantic_class": "information.one_way"},
         {"id": "sign_lane_direction", "sign_type": "lane_direction", "size": (1.0, 0.72), "variant_key": "vienna_core.lane_direction", "semantic_class": "information.lane_direction"},
+        {"id": "sign_detour_left_text", "sign_type": "detour_left_text", "size": (1.2, 0.42), "variant_key": "locale.en.detour_left_text", "semantic_class": "information.detour"},
         {"id": "sign_railroad_warning", "sign_type": "railroad_warning", "size": (0.8, 0.8), "variant_key": "vienna_core.railroad_warning", "semantic_class": "warning.railroad"},
         {"id": "sign_variable_message", "sign_type": "variable_message", "size": (1.2, 0.7), "variant_key": "vienna_core.variable_message", "semantic_class": "information.variable_message"},
     ]
@@ -4994,11 +5083,17 @@ def scene_definitions() -> List[Dict]:
                 {"asset_id": "furniture_sign_mount_bracket_double", "name": "sign_bracket_square_0", "translate": (-1.8, 0.0, 1.8), "rotate_y": 0.0},
                 {"asset_id": "furniture_sign_back_square", "name": "sign_back_square_1", "translate": (1.8, 0.0, 0.9), "rotate_y": 180.0},
                 {"asset_id": "furniture_sign_mount_bracket_single", "name": "sign_bracket_square_1", "translate": (1.8, 0.0, 0.9), "rotate_y": 180.0},
+                {"asset_id": "furniture_sign_back_rectangle_wide", "name": "sign_back_rect_0", "translate": (-1.8, 0.0, -2.05), "rotate_y": 0.0},
+                {"asset_id": "furniture_sign_mount_bracket_single", "name": "sign_bracket_rect_0", "translate": (-1.8, 0.0, -2.05), "rotate_y": 0.0},
+                {"asset_id": "furniture_sign_back_rectangle_wide", "name": "sign_back_rect_1", "translate": (1.8, 0.0, 2.05), "rotate_y": 180.0},
+                {"asset_id": "furniture_sign_mount_bracket_single", "name": "sign_bracket_rect_1", "translate": (1.8, 0.0, 2.05), "rotate_y": 180.0},
                 {"asset_id": "sign_stop", "name": "sign_stop_0", "translate": (-1.8, 0.0, -1.0), "rotate_y": 0.0},
-                {"asset_id": "sign_speed_limit_50", "name": "sign_speed_0", "translate": (-1.8, 0.0, 0.4), "rotate_y": 0.0},
-                {"asset_id": "sign_pedestrian_crossing", "name": "sign_cross_0", "translate": (-1.8, 0.0, 1.8), "rotate_y": 0.0},
+                {"asset_id": "sign_speed_limit_50_weathered", "name": "sign_speed_0", "translate": (-1.8, 0.0, 0.4), "rotate_y": 0.0},
+                {"asset_id": "sign_pedestrian_crossing_weathered", "name": "sign_cross_0", "translate": (-1.8, 0.0, 1.8), "rotate_y": 0.0},
+                {"asset_id": "sign_detour_left_text", "name": "sign_detour_0", "translate": (-1.8, 0.0, -2.05), "rotate_y": 0.0},
                 {"asset_id": "sign_curve_left", "name": "sign_curve_0", "translate": (1.8, 0.0, -0.6), "rotate_y": 180.0},
                 {"asset_id": "sign_signal_ahead", "name": "sign_signal_0", "translate": (1.8, 0.0, 0.9), "rotate_y": 180.0},
+                {"asset_id": "sign_one_way_text_right", "name": "sign_one_way_text_0", "translate": (1.8, 0.0, 2.05), "rotate_y": 180.0},
             ],
         },
         {
@@ -5037,10 +5132,13 @@ def scene_definitions() -> List[Dict]:
             "scenario_profile": "scenario_urban_night",
             "placements": [
                 {"asset_id": "road_concrete_distressed", "name": "road_0", "translate": (0.0, 0.0, 0.0), "rotate_y": 0.0},
-                {"asset_id": "sign_stop", "name": "sign_stop_0", "translate": (-1.8, 0.0, -0.8), "rotate_y": 0.0},
+                {"asset_id": "sign_stop_weathered", "name": "sign_stop_0", "translate": (-1.8, 0.0, -0.8), "rotate_y": 0.0},
                 {"asset_id": "furniture_sign_back_octagon", "name": "sign_back_stop_0", "translate": (-1.8, 0.0, -0.8), "rotate_y": 0.0},
                 {"asset_id": "furniture_sign_mount_bracket_double", "name": "sign_bracket_stop_0", "translate": (-1.8, 0.0, -0.8), "rotate_y": 0.0},
                 {"asset_id": "sign_merge", "name": "sign_merge_0", "translate": (-1.8, 0.0, 0.8), "rotate_y": 0.0},
+                {"asset_id": "sign_one_way_text_left", "name": "sign_one_way_text_0", "translate": (-1.8, 0.0, 1.88), "rotate_y": 0.0},
+                {"asset_id": "furniture_sign_back_rectangle_wide", "name": "sign_back_rect_1", "translate": (-1.8, 0.0, 1.88), "rotate_y": 0.0},
+                {"asset_id": "furniture_sign_mount_bracket_single", "name": "sign_bracket_rect_1", "translate": (-1.8, 0.0, 1.88), "rotate_y": 0.0},
                 {"asset_id": "sign_variable_message", "name": "vms_0", "translate": (1.5, 0.0, 0.0), "rotate_y": 180.0},
                 {"asset_id": "furniture_sign_back_rectangle_wide", "name": "sign_back_rect_0", "translate": (1.5, 0.0, 0.0), "rotate_y": 180.0},
                 {"asset_id": "furniture_sign_mount_bracket_double", "name": "sign_bracket_rect_0", "translate": (1.5, 0.0, 0.0), "rotate_y": 180.0},
@@ -5080,7 +5178,9 @@ def scene_definitions() -> List[Dict]:
                 {"asset_id": "furniture_sign_back_triangle", "name": "sign_back_triangle_0", "translate": (1.8, 0.0, 1.4), "rotate_y": 180.0},
                 {"asset_id": "furniture_sign_mount_bracket_single", "name": "sign_bracket_triangle_0", "translate": (1.8, 0.0, 1.4), "rotate_y": 180.0},
                 {"asset_id": "sign_yield", "name": "yield_0", "translate": (1.8, 0.0, 1.4), "rotate_y": 180.0},
-                {"asset_id": "sign_school_warning", "name": "school_0", "translate": (1.8, 0.0, -1.4), "rotate_y": 180.0},
+                {"asset_id": "furniture_sign_back_rectangle_wide", "name": "sign_back_rect_0", "translate": (1.8, 0.0, -1.4), "rotate_y": 180.0},
+                {"asset_id": "furniture_sign_mount_bracket_single", "name": "sign_bracket_rect_0", "translate": (1.8, 0.0, -1.4), "rotate_y": 180.0},
+                {"asset_id": "sign_detour_left_text", "name": "detour_0", "translate": (1.8, 0.0, -1.4), "rotate_y": 180.0},
             ],
         },
     ]

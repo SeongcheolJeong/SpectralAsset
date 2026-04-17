@@ -8,6 +8,12 @@
       "variant_key": "vienna_core.stop"
     },
     {
+      "id": "sign_stop_weathered",
+      "family": "traffic_sign",
+      "semantic_class": "regulatory.stop",
+      "variant_key": "weathered.stop.medium"
+    },
+    {
       "id": "sign_yield",
       "family": "traffic_sign",
       "semantic_class": "regulatory.yield",
@@ -26,6 +32,12 @@
       "variant_key": "vienna_core.speed_limit_50"
     },
     {
+      "id": "sign_speed_limit_50_weathered",
+      "family": "traffic_sign",
+      "semantic_class": "regulatory.speed_limit",
+      "variant_key": "weathered.speed_limit_50.medium"
+    },
+    {
       "id": "sign_turn_restriction_left",
       "family": "traffic_sign",
       "semantic_class": "regulatory.turn_restriction",
@@ -42,6 +54,12 @@
       "family": "traffic_sign",
       "semantic_class": "information.pedestrian_crossing",
       "variant_key": "vienna_core.pedestrian_crossing"
+    },
+    {
+      "id": "sign_pedestrian_crossing_weathered",
+      "family": "traffic_sign",
+      "semantic_class": "information.pedestrian_crossing",
+      "variant_key": "weathered.pedestrian_crossing.medium"
     },
     {
       "id": "sign_school_warning",
@@ -92,10 +110,28 @@
       "variant_key": "vienna_core.one_way"
     },
     {
+      "id": "sign_one_way_text_left",
+      "family": "traffic_sign",
+      "semantic_class": "information.one_way",
+      "variant_key": "locale.en.one_way_left_text"
+    },
+    {
+      "id": "sign_one_way_text_right",
+      "family": "traffic_sign",
+      "semantic_class": "information.one_way",
+      "variant_key": "locale.en.one_way_right_text"
+    },
+    {
       "id": "sign_lane_direction",
       "family": "traffic_sign",
       "semantic_class": "information.lane_direction",
       "variant_key": "vienna_core.lane_direction"
+    },
+    {
+      "id": "sign_detour_left_text",
+      "family": "traffic_sign",
+      "semantic_class": "information.detour",
+      "variant_key": "locale.en.detour_left_text"
     },
     {
       "id": "sign_railroad_warning",

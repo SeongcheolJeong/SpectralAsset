@@ -186,6 +186,46 @@
           "rotate_y": 180.0
         },
         {
+          "asset_id": "furniture_sign_back_rectangle_wide",
+          "name": "sign_back_rect_0",
+          "translate": [
+            -1.8,
+            0.0,
+            -2.05
+          ],
+          "rotate_y": 0.0
+        },
+        {
+          "asset_id": "furniture_sign_mount_bracket_single",
+          "name": "sign_bracket_rect_0",
+          "translate": [
+            -1.8,
+            0.0,
+            -2.05
+          ],
+          "rotate_y": 0.0
+        },
+        {
+          "asset_id": "furniture_sign_back_rectangle_wide",
+          "name": "sign_back_rect_1",
+          "translate": [
+            1.8,
+            0.0,
+            2.05
+          ],
+          "rotate_y": 180.0
+        },
+        {
+          "asset_id": "furniture_sign_mount_bracket_single",
+          "name": "sign_bracket_rect_1",
+          "translate": [
+            1.8,
+            0.0,
+            2.05
+          ],
+          "rotate_y": 180.0
+        },
+        {
           "asset_id": "sign_stop",
           "name": "sign_stop_0",
           "translate": [
@@ -196,7 +236,7 @@
           "rotate_y": 0.0
         },
         {
-          "asset_id": "sign_speed_limit_50",
+          "asset_id": "sign_speed_limit_50_weathered",
           "name": "sign_speed_0",
           "translate": [
             -1.8,
@@ -206,12 +246,22 @@
           "rotate_y": 0.0
         },
         {
-          "asset_id": "sign_pedestrian_crossing",
+          "asset_id": "sign_pedestrian_crossing_weathered",
           "name": "sign_cross_0",
           "translate": [
             -1.8,
             0.0,
             1.8
+          ],
+          "rotate_y": 0.0
+        },
+        {
+          "asset_id": "sign_detour_left_text",
+          "name": "sign_detour_0",
+          "translate": [
+            -1.8,
+            0.0,
+            -2.05
           ],
           "rotate_y": 0.0
         },
@@ -232,6 +282,16 @@
             1.8,
             0.0,
             0.9
+          ],
+          "rotate_y": 180.0
+        },
+        {
+          "asset_id": "sign_one_way_text_right",
+          "name": "sign_one_way_text_0",
+          "translate": [
+            1.8,
+            0.0,
+            2.05
           ],
           "rotate_y": 180.0
         }
@@ -518,7 +578,7 @@
           "rotate_y": 0.0
         },
         {
-          "asset_id": "sign_stop",
+          "asset_id": "sign_stop_weathered",
           "name": "sign_stop_0",
           "translate": [
             -1.8,
@@ -554,6 +614,36 @@
             -1.8,
             0.0,
             0.8
+          ],
+          "rotate_y": 0.0
+        },
+        {
+          "asset_id": "sign_one_way_text_left",
+          "name": "sign_one_way_text_0",
+          "translate": [
+            -1.8,
+            0.0,
+            1.88
+          ],
+          "rotate_y": 0.0
+        },
+        {
+          "asset_id": "furniture_sign_back_rectangle_wide",
+          "name": "sign_back_rect_1",
+          "translate": [
+            -1.8,
+            0.0,
+            1.88
+          ],
+          "rotate_y": 0.0
+        },
+        {
+          "asset_id": "furniture_sign_mount_bracket_single",
+          "name": "sign_bracket_rect_1",
+          "translate": [
+            -1.8,
+            0.0,
+            1.88
           ],
           "rotate_y": 0.0
         },
@@ -899,8 +989,28 @@
           "rotate_y": 180.0
         },
         {
-          "asset_id": "sign_school_warning",
-          "name": "school_0",
+          "asset_id": "furniture_sign_back_rectangle_wide",
+          "name": "sign_back_rect_0",
+          "translate": [
+            1.8,
+            0.0,
+            -1.4
+          ],
+          "rotate_y": 180.0
+        },
+        {
+          "asset_id": "furniture_sign_mount_bracket_single",
+          "name": "sign_bracket_rect_0",
+          "translate": [
+            1.8,
+            0.0,
+            -1.4
+          ],
+          "rotate_y": 180.0
+        },
+        {
+          "asset_id": "sign_detour_left_text",
+          "name": "detour_0",
           "translate": [
             1.8,
             0.0,
