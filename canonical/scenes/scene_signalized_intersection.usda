@@ -69,6 +69,34 @@ def Xform "scene_signalized_intersection" {
         float xformOp:rotateY = 45.000000
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
     }
+    def Xform "centerline_solid_dashed_0" (
+        references = @../geometry/usd/marking_centerline_solid_dashed_yellow.usda@</marking_centerline_solid_dashed_yellow>
+    ) {
+        double3 xformOp:translate = (0.000000, 0.030000, 0.000000)
+        float xformOp:rotateY = 90.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
+    def Xform "only_text_0" (
+        references = @../geometry/usd/marking_only_text_white.usda@</marking_only_text_white>
+    ) {
+        double3 xformOp:translate = (-0.920000, 0.030000, -0.150000)
+        float xformOp:rotateY = 0.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
+    def Xform "stop_text_0" (
+        references = @../geometry/usd/marking_stop_text_white.usda@</marking_stop_text_white>
+    ) {
+        double3 xformOp:translate = (0.920000, 0.030000, -1.050000)
+        float xformOp:rotateY = 0.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
+    def Xform "raised_marker_bicolor_0" (
+        references = @../geometry/usd/marking_raised_marker_bicolor.usda@</marking_raised_marker_bicolor>
+    ) {
+        double3 xformOp:translate = (1.420000, 0.030000, -0.200000)
+        float xformOp:rotateY = 0.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
     def Xform "pole_0" (
         references = @../geometry/usd/furniture_signal_pole.usda@</furniture_signal_pole>
     ) {

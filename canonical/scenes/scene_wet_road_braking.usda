@@ -48,6 +48,13 @@ def Xform "scene_wet_road_braking" {
         float xformOp:rotateY = 0.000000
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
     }
+    def Xform "centerline_double_0" (
+        references = @../geometry/usd/marking_centerline_double_yellow.usda@</marking_centerline_double_yellow>
+    ) {
+        double3 xformOp:translate = (0.000000, 0.030000, -0.400000)
+        float xformOp:rotateY = 0.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
     def Xform "arrow_0" (
         references = @../geometry/usd/marking_arrow_straight_white.usda@</marking_arrow_straight_white>
     ) {

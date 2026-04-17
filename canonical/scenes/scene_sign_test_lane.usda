@@ -41,6 +41,13 @@ def Xform "scene_sign_test_lane" {
         float xformOp:rotateY = 0.000000
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
     }
+    def Xform "centerline_double_0" (
+        references = @../geometry/usd/marking_centerline_double_yellow.usda@</marking_centerline_double_yellow>
+    ) {
+        double3 xformOp:translate = (0.000000, 0.030000, 0.000000)
+        float xformOp:rotateY = 0.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
     def Xform "lane_worn_0" (
         references = @../geometry/usd/marking_lane_white_worn.usda@</marking_lane_white_worn>
     ) {
@@ -52,6 +59,13 @@ def Xform "scene_sign_test_lane" {
         references = @../geometry/usd/marking_raised_marker_white.usda@</marking_raised_marker_white>
     ) {
         double3 xformOp:translate = (0.000000, 0.030000, -0.400000)
+        float xformOp:rotateY = 0.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
+    def Xform "raised_marker_yellow_0" (
+        references = @../geometry/usd/marking_raised_marker_yellow.usda@</marking_raised_marker_yellow>
+    ) {
+        double3 xformOp:translate = (0.480000, 0.030000, -0.400000)
         float xformOp:rotateY = 0.000000
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
     }

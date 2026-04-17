@@ -308,6 +308,18 @@
       "variant_key": "solid_yellow"
     },
     {
+      "id": "marking_centerline_double_yellow",
+      "family": "road_marking",
+      "semantic_class": "marking.centerline",
+      "variant_key": "double_yellow_solid"
+    },
+    {
+      "id": "marking_centerline_solid_dashed_yellow",
+      "family": "road_marking",
+      "semantic_class": "marking.centerline",
+      "variant_key": "solid_dashed_yellow"
+    },
+    {
       "id": "marking_arrow_straight_white",
       "family": "road_marking",
       "semantic_class": "marking.directional_arrow",
@@ -332,10 +344,34 @@
       "variant_key": "gore_white"
     },
     {
+      "id": "marking_only_text_white",
+      "family": "road_marking",
+      "semantic_class": "marking.word_legend",
+      "variant_key": "only_white"
+    },
+    {
+      "id": "marking_stop_text_white",
+      "family": "road_marking",
+      "semantic_class": "marking.word_legend",
+      "variant_key": "stop_white"
+    },
+    {
       "id": "marking_raised_marker_white",
       "family": "road_marking",
       "semantic_class": "marking.raised_marker",
       "variant_key": "white_centerline"
+    },
+    {
+      "id": "marking_raised_marker_yellow",
+      "family": "road_marking",
+      "semantic_class": "marking.raised_marker",
+      "variant_key": "yellow_centerline"
+    },
+    {
+      "id": "marking_raised_marker_bicolor",
+      "family": "road_marking",
+      "semantic_class": "marking.raised_marker",
+      "variant_key": "bicolor_centerline"
     },
     {
       "id": "furniture_sign_pole",

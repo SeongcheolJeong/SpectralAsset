@@ -56,6 +56,16 @@
           "rotate_y": 0.0
         },
         {
+          "asset_id": "marking_centerline_double_yellow",
+          "name": "centerline_double_0",
+          "translate": [
+            0.0,
+            0.03,
+            0.0
+          ],
+          "rotate_y": 0.0
+        },
+        {
           "asset_id": "marking_lane_white_worn",
           "name": "lane_worn_0",
           "translate": [
@@ -70,6 +80,16 @@
           "name": "raised_marker_0",
           "translate": [
             0.0,
+            0.03,
+            -0.4
+          ],
+          "rotate_y": 0.0
+        },
+        {
+          "asset_id": "marking_raised_marker_yellow",
+          "name": "raised_marker_yellow_0",
+          "translate": [
+            0.48,
             0.03,
             -0.4
           ],
@@ -395,6 +415,46 @@
             1.0
           ],
           "rotate_y": 45.0
+        },
+        {
+          "asset_id": "marking_centerline_solid_dashed_yellow",
+          "name": "centerline_solid_dashed_0",
+          "translate": [
+            0.0,
+            0.03,
+            0.0
+          ],
+          "rotate_y": 90.0
+        },
+        {
+          "asset_id": "marking_only_text_white",
+          "name": "only_text_0",
+          "translate": [
+            -0.92,
+            0.03,
+            -0.15
+          ],
+          "rotate_y": 0.0
+        },
+        {
+          "asset_id": "marking_stop_text_white",
+          "name": "stop_text_0",
+          "translate": [
+            0.92,
+            0.03,
+            -1.05
+          ],
+          "rotate_y": 0.0
+        },
+        {
+          "asset_id": "marking_raised_marker_bicolor",
+          "name": "raised_marker_bicolor_0",
+          "translate": [
+            1.42,
+            0.03,
+            -0.2
+          ],
+          "rotate_y": 0.0
         },
         {
           "asset_id": "furniture_signal_pole",
@@ -865,6 +925,16 @@
             1.52,
             0.03,
             -0.1
+          ],
+          "rotate_y": 0.0
+        },
+        {
+          "asset_id": "marking_centerline_double_yellow",
+          "name": "centerline_double_0",
+          "translate": [
+            0.0,
+            0.03,
+            -0.4
           ],
           "rotate_y": 0.0
         },

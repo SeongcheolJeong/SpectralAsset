@@ -6,7 +6,7 @@ This file explains what the generator actually creates in this repository and ho
 
 Current generated baseline:
 
-- `82` assets
+- `88` assets
 - `21` spectral materials
 - `8` emissive profiles
 - `3` camera profiles
@@ -99,12 +99,18 @@ These are markings such as:
 - `marking_stop_line_worn`
 - `marking_edge_line_white`
 - `marking_edge_line_yellow`
+- `marking_centerline_double_yellow`
+- `marking_centerline_solid_dashed_yellow`
 - `marking_arrow_straight_white`
 - `marking_arrow_turn_left_white`
 - `marking_merge_left_white`
 - `marking_chevron_gore_white`
 - `marking_lane_white_worn`
 - `marking_raised_marker_white`
+- `marking_raised_marker_yellow`
+- `marking_raised_marker_bicolor`
+- `marking_only_text_white`
+- `marking_stop_text_white`
 
 They use retroreflective or reflective material definitions and are important for camera visibility tests.
 
