@@ -6,9 +6,9 @@ This file explains what the generator actually creates in this repository and ho
 
 Current generated baseline:
 
-- `72` assets
+- `76` assets
 - `20` spectral materials
-- `4` emissive profiles
+- `8` emissive profiles
 - `3` camera profiles
 - `4` scenario profiles
 - `4` validation scenes
@@ -53,6 +53,10 @@ These are signal housings such as:
 - `signal_vehicle_vertical_3_aspect`
 - `signal_vehicle_horizontal_3_aspect`
 - `signal_protected_turn_4_aspect`
+- `signal_beacon_amber_single`
+- `signal_beacon_red_single`
+- `signal_warning_dual_amber_horizontal`
+- `signal_warning_dual_red_horizontal`
 
 Each signal usually has:
 

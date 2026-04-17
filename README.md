@@ -45,6 +45,7 @@ For deterministic rebuild review, the generator now preserves the previous track
 - the fifth `P3` expansion batch now adds patched, distressed, and transition road-surface panels so validation scenes are not limited to the original clean dry/wet baseline
 - the sixth `P3` expansion batch now adds merge, worn crossing/stop, yellow edge, and raised-marker assets so the road-marking catalog is no longer limited to the original arrow-and-lane subset
 - the seventh `P3` expansion batch now adds utility poles, smaller signal-support cabinets, junction boxes, and explicit sign/signal attachment hardware so roadside support context is deeper than the original starter set
+- the eighth `P3` expansion batch now adds beacon-style and warning-flasher signal heads with explicit state maps so the traffic-light family is broader than the original five-head baseline
 - selected USGS v7 dry-material baselines are used for asphalt, concrete, and galvanized metal
 - wet asphalt is currently a measured-derived material built from the measured dry asphalt baseline plus the tracked wet modifier
 - vehicle and protected-turn traffic-signal emissive profiles now use vendor-derived public LED fits

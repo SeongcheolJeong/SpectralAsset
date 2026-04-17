@@ -111,6 +111,20 @@ def Xform "scene_night_retroreflection" {
         float xformOp:rotateY = 180.000000
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
     }
+    def Xform "warning_red_0" (
+        references = @../geometry/usd/signal_warning_dual_red_horizontal.usda@</signal_warning_dual_red_horizontal>
+    ) {
+        double3 xformOp:translate = (1.800000, 0.000000, -1.200000)
+        float xformOp:rotateY = 180.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
+    def Xform "beacon_red_0" (
+        references = @../geometry/usd/signal_beacon_red_single.usda@</signal_beacon_red_single>
+    ) {
+        double3 xformOp:translate = (-1.900000, 0.000000, 1.850000)
+        float xformOp:rotateY = 0.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
     def Xform "bollard_0" (
         references = @../geometry/usd/furniture_bollard_flexible.usda@</furniture_bollard_flexible>
     ) {

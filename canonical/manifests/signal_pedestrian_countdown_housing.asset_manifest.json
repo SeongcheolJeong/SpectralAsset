@@ -52,17 +52,17 @@
       "emissive_profile": "emissive_pedestrian_countdown",
       "state_key": "off"
     },
-    "active_red": {
+    "active_dont_walk": {
       "emissive_profile": "emissive_pedestrian_countdown",
-      "state_key": "red"
+      "state_key": "dont_walk"
     },
-    "active_yellow": {
+    "active_walk": {
       "emissive_profile": "emissive_pedestrian_countdown",
-      "state_key": "yellow"
+      "state_key": "walk"
     },
-    "active_green": {
+    "active_countdown": {
       "emissive_profile": "emissive_pedestrian_countdown",
-      "state_key": "green"
+      "state_key": "countdown"
     }
   },
   "export_targets": {

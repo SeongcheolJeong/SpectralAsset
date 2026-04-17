@@ -140,6 +140,30 @@
       "variant_key": "pedestrian.countdown"
     },
     {
+      "id": "signal_beacon_amber_single",
+      "family": "traffic_light",
+      "semantic_class": "traffic_light.beacon",
+      "variant_key": "beacon.amber.single"
+    },
+    {
+      "id": "signal_beacon_red_single",
+      "family": "traffic_light",
+      "semantic_class": "traffic_light.beacon",
+      "variant_key": "beacon.red.single"
+    },
+    {
+      "id": "signal_warning_dual_amber_horizontal",
+      "family": "traffic_light",
+      "semantic_class": "traffic_light.warning_flasher",
+      "variant_key": "warning_flasher.dual_amber.horizontal"
+    },
+    {
+      "id": "signal_warning_dual_red_horizontal",
+      "family": "traffic_light",
+      "semantic_class": "traffic_light.warning_flasher",
+      "variant_key": "warning_flasher.dual_red.horizontal"
+    },
+    {
       "id": "road_asphalt_dry",
       "family": "road_surface",
       "semantic_class": "road.asphalt",

@@ -1,0 +1,72 @@
+{
+  "id": "signal_beacon_amber_single",
+  "family": "traffic_light",
+  "semantic_class": "traffic_light.beacon",
+  "variant_key": "beacon.amber.single",
+  "dimensions_m": {
+    "width": 0.34,
+    "height": 1.62,
+    "depth": 0.2
+  },
+  "lods": [
+    {
+      "name": "LOD0",
+      "triangle_count": 120,
+      "usd_scope": "/signal_beacon_amber_single/LOD0",
+      "gltf_node_prefix": "LOD0"
+    },
+    {
+      "name": "LOD1",
+      "triangle_count": 88,
+      "usd_scope": "/signal_beacon_amber_single/LOD1",
+      "gltf_node_prefix": "LOD1"
+    }
+  ],
+  "collider": {
+    "type": "box",
+    "width": 0.34,
+    "height": 0.42,
+    "depth": 0.2
+  },
+  "anchor_points": {
+    "mount_point": {
+      "x": 0.0,
+      "y": 1.2,
+      "z": -0.08
+    },
+    "front_center": {
+      "x": 0.0,
+      "y": 1.41,
+      "z": 0.1
+    }
+  },
+  "materials": [
+    "mat_metal_galvanized",
+    "mat_signal_housing",
+    "mat_signal_lens_yellow_off"
+  ],
+  "states": {
+    "off": {
+      "emissive_profile": "emissive_beacon_amber",
+      "state_key": "off"
+    },
+    "flashing_amber": {
+      "emissive_profile": "emissive_beacon_amber",
+      "state_key": "flashing_amber"
+    }
+  },
+  "export_targets": {
+    "usd_ascii": "canonical/geometry/usd/signal_beacon_amber_single.usda",
+    "usd_binary": "exports/usd/signal_beacon_amber_single.usdc",
+    "gltf_binary": "exports/gltf/signal_beacon_amber_single.glb"
+  },
+  "license": {
+    "spdx": "LicenseRef-ProjectGenerated",
+    "redistribution": "geometry, manifests, and templates generated in-repo"
+  },
+  "provenance": {
+    "generated_at": "2026-04-16T10:10:40+00:00",
+    "generated_by": "scripts/build_asset_pack.py",
+    "note": "Generated signal housing geometry with state-driven emissive profile bindings."
+  }
+}

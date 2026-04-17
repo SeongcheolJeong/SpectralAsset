@@ -132,6 +132,20 @@ def Xform "scene_signalized_intersection" {
         float xformOp:rotateY = 180.000000
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
     }
+    def Xform "beacon_amber_0" (
+        references = @../geometry/usd/signal_beacon_amber_single.usda@</signal_beacon_amber_single>
+    ) {
+        double3 xformOp:translate = (-2.650000, 0.000000, 1.300000)
+        float xformOp:rotateY = 90.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
+    def Xform "warning_amber_0" (
+        references = @../geometry/usd/signal_warning_dual_amber_horizontal.usda@</signal_warning_dual_amber_horizontal>
+    ) {
+        double3 xformOp:translate = (2.200000, 0.000000, 1.720000)
+        float xformOp:rotateY = 90.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
     def Xform "delineator_0" (
         references = @../geometry/usd/furniture_delineator_post.usda@</furniture_delineator_post>
     ) {

@@ -1,6 +1,6 @@
 {
   "generated_at": "2026-04-16T10:10:40.000Z",
-  "files_checked": 76,
+  "files_checked": 80,
   "files_with_errors": 0,
   "files_with_warnings": 0,
   "results": [
@@ -502,6 +502,20 @@
       "messages": []
     },
     {
+      "file": "exports/gltf/signal_beacon_amber_single.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
+      "file": "exports/gltf/signal_beacon_red_single.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
       "file": "exports/gltf/signal_pedestrian_2_aspect.glb",
       "numErrors": 0,
       "numWarnings": 0,
@@ -531,6 +545,20 @@
     },
     {
       "file": "exports/gltf/signal_vehicle_vertical_3_aspect.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
+      "file": "exports/gltf/signal_warning_dual_amber_horizontal.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
+      "file": "exports/gltf/signal_warning_dual_red_horizontal.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,

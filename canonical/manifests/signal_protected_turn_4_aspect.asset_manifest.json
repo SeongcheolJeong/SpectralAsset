@@ -63,6 +63,10 @@
     "active_green": {
       "emissive_profile": "emissive_protected_turn",
       "state_key": "green"
+    },
+    "active_green_arrow": {
+      "emissive_profile": "emissive_protected_turn",
+      "state_key": "green_arrow"
     }
   },
   "export_targets": {

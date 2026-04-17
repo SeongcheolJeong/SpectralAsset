@@ -22,24 +22,24 @@ This repository is not yet targeting release automation or measured replacement 
 
 Current truth from [../validation/reports/validation_summary.json](../validation/reports/validation_summary.json):
 
-- `72` assets
+- `76` assets
 - `20` spectral materials
-- `4` emissive profiles
+- `8` emissive profiles
 - `3` camera profiles
 - `4` scenario profiles
 - `4` validation scenes
 
 Additional baseline facts:
 
-- `76` GLB files currently validate with `0` errors and `0` warnings in [../validation/reports/gltf_validation.json](../validation/reports/gltf_validation.json)
+- `80` GLB files currently validate with `0` errors and `0` warnings in [../validation/reports/gltf_validation.json](../validation/reports/gltf_validation.json)
 - release gates currently pass for the generated baseline
 - raw-source ledger currently tracks `37` source entries
 - material quality summary currently reports `3` `measured_standard`, `1` `measured_derivative`, `16` `project_proxy`, and `0` `vendor_derived` materials
-- emissive-profile quality summary currently reports `2` `vendor_derived` and `2` `project_proxy` profiles
+- emissive-profile quality summary currently reports `6` `vendor_derived` and `2` `project_proxy` profiles
 - camera-profile quality summary currently reports `3` `vendor_derived` profiles, with `camera_reference_rgb_nir_v3` active in all scenarios
 - `urban_night` currently uses public `LED-B4` and `LED-B3` priors for headlamp/streetlight contribution when measured emitter data is absent
-- the first seven `P3` coverage-expansion batches raised `road_furniture` from `4` to `27` standalone assets, `road_marking` from `4` to `14`, and `road_surface` from `4` to `8` without changing the current material or scenario counts
-- traffic-light scenes now place standalone support-context assets including backplates, a mast hanger, side-mount hardware, cabinet variants, and a junction box
+- the first eight `P3` coverage-expansion batches raised `road_furniture` from `4` to `27` standalone assets, `road_marking` from `4` to `14`, `road_surface` from `4` to `8`, and `traffic_light` from `5` to `9` without changing the current material or scenario counts
+- traffic-light scenes now place standalone support-context assets including backplates, a mast hanger, side-mount hardware, cabinet variants, a junction box, and follow-up beacon/warning heads
 - sign-focused scenes now place standalone sign backs and mounting brackets for representative sign families instead of implying that assembly depth only through the sign meshes
 - the current validation scenes now also exercise patched, distressed, and transition road-surface panels instead of only the original clean urban baseline
 - the current validation scenes now also exercise secondary road-marking variants including worn crossings/stops, a yellow edge line, a merge marking, and raised markers

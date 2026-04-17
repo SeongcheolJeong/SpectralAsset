@@ -58,6 +58,7 @@
 | `P3-T008` | `P3` | `P2` | `done` | Add road-surface distress and transition variants | patched or distressed surface assets and transition panels | `P3-T003` | surface coverage expands beyond the current dry/wet urban baseline with documented scenario use cases |
 | `P3-T009` | `P3` | `P2` | `done` | Expand `road_marking` with merge, worn crossing/stop, yellow edge, and raised-marker variants | secondary marking manifests, geometry, exports, and scene coverage | `P3-T005`, `P3-T008` | the generator ships merge, worn crosswalk/stop-line, yellow edge-line, and raised-marker assets with updated scene coverage and clean exports |
 | `P3-T010` | `P3` | `P2` | `done` | Expand `road_furniture` with utility poles, cabinet-tail variants, and attachment hardware | utility/support manifests, geometry, exports, and scene coverage | `P3-T003`, `P3-T006`, `P3-T007` | the generator ships utility poles, smaller support-tail cabinet/junction variants, and specialty sign/signal attachment hardware with updated scene coverage and clean exports |
+| `P3-T011` | `P3` | `P2` | `done` | Expand `traffic_light` with beacon and warning-flasher variants | additional signal-head manifests, emissive profiles, geometry, exports, and scene coverage | `P3-T006`, `P3-T010` | the generator ships beacon-style and warning-flasher signal heads with explicit state maps, clean exports, and updated validation-scene placement |
 
 ### `P4` Scenario, Validation, and Reproducibility
 
@@ -95,4 +96,4 @@
 
 - measured promotion of sign-sheeting and road-marking materials remains deferred because the frozen USGS plastics and pigments are reference-only in this repository phase
 - internet-only public tuning for retroreflective and wet-road behavior remains deferred because this phase was intentionally limited to camera SRF and night-emitter priors
-- follow-up `P3` expansion beyond the current road-furniture, road-marking, traffic-light support, sign-assembly, and road-surface batches now shifts to traffic-light follow-up breadth and sign-variation work in [catalog-gap-review.md](catalog-gap-review.md)
+- follow-up `P3` expansion beyond the current road-furniture, road-marking, traffic-light support, sign-assembly, road-surface, and follow-up signal-head batches now shifts to sign-variation work and later roadway breadth in [catalog-gap-review.md](catalog-gap-review.md)

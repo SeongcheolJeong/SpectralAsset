@@ -63,6 +63,10 @@
     "active_green": {
       "emissive_profile": "emissive_vehicle_standard",
       "state_key": "green"
+    },
+    "flashing_yellow": {
+      "emissive_profile": "emissive_vehicle_standard",
+      "state_key": "flashing_yellow"
     }
   },
   "export_targets": {

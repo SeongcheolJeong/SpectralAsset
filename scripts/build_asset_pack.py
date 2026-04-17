@@ -4329,6 +4329,13 @@ def traffic_light_definitions() -> List[Dict]:
                 {"name": "lens_green", "x": 0.0, "y": 0.21, "radius": 0.1, "material_id": "mat_signal_lens_green_off"},
             ],
             "emissive_profile": "emissive_vehicle_standard",
+            "states": {
+                "off": "off",
+                "active_red": "red",
+                "active_yellow": "yellow",
+                "active_green": "green",
+                "flashing_yellow": "flashing_yellow",
+            },
         },
         {
             "id": "signal_vehicle_horizontal_3_aspect",
@@ -4343,6 +4350,13 @@ def traffic_light_definitions() -> List[Dict]:
                 {"name": "lens_green", "x": 0.33, "y": 0.17, "radius": 0.1, "material_id": "mat_signal_lens_green_off"},
             ],
             "emissive_profile": "emissive_vehicle_standard",
+            "states": {
+                "off": "off",
+                "active_red": "red",
+                "active_yellow": "yellow",
+                "active_green": "green",
+                "flashing_yellow": "flashing_yellow",
+            },
         },
         {
             "id": "signal_protected_turn_4_aspect",
@@ -4358,6 +4372,13 @@ def traffic_light_definitions() -> List[Dict]:
                 {"name": "lens_arrow", "x": 0.0, "y": 0.17, "radius": 0.1, "material_id": "mat_signal_lens_green_off"},
             ],
             "emissive_profile": "emissive_protected_turn",
+            "states": {
+                "off": "off",
+                "active_red": "red",
+                "active_yellow": "yellow",
+                "active_green": "green",
+                "active_green_arrow": "green_arrow",
+            },
         },
         {
             "id": "signal_pedestrian_2_aspect",
@@ -4371,6 +4392,11 @@ def traffic_light_definitions() -> List[Dict]:
                 {"name": "lens_ped_white", "x": 0.0, "y": 0.21, "radius": 0.12, "material_id": "mat_signal_ped_white_off"},
             ],
             "emissive_profile": "emissive_pedestrian_standard",
+            "states": {
+                "off": "off",
+                "active_dont_walk": "dont_walk",
+                "active_walk": "walk",
+            },
         },
         {
             "id": "signal_pedestrian_countdown_housing",
@@ -4385,6 +4411,78 @@ def traffic_light_definitions() -> List[Dict]:
                 {"name": "display_countdown", "x": 0.0, "y": 0.08, "radius": 0.11, "material_id": "mat_signal_countdown_amber_off"},
             ],
             "emissive_profile": "emissive_pedestrian_countdown",
+            "states": {
+                "off": "off",
+                "active_dont_walk": "dont_walk",
+                "active_walk": "walk",
+                "active_countdown": "countdown",
+            },
+        },
+        {
+            "id": "signal_beacon_amber_single",
+            "variant_key": "beacon.amber.single",
+            "semantic_class": "traffic_light.beacon",
+            "body_w": 0.34,
+            "body_h": 0.42,
+            "body_d": 0.2,
+            "lenses": [
+                {"name": "lens_beacon_amber", "x": 0.0, "y": 0.21, "radius": 0.11, "material_id": "mat_signal_lens_yellow_off"},
+            ],
+            "emissive_profile": "emissive_beacon_amber",
+            "states": {
+                "off": "off",
+                "flashing_amber": "flashing_amber",
+            },
+        },
+        {
+            "id": "signal_beacon_red_single",
+            "variant_key": "beacon.red.single",
+            "semantic_class": "traffic_light.beacon",
+            "body_w": 0.34,
+            "body_h": 0.42,
+            "body_d": 0.2,
+            "lenses": [
+                {"name": "lens_beacon_red", "x": 0.0, "y": 0.21, "radius": 0.11, "material_id": "mat_signal_lens_red_off"},
+            ],
+            "emissive_profile": "emissive_beacon_red",
+            "states": {
+                "off": "off",
+                "flashing_red": "flashing_red",
+            },
+        },
+        {
+            "id": "signal_warning_dual_amber_horizontal",
+            "variant_key": "warning_flasher.dual_amber.horizontal",
+            "semantic_class": "traffic_light.warning_flasher",
+            "body_w": 0.76,
+            "body_h": 0.34,
+            "body_d": 0.2,
+            "lenses": [
+                {"name": "lens_warning_left", "x": -0.19, "y": 0.17, "radius": 0.11, "material_id": "mat_signal_lens_yellow_off"},
+                {"name": "lens_warning_right", "x": 0.19, "y": 0.17, "radius": 0.11, "material_id": "mat_signal_lens_yellow_off"},
+            ],
+            "emissive_profile": "emissive_warning_dual_amber",
+            "states": {
+                "off": "off",
+                "flashing_amber_pair": "flashing_amber_pair",
+            },
+        },
+        {
+            "id": "signal_warning_dual_red_horizontal",
+            "variant_key": "warning_flasher.dual_red.horizontal",
+            "semantic_class": "traffic_light.warning_flasher",
+            "body_w": 0.76,
+            "body_h": 0.34,
+            "body_d": 0.2,
+            "lenses": [
+                {"name": "lens_warning_left", "x": -0.19, "y": 0.17, "radius": 0.11, "material_id": "mat_signal_lens_red_off"},
+                {"name": "lens_warning_right", "x": 0.19, "y": 0.17, "radius": 0.11, "material_id": "mat_signal_lens_red_off"},
+            ],
+            "emissive_profile": "emissive_warning_dual_red",
+            "states": {
+                "off": "off",
+                "flashing_red_pair": "flashing_red_pair",
+            },
         },
     ]
 
@@ -4510,12 +4608,19 @@ def build_assets(materials: Dict[str, Dict]) -> Tuple[List[Dict], Dict[str, Dict
         asset_meshes[signal["id"]] = parts
         material_ids = {part["material_id"] for part in parts["LOD0"] + parts["LOD1"]}
         triangle_counts = {lod: triangle_count(parts[lod]) for lod in ["LOD0", "LOD1"]}
-        states = {
-            "off": {"emissive_profile": signal["emissive_profile"], "state_key": "off"},
-            "active_red": {"emissive_profile": signal["emissive_profile"], "state_key": "red"},
-            "active_yellow": {"emissive_profile": signal["emissive_profile"], "state_key": "yellow"},
-            "active_green": {"emissive_profile": signal["emissive_profile"], "state_key": "green"},
-        }
+        configured_states = signal.get("states")
+        if isinstance(configured_states, dict) and configured_states:
+            states = {
+                state_name: {"emissive_profile": signal["emissive_profile"], "state_key": state_key}
+                for state_name, state_key in configured_states.items()
+            }
+        else:
+            states = {
+                "off": {"emissive_profile": signal["emissive_profile"], "state_key": "off"},
+                "active_red": {"emissive_profile": signal["emissive_profile"], "state_key": "red"},
+                "active_yellow": {"emissive_profile": signal["emissive_profile"], "state_key": "yellow"},
+                "active_green": {"emissive_profile": signal["emissive_profile"], "state_key": "green"},
+            }
         manifest = asset_manifest_common(
             signal["id"],
             "traffic_light",
@@ -4680,10 +4785,104 @@ def write_emissive_profiles(signal_curves: Dict[str, Dict], signal_profile_meta:
             "license": {"spdx": "LicenseRef-ProjectGenerated"},
             "provenance": {"generated_at": GENERATED_AT, "generated_by": "scripts/build_asset_pack.py", "source_ids": [], "note": "Proxy pedestrian countdown SPD."},
         },
+        {
+            "id": "emissive_beacon_amber",
+            "spd_ref": {
+                "amber": f"canonical/spectra/{signal_curves['yellow']['curve_name']}.npz",
+            },
+            "state_map": {
+                "off": {},
+                "flashing_amber": {"lens_beacon_amber": signal_curves["yellow"]["curve_name"]},
+            },
+            "nominal_luminance_cd_m2": {"amber": 6200},
+            "temperature_c": 25.0,
+            "driver_mode": "flashing_controller",
+            "source_quality": vehicle_signal_source_quality,
+            "source_ids": vehicle_signal_source_ids,
+            "license": vehicle_signal_license,
+            "provenance": {
+                "generated_at": GENERATED_AT,
+                "generated_by": "scripts/build_asset_pack.py",
+                "source_ids": vehicle_signal_source_ids,
+                "note": vehicle_signal_note.replace("traffic-signal SPD", "amber beacon SPD"),
+            },
+        },
+        {
+            "id": "emissive_beacon_red",
+            "spd_ref": {
+                "red": f"canonical/spectra/{signal_curves['red']['curve_name']}.npz",
+            },
+            "state_map": {
+                "off": {},
+                "flashing_red": {"lens_beacon_red": signal_curves["red"]["curve_name"]},
+            },
+            "nominal_luminance_cd_m2": {"red": 6800},
+            "temperature_c": 25.0,
+            "driver_mode": "flashing_controller",
+            "source_quality": vehicle_signal_source_quality,
+            "source_ids": vehicle_signal_source_ids,
+            "license": vehicle_signal_license,
+            "provenance": {
+                "generated_at": GENERATED_AT,
+                "generated_by": "scripts/build_asset_pack.py",
+                "source_ids": vehicle_signal_source_ids,
+                "note": vehicle_signal_note.replace("traffic-signal SPD", "red beacon SPD"),
+            },
+        },
+        {
+            "id": "emissive_warning_dual_amber",
+            "spd_ref": {
+                "amber": f"canonical/spectra/{signal_curves['yellow']['curve_name']}.npz",
+            },
+            "state_map": {
+                "off": {},
+                "flashing_amber_pair": {
+                    "lens_warning_left": signal_curves["yellow"]["curve_name"],
+                    "lens_warning_right": signal_curves["yellow"]["curve_name"],
+                },
+            },
+            "nominal_luminance_cd_m2": {"amber": 6400},
+            "temperature_c": 25.0,
+            "driver_mode": "flashing_controller",
+            "source_quality": vehicle_signal_source_quality,
+            "source_ids": vehicle_signal_source_ids,
+            "license": vehicle_signal_license,
+            "provenance": {
+                "generated_at": GENERATED_AT,
+                "generated_by": "scripts/build_asset_pack.py",
+                "source_ids": vehicle_signal_source_ids,
+                "note": vehicle_signal_note.replace("traffic-signal SPD", "dual amber warning flasher SPD"),
+            },
+        },
+        {
+            "id": "emissive_warning_dual_red",
+            "spd_ref": {
+                "red": f"canonical/spectra/{signal_curves['red']['curve_name']}.npz",
+            },
+            "state_map": {
+                "off": {},
+                "flashing_red_pair": {
+                    "lens_warning_left": signal_curves["red"]["curve_name"],
+                    "lens_warning_right": signal_curves["red"]["curve_name"],
+                },
+            },
+            "nominal_luminance_cd_m2": {"red": 6900},
+            "temperature_c": 25.0,
+            "driver_mode": "flashing_controller",
+            "source_quality": vehicle_signal_source_quality,
+            "source_ids": vehicle_signal_source_ids,
+            "license": vehicle_signal_license,
+            "provenance": {
+                "generated_at": GENERATED_AT,
+                "generated_by": "scripts/build_asset_pack.py",
+                "source_ids": vehicle_signal_source_ids,
+                "note": vehicle_signal_note.replace("traffic-signal SPD", "dual red warning flasher SPD"),
+            },
+        },
     ]
     optional_reference_curve_refs = signal_profile_meta.get("reference_curve_refs")
     optional_derivation_method = signal_profile_meta.get("derivation_method")
-    for profile in profiles[:2]:
+    for profile in [profile for profile in profiles if profile["source_quality"] == vehicle_signal_source_quality]:
         if isinstance(optional_reference_curve_refs, dict) and optional_reference_curve_refs:
             profile["reference_curve_refs"] = optional_reference_curve_refs
         if isinstance(optional_derivation_method, dict) and optional_derivation_method:
@@ -4824,6 +5023,8 @@ def scene_definitions() -> List[Dict]:
                 {"asset_id": "furniture_signal_controller_cabinet_single", "name": "cabinet_single_0", "translate": (2.68, 0.0, -1.45), "rotate_y": 180.0},
                 {"asset_id": "furniture_signal_junction_box", "name": "junction_box_0", "translate": (-1.55, 0.0, -2.62), "rotate_y": 0.0},
                 {"asset_id": "furniture_signal_side_mount_bracket", "name": "side_mount_0", "translate": (1.72, 0.0, -1.18), "rotate_y": 180.0},
+                {"asset_id": "signal_beacon_amber_single", "name": "beacon_amber_0", "translate": (-2.65, 0.0, 1.3), "rotate_y": 90.0},
+                {"asset_id": "signal_warning_dual_amber_horizontal", "name": "warning_amber_0", "translate": (2.2, 0.0, 1.72), "rotate_y": 90.0},
                 {"asset_id": "furniture_delineator_post", "name": "delineator_0", "translate": (-1.2, 0.0, -1.35), "rotate_y": 0.0},
                 {"asset_id": "furniture_barricade_panel", "name": "barricade_0", "translate": (2.25, 0.0, 1.65), "rotate_y": 90.0},
                 {"asset_id": "signal_vehicle_vertical_3_aspect", "name": "signal_0", "translate": (-0.5, 0.0, -2.0), "rotate_y": 0.0},
@@ -4850,6 +5051,8 @@ def scene_definitions() -> List[Dict]:
                 {"asset_id": "marking_raised_marker_white", "name": "raised_marker_0", "translate": (-0.25, 0.03, -0.15), "rotate_y": 0.0},
                 {"asset_id": "furniture_signal_backplate_vertical", "name": "backplate_vertical_0", "translate": (1.8, 0.0, -1.2), "rotate_y": 180.0},
                 {"asset_id": "furniture_signal_side_mount_bracket", "name": "side_mount_0", "translate": (1.72, 0.0, -1.18), "rotate_y": 180.0},
+                {"asset_id": "signal_warning_dual_red_horizontal", "name": "warning_red_0", "translate": (1.8, 0.0, -1.2), "rotate_y": 180.0},
+                {"asset_id": "signal_beacon_red_single", "name": "beacon_red_0", "translate": (-1.9, 0.0, 1.85), "rotate_y": 0.0},
                 {"asset_id": "furniture_bollard_flexible", "name": "bollard_0", "translate": (1.25, 0.0, 1.05), "rotate_y": 0.0},
                 {"asset_id": "furniture_delineator_post", "name": "delineator_0", "translate": (-1.15, 0.0, 1.35), "rotate_y": 0.0},
                 {"asset_id": "signal_vehicle_vertical_3_aspect", "name": "signal_0", "translate": (1.8, 0.0, -1.2), "rotate_y": 180.0},
@@ -4871,6 +5074,7 @@ def scene_definitions() -> List[Dict]:
                 {"asset_id": "furniture_signal_junction_box", "name": "junction_box_0", "translate": (-2.1, 0.0, -1.48), "rotate_y": 0.0},
                 {"asset_id": "furniture_utility_pole_steel", "name": "utility_pole_steel_0", "translate": (3.05, 0.0, 1.85), "rotate_y": 0.0},
                 {"asset_id": "signal_vehicle_vertical_3_aspect", "name": "signal_0", "translate": (-1.6, 0.0, -0.8), "rotate_y": 0.0},
+                {"asset_id": "signal_beacon_amber_single", "name": "beacon_amber_0", "translate": (1.65, 0.0, 1.55), "rotate_y": 180.0},
                 {"asset_id": "furniture_traffic_cone", "name": "cone_0", "translate": (0.92, 0.0, -0.55), "rotate_y": 0.0},
                 {"asset_id": "furniture_water_barrier", "name": "barrier_0", "translate": (-1.9, 0.0, 1.35), "rotate_y": 90.0},
                 {"asset_id": "furniture_sign_back_triangle", "name": "sign_back_triangle_0", "translate": (1.8, 0.0, 1.4), "rotate_y": 180.0},
