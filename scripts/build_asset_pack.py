@@ -1133,7 +1133,7 @@ def parse_measured_emitter_spd_csv(data_path: Path, metadata: Dict) -> Dict:
         configured_columns = metadata.get("channel_columns", {})
         if not isinstance(configured_columns, dict):
             configured_columns = {}
-        required_defaults = {
+        signal_defaults = {
             "signal_red": "signal_red",
             "signal_yellow": "signal_yellow",
             "signal_green": "signal_green",
@@ -1146,10 +1146,14 @@ def parse_measured_emitter_spd_csv(data_path: Path, metadata: Dict) -> Dict:
             "signal_ped_white": "signal_ped_white",
             "signal_countdown_amber": "signal_countdown_amber",
         }
-        resolved_required = {name: configured_columns.get(name, default) for name, default in required_defaults.items()}
-        missing_columns = [column for column in [wavelength_column, *resolved_required.values()] if column not in reader.fieldnames]
-        if missing_columns:
-            raise ValueError(f"{data_path} is missing required columns: {', '.join(sorted(missing_columns))}")
+        resolved_signal_columns = {}
+        missing_signal_columns = []
+        for name, default in signal_defaults.items():
+            column_name = configured_columns.get(name, default)
+            if column_name in reader.fieldnames:
+                resolved_signal_columns[name] = column_name
+            else:
+                missing_signal_columns.append(column_name)
 
         resolved_optional = {}
         for name, default in optional_defaults.items():
@@ -1157,8 +1161,15 @@ def parse_measured_emitter_spd_csv(data_path: Path, metadata: Dict) -> Dict:
             if column_name in reader.fieldnames:
                 resolved_optional[name] = column_name
 
+        available_curve_columns = {**resolved_signal_columns, **resolved_optional}
+        if wavelength_column not in reader.fieldnames:
+            raise ValueError(f"{data_path} is missing required columns: {wavelength_column}")
+        if not available_curve_columns:
+            expected = sorted([*signal_defaults.values(), *optional_defaults.values()])
+            raise ValueError(f"{data_path} must contain at least one supported emitter column: {', '.join(expected)}")
+
         wavelengths_nm = []
-        curve_values = {name: [] for name in [*resolved_required.keys(), *resolved_optional.keys()]}
+        curve_values = {name: [] for name in available_curve_columns.keys()}
         for row in reader:
             if not row:
                 continue
@@ -1166,7 +1177,7 @@ def parse_measured_emitter_spd_csv(data_path: Path, metadata: Dict) -> Dict:
             if not raw_wavelength:
                 continue
             wavelengths_nm.append(float(raw_wavelength))
-            for name, column in {**resolved_required, **resolved_optional}.items():
+            for name, column in available_curve_columns.items():
                 curve_values[name].append(float(row[column]))
 
     if len(wavelengths_nm) < 2:
@@ -1209,7 +1220,8 @@ def parse_measured_emitter_spd_csv(data_path: Path, metadata: Dict) -> Dict:
         "wavelengths_nm": wavelengths_nm,
         "curves": curves,
         "wavelength_column": wavelength_column,
-        "required_columns": resolved_required,
+        "signal_columns": resolved_signal_columns,
+        "missing_signal_columns": missing_signal_columns,
         "optional_columns": resolved_optional,
         "response_scale": response_scale or ("percent" if scale_factor == 0.01 else "unit_fraction"),
     }
@@ -1283,7 +1295,8 @@ def load_measured_emitter_spd_capture() -> Optional[Dict]:
         "curves": parsed["curves"],
         "measurement_conditions": {
             "wavelength_column": parsed["wavelength_column"],
-            "required_columns": parsed["required_columns"],
+            "signal_columns": parsed["signal_columns"],
+            "missing_signal_columns": parsed["missing_signal_columns"],
             "optional_columns": parsed["optional_columns"],
             "response_scale": parsed["response_scale"],
             "calibration_reference": str(metadata.get("calibration_reference", "unspecified")),
@@ -1451,14 +1464,15 @@ def build_measured_signal_spd_curves(measured_capture: Dict) -> Dict[str, Dict]:
     }
     curves = {}
     for state, (capture_key, curve_name) in curve_specs.items():
-        values = measured_capture["curves"][capture_key]
-        write_npz(spectra_dir / f"{curve_name}.npz", {"wavelength_nm": MASTER_GRID, "values": values})
-        curves[state] = {
-            "curve_name": curve_name,
-            "values": values,
-            "source_id": TRAFFIC_SIGNAL_HEADLAMP_SPD_SOURCE_ID,
-            "capture_key": capture_key,
-        }
+        if capture_key in measured_capture["curves"]:
+            values = measured_capture["curves"][capture_key]
+            write_npz(spectra_dir / f"{curve_name}.npz", {"wavelength_nm": MASTER_GRID, "values": values})
+            curves[state] = {
+                "curve_name": curve_name,
+                "values": values,
+                "source_id": TRAFFIC_SIGNAL_HEADLAMP_SPD_SOURCE_ID,
+                "capture_key": capture_key,
+            }
     optional_curve_specs = {
         "headlamp_led_lowbeam": "spd_headlamp_led_lowbeam_measured_v1",
         "headlamp_halogen_lowbeam": "spd_headlamp_halogen_lowbeam_measured_v1",
@@ -3693,7 +3707,7 @@ def main() -> int:
     ledger = download_sources()
     signal_vendor_curves = build_vendor_signal_spd_curves()
     measured_emitter_capture = load_measured_emitter_spd_capture()
-    active_signal_curves = signal_vendor_curves
+    active_signal_curves = dict(signal_vendor_curves)
     signal_profile_meta = {
         "source_quality": "vendor_derived",
         "source_ids": [
@@ -3709,14 +3723,25 @@ def main() -> int:
     }
     signal_emitter_activation_reason = "No frozen measured traffic-signal/headlamp SPD source is available, so vendor-derived signal SPDs remain active."
     if measured_emitter_capture is not None:
-        active_signal_curves = build_measured_signal_spd_curves(measured_emitter_capture)
-        signal_profile_meta = {
-            "source_quality": "measured_standard",
-            "source_ids": measured_emitter_capture["source_ids"],
-            "license": measured_emitter_capture["license"],
-            "provenance_note": measured_emitter_capture["provenance_note"],
-        }
-        signal_emitter_activation_reason = "A frozen measured traffic-signal/headlamp SPD source is available, so measured traffic-signal SPDs are active for vehicle and protected-turn profiles."
+        measured_emitter_curves = build_measured_signal_spd_curves(measured_emitter_capture)
+        active_signal_curves.update(measured_emitter_curves)
+        has_measured_signal_trio = all(state in measured_emitter_curves for state in ("red", "yellow", "green"))
+        has_measured_headlamp_or_streetlight = any(
+            key in measured_emitter_curves for key in ("headlamp_led_lowbeam", "headlamp_halogen_lowbeam", "streetlight_led_4000k")
+        )
+        if has_measured_signal_trio:
+            signal_profile_meta = {
+                "source_quality": "measured_standard",
+                "source_ids": measured_emitter_capture["source_ids"],
+                "license": measured_emitter_capture["license"],
+                "provenance_note": measured_emitter_capture["provenance_note"],
+            }
+            if has_measured_headlamp_or_streetlight:
+                signal_emitter_activation_reason = "A frozen measured traffic-signal/headlamp SPD source is available; measured traffic-signal SPDs are active for vehicle and protected-turn profiles, and measured headlamp/streetlight curves are available for urban night."
+            else:
+                signal_emitter_activation_reason = "A frozen measured traffic-signal SPD source is available, so measured traffic-signal SPDs are active for vehicle and protected-turn profiles."
+        elif has_measured_headlamp_or_streetlight:
+            signal_emitter_activation_reason = "A frozen measured headlamp/streetlight SPD source is available, but the measured traffic-signal red/yellow/green trio is incomplete, so vendor-derived signal SPDs remain active."
     standards, urban_night_illuminant_reason = generate_standard_spectra(active_signal_curves)
     materials = make_materials(standards["illuminant_d65"])
     camera_profiles, active_camera_profile_id, camera_profile_activation_reason = write_camera_profiles()

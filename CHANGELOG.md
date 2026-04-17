@@ -34,6 +34,7 @@
 - the ON Semiconductor `MT9M034` donor PDF is now frozen from a local copy into tracked `raw/` instead of remaining only as a `fetch_failed` source-ledger entry
 - camera-profile generation now supports an optional frozen measured automotive SRF source with a measured-system activation gate, while keeping `camera_reference_rgb_nir_v2` active when no measured source is present
 - emissive-profile generation now supports an optional frozen measured traffic-signal/headlamp SPD source with a measured activation gate, while keeping vendor-derived signal SPDs active when no measured source is present
+- measured emitter intake now accepts headlamp-only or streetlight-only datasets for `urban_night` augmentation without requiring measured traffic-signal red/yellow/green curves
 
 ### Validation
 

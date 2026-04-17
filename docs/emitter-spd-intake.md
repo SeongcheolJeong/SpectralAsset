@@ -54,12 +54,13 @@ or:
 
 Required emitter columns:
 
-- `signal_red`
-- `signal_yellow`
-- `signal_green`
+- none globally, but see the activation rules below
 
 Optional emitter columns:
 
+- `signal_red`
+- `signal_yellow`
+- `signal_green`
 - `headlamp_led_lowbeam`
 - `headlamp_halogen_lowbeam`
 - `streetlight_led_4000k`
@@ -132,9 +133,9 @@ When the local input is present and valid, the generator:
 1. copies the source files into `raw/sources/traffic_signal_headlamp_spd_measured/`
 2. records a source-ledger entry with local-path provenance
 3. resamples the measured curves onto the repo master grid
-4. writes measured signal SPDs into `canonical/spectra/`
-5. switches vehicle and protected-turn emissive profiles to the measured signal curves
-6. updates the `urban_night` illuminant to include measured headlamp or streetlight curves when those optional curves are present
+4. writes measured emitter curves into `canonical/spectra/`
+5. switches vehicle and protected-turn emissive profiles to measured signal curves only if `signal_red`, `signal_yellow`, and `signal_green` are all present
+6. updates the `urban_night` illuminant to include measured headlamp or streetlight curves whenever those curves are present, even if measured traffic-signal curves are not
 
 When the local input is absent:
 
@@ -145,14 +146,20 @@ When the local input is absent:
 
 ## Activation Gate
 
-Measured signal curves are only activated if the frozen input:
+Measured traffic-signal curves are only activated if the frozen input:
 
 - covers at least `400-1100 nm`
 - includes `signal_red`, `signal_yellow`, and `signal_green`
 - has strictly increasing wavelength values
 - passes emissive-profile validation
 
-Optional headlamp or streetlight columns only affect `urban_night` when they are present.
+Headlamp-only or streetlight-only input is allowed.
+
+If the frozen input contains:
+
+- `headlamp_led_lowbeam`, `headlamp_halogen_lowbeam`, or `streetlight_led_4000k`
+
+then those curves may improve `urban_night` even when the measured traffic-signal red/yellow/green trio is missing.
 
 ## Current Status
 
@@ -163,3 +170,15 @@ Current repo truth:
 - vehicle and protected-turn signal profiles remain `vendor_derived`
 - `urban_night` still lacks measured headlamp or streetlight curves
 - `traffic_signal_headlamp_spd` remains `backlog_measured_required`
+
+## Practical Result
+
+You can now provide either of these:
+
+- a combined measured emitter file with signal plus headlamp curves
+- a headlamp-only or streetlight-only measured file
+
+The difference is:
+
+- combined measured signal data can replace the active vehicle/protected-turn signal SPDs
+- headlamp-only data cannot replace signal SPDs, but it can still improve the `urban_night` illuminant
