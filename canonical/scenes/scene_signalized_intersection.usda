@@ -34,6 +34,13 @@ def Xform "scene_signalized_intersection" {
         float xformOp:rotateY = 0.000000
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
     }
+    def Xform "stopline_worn_0" (
+        references = @../geometry/usd/marking_stop_line_worn.usda@</marking_stop_line_worn>
+    ) {
+        double3 xformOp:translate = (0.000000, 0.030000, 1.620000)
+        float xformOp:rotateY = 180.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
     def Xform "arrow_straight_0" (
         references = @../geometry/usd/marking_arrow_straight_white.usda@</marking_arrow_straight_white>
     ) {
@@ -45,6 +52,13 @@ def Xform "scene_signalized_intersection" {
         references = @../geometry/usd/marking_arrow_turn_left_white.usda@</marking_arrow_turn_left_white>
     ) {
         double3 xformOp:translate = (0.900000, 0.030000, 0.600000)
+        float xformOp:rotateY = 0.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
+    def Xform "merge_left_0" (
+        references = @../geometry/usd/marking_merge_left_white.usda@</marking_merge_left_white>
+    ) {
+        double3 xformOp:translate = (1.200000, 0.030000, -0.600000)
         float xformOp:rotateY = 0.000000
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
     }

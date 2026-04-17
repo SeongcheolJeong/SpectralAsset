@@ -218,16 +218,34 @@
       "variant_key": "white"
     },
     {
+      "id": "marking_stop_line_worn",
+      "family": "road_marking",
+      "semantic_class": "marking.stop_line",
+      "variant_key": "white_worn"
+    },
+    {
       "id": "marking_crosswalk",
       "family": "road_marking",
       "semantic_class": "marking.crosswalk",
       "variant_key": "ladder"
     },
     {
+      "id": "marking_crosswalk_worn",
+      "family": "road_marking",
+      "semantic_class": "marking.crosswalk",
+      "variant_key": "ladder_worn"
+    },
+    {
       "id": "marking_edge_line_white",
       "family": "road_marking",
       "semantic_class": "marking.edge_line",
       "variant_key": "solid_white"
+    },
+    {
+      "id": "marking_edge_line_yellow",
+      "family": "road_marking",
+      "semantic_class": "marking.edge_line",
+      "variant_key": "solid_yellow"
     },
     {
       "id": "marking_arrow_straight_white",
@@ -242,10 +260,22 @@
       "variant_key": "turn_left_white"
     },
     {
+      "id": "marking_merge_left_white",
+      "family": "road_marking",
+      "semantic_class": "marking.merge",
+      "variant_key": "merge_left_white"
+    },
+    {
       "id": "marking_chevron_gore_white",
       "family": "road_marking",
       "semantic_class": "marking.chevron",
       "variant_key": "gore_white"
+    },
+    {
+      "id": "marking_raised_marker_white",
+      "family": "road_marking",
+      "semantic_class": "marking.raised_marker",
+      "variant_key": "white_centerline"
     },
     {
       "id": "furniture_sign_pole",

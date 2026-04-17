@@ -26,6 +26,16 @@
           "rotate_y": 0.0
         },
         {
+          "asset_id": "marking_edge_line_yellow",
+          "name": "edge_line_yellow_0",
+          "translate": [
+            1.58,
+            0.03,
+            0.0
+          ],
+          "rotate_y": 0.0
+        },
+        {
           "asset_id": "marking_lane_white",
           "name": "lane_0",
           "translate": [
@@ -52,6 +62,16 @@
             0.0,
             0.03,
             0.2
+          ],
+          "rotate_y": 0.0
+        },
+        {
+          "asset_id": "marking_raised_marker_white",
+          "name": "raised_marker_0",
+          "translate": [
+            0.0,
+            0.03,
+            -0.4
           ],
           "rotate_y": 0.0
         },
@@ -247,6 +267,16 @@
           "rotate_y": 0.0
         },
         {
+          "asset_id": "marking_stop_line_worn",
+          "name": "stopline_worn_0",
+          "translate": [
+            0.0,
+            0.03,
+            1.62
+          ],
+          "rotate_y": 180.0
+        },
+        {
           "asset_id": "marking_arrow_straight_white",
           "name": "arrow_straight_0",
           "translate": [
@@ -263,6 +293,16 @@
             0.9,
             0.03,
             0.6
+          ],
+          "rotate_y": 0.0
+        },
+        {
+          "asset_id": "marking_merge_left_white",
+          "name": "merge_left_0",
+          "translate": [
+            1.2,
+            0.03,
+            -0.6
           ],
           "rotate_y": 0.0
         },
@@ -488,6 +528,16 @@
           "rotate_y": 0.0
         },
         {
+          "asset_id": "marking_raised_marker_white",
+          "name": "raised_marker_0",
+          "translate": [
+            -0.25,
+            0.03,
+            -0.15
+          ],
+          "rotate_y": 0.0
+        },
+        {
           "asset_id": "furniture_signal_backplate_vertical",
           "name": "backplate_vertical_0",
           "translate": [
@@ -559,7 +609,7 @@
           "rotate_y": 0.0
         },
         {
-          "asset_id": "marking_crosswalk",
+          "asset_id": "marking_crosswalk_worn",
           "name": "crosswalk_0",
           "translate": [
             0.0,
@@ -569,7 +619,7 @@
           "rotate_y": 90.0
         },
         {
-          "asset_id": "marking_stop_line",
+          "asset_id": "marking_stop_line_worn",
           "name": "stopline_0",
           "translate": [
             0.0,
@@ -583,6 +633,16 @@
           "name": "edge_line_0",
           "translate": [
             -1.5,
+            0.03,
+            -0.1
+          ],
+          "rotate_y": 0.0
+        },
+        {
+          "asset_id": "marking_edge_line_yellow",
+          "name": "edge_line_yellow_0",
+          "translate": [
+            1.52,
             0.03,
             -0.1
           ],

@@ -21,14 +21,14 @@ def Xform "scene_wet_road_braking" {
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
     }
     def Xform "crosswalk_0" (
-        references = @../geometry/usd/marking_crosswalk.usda@</marking_crosswalk>
+        references = @../geometry/usd/marking_crosswalk_worn.usda@</marking_crosswalk_worn>
     ) {
         double3 xformOp:translate = (0.000000, 0.030000, 0.800000)
         float xformOp:rotateY = 90.000000
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
     }
     def Xform "stopline_0" (
-        references = @../geometry/usd/marking_stop_line.usda@</marking_stop_line>
+        references = @../geometry/usd/marking_stop_line_worn.usda@</marking_stop_line_worn>
     ) {
         double3 xformOp:translate = (0.000000, 0.030000, 0.200000)
         float xformOp:rotateY = 0.000000
@@ -38,6 +38,13 @@ def Xform "scene_wet_road_braking" {
         references = @../geometry/usd/marking_edge_line_white.usda@</marking_edge_line_white>
     ) {
         double3 xformOp:translate = (-1.500000, 0.030000, -0.100000)
+        float xformOp:rotateY = 0.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
+    def Xform "edge_line_yellow_0" (
+        references = @../geometry/usd/marking_edge_line_yellow.usda@</marking_edge_line_yellow>
+    ) {
+        double3 xformOp:translate = (1.520000, 0.030000, -0.100000)
         float xformOp:rotateY = 0.000000
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
     }

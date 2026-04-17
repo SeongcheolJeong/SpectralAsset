@@ -1,6 +1,6 @@
 {
   "generated_at": "2026-04-16T10:10:40.000Z",
-  "files_checked": 65,
+  "files_checked": 70,
   "files_with_errors": 0,
   "files_with_warnings": 0,
   "results": [
@@ -173,7 +173,21 @@
       "messages": []
     },
     {
+      "file": "exports/gltf/marking_crosswalk_worn.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
       "file": "exports/gltf/marking_edge_line_white.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
+      "file": "exports/gltf/marking_edge_line_yellow.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
@@ -201,7 +215,28 @@
       "messages": []
     },
     {
+      "file": "exports/gltf/marking_merge_left_white.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
+      "file": "exports/gltf/marking_raised_marker_white.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
       "file": "exports/gltf/marking_stop_line.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
+      "file": "exports/gltf/marking_stop_line_worn.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,

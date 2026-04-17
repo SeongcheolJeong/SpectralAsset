@@ -56,6 +56,7 @@
 | `P3-T006` | `P3` | `P1` | `done` | Add traffic-light support geometry and cabinet context | backplates, mast-arm context, or cabinet support assets | `P3-T003` | traffic-light scenes can place support geometry explicitly instead of implying it only through poles |
 | `P3-T007` | `P3` | `P2` | `done` | Add sign assembly depth and mounting hardware | sign back, bracket, or support assembly assets | `P3-T003` | sign-related scenes can place backs or mounting components as separate assets without breaking existing sign IDs |
 | `P3-T008` | `P3` | `P2` | `done` | Add road-surface distress and transition variants | patched or distressed surface assets and transition panels | `P3-T003` | surface coverage expands beyond the current dry/wet urban baseline with documented scenario use cases |
+| `P3-T009` | `P3` | `P2` | `done` | Expand `road_marking` with merge, worn crossing/stop, yellow edge, and raised-marker variants | secondary marking manifests, geometry, exports, and scene coverage | `P3-T005`, `P3-T008` | the generator ships merge, worn crosswalk/stop-line, yellow edge-line, and raised-marker assets with updated scene coverage and clean exports |
 
 ### `P4` Scenario, Validation, and Reproducibility
 
@@ -93,4 +94,4 @@
 
 - measured promotion of sign-sheeting and road-marking materials remains deferred because the frozen USGS plastics and pigments are reference-only in this repository phase
 - internet-only public tuning for retroreflective and wet-road behavior remains deferred because this phase was intentionally limited to camera SRF and night-emitter priors
-- follow-up `P3` expansion beyond the current road-furniture, road-marking, traffic-light support, sign-assembly, and road-surface batches now shifts to secondary marking/furniture breadth in [catalog-gap-review.md](catalog-gap-review.md)
+- follow-up `P3` expansion beyond the current road-furniture, road-marking, traffic-light support, sign-assembly, and road-surface batches now shifts to roadside-tail and support-context breadth in [catalog-gap-review.md](catalog-gap-review.md)

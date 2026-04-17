@@ -76,6 +76,13 @@ def Xform "scene_night_retroreflection" {
         float xformOp:rotateY = 0.000000
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
     }
+    def Xform "raised_marker_0" (
+        references = @../geometry/usd/marking_raised_marker_white.usda@</marking_raised_marker_white>
+    ) {
+        double3 xformOp:translate = (-0.250000, 0.030000, -0.150000)
+        float xformOp:rotateY = 0.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
     def Xform "backplate_vertical_0" (
         references = @../geometry/usd/furniture_signal_backplate_vertical.usda@</furniture_signal_backplate_vertical>
     ) {

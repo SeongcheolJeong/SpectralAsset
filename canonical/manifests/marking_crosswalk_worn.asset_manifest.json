@@ -1,0 +1,60 @@
+{
+  "id": "marking_crosswalk_worn",
+  "family": "road_marking",
+  "semantic_class": "marking.crosswalk",
+  "variant_key": "ladder_worn",
+  "dimensions_m": {
+    "width": 3.0,
+    "height": 0.005,
+    "depth": 2.0
+  },
+  "lods": [
+    {
+      "name": "LOD0",
+      "triangle_count": 60,
+      "usd_scope": "/marking_crosswalk_worn/LOD0",
+      "gltf_node_prefix": "LOD0"
+    },
+    {
+      "name": "LOD1",
+      "triangle_count": 60,
+      "usd_scope": "/marking_crosswalk_worn/LOD1",
+      "gltf_node_prefix": "LOD1"
+    }
+  ],
+  "collider": {
+    "type": "box",
+    "width": 3.0,
+    "height": 0.005,
+    "depth": 2.0
+  },
+  "anchor_points": {
+    "base_center": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    }
+  },
+  "materials": [
+    "mat_marking_white"
+  ],
+  "states": {
+    "default": {
+      "render_profile": "static"
+    }
+  },
+  "export_targets": {
+    "usd_ascii": "canonical/geometry/usd/marking_crosswalk_worn.usda",
+    "usd_binary": "exports/usd/marking_crosswalk_worn.usdc",
+    "gltf_binary": "exports/gltf/marking_crosswalk_worn.glb"
+  },
+  "license": {
+    "spdx": "LicenseRef-ProjectGenerated",
+    "redistribution": "geometry, manifests, and templates generated in-repo"
+  },
+  "provenance": {
+    "generated_at": "2026-04-16T10:10:40+00:00",
+    "generated_by": "scripts/build_asset_pack.py",
+    "note": "Generated reusable road surface, marking, or furniture primitive."
+  }
+}
