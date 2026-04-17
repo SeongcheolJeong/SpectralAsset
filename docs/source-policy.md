@@ -33,6 +33,7 @@ Current local-path usage:
 - `usgs_splib07/` is treated as an ignored local source root
 - only the selected subset frozen into `raw/sources/usgs_splib07_selected/` is tracked
 - `automotive_sensor_srf_input/` may be used as an ignored local intake root for measured camera SRF data, but only the frozen copy in `raw/sources/automotive_sensor_srf_measured/` is tracked
+- `traffic_signal_headlamp_spd_input/` may be used as an ignored local intake root for measured emitter SPD data, but only the frozen copy in `raw/sources/traffic_signal_headlamp_spd_measured/` is tracked
 
 ### `derived-only`
 
@@ -168,6 +169,7 @@ Operational rule:
 - Every new source must have a `source.json` record with `id`, `url`, `classification`, `status`, and fetch timestamp.
 - Local-path sources may use `copied_from` and `copied_at` instead of `url` and `fetched_at`, but they must still carry status, checksum, and classification.
 - The optional measured automotive SRF intake path must freeze `metadata.json` and `srf.csv` into `raw/sources/automotive_sensor_srf_measured/` before the generator may activate a measured camera profile.
+- The optional measured emitter SPD intake path must freeze `metadata.json` and `spd.csv` into `raw/sources/traffic_signal_headlamp_spd_measured/` before the generator may activate measured signal curves.
 - Successful fetches must include checksum and file size.
 - Failed fetches must stay in the ledger with the failure reason instead of being removed.
 - A source must not be promoted from `reference-only` to `redistributable` or `derived-only` by assumption; that change requires an explicit term review.

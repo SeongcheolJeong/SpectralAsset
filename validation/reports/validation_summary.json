@@ -6,6 +6,8 @@
   "camera_profile_count": 2,
   "active_camera_profile_id": "camera_reference_rgb_nir_v2",
   "camera_profile_activation_reason": "No frozen measured automotive sensor SRF source is available, so camera_reference_rgb_nir_v2 remains active.",
+  "signal_emitter_activation_reason": "No frozen measured traffic-signal/headlamp SPD source is available, so vendor-derived signal SPDs remain active.",
+  "urban_night_illuminant_reason": "Urban night illuminant uses the active signal SPD curves only because no measured headlamp or streetlight SPD source is available.",
   "scenario_camera_profile_refs": {
     "scenario_clear_noon": "canonical/camera/camera_reference_rgb_nir_v2.camera_profile.json",
     "scenario_overcast_day": "canonical/camera/camera_reference_rgb_nir_v2.camera_profile.json",

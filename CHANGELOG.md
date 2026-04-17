@@ -10,6 +10,7 @@
 - explanation docs for generated assets and file formats
 - `PBRT` tutorial for converting generated assets, spectra, and scenarios into a practical render workflow
 - measured automotive camera-SRF intake documentation and local input format
+- measured traffic-signal/headlamp SPD intake documentation and local input format
 - source-policy documentation for source classifications and blocked-source handling
 - milestone validation checklist and first release checklist
 - measured-replacement priority doc for the four remaining proxy-to-measured backlog items
@@ -32,6 +33,7 @@
 - scenarios now reference `camera_reference_rgb_nir_v2`, which uses per-channel optics/filter behavior and tracked donor QE reference curves from the official `MT9M034` datasheet
 - the ON Semiconductor `MT9M034` donor PDF is now frozen from a local copy into tracked `raw/` instead of remaining only as a `fetch_failed` source-ledger entry
 - camera-profile generation now supports an optional frozen measured automotive SRF source with a measured-system activation gate, while keeping `camera_reference_rgb_nir_v2` active when no measured source is present
+- emissive-profile generation now supports an optional frozen measured traffic-signal/headlamp SPD source with a measured activation gate, while keeping vendor-derived signal SPDs active when no measured source is present
 
 ### Validation
 

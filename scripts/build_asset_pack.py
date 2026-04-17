@@ -82,6 +82,8 @@ CAMERA_PROFILE_FAMILY_ENUM = {"generic_reference", "measured_capture"}
 AUTOMOTIVE_SENSOR_SRF_INPUT_DIR = "automotive_sensor_srf_input"
 AUTOMOTIVE_SENSOR_SRF_SOURCE_ID = "automotive_sensor_srf_measured"
 AUTOMOTIVE_SENSOR_SRF_PROFILE_ID = "camera_automotive_measured_rgb_nir_v1"
+TRAFFIC_SIGNAL_HEADLAMP_SPD_INPUT_DIR = "traffic_signal_headlamp_spd_input"
+TRAFFIC_SIGNAL_HEADLAMP_SPD_SOURCE_ID = "traffic_signal_headlamp_spd_measured"
 
 DIRS = [
     "raw/sources",
@@ -568,6 +570,16 @@ def display_automotive_sensor_srf_input_root(root: Path) -> str:
     return "env:AUTOMOTIVE_SENSOR_SRF_ROOT" if os.getenv("AUTOMOTIVE_SENSOR_SRF_ROOT") else root.name
 
 
+def resolve_traffic_signal_headlamp_spd_input_root() -> Path:
+    if os.getenv("TRAFFIC_SIGNAL_HEADLAMP_SPD_ROOT"):
+        return Path(os.environ["TRAFFIC_SIGNAL_HEADLAMP_SPD_ROOT"]).expanduser()
+    return REPO_ROOT / TRAFFIC_SIGNAL_HEADLAMP_SPD_INPUT_DIR
+
+
+def display_traffic_signal_headlamp_spd_input_root(root: Path) -> str:
+    return "env:TRAFFIC_SIGNAL_HEADLAMP_SPD_ROOT" if os.getenv("TRAFFIC_SIGNAL_HEADLAMP_SPD_ROOT") else root.name
+
+
 def load_json_file(path: Path) -> Dict:
     with path.open("r", encoding="utf-8") as handle:
         return json.load(handle)
@@ -816,6 +828,97 @@ def freeze_measured_automotive_sensor_source() -> List[Dict]:
     return [entry]
 
 
+def build_preserved_measured_emitter_spd_entry(source_json_path: Path) -> Optional[Dict]:
+    existing_entry = load_existing_source_entry(source_json_path)
+    if not isinstance(existing_entry, dict):
+        return None
+    data_path_value = existing_entry.get("data_path")
+    metadata_path_value = existing_entry.get("metadata_path")
+    if not isinstance(data_path_value, str) or not isinstance(metadata_path_value, str):
+        return None
+    data_path = REPO_ROOT / data_path_value
+    metadata_path = REPO_ROOT / metadata_path_value
+    if not data_path.exists() or not metadata_path.exists():
+        return None
+    entry = {
+        "id": TRAFFIC_SIGNAL_HEADLAMP_SPD_SOURCE_ID,
+        "origin_type": "local_path",
+        "classification": existing_entry.get("classification", "derived-only"),
+        "license_summary": existing_entry.get("license_summary", "Measured traffic-signal/headlamp SPD input frozen from a local source."),
+        "path": data_path_value,
+        "data_path": data_path_value,
+        "metadata_path": metadata_path_value,
+        "copied_from_root": existing_entry.get("copied_from_root", TRAFFIC_SIGNAL_HEADLAMP_SPD_INPUT_DIR),
+        "copied_at": existing_entry.get("copied_at", GENERATED_AT),
+        "status": "copied_from_local",
+        "sha256": sha256_file(data_path),
+        "size_bytes": data_path.stat().st_size,
+        "metadata_sha256": sha256_file(metadata_path),
+        "notes": existing_entry.get("notes", "Measured traffic-signal/headlamp SPD input frozen from a local source."),
+    }
+    report_path_value = existing_entry.get("report_path")
+    if isinstance(report_path_value, str):
+        report_path = REPO_ROOT / report_path_value
+        if report_path.exists():
+            entry["report_path"] = report_path_value
+            entry["report_sha256"] = sha256_file(report_path)
+    return entry
+
+
+def freeze_measured_emitter_spd_source() -> List[Dict]:
+    refresh_sources = os.getenv("REFRESH_SOURCES") == "1"
+    source_root = resolve_traffic_signal_headlamp_spd_input_root()
+    target_root = REPO_ROOT / "raw" / "sources" / TRAFFIC_SIGNAL_HEADLAMP_SPD_SOURCE_ID
+    target_root.mkdir(parents=True, exist_ok=True)
+    source_json_path = target_root / "source.json"
+
+    if not refresh_sources:
+        preserved = build_preserved_measured_emitter_spd_entry(source_json_path)
+        if preserved:
+            write_json(source_json_path, preserved)
+            return [preserved]
+
+    metadata_source = source_root / "metadata.json"
+    data_source = source_root / "spd.csv"
+    report_source = source_root / "report.pdf"
+    if not metadata_source.exists() or not data_source.exists():
+        return []
+
+    metadata = load_json_file(metadata_source)
+    classification = metadata.get("classification", "derived-only")
+    if classification not in {"redistributable", "derived-only", "reference-only"}:
+        raise ValueError("traffic_signal_headlamp_spd_input metadata.json has invalid classification")
+
+    metadata_target = target_root / "metadata.json"
+    data_target = target_root / "spd.csv"
+    shutil.copy2(metadata_source, metadata_target)
+    shutil.copy2(data_source, data_target)
+
+    entry = {
+        "id": TRAFFIC_SIGNAL_HEADLAMP_SPD_SOURCE_ID,
+        "origin_type": "local_path",
+        "classification": classification,
+        "license_summary": metadata.get("license_summary", "Measured traffic-signal/headlamp SPD input frozen from a local source."),
+        "path": relative_posix(data_target),
+        "data_path": relative_posix(data_target),
+        "metadata_path": relative_posix(metadata_target),
+        "copied_from_root": display_traffic_signal_headlamp_spd_input_root(source_root),
+        "copied_at": GENERATED_AT,
+        "status": "copied_from_local",
+        "sha256": sha256_file(data_target),
+        "size_bytes": data_target.stat().st_size,
+        "metadata_sha256": sha256_file(metadata_target),
+        "notes": metadata.get("notes", "Measured traffic-signal/headlamp SPD input frozen from a local source."),
+    }
+    if report_source.exists():
+        report_target = target_root / "report.pdf"
+        shutil.copy2(report_source, report_target)
+        entry["report_path"] = relative_posix(report_target)
+        entry["report_sha256"] = sha256_file(report_target)
+    write_json(source_json_path, entry)
+    return [entry]
+
+
 def download_sources() -> List[Dict]:
     ledger = []
     refresh_sources = os.getenv("REFRESH_SOURCES") == "1"
@@ -918,6 +1021,7 @@ def download_sources() -> List[Dict]:
         ledger.append(entry)
     ledger.extend(freeze_selected_usgs_sources())
     ledger.extend(freeze_measured_automotive_sensor_source())
+    ledger.extend(freeze_measured_emitter_spd_source())
     write_json(REPO_ROOT / "raw" / "source_ledger.json", {"generated_at": GENERATED_AT, "sources": ledger})
     return ledger
 
@@ -1012,6 +1116,105 @@ def parse_measured_srf_csv(data_path: Path, metadata: Dict) -> Dict[str, List[fl
     }
 
 
+def parse_measured_emitter_spd_csv(data_path: Path, metadata: Dict) -> Dict:
+    with data_path.open("r", encoding="utf-8", newline="") as handle:
+        reader = csv.DictReader(handle)
+        if not reader.fieldnames:
+            raise ValueError(f"{data_path} is missing a CSV header")
+        wavelength_column = metadata.get("wavelength_column")
+        if not isinstance(wavelength_column, str) or not wavelength_column:
+            if "wavelength_nm" in reader.fieldnames:
+                wavelength_column = "wavelength_nm"
+            elif "wavelength_um" in reader.fieldnames:
+                wavelength_column = "wavelength_um"
+            else:
+                raise ValueError(f"{data_path} must contain wavelength_nm or wavelength_um")
+
+        configured_columns = metadata.get("channel_columns", {})
+        if not isinstance(configured_columns, dict):
+            configured_columns = {}
+        required_defaults = {
+            "signal_red": "signal_red",
+            "signal_yellow": "signal_yellow",
+            "signal_green": "signal_green",
+        }
+        optional_defaults = {
+            "headlamp_led_lowbeam": "headlamp_led_lowbeam",
+            "headlamp_halogen_lowbeam": "headlamp_halogen_lowbeam",
+            "streetlight_led_4000k": "streetlight_led_4000k",
+            "signal_ped_red": "signal_ped_red",
+            "signal_ped_white": "signal_ped_white",
+            "signal_countdown_amber": "signal_countdown_amber",
+        }
+        resolved_required = {name: configured_columns.get(name, default) for name, default in required_defaults.items()}
+        missing_columns = [column for column in [wavelength_column, *resolved_required.values()] if column not in reader.fieldnames]
+        if missing_columns:
+            raise ValueError(f"{data_path} is missing required columns: {', '.join(sorted(missing_columns))}")
+
+        resolved_optional = {}
+        for name, default in optional_defaults.items():
+            column_name = configured_columns.get(name, default)
+            if column_name in reader.fieldnames:
+                resolved_optional[name] = column_name
+
+        wavelengths_nm = []
+        curve_values = {name: [] for name in [*resolved_required.keys(), *resolved_optional.keys()]}
+        for row in reader:
+            if not row:
+                continue
+            raw_wavelength = row.get(wavelength_column, "").strip()
+            if not raw_wavelength:
+                continue
+            wavelengths_nm.append(float(raw_wavelength))
+            for name, column in {**resolved_required, **resolved_optional}.items():
+                curve_values[name].append(float(row[column]))
+
+    if len(wavelengths_nm) < 2:
+        raise ValueError(f"{data_path} must contain at least two SPD rows")
+    if any(right <= left for left, right in zip(wavelengths_nm, wavelengths_nm[1:])):
+        raise ValueError(f"{data_path} wavelength values must be strictly increasing")
+
+    wavelength_unit = str(metadata.get("wavelength_unit", "nm")).strip().lower()
+    if wavelength_unit in {"um", "micron", "microns"} or wavelength_column.endswith("_um"):
+        wavelengths_nm = [value * 1000.0 for value in wavelengths_nm]
+    elif wavelength_unit != "nm":
+        raise ValueError("traffic_signal_headlamp_spd_input metadata.json has invalid wavelength_unit")
+
+    response_scale = str(metadata.get("response_scale", "")).strip().lower()
+    max_value = max(max(values) for values in curve_values.values())
+    scale_factor = 1.0
+    if response_scale in {"percent", "percentage"}:
+        scale_factor = 0.01
+    elif response_scale in {"unit_fraction", "fraction", "normalized", ""}:
+        scale_factor = 1.0
+    else:
+        raise ValueError("traffic_signal_headlamp_spd_input metadata.json has invalid response_scale")
+    if not response_scale and max_value > 1.000001:
+        if max_value <= 100.000001:
+            scale_factor = 0.01
+        else:
+            raise ValueError(f"{data_path} contains response values above 100 and cannot be auto-scaled")
+
+    curves = {}
+    for name, values in curve_values.items():
+        scaled = [value * scale_factor for value in values]
+        padded_points = list(zip(wavelengths_nm, scaled))
+        if padded_points[0][0] > 350.0:
+            padded_points.insert(0, (350.0, 0.0))
+        if padded_points[-1][0] < 1700.0:
+            padded_points.append((1700.0, 0.0))
+        curves[name] = normalize_unit_peak(clamp_list(interpolate(padded_points, MASTER_GRID), 0.0, 10.0))
+
+    return {
+        "wavelengths_nm": wavelengths_nm,
+        "curves": curves,
+        "wavelength_column": wavelength_column,
+        "required_columns": resolved_required,
+        "optional_columns": resolved_optional,
+        "response_scale": response_scale or ("percent" if scale_factor == 0.01 else "unit_fraction"),
+    }
+
+
 def load_measured_automotive_sensor_capture() -> Optional[Dict]:
     source_dir = REPO_ROOT / "raw" / "sources" / AUTOMOTIVE_SENSOR_SRF_SOURCE_ID
     metadata_path = source_dir / "metadata.json"
@@ -1060,6 +1263,41 @@ def load_measured_automotive_sensor_capture() -> Optional[Dict]:
         },
         "source_ids": [AUTOMOTIVE_SENSOR_SRF_SOURCE_ID],
         "provenance_note": str(metadata.get("provenance_note", "Measured automotive camera system SRF generated from a frozen local CSV source.")),
+    }
+
+
+def load_measured_emitter_spd_capture() -> Optional[Dict]:
+    source_dir = REPO_ROOT / "raw" / "sources" / TRAFFIC_SIGNAL_HEADLAMP_SPD_SOURCE_ID
+    metadata_path = source_dir / "metadata.json"
+    data_path = source_dir / "spd.csv"
+    if not metadata_path.exists() or not data_path.exists():
+        return None
+
+    metadata = load_json_file(metadata_path)
+    parsed = parse_measured_emitter_spd_csv(data_path, metadata)
+    if min(parsed["wavelengths_nm"]) > 400.0 or max(parsed["wavelengths_nm"]) < 1100.0:
+        raise ValueError(f"{data_path} must cover at least 400-1100 nm")
+
+    return {
+        "metadata": metadata,
+        "curves": parsed["curves"],
+        "measurement_conditions": {
+            "wavelength_column": parsed["wavelength_column"],
+            "required_columns": parsed["required_columns"],
+            "optional_columns": parsed["optional_columns"],
+            "response_scale": parsed["response_scale"],
+            "calibration_reference": str(metadata.get("calibration_reference", "unspecified")),
+            "capture_geometry": str(metadata.get("capture_geometry", "unspecified")),
+            "drive_mode": str(metadata.get("drive_mode", "unspecified")),
+            "ambient_conditions": str(metadata.get("ambient_conditions", "unspecified")),
+            "notes": str(metadata.get("measurement_notes", metadata.get("notes", "Measured traffic-signal/headlamp SPD input."))),
+        },
+        "license": {
+            "spdx": str(metadata.get("profile_license_spdx", "LicenseRef-MeasuredLocalSource")),
+            "redistribution": str(metadata.get("profile_redistribution", "Measured traffic-signal/headlamp SPD profiles generated from a frozen local source.")),
+        },
+        "source_ids": [TRAFFIC_SIGNAL_HEADLAMP_SPD_SOURCE_ID],
+        "provenance_note": str(metadata.get("provenance_note", "Measured traffic-signal/headlamp SPD curves generated from a frozen local CSV source.")),
     }
 
 
@@ -1201,6 +1439,41 @@ def build_vendor_signal_spd_curves() -> Dict[str, Dict]:
             "fwhm_nm": spec["fwhm_nm"],
             "datasheet": spec["datasheet"],
         }
+    return curves
+
+
+def build_measured_signal_spd_curves(measured_capture: Dict) -> Dict[str, Dict]:
+    spectra_dir = REPO_ROOT / "canonical" / "spectra"
+    curve_specs = {
+        "red": ("signal_red", "spd_signal_red_measured_v1"),
+        "yellow": ("signal_yellow", "spd_signal_yellow_measured_v1"),
+        "green": ("signal_green", "spd_signal_green_measured_v1"),
+    }
+    curves = {}
+    for state, (capture_key, curve_name) in curve_specs.items():
+        values = measured_capture["curves"][capture_key]
+        write_npz(spectra_dir / f"{curve_name}.npz", {"wavelength_nm": MASTER_GRID, "values": values})
+        curves[state] = {
+            "curve_name": curve_name,
+            "values": values,
+            "source_id": TRAFFIC_SIGNAL_HEADLAMP_SPD_SOURCE_ID,
+            "capture_key": capture_key,
+        }
+    optional_curve_specs = {
+        "headlamp_led_lowbeam": "spd_headlamp_led_lowbeam_measured_v1",
+        "headlamp_halogen_lowbeam": "spd_headlamp_halogen_lowbeam_measured_v1",
+        "streetlight_led_4000k": "spd_streetlight_led_4000k_measured_v1",
+    }
+    for capture_key, curve_name in optional_curve_specs.items():
+        if capture_key in measured_capture["curves"]:
+            values = measured_capture["curves"][capture_key]
+            write_npz(spectra_dir / f"{curve_name}.npz", {"wavelength_nm": MASTER_GRID, "values": values})
+            curves[capture_key] = {
+                "curve_name": curve_name,
+                "values": values,
+                "source_id": TRAFFIC_SIGNAL_HEADLAMP_SPD_SOURCE_ID,
+                "capture_key": capture_key,
+            }
     return curves
 
 
@@ -2430,7 +2703,7 @@ def write_camera_profiles() -> Tuple[List[Dict], str, str]:
     return profiles, active_camera_profile_id, activation_reason
 
 
-def generate_standard_spectra(signal_vendor_curves: Dict[str, Dict]) -> Dict[str, List[float]]:
+def generate_standard_spectra(signal_curves: Dict[str, Dict]) -> Tuple[Dict[str, List[float]], str]:
     cie = interpolate(load_cie_d65(), MASTER_GRID)
     astm = load_astm_g173()
     global_tilt = interpolate(astm["global_tilt"], MASTER_GRID)
@@ -2440,14 +2713,42 @@ def generate_standard_spectra(signal_vendor_curves: Dict[str, Dict]) -> Dict[str
     write_npz(REPO_ROOT / "canonical" / "spectra" / "illuminant_am1_5_global_tilt.npz", {"wavelength_nm": MASTER_GRID, "values": global_tilt})
     write_npz(REPO_ROOT / "canonical" / "spectra" / "illuminant_am1_5_direct.npz", {"wavelength_nm": MASTER_GRID, "values": direct})
     write_npz(REPO_ROOT / "canonical" / "spectra" / "illuminant_am0_extraterrestrial.npz", {"wavelength_nm": MASTER_GRID, "values": extraterrestrial})
-    urban_night = [
-        red * 0.38 + yellow * 0.22 + green * 0.12 + 0.15
-        for red, yellow, green in zip(
-            signal_vendor_curves["red"]["values"],
-            signal_vendor_curves["yellow"]["values"],
-            signal_vendor_curves["green"]["values"],
-        )
-    ]
+    headlamp_curve = None
+    headlamp_label = None
+    if "headlamp_led_lowbeam" in signal_curves:
+        headlamp_curve = signal_curves["headlamp_led_lowbeam"]["values"]
+        headlamp_label = "measured headlamp LED lowbeam"
+    elif "headlamp_halogen_lowbeam" in signal_curves:
+        headlamp_curve = signal_curves["headlamp_halogen_lowbeam"]["values"]
+        headlamp_label = "measured headlamp halogen lowbeam"
+    streetlight_curve = signal_curves.get("streetlight_led_4000k", {}).get("values")
+    if headlamp_curve is not None or streetlight_curve is not None:
+        if headlamp_curve is None:
+            headlamp_curve = [0.0 for _ in MASTER_GRID]
+            headlamp_label = "no measured headlamp curve"
+        if streetlight_curve is None:
+            streetlight_curve = [0.0 for _ in MASTER_GRID]
+        urban_night = [
+            red * 0.22 + yellow * 0.12 + green * 0.08 + headlamp * 0.26 + streetlight * 0.18 + 0.10
+            for red, yellow, green, headlamp, streetlight in zip(
+                signal_curves["red"]["values"],
+                signal_curves["yellow"]["values"],
+                signal_curves["green"]["values"],
+                headlamp_curve,
+                streetlight_curve,
+            )
+        ]
+        urban_night_reason = f"Urban night illuminant uses active signal curves plus {headlamp_label} and measured streetlight/headlamp data when available."
+    else:
+        urban_night = [
+            red * 0.38 + yellow * 0.22 + green * 0.12 + 0.15
+            for red, yellow, green in zip(
+                signal_curves["red"]["values"],
+                signal_curves["yellow"]["values"],
+                signal_curves["green"]["values"],
+            )
+        ]
+        urban_night_reason = "Urban night illuminant uses the active signal SPD curves only because no measured headlamp or streetlight SPD source is available."
     wet_dusk = [d65 * 0.36 + am * 0.24 for d65, am in zip(cie, global_tilt)]
     write_npz(REPO_ROOT / "canonical" / "spectra" / "illuminant_urban_night_mix.npz", {"wavelength_nm": MASTER_GRID, "values": urban_night})
     write_npz(REPO_ROOT / "canonical" / "spectra" / "illuminant_wet_dusk_mix.npz", {"wavelength_nm": MASTER_GRID, "values": wet_dusk})
@@ -2458,7 +2759,7 @@ def generate_standard_spectra(signal_vendor_curves: Dict[str, Dict]) -> Dict[str
         "illuminant_am0_extraterrestrial": extraterrestrial,
         "illuminant_urban_night_mix": urban_night,
         "illuminant_wet_dusk_mix": wet_dusk,
-    }
+    }, urban_night_reason
 
 
 def sign_definitions() -> List[Dict]:
@@ -2716,72 +3017,65 @@ def write_asset_geometry_and_exports(assets: List[Dict], asset_meshes: Dict[str,
     return exported
 
 
-def write_emissive_profiles(signal_vendor_curves: Dict[str, Dict]) -> List[Dict]:
-    vehicle_signal_source_ids = [
-        SIGNAL_VENDOR_SPD_SPECS["red"]["source_id"],
-        SIGNAL_VENDOR_SPD_SPECS["yellow"]["source_id"],
-        SIGNAL_VENDOR_SPD_SPECS["green"]["source_id"],
-    ]
+def write_emissive_profiles(signal_curves: Dict[str, Dict], signal_profile_meta: Dict) -> List[Dict]:
+    vehicle_signal_source_ids = signal_profile_meta["source_ids"]
+    vehicle_signal_source_quality = signal_profile_meta["source_quality"]
+    vehicle_signal_license = signal_profile_meta["license"]
+    vehicle_signal_note = signal_profile_meta["provenance_note"]
     profiles = [
         {
             "id": "emissive_vehicle_standard",
             "spd_ref": {
-                "red": f"canonical/spectra/{signal_vendor_curves['red']['curve_name']}.npz",
-                "yellow": f"canonical/spectra/{signal_vendor_curves['yellow']['curve_name']}.npz",
-                "green": f"canonical/spectra/{signal_vendor_curves['green']['curve_name']}.npz",
+                "red": f"canonical/spectra/{signal_curves['red']['curve_name']}.npz",
+                "yellow": f"canonical/spectra/{signal_curves['yellow']['curve_name']}.npz",
+                "green": f"canonical/spectra/{signal_curves['green']['curve_name']}.npz",
             },
             "state_map": {
                 "off": {},
-                "red": {"lens_red": signal_vendor_curves["red"]["curve_name"]},
-                "yellow": {"lens_yellow": signal_vendor_curves["yellow"]["curve_name"]},
-                "green": {"lens_green": signal_vendor_curves["green"]["curve_name"]},
-                "flashing_yellow": {"lens_yellow": signal_vendor_curves["yellow"]["curve_name"]},
+                "red": {"lens_red": signal_curves["red"]["curve_name"]},
+                "yellow": {"lens_yellow": signal_curves["yellow"]["curve_name"]},
+                "green": {"lens_green": signal_curves["green"]["curve_name"]},
+                "flashing_yellow": {"lens_yellow": signal_curves["yellow"]["curve_name"]},
             },
             "nominal_luminance_cd_m2": {"red": 7000, "yellow": 6500, "green": 8000},
             "temperature_c": 25.0,
             "driver_mode": "steady_dc",
-            "source_quality": "vendor_derived",
+            "source_quality": vehicle_signal_source_quality,
             "source_ids": vehicle_signal_source_ids,
-            "license": {
-                "spdx": "LicenseRef-VendorDerived",
-                "redistribution": "Derived traffic-signal SPD metadata and fitted curves from public ams-OSRAM datasheets.",
-            },
+            "license": vehicle_signal_license,
             "provenance": {
                 "generated_at": GENERATED_AT,
                 "generated_by": "scripts/build_asset_pack.py",
                 "source_ids": vehicle_signal_source_ids,
-                "note": "Vendor-derived traffic-signal SPD fit from public ams-OSRAM red, yellow, and true-green LED datasheets.",
+                "note": vehicle_signal_note,
             },
         },
         {
             "id": "emissive_protected_turn",
             "spd_ref": {
-                "red": f"canonical/spectra/{signal_vendor_curves['red']['curve_name']}.npz",
-                "yellow": f"canonical/spectra/{signal_vendor_curves['yellow']['curve_name']}.npz",
-                "green": f"canonical/spectra/{signal_vendor_curves['green']['curve_name']}.npz",
-                "arrow": f"canonical/spectra/{signal_vendor_curves['green']['curve_name']}.npz",
+                "red": f"canonical/spectra/{signal_curves['red']['curve_name']}.npz",
+                "yellow": f"canonical/spectra/{signal_curves['yellow']['curve_name']}.npz",
+                "green": f"canonical/spectra/{signal_curves['green']['curve_name']}.npz",
+                "arrow": f"canonical/spectra/{signal_curves['green']['curve_name']}.npz",
             },
             "state_map": {
                 "off": {},
-                "red": {"lens_red": signal_vendor_curves["red"]["curve_name"]},
-                "yellow": {"lens_yellow": signal_vendor_curves["yellow"]["curve_name"]},
-                "green": {"lens_green": signal_vendor_curves["green"]["curve_name"]},
-                "green_arrow": {"lens_arrow": signal_vendor_curves["green"]["curve_name"]},
+                "red": {"lens_red": signal_curves["red"]["curve_name"]},
+                "yellow": {"lens_yellow": signal_curves["yellow"]["curve_name"]},
+                "green": {"lens_green": signal_curves["green"]["curve_name"]},
+                "green_arrow": {"lens_arrow": signal_curves["green"]["curve_name"]},
             },
             "nominal_luminance_cd_m2": {"red": 7000, "yellow": 6500, "green": 8000, "arrow": 7600},
             "temperature_c": 25.0,
             "driver_mode": "steady_dc",
-            "source_quality": "vendor_derived",
+            "source_quality": vehicle_signal_source_quality,
             "source_ids": vehicle_signal_source_ids,
-            "license": {
-                "spdx": "LicenseRef-VendorDerived",
-                "redistribution": "Derived traffic-signal SPD metadata and fitted curves from public ams-OSRAM datasheets.",
-            },
+            "license": vehicle_signal_license,
             "provenance": {
                 "generated_at": GENERATED_AT,
                 "generated_by": "scripts/build_asset_pack.py",
                 "source_ids": vehicle_signal_source_ids,
-                "note": "Vendor-derived protected-turn traffic-signal SPD fit from public ams-OSRAM red, yellow, and true-green LED datasheets.",
+                "note": vehicle_signal_note.replace("traffic-signal SPD", "protected-turn traffic-signal SPD"),
             },
         },
         {
@@ -3246,7 +3540,7 @@ def compute_scale_within_tolerance(asset: Dict) -> bool:
     return True
 
 
-def build_reports(assets: List[Dict], materials: Dict[str, Dict], emissive_profiles: List[Dict], camera_profiles: List[Dict], scenarios: List[Dict], usd_export_status: Dict[str, Dict], source_ledger: List[Dict], active_camera_profile_id: str, camera_profile_activation_reason: str) -> Dict:
+def build_reports(assets: List[Dict], materials: Dict[str, Dict], emissive_profiles: List[Dict], camera_profiles: List[Dict], scenarios: List[Dict], usd_export_status: Dict[str, Dict], source_ledger: List[Dict], active_camera_profile_id: str, camera_profile_activation_reason: str, signal_emitter_activation_reason: str, urban_night_illuminant_reason: str) -> Dict:
     asset_errors = []
     material_errors = []
     emissive_errors = []
@@ -3328,6 +3622,8 @@ def build_reports(assets: List[Dict], materials: Dict[str, Dict], emissive_profi
         "camera_profile_count": len(camera_profiles),
         "active_camera_profile_id": active_camera_profile_id,
         "camera_profile_activation_reason": camera_profile_activation_reason,
+        "signal_emitter_activation_reason": signal_emitter_activation_reason,
+        "urban_night_illuminant_reason": urban_night_illuminant_reason,
         "scenario_camera_profile_refs": scenario_camera_profile_refs,
         "scenario_unique_camera_profile_ids": unique_profile_ids,
         "camera_profile_reference_summary": camera_profile_reference_summary,
@@ -3396,15 +3692,40 @@ def main() -> int:
     clean_generated_dirs()
     ledger = download_sources()
     signal_vendor_curves = build_vendor_signal_spd_curves()
-    standards = generate_standard_spectra(signal_vendor_curves)
+    measured_emitter_capture = load_measured_emitter_spd_capture()
+    active_signal_curves = signal_vendor_curves
+    signal_profile_meta = {
+        "source_quality": "vendor_derived",
+        "source_ids": [
+            SIGNAL_VENDOR_SPD_SPECS["red"]["source_id"],
+            SIGNAL_VENDOR_SPD_SPECS["yellow"]["source_id"],
+            SIGNAL_VENDOR_SPD_SPECS["green"]["source_id"],
+        ],
+        "license": {
+            "spdx": "LicenseRef-VendorDerived",
+            "redistribution": "Derived traffic-signal SPD metadata and fitted curves from public ams-OSRAM datasheets.",
+        },
+        "provenance_note": "Vendor-derived traffic-signal SPD fit from public ams-OSRAM red, yellow, and true-green LED datasheets.",
+    }
+    signal_emitter_activation_reason = "No frozen measured traffic-signal/headlamp SPD source is available, so vendor-derived signal SPDs remain active."
+    if measured_emitter_capture is not None:
+        active_signal_curves = build_measured_signal_spd_curves(measured_emitter_capture)
+        signal_profile_meta = {
+            "source_quality": "measured_standard",
+            "source_ids": measured_emitter_capture["source_ids"],
+            "license": measured_emitter_capture["license"],
+            "provenance_note": measured_emitter_capture["provenance_note"],
+        }
+        signal_emitter_activation_reason = "A frozen measured traffic-signal/headlamp SPD source is available, so measured traffic-signal SPDs are active for vehicle and protected-turn profiles."
+    standards, urban_night_illuminant_reason = generate_standard_spectra(active_signal_curves)
     materials = make_materials(standards["illuminant_d65"])
     camera_profiles, active_camera_profile_id, camera_profile_activation_reason = write_camera_profiles()
     assets, asset_meshes = build_assets(materials)
     usd_status = write_asset_geometry_and_exports(assets, asset_meshes, materials)
-    emissive_profiles = write_emissive_profiles(signal_vendor_curves)
+    emissive_profiles = write_emissive_profiles(active_signal_curves, signal_profile_meta)
     atmospheres, scenarios = write_scenarios_and_atmospheres(active_camera_profile_id)
     write_scenes(asset_meshes, materials)
-    summary = build_reports(assets, materials, emissive_profiles, camera_profiles, scenarios, usd_status, ledger, active_camera_profile_id, camera_profile_activation_reason)
+    summary = build_reports(assets, materials, emissive_profiles, camera_profiles, scenarios, usd_status, ledger, active_camera_profile_id, camera_profile_activation_reason, signal_emitter_activation_reason, urban_night_illuminant_reason)
     print(json.dumps({"generated_at": GENERATED_AT, "asset_count": len(assets), "source_count": len(ledger), "validation_passes": summary["release_gates"]["passes"]}, indent=2))
     return 0
 

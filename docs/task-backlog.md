@@ -65,15 +65,17 @@
 | `P5-T001` | `P5` | `P2` | `done` | Document release/tag policy for first formal milestone | tag and release section in git workflow | `P1-T003`, `P4-T002` | first release rules are documented without assuming a remote host |
 | `P5-T002` | `P5` | `P1` | `done` | Implement measured automotive SRF intake and activation gate | generator/schema support for frozen measured camera SRF input | `P2-T005`, `P2-T003` | local measured camera input can be frozen into tracked `raw/`, measured camera profiles validate cleanly, and scenarios only activate the measured profile when that source exists |
 | `P5-T003` | `P5` | `P1` | `blocked` | Freeze a real measured automotive SRF source and promote it to active use | frozen measured raw source plus active measured camera profile | `P5-T002` | a real measured automotive SRF dataset is present, frozen in `raw/`, and becomes the active scenario-bound camera profile |
+| `P5-T004` | `P5` | `P1` | `done` | Implement measured traffic-signal/headlamp SPD intake and activation gate | generator support for frozen measured emitter SPD input | `P2-T003` | local measured emitter input can be frozen into tracked `raw/`, measured traffic-signal SPDs validate cleanly, and active signal curves only switch when that source exists |
+| `P5-T005` | `P5` | `P1` | `blocked` | Freeze a real measured traffic-signal/headlamp SPD source and promote it to active use | frozen measured emitter raw source plus active measured signal curves | `P5-T004` | a real measured emitter SPD dataset is present, frozen in `raw/`, and becomes the active source for vehicle/protected-turn signal profiles |
 
 ## Blocked Items
 
 - `P5-T003` is blocked until a real measured automotive camera SRF dataset is provided in the local measured-intake format.
+- `P5-T005` is blocked until a real measured traffic-signal/headlamp SPD dataset is provided in the local measured-intake format.
 - External `403` source pages still exist, but they are now documented with fallback handling in `docs/source-policy.md`.
 
 ## Deferred Items
 
-- measured replacement of traffic-signal and headlamp SPD, ranked second in [measurement-priorities.md](measurement-priorities.md), even though vehicle/protected-turn signal profiles now use vendor-derived public fits
 - retroreflective sheeting BRDF acquisition, ranked third in [measurement-priorities.md](measurement-priorities.md)
 - wet-road spectral BRDF acquisition, ranked fourth in [measurement-priorities.md](measurement-priorities.md)
 - measured promotion of sign-sheeting and road-marking materials remains deferred because the frozen USGS plastics and pigments are reference-only in this repository phase
