@@ -1,6 +1,6 @@
 {
   "generated_at": "2026-04-16T10:10:40.000Z",
-  "files_checked": 113,
+  "files_checked": 119,
   "files_with_errors": 0,
   "files_with_warnings": 0,
   "results": [
@@ -222,6 +222,13 @@
       "messages": []
     },
     {
+      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/marking_arrow_straight_right_white.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
       "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/marking_arrow_straight_white.glb",
       "numErrors": 0,
       "numWarnings": 0,
@@ -230,6 +237,27 @@
     },
     {
       "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/marking_arrow_turn_left_white.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
+      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/marking_arrow_turn_right_white.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
+      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/marking_bike_text_white.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
+      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/marking_bus_text_white.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
@@ -279,6 +307,20 @@
     },
     {
       "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/marking_edge_line_yellow.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
+      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/marking_hatched_island_white.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
+      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/marking_hatched_median_yellow.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,

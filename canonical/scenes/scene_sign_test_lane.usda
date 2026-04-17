@@ -62,6 +62,13 @@ def Xform "scene_sign_test_lane" {
         float xformOp:rotateY = 0.000000
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
     }
+    def Xform "hatched_median_0" (
+        references = @../geometry/usd/marking_hatched_median_yellow.usda@</marking_hatched_median_yellow>
+    ) {
+        double3 xformOp:translate = (0.000000, 0.030000, 1.200000)
+        float xformOp:rotateY = 0.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
     def Xform "raised_marker_0" (
         references = @../geometry/usd/marking_raised_marker_white.usda@</marking_raised_marker_white>
     ) {

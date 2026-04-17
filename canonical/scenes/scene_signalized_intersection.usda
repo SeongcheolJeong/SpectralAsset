@@ -62,6 +62,20 @@ def Xform "scene_signalized_intersection" {
         float xformOp:rotateY = 0.000000
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
     }
+    def Xform "arrow_right_0" (
+        references = @../geometry/usd/marking_arrow_turn_right_white.usda@</marking_arrow_turn_right_white>
+    ) {
+        double3 xformOp:translate = (-0.900000, 0.030000, -0.550000)
+        float xformOp:rotateY = 180.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
+    def Xform "arrow_straight_right_0" (
+        references = @../geometry/usd/marking_arrow_straight_right_white.usda@</marking_arrow_straight_right_white>
+    ) {
+        double3 xformOp:translate = (0.960000, 0.030000, -0.380000)
+        float xformOp:rotateY = 180.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
     def Xform "merge_left_0" (
         references = @../geometry/usd/marking_merge_left_white.usda@</marking_merge_left_white>
     ) {
@@ -74,6 +88,13 @@ def Xform "scene_signalized_intersection" {
     ) {
         double3 xformOp:translate = (1.700000, 0.030000, 1.000000)
         float xformOp:rotateY = 45.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
+    def Xform "hatched_island_0" (
+        references = @../geometry/usd/marking_hatched_island_white.usda@</marking_hatched_island_white>
+    ) {
+        double3 xformOp:translate = (2.100000, 0.030000, 0.050000)
+        float xformOp:rotateY = 18.000000
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
     }
     def Xform "centerline_solid_dashed_0" (
@@ -94,6 +115,20 @@ def Xform "scene_signalized_intersection" {
         references = @../geometry/usd/marking_stop_text_white.usda@</marking_stop_text_white>
     ) {
         double3 xformOp:translate = (0.920000, 0.030000, -1.050000)
+        float xformOp:rotateY = 0.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
+    def Xform "bus_text_0" (
+        references = @../geometry/usd/marking_bus_text_white.usda@</marking_bus_text_white>
+    ) {
+        double3 xformOp:translate = (-1.500000, 0.030000, 1.620000)
+        float xformOp:rotateY = 0.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
+    def Xform "bike_text_0" (
+        references = @../geometry/usd/marking_bike_text_white.usda@</marking_bike_text_white>
+    ) {
+        double3 xformOp:translate = (1.450000, 0.030000, 1.580000)
         float xformOp:rotateY = 0.000000
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
     }

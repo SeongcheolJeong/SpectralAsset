@@ -6,7 +6,7 @@ This file explains what the generator actually creates in this repository and ho
 
 Current generated baseline:
 
-- `109` assets
+- `115` assets
 - `23` spectral materials
 - `11` emissive profiles
 - `3` camera profiles
@@ -125,16 +125,22 @@ These are markings such as:
 - `marking_centerline_solid_dashed_yellow`
 - `marking_arrow_straight_white`
 - `marking_arrow_turn_left_white`
+- `marking_arrow_turn_right_white`
+- `marking_arrow_straight_right_white`
 - `marking_merge_left_white`
 - `marking_chevron_gore_white`
+- `marking_hatched_median_yellow`
+- `marking_hatched_island_white`
 - `marking_lane_white_worn`
 - `marking_raised_marker_white`
 - `marking_raised_marker_yellow`
 - `marking_raised_marker_bicolor`
 - `marking_only_text_white`
 - `marking_stop_text_white`
+- `marking_bus_text_white`
+- `marking_bike_text_white`
 
-They use retroreflective or reflective material definitions and are important for camera visibility tests.
+They use retroreflective or reflective material definitions and are important for camera visibility tests. The newer specialization pass now also covers bus/bike lane legends, hatched median/island channelization, and right-turn follow-up arrow families.
 
 ### `road_furniture`
 

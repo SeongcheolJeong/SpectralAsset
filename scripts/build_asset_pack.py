@@ -2482,6 +2482,8 @@ GLYPHS = {
     "D": ["11110", "10001", "10001", "10001", "10001", "10001", "11110"],
     "E": ["11111", "10000", "10000", "11110", "10000", "10000", "11111"],
     "H": ["10001", "10001", "10001", "11111", "10001", "10001", "10001"],
+    "I": ["11111", "00100", "00100", "00100", "00100", "00100", "11111"],
+    "K": ["10001", "10010", "10100", "11000", "10100", "10010", "10001"],
     "L": ["10000", "10000", "10000", "10000", "10000", "10000", "11111"],
     "N": ["10001", "11001", "10101", "10011", "10001", "10001", "10001"],
     "O": ["01110", "10001", "10001", "10001", "10001", "10001", "01110"],
@@ -3099,14 +3101,20 @@ def road_asset_parts(asset_id: str, dimensions: Tuple[float, float, float]) -> D
         "marking_edge_line_yellow": "mat_marking_yellow",
         "marking_arrow_straight_white": "mat_marking_white",
         "marking_arrow_turn_left_white": "mat_marking_white",
+        "marking_arrow_turn_right_white": "mat_marking_white",
+        "marking_arrow_straight_right_white": "mat_marking_white",
         "marking_merge_left_white": "mat_marking_white",
         "marking_chevron_gore_white": "mat_marking_white",
         "marking_stop_line_worn": "mat_marking_white",
         "marking_raised_marker_white": "mat_marking_white",
         "marking_centerline_double_yellow": "mat_marking_yellow",
         "marking_centerline_solid_dashed_yellow": "mat_marking_yellow",
+        "marking_hatched_median_yellow": "mat_marking_yellow",
+        "marking_hatched_island_white": "mat_marking_white",
         "marking_only_text_white": "mat_marking_white",
         "marking_stop_text_white": "mat_marking_white",
+        "marking_bus_text_white": "mat_marking_white",
+        "marking_bike_text_white": "mat_marking_white",
         "marking_raised_marker_yellow": "mat_marking_yellow",
         "furniture_sign_pole": "mat_metal_galvanized",
         "furniture_signal_pole": "mat_metal_galvanized",
@@ -3764,6 +3772,39 @@ def road_asset_parts(asset_id: str, dimensions: Tuple[float, float, float]) -> D
             oriented_box_part("head_lower", 0.12, 0.005, 0.56, (-0.86, 0.0025, 0.06), "mat_marking_white", -48.0),
         ]
         return {"LOD0": lod0, "LOD1": lod1}
+    if asset_id == "marking_arrow_turn_right_white":
+        lod0 = [
+            oriented_box_part("shaft", 0.18, 0.005, 1.25, (0.0, 0.0025, -0.25), "mat_marking_white"),
+            oriented_box_part("arm", 1.0, 0.005, 0.18, (0.38, 0.0025, 0.3), "mat_marking_white"),
+            oriented_box_part("head_upper", 0.12, 0.005, 0.56, (0.86, 0.0025, 0.54), "mat_marking_white", -48.0),
+            oriented_box_part("head_lower", 0.12, 0.005, 0.56, (0.86, 0.0025, 0.06), "mat_marking_white", 48.0),
+        ]
+        lod1 = [
+            oriented_box_part("shaft", 0.18, 0.005, 1.25, (0.0, 0.0025, -0.25), "mat_marking_white"),
+            oriented_box_part("arm", 1.0, 0.005, 0.18, (0.38, 0.0025, 0.3), "mat_marking_white"),
+            oriented_box_part("head_upper", 0.12, 0.005, 0.56, (0.86, 0.0025, 0.54), "mat_marking_white", -48.0),
+            oriented_box_part("head_lower", 0.12, 0.005, 0.56, (0.86, 0.0025, 0.06), "mat_marking_white", 48.0),
+        ]
+        return {"LOD0": lod0, "LOD1": lod1}
+    if asset_id == "marking_arrow_straight_right_white":
+        lod0 = [
+            oriented_box_part("shaft", 0.18, 0.005, 1.3, (0.0, 0.0025, -0.2), "mat_marking_white"),
+            oriented_box_part("head_cap", 0.42, 0.005, 0.16, (0.0, 0.0025, 0.72), "mat_marking_white"),
+            oriented_box_part("head_left", 0.11, 0.005, 0.62, (-0.18, 0.0025, 0.82), "mat_marking_white", 38.0),
+            oriented_box_part("head_right", 0.11, 0.005, 0.62, (0.18, 0.0025, 0.82), "mat_marking_white", -38.0),
+            oriented_box_part("arm", 0.88, 0.005, 0.16, (0.34, 0.0025, 0.22), "mat_marking_white"),
+            oriented_box_part("turn_head_upper", 0.11, 0.005, 0.5, (0.76, 0.0025, 0.44), "mat_marking_white", -44.0),
+            oriented_box_part("turn_head_lower", 0.11, 0.005, 0.5, (0.76, 0.0025, 0.04), "mat_marking_white", 44.0),
+        ]
+        lod1 = [
+            oriented_box_part("shaft", 0.18, 0.005, 1.3, (0.0, 0.0025, -0.2), "mat_marking_white"),
+            oriented_box_part("head_left", 0.11, 0.005, 0.62, (-0.18, 0.0025, 0.82), "mat_marking_white", 38.0),
+            oriented_box_part("head_right", 0.11, 0.005, 0.62, (0.18, 0.0025, 0.82), "mat_marking_white", -38.0),
+            oriented_box_part("arm", 0.88, 0.005, 0.16, (0.34, 0.0025, 0.22), "mat_marking_white"),
+            oriented_box_part("turn_head_upper", 0.11, 0.005, 0.5, (0.76, 0.0025, 0.44), "mat_marking_white", -44.0),
+            oriented_box_part("turn_head_lower", 0.11, 0.005, 0.5, (0.76, 0.0025, 0.04), "mat_marking_white", 44.0),
+        ]
+        return {"LOD0": lod0, "LOD1": lod1}
     if asset_id == "marking_merge_left_white":
         lod0 = [
             oriented_box_part("main_lane", 0.16, 0.005, 1.7, (0.38, 0.0025, 0.08), "mat_marking_white"),
@@ -3800,6 +3841,29 @@ def road_asset_parts(asset_id: str, dimensions: Tuple[float, float, float]) -> D
             lod0.append(make_mesh_part(f"segment_{index}", box_triangles(segment_width, 0.005, 0.3, (x_center, 0.0025, 0.0)), "mat_marking_white"))
             lod1.append(make_mesh_part(f"segment_{index}", box_triangles(max(0.26, segment_width - 0.1), 0.005, 0.24, (x_center, 0.0025, 0.0)), "mat_marking_white"))
         return {"LOD0": lod0, "LOD1": lod1}
+    if asset_id == "marking_hatched_median_yellow":
+        lod0 = [
+            make_mesh_part("edge_left", box_triangles(0.1, 0.005, 3.0, (-0.34, 0.0025, 0.0)), "mat_marking_yellow"),
+            make_mesh_part("edge_right", box_triangles(0.1, 0.005, 3.0, (0.34, 0.0025, 0.0)), "mat_marking_yellow"),
+        ]
+        lod1 = list(lod0)
+        for index, z_center in enumerate((-1.05, -0.35, 0.35, 1.05)):
+            lod0.append(oriented_box_part(f"hatch_{index}", 0.12, 0.005, 0.92, (0.0, 0.0025, z_center), "mat_marking_yellow", -34.0))
+        for index, z_center in enumerate((-0.9, 0.0, 0.9)):
+            lod1.append(oriented_box_part(f"hatch_{index}", 0.12, 0.005, 0.84, (0.0, 0.0025, z_center), "mat_marking_yellow", -34.0))
+        return {"LOD0": lod0, "LOD1": lod1}
+    if asset_id == "marking_hatched_island_white":
+        lod0 = [
+            oriented_box_part("boundary_left", 0.12, 0.005, 2.1, (-0.42, 0.0025, 0.0), "mat_marking_white", -12.0),
+            oriented_box_part("boundary_right", 0.12, 0.005, 2.1, (0.42, 0.0025, 0.0), "mat_marking_white", 12.0),
+        ]
+        lod1 = list(lod0)
+        hatch_centers = [(-0.22, -0.92), (0.0, -0.35), (0.22, 0.22), (0.0, 0.8)]
+        for index, (x_center, z_center) in enumerate(hatch_centers):
+            lod0.append(oriented_box_part(f"hatch_{index}", 0.12, 0.005, 1.02, (x_center, 0.0025, z_center), "mat_marking_white", 34.0))
+        for index, (x_center, z_center) in enumerate(hatch_centers[:3]):
+            lod1.append(oriented_box_part(f"hatch_{index}", 0.12, 0.005, 0.94, (x_center, 0.0025, z_center), "mat_marking_white", 34.0))
+        return {"LOD0": lod0, "LOD1": lod1}
     if asset_id == "marking_only_text_white":
         lod0 = word_marking_parts("only", "ONLY", 0.94, 1.98, (0.0, 0.0), "mat_marking_white")
         lod1 = word_marking_parts("only", "ONLY", 0.9, 1.9, (0.0, 0.0), "mat_marking_white")
@@ -3807,6 +3871,14 @@ def road_asset_parts(asset_id: str, dimensions: Tuple[float, float, float]) -> D
     if asset_id == "marking_stop_text_white":
         lod0 = word_marking_parts("stop", "STOP", 1.02, 2.34, (0.0, 0.0), "mat_marking_white")
         lod1 = word_marking_parts("stop", "STOP", 0.96, 2.22, (0.0, 0.0), "mat_marking_white")
+        return {"LOD0": lod0, "LOD1": lod1}
+    if asset_id == "marking_bus_text_white":
+        lod0 = word_marking_parts("bus", "BUS", 1.02, 1.74, (0.0, 0.0), "mat_marking_white")
+        lod1 = word_marking_parts("bus", "BUS", 0.96, 1.64, (0.0, 0.0), "mat_marking_white")
+        return {"LOD0": lod0, "LOD1": lod1}
+    if asset_id == "marking_bike_text_white":
+        lod0 = word_marking_parts("bike", "BIKE", 1.22, 2.04, (0.0, 0.0), "mat_marking_white")
+        lod1 = word_marking_parts("bike", "BIKE", 1.14, 1.92, (0.0, 0.0), "mat_marking_white")
         return {"LOD0": lod0, "LOD1": lod1}
     if asset_id == "marking_raised_marker_white":
         lod0 = []
@@ -5035,10 +5107,16 @@ def road_definitions() -> List[Dict]:
         {"id": "marking_centerline_solid_dashed_yellow", "family": "road_marking", "semantic_class": "marking.centerline", "variant_key": "solid_dashed_yellow", "dimensions": (0.34, 0.005, 3.2)},
         {"id": "marking_arrow_straight_white", "family": "road_marking", "semantic_class": "marking.directional_arrow", "variant_key": "straight_white", "dimensions": (0.9, 0.005, 2.1)},
         {"id": "marking_arrow_turn_left_white", "family": "road_marking", "semantic_class": "marking.directional_arrow", "variant_key": "turn_left_white", "dimensions": (1.4, 0.005, 1.8)},
+        {"id": "marking_arrow_turn_right_white", "family": "road_marking", "semantic_class": "marking.directional_arrow", "variant_key": "turn_right_white", "dimensions": (1.4, 0.005, 1.8)},
+        {"id": "marking_arrow_straight_right_white", "family": "road_marking", "semantic_class": "marking.directional_arrow", "variant_key": "straight_right_white", "dimensions": (1.52, 0.005, 2.1)},
         {"id": "marking_merge_left_white", "family": "road_marking", "semantic_class": "marking.merge", "variant_key": "merge_left_white", "dimensions": (1.8, 0.005, 2.4)},
         {"id": "marking_chevron_gore_white", "family": "road_marking", "semantic_class": "marking.chevron", "variant_key": "gore_white", "dimensions": (2.4, 0.005, 2.2)},
+        {"id": "marking_hatched_median_yellow", "family": "road_marking", "semantic_class": "marking.hatched_median", "variant_key": "yellow_diagonal", "dimensions": (0.8, 0.005, 3.0)},
+        {"id": "marking_hatched_island_white", "family": "road_marking", "semantic_class": "marking.hatched_island", "variant_key": "white_diagonal", "dimensions": (1.08, 0.005, 2.1)},
         {"id": "marking_only_text_white", "family": "road_marking", "semantic_class": "marking.word_legend", "variant_key": "only_white", "dimensions": (0.94, 0.005, 1.98)},
         {"id": "marking_stop_text_white", "family": "road_marking", "semantic_class": "marking.word_legend", "variant_key": "stop_white", "dimensions": (1.02, 0.005, 2.34)},
+        {"id": "marking_bus_text_white", "family": "road_marking", "semantic_class": "marking.word_legend", "variant_key": "bus_white", "dimensions": (1.02, 0.005, 1.74)},
+        {"id": "marking_bike_text_white", "family": "road_marking", "semantic_class": "marking.word_legend", "variant_key": "bike_white", "dimensions": (1.22, 0.005, 2.04)},
         {"id": "marking_raised_marker_white", "family": "road_marking", "semantic_class": "marking.raised_marker", "variant_key": "white_centerline", "dimensions": (0.12, 0.03, 2.62)},
         {"id": "marking_raised_marker_yellow", "family": "road_marking", "semantic_class": "marking.raised_marker", "variant_key": "yellow_centerline", "dimensions": (0.12, 0.03, 2.62)},
         {"id": "marking_raised_marker_bicolor", "family": "road_marking", "semantic_class": "marking.raised_marker", "variant_key": "bicolor_centerline", "dimensions": (0.12, 0.03, 2.62)},
@@ -5597,6 +5675,7 @@ def scene_definitions() -> List[Dict]:
                 {"asset_id": "marking_lane_white", "name": "lane_1", "translate": (0.9, 0.03, 0.0), "rotate_y": 0.0},
                 {"asset_id": "marking_centerline_double_yellow", "name": "centerline_double_0", "translate": (0.0, 0.03, 0.0), "rotate_y": 0.0},
                 {"asset_id": "marking_lane_white_worn", "name": "lane_worn_0", "translate": (0.0, 0.03, 0.2), "rotate_y": 0.0},
+                {"asset_id": "marking_hatched_median_yellow", "name": "hatched_median_0", "translate": (0.0, 0.03, 1.2), "rotate_y": 0.0},
                 {"asset_id": "marking_raised_marker_white", "name": "raised_marker_0", "translate": (0.0, 0.03, -0.4), "rotate_y": 0.0},
                 {"asset_id": "marking_raised_marker_yellow", "name": "raised_marker_yellow_0", "translate": (0.48, 0.03, -0.4), "rotate_y": 0.0},
                 {"asset_id": "furniture_guardrail_segment", "name": "guardrail_0", "translate": (1.9, 0.0, 1.6), "rotate_y": 0.0},
@@ -5645,11 +5724,16 @@ def scene_definitions() -> List[Dict]:
                 {"asset_id": "marking_stop_line_worn", "name": "stopline_worn_0", "translate": (0.0, 0.03, 1.62), "rotate_y": 180.0},
                 {"asset_id": "marking_arrow_straight_white", "name": "arrow_straight_0", "translate": (-0.85, 0.03, 0.75), "rotate_y": 0.0},
                 {"asset_id": "marking_arrow_turn_left_white", "name": "arrow_left_0", "translate": (0.9, 0.03, 0.6), "rotate_y": 0.0},
+                {"asset_id": "marking_arrow_turn_right_white", "name": "arrow_right_0", "translate": (-0.9, 0.03, -0.55), "rotate_y": 180.0},
+                {"asset_id": "marking_arrow_straight_right_white", "name": "arrow_straight_right_0", "translate": (0.96, 0.03, -0.38), "rotate_y": 180.0},
                 {"asset_id": "marking_merge_left_white", "name": "merge_left_0", "translate": (1.2, 0.03, -0.6), "rotate_y": 0.0},
                 {"asset_id": "marking_chevron_gore_white", "name": "chevron_0", "translate": (1.7, 0.03, 1.0), "rotate_y": 45.0},
+                {"asset_id": "marking_hatched_island_white", "name": "hatched_island_0", "translate": (2.1, 0.03, 0.05), "rotate_y": 18.0},
                 {"asset_id": "marking_centerline_solid_dashed_yellow", "name": "centerline_solid_dashed_0", "translate": (0.0, 0.03, 0.0), "rotate_y": 90.0},
                 {"asset_id": "marking_only_text_white", "name": "only_text_0", "translate": (-0.92, 0.03, -0.15), "rotate_y": 0.0},
                 {"asset_id": "marking_stop_text_white", "name": "stop_text_0", "translate": (0.92, 0.03, -1.05), "rotate_y": 0.0},
+                {"asset_id": "marking_bus_text_white", "name": "bus_text_0", "translate": (-1.5, 0.03, 1.62), "rotate_y": 0.0},
+                {"asset_id": "marking_bike_text_white", "name": "bike_text_0", "translate": (1.45, 0.03, 1.58), "rotate_y": 0.0},
                 {"asset_id": "marking_raised_marker_bicolor", "name": "raised_marker_bicolor_0", "translate": (1.42, 0.03, -0.2), "rotate_y": 0.0},
                 {"asset_id": "furniture_signal_pole", "name": "pole_0", "translate": (-2.0, 0.0, -2.0), "rotate_y": 0.0},
                 {"asset_id": "furniture_utility_pole_steel", "name": "utility_pole_steel_0", "translate": (-2.8, 0.0, 2.1), "rotate_y": 90.0},

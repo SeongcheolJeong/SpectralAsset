@@ -86,6 +86,16 @@
           "rotate_y": 0.0
         },
         {
+          "asset_id": "marking_hatched_median_yellow",
+          "name": "hatched_median_0",
+          "translate": [
+            0.0,
+            0.03,
+            1.2
+          ],
+          "rotate_y": 0.0
+        },
+        {
           "asset_id": "marking_raised_marker_white",
           "name": "raised_marker_0",
           "translate": [
@@ -517,6 +527,26 @@
           "rotate_y": 0.0
         },
         {
+          "asset_id": "marking_arrow_turn_right_white",
+          "name": "arrow_right_0",
+          "translate": [
+            -0.9,
+            0.03,
+            -0.55
+          ],
+          "rotate_y": 180.0
+        },
+        {
+          "asset_id": "marking_arrow_straight_right_white",
+          "name": "arrow_straight_right_0",
+          "translate": [
+            0.96,
+            0.03,
+            -0.38
+          ],
+          "rotate_y": 180.0
+        },
+        {
           "asset_id": "marking_merge_left_white",
           "name": "merge_left_0",
           "translate": [
@@ -535,6 +565,16 @@
             1.0
           ],
           "rotate_y": 45.0
+        },
+        {
+          "asset_id": "marking_hatched_island_white",
+          "name": "hatched_island_0",
+          "translate": [
+            2.1,
+            0.03,
+            0.05
+          ],
+          "rotate_y": 18.0
         },
         {
           "asset_id": "marking_centerline_solid_dashed_yellow",
@@ -563,6 +603,26 @@
             0.92,
             0.03,
             -1.05
+          ],
+          "rotate_y": 0.0
+        },
+        {
+          "asset_id": "marking_bus_text_white",
+          "name": "bus_text_0",
+          "translate": [
+            -1.5,
+            0.03,
+            1.62
+          ],
+          "rotate_y": 0.0
+        },
+        {
+          "asset_id": "marking_bike_text_white",
+          "name": "bike_text_0",
+          "translate": [
+            1.45,
+            0.03,
+            1.58
           ],
           "rotate_y": 0.0
         },
