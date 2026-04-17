@@ -9,12 +9,12 @@ This repository builds an engine-agnostic asset pack for autonomous-driving came
 - USD authoring assets, GLB runtime exports, scenario profiles, and validation scenes
 - reproducible generation from scripts and a frozen raw-source ledger
 
-This repository is not yet targeting remote hosting, release automation, or measured replacement of all proxy spectra.
+This repository is not yet targeting release automation or measured replacement of all proxy spectra.
 
 ## Current Repository State
 
 - Local git bootstrap is now in place with `main` as the default branch.
-- No remote repository is configured yet.
+- GitHub remote `origin` is configured and `main` tracks `origin/main`.
 - Generated assets, exports, raw-source artifacts, and validation reports are intentionally tracked in version control.
 - `node_modules/` is dependency-only and must remain untracked.
 
@@ -56,8 +56,9 @@ Additional baseline facts:
 - Vehicle and protected-turn traffic-signal SPDs now use vendor-derived public fits, but pedestrian/countdown emitters and all measured emitter replacements are still incomplete.
 - `camera_reference_rgb_nir_v2` is now the active generic reference camera, but it remains a public-doc vendor-derived profile rather than a measured automotive SRF.
 - the official `onsemi_mt9m034_pdf` URL still blocks automated GET with `403`, so the repository now freezes a local copy of that PDF into tracked `raw/`
+- the generator now supports an optional local measured automotive SRF intake root at `automotive_sensor_srf_input/` or `AUTOMOTIVE_SENSOR_SRF_ROOT`, but no frozen measured source is currently present in the shipped baseline
 - Generated files still include `generated_at` metadata, but the generator and validator now preserve the previous value by default so clean rebuilds do not churn timestamps unless explicitly overridden.
-- The repository is local-first only; remote collaboration rules are documented but not yet activated.
+- Remote hosting is now active through GitHub, but release automation and measured-data automation are still manual.
 
 ## Known Measurement Gaps
 

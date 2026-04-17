@@ -13,11 +13,13 @@ The goal is to make scenarios reference a concrete camera profile instead of onl
 
 - active profile id: `camera_reference_rgb_nir_v2`
 - retained comparison profile: `camera_reference_rgb_nir_v1`
+- optional measured profile id when present: `camera_automotive_measured_rgb_nir_v1`
 - sensor branch: `rgb_nir`
 - channels: `r`, `g`, `b`, `nir`
 - storage grid: `350-1700 nm`, `1 nm`
 - effective target range: `400-1100 nm`
 - source quality for both current profiles: `vendor_derived`
+- no frozen measured automotive SRF source is present in the shipped baseline, so `v2` remains active
 
 ## v1 vs v2
 
@@ -35,6 +37,13 @@ The goal is to make scenarios reference a concrete camera profile instead of onl
 - records `reference_curve_refs`, `derivation_method`, and `replaces_profile_id`
 - the official `MT9M034` PDF is now frozen from a local copy in `raw/sources/onsemi_mt9m034_pdf/`, while the donor QE curves remain tracked as explicit project-authored control points rather than parsed directly from the PDF
 
+### Optional measured profile
+
+- generated only when a valid measured input is present in the local automotive SRF intake path
+- uses `response_model = measured_system_srf`
+- stores `active_channel_srf_refs` rather than requiring a `raw * optics = effective` decomposition
+- becomes the active scenario-bound camera profile only when the frozen measured source exists and validates cleanly
+
 ## Raw vs Effective SRF
 
 Both profiles track raw and effective channel curves.
@@ -48,6 +57,11 @@ Both profiles track raw and effective channel curves.
 Fixed rule:
 
 - `effective_srf = normalize_unit_peak(raw_srf * optics_transmittance)`
+
+For an optional measured-system profile:
+
+- `active_channel_srf` is the measured system response that scenarios use directly
+- no raw-vs-optics decomposition is assumed
 
 ## Why These Are `vendor_derived`
 
@@ -67,6 +81,10 @@ All current scenario profiles now reference the active `v2` profile:
 
 `v1` stays in the repository for comparison, provenance, and backwards review.
 
+If a valid measured automotive SRF source is frozen into `raw/sources/automotive_sensor_srf_measured/`, scenarios will instead bind to:
+
+- `canonical/camera/camera_automotive_measured_rgb_nir_v1.camera_profile.json`
+
 ## Remaining Gaps
 
 These profiles do not resolve the measured backlog by themselves.
@@ -81,6 +99,8 @@ These profiles do not resolve the measured backlog by themselves.
 - scenarios must carry both `sensor_branch` and `camera_profile_ref`
 - camera profiles must carry `source_quality` and `source_ids`
 - camera profiles may use either one shared optics ref or per-channel optics refs
+- measured camera profiles may instead use `active_channel_srf_refs` with `response_model = measured_system_srf`
 - `v2` camera profiles carry donor `reference_curve_refs` and explicit `derivation_method` metadata
 - camera profiles must validate that raw and effective curves cover `400-1100 nm`
 - effective channel curves must be unit-peak normalized
+- measured active channel curves must also cover `400-1100 nm` and be unit-peak normalized

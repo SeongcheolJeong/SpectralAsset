@@ -40,6 +40,7 @@ For deterministic rebuild review, the generator now preserves the previous track
 - wet asphalt is currently a measured-derived material built from the measured dry asphalt baseline plus the tracked wet modifier
 - vehicle and protected-turn traffic-signal emissive profiles now use vendor-derived public LED fits
 - camera profiles now support either a shared optics curve or per-channel optics/filter curves
+- optional measured automotive camera SRF intake is supported from `automotive_sensor_srf_input/` or `AUTOMOTIVE_SENSOR_SRF_ROOT`, but the current baseline does not include a frozen measured source
 - sign sheeting, road-marking retroreflection, pedestrian/countdown emitter SPDs, and measured traffic-signal/headlamp capture still remain incomplete in this phase
 
 ## Local Source Root
@@ -47,6 +48,8 @@ For deterministic rebuild review, the generator now preserves the previous track
 - the full local USGS mirror is expected at `usgs_splib07/` by default or `USGS_SPLIB07_ROOT` if overridden
 - the full mirror is intentionally ignored by git
 - only the selected subset frozen into `raw/sources/usgs_splib07_selected/` is tracked
+- optional measured automotive SRF input may be placed in `automotive_sensor_srf_input/` by default or `AUTOMOTIVE_SENSOR_SRF_ROOT` if overridden
+- the optional measured automotive SRF input root is intentionally ignored by git
 
 ## Project Management Docs
 
@@ -59,6 +62,7 @@ For deterministic rebuild review, the generator now preserves the previous track
 - [docs/pbrt-tutorial.md](docs/pbrt-tutorial.md): tutorial for using the generated assets as inputs to a `PBRT` rendering workflow
 - [docs/usgs-ingest.md](docs/usgs-ingest.md): selected USGS subset ingest and binding rules
 - [docs/camera-profile.md](docs/camera-profile.md): generic camera-profile contract and current limitations
+- [docs/automotive-srf-intake.md](docs/automotive-srf-intake.md): optional measured automotive camera-SRF intake path and input format
 
 ## Known Measurement Backlog
 

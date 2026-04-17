@@ -1,6 +1,7 @@
 {
   "id": "camera_reference_rgb_nir_v2",
   "profile_family": "generic_reference",
+  "response_model": "derived_raw_optics",
   "sensor_branch": "rgb_nir",
   "wavelength_grid_ref": "grid_master_350_1700_1nm",
   "raw_channel_srf_refs": {
@@ -70,6 +71,28 @@
     }
   },
   "effective_channel_srf_refs": {
+    "r": {
+      "path": "canonical/spectra/cam_ref_rgbnir_v2_r_effective_srf.npz",
+      "wavelength_key": "wavelength_nm",
+      "value_key": "values"
+    },
+    "g": {
+      "path": "canonical/spectra/cam_ref_rgbnir_v2_g_effective_srf.npz",
+      "wavelength_key": "wavelength_nm",
+      "value_key": "values"
+    },
+    "b": {
+      "path": "canonical/spectra/cam_ref_rgbnir_v2_b_effective_srf.npz",
+      "wavelength_key": "wavelength_nm",
+      "value_key": "values"
+    },
+    "nir": {
+      "path": "canonical/spectra/cam_ref_rgbnir_v2_nir_effective_srf.npz",
+      "wavelength_key": "wavelength_nm",
+      "value_key": "values"
+    }
+  },
+  "active_channel_srf_refs": {
     "r": {
       "path": "canonical/spectra/cam_ref_rgbnir_v2_r_effective_srf.npz",
       "wavelength_key": "wavelength_nm",

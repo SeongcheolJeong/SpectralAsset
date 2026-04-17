@@ -77,6 +77,11 @@ SAMPLE_STATE_ENUM = {"dry", "wet", "aged", "dusty", "coated"}
 SENSOR_BRANCH_ENUM = {"rgb", "rgb_nir"}
 SOURCE_QUALITY_ENUM = {"measured_standard", "measured_derivative", "vendor_derived", "project_proxy"}
 CAMERA_CHANNELS = ("r", "g", "b", "nir")
+CAMERA_RESPONSE_MODEL_ENUM = {"derived_raw_optics", "measured_system_srf"}
+CAMERA_PROFILE_FAMILY_ENUM = {"generic_reference", "measured_capture"}
+AUTOMOTIVE_SENSOR_SRF_INPUT_DIR = "automotive_sensor_srf_input"
+AUTOMOTIVE_SENSOR_SRF_SOURCE_ID = "automotive_sensor_srf_measured"
+AUTOMOTIVE_SENSOR_SRF_PROFILE_ID = "camera_automotive_measured_rgb_nir_v1"
 
 DIRS = [
     "raw/sources",
@@ -553,6 +558,21 @@ def display_usgs_source_root(root: Path) -> str:
     return "env:USGS_SPLIB07_ROOT" if os.getenv("USGS_SPLIB07_ROOT") else root.name
 
 
+def resolve_automotive_sensor_srf_input_root() -> Path:
+    if os.getenv("AUTOMOTIVE_SENSOR_SRF_ROOT"):
+        return Path(os.environ["AUTOMOTIVE_SENSOR_SRF_ROOT"]).expanduser()
+    return REPO_ROOT / AUTOMOTIVE_SENSOR_SRF_INPUT_DIR
+
+
+def display_automotive_sensor_srf_input_root(root: Path) -> str:
+    return "env:AUTOMOTIVE_SENSOR_SRF_ROOT" if os.getenv("AUTOMOTIVE_SENSOR_SRF_ROOT") else root.name
+
+
+def load_json_file(path: Path) -> Dict:
+    with path.open("r", encoding="utf-8") as handle:
+        return json.load(handle)
+
+
 def build_preserved_local_entry(spec: Dict, source_json_path: Path) -> Optional[Dict]:
     existing_entry = load_existing_source_entry(source_json_path)
     if not existing_entry:
@@ -705,6 +725,97 @@ def build_local_fallback_url_entry(source: Dict, target_file: Path, source_json_
     return entry
 
 
+def build_preserved_measured_automotive_srf_entry(source_json_path: Path) -> Optional[Dict]:
+    existing_entry = load_existing_source_entry(source_json_path)
+    if not isinstance(existing_entry, dict):
+        return None
+    data_path_value = existing_entry.get("data_path")
+    metadata_path_value = existing_entry.get("metadata_path")
+    if not isinstance(data_path_value, str) or not isinstance(metadata_path_value, str):
+        return None
+    data_path = REPO_ROOT / data_path_value
+    metadata_path = REPO_ROOT / metadata_path_value
+    if not data_path.exists() or not metadata_path.exists():
+        return None
+    entry = {
+        "id": AUTOMOTIVE_SENSOR_SRF_SOURCE_ID,
+        "origin_type": "local_path",
+        "classification": existing_entry.get("classification", "derived-only"),
+        "license_summary": existing_entry.get("license_summary", "Measured automotive sensor SRF input frozen from a local source."),
+        "path": data_path_value,
+        "data_path": data_path_value,
+        "metadata_path": metadata_path_value,
+        "copied_from_root": existing_entry.get("copied_from_root", AUTOMOTIVE_SENSOR_SRF_INPUT_DIR),
+        "copied_at": existing_entry.get("copied_at", GENERATED_AT),
+        "status": "copied_from_local",
+        "sha256": sha256_file(data_path),
+        "size_bytes": data_path.stat().st_size,
+        "metadata_sha256": sha256_file(metadata_path),
+        "notes": existing_entry.get("notes", "Measured automotive sensor SRF input frozen from a local source."),
+    }
+    report_path_value = existing_entry.get("report_path")
+    if isinstance(report_path_value, str):
+        report_path = REPO_ROOT / report_path_value
+        if report_path.exists():
+            entry["report_path"] = report_path_value
+            entry["report_sha256"] = sha256_file(report_path)
+    return entry
+
+
+def freeze_measured_automotive_sensor_source() -> List[Dict]:
+    refresh_sources = os.getenv("REFRESH_SOURCES") == "1"
+    source_root = resolve_automotive_sensor_srf_input_root()
+    target_root = REPO_ROOT / "raw" / "sources" / AUTOMOTIVE_SENSOR_SRF_SOURCE_ID
+    target_root.mkdir(parents=True, exist_ok=True)
+    source_json_path = target_root / "source.json"
+
+    if not refresh_sources:
+        preserved = build_preserved_measured_automotive_srf_entry(source_json_path)
+        if preserved:
+            write_json(source_json_path, preserved)
+            return [preserved]
+
+    metadata_source = source_root / "metadata.json"
+    data_source = source_root / "srf.csv"
+    report_source = source_root / "report.pdf"
+    if not metadata_source.exists() or not data_source.exists():
+        return []
+
+    metadata = load_json_file(metadata_source)
+    classification = metadata.get("classification", "derived-only")
+    if classification not in {"redistributable", "derived-only", "reference-only"}:
+        raise ValueError("automotive_sensor_srf_input metadata.json has invalid classification")
+
+    metadata_target = target_root / "metadata.json"
+    data_target = target_root / "srf.csv"
+    shutil.copy2(metadata_source, metadata_target)
+    shutil.copy2(data_source, data_target)
+
+    entry = {
+        "id": AUTOMOTIVE_SENSOR_SRF_SOURCE_ID,
+        "origin_type": "local_path",
+        "classification": classification,
+        "license_summary": metadata.get("license_summary", "Measured automotive sensor SRF input frozen from a local source."),
+        "path": relative_posix(data_target),
+        "data_path": relative_posix(data_target),
+        "metadata_path": relative_posix(metadata_target),
+        "copied_from_root": display_automotive_sensor_srf_input_root(source_root),
+        "copied_at": GENERATED_AT,
+        "status": "copied_from_local",
+        "sha256": sha256_file(data_target),
+        "size_bytes": data_target.stat().st_size,
+        "metadata_sha256": sha256_file(metadata_target),
+        "notes": metadata.get("notes", "Measured automotive sensor SRF input frozen from a local source."),
+    }
+    if report_source.exists():
+        report_target = target_root / "report.pdf"
+        shutil.copy2(report_source, report_target)
+        entry["report_path"] = relative_posix(report_target)
+        entry["report_sha256"] = sha256_file(report_target)
+    write_json(source_json_path, entry)
+    return [entry]
+
+
 def download_sources() -> List[Dict]:
     ledger = []
     refresh_sources = os.getenv("REFRESH_SOURCES") == "1"
@@ -806,6 +917,7 @@ def download_sources() -> List[Dict]:
         write_json(source_json_path, entry)
         ledger.append(entry)
     ledger.extend(freeze_selected_usgs_sources())
+    ledger.extend(freeze_measured_automotive_sensor_source())
     write_json(REPO_ROOT / "raw" / "source_ledger.json", {"generated_at": GENERATED_AT, "sources": ledger})
     return ledger
 
@@ -819,6 +931,136 @@ def parse_numeric_series_file(path: Path) -> List[float]:
                 continue
             values.append(float(line))
     return values
+
+
+def parse_measured_srf_csv(data_path: Path, metadata: Dict) -> Dict[str, List[float]]:
+    with data_path.open("r", encoding="utf-8", newline="") as handle:
+        reader = csv.DictReader(handle)
+        if not reader.fieldnames:
+            raise ValueError(f"{data_path} is missing a CSV header")
+        wavelength_column = metadata.get("wavelength_column")
+        if not isinstance(wavelength_column, str) or not wavelength_column:
+            if "wavelength_nm" in reader.fieldnames:
+                wavelength_column = "wavelength_nm"
+            elif "wavelength_um" in reader.fieldnames:
+                wavelength_column = "wavelength_um"
+            else:
+                raise ValueError(f"{data_path} must contain wavelength_nm or wavelength_um")
+        channel_columns = metadata.get("channel_columns", {})
+        if not isinstance(channel_columns, dict):
+            channel_columns = {}
+        resolved_columns = {channel: channel_columns.get(channel, channel) for channel in CAMERA_CHANNELS}
+        missing_columns = [column for column in [wavelength_column, *resolved_columns.values()] if column not in reader.fieldnames]
+        if missing_columns:
+            raise ValueError(f"{data_path} is missing required columns: {', '.join(sorted(missing_columns))}")
+
+        wavelengths_nm = []
+        channel_values = {channel: [] for channel in CAMERA_CHANNELS}
+        for row in reader:
+            if not row:
+                continue
+            raw_wavelength = row.get(wavelength_column, "").strip()
+            if not raw_wavelength:
+                continue
+            wavelength = float(raw_wavelength)
+            wavelengths_nm.append(wavelength)
+            for channel, column in resolved_columns.items():
+                channel_values[channel].append(float(row[column]))
+
+    if len(wavelengths_nm) < 2:
+        raise ValueError(f"{data_path} must contain at least two SRF rows")
+    if any(right <= left for left, right in zip(wavelengths_nm, wavelengths_nm[1:])):
+        raise ValueError(f"{data_path} wavelength values must be strictly increasing")
+
+    wavelength_unit = str(metadata.get("wavelength_unit", "nm")).strip().lower()
+    if wavelength_unit in {"um", "micron", "microns"} or wavelength_column.endswith("_um"):
+        wavelengths_nm = [value * 1000.0 for value in wavelengths_nm]
+    elif wavelength_unit != "nm":
+        raise ValueError("automotive_sensor_srf_input metadata.json has invalid wavelength_unit")
+
+    response_scale = str(metadata.get("response_scale", "")).strip().lower()
+    max_value = max(max(values) for values in channel_values.values())
+    scale_factor = 1.0
+    if response_scale in {"percent", "percentage"}:
+        scale_factor = 0.01
+    elif response_scale in {"unit_fraction", "fraction", "normalized", ""}:
+        scale_factor = 1.0
+    else:
+        raise ValueError("automotive_sensor_srf_input metadata.json has invalid response_scale")
+    if not response_scale and max_value > 1.000001:
+        if max_value <= 100.000001:
+            scale_factor = 0.01
+        else:
+            raise ValueError(f"{data_path} contains response values above 100 and cannot be auto-scaled")
+
+    resampled_curves = {}
+    for channel in CAMERA_CHANNELS:
+        scaled = [value * scale_factor for value in channel_values[channel]]
+        padded_points = list(zip(wavelengths_nm, scaled))
+        if padded_points[0][0] > 350.0:
+            padded_points.insert(0, (350.0, 0.0))
+        if padded_points[-1][0] < 1700.0:
+            padded_points.append((1700.0, 0.0))
+        resampled_curves[channel] = normalize_unit_peak(clamp_list(interpolate(padded_points, MASTER_GRID)))
+
+    return {
+        "wavelengths_nm": wavelengths_nm,
+        "curves": resampled_curves,
+        "wavelength_column": wavelength_column,
+        "channel_columns": resolved_columns,
+        "response_scale": response_scale or ("percent" if scale_factor == 0.01 else "unit_fraction"),
+    }
+
+
+def load_measured_automotive_sensor_capture() -> Optional[Dict]:
+    source_dir = REPO_ROOT / "raw" / "sources" / AUTOMOTIVE_SENSOR_SRF_SOURCE_ID
+    metadata_path = source_dir / "metadata.json"
+    data_path = source_dir / "srf.csv"
+    if not metadata_path.exists() or not data_path.exists():
+        return None
+
+    metadata = load_json_file(metadata_path)
+    sensor_vendor = metadata.get("sensor_vendor")
+    sensor_model = metadata.get("sensor_model")
+    if not isinstance(sensor_vendor, str) or not sensor_vendor.strip():
+        raise ValueError("automotive_sensor_srf_input metadata.json is missing sensor_vendor")
+    if not isinstance(sensor_model, str) or not sensor_model.strip():
+        raise ValueError("automotive_sensor_srf_input metadata.json is missing sensor_model")
+    operating_temperature_c = metadata.get("temperature_c", 25.0)
+    if not isinstance(operating_temperature_c, (int, float)):
+        raise ValueError("automotive_sensor_srf_input metadata.json has invalid temperature_c")
+
+    parsed = parse_measured_srf_csv(data_path, metadata)
+    if min(parsed["wavelengths_nm"]) > 400.0 or max(parsed["wavelengths_nm"]) < 1100.0:
+        raise ValueError(f"{data_path} must cover at least 400-1100 nm")
+
+    return {
+        "metadata": metadata,
+        "curves": parsed["curves"],
+        "sensor_identity": {
+            "vendor": sensor_vendor.strip(),
+            "model": sensor_model.strip(),
+            "report_id": str(metadata.get("report_id", "unspecified")),
+            "report_date": str(metadata.get("report_date", "unspecified")),
+            "source_note": str(metadata.get("source_note", "Local measured automotive sensor SRF input frozen in raw/.")),
+        },
+        "measurement_conditions": {
+            "temperature_c": float(operating_temperature_c),
+            "measurement_type": str(metadata.get("measurement_type", "measured_system_srf")),
+            "wavelength_column": parsed["wavelength_column"],
+            "channel_columns": parsed["channel_columns"],
+            "response_scale": parsed["response_scale"],
+            "calibration_reference": str(metadata.get("calibration_reference", "unspecified")),
+            "optics_stack_note": str(metadata.get("optics_stack_note", "System response includes the measured optics/filter stack as captured in the input.")),
+            "notes": str(metadata.get("measurement_notes", metadata.get("notes", "Measured automotive sensor SRF input."))),
+        },
+        "license": {
+            "spdx": str(metadata.get("profile_license_spdx", "LicenseRef-MeasuredLocalSource")),
+            "redistribution": str(metadata.get("profile_redistribution", "Measured automotive sensor SRF profile generated from a frozen local source.")),
+        },
+        "source_ids": [AUTOMOTIVE_SENSOR_SRF_SOURCE_ID],
+        "provenance_note": str(metadata.get("provenance_note", "Measured automotive camera system SRF generated from a frozen local CSV source.")),
+    }
 
 
 def parse_usgs_metadata_html(path: Path) -> Dict[str, str]:
@@ -1991,7 +2233,7 @@ def make_materials(illuminant_d65: Sequence[float]) -> Dict[str, Dict]:
     return materials
 
 
-def write_camera_profiles() -> List[Dict]:
+def write_camera_profiles() -> Tuple[List[Dict], str, str]:
     spectra_dir = REPO_ROOT / "canonical" / "spectra"
 
     raw_curves_v1 = {
@@ -2013,11 +2255,14 @@ def write_camera_profiles() -> List[Dict]:
 
     profile_v1 = {
         "id": "camera_reference_rgb_nir_v1",
+        "profile_family": "generic_reference",
+        "response_model": "derived_raw_optics",
         "sensor_branch": "rgb_nir",
         "wavelength_grid_ref": "grid_master_350_1700_1nm",
         "raw_channel_srf_refs": {channel: spectral_curve_ref(f"cam_ref_rgbnir_{channel}_raw_srf") for channel in CAMERA_CHANNELS},
         "optics_transmittance_ref": spectral_curve_ref("cam_ref_rgbnir_optics_transmittance"),
         "effective_channel_srf_refs": {channel: spectral_curve_ref(f"cam_ref_rgbnir_{channel}_effective_srf") for channel in CAMERA_CHANNELS},
+        "active_channel_srf_refs": {channel: spectral_curve_ref(f"cam_ref_rgbnir_{channel}_effective_srf") for channel in CAMERA_CHANNELS},
         "normalization": {"method": "unit_peak_per_channel_after_optics"},
         "operating_temperature_c": 25.0,
         "source_quality": "vendor_derived",
@@ -2106,6 +2351,7 @@ def write_camera_profiles() -> List[Dict]:
     profile_v2 = {
         "id": "camera_reference_rgb_nir_v2",
         "profile_family": "generic_reference",
+        "response_model": "derived_raw_optics",
         "sensor_branch": "rgb_nir",
         "wavelength_grid_ref": "grid_master_350_1700_1nm",
         "raw_channel_srf_refs": {channel: spectral_curve_ref(f"cam_ref_rgbnir_v2_{channel}_raw_srf") for channel in CAMERA_CHANNELS},
@@ -2122,6 +2368,7 @@ def write_camera_profiles() -> List[Dict]:
             "mono_qe_reference": spectral_curve_ref("src_onsemi_mt9m034_mono_qe_reference"),
         },
         "effective_channel_srf_refs": {channel: spectral_curve_ref(f"cam_ref_rgbnir_v2_{channel}_effective_srf") for channel in CAMERA_CHANNELS},
+        "active_channel_srf_refs": {channel: spectral_curve_ref(f"cam_ref_rgbnir_v2_{channel}_effective_srf") for channel in CAMERA_CHANNELS},
         "derivation_method": {
             "type": "public_doc_curve_fit",
             "donor_sensor_id": "MT9M034",
@@ -2145,9 +2392,42 @@ def write_camera_profiles() -> List[Dict]:
     }
 
     profiles = [profile_v1, profile_v2]
+    active_camera_profile_id = "camera_reference_rgb_nir_v2"
+    activation_reason = "No frozen measured automotive sensor SRF source is available, so camera_reference_rgb_nir_v2 remains active."
+
+    measured_capture = load_measured_automotive_sensor_capture()
+    if measured_capture is not None:
+        measured_curves = measured_capture["curves"]
+        for channel in CAMERA_CHANNELS:
+            write_npz(spectra_dir / f"cam_auto_measured_v1_{channel}_active_srf.npz", {"wavelength_nm": MASTER_GRID, "values": measured_curves[channel]})
+        measured_profile = {
+            "id": AUTOMOTIVE_SENSOR_SRF_PROFILE_ID,
+            "profile_family": "measured_capture",
+            "response_model": "measured_system_srf",
+            "sensor_branch": "rgb_nir",
+            "wavelength_grid_ref": "grid_master_350_1700_1nm",
+            "active_channel_srf_refs": {channel: spectral_curve_ref(f"cam_auto_measured_v1_{channel}_active_srf") for channel in CAMERA_CHANNELS},
+            "normalization": {"method": "unit_peak_per_channel_measured_active_srf"},
+            "operating_temperature_c": measured_capture["measurement_conditions"]["temperature_c"],
+            "source_quality": "measured_standard",
+            "source_ids": measured_capture["source_ids"],
+            "sensor_identity": measured_capture["sensor_identity"],
+            "measurement_conditions": measured_capture["measurement_conditions"],
+            "license": measured_capture["license"],
+            "provenance": {
+                "generated_at": GENERATED_AT,
+                "generated_by": "scripts/build_asset_pack.py",
+                "source_ids": measured_capture["source_ids"],
+                "note": measured_capture["provenance_note"],
+            },
+        }
+        profiles.append(measured_profile)
+        active_camera_profile_id = AUTOMOTIVE_SENSOR_SRF_PROFILE_ID
+        activation_reason = "A frozen measured automotive sensor SRF source is available, so camera_automotive_measured_rgb_nir_v1 is active."
+
     for profile in profiles:
         write_json(REPO_ROOT / "canonical" / "camera" / f"{profile['id']}.camera_profile.json", profile)
-    return profiles
+    return profiles, active_camera_profile_id, activation_reason
 
 
 def generate_standard_spectra(signal_vendor_curves: Dict[str, Dict]) -> Dict[str, List[float]]:
@@ -2815,11 +3095,20 @@ def validate_camera_profile(profile: Dict, known_source_ids: Sequence[str]) -> L
         errors.append(f"{profile_id}: invalid sensor_branch")
     if profile.get("source_quality") not in SOURCE_QUALITY_ENUM:
         errors.append(f"{profile_id}: invalid source_quality")
-    if "profile_family" in profile and profile.get("profile_family") != "generic_reference":
+    profile_family = profile.get("profile_family")
+    if profile_family is not None and profile_family not in CAMERA_PROFILE_FAMILY_ENUM:
         errors.append(f"{profile_id}: invalid profile_family")
+    response_model = profile.get("response_model")
+    if response_model is None:
+        response_model = "derived_raw_optics" if "effective_channel_srf_refs" in profile else "measured_system_srf"
+    if response_model not in CAMERA_RESPONSE_MODEL_ENUM:
+        errors.append(f"{profile_id}: invalid response_model")
     errors.extend(validate_source_ids(profile_id, profile.get("source_ids", []), known_source_ids))
 
     def load_curve(ref: Dict, label: str) -> Optional[Tuple[List[float], List[float]]]:
+        if not isinstance(ref, dict):
+            errors.append(f"{profile_id}: {label} must be an object")
+            return None
         path = REPO_ROOT / ref.get("path", "")
         if not path.exists():
             errors.append(f"{profile_id}: missing {label} path")
@@ -2833,40 +3122,57 @@ def validate_camera_profile(profile: Dict, known_source_ids: Sequence[str]) -> L
             errors.append(f"{profile_id}: {label} is outside [0, 1]")
         return wavelengths, values
 
-    for group_key in ["raw_channel_srf_refs", "effective_channel_srf_refs"]:
+    curve_values_by_group = {}
+    for group_key in ["raw_channel_srf_refs", "effective_channel_srf_refs", "active_channel_srf_refs"]:
         refs = profile.get(group_key, {})
-        if set(refs.keys()) != set(CAMERA_CHANNELS):
+        if not refs:
+            continue
+        if not isinstance(refs, dict) or set(refs.keys()) != set(CAMERA_CHANNELS):
             errors.append(f"{profile_id}: {group_key} must contain channels {', '.join(CAMERA_CHANNELS)}")
             continue
+        curve_values_by_group[group_key] = {}
         for channel, ref in refs.items():
             loaded = load_curve(ref, f"{group_key} for {channel}")
             if loaded is None:
                 continue
             wavelengths, values = loaded
-            if group_key == "effective_channel_srf_refs" and abs(max(values) - 1.0) > 1e-6:
+            curve_values_by_group[group_key][channel] = values
+            if group_key in {"effective_channel_srf_refs", "active_channel_srf_refs"} and abs(max(values) - 1.0) > 1e-6:
                 errors.append(f"{profile_id}: effective SRF for {channel} is not unit peak normalized")
 
     shared_optics_ref = profile.get("optics_transmittance_ref")
     channel_optics_refs = profile.get("channel_optics_transmittance_refs")
     optics_by_channel = {}
-    if isinstance(channel_optics_refs, dict):
-        if set(channel_optics_refs.keys()) != set(CAMERA_CHANNELS):
-            errors.append(f"{profile_id}: channel_optics_transmittance_refs must contain channels {', '.join(CAMERA_CHANNELS)}")
-        else:
-            for channel, ref in channel_optics_refs.items():
-                loaded = load_curve(ref, f"channel_optics_transmittance_refs for {channel}")
-                if loaded is not None:
+    if response_model == "derived_raw_optics":
+        if isinstance(channel_optics_refs, dict):
+            if set(channel_optics_refs.keys()) != set(CAMERA_CHANNELS):
+                errors.append(f"{profile_id}: channel_optics_transmittance_refs must contain channels {', '.join(CAMERA_CHANNELS)}")
+            else:
+                for channel, ref in channel_optics_refs.items():
+                    loaded = load_curve(ref, f"channel_optics_transmittance_refs for {channel}")
+                    if loaded is not None:
+                        optics_by_channel[channel] = loaded[1]
+        elif isinstance(shared_optics_ref, dict):
+            loaded = load_curve(shared_optics_ref, "optics_transmittance_ref")
+            if loaded is not None:
+                for channel in CAMERA_CHANNELS:
                     optics_by_channel[channel] = loaded[1]
-    elif isinstance(shared_optics_ref, dict):
-        loaded = load_curve(shared_optics_ref, "optics_transmittance_ref")
-        if loaded is not None:
-            for channel in CAMERA_CHANNELS:
-                optics_by_channel[channel] = loaded[1]
-    else:
-        errors.append(f"{profile_id}: missing optics_transmittance_ref or channel_optics_transmittance_refs")
+        else:
+            errors.append(f"{profile_id}: missing optics_transmittance_ref or channel_optics_transmittance_refs")
 
-    if profile_id.endswith("_v2") and not isinstance(channel_optics_refs, dict):
-        errors.append(f"{profile_id}: v2 profile must use channel_optics_transmittance_refs")
+        if profile_id.endswith("_v2") and not isinstance(channel_optics_refs, dict):
+            errors.append(f"{profile_id}: v2 profile must use channel_optics_transmittance_refs")
+        if set(profile.get("raw_channel_srf_refs", {}).keys()) != set(CAMERA_CHANNELS):
+            errors.append(f"{profile_id}: raw_channel_srf_refs must contain channels {', '.join(CAMERA_CHANNELS)}")
+        if set(profile.get("effective_channel_srf_refs", {}).keys()) != set(CAMERA_CHANNELS):
+            errors.append(f"{profile_id}: effective_channel_srf_refs must contain channels {', '.join(CAMERA_CHANNELS)}")
+    elif response_model == "measured_system_srf":
+        if set(profile.get("active_channel_srf_refs", {}).keys()) != set(CAMERA_CHANNELS):
+            errors.append(f"{profile_id}: active_channel_srf_refs must contain channels {', '.join(CAMERA_CHANNELS)}")
+        if not isinstance(profile.get("sensor_identity"), dict):
+            errors.append(f"{profile_id}: sensor_identity must be an object")
+        if not isinstance(profile.get("measurement_conditions"), dict):
+            errors.append(f"{profile_id}: measurement_conditions must be an object")
 
     reference_curve_refs = profile.get("reference_curve_refs")
     if reference_curve_refs is not None:
@@ -2879,7 +3185,7 @@ def validate_camera_profile(profile: Dict, known_source_ids: Sequence[str]) -> L
     if "derivation_method" in profile and not isinstance(profile.get("derivation_method"), dict):
         errors.append(f"{profile_id}: derivation_method must be an object")
 
-    if set(profile.get("raw_channel_srf_refs", {}).keys()) == set(CAMERA_CHANNELS) and set(profile.get("effective_channel_srf_refs", {}).keys()) == set(CAMERA_CHANNELS) and set(optics_by_channel.keys()) == set(CAMERA_CHANNELS):
+    if response_model == "derived_raw_optics" and set(profile.get("raw_channel_srf_refs", {}).keys()) == set(CAMERA_CHANNELS) and set(profile.get("effective_channel_srf_refs", {}).keys()) == set(CAMERA_CHANNELS) and set(optics_by_channel.keys()) == set(CAMERA_CHANNELS):
         for channel in CAMERA_CHANNELS:
             raw_arrays = read_npz(REPO_ROOT / profile["raw_channel_srf_refs"][channel]["path"])
             effective_arrays = read_npz(REPO_ROOT / profile["effective_channel_srf_refs"][channel]["path"])
@@ -2889,24 +3195,27 @@ def validate_camera_profile(profile: Dict, known_source_ids: Sequence[str]) -> L
             max_error = max(abs(expected - actual) for expected, actual in zip(recomputed, effective_values))
             if max_error > 1e-9:
                 errors.append(f"{profile_id}: effective SRF recomputation mismatch for {channel}")
-            peak_index = max(range(len(effective_values)), key=effective_values.__getitem__)
+    sanity_curves = curve_values_by_group.get("active_channel_srf_refs") or curve_values_by_group.get("effective_channel_srf_refs") or {}
+    if set(sanity_curves.keys()) == set(CAMERA_CHANNELS):
+        for channel, curve_values in sanity_curves.items():
+            peak_index = max(range(len(curve_values)), key=curve_values.__getitem__)
             peak_nm = MASTER_GRID[peak_index]
             if channel == "b" and not (420 <= peak_nm <= 500):
-                errors.append(f"{profile_id}: blue effective peak is outside 420-500 nm")
+                errors.append(f"{profile_id}: blue active peak is outside 420-500 nm")
             if channel == "g" and not (500 <= peak_nm <= 580):
-                errors.append(f"{profile_id}: green effective peak is outside 500-580 nm")
+                errors.append(f"{profile_id}: green active peak is outside 500-580 nm")
             if channel == "r" and not (580 <= peak_nm <= 700):
-                errors.append(f"{profile_id}: red effective peak is outside 580-700 nm")
+                errors.append(f"{profile_id}: red active peak is outside 580-700 nm")
             if channel == "nir" and not (760 <= peak_nm <= 950):
-                errors.append(f"{profile_id}: nir effective peak is outside 760-950 nm")
+                errors.append(f"{profile_id}: nir active peak is outside 760-950 nm")
             if channel in {"r", "g", "b"}:
-                rgb_nir_tail = max(value for wavelength, value in zip(MASTER_GRID, effective_values) if wavelength >= 850)
+                rgb_nir_tail = max(value for wavelength, value in zip(MASTER_GRID, curve_values) if wavelength >= 850)
                 if rgb_nir_tail > 0.08:
-                    errors.append(f"{profile_id}: {channel} effective SRF is too strong above 850 nm")
+                    errors.append(f"{profile_id}: {channel} active SRF is too strong above 850 nm")
             if channel == "nir":
-                nir_visible_leak = max(value for wavelength, value in zip(MASTER_GRID, effective_values) if wavelength <= 550)
+                nir_visible_leak = max(value for wavelength, value in zip(MASTER_GRID, curve_values) if wavelength <= 550)
                 if nir_visible_leak > 0.03:
-                    errors.append(f"{profile_id}: nir effective SRF is too strong below 550 nm")
+                    errors.append(f"{profile_id}: nir active SRF is too strong below 550 nm")
     return errors
 
 
@@ -2937,7 +3246,7 @@ def compute_scale_within_tolerance(asset: Dict) -> bool:
     return True
 
 
-def build_reports(assets: List[Dict], materials: Dict[str, Dict], emissive_profiles: List[Dict], camera_profiles: List[Dict], scenarios: List[Dict], usd_export_status: Dict[str, Dict], source_ledger: List[Dict]) -> Dict:
+def build_reports(assets: List[Dict], materials: Dict[str, Dict], emissive_profiles: List[Dict], camera_profiles: List[Dict], scenarios: List[Dict], usd_export_status: Dict[str, Dict], source_ledger: List[Dict], active_camera_profile_id: str, camera_profile_activation_reason: str) -> Dict:
     asset_errors = []
     material_errors = []
     emissive_errors = []
@@ -2998,7 +3307,6 @@ def build_reports(assets: List[Dict], materials: Dict[str, Dict], emissive_profi
 
     scenario_camera_profile_refs = {scenario["id"]: scenario.get("camera_profile_ref") for scenario in scenarios}
     unique_profile_ids = sorted({profile_id_from_ref(ref) for ref in scenario_camera_profile_refs.values() if isinstance(ref, str)})
-    active_camera_profile_id = unique_profile_ids[0] if len(unique_profile_ids) == 1 else None
     camera_profile_reference_summary = {}
     for profile in camera_profiles:
         reference_curve_refs = profile.get("reference_curve_refs", {})
@@ -3006,6 +3314,9 @@ def build_reports(assets: List[Dict], materials: Dict[str, Dict], emissive_profi
             "reference_curve_ids": sorted(reference_curve_refs.keys()) if isinstance(reference_curve_refs, dict) else [],
             "has_shared_optics_ref": isinstance(profile.get("optics_transmittance_ref"), dict),
             "has_per_channel_optics_refs": isinstance(profile.get("channel_optics_transmittance_refs"), dict),
+            "has_active_channel_refs": isinstance(profile.get("active_channel_srf_refs"), dict),
+            "response_model": profile.get("response_model", "derived_raw_optics"),
+            "profile_family": profile.get("profile_family"),
             "source_ids": profile.get("source_ids", []),
         }
 
@@ -3016,7 +3327,9 @@ def build_reports(assets: List[Dict], materials: Dict[str, Dict], emissive_profi
         "emissive_profile_count": len(emissive_profiles),
         "camera_profile_count": len(camera_profiles),
         "active_camera_profile_id": active_camera_profile_id,
+        "camera_profile_activation_reason": camera_profile_activation_reason,
         "scenario_camera_profile_refs": scenario_camera_profile_refs,
+        "scenario_unique_camera_profile_ids": unique_profile_ids,
         "camera_profile_reference_summary": camera_profile_reference_summary,
         "scenario_count": len(scenarios),
         "asset_validation_errors": asset_errors,
@@ -3085,14 +3398,13 @@ def main() -> int:
     signal_vendor_curves = build_vendor_signal_spd_curves()
     standards = generate_standard_spectra(signal_vendor_curves)
     materials = make_materials(standards["illuminant_d65"])
-    camera_profiles = write_camera_profiles()
-    active_camera_profile_id = "camera_reference_rgb_nir_v2"
+    camera_profiles, active_camera_profile_id, camera_profile_activation_reason = write_camera_profiles()
     assets, asset_meshes = build_assets(materials)
     usd_status = write_asset_geometry_and_exports(assets, asset_meshes, materials)
     emissive_profiles = write_emissive_profiles(signal_vendor_curves)
     atmospheres, scenarios = write_scenarios_and_atmospheres(active_camera_profile_id)
     write_scenes(asset_meshes, materials)
-    summary = build_reports(assets, materials, emissive_profiles, camera_profiles, scenarios, usd_status, ledger)
+    summary = build_reports(assets, materials, emissive_profiles, camera_profiles, scenarios, usd_status, ledger, active_camera_profile_id, camera_profile_activation_reason)
     print(json.dumps({"generated_at": GENERATED_AT, "asset_count": len(assets), "source_count": len(ledger), "validation_passes": summary["release_gates"]["passes"]}, indent=2))
     return 0
 

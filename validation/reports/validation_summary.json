@@ -5,17 +5,24 @@
   "emissive_profile_count": 4,
   "camera_profile_count": 2,
   "active_camera_profile_id": "camera_reference_rgb_nir_v2",
+  "camera_profile_activation_reason": "No frozen measured automotive sensor SRF source is available, so camera_reference_rgb_nir_v2 remains active.",
   "scenario_camera_profile_refs": {
     "scenario_clear_noon": "canonical/camera/camera_reference_rgb_nir_v2.camera_profile.json",
     "scenario_overcast_day": "canonical/camera/camera_reference_rgb_nir_v2.camera_profile.json",
     "scenario_urban_night": "canonical/camera/camera_reference_rgb_nir_v2.camera_profile.json",
     "scenario_wet_dusk": "canonical/camera/camera_reference_rgb_nir_v2.camera_profile.json"
   },
+  "scenario_unique_camera_profile_ids": [
+    "camera_reference_rgb_nir_v2"
+  ],
   "camera_profile_reference_summary": {
     "camera_reference_rgb_nir_v1": {
       "reference_curve_ids": [],
       "has_shared_optics_ref": true,
       "has_per_channel_optics_refs": false,
+      "has_active_channel_refs": true,
+      "response_model": "derived_raw_optics",
+      "profile_family": "generic_reference",
       "source_ids": [
         "basler_color_emva_knowledge",
         "sony_imx900_product_page",
@@ -31,6 +38,9 @@
       ],
       "has_shared_optics_ref": false,
       "has_per_channel_optics_refs": true,
+      "has_active_channel_refs": true,
+      "response_model": "derived_raw_optics",
+      "profile_family": "generic_reference",
       "source_ids": [
         "onsemi_mt9m034_pdf",
         "basler_color_emva_knowledge",

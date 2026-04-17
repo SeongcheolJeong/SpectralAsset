@@ -11,6 +11,7 @@ This directory is the management layer for the autonomous-driving camera simulat
 - [measurement-priorities.md](measurement-priorities.md): ranked plan for replacing the current highest-value proxy measurement gaps
 - [catalog-gap-review.md](catalog-gap-review.md): family-by-family review of current asset coverage and the next expansion priorities
 - [camera-profile.md](camera-profile.md): generic `RGB+NIR` camera-profile contract and current vendor-derived limits
+- [automotive-srf-intake.md](automotive-srf-intake.md): local measured automotive camera-SRF intake format and activation behavior
 - [created-assets.md](created-assets.md): explanation of what the generated asset pack actually creates and how those files relate
 - [file-formats.md](file-formats.md): explanation of `.npz`, `.json`, `USD`, and related generated file types
 - [pbrt-tutorial.md](pbrt-tutorial.md): workflow for converting the generated assets into a practical `PBRT` rendering pipeline
@@ -30,6 +31,7 @@ This directory is the management layer for the autonomous-driving camera simulat
 - Update [measurement-priorities.md](measurement-priorities.md) when the measured-replacement order or acquisition assumptions change.
 - Update [catalog-gap-review.md](catalog-gap-review.md) when family counts, coverage weaknesses, or expansion priorities change.
 - Update [camera-profile.md](camera-profile.md) when camera-profile fields, source-quality assumptions, or scenario binding rules change.
+- Update [automotive-srf-intake.md](automotive-srf-intake.md) when the local measured-SRF intake format, activation gate, or input paths change.
 - Update [created-assets.md](created-assets.md) when generated asset categories, counts, or file relationships change materially.
 - Update [file-formats.md](file-formats.md) when the repository adds a new primary generated format or changes the role of an existing one.
 - Update [pbrt-tutorial.md](pbrt-tutorial.md) when the recommended `PBRT` conversion path, active camera profile, or primary source asset paths change.
