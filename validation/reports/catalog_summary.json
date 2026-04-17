@@ -506,6 +506,18 @@
       "variant_key": "side_mount"
     },
     {
+      "id": "furniture_signal_service_disconnect",
+      "family": "road_furniture",
+      "semantic_class": "furniture.signal_service_disconnect",
+      "variant_key": "pole_mount_metered"
+    },
+    {
+      "id": "furniture_signal_meter_pedestal",
+      "family": "road_furniture",
+      "semantic_class": "furniture.signal_meter_pedestal",
+      "variant_key": "utility_meter"
+    },
+    {
       "id": "furniture_signal_backplate_vertical",
       "family": "road_furniture",
       "semantic_class": "furniture.signal_backplate",
@@ -536,10 +548,28 @@
       "variant_key": "single_door"
     },
     {
+      "id": "furniture_signal_battery_backup_cabinet",
+      "family": "road_furniture",
+      "semantic_class": "furniture.signal_battery_backup",
+      "variant_key": "double_door_vented"
+    },
+    {
       "id": "furniture_signal_junction_box",
       "family": "road_furniture",
       "semantic_class": "furniture.signal_junction_box",
       "variant_key": "pedestal"
+    },
+    {
+      "id": "furniture_utility_pull_box",
+      "family": "road_furniture",
+      "semantic_class": "furniture.utility_pull_box",
+      "variant_key": "rectangular_handhole"
+    },
+    {
+      "id": "furniture_utility_transformer_padmount",
+      "family": "road_furniture",
+      "semantic_class": "furniture.utility_transformer",
+      "variant_key": "padmount_single_phase"
     },
     {
       "id": "furniture_guardrail_bollard_set",

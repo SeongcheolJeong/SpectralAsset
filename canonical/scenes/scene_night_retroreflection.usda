@@ -97,6 +97,20 @@ def Xform "scene_night_retroreflection" {
         float xformOp:rotateY = 0.000000
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
     }
+    def Xform "transformer_0" (
+        references = @../geometry/usd/furniture_utility_transformer_padmount.usda@</furniture_utility_transformer_padmount>
+    ) {
+        double3 xformOp:translate = (3.320000, 0.000000, 1.050000)
+        float xformOp:rotateY = 0.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
+    def Xform "pull_box_0" (
+        references = @../geometry/usd/furniture_utility_pull_box.usda@</furniture_utility_pull_box>
+    ) {
+        double3 xformOp:translate = (2.380000, 0.000000, 1.060000)
+        float xformOp:rotateY = 0.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
     def Xform "overhead_bracket_0" (
         references = @../geometry/usd/furniture_sign_overhead_bracket.usda@</furniture_sign_overhead_bracket>
     ) {

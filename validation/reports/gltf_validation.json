@@ -1,6 +1,6 @@
 {
   "generated_at": "2026-04-16T10:10:40.000Z",
-  "files_checked": 101,
+  "files_checked": 106,
   "files_with_errors": 0,
   "files_with_warnings": 0,
   "results": [
@@ -117,6 +117,13 @@
       "messages": []
     },
     {
+      "file": "exports/gltf/furniture_signal_battery_backup_cabinet.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
       "file": "exports/gltf/furniture_signal_controller_cabinet.glb",
       "numErrors": 0,
       "numWarnings": 0,
@@ -145,7 +152,21 @@
       "messages": []
     },
     {
+      "file": "exports/gltf/furniture_signal_meter_pedestal.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
       "file": "exports/gltf/furniture_signal_pole.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
+      "file": "exports/gltf/furniture_signal_service_disconnect.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
@@ -174,6 +195,20 @@
     },
     {
       "file": "exports/gltf/furniture_utility_pole_steel.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
+      "file": "exports/gltf/furniture_utility_pull_box.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
+      "file": "exports/gltf/furniture_utility_transformer_padmount.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
