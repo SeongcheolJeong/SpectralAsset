@@ -25,6 +25,7 @@
 - fourth `P3` sign-assembly batch with standalone sign backs and mounting brackets
 - fifth `P3` road-surface batch with patched asphalt, distressed concrete, asphalt-to-concrete transition, and gutter-transition panels
 - sixth `P3` road-marking batch with worn crosswalk and stop-line variants, a yellow edge line, a merge marking, and a raised-marker strip
+- seventh `P3` road-furniture batch with utility poles, smaller signal-support cabinets, a junction box, and specialty sign/signal attachment hardware
 
 ### Changed
 
@@ -55,7 +56,8 @@
 - existing validation scenes now place explicit sign backs and brackets so representative sign assemblies no longer imply all depth through the sign meshes alone
 - existing validation scenes now place patched, distressed, and transition surface panels so roadway context is no longer limited to the original clean urban starter set
 - existing validation scenes now place secondary road-marking assets so worn crossings/stops, a yellow edge line, a merge marking, and raised markers are exercised in scene exports
-- backlog focus now moves from blocked measurement work to `P3` follow-up coverage expansion, with roadside-tail and signal-support breadth now next in queue
+- existing validation scenes now place utility poles, smaller cabinet/junction variants, and explicit sign/signal attachment hardware so support context is deeper than the original roadside starter set
+- backlog focus now moves from blocked measurement work to `P3` follow-up coverage expansion, with traffic-light follow-up breadth now next in queue
 
 ### Validation
 
@@ -63,6 +65,7 @@
 - validation summary now reports `57` assets, including `21` `road_furniture` assets and `9` `road_marking` assets after the first four `P3` expansion batches
 - validation summary now reports `61` assets, including `8` `road_surface` assets, `9` `road_marking` assets, and `21` `road_furniture` assets after the first five `P3` expansion batches
 - validation summary now reports `66` assets, including `8` `road_surface` assets, `14` `road_marking` assets, and `21` `road_furniture` assets after the first six `P3` expansion batches
+- validation summary now reports `72` assets, including `8` `road_surface` assets, `14` `road_marking` assets, and `27` `road_furniture` assets after the first seven `P3` expansion batches
 - validation summary now includes `3` camera profiles and zero camera-profile validation errors
 - material quality summary now reports `3` `measured_standard`, `1` `measured_derivative`, `16` `project_proxy`, and `0` `vendor_derived` materials
 - emissive profile quality summary now distinguishes vendor-derived vehicle/protected-turn profiles from remaining proxy pedestrian/countdown profiles

@@ -1,6 +1,6 @@
 {
   "generated_at": "2026-04-16T10:10:40.000Z",
-  "files_checked": 70,
+  "files_checked": 76,
   "files_with_errors": 0,
   "files_with_warnings": 0,
   "results": [
@@ -89,6 +89,13 @@
       "messages": []
     },
     {
+      "file": "exports/gltf/furniture_sign_overhead_bracket.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
       "file": "exports/gltf/furniture_sign_pole.glb",
       "numErrors": 0,
       "numWarnings": 0,
@@ -117,6 +124,20 @@
       "messages": []
     },
     {
+      "file": "exports/gltf/furniture_signal_controller_cabinet_single.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
+      "file": "exports/gltf/furniture_signal_junction_box.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
       "file": "exports/gltf/furniture_signal_mast_hanger.glb",
       "numErrors": 0,
       "numWarnings": 0,
@@ -131,7 +152,28 @@
       "messages": []
     },
     {
+      "file": "exports/gltf/furniture_signal_side_mount_bracket.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
       "file": "exports/gltf/furniture_traffic_cone.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
+      "file": "exports/gltf/furniture_utility_pole_concrete.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
+      "file": "exports/gltf/furniture_utility_pole_steel.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,

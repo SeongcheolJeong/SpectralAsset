@@ -1,0 +1,62 @@
+{
+  "id": "furniture_utility_pole_steel",
+  "family": "road_furniture",
+  "semantic_class": "furniture.utility_pole",
+  "variant_key": "steel_service_arm",
+  "dimensions_m": {
+    "width": 1.92,
+    "height": 6.68,
+    "depth": 0.78
+  },
+  "lods": [
+    {
+      "name": "LOD0",
+      "triangle_count": 140,
+      "usd_scope": "/furniture_utility_pole_steel/LOD0",
+      "gltf_node_prefix": "LOD0"
+    },
+    {
+      "name": "LOD1",
+      "triangle_count": 92,
+      "usd_scope": "/furniture_utility_pole_steel/LOD1",
+      "gltf_node_prefix": "LOD1"
+    }
+  ],
+  "collider": {
+    "type": "box",
+    "width": 1.92,
+    "height": 6.68,
+    "depth": 0.78
+  },
+  "anchor_points": {
+    "base_center": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    }
+  },
+  "materials": [
+    "mat_concrete",
+    "mat_metal_galvanized",
+    "mat_signal_housing"
+  ],
+  "states": {
+    "default": {
+      "render_profile": "static"
+    }
+  },
+  "export_targets": {
+    "usd_ascii": "canonical/geometry/usd/furniture_utility_pole_steel.usda",
+    "usd_binary": "exports/usd/furniture_utility_pole_steel.usdc",
+    "gltf_binary": "exports/gltf/furniture_utility_pole_steel.glb"
+  },
+  "license": {
+    "spdx": "LicenseRef-ProjectGenerated",
+    "redistribution": "geometry, manifests, and templates generated in-repo"
+  },
+  "provenance": {
+    "generated_at": "2026-04-16T10:10:40+00:00",
+    "generated_by": "scripts/build_asset_pack.py",
+    "note": "Generated reusable road surface, marking, or furniture primitive."
+  }
+}

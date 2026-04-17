@@ -290,6 +290,18 @@
       "variant_key": "mast_arm"
     },
     {
+      "id": "furniture_utility_pole_concrete",
+      "family": "road_furniture",
+      "semantic_class": "furniture.utility_pole",
+      "variant_key": "concrete_crossarm"
+    },
+    {
+      "id": "furniture_utility_pole_steel",
+      "family": "road_furniture",
+      "semantic_class": "furniture.utility_pole",
+      "variant_key": "steel_service_arm"
+    },
+    {
       "id": "furniture_sign_back_octagon",
       "family": "road_furniture",
       "semantic_class": "furniture.sign_back",
@@ -332,6 +344,18 @@
       "variant_key": "double_post"
     },
     {
+      "id": "furniture_sign_overhead_bracket",
+      "family": "road_furniture",
+      "semantic_class": "furniture.sign_overhead_bracket",
+      "variant_key": "double_hanger"
+    },
+    {
+      "id": "furniture_signal_side_mount_bracket",
+      "family": "road_furniture",
+      "semantic_class": "furniture.signal_mount_bracket",
+      "variant_key": "side_mount"
+    },
+    {
       "id": "furniture_signal_backplate_vertical",
       "family": "road_furniture",
       "semantic_class": "furniture.signal_backplate",
@@ -354,6 +378,18 @@
       "family": "road_furniture",
       "semantic_class": "furniture.signal_controller_cabinet",
       "variant_key": "double_door"
+    },
+    {
+      "id": "furniture_signal_controller_cabinet_single",
+      "family": "road_furniture",
+      "semantic_class": "furniture.signal_controller_cabinet",
+      "variant_key": "single_door"
+    },
+    {
+      "id": "furniture_signal_junction_box",
+      "family": "road_furniture",
+      "semantic_class": "furniture.signal_junction_box",
+      "variant_key": "pedestal"
     },
     {
       "id": "furniture_guardrail_bollard_set",

@@ -86,6 +86,26 @@
           "rotate_y": 0.0
         },
         {
+          "asset_id": "furniture_utility_pole_concrete",
+          "name": "utility_pole_0",
+          "translate": [
+            3.1,
+            0.0,
+            1.9
+          ],
+          "rotate_y": 0.0
+        },
+        {
+          "asset_id": "furniture_sign_overhead_bracket",
+          "name": "overhead_bracket_0",
+          "translate": [
+            0.4,
+            0.0,
+            -2.1
+          ],
+          "rotate_y": 0.0
+        },
+        {
           "asset_id": "furniture_sign_back_octagon",
           "name": "sign_back_stop_0",
           "translate": [
@@ -327,6 +347,16 @@
           "rotate_y": 0.0
         },
         {
+          "asset_id": "furniture_utility_pole_steel",
+          "name": "utility_pole_steel_0",
+          "translate": [
+            -2.8,
+            0.0,
+            2.1
+          ],
+          "rotate_y": 90.0
+        },
+        {
           "asset_id": "furniture_signal_backplate_vertical",
           "name": "backplate_vertical_0",
           "translate": [
@@ -365,6 +395,36 @@
             -2.25
           ],
           "rotate_y": 0.0
+        },
+        {
+          "asset_id": "furniture_signal_controller_cabinet_single",
+          "name": "cabinet_single_0",
+          "translate": [
+            2.68,
+            0.0,
+            -1.45
+          ],
+          "rotate_y": 180.0
+        },
+        {
+          "asset_id": "furniture_signal_junction_box",
+          "name": "junction_box_0",
+          "translate": [
+            -1.55,
+            0.0,
+            -2.62
+          ],
+          "rotate_y": 0.0
+        },
+        {
+          "asset_id": "furniture_signal_side_mount_bracket",
+          "name": "side_mount_0",
+          "translate": [
+            1.72,
+            0.0,
+            -1.18
+          ],
+          "rotate_y": 180.0
         },
         {
           "asset_id": "furniture_delineator_post",
@@ -508,6 +568,26 @@
           "rotate_y": 180.0
         },
         {
+          "asset_id": "furniture_utility_pole_concrete",
+          "name": "utility_pole_0",
+          "translate": [
+            2.7,
+            0.0,
+            1.85
+          ],
+          "rotate_y": 0.0
+        },
+        {
+          "asset_id": "furniture_sign_overhead_bracket",
+          "name": "overhead_bracket_0",
+          "translate": [
+            1.48,
+            0.0,
+            0.0
+          ],
+          "rotate_y": 180.0
+        },
+        {
           "asset_id": "marking_lane_white_worn",
           "name": "lane_0",
           "translate": [
@@ -544,6 +624,16 @@
             1.8,
             0.0,
             -1.2
+          ],
+          "rotate_y": 180.0
+        },
+        {
+          "asset_id": "furniture_signal_side_mount_bracket",
+          "name": "side_mount_0",
+          "translate": [
+            1.72,
+            0.0,
+            -1.18
           ],
           "rotate_y": 180.0
         },
@@ -675,6 +765,26 @@
             -2.55,
             0.0,
             -0.95
+          ],
+          "rotate_y": 0.0
+        },
+        {
+          "asset_id": "furniture_signal_junction_box",
+          "name": "junction_box_0",
+          "translate": [
+            -2.1,
+            0.0,
+            -1.48
+          ],
+          "rotate_y": 0.0
+        },
+        {
+          "asset_id": "furniture_utility_pole_steel",
+          "name": "utility_pole_steel_0",
+          "translate": [
+            3.05,
+            0.0,
+            1.85
           ],
           "rotate_y": 0.0
         },

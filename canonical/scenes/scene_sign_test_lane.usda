@@ -62,6 +62,20 @@ def Xform "scene_sign_test_lane" {
         float xformOp:rotateY = 0.000000
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
     }
+    def Xform "utility_pole_0" (
+        references = @../geometry/usd/furniture_utility_pole_concrete.usda@</furniture_utility_pole_concrete>
+    ) {
+        double3 xformOp:translate = (3.100000, 0.000000, 1.900000)
+        float xformOp:rotateY = 0.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
+    def Xform "overhead_bracket_0" (
+        references = @../geometry/usd/furniture_sign_overhead_bracket.usda@</furniture_sign_overhead_bracket>
+    ) {
+        double3 xformOp:translate = (0.400000, 0.000000, -2.100000)
+        float xformOp:rotateY = 0.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
     def Xform "sign_back_stop_0" (
         references = @../geometry/usd/furniture_sign_back_octagon.usda@</furniture_sign_back_octagon>
     ) {
