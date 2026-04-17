@@ -23,6 +23,7 @@
 - second `P3` road-marking expansion batch with directional arrows, an edge line, a chevron/gore marking, and a worn lane variant
 - third `P3` traffic-light support-context batch with signal backplates, a mast hanger, and a controller cabinet
 - fourth `P3` sign-assembly batch with standalone sign backs and mounting brackets
+- fifth `P3` road-surface batch with patched asphalt, distressed concrete, asphalt-to-concrete transition, and gutter-transition panels
 
 ### Changed
 
@@ -51,12 +52,14 @@
 - existing validation scenes now place selected directional and worn road-marking assets so the expanded marking catalog is exercised in scene exports
 - existing validation scenes now place explicit traffic-light support-context assets so intersections no longer imply all signal support through poles alone
 - existing validation scenes now place explicit sign backs and brackets so representative sign assemblies no longer imply all depth through the sign meshes alone
-- backlog focus now moves from blocked measurement work to `P3` coverage expansion, with road-surface distress and transition variants now next in queue
+- existing validation scenes now place patched, distressed, and transition surface panels so roadway context is no longer limited to the original clean urban starter set
+- backlog focus now moves from blocked measurement work to `P3` follow-up coverage expansion, with secondary marking and roadside breadth now next in queue
 
 ### Validation
 
 - validation summary now reports `50` assets, including `14` `road_furniture` assets and `9` `road_marking` assets after the first three `P3` expansion batches
 - validation summary now reports `57` assets, including `21` `road_furniture` assets and `9` `road_marking` assets after the first four `P3` expansion batches
+- validation summary now reports `61` assets, including `8` `road_surface` assets, `9` `road_marking` assets, and `21` `road_furniture` assets after the first five `P3` expansion batches
 - validation summary now includes `3` camera profiles and zero camera-profile validation errors
 - material quality summary now reports `3` `measured_standard`, `1` `measured_derivative`, `16` `project_proxy`, and `0` `vendor_derived` materials
 - emissive profile quality summary now distinguishes vendor-derived vehicle/protected-turn profiles from remaining proxy pedestrian/countdown profiles

@@ -22,7 +22,7 @@ This repository is not yet targeting release automation or measured replacement 
 
 Current truth from [../validation/reports/validation_summary.json](../validation/reports/validation_summary.json):
 
-- `57` assets
+- `61` assets
 - `20` spectral materials
 - `4` emissive profiles
 - `3` camera profiles
@@ -31,16 +31,17 @@ Current truth from [../validation/reports/validation_summary.json](../validation
 
 Additional baseline facts:
 
-- `61` GLB files currently validate with `0` errors and `0` warnings in [../validation/reports/gltf_validation.json](../validation/reports/gltf_validation.json)
+- `65` GLB files currently validate with `0` errors and `0` warnings in [../validation/reports/gltf_validation.json](../validation/reports/gltf_validation.json)
 - release gates currently pass for the generated baseline
 - raw-source ledger currently tracks `37` source entries
 - material quality summary currently reports `3` `measured_standard`, `1` `measured_derivative`, `16` `project_proxy`, and `0` `vendor_derived` materials
 - emissive-profile quality summary currently reports `2` `vendor_derived` and `2` `project_proxy` profiles
 - camera-profile quality summary currently reports `3` `vendor_derived` profiles, with `camera_reference_rgb_nir_v3` active in all scenarios
 - `urban_night` currently uses public `LED-B4` and `LED-B3` priors for headlamp/streetlight contribution when measured emitter data is absent
-- the first four `P3` coverage-expansion batches raised `road_furniture` from `4` to `21` standalone assets and `road_marking` from `4` to `9` standalone assets without changing the current material or scenario counts
+- the first five `P3` coverage-expansion batches raised `road_furniture` from `4` to `21` standalone assets, `road_marking` from `4` to `9`, and `road_surface` from `4` to `8` without changing the current material or scenario counts
 - traffic-light scenes now place standalone support-context assets including backplates, a mast hanger, and a controller cabinet
 - sign-focused scenes now place standalone sign backs and mounting brackets for representative sign families instead of implying that assembly depth only through the sign meshes
+- the current validation scenes now also exercise patched, distressed, and transition road-surface panels instead of only the original clean urban baseline
 
 ## Repository Structure
 

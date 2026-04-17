@@ -158,6 +158,30 @@
       "variant_key": "default"
     },
     {
+      "id": "road_asphalt_patched",
+      "family": "road_surface",
+      "semantic_class": "road.asphalt",
+      "variant_key": "patched"
+    },
+    {
+      "id": "road_concrete_distressed",
+      "family": "road_surface",
+      "semantic_class": "road.concrete",
+      "variant_key": "distressed"
+    },
+    {
+      "id": "road_asphalt_concrete_transition",
+      "family": "road_surface",
+      "semantic_class": "road.transition",
+      "variant_key": "asphalt_to_concrete"
+    },
+    {
+      "id": "road_gutter_transition",
+      "family": "road_surface",
+      "semantic_class": "road.gutter_transition",
+      "variant_key": "urban_edge"
+    },
+    {
       "id": "road_curb_segment",
       "family": "road_furniture",
       "semantic_class": "road.curb",

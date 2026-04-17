@@ -1,6 +1,6 @@
 {
   "generated_at": "2026-04-16T10:10:40.000Z",
-  "files_checked": 61,
+  "files_checked": 65,
   "files_with_errors": 0,
   "files_with_warnings": 0,
   "results": [
@@ -208,7 +208,21 @@
       "messages": []
     },
     {
+      "file": "exports/gltf/road_asphalt_concrete_transition.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
       "file": "exports/gltf/road_asphalt_dry.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
+      "file": "exports/gltf/road_asphalt_patched.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
@@ -229,7 +243,21 @@
       "messages": []
     },
     {
+      "file": "exports/gltf/road_concrete_distressed.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
       "file": "exports/gltf/road_curb_segment.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
+      "file": "exports/gltf/road_gutter_transition.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,

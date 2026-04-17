@@ -1,0 +1,61 @@
+{
+  "id": "road_asphalt_concrete_transition",
+  "family": "road_surface",
+  "semantic_class": "road.transition",
+  "variant_key": "asphalt_to_concrete",
+  "dimensions_m": {
+    "width": 4.0,
+    "height": 0.05,
+    "depth": 4.0
+  },
+  "lods": [
+    {
+      "name": "LOD0",
+      "triangle_count": 48,
+      "usd_scope": "/road_asphalt_concrete_transition/LOD0",
+      "gltf_node_prefix": "LOD0"
+    },
+    {
+      "name": "LOD1",
+      "triangle_count": 36,
+      "usd_scope": "/road_asphalt_concrete_transition/LOD1",
+      "gltf_node_prefix": "LOD1"
+    }
+  ],
+  "collider": {
+    "type": "box",
+    "width": 4.0,
+    "height": 0.05,
+    "depth": 4.0
+  },
+  "anchor_points": {
+    "base_center": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    }
+  },
+  "materials": [
+    "mat_asphalt_dry",
+    "mat_concrete"
+  ],
+  "states": {
+    "default": {
+      "render_profile": "static"
+    }
+  },
+  "export_targets": {
+    "usd_ascii": "canonical/geometry/usd/road_asphalt_concrete_transition.usda",
+    "usd_binary": "exports/usd/road_asphalt_concrete_transition.usdc",
+    "gltf_binary": "exports/gltf/road_asphalt_concrete_transition.glb"
+  },
+  "license": {
+    "spdx": "LicenseRef-ProjectGenerated",
+    "redistribution": "geometry, manifests, and templates generated in-repo"
+  },
+  "provenance": {
+    "generated_at": "2026-04-16T10:10:40+00:00",
+    "generated_by": "scripts/build_asset_pack.py",
+    "note": "Generated reusable road surface, marking, or furniture primitive."
+  }
+}

@@ -7,7 +7,7 @@
 
 def Xform "scene_night_retroreflection" {
     def Xform "road_0" (
-        references = @../geometry/usd/road_asphalt_dry.usda@</road_asphalt_dry>
+        references = @../geometry/usd/road_concrete_distressed.usda@</road_concrete_distressed>
     ) {
         double3 xformOp:translate = (0.000000, 0.000000, 0.000000)
         float xformOp:rotateY = 0.000000

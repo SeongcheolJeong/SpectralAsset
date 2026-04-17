@@ -2900,6 +2900,10 @@ def road_asset_parts(asset_id: str, dimensions: Tuple[float, float, float]) -> D
         "road_asphalt_dry": "mat_asphalt_dry",
         "road_asphalt_wet": "mat_asphalt_wet",
         "road_concrete": "mat_concrete",
+        "road_asphalt_patched": "mat_asphalt_dry",
+        "road_concrete_distressed": "mat_concrete",
+        "road_asphalt_concrete_transition": "mat_asphalt_dry",
+        "road_gutter_transition": "mat_asphalt_dry",
         "road_curb_segment": "mat_concrete",
         "road_sidewalk_panel": "mat_concrete",
         "marking_lane_white": "mat_marking_white",
@@ -3119,6 +3123,63 @@ def road_asset_parts(asset_id: str, dimensions: Tuple[float, float, float]) -> D
             make_mesh_part("panel_mid", box_triangles(1.18, 0.12, 0.08, (0.0, 0.48, 0.0)), "mat_sign_white"),
             make_mesh_part("stripe_upper", box_triangles(1.0, 0.06, 0.09, (0.0, 0.72, 0.0)), "mat_sign_orange"),
             make_mesh_part("stripe_mid", box_triangles(1.0, 0.06, 0.09, (0.0, 0.48, 0.0)), "mat_sign_orange"),
+        ]
+        return {"LOD0": lod0, "LOD1": lod1}
+    if asset_id == "road_asphalt_patched":
+        lod0 = [
+            make_mesh_part("base", box_triangles(width, height, depth, (0.0, height / 2.0, 0.0)), "mat_asphalt_dry"),
+            make_mesh_part("patch_large", box_triangles(1.42, 0.008, 1.02, (-0.62, 0.024, 0.28)), "mat_concrete"),
+            make_mesh_part("patch_trench", box_triangles(1.96, 0.007, 0.34, (0.08, 0.0235, 1.02)), "mat_concrete"),
+            make_mesh_part("patch_strip", box_triangles(0.76, 0.008, 1.74, (1.06, 0.024, -0.22)), "mat_concrete"),
+            oriented_box_part("scar_0", 0.08, 0.004, 1.18, (-1.18, 0.022, -0.72), "mat_concrete", 10.0),
+            oriented_box_part("scar_1", 0.08, 0.004, 0.92, (0.34, 0.022, -1.16), "mat_concrete", -16.0),
+        ]
+        lod1 = [
+            make_mesh_part("base", box_triangles(width, height, depth, (0.0, height / 2.0, 0.0)), "mat_asphalt_dry"),
+            make_mesh_part("patch_large", box_triangles(1.42, 0.008, 1.02, (-0.62, 0.024, 0.28)), "mat_concrete"),
+            make_mesh_part("patch_strip", box_triangles(0.76, 0.008, 1.74, (1.06, 0.024, -0.22)), "mat_concrete"),
+        ]
+        return {"LOD0": lod0, "LOD1": lod1}
+    if asset_id == "road_concrete_distressed":
+        lod0 = [
+            make_mesh_part("base", box_triangles(width, height, depth, (0.0, height / 2.0, 0.0)), "mat_concrete"),
+            oriented_box_part("seal_joint_0", 0.08, 0.006, 3.2, (-0.86, 0.028, -0.16), "mat_asphalt_dry", 6.0),
+            oriented_box_part("seal_joint_1", 3.34, 0.006, 0.08, (0.14, 0.028, 0.58), "mat_asphalt_dry", -7.0),
+            make_mesh_part("utility_patch", box_triangles(0.96, 0.01, 0.72, (0.9, 0.03, -1.04)), "mat_asphalt_dry"),
+            make_mesh_part("slab_lift", box_triangles(1.36, 0.004, 1.18, (-0.52, 0.027, 1.02)), "mat_concrete"),
+        ]
+        lod1 = [
+            make_mesh_part("base", box_triangles(width, height, depth, (0.0, height / 2.0, 0.0)), "mat_concrete"),
+            oriented_box_part("seal_joint_0", 0.08, 0.006, 3.2, (-0.86, 0.028, -0.16), "mat_asphalt_dry", 6.0),
+            make_mesh_part("utility_patch", box_triangles(0.96, 0.01, 0.72, (0.9, 0.03, -1.04)), "mat_asphalt_dry"),
+        ]
+        return {"LOD0": lod0, "LOD1": lod1}
+    if asset_id == "road_asphalt_concrete_transition":
+        lod0 = [
+            make_mesh_part("asphalt_lane", box_triangles(2.04, 0.04, depth, (-0.98, 0.02, 0.0)), "mat_asphalt_dry"),
+            make_mesh_part("concrete_lane", box_triangles(1.96, 0.05, depth, (1.02, 0.025, 0.0)), "mat_concrete"),
+            make_mesh_part("transition_joint", box_triangles(0.1, 0.012, depth, (0.0, 0.026, 0.0)), "mat_asphalt_dry"),
+            make_mesh_part("patch_plate", box_triangles(0.54, 0.006, 1.2, (0.78, 0.028, 0.96)), "mat_concrete"),
+        ]
+        lod1 = [
+            make_mesh_part("asphalt_lane", box_triangles(2.04, 0.04, depth, (-0.98, 0.02, 0.0)), "mat_asphalt_dry"),
+            make_mesh_part("concrete_lane", box_triangles(1.96, 0.05, depth, (1.02, 0.025, 0.0)), "mat_concrete"),
+            make_mesh_part("transition_joint", box_triangles(0.1, 0.012, depth, (0.0, 0.026, 0.0)), "mat_asphalt_dry"),
+        ]
+        return {"LOD0": lod0, "LOD1": lod1}
+    if asset_id == "road_gutter_transition":
+        lod0 = [
+            make_mesh_part("lane", box_triangles(2.88, 0.04, depth, (-0.56, 0.02, 0.0)), "mat_asphalt_dry"),
+            make_mesh_part("gutter", box_triangles(0.68, 0.05, depth, (1.22, 0.025, 0.0)), "mat_concrete"),
+            make_mesh_part("apron", box_triangles(0.44, 0.03, depth, (1.78, 0.015, 0.0)), "mat_concrete"),
+            make_mesh_part("edge_joint", box_triangles(0.08, 0.008, depth, (0.72, 0.024, 0.0)), "mat_asphalt_dry"),
+            oriented_box_part("drain_repair", 0.42, 0.006, 0.86, (1.18, 0.028, -1.06), "mat_concrete", 8.0),
+        ]
+        lod1 = [
+            make_mesh_part("lane", box_triangles(2.88, 0.04, depth, (-0.56, 0.02, 0.0)), "mat_asphalt_dry"),
+            make_mesh_part("gutter", box_triangles(0.68, 0.05, depth, (1.22, 0.025, 0.0)), "mat_concrete"),
+            make_mesh_part("apron", box_triangles(0.44, 0.03, depth, (1.78, 0.015, 0.0)), "mat_concrete"),
+            make_mesh_part("edge_joint", box_triangles(0.08, 0.008, depth, (0.72, 0.024, 0.0)), "mat_asphalt_dry"),
         ]
         return {"LOD0": lod0, "LOD1": lod1}
     if asset_id == "marking_crosswalk":
@@ -4172,6 +4233,10 @@ def road_definitions() -> List[Dict]:
         {"id": "road_asphalt_dry", "family": "road_surface", "semantic_class": "road.asphalt", "variant_key": "dry", "dimensions": (4.0, 0.04, 4.0)},
         {"id": "road_asphalt_wet", "family": "road_surface", "semantic_class": "road.asphalt", "variant_key": "wet", "dimensions": (4.0, 0.04, 4.0)},
         {"id": "road_concrete", "family": "road_surface", "semantic_class": "road.concrete", "variant_key": "default", "dimensions": (4.0, 0.05, 4.0)},
+        {"id": "road_asphalt_patched", "family": "road_surface", "semantic_class": "road.asphalt", "variant_key": "patched", "dimensions": (4.0, 0.04, 4.0)},
+        {"id": "road_concrete_distressed", "family": "road_surface", "semantic_class": "road.concrete", "variant_key": "distressed", "dimensions": (4.0, 0.05, 4.0)},
+        {"id": "road_asphalt_concrete_transition", "family": "road_surface", "semantic_class": "road.transition", "variant_key": "asphalt_to_concrete", "dimensions": (4.0, 0.05, 4.0)},
+        {"id": "road_gutter_transition", "family": "road_surface", "semantic_class": "road.gutter_transition", "variant_key": "urban_edge", "dimensions": (4.0, 0.05, 4.0)},
         {"id": "road_curb_segment", "family": "road_furniture", "semantic_class": "road.curb", "variant_key": "default", "dimensions": (2.0, 0.18, 0.4)},
         {"id": "road_sidewalk_panel", "family": "road_surface", "semantic_class": "road.sidewalk", "variant_key": "default", "dimensions": (2.4, 0.06, 2.4)},
         {"id": "marking_lane_white", "family": "road_marking", "semantic_class": "marking.lane", "variant_key": "white", "dimensions": (0.16, 0.005, 2.0)},
@@ -4540,7 +4605,7 @@ def scene_definitions() -> List[Dict]:
             "id": "scene_sign_test_lane",
             "scenario_profile": "scenario_clear_noon",
             "placements": [
-                {"asset_id": "road_asphalt_dry", "name": "road_0", "translate": (0.0, 0.0, 0.0), "rotate_y": 0.0},
+                {"asset_id": "road_asphalt_patched", "name": "road_0", "translate": (0.0, 0.0, 0.0), "rotate_y": 0.0},
                 {"asset_id": "marking_edge_line_white", "name": "edge_line_0", "translate": (-1.58, 0.03, 0.0), "rotate_y": 0.0},
                 {"asset_id": "marking_lane_white", "name": "lane_0", "translate": (-0.9, 0.03, 0.0), "rotate_y": 0.0},
                 {"asset_id": "marking_lane_white", "name": "lane_1", "translate": (0.9, 0.03, 0.0), "rotate_y": 0.0},
@@ -4566,7 +4631,7 @@ def scene_definitions() -> List[Dict]:
             "scenario_profile": "scenario_overcast_day",
             "placements": [
                 {"asset_id": "road_asphalt_dry", "name": "road_main", "translate": (0.0, 0.0, 0.0), "rotate_y": 0.0},
-                {"asset_id": "road_asphalt_dry", "name": "road_cross", "translate": (0.0, 0.0, 0.0), "rotate_y": 90.0},
+                {"asset_id": "road_asphalt_concrete_transition", "name": "road_cross", "translate": (0.0, 0.0, 0.0), "rotate_y": 90.0},
                 {"asset_id": "marking_crosswalk", "name": "crosswalk_0", "translate": (0.0, 0.03, -1.1), "rotate_y": 90.0},
                 {"asset_id": "marking_stop_line", "name": "stopline_0", "translate": (0.0, 0.03, -1.7), "rotate_y": 0.0},
                 {"asset_id": "marking_arrow_straight_white", "name": "arrow_straight_0", "translate": (-0.85, 0.03, 0.75), "rotate_y": 0.0},
@@ -4588,7 +4653,7 @@ def scene_definitions() -> List[Dict]:
             "id": "scene_night_retroreflection",
             "scenario_profile": "scenario_urban_night",
             "placements": [
-                {"asset_id": "road_asphalt_dry", "name": "road_0", "translate": (0.0, 0.0, 0.0), "rotate_y": 0.0},
+                {"asset_id": "road_concrete_distressed", "name": "road_0", "translate": (0.0, 0.0, 0.0), "rotate_y": 0.0},
                 {"asset_id": "sign_stop", "name": "sign_stop_0", "translate": (-1.8, 0.0, -0.8), "rotate_y": 0.0},
                 {"asset_id": "furniture_sign_back_octagon", "name": "sign_back_stop_0", "translate": (-1.8, 0.0, -0.8), "rotate_y": 0.0},
                 {"asset_id": "furniture_sign_mount_bracket_double", "name": "sign_bracket_stop_0", "translate": (-1.8, 0.0, -0.8), "rotate_y": 0.0},
@@ -4609,6 +4674,7 @@ def scene_definitions() -> List[Dict]:
             "scenario_profile": "scenario_wet_dusk",
             "placements": [
                 {"asset_id": "road_asphalt_wet", "name": "road_0", "translate": (0.0, 0.0, 0.0), "rotate_y": 0.0},
+                {"asset_id": "road_gutter_transition", "name": "road_edge_0", "translate": (3.2, 0.0, 0.0), "rotate_y": 0.0},
                 {"asset_id": "marking_crosswalk", "name": "crosswalk_0", "translate": (0.0, 0.03, 0.8), "rotate_y": 90.0},
                 {"asset_id": "marking_stop_line", "name": "stopline_0", "translate": (0.0, 0.03, 0.2), "rotate_y": 0.0},
                 {"asset_id": "marking_edge_line_white", "name": "edge_line_0", "translate": (-1.5, 0.03, -0.1), "rotate_y": 0.0},
