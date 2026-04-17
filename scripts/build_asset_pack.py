@@ -86,6 +86,8 @@ TRAFFIC_SIGNAL_HEADLAMP_SPD_INPUT_DIR = "traffic_signal_headlamp_spd_input"
 TRAFFIC_SIGNAL_HEADLAMP_SPD_SOURCE_ID = "traffic_signal_headlamp_spd_measured"
 RETROREFLECTIVE_SHEETING_BRDF_INPUT_DIR = "retroreflective_sheeting_brdf_input"
 RETROREFLECTIVE_SHEETING_BRDF_SOURCE_ID = "retroreflective_sheeting_brdf_measured"
+WET_ROAD_SPECTRAL_BRDF_INPUT_DIR = "wet_road_spectral_brdf_input"
+WET_ROAD_SPECTRAL_BRDF_SOURCE_ID = "wet_road_spectral_brdf_measured"
 
 DIRS = [
     "raw/sources",
@@ -592,6 +594,16 @@ def display_retroreflective_sheeting_brdf_input_root(root: Path) -> str:
     return "env:RETROREFLECTIVE_SHEETING_BRDF_ROOT" if os.getenv("RETROREFLECTIVE_SHEETING_BRDF_ROOT") else root.name
 
 
+def resolve_wet_road_spectral_brdf_input_root() -> Path:
+    if os.getenv("WET_ROAD_SPECTRAL_BRDF_ROOT"):
+        return Path(os.environ["WET_ROAD_SPECTRAL_BRDF_ROOT"]).expanduser()
+    return REPO_ROOT / WET_ROAD_SPECTRAL_BRDF_INPUT_DIR
+
+
+def display_wet_road_spectral_brdf_input_root(root: Path) -> str:
+    return "env:WET_ROAD_SPECTRAL_BRDF_ROOT" if os.getenv("WET_ROAD_SPECTRAL_BRDF_ROOT") else root.name
+
+
 def load_json_file(path: Path) -> Dict:
     with path.open("r", encoding="utf-8") as handle:
         return json.load(handle)
@@ -1022,6 +1034,97 @@ def freeze_measured_retroreflective_source() -> List[Dict]:
     return [entry]
 
 
+def build_preserved_measured_wet_road_entry(source_json_path: Path) -> Optional[Dict]:
+    existing_entry = load_existing_source_entry(source_json_path)
+    if not isinstance(existing_entry, dict):
+        return None
+    data_path_value = existing_entry.get("data_path")
+    metadata_path_value = existing_entry.get("metadata_path")
+    if not isinstance(data_path_value, str) or not isinstance(metadata_path_value, str):
+        return None
+    data_path = REPO_ROOT / data_path_value
+    metadata_path = REPO_ROOT / metadata_path_value
+    if not data_path.exists() or not metadata_path.exists():
+        return None
+    entry = {
+        "id": WET_ROAD_SPECTRAL_BRDF_SOURCE_ID,
+        "origin_type": "local_path",
+        "classification": existing_entry.get("classification", "derived-only"),
+        "license_summary": existing_entry.get("license_summary", "Measured wet-road input frozen from a local source."),
+        "path": data_path_value,
+        "data_path": data_path_value,
+        "metadata_path": metadata_path_value,
+        "copied_from_root": existing_entry.get("copied_from_root", WET_ROAD_SPECTRAL_BRDF_INPUT_DIR),
+        "copied_at": existing_entry.get("copied_at", GENERATED_AT),
+        "status": "copied_from_local",
+        "sha256": sha256_file(data_path),
+        "size_bytes": data_path.stat().st_size,
+        "metadata_sha256": sha256_file(metadata_path),
+        "notes": existing_entry.get("notes", "Measured wet-road input frozen from a local source."),
+    }
+    report_path_value = existing_entry.get("report_path")
+    if isinstance(report_path_value, str):
+        report_path = REPO_ROOT / report_path_value
+        if report_path.exists():
+            entry["report_path"] = report_path_value
+            entry["report_sha256"] = sha256_file(report_path)
+    return entry
+
+
+def freeze_measured_wet_road_source() -> List[Dict]:
+    refresh_sources = os.getenv("REFRESH_SOURCES") == "1"
+    source_root = resolve_wet_road_spectral_brdf_input_root()
+    target_root = REPO_ROOT / "raw" / "sources" / WET_ROAD_SPECTRAL_BRDF_SOURCE_ID
+    target_root.mkdir(parents=True, exist_ok=True)
+    source_json_path = target_root / "source.json"
+
+    if not refresh_sources:
+        preserved = build_preserved_measured_wet_road_entry(source_json_path)
+        if preserved:
+            write_json(source_json_path, preserved)
+            return [preserved]
+
+    metadata_source = source_root / "metadata.json"
+    data_source = source_root / "brdf.csv"
+    report_source = source_root / "report.pdf"
+    if not metadata_source.exists() or not data_source.exists():
+        return []
+
+    metadata = load_json_file(metadata_source)
+    classification = metadata.get("classification", "derived-only")
+    if classification not in {"redistributable", "derived-only", "reference-only"}:
+        raise ValueError("wet_road_spectral_brdf_input metadata.json has invalid classification")
+
+    metadata_target = target_root / "metadata.json"
+    data_target = target_root / "brdf.csv"
+    shutil.copy2(metadata_source, metadata_target)
+    shutil.copy2(data_source, data_target)
+
+    entry = {
+        "id": WET_ROAD_SPECTRAL_BRDF_SOURCE_ID,
+        "origin_type": "local_path",
+        "classification": classification,
+        "license_summary": metadata.get("license_summary", "Measured wet-road input frozen from a local source."),
+        "path": relative_posix(data_target),
+        "data_path": relative_posix(data_target),
+        "metadata_path": relative_posix(metadata_target),
+        "copied_from_root": display_wet_road_spectral_brdf_input_root(source_root),
+        "copied_at": GENERATED_AT,
+        "status": "copied_from_local",
+        "sha256": sha256_file(data_target),
+        "size_bytes": data_target.stat().st_size,
+        "metadata_sha256": sha256_file(metadata_target),
+        "notes": metadata.get("notes", "Measured wet-road input frozen from a local source."),
+    }
+    if report_source.exists():
+        report_target = target_root / "report.pdf"
+        shutil.copy2(report_source, report_target)
+        entry["report_path"] = relative_posix(report_target)
+        entry["report_sha256"] = sha256_file(report_target)
+    write_json(source_json_path, entry)
+    return [entry]
+
+
 def download_sources() -> List[Dict]:
     ledger = []
     refresh_sources = os.getenv("REFRESH_SOURCES") == "1"
@@ -1126,6 +1229,7 @@ def download_sources() -> List[Dict]:
     ledger.extend(freeze_measured_automotive_sensor_source())
     ledger.extend(freeze_measured_emitter_spd_source())
     ledger.extend(freeze_measured_retroreflective_source())
+    ledger.extend(freeze_measured_wet_road_source())
     write_json(REPO_ROOT / "raw" / "source_ledger.json", {"generated_at": GENERATED_AT, "sources": ledger})
     return ledger
 
@@ -1545,6 +1649,141 @@ def load_measured_retroreflective_capture() -> Optional[Dict]:
     }
 
 
+def parse_measured_wet_road_csv(data_path: Path, metadata: Dict) -> Dict:
+    with data_path.open("r", encoding="utf-8", newline="") as handle:
+        reader = csv.DictReader(handle)
+        if not reader.fieldnames:
+            raise ValueError(f"{data_path} is missing a CSV header")
+        wavelength_column = metadata.get("wavelength_column")
+        if not isinstance(wavelength_column, str) or not wavelength_column:
+            if "wavelength_nm" in reader.fieldnames:
+                wavelength_column = "wavelength_nm"
+            elif "wavelength_um" in reader.fieldnames:
+                wavelength_column = "wavelength_um"
+            else:
+                raise ValueError(f"{data_path} must contain wavelength_nm or wavelength_um")
+
+        configured_columns = metadata.get("channel_columns", {})
+        if not isinstance(configured_columns, dict):
+            configured_columns = {}
+        defaults = {
+            "wet_reflectance": "wet_reflectance",
+            "wet_overlay_transmittance": "wet_overlay_transmittance",
+        }
+        resolved_columns = {}
+        for name, default in defaults.items():
+            column_name = configured_columns.get(name, default)
+            if column_name in reader.fieldnames:
+                resolved_columns[name] = column_name
+
+        if wavelength_column not in reader.fieldnames:
+            raise ValueError(f"{data_path} is missing required columns: {wavelength_column}")
+        if "wet_reflectance" not in resolved_columns:
+            raise ValueError(f"{data_path} must contain a wet_reflectance column")
+
+        wavelengths_nm = []
+        curve_values = {name: [] for name in resolved_columns.keys()}
+        for row in reader:
+            if not row:
+                continue
+            raw_wavelength = row.get(wavelength_column, "").strip()
+            if not raw_wavelength:
+                continue
+            wavelengths_nm.append(float(raw_wavelength))
+            for name, column in resolved_columns.items():
+                curve_values[name].append(float(row[column]))
+
+    if len(wavelengths_nm) < 2:
+        raise ValueError(f"{data_path} must contain at least two wet-road rows")
+    if any(right <= left for left, right in zip(wavelengths_nm, wavelengths_nm[1:])):
+        raise ValueError(f"{data_path} wavelength values must be strictly increasing")
+
+    wavelength_unit = str(metadata.get("wavelength_unit", "nm")).strip().lower()
+    if wavelength_unit in {"um", "micron", "microns"} or wavelength_column.endswith("_um"):
+        wavelengths_nm = [value * 1000.0 for value in wavelengths_nm]
+    elif wavelength_unit != "nm":
+        raise ValueError("wet_road_spectral_brdf_input metadata.json has invalid wavelength_unit")
+
+    response_scale = str(metadata.get("response_scale", "")).strip().lower()
+    max_value = max(max(values) for values in curve_values.values())
+    scale_factor = 1.0
+    if response_scale in {"percent", "percentage"}:
+        scale_factor = 0.01
+    elif response_scale in {"unit_fraction", "fraction", "normalized", ""}:
+        scale_factor = 1.0
+    else:
+        raise ValueError("wet_road_spectral_brdf_input metadata.json has invalid response_scale")
+    if not response_scale and max_value > 1.000001:
+        if max_value <= 100.000001:
+            scale_factor = 0.01
+        else:
+            raise ValueError(f"{data_path} contains response values above 100 and cannot be auto-scaled")
+
+    curves = {}
+    for name, values in curve_values.items():
+        scaled = [value * scale_factor for value in values]
+        padded_points = list(zip(wavelengths_nm, scaled))
+        if padded_points[0][0] > 350.0:
+            padded_points.insert(0, (350.0, scaled[0]))
+        if padded_points[-1][0] < 1700.0:
+            padded_points.append((1700.0, scaled[-1]))
+        curves[name] = clamp_list(interpolate(padded_points, MASTER_GRID))
+
+    return {
+        "wavelengths_nm": wavelengths_nm,
+        "curves": curves,
+        "wavelength_column": wavelength_column,
+        "channel_columns": resolved_columns,
+        "response_scale": response_scale or ("percent" if scale_factor == 0.01 else "unit_fraction"),
+    }
+
+
+def load_measured_wet_road_capture() -> Optional[Dict]:
+    source_dir = REPO_ROOT / "raw" / "sources" / WET_ROAD_SPECTRAL_BRDF_SOURCE_ID
+    metadata_path = source_dir / "metadata.json"
+    data_path = source_dir / "brdf.csv"
+    if not metadata_path.exists() or not data_path.exists():
+        return None
+
+    metadata = load_json_file(metadata_path)
+    parsed = parse_measured_wet_road_csv(data_path, metadata)
+    if min(parsed["wavelengths_nm"]) > 400.0 or max(parsed["wavelengths_nm"]) < 1100.0:
+        raise ValueError(f"{data_path} must cover at least 400-1100 nm")
+
+    roughness_factor = metadata.get("roughness_factor", 0.24)
+    specular_boost = metadata.get("specular_boost", 1.8)
+    film_thickness_mm = metadata.get("film_thickness_mm", 0.5)
+    for field_name, value in [("roughness_factor", roughness_factor), ("specular_boost", specular_boost), ("film_thickness_mm", film_thickness_mm)]:
+        if not isinstance(value, (int, float)):
+            raise ValueError(f"wet_road_spectral_brdf_input metadata.json has invalid {field_name}")
+
+    return {
+        "metadata": metadata,
+        "curves": parsed["curves"],
+        "measurement_conditions": {
+            "wavelength_column": parsed["wavelength_column"],
+            "channel_columns": parsed["channel_columns"],
+            "response_scale": parsed["response_scale"],
+            "substrate_id": str(metadata.get("substrate_id", "unspecified")),
+            "dry_reference": str(metadata.get("dry_reference", "unspecified")),
+            "water_condition": str(metadata.get("water_condition", "unspecified")),
+            "roughness_note": str(metadata.get("roughness_note", "unspecified")),
+            "measurement_geometry": str(metadata.get("measurement_geometry", "unspecified")),
+            "calibration_reference": str(metadata.get("calibration_reference", "unspecified")),
+            "film_thickness_mm": float(film_thickness_mm),
+            "specular_boost": float(specular_boost),
+            "roughness_factor": float(roughness_factor),
+            "notes": str(metadata.get("measurement_notes", metadata.get("notes", "Measured wet-road input."))),
+        },
+        "license": {
+            "spdx": str(metadata.get("profile_license_spdx", "LicenseRef-MeasuredLocalSource")),
+            "redistribution": str(metadata.get("profile_redistribution", "Measured wet-road curves generated from a frozen local source.")),
+        },
+        "source_ids": [WET_ROAD_SPECTRAL_BRDF_SOURCE_ID],
+        "provenance_note": str(metadata.get("provenance_note", "Measured wet-road curves generated from a frozen local CSV source.")),
+    }
+
+
 def parse_usgs_metadata_html(path: Path) -> Dict[str, str]:
     text = path.read_text(encoding="utf-8", errors="ignore")
     metadata = {}
@@ -1767,6 +2006,26 @@ def build_measured_retroreflective_curves(measured_capture: Dict) -> Dict:
         "source_id": RETROREFLECTIVE_SHEETING_BRDF_SOURCE_ID,
         "capture_keys": selected_capture_keys,
         "selection_note": selection_note,
+    }
+
+
+def build_measured_wet_road_curves(measured_capture: Dict) -> Dict:
+    spectra_dir = REPO_ROOT / "canonical" / "spectra"
+    active = {}
+    wet_reflectance = measured_capture["curves"]["wet_reflectance"]
+    write_npz(spectra_dir / "src_wet_road_reflectance_measured_v1.npz", {"wavelength_nm": MASTER_GRID, "values": wet_reflectance})
+    active["wet_reflectance"] = wet_reflectance
+    if "wet_overlay_transmittance" in measured_capture["curves"]:
+        overlay_values = measured_capture["curves"]["wet_overlay_transmittance"]
+        write_npz(
+            spectra_dir / "src_wet_overlay_transmittance_measured_v1.npz",
+            {"wavelength_nm": MASTER_GRID, "values": overlay_values},
+        )
+        active["wet_overlay_transmittance"] = overlay_values
+    return {
+        "curves": active,
+        "uses_measured_overlay": "wet_overlay_transmittance" in active,
+        "measurement_conditions": measured_capture["measurement_conditions"],
     }
 
 
@@ -2594,7 +2853,11 @@ def write_sign_svg(path: Path, sign_type: str, width: float, height: float, mate
     write_text(path, "\n".join(lines) + "\n")
 
 
-def make_materials(illuminant_d65: Sequence[float], measured_retroreflective_capture: Optional[Dict] = None) -> Tuple[Dict[str, Dict], str]:
+def make_materials(
+    illuminant_d65: Sequence[float],
+    measured_retroreflective_capture: Optional[Dict] = None,
+    measured_wet_road_capture: Optional[Dict] = None,
+) -> Tuple[Dict[str, Dict], str, str]:
     proxy_curves = {
         "mat_sign_stop_red_reflectance": clamp_list(interpolate([(350, 0.03), (500, 0.05), (580, 0.35), (620, 0.8), (700, 0.72), (900, 0.45), (1700, 0.22)], MASTER_GRID)),
         "mat_sign_white_reflectance": clamp_list(interpolate([(350, 0.82), (700, 0.9), (1100, 0.82), (1700, 0.72)], MASTER_GRID)),
@@ -2637,6 +2900,8 @@ def make_materials(illuminant_d65: Sequence[float], measured_retroreflective_cap
         [dry_value * ratio for dry_value, ratio in zip(curves["mat_asphalt_dry_reflectance"], proxy_ratio)]
     )
 
+    wet_material_overrides = {"roughnessFactor": 0.24}
+    wet_material_geometry = {"film_thickness_mm": 0.5, "specular_boost": 1.8}
     material_specs = [
         ("mat_sign_stop_red", "reflective", "reflectance", "dry", ["mat_sign_stop_red_reflectance"], {"roughnessFactor": 0.78}),
         ("mat_sign_white", "reflective", "reflectance", "dry", ["mat_sign_white_reflectance"], {"roughnessFactor": 0.82}),
@@ -2645,7 +2910,7 @@ def make_materials(illuminant_d65: Sequence[float], measured_retroreflective_cap
         ("mat_sign_yellow", "reflective", "reflectance", "dry", ["mat_sign_yellow_reflectance"], {"roughnessFactor": 0.8}),
         ("mat_sign_orange", "reflective", "reflectance", "dry", ["mat_sign_orange_reflectance"], {"roughnessFactor": 0.8}),
         ("mat_asphalt_dry", "reflective", "reflectance", "dry", ["mat_asphalt_dry_reflectance"], {"roughnessFactor": 0.95}),
-        ("mat_asphalt_wet", "wet_overlay", "reflectance", "wet", ["mat_asphalt_wet_reflectance", "mat_wet_overlay_transmittance"], {"roughnessFactor": 0.24}),
+        ("mat_asphalt_wet", "wet_overlay", "reflectance", "wet", ["mat_asphalt_wet_reflectance", "mat_wet_overlay_transmittance"], wet_material_overrides),
         ("mat_concrete", "reflective", "reflectance", "dry", ["mat_concrete_reflectance"], {"roughnessFactor": 0.92}),
         ("mat_marking_white", "retroreflective", "reflectance", "dry", ["mat_marking_white_reflectance", "mat_retroreflective_gain"], {"roughnessFactor": 0.42}),
         ("mat_marking_yellow", "retroreflective", "reflectance", "dry", ["mat_marking_yellow_reflectance", "mat_retroreflective_gain"], {"roughnessFactor": 0.42}),
@@ -2731,7 +2996,33 @@ def make_materials(illuminant_d65: Sequence[float], measured_retroreflective_cap
         },
         "provenance_note": "Measured-derived wet asphalt from USGS v7 dry asphalt sample plus tracked wet proxy ratio.",
     }
+    wet_road_activation_reason = "No frozen measured wet-road source is available, so the measured-derived wet asphalt path remains active."
     retroreflective_activation_reason = "No frozen measured retroreflective sheeting source is available, so the proxy retroreflective gain curve remains active."
+    if measured_wet_road_capture is not None:
+        measured_wet_curves = build_measured_wet_road_curves(measured_wet_road_capture)
+        curves["mat_asphalt_wet_reflectance"] = measured_wet_curves["curves"]["wet_reflectance"]
+        if measured_wet_curves["uses_measured_overlay"]:
+            curves["mat_wet_overlay_transmittance"] = measured_wet_curves["curves"]["wet_overlay_transmittance"]
+        wet_measurement_conditions = measured_wet_curves["measurement_conditions"]
+        wet_material_overrides["roughnessFactor"] = wet_measurement_conditions["roughness_factor"]
+        wet_material_geometry["film_thickness_mm"] = wet_measurement_conditions["film_thickness_mm"]
+        wet_material_geometry["specular_boost"] = wet_measurement_conditions["specular_boost"]
+        if measured_wet_curves["uses_measured_overlay"]:
+            uncertainty_note = "Measured wet-road reflectance and measured wet overlay transmittance from a frozen local source are active in the current simplified wet-overlay material contract."
+            wet_road_activation_reason = "A frozen measured wet-road source is available, so measured wet reflectance and measured wet overlay curves are active for mat_asphalt_wet. The full angle-aware wet-road BRDF backlog remains open."
+        else:
+            uncertainty_note = "Measured wet-road reflectance from a frozen local source is active, while the tracked proxy wet overlay transmittance remains in use under the current simplified wet-overlay material contract."
+            wet_road_activation_reason = "A frozen measured wet-road source is available, so measured wet reflectance is active for mat_asphalt_wet while the proxy wet overlay curve remains active. The full angle-aware wet-road BRDF backlog remains open."
+        material_source_meta["mat_asphalt_wet"] = {
+            "source_quality": "measured_derivative",
+            "source_ids": measured_wet_road_capture["source_ids"],
+            "uncertainty": {
+                "type": "measured_wet_curve_plus_simplified_contract",
+                "note": uncertainty_note,
+            },
+            "license": measured_wet_road_capture["license"],
+            "provenance_note": measured_wet_road_capture["provenance_note"],
+        }
     if measured_retroreflective_capture is not None:
         measured_modifier = build_measured_retroreflective_curves(measured_retroreflective_capture)
         curves["mat_retroreflective_gain"] = measured_modifier["values"]
@@ -2797,8 +3088,8 @@ def make_materials(illuminant_d65: Sequence[float], measured_retroreflective_cap
             "geometry_conditions": {
                 "retroreflective_gain_curve": "mat_retroreflective_gain" if material_type == "retroreflective" else None,
                 "wet_overlay": material_type == "wet_overlay",
-                "film_thickness_mm": 0.5 if material_type == "wet_overlay" else None,
-                "specular_boost": 1.8 if material_type == "wet_overlay" else None,
+                "film_thickness_mm": wet_material_geometry["film_thickness_mm"] if material_type == "wet_overlay" else None,
+                "specular_boost": wet_material_geometry["specular_boost"] if material_type == "wet_overlay" else None,
             },
             "source_quality": source_meta["source_quality"],
             "source_ids": source_meta["source_ids"],
@@ -2817,7 +3108,7 @@ def make_materials(illuminant_d65: Sequence[float], measured_retroreflective_cap
 
     write_npz(spectra_dir / "grid_master_350_1700_1nm.npz", {"wavelength_nm": MASTER_GRID})
     write_npz(spectra_dir / "grid_runtime_400_1100_5nm.npz", {"wavelength_nm": RUNTIME_GRID})
-    return materials, retroreflective_activation_reason
+    return materials, retroreflective_activation_reason, wet_road_activation_reason
 
 
 def write_camera_profiles() -> Tuple[List[Dict], str, str]:
@@ -3854,7 +4145,7 @@ def compute_scale_within_tolerance(asset: Dict) -> bool:
     return True
 
 
-def build_reports(assets: List[Dict], materials: Dict[str, Dict], emissive_profiles: List[Dict], camera_profiles: List[Dict], scenarios: List[Dict], usd_export_status: Dict[str, Dict], source_ledger: List[Dict], active_camera_profile_id: str, camera_profile_activation_reason: str, signal_emitter_activation_reason: str, urban_night_illuminant_reason: str, retroreflective_activation_reason: str) -> Dict:
+def build_reports(assets: List[Dict], materials: Dict[str, Dict], emissive_profiles: List[Dict], camera_profiles: List[Dict], scenarios: List[Dict], usd_export_status: Dict[str, Dict], source_ledger: List[Dict], active_camera_profile_id: str, camera_profile_activation_reason: str, signal_emitter_activation_reason: str, urban_night_illuminant_reason: str, retroreflective_activation_reason: str, wet_road_activation_reason: str) -> Dict:
     asset_errors = []
     material_errors = []
     emissive_errors = []
@@ -3939,6 +4230,7 @@ def build_reports(assets: List[Dict], materials: Dict[str, Dict], emissive_profi
         "signal_emitter_activation_reason": signal_emitter_activation_reason,
         "urban_night_illuminant_reason": urban_night_illuminant_reason,
         "retroreflective_activation_reason": retroreflective_activation_reason,
+        "wet_road_activation_reason": wet_road_activation_reason,
         "scenario_camera_profile_refs": scenario_camera_profile_refs,
         "scenario_unique_camera_profile_ids": unique_profile_ids,
         "camera_profile_reference_summary": camera_profile_reference_summary,
@@ -3955,7 +4247,7 @@ def build_reports(assets: List[Dict], materials: Dict[str, Dict], emissive_profi
         },
         "wet_road_validation": {
             "status": "pass",
-            "observation": "wet asphalt pbr fallback uses lower diffuse reflectance and higher specular response than dry asphalt",
+            "observation": wet_road_activation_reason,
         },
         "state_validation": {
             "status": "pass",
@@ -4009,6 +4301,7 @@ def main() -> int:
     signal_vendor_curves = build_vendor_signal_spd_curves()
     measured_emitter_capture = load_measured_emitter_spd_capture()
     measured_retroreflective_capture = load_measured_retroreflective_capture()
+    measured_wet_road_capture = load_measured_wet_road_capture()
     active_signal_curves = dict(signal_vendor_curves)
     signal_profile_meta = {
         "source_quality": "vendor_derived",
@@ -4045,14 +4338,32 @@ def main() -> int:
         elif has_measured_headlamp_or_streetlight:
             signal_emitter_activation_reason = "A frozen measured headlamp/streetlight SPD source is available, but the measured traffic-signal red/yellow/green trio is incomplete, so vendor-derived signal SPDs remain active."
     standards, urban_night_illuminant_reason = generate_standard_spectra(active_signal_curves)
-    materials, retroreflective_activation_reason = make_materials(standards["illuminant_d65"], measured_retroreflective_capture)
+    materials, retroreflective_activation_reason, wet_road_activation_reason = make_materials(
+        standards["illuminant_d65"],
+        measured_retroreflective_capture,
+        measured_wet_road_capture,
+    )
     camera_profiles, active_camera_profile_id, camera_profile_activation_reason = write_camera_profiles()
     assets, asset_meshes = build_assets(materials)
     usd_status = write_asset_geometry_and_exports(assets, asset_meshes, materials)
     emissive_profiles = write_emissive_profiles(active_signal_curves, signal_profile_meta)
     atmospheres, scenarios = write_scenarios_and_atmospheres(active_camera_profile_id)
     write_scenes(asset_meshes, materials)
-    summary = build_reports(assets, materials, emissive_profiles, camera_profiles, scenarios, usd_status, ledger, active_camera_profile_id, camera_profile_activation_reason, signal_emitter_activation_reason, urban_night_illuminant_reason, retroreflective_activation_reason)
+    summary = build_reports(
+        assets,
+        materials,
+        emissive_profiles,
+        camera_profiles,
+        scenarios,
+        usd_status,
+        ledger,
+        active_camera_profile_id,
+        camera_profile_activation_reason,
+        signal_emitter_activation_reason,
+        urban_night_illuminant_reason,
+        retroreflective_activation_reason,
+        wet_road_activation_reason,
+    )
     print(json.dumps({"generated_at": GENERATED_AT, "asset_count": len(assets), "source_count": len(ledger), "validation_passes": summary["release_gates"]["passes"]}, indent=2))
     return 0
 

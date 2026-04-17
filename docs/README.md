@@ -14,6 +14,7 @@ This directory is the management layer for the autonomous-driving camera simulat
 - [automotive-srf-intake.md](automotive-srf-intake.md): local measured automotive camera-SRF intake format and activation behavior
 - [emitter-spd-intake.md](emitter-spd-intake.md): local measured traffic-signal/headlamp SPD intake format and activation behavior
 - [retroreflective-brdf-intake.md](retroreflective-brdf-intake.md): local measured retroreflective-sheething input format and the current shared-gain activation behavior
+- [wet-road-brdf-intake.md](wet-road-brdf-intake.md): local measured wet-road input format and the current simplified wet-material activation behavior
 - [created-assets.md](created-assets.md): explanation of what the generated asset pack actually creates and how those files relate
 - [file-formats.md](file-formats.md): explanation of `.npz`, `.json`, `USD`, and related generated file types
 - [pbrt-tutorial.md](pbrt-tutorial.md): workflow for converting the generated assets into a practical `PBRT` rendering pipeline
@@ -36,6 +37,7 @@ This directory is the management layer for the autonomous-driving camera simulat
 - Update [automotive-srf-intake.md](automotive-srf-intake.md) when the local measured-SRF intake format, activation gate, or input paths change.
 - Update [emitter-spd-intake.md](emitter-spd-intake.md) when the local measured-emitter intake format, activation gate, or active night-emitter behavior changes.
 - Update [retroreflective-brdf-intake.md](retroreflective-brdf-intake.md) when the local measured retroreflective intake format, activation gate, or current shared-gain behavior changes.
+- Update [wet-road-brdf-intake.md](wet-road-brdf-intake.md) when the local measured wet-road intake format, activation gate, or current simplified wet-material behavior changes.
 - Update [created-assets.md](created-assets.md) when generated asset categories, counts, or file relationships change materially.
 - Update [file-formats.md](file-formats.md) when the repository adds a new primary generated format or changes the role of an existing one.
 - Update [pbrt-tutorial.md](pbrt-tutorial.md) when the recommended `PBRT` conversion path, active camera profile, or primary source asset paths change.

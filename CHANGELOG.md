@@ -12,6 +12,7 @@
 - measured automotive camera-SRF intake documentation and local input format
 - measured traffic-signal/headlamp SPD intake documentation and local input format
 - measured retroreflective intake documentation and local input format
+- measured wet-road intake documentation and local input format
 - source-policy documentation for source classifications and blocked-source handling
 - milestone validation checklist and first release checklist
 - measured-replacement priority doc for the four remaining proxy-to-measured backlog items
@@ -37,6 +38,7 @@
 - emissive-profile generation now supports an optional frozen measured traffic-signal/headlamp SPD source with a measured activation gate, while keeping vendor-derived signal SPDs active when no measured source is present
 - measured emitter intake now accepts headlamp-only or streetlight-only datasets for `urban_night` augmentation without requiring measured traffic-signal red/yellow/green curves
 - material generation now supports an optional frozen measured retroreflective source with a shared-gain activation gate, while keeping the proxy retroreflective modifier active when no measured source is present
+- material generation now supports an optional frozen measured wet-road source with a simplified wet-material activation gate, while keeping the measured-derived wet asphalt fallback active when no measured source is present
 
 ### Validation
 

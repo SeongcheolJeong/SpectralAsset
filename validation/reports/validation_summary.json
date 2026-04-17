@@ -9,6 +9,7 @@
   "signal_emitter_activation_reason": "No frozen measured traffic-signal/headlamp SPD source is available, so vendor-derived signal SPDs remain active.",
   "urban_night_illuminant_reason": "Urban night illuminant uses the active signal SPD curves only because no measured headlamp or streetlight SPD source is available.",
   "retroreflective_activation_reason": "No frozen measured retroreflective sheeting source is available, so the proxy retroreflective gain curve remains active.",
+  "wet_road_activation_reason": "No frozen measured wet-road source is available, so the measured-derived wet asphalt path remains active.",
   "scenario_camera_profile_refs": {
     "scenario_clear_noon": "canonical/camera/camera_reference_rgb_nir_v2.camera_profile.json",
     "scenario_overcast_day": "canonical/camera/camera_reference_rgb_nir_v2.camera_profile.json",
@@ -65,7 +66,7 @@
   },
   "wet_road_validation": {
     "status": "pass",
-    "observation": "wet asphalt pbr fallback uses lower diffuse reflectance and higher specular response than dry asphalt"
+    "observation": "No frozen measured wet-road source is available, so the measured-derived wet asphalt path remains active."
   },
   "state_validation": {
     "status": "pass",

@@ -69,16 +69,18 @@
 | `P5-T005` | `P5` | `P1` | `blocked` | Freeze a real measured traffic-signal/headlamp SPD source and promote it to active use | frozen measured emitter raw source plus active measured signal curves | `P5-T004` | a real measured emitter SPD dataset is present, frozen in `raw/`, and becomes the active source for vehicle/protected-turn signal profiles |
 | `P5-T006` | `P5` | `P1` | `done` | Implement measured retroreflective sheeting intake and activation gate | generator support for frozen measured retroreflective input | `P2-T003` | local measured retroreflective input can be frozen into tracked `raw/`, measured gain curves validate cleanly, and the shared retroreflective modifier only switches when that source exists |
 | `P5-T007` | `P5` | `P1` | `blocked` | Freeze a real measured retroreflective source and promote it to the current shared modifier path | frozen measured retroreflective raw source plus active measured modifier curve | `P5-T006` | a real measured retroreflective dataset is present, frozen in `raw/`, and becomes the active shared retroreflective gain curve while the full BRDF backlog remains explicitly open |
+| `P5-T008` | `P5` | `P1` | `done` | Implement measured wet-road intake and activation gate | generator support for frozen measured wet-road input | `P2-T003` | local measured wet-road input can be frozen into tracked `raw/`, measured wet-road curves validate cleanly, and the current wet material path only switches when that source exists |
+| `P5-T009` | `P5` | `P1` | `blocked` | Freeze a real measured wet-road source and promote it to the current wet material path | frozen measured wet-road raw source plus active measured wet curves | `P5-T008` | a real measured wet-road dataset is present, frozen in `raw/`, and becomes the active wet material source while the full BRDF backlog remains explicitly open |
 
 ## Blocked Items
 
 - `P5-T003` is blocked until a real measured automotive camera SRF dataset is provided in the local measured-intake format.
 - `P5-T005` is blocked until a real measured traffic-signal/headlamp SPD dataset is provided in the local measured-intake format.
 - `P5-T007` is blocked until a real measured retroreflective sheeting dataset is provided in the local measured-intake format.
+- `P5-T009` is blocked until a real measured wet-road dataset is provided in the local measured-intake format.
 - External `403` source pages still exist, but they are now documented with fallback handling in `docs/source-policy.md`.
 
 ## Deferred Items
 
-- wet-road spectral BRDF acquisition, ranked fourth in [measurement-priorities.md](measurement-priorities.md)
 - measured promotion of sign-sheeting and road-marking materials remains deferred because the frozen USGS plastics and pigments are reference-only in this repository phase
 - asset-family expansion beyond the current `v1.0` count-complete baseline, prioritized in [catalog-gap-review.md](catalog-gap-review.md)
