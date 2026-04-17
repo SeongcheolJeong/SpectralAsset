@@ -1,0 +1,152 @@
+{
+  "id": "camera_reference_rgb_nir_v3",
+  "profile_family": "generic_reference",
+  "response_model": "derived_raw_optics",
+  "sensor_branch": "rgb_nir",
+  "wavelength_grid_ref": "grid_master_350_1700_1nm",
+  "raw_channel_srf_refs": {
+    "r": {
+      "path": "canonical/spectra/cam_ref_rgbnir_v3_r_raw_srf.npz",
+      "wavelength_key": "wavelength_nm",
+      "value_key": "values"
+    },
+    "g": {
+      "path": "canonical/spectra/cam_ref_rgbnir_v3_g_raw_srf.npz",
+      "wavelength_key": "wavelength_nm",
+      "value_key": "values"
+    },
+    "b": {
+      "path": "canonical/spectra/cam_ref_rgbnir_v3_b_raw_srf.npz",
+      "wavelength_key": "wavelength_nm",
+      "value_key": "values"
+    },
+    "nir": {
+      "path": "canonical/spectra/cam_ref_rgbnir_v3_nir_raw_srf.npz",
+      "wavelength_key": "wavelength_nm",
+      "value_key": "values"
+    }
+  },
+  "channel_optics_transmittance_refs": {
+    "r": {
+      "path": "canonical/spectra/cam_ref_rgbnir_v3_rgb_optics_transmittance.npz",
+      "wavelength_key": "wavelength_nm",
+      "value_key": "values"
+    },
+    "g": {
+      "path": "canonical/spectra/cam_ref_rgbnir_v3_rgb_optics_transmittance.npz",
+      "wavelength_key": "wavelength_nm",
+      "value_key": "values"
+    },
+    "b": {
+      "path": "canonical/spectra/cam_ref_rgbnir_v3_rgb_optics_transmittance.npz",
+      "wavelength_key": "wavelength_nm",
+      "value_key": "values"
+    },
+    "nir": {
+      "path": "canonical/spectra/cam_ref_rgbnir_v3_nir_optics_transmittance.npz",
+      "wavelength_key": "wavelength_nm",
+      "value_key": "values"
+    }
+  },
+  "reference_curve_refs": {
+    "color_r_qe_reference": {
+      "path": "canonical/spectra/src_onsemi_mt9m034_color_r_qe_reference.npz",
+      "wavelength_key": "wavelength_nm",
+      "value_key": "values"
+    },
+    "color_g_qe_reference": {
+      "path": "canonical/spectra/src_onsemi_mt9m034_color_g_qe_reference.npz",
+      "wavelength_key": "wavelength_nm",
+      "value_key": "values"
+    },
+    "color_b_qe_reference": {
+      "path": "canonical/spectra/src_onsemi_mt9m034_color_b_qe_reference.npz",
+      "wavelength_key": "wavelength_nm",
+      "value_key": "values"
+    },
+    "mono_qe_reference": {
+      "path": "canonical/spectra/src_balluff_imx900_mono_qe_reference.npz",
+      "wavelength_key": "wavelength_nm",
+      "value_key": "values"
+    }
+  },
+  "effective_channel_srf_refs": {
+    "r": {
+      "path": "canonical/spectra/cam_ref_rgbnir_v3_r_effective_srf.npz",
+      "wavelength_key": "wavelength_nm",
+      "value_key": "values"
+    },
+    "g": {
+      "path": "canonical/spectra/cam_ref_rgbnir_v3_g_effective_srf.npz",
+      "wavelength_key": "wavelength_nm",
+      "value_key": "values"
+    },
+    "b": {
+      "path": "canonical/spectra/cam_ref_rgbnir_v3_b_effective_srf.npz",
+      "wavelength_key": "wavelength_nm",
+      "value_key": "values"
+    },
+    "nir": {
+      "path": "canonical/spectra/cam_ref_rgbnir_v3_nir_effective_srf.npz",
+      "wavelength_key": "wavelength_nm",
+      "value_key": "values"
+    }
+  },
+  "active_channel_srf_refs": {
+    "r": {
+      "path": "canonical/spectra/cam_ref_rgbnir_v3_r_effective_srf.npz",
+      "wavelength_key": "wavelength_nm",
+      "value_key": "values"
+    },
+    "g": {
+      "path": "canonical/spectra/cam_ref_rgbnir_v3_g_effective_srf.npz",
+      "wavelength_key": "wavelength_nm",
+      "value_key": "values"
+    },
+    "b": {
+      "path": "canonical/spectra/cam_ref_rgbnir_v3_b_effective_srf.npz",
+      "wavelength_key": "wavelength_nm",
+      "value_key": "values"
+    },
+    "nir": {
+      "path": "canonical/spectra/cam_ref_rgbnir_v3_nir_effective_srf.npz",
+      "wavelength_key": "wavelength_nm",
+      "value_key": "values"
+    }
+  },
+  "derivation_method": {
+    "type": "public_doc_curve_fit",
+    "note": "MT9M034 color donor curves multiplied by a Balluff IMX900 mono-QE envelope, then filtered through generic RGB IR-cut and NIR-pass optics."
+  },
+  "replaces_profile_id": "camera_reference_rgb_nir_v2",
+  "normalization": {
+    "method": "unit_peak_per_channel_after_optics"
+  },
+  "operating_temperature_c": 25.0,
+  "source_quality": "vendor_derived",
+  "source_ids": [
+    "onsemi_mt9m034_pdf",
+    "balluff_imx900_emva_report_pdf",
+    "basler_color_emva_knowledge",
+    "sony_imx900_product_page",
+    "sony_isx016_pdf",
+    "emva_1288_standard_pdf"
+  ],
+  "license": {
+    "spdx": "LicenseRef-VendorDerived",
+    "redistribution": "Derived camera-profile metadata and curves from public official sensor documentation and tracked project curve fitting."
+  },
+  "provenance": {
+    "generated_at": "2026-04-16T10:10:40+00:00",
+    "generated_by": "scripts/build_asset_pack.py",
+    "source_ids": [
+      "onsemi_mt9m034_pdf",
+      "balluff_imx900_emva_report_pdf",
+      "basler_color_emva_knowledge",
+      "sony_imx900_product_page",
+      "sony_isx016_pdf",
+      "emva_1288_standard_pdf"
+    ],
+    "note": "Generic RGB+NIR automotive camera profile derived from public MT9M034 color donors, a public Balluff IMX900 mono envelope, and generic optics assumptions; not a measured single-SKU SRF."
+  }
+}
