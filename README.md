@@ -42,6 +42,7 @@ For deterministic rebuild review, the generator now preserves the previous track
 - camera profiles now support either a shared optics curve or per-channel optics/filter curves
 - optional measured automotive camera SRF intake is supported from `automotive_sensor_srf_input/` or `AUTOMOTIVE_SENSOR_SRF_ROOT`, but the current baseline does not include a frozen measured source
 - optional measured traffic-signal/headlamp SPD intake is supported from `traffic_signal_headlamp_spd_input/` or `TRAFFIC_SIGNAL_HEADLAMP_SPD_ROOT`, but the current baseline does not include a frozen measured source
+- optional measured retroreflective sheeting input is supported from `retroreflective_sheeting_brdf_input/` or `RETROREFLECTIVE_SHEETING_BRDF_ROOT`, but the current baseline does not include a frozen measured source
 - sign sheeting, road-marking retroreflection, pedestrian/countdown emitter SPDs, and measured traffic-signal/headlamp capture still remain incomplete in this phase
 
 ## Local Source Root
@@ -53,6 +54,8 @@ For deterministic rebuild review, the generator now preserves the previous track
 - the optional measured automotive SRF input root is intentionally ignored by git
 - optional measured traffic-signal/headlamp SPD input may be placed in `traffic_signal_headlamp_spd_input/` by default or `TRAFFIC_SIGNAL_HEADLAMP_SPD_ROOT` if overridden
 - the optional measured traffic-signal/headlamp SPD input root is intentionally ignored by git
+- optional measured retroreflective sheeting input may be placed in `retroreflective_sheeting_brdf_input/` by default or `RETROREFLECTIVE_SHEETING_BRDF_ROOT` if overridden
+- the optional measured retroreflective sheeting input root is intentionally ignored by git
 
 ## Project Management Docs
 
@@ -67,6 +70,7 @@ For deterministic rebuild review, the generator now preserves the previous track
 - [docs/camera-profile.md](docs/camera-profile.md): generic camera-profile contract and current limitations
 - [docs/automotive-srf-intake.md](docs/automotive-srf-intake.md): optional measured automotive camera-SRF intake path and input format
 - [docs/emitter-spd-intake.md](docs/emitter-spd-intake.md): optional measured traffic-signal/headlamp SPD intake path and input format
+- [docs/retroreflective-brdf-intake.md](docs/retroreflective-brdf-intake.md): optional measured retroreflective-sheething input path and the current shared-gain activation rules
 
 ## Known Measurement Backlog
 

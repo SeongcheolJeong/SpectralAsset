@@ -84,6 +84,8 @@ AUTOMOTIVE_SENSOR_SRF_SOURCE_ID = "automotive_sensor_srf_measured"
 AUTOMOTIVE_SENSOR_SRF_PROFILE_ID = "camera_automotive_measured_rgb_nir_v1"
 TRAFFIC_SIGNAL_HEADLAMP_SPD_INPUT_DIR = "traffic_signal_headlamp_spd_input"
 TRAFFIC_SIGNAL_HEADLAMP_SPD_SOURCE_ID = "traffic_signal_headlamp_spd_measured"
+RETROREFLECTIVE_SHEETING_BRDF_INPUT_DIR = "retroreflective_sheeting_brdf_input"
+RETROREFLECTIVE_SHEETING_BRDF_SOURCE_ID = "retroreflective_sheeting_brdf_measured"
 
 DIRS = [
     "raw/sources",
@@ -580,6 +582,16 @@ def display_traffic_signal_headlamp_spd_input_root(root: Path) -> str:
     return "env:TRAFFIC_SIGNAL_HEADLAMP_SPD_ROOT" if os.getenv("TRAFFIC_SIGNAL_HEADLAMP_SPD_ROOT") else root.name
 
 
+def resolve_retroreflective_sheeting_brdf_input_root() -> Path:
+    if os.getenv("RETROREFLECTIVE_SHEETING_BRDF_ROOT"):
+        return Path(os.environ["RETROREFLECTIVE_SHEETING_BRDF_ROOT"]).expanduser()
+    return REPO_ROOT / RETROREFLECTIVE_SHEETING_BRDF_INPUT_DIR
+
+
+def display_retroreflective_sheeting_brdf_input_root(root: Path) -> str:
+    return "env:RETROREFLECTIVE_SHEETING_BRDF_ROOT" if os.getenv("RETROREFLECTIVE_SHEETING_BRDF_ROOT") else root.name
+
+
 def load_json_file(path: Path) -> Dict:
     with path.open("r", encoding="utf-8") as handle:
         return json.load(handle)
@@ -919,6 +931,97 @@ def freeze_measured_emitter_spd_source() -> List[Dict]:
     return [entry]
 
 
+def build_preserved_measured_retroreflective_entry(source_json_path: Path) -> Optional[Dict]:
+    existing_entry = load_existing_source_entry(source_json_path)
+    if not isinstance(existing_entry, dict):
+        return None
+    data_path_value = existing_entry.get("data_path")
+    metadata_path_value = existing_entry.get("metadata_path")
+    if not isinstance(data_path_value, str) or not isinstance(metadata_path_value, str):
+        return None
+    data_path = REPO_ROOT / data_path_value
+    metadata_path = REPO_ROOT / metadata_path_value
+    if not data_path.exists() or not metadata_path.exists():
+        return None
+    entry = {
+        "id": RETROREFLECTIVE_SHEETING_BRDF_SOURCE_ID,
+        "origin_type": "local_path",
+        "classification": existing_entry.get("classification", "derived-only"),
+        "license_summary": existing_entry.get("license_summary", "Measured retroreflective sheeting input frozen from a local source."),
+        "path": data_path_value,
+        "data_path": data_path_value,
+        "metadata_path": metadata_path_value,
+        "copied_from_root": existing_entry.get("copied_from_root", RETROREFLECTIVE_SHEETING_BRDF_INPUT_DIR),
+        "copied_at": existing_entry.get("copied_at", GENERATED_AT),
+        "status": "copied_from_local",
+        "sha256": sha256_file(data_path),
+        "size_bytes": data_path.stat().st_size,
+        "metadata_sha256": sha256_file(metadata_path),
+        "notes": existing_entry.get("notes", "Measured retroreflective sheeting input frozen from a local source."),
+    }
+    report_path_value = existing_entry.get("report_path")
+    if isinstance(report_path_value, str):
+        report_path = REPO_ROOT / report_path_value
+        if report_path.exists():
+            entry["report_path"] = report_path_value
+            entry["report_sha256"] = sha256_file(report_path)
+    return entry
+
+
+def freeze_measured_retroreflective_source() -> List[Dict]:
+    refresh_sources = os.getenv("REFRESH_SOURCES") == "1"
+    source_root = resolve_retroreflective_sheeting_brdf_input_root()
+    target_root = REPO_ROOT / "raw" / "sources" / RETROREFLECTIVE_SHEETING_BRDF_SOURCE_ID
+    target_root.mkdir(parents=True, exist_ok=True)
+    source_json_path = target_root / "source.json"
+
+    if not refresh_sources:
+        preserved = build_preserved_measured_retroreflective_entry(source_json_path)
+        if preserved:
+            write_json(source_json_path, preserved)
+            return [preserved]
+
+    metadata_source = source_root / "metadata.json"
+    data_source = source_root / "brdf.csv"
+    report_source = source_root / "report.pdf"
+    if not metadata_source.exists() or not data_source.exists():
+        return []
+
+    metadata = load_json_file(metadata_source)
+    classification = metadata.get("classification", "derived-only")
+    if classification not in {"redistributable", "derived-only", "reference-only"}:
+        raise ValueError("retroreflective_sheeting_brdf_input metadata.json has invalid classification")
+
+    metadata_target = target_root / "metadata.json"
+    data_target = target_root / "brdf.csv"
+    shutil.copy2(metadata_source, metadata_target)
+    shutil.copy2(data_source, data_target)
+
+    entry = {
+        "id": RETROREFLECTIVE_SHEETING_BRDF_SOURCE_ID,
+        "origin_type": "local_path",
+        "classification": classification,
+        "license_summary": metadata.get("license_summary", "Measured retroreflective sheeting input frozen from a local source."),
+        "path": relative_posix(data_target),
+        "data_path": relative_posix(data_target),
+        "metadata_path": relative_posix(metadata_target),
+        "copied_from_root": display_retroreflective_sheeting_brdf_input_root(source_root),
+        "copied_at": GENERATED_AT,
+        "status": "copied_from_local",
+        "sha256": sha256_file(data_target),
+        "size_bytes": data_target.stat().st_size,
+        "metadata_sha256": sha256_file(metadata_target),
+        "notes": metadata.get("notes", "Measured retroreflective sheeting input frozen from a local source."),
+    }
+    if report_source.exists():
+        report_target = target_root / "report.pdf"
+        shutil.copy2(report_source, report_target)
+        entry["report_path"] = relative_posix(report_target)
+        entry["report_sha256"] = sha256_file(report_target)
+    write_json(source_json_path, entry)
+    return [entry]
+
+
 def download_sources() -> List[Dict]:
     ledger = []
     refresh_sources = os.getenv("REFRESH_SOURCES") == "1"
@@ -1022,6 +1125,7 @@ def download_sources() -> List[Dict]:
     ledger.extend(freeze_selected_usgs_sources())
     ledger.extend(freeze_measured_automotive_sensor_source())
     ledger.extend(freeze_measured_emitter_spd_source())
+    ledger.extend(freeze_measured_retroreflective_source())
     write_json(REPO_ROOT / "raw" / "source_ledger.json", {"generated_at": GENERATED_AT, "sources": ledger})
     return ledger
 
@@ -1227,6 +1331,97 @@ def parse_measured_emitter_spd_csv(data_path: Path, metadata: Dict) -> Dict:
     }
 
 
+def parse_measured_retroreflective_csv(data_path: Path, metadata: Dict) -> Dict:
+    with data_path.open("r", encoding="utf-8", newline="") as handle:
+        reader = csv.DictReader(handle)
+        if not reader.fieldnames:
+            raise ValueError(f"{data_path} is missing a CSV header")
+        wavelength_column = metadata.get("wavelength_column")
+        if not isinstance(wavelength_column, str) or not wavelength_column:
+            if "wavelength_nm" in reader.fieldnames:
+                wavelength_column = "wavelength_nm"
+            elif "wavelength_um" in reader.fieldnames:
+                wavelength_column = "wavelength_um"
+            else:
+                raise ValueError(f"{data_path} must contain wavelength_nm or wavelength_um")
+
+        configured_columns = metadata.get("channel_columns", {})
+        if not isinstance(configured_columns, dict):
+            configured_columns = {}
+        gain_defaults = {
+            "retroreflective_gain": "retroreflective_gain",
+            "marking_white_gain": "marking_white_gain",
+            "marking_yellow_gain": "marking_yellow_gain",
+        }
+        resolved_columns = {}
+        for name, default in gain_defaults.items():
+            column_name = configured_columns.get(name, default)
+            if column_name in reader.fieldnames:
+                resolved_columns[name] = column_name
+
+        if wavelength_column not in reader.fieldnames:
+            raise ValueError(f"{data_path} is missing required columns: {wavelength_column}")
+        if not resolved_columns:
+            expected = ", ".join(sorted(gain_defaults.values()))
+            raise ValueError(f"{data_path} must contain at least one supported gain column: {expected}")
+
+        wavelengths_nm = []
+        curve_values = {name: [] for name in resolved_columns.keys()}
+        for row in reader:
+            if not row:
+                continue
+            raw_wavelength = row.get(wavelength_column, "").strip()
+            if not raw_wavelength:
+                continue
+            wavelengths_nm.append(float(raw_wavelength))
+            for name, column in resolved_columns.items():
+                curve_values[name].append(float(row[column]))
+
+    if len(wavelengths_nm) < 2:
+        raise ValueError(f"{data_path} must contain at least two retroreflective rows")
+    if any(right <= left for left, right in zip(wavelengths_nm, wavelengths_nm[1:])):
+        raise ValueError(f"{data_path} wavelength values must be strictly increasing")
+
+    wavelength_unit = str(metadata.get("wavelength_unit", "nm")).strip().lower()
+    if wavelength_unit in {"um", "micron", "microns"} or wavelength_column.endswith("_um"):
+        wavelengths_nm = [value * 1000.0 for value in wavelengths_nm]
+    elif wavelength_unit != "nm":
+        raise ValueError("retroreflective_sheeting_brdf_input metadata.json has invalid wavelength_unit")
+
+    response_scale = str(metadata.get("response_scale", "")).strip().lower()
+    max_value = max(max(values) for values in curve_values.values())
+    scale_factor = 1.0
+    if response_scale in {"percent", "percentage"}:
+        scale_factor = 0.01
+    elif response_scale in {"unit_gain", "unit_fraction", "fraction", "normalized", ""}:
+        scale_factor = 1.0
+    else:
+        raise ValueError("retroreflective_sheeting_brdf_input metadata.json has invalid response_scale")
+    if not response_scale and max_value > 5.000001:
+        if max_value <= 100.000001:
+            scale_factor = 0.01
+        else:
+            raise ValueError(f"{data_path} contains gain values above 100 and cannot be auto-scaled")
+
+    curves = {}
+    for name, values in curve_values.items():
+        scaled = [value * scale_factor for value in values]
+        padded_points = list(zip(wavelengths_nm, scaled))
+        if padded_points[0][0] > 350.0:
+            padded_points.insert(0, (350.0, scaled[0]))
+        if padded_points[-1][0] < 1700.0:
+            padded_points.append((1700.0, scaled[-1]))
+        curves[name] = clamp_list(interpolate(padded_points, MASTER_GRID), 0.0, 10.0)
+
+    return {
+        "wavelengths_nm": wavelengths_nm,
+        "curves": curves,
+        "wavelength_column": wavelength_column,
+        "channel_columns": resolved_columns,
+        "response_scale": response_scale or ("percent" if scale_factor == 0.01 else "unit_gain"),
+    }
+
+
 def load_measured_automotive_sensor_capture() -> Optional[Dict]:
     source_dir = REPO_ROOT / "raw" / "sources" / AUTOMOTIVE_SENSOR_SRF_SOURCE_ID
     metadata_path = source_dir / "metadata.json"
@@ -1311,6 +1506,42 @@ def load_measured_emitter_spd_capture() -> Optional[Dict]:
         },
         "source_ids": [TRAFFIC_SIGNAL_HEADLAMP_SPD_SOURCE_ID],
         "provenance_note": str(metadata.get("provenance_note", "Measured traffic-signal/headlamp SPD curves generated from a frozen local CSV source.")),
+    }
+
+
+def load_measured_retroreflective_capture() -> Optional[Dict]:
+    source_dir = REPO_ROOT / "raw" / "sources" / RETROREFLECTIVE_SHEETING_BRDF_SOURCE_ID
+    metadata_path = source_dir / "metadata.json"
+    data_path = source_dir / "brdf.csv"
+    if not metadata_path.exists() or not data_path.exists():
+        return None
+
+    metadata = load_json_file(metadata_path)
+    parsed = parse_measured_retroreflective_csv(data_path, metadata)
+    if min(parsed["wavelengths_nm"]) > 400.0 or max(parsed["wavelengths_nm"]) < 1100.0:
+        raise ValueError(f"{data_path} must cover at least 400-1100 nm")
+
+    return {
+        "metadata": metadata,
+        "curves": parsed["curves"],
+        "measurement_conditions": {
+            "wavelength_column": parsed["wavelength_column"],
+            "channel_columns": parsed["channel_columns"],
+            "response_scale": parsed["response_scale"],
+            "sheeting_class": str(metadata.get("sheeting_class", "unspecified")),
+            "sample_state": str(metadata.get("sample_state", "unspecified")),
+            "entrance_angle_deg": metadata.get("entrance_angle_deg", "unspecified"),
+            "observation_angle_deg": metadata.get("observation_angle_deg", "unspecified"),
+            "measurement_geometry": str(metadata.get("measurement_geometry", "unspecified")),
+            "calibration_reference": str(metadata.get("calibration_reference", "unspecified")),
+            "notes": str(metadata.get("measurement_notes", metadata.get("notes", "Measured retroreflective sheeting input."))),
+        },
+        "license": {
+            "spdx": str(metadata.get("profile_license_spdx", "LicenseRef-MeasuredLocalSource")),
+            "redistribution": str(metadata.get("profile_redistribution", "Measured retroreflective gain curves generated from a frozen local source.")),
+        },
+        "source_ids": [RETROREFLECTIVE_SHEETING_BRDF_SOURCE_ID],
+        "provenance_note": str(metadata.get("provenance_note", "Measured retroreflective gain curves generated from a frozen local CSV source.")),
     }
 
 
@@ -1489,6 +1720,54 @@ def build_measured_signal_spd_curves(measured_capture: Dict) -> Dict[str, Dict]:
                 "capture_key": capture_key,
             }
     return curves
+
+
+def build_measured_retroreflective_curves(measured_capture: Dict) -> Dict:
+    spectra_dir = REPO_ROOT / "canonical" / "spectra"
+    source_curve_names = {
+        "retroreflective_gain": "src_retroreflective_gain_measured_v1",
+        "marking_white_gain": "src_marking_white_retro_gain_measured_v1",
+        "marking_yellow_gain": "src_marking_yellow_retro_gain_measured_v1",
+    }
+    for capture_key, curve_name in source_curve_names.items():
+        if capture_key in measured_capture["curves"]:
+            write_npz(
+                spectra_dir / f"{curve_name}.npz",
+                {"wavelength_nm": MASTER_GRID, "values": measured_capture["curves"][capture_key]},
+            )
+
+    if "retroreflective_gain" in measured_capture["curves"]:
+        active_values = measured_capture["curves"]["retroreflective_gain"]
+        selection_note = "Measured generic retroreflective gain curve is active."
+        selected_capture_keys = ["retroreflective_gain"]
+    else:
+        available_specific = [key for key in ("marking_white_gain", "marking_yellow_gain") if key in measured_capture["curves"]]
+        if len(available_specific) == 2:
+            active_values = [
+                0.5 * (left + right)
+                for left, right in zip(
+                    measured_capture["curves"]["marking_white_gain"],
+                    measured_capture["curves"]["marking_yellow_gain"],
+                )
+            ]
+            selection_note = "Measured marking white/yellow gain curves were averaged into the current shared retroreflective modifier path."
+        else:
+            capture_key = available_specific[0]
+            active_values = measured_capture["curves"][capture_key]
+            selection_note = f"Measured {capture_key} is active through the current shared retroreflective modifier path."
+        selected_capture_keys = available_specific
+
+    write_npz(
+        spectra_dir / "mat_retroreflective_gain_measured_v1.npz",
+        {"wavelength_nm": MASTER_GRID, "values": active_values},
+    )
+    return {
+        "curve_name": "mat_retroreflective_gain_measured_v1",
+        "values": active_values,
+        "source_id": RETROREFLECTIVE_SHEETING_BRDF_SOURCE_ID,
+        "capture_keys": selected_capture_keys,
+        "selection_note": selection_note,
+    }
 
 
 def smoothstep01(value: float) -> float:
@@ -2315,7 +2594,7 @@ def write_sign_svg(path: Path, sign_type: str, width: float, height: float, mate
     write_text(path, "\n".join(lines) + "\n")
 
 
-def make_materials(illuminant_d65: Sequence[float]) -> Dict[str, Dict]:
+def make_materials(illuminant_d65: Sequence[float], measured_retroreflective_capture: Optional[Dict] = None) -> Tuple[Dict[str, Dict], str]:
     proxy_curves = {
         "mat_sign_stop_red_reflectance": clamp_list(interpolate([(350, 0.03), (500, 0.05), (580, 0.35), (620, 0.8), (700, 0.72), (900, 0.45), (1700, 0.22)], MASTER_GRID)),
         "mat_sign_white_reflectance": clamp_list(interpolate([(350, 0.82), (700, 0.9), (1100, 0.82), (1700, 0.72)], MASTER_GRID)),
@@ -2452,6 +2731,27 @@ def make_materials(illuminant_d65: Sequence[float]) -> Dict[str, Dict]:
         },
         "provenance_note": "Measured-derived wet asphalt from USGS v7 dry asphalt sample plus tracked wet proxy ratio.",
     }
+    retroreflective_activation_reason = "No frozen measured retroreflective sheeting source is available, so the proxy retroreflective gain curve remains active."
+    if measured_retroreflective_capture is not None:
+        measured_modifier = build_measured_retroreflective_curves(measured_retroreflective_capture)
+        curves["mat_retroreflective_gain"] = measured_modifier["values"]
+        for material_id in ("mat_marking_white", "mat_marking_yellow"):
+            material_source_meta[material_id] = {
+                "source_quality": "measured_derivative",
+                "source_ids": measured_retroreflective_capture["source_ids"],
+                "uncertainty": {
+                    "type": "measured_modifier_plus_proxy_base",
+                    "note": "Measured retroreflective spectral gain modifier from a frozen local source applied to a proxy base reflectance. The current repository contract still uses a shared gain curve rather than a full angle-aware BRDF.",
+                },
+                "license": measured_retroreflective_capture["license"],
+                "provenance_note": measured_retroreflective_capture["provenance_note"],
+            }
+        retroreflective_activation_reason = (
+            "A frozen measured retroreflective sheeting source is available, so the measured spectral gain modifier is active for the current shared retroreflective path. "
+            "The full angle-aware retroreflective BRDF backlog remains open."
+        )
+        if measured_modifier["selection_note"]:
+            retroreflective_activation_reason = f"{retroreflective_activation_reason} {measured_modifier['selection_note']}"
 
     materials = {}
     spectra_dir = REPO_ROOT / "canonical" / "spectra"
@@ -2517,7 +2817,7 @@ def make_materials(illuminant_d65: Sequence[float]) -> Dict[str, Dict]:
 
     write_npz(spectra_dir / "grid_master_350_1700_1nm.npz", {"wavelength_nm": MASTER_GRID})
     write_npz(spectra_dir / "grid_runtime_400_1100_5nm.npz", {"wavelength_nm": RUNTIME_GRID})
-    return materials
+    return materials, retroreflective_activation_reason
 
 
 def write_camera_profiles() -> Tuple[List[Dict], str, str]:
@@ -3554,7 +3854,7 @@ def compute_scale_within_tolerance(asset: Dict) -> bool:
     return True
 
 
-def build_reports(assets: List[Dict], materials: Dict[str, Dict], emissive_profiles: List[Dict], camera_profiles: List[Dict], scenarios: List[Dict], usd_export_status: Dict[str, Dict], source_ledger: List[Dict], active_camera_profile_id: str, camera_profile_activation_reason: str, signal_emitter_activation_reason: str, urban_night_illuminant_reason: str) -> Dict:
+def build_reports(assets: List[Dict], materials: Dict[str, Dict], emissive_profiles: List[Dict], camera_profiles: List[Dict], scenarios: List[Dict], usd_export_status: Dict[str, Dict], source_ledger: List[Dict], active_camera_profile_id: str, camera_profile_activation_reason: str, signal_emitter_activation_reason: str, urban_night_illuminant_reason: str, retroreflective_activation_reason: str) -> Dict:
     asset_errors = []
     material_errors = []
     emissive_errors = []
@@ -3638,6 +3938,7 @@ def build_reports(assets: List[Dict], materials: Dict[str, Dict], emissive_profi
         "camera_profile_activation_reason": camera_profile_activation_reason,
         "signal_emitter_activation_reason": signal_emitter_activation_reason,
         "urban_night_illuminant_reason": urban_night_illuminant_reason,
+        "retroreflective_activation_reason": retroreflective_activation_reason,
         "scenario_camera_profile_refs": scenario_camera_profile_refs,
         "scenario_unique_camera_profile_ids": unique_profile_ids,
         "camera_profile_reference_summary": camera_profile_reference_summary,
@@ -3707,6 +4008,7 @@ def main() -> int:
     ledger = download_sources()
     signal_vendor_curves = build_vendor_signal_spd_curves()
     measured_emitter_capture = load_measured_emitter_spd_capture()
+    measured_retroreflective_capture = load_measured_retroreflective_capture()
     active_signal_curves = dict(signal_vendor_curves)
     signal_profile_meta = {
         "source_quality": "vendor_derived",
@@ -3743,14 +4045,14 @@ def main() -> int:
         elif has_measured_headlamp_or_streetlight:
             signal_emitter_activation_reason = "A frozen measured headlamp/streetlight SPD source is available, but the measured traffic-signal red/yellow/green trio is incomplete, so vendor-derived signal SPDs remain active."
     standards, urban_night_illuminant_reason = generate_standard_spectra(active_signal_curves)
-    materials = make_materials(standards["illuminant_d65"])
+    materials, retroreflective_activation_reason = make_materials(standards["illuminant_d65"], measured_retroreflective_capture)
     camera_profiles, active_camera_profile_id, camera_profile_activation_reason = write_camera_profiles()
     assets, asset_meshes = build_assets(materials)
     usd_status = write_asset_geometry_and_exports(assets, asset_meshes, materials)
     emissive_profiles = write_emissive_profiles(active_signal_curves, signal_profile_meta)
     atmospheres, scenarios = write_scenarios_and_atmospheres(active_camera_profile_id)
     write_scenes(asset_meshes, materials)
-    summary = build_reports(assets, materials, emissive_profiles, camera_profiles, scenarios, usd_status, ledger, active_camera_profile_id, camera_profile_activation_reason, signal_emitter_activation_reason, urban_night_illuminant_reason)
+    summary = build_reports(assets, materials, emissive_profiles, camera_profiles, scenarios, usd_status, ledger, active_camera_profile_id, camera_profile_activation_reason, signal_emitter_activation_reason, urban_night_illuminant_reason, retroreflective_activation_reason)
     print(json.dumps({"generated_at": GENERATED_AT, "asset_count": len(assets), "source_count": len(ledger), "validation_passes": summary["release_gates"]["passes"]}, indent=2))
     return 0
 

@@ -58,6 +58,8 @@ Additional baseline facts:
 - the official `onsemi_mt9m034_pdf` URL still blocks automated GET with `403`, so the repository now freezes a local copy of that PDF into tracked `raw/`
 - the generator now supports an optional local measured automotive SRF intake root at `automotive_sensor_srf_input/` or `AUTOMOTIVE_SENSOR_SRF_ROOT`, but no frozen measured source is currently present in the shipped baseline
 - the generator now supports an optional local measured traffic-signal/headlamp SPD intake root at `traffic_signal_headlamp_spd_input/` or `TRAFFIC_SIGNAL_HEADLAMP_SPD_ROOT`, but no frozen measured source is currently present in the shipped baseline
+- the generator now supports an optional local measured retroreflective input root at `retroreflective_sheeting_brdf_input/` or `RETROREFLECTIVE_SHEETING_BRDF_ROOT`, but no frozen measured source is currently present in the shipped baseline
+- the current retroreflective material contract still uses a shared spectral gain modifier, not a full angle-aware BRDF
 - Generated files still include `generated_at` metadata, but the generator and validator now preserve the previous value by default so clean rebuilds do not churn timestamps unless explicitly overridden.
 - Remote hosting is now active through GitHub, but release automation and measured-data automation are still manual.
 
@@ -73,6 +75,7 @@ Current backlog items from [../validation/reports/measurement_backlog.json](../v
 The automotive sensor backlog item remains open even though `camera_reference_rgb_nir_v2` is now active; the repository still lacks measured automotive SRF data.
 The traffic-signal/headlamp backlog item remains open even though vehicle and protected-turn signal profiles now use vendor-derived public LED fits; the repository still lacks measured capture data and any headlamp-bound replacement curves.
 The emitter backlog item also remains open even though measured-emitter intake support now exists; the repository still lacks a frozen measured signal/headlamp source.
+The retroreflective backlog item also remains open even though measured-intake support now exists for the current shared gain modifier; the repository still lacks a frozen measured source and does not yet support a full angle-aware BRDF contract.
 
 Current priority order for these measured replacements is documented in [measurement-priorities.md](measurement-priorities.md).
 

@@ -11,6 +11,7 @@
 - `PBRT` tutorial for converting generated assets, spectra, and scenarios into a practical render workflow
 - measured automotive camera-SRF intake documentation and local input format
 - measured traffic-signal/headlamp SPD intake documentation and local input format
+- measured retroreflective intake documentation and local input format
 - source-policy documentation for source classifications and blocked-source handling
 - milestone validation checklist and first release checklist
 - measured-replacement priority doc for the four remaining proxy-to-measured backlog items
@@ -35,6 +36,7 @@
 - camera-profile generation now supports an optional frozen measured automotive SRF source with a measured-system activation gate, while keeping `camera_reference_rgb_nir_v2` active when no measured source is present
 - emissive-profile generation now supports an optional frozen measured traffic-signal/headlamp SPD source with a measured activation gate, while keeping vendor-derived signal SPDs active when no measured source is present
 - measured emitter intake now accepts headlamp-only or streetlight-only datasets for `urban_night` augmentation without requiring measured traffic-signal red/yellow/green curves
+- material generation now supports an optional frozen measured retroreflective source with a shared-gain activation gate, while keeping the proxy retroreflective modifier active when no measured source is present
 
 ### Validation
 

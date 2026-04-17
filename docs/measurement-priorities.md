@@ -12,6 +12,7 @@ Current baseline note:
 - `camera_reference_rgb_nir_v2` is now the active generic reference camera, but the top-ranked automotive SRF backlog still remains measured-required
 - the generator now supports freezing and validating a local measured automotive SRF source, but no such frozen source is currently present in the shipped baseline
 - the generator now supports freezing and validating a local measured traffic-signal/headlamp SPD source, but no such frozen source is currently present in the shipped baseline
+- the generator now supports freezing and validating a local measured retroreflective source for the current shared gain path, but no such frozen source is currently present in the shipped baseline and the full angle-aware BRDF contract is still missing
 - the ranked backlog below therefore stays focused on the remaining high-impact camera, emitter, and BRDF gaps
 
 ## Inputs
@@ -70,6 +71,7 @@ Difficulty scale:
 - activating `camera_reference_rgb_nir_v2` does not change the measured status of the top-ranked automotive SRF backlog item
 - adding measured-camera intake support does not change the measured status of the top-ranked automotive SRF backlog item until a real measured source is frozen and activated
 - adding measured-emitter intake support does not change the measured status of the traffic-signal/headlamp backlog item until a real measured source is frozen and activated
+- adding measured retroreflective intake support does not change the measured status of the retroreflective backlog item until a real measured source is frozen, and even then the full BRDF backlog remains open until the angular material contract is expanded
 - dry road/support material baselines are no longer the first material-fidelity gap because selected USGS v7 measured baselines are now active in the repository.
 
 This ranking should be revisited when the catalog or validation-scene mix changes materially.
