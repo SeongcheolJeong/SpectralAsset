@@ -170,6 +170,36 @@
       "variant_key": "service.bus_station.right"
     },
     {
+      "id": "sign_tram_platform_arrow_right",
+      "family": "traffic_sign",
+      "semantic_class": "information.transit_platform",
+      "variant_key": "service.tram_platform.right"
+    },
+    {
+      "id": "sign_bus_platform_arrow_left",
+      "family": "traffic_sign",
+      "semantic_class": "information.transit_platform",
+      "variant_key": "service.bus_platform.left"
+    },
+    {
+      "id": "sign_separator_refuge_arrow_left",
+      "family": "traffic_sign",
+      "semantic_class": "information.separator_refuge",
+      "variant_key": "guide.separator_refuge.left"
+    },
+    {
+      "id": "sign_taxi_arrow_right",
+      "family": "traffic_sign",
+      "semantic_class": "information.taxi",
+      "variant_key": "service.taxi.right"
+    },
+    {
+      "id": "sign_loading_zone_arrow_left",
+      "family": "traffic_sign",
+      "semantic_class": "information.loading_zone",
+      "variant_key": "service.loading_zone.left"
+    },
+    {
       "id": "sign_centro_arrow_right",
       "family": "traffic_sign",
       "semantic_class": "information.centre",
@@ -374,6 +404,18 @@
       "variant_key": "guide.bus_ferry.right_stack"
     },
     {
+      "id": "sign_destination_stack_tram_taxi_left",
+      "family": "traffic_sign",
+      "semantic_class": "information.destination_guide",
+      "variant_key": "guide.tram_taxi.left_stack"
+    },
+    {
+      "id": "sign_destination_stack_platform_refuge_right",
+      "family": "traffic_sign",
+      "semantic_class": "information.destination_guide",
+      "variant_key": "guide.platform_refuge.right_stack"
+    },
+    {
       "id": "sign_overhead_airport_centre_split",
       "family": "traffic_sign",
       "semantic_class": "information.destination_guide",
@@ -426,6 +468,12 @@
       "family": "traffic_sign",
       "semantic_class": "information.destination_guide",
       "variant_key": "guide.overhead.ferry_terminal.right"
+    },
+    {
+      "id": "sign_overhead_platform_refuge_split",
+      "family": "traffic_sign",
+      "semantic_class": "information.destination_guide",
+      "variant_key": "guide.overhead.platform_refuge.split"
     },
     {
       "id": "sign_centre_left_text",

@@ -68,6 +68,8 @@
 - fifty-second `P3` traffic-light batch with bicycle-only lane-control, dual-horizontal pedestrian-wait, transit-priority T-face, bus/tram bar-style specialty heads, and cantilever service-conduit/splice-box detail
 - fifty-third `P3` road-furniture batch with shelter-power pedestals and inverter boxes, ticket-machine and platform-handrail stop utilities, plus signal-base handhole-cover and conduit-riser follow-up detail
 - fifty-fourth `P3` road-marking batch with `TRAM` and `TRAM STOP` transit-platform legends, `DELIVERY` and `NO STOP` curbside-control boxes, plus left/right `KEEP` separator-control panels
+- fifty-fifth `P3` road-surface batch with transit-platform bulbouts and median islands, curbside loading/enforcement bays, and separator-island boarding-refuge/bus-bay-taper follow-up panels
+- fifty-sixth `P3` traffic-sign batch with tram/bus-platform wayfinding panels, taxi/loading-zone service panels, tram/taxi and platform/refuge destination stacks, plus an overhead platform/refuge guide assembly
 
 ### Changed
 
@@ -133,7 +135,8 @@
 - existing validation scenes now place shelter-power pedestals and inverter boxes, ticket-machine and platform-handrail stop utilities, plus signal-base handhole/conduit detail so roadside scenes are broader than the earlier notice/perch and pole-tail-only support follow-up batch
 - existing validation scenes now place `TRAM` and `TRAM STOP` transit-platform legends, `DELIVERY` and `NO STOP` curbside-control boxes, plus left/right `KEEP` separator panels so road-marking scenes are broader than the earlier bus/bike, curbside-reservation, and arrow/chevron-only separator follow-up batches
 - existing validation scenes now place transit-platform bulbouts and median islands, curbside loading/enforcement bays, and separator-island boarding-refuge/bus-bay-taper panels so roadway scenes are broader than the earlier floating-bus-stop, transfer-platform, and separator-island-only follow-up batches
-- backlog focus now moves from `road_surface` transit-platform apron, curbside-control bay, and separator-island follow-up to `traffic_sign` transit-platform wayfinding, curbside-control service-panel, and separator-island guide follow-up after the latest surface batch
+- existing validation scenes now place tram/bus-platform wayfinding panels, taxi/loading-zone service panels, tram/taxi and platform/refuge destination stacks, plus an overhead platform/refuge guide assembly so sign scenes are broader than the earlier transfer-wayfinding, multilingual-service, and overhead-guide follow-up batches
+- backlog focus now moves from `traffic_sign` transit-platform wayfinding, curbside-control service-panel, and separator-island guide follow-up to `traffic_light` transit-platform multimodal nuance, curbside-priority specialty heads, and separator-control follow-up after the latest sign batch
 
 ### Validation
 
@@ -190,6 +193,7 @@
 - validation summary now reports `352` assets, including `102` `road_furniture` assets, `31` emissive profiles, and `356` GLB files after the first fifty-third `P3` expansion batch
 - validation summary now reports `358` assets, including `69` `road_marking` assets, `31` emissive profiles, and `362` GLB files after the first fifty-fourth `P3` expansion batch
 - validation summary now reports `364` assets, including `57` `road_surface` assets, `31` emissive profiles, and `368` GLB files after the first fifty-fifth `P3` expansion batch
+- validation summary now reports `372` assets, including `90` `traffic_sign` assets, `31` emissive profiles, and `376` GLB files after the first fifty-sixth `P3` expansion batch
 - validation summary now includes `3` camera profiles and zero camera-profile validation errors
 - material quality summary now reports `3` `measured_standard`, `1` `measured_derivative`, `23` `project_proxy`, and `0` `vendor_derived` materials
 - emissive profile quality summary now distinguishes vendor-derived vehicle/protected-turn profiles from remaining proxy pedestrian/countdown profiles

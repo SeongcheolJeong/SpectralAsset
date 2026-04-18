@@ -169,6 +169,36 @@
       "30m": "pass",
       "60m": "pass"
     },
+    "sign_tram_platform_arrow_right": {
+      "5m": "pass",
+      "15m": "pass",
+      "30m": "pass",
+      "60m": "pass"
+    },
+    "sign_bus_platform_arrow_left": {
+      "5m": "pass",
+      "15m": "pass",
+      "30m": "pass",
+      "60m": "pass"
+    },
+    "sign_separator_refuge_arrow_left": {
+      "5m": "pass",
+      "15m": "pass",
+      "30m": "pass",
+      "60m": "pass"
+    },
+    "sign_taxi_arrow_right": {
+      "5m": "pass",
+      "15m": "pass",
+      "30m": "pass",
+      "60m": "pass"
+    },
+    "sign_loading_zone_arrow_left": {
+      "5m": "pass",
+      "15m": "pass",
+      "30m": "pass",
+      "60m": "pass"
+    },
     "sign_centro_arrow_right": {
       "5m": "pass",
       "15m": "pass",
@@ -373,6 +403,18 @@
       "30m": "pass",
       "60m": "pass"
     },
+    "sign_destination_stack_tram_taxi_left": {
+      "5m": "pass",
+      "15m": "pass",
+      "30m": "pass",
+      "60m": "pass"
+    },
+    "sign_destination_stack_platform_refuge_right": {
+      "5m": "pass",
+      "15m": "pass",
+      "30m": "pass",
+      "60m": "pass"
+    },
     "sign_overhead_airport_centre_split": {
       "5m": "pass",
       "15m": "pass",
@@ -422,6 +464,12 @@
       "60m": "pass"
     },
     "sign_overhead_ferry_terminal_right": {
+      "5m": "pass",
+      "15m": "pass",
+      "30m": "pass",
+      "60m": "pass"
+    },
+    "sign_overhead_platform_refuge_split": {
       "5m": "pass",
       "15m": "pass",
       "30m": "pass",

@@ -1116,6 +1116,46 @@
           "rotate_y": 0.0
         },
         {
+          "asset_id": "sign_tram_platform_arrow_right",
+          "name": "sign_tram_platform_0",
+          "translate": [
+            -11.9,
+            0.0,
+            -2.75
+          ],
+          "rotate_y": 0.0
+        },
+        {
+          "asset_id": "sign_bus_platform_arrow_left",
+          "name": "sign_bus_platform_0",
+          "translate": [
+            -11.9,
+            0.0,
+            -1.65
+          ],
+          "rotate_y": 0.0
+        },
+        {
+          "asset_id": "sign_separator_refuge_arrow_left",
+          "name": "sign_separator_refuge_0",
+          "translate": [
+            -11.9,
+            0.0,
+            -0.55
+          ],
+          "rotate_y": 0.0
+        },
+        {
+          "asset_id": "sign_destination_stack_tram_taxi_left",
+          "name": "sign_destination_stack_9",
+          "translate": [
+            -11.9,
+            0.0,
+            0.55
+          ],
+          "rotate_y": 0.0
+        },
+        {
           "asset_id": "sign_route_us_101_shield",
           "name": "sign_route_us_101_0",
           "translate": [
@@ -1466,6 +1506,36 @@
           "rotate_y": 180.0
         },
         {
+          "asset_id": "sign_taxi_arrow_right",
+          "name": "sign_taxi_0",
+          "translate": [
+            8.15,
+            0.0,
+            -2.75
+          ],
+          "rotate_y": 180.0
+        },
+        {
+          "asset_id": "sign_loading_zone_arrow_left",
+          "name": "sign_loading_zone_0",
+          "translate": [
+            8.15,
+            0.0,
+            -1.65
+          ],
+          "rotate_y": 180.0
+        },
+        {
+          "asset_id": "sign_destination_stack_platform_refuge_right",
+          "name": "sign_destination_stack_10",
+          "translate": [
+            8.15,
+            0.0,
+            -0.55
+          ],
+          "rotate_y": 180.0
+        },
+        {
           "asset_id": "sign_overhead_centrum_port_split",
           "name": "sign_overhead_centrum_0",
           "translate": [
@@ -1540,6 +1610,16 @@
           "name": "sign_overhead_ferry_0",
           "translate": [
             32.8,
+            0.0,
+            -4.15
+          ],
+          "rotate_y": 0.0
+        },
+        {
+          "asset_id": "sign_overhead_platform_refuge_split",
+          "name": "sign_overhead_platform_refuge_0",
+          "translate": [
+            41.0,
             0.0,
             -4.15
           ],
@@ -3737,12 +3817,62 @@
           "rotate_y": 90.0
         },
         {
+          "asset_id": "sign_tram_platform_arrow_right",
+          "name": "sign_tram_platform_0",
+          "translate": [
+            -3.88,
+            0.0,
+            5.74
+          ],
+          "rotate_y": 90.0
+        },
+        {
+          "asset_id": "sign_bus_platform_arrow_left",
+          "name": "sign_bus_platform_0",
+          "translate": [
+            -3.88,
+            0.0,
+            6.44
+          ],
+          "rotate_y": 90.0
+        },
+        {
+          "asset_id": "sign_separator_refuge_arrow_left",
+          "name": "sign_separator_refuge_0",
+          "translate": [
+            -3.88,
+            0.0,
+            7.14
+          ],
+          "rotate_y": 90.0
+        },
+        {
           "asset_id": "sign_bypass_right_text",
           "name": "sign_bypass_0",
           "translate": [
             3.1,
             0.0,
             2.18
+          ],
+          "rotate_y": 270.0
+        },
+        {
+          "asset_id": "sign_taxi_arrow_right",
+          "name": "sign_taxi_0",
+          "translate": [
+            3.1,
+            0.0,
+            2.9
+          ],
+          "rotate_y": 270.0
+        },
+        {
+          "asset_id": "sign_loading_zone_arrow_left",
+          "name": "sign_loading_zone_0",
+          "translate": [
+            3.1,
+            0.0,
+            3.62
           ],
           "rotate_y": 270.0
         },
@@ -3813,6 +3943,26 @@
             -3.88,
             0.0,
             -4.06
+          ],
+          "rotate_y": 90.0
+        },
+        {
+          "asset_id": "sign_destination_stack_tram_taxi_left",
+          "name": "sign_destination_stack_9",
+          "translate": [
+            -3.88,
+            0.0,
+            -4.78
+          ],
+          "rotate_y": 90.0
+        },
+        {
+          "asset_id": "sign_destination_stack_platform_refuge_right",
+          "name": "sign_destination_stack_10",
+          "translate": [
+            -3.88,
+            0.0,
+            -5.5
           ],
           "rotate_y": 90.0
         },
@@ -3931,6 +4081,16 @@
           "name": "sign_overhead_ferry_0",
           "translate": [
             28.0,
+            0.0,
+            -5.1
+          ],
+          "rotate_y": 0.0
+        },
+        {
+          "asset_id": "sign_overhead_platform_refuge_split",
+          "name": "sign_overhead_platform_refuge_0",
+          "translate": [
+            35.0,
             0.0,
             -5.1
           ],
