@@ -296,6 +296,30 @@
       "variant_key": "lane_control.reversible.2_aspect"
     },
     {
+      "id": "signal_transit_priority_vertical_4_aspect",
+      "family": "traffic_light",
+      "semantic_class": "traffic_light.transit_priority",
+      "variant_key": "transit_priority.vertical.4_aspect"
+    },
+    {
+      "id": "signal_transit_priority_horizontal_4_aspect",
+      "family": "traffic_light",
+      "semantic_class": "traffic_light.transit_priority",
+      "variant_key": "transit_priority.horizontal.4_aspect"
+    },
+    {
+      "id": "signal_directional_arrow_left_3_aspect",
+      "family": "traffic_light",
+      "semantic_class": "traffic_light.directional_arrow",
+      "variant_key": "directional_arrow.left.3_aspect"
+    },
+    {
+      "id": "signal_directional_arrow_right_3_aspect",
+      "family": "traffic_light",
+      "semantic_class": "traffic_light.directional_arrow",
+      "variant_key": "directional_arrow.right.3_aspect"
+    },
+    {
       "id": "signal_rail_crossing_dual_red_vertical",
       "family": "traffic_light",
       "semantic_class": "traffic_light.rail_crossing",

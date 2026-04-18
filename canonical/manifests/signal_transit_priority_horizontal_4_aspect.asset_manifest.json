@@ -1,0 +1,86 @@
+{
+  "id": "signal_transit_priority_horizontal_4_aspect",
+  "family": "traffic_light",
+  "semantic_class": "traffic_light.transit_priority",
+  "variant_key": "transit_priority.horizontal.4_aspect",
+  "dimensions_m": {
+    "width": 1.16,
+    "height": 1.6,
+    "depth": 0.2
+  },
+  "lods": [
+    {
+      "name": "LOD0",
+      "triangle_count": 72,
+      "usd_scope": "/signal_transit_priority_horizontal_4_aspect/LOD0",
+      "gltf_node_prefix": "LOD0"
+    },
+    {
+      "name": "LOD1",
+      "triangle_count": 72,
+      "usd_scope": "/signal_transit_priority_horizontal_4_aspect/LOD1",
+      "gltf_node_prefix": "LOD1"
+    }
+  ],
+  "collider": {
+    "type": "box",
+    "width": 1.16,
+    "height": 0.4,
+    "depth": 0.2
+  },
+  "anchor_points": {
+    "mount_point": {
+      "x": 0.0,
+      "y": 1.2,
+      "z": -0.08
+    },
+    "front_center": {
+      "x": 0.0,
+      "y": 1.4,
+      "z": 0.1
+    }
+  },
+  "materials": [
+    "mat_metal_galvanized",
+    "mat_signal_housing",
+    "mat_signal_lens_red_off",
+    "mat_signal_lens_yellow_off",
+    "mat_signal_ped_white_off"
+  ],
+  "states": {
+    "off": {
+      "emissive_profile": "emissive_transit_priority_standard",
+      "state_key": "off"
+    },
+    "transit_stop": {
+      "emissive_profile": "emissive_transit_priority_standard",
+      "state_key": "transit_stop"
+    },
+    "transit_caution": {
+      "emissive_profile": "emissive_transit_priority_standard",
+      "state_key": "transit_caution"
+    },
+    "transit_go": {
+      "emissive_profile": "emissive_transit_priority_standard",
+      "state_key": "transit_go"
+    },
+    "transit_call": {
+      "emissive_profile": "emissive_transit_priority_standard",
+      "state_key": "transit_call"
+    }
+  },
+  "export_targets": {
+    "usd_ascii": "canonical/geometry/usd/signal_transit_priority_horizontal_4_aspect.usda",
+    "usd_binary": "exports/usd/signal_transit_priority_horizontal_4_aspect.usdc",
+    "gltf_binary": "exports/gltf/signal_transit_priority_horizontal_4_aspect.glb"
+  },
+  "license": {
+    "spdx": "LicenseRef-ProjectGenerated",
+    "redistribution": "geometry, manifests, and templates generated in-repo"
+  },
+  "provenance": {
+    "generated_at": "2026-04-16T10:10:40+00:00",
+    "generated_by": "scripts/build_asset_pack.py",
+    "note": "Generated signal housing geometry with state-driven emissive profile bindings."
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "id": "emissive_directional_arrow_standard",
+  "spd_ref": {
+    "red": "canonical/spectra/spd_signal_red_vendor_ref.npz",
+    "yellow": "canonical/spectra/spd_signal_yellow_vendor_ref.npz",
+    "green": "canonical/spectra/spd_signal_green_vendor_ref.npz"
+  },
+  "state_map": {
+    "off": {},
+    "red_arrow": {
+      "lens_arrow_red": "spd_signal_red_vendor_ref"
+    },
+    "yellow_arrow": {
+      "lens_arrow_yellow": "spd_signal_yellow_vendor_ref"
+    },
+    "green_arrow": {
+      "lens_arrow_green": "spd_signal_green_vendor_ref"
+    },
+    "flashing_yellow_arrow": {
+      "lens_arrow_yellow": "spd_signal_yellow_vendor_ref"
+    }
+  },
+  "nominal_luminance_cd_m2": {
+    "red": 6800,
+    "yellow": 6200,
+    "green": 7600
+  },
+  "temperature_c": 25.0,
+  "driver_mode": "directional_arrow_controller",
+  "source_quality": "vendor_derived",
+  "source_ids": [
+    "osram_lr_q976_01_pdf",
+    "osram_ly_q976_01_pdf",
+    "osram_ltrb_rasf_01_pdf"
+  ],
+  "license": {
+    "spdx": "LicenseRef-VendorDerived",
+    "redistribution": "Derived traffic-signal SPD metadata and fitted curves from public ams-OSRAM datasheets."
+  },
+  "provenance": {
+    "generated_at": "2026-04-16T10:10:40+00:00",
+    "generated_by": "scripts/build_asset_pack.py",
+    "source_ids": [
+      "osram_lr_q976_01_pdf",
+      "osram_ly_q976_01_pdf",
+      "osram_ltrb_rasf_01_pdf"
+    ],
+    "note": "Vendor-derived directional-arrow signal SPD fit from public ams-OSRAM red, yellow, and true-green LED datasheets."
+  },
+  "derivation_method": {
+    "type": "public_doc_curve_fit",
+    "note": "Gaussian LED fits anchored to official public ams-OSRAM traffic-signal LED datasheets."
+  }
+}

@@ -1,6 +1,6 @@
 {
   "generated_at": "2026-04-16T10:10:40.000Z",
-  "files_checked": 131,
+  "files_checked": 135,
   "files_with_errors": 0,
   "files_with_warnings": 0,
   "results": [
@@ -845,6 +845,20 @@
       "messages": []
     },
     {
+      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/signal_directional_arrow_left_3_aspect.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
+      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/signal_directional_arrow_right_3_aspect.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
       "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/signal_lane_control_overhead_3_aspect.glb",
       "numErrors": 0,
       "numWarnings": 0,
@@ -888,6 +902,20 @@
     },
     {
       "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/signal_rail_crossing_dual_red_vertical.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
+      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/signal_transit_priority_horizontal_4_aspect.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
+      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/signal_transit_priority_vertical_4_aspect.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,

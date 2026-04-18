@@ -167,6 +167,20 @@ def Xform "scene_wet_road_braking" {
         float xformOp:rotateY = 180.000000
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
     }
+    def Xform "transit_priority_horizontal_0" (
+        references = @../geometry/usd/signal_transit_priority_horizontal_4_aspect.usda@</signal_transit_priority_horizontal_4_aspect>
+    ) {
+        double3 xformOp:translate = (-1.520000, 0.000000, -1.380000)
+        float xformOp:rotateY = 0.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
+    def Xform "directional_arrow_right_0" (
+        references = @../geometry/usd/signal_directional_arrow_right_3_aspect.usda@</signal_directional_arrow_right_3_aspect>
+    ) {
+        double3 xformOp:translate = (2.050000, 0.000000, 1.020000)
+        float xformOp:rotateY = 180.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
     def Xform "cone_0" (
         references = @../geometry/usd/furniture_traffic_cone.usda@</furniture_traffic_cone>
     ) {

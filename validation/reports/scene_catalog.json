@@ -1087,6 +1087,46 @@
           "rotate_y": 90.0
         },
         {
+          "asset_id": "signal_transit_priority_vertical_4_aspect",
+          "name": "transit_priority_vertical_0",
+          "translate": [
+            -2.18,
+            0.0,
+            1.92
+          ],
+          "rotate_y": 90.0
+        },
+        {
+          "asset_id": "signal_transit_priority_horizontal_4_aspect",
+          "name": "transit_priority_horizontal_0",
+          "translate": [
+            0.42,
+            0.0,
+            -2.84
+          ],
+          "rotate_y": 0.0
+        },
+        {
+          "asset_id": "signal_directional_arrow_left_3_aspect",
+          "name": "directional_arrow_left_0",
+          "translate": [
+            -0.96,
+            0.0,
+            -2.0
+          ],
+          "rotate_y": 0.0
+        },
+        {
+          "asset_id": "signal_directional_arrow_right_3_aspect",
+          "name": "directional_arrow_right_0",
+          "translate": [
+            2.64,
+            0.0,
+            -0.5
+          ],
+          "rotate_y": 90.0
+        },
+        {
           "asset_id": "furniture_delineator_post",
           "name": "delineator_0",
           "translate": [
@@ -1508,6 +1548,26 @@
           "rotate_y": 0.0
         },
         {
+          "asset_id": "signal_transit_priority_vertical_4_aspect",
+          "name": "transit_priority_vertical_0",
+          "translate": [
+            2.42,
+            0.0,
+            1.62
+          ],
+          "rotate_y": 180.0
+        },
+        {
+          "asset_id": "signal_directional_arrow_left_3_aspect",
+          "name": "directional_arrow_left_0",
+          "translate": [
+            2.22,
+            0.0,
+            -1.2
+          ],
+          "rotate_y": 180.0
+        },
+        {
           "asset_id": "furniture_bollard_flexible",
           "name": "bollard_0",
           "translate": [
@@ -1773,6 +1833,26 @@
           "name": "lane_control_reversible_0",
           "translate": [
             2.45,
+            0.0,
+            1.02
+          ],
+          "rotate_y": 180.0
+        },
+        {
+          "asset_id": "signal_transit_priority_horizontal_4_aspect",
+          "name": "transit_priority_horizontal_0",
+          "translate": [
+            -1.52,
+            0.0,
+            -1.38
+          ],
+          "rotate_y": 0.0
+        },
+        {
+          "asset_id": "signal_directional_arrow_right_3_aspect",
+          "name": "directional_arrow_right_0",
+          "translate": [
+            2.05,
             0.0,
             1.02
           ],

@@ -6,9 +6,9 @@ This file explains what the generator actually creates in this repository and ho
 
 Current generated baseline:
 
-- `127` assets
+- `131` assets
 - `23` spectral materials
-- `11` emissive profiles
+- `13` emissive profiles
 - `3` camera profiles
 - `4` scenario profiles
 - `4` validation scenes
@@ -87,6 +87,10 @@ These are signal housings such as:
 - `signal_warning_dual_red_horizontal`
 - `signal_lane_control_overhead_3_aspect`
 - `signal_lane_control_reversible_2_aspect`
+- `signal_transit_priority_vertical_4_aspect`
+- `signal_transit_priority_horizontal_4_aspect`
+- `signal_directional_arrow_left_3_aspect`
+- `signal_directional_arrow_right_3_aspect`
 - `signal_rail_crossing_dual_red_vertical`
 - `signal_rail_crossing_dual_red_horizontal`
 
@@ -100,6 +104,8 @@ Each signal usually has:
 The newer specialized signal heads now also include:
 
 - lane-control state maps for red `X`, yellow merge arrow, and green open-lane arrow behavior
+- transit-priority state maps for stop, caution, go, and call indications
+- directional-arrow state maps for red, yellow, green, and flashing yellow arrow behavior
 - rail-crossing state maps for left, right, or paired red flashing behavior
 
 ### `road_surface`
@@ -227,6 +233,8 @@ Current specialized additions include:
 
 - `emissive_lane_control_standard`
 - `emissive_lane_control_reversible`
+- `emissive_transit_priority_standard`
+- `emissive_directional_arrow_standard`
 - `emissive_rail_crossing_dual_red`
 
 ### Camera profiles

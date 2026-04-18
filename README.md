@@ -55,6 +55,7 @@ For deterministic rebuild review, the generator now preserves the previous track
 - the fifteenth `P3` expansion batch now adds bus/bike legends, hatched median/island panels, and right-turn or straight-right arrow variants so the road-marking family has broader lane-use and channelization depth
 - the sixteenth `P3` expansion batch now adds hospital, parking, hotel, airport, truck-route, bypass, and centre wayfinding panels so the sign family has broader route/service depth
 - the seventeenth `P3` expansion batch now adds a crowned rural lane, two dirt-track panels, a bridge expansion-joint panel, and a lane-drop transition panel so the road-surface family extends beyond the earlier urban repair and gravel-shoulder breadth pass
+- the eighteenth `P3` expansion batch now adds transit-priority and directional-arrow signal heads so the traffic-light family extends beyond the earlier beacon, lane-control, rail-crossing, and warning-flasher specialization passes
 - selected USGS v7 dry-material baselines are used for asphalt, concrete, and galvanized metal
 - wet asphalt is currently a measured-derived material built from the measured dry asphalt baseline plus the tracked wet modifier
 - vehicle and protected-turn traffic-signal emissive profiles now use vendor-derived public LED fits
