@@ -22,7 +22,7 @@ This repository is not yet targeting release automation or measured replacement 
 
 Current truth from [../validation/reports/validation_summary.json](../validation/reports/validation_summary.json):
 
-- `358` assets
+- `364` assets
 - `27` spectral materials
 - `31` emissive profiles
 - `3` camera profiles
@@ -31,14 +31,14 @@ Current truth from [../validation/reports/validation_summary.json](../validation
 
 Additional baseline facts:
 
-- `362` GLB files currently validate with `0` errors and `0` warnings in [../validation/reports/gltf_validation.json](../validation/reports/gltf_validation.json)
+- `368` GLB files currently validate with `0` errors and `0` warnings in [../validation/reports/gltf_validation.json](../validation/reports/gltf_validation.json)
 - release gates currently pass for the generated baseline
 - raw-source ledger currently tracks `37` source entries
 - material quality summary currently reports `3` `measured_standard`, `1` `measured_derivative`, `23` `project_proxy`, and `0` `vendor_derived` materials
 - emissive-profile quality summary currently reports `18` `vendor_derived` and `13` `project_proxy` profiles
 - camera-profile quality summary currently reports `3` `vendor_derived` profiles, with `camera_reference_rgb_nir_v3` active in all scenarios
 - `urban_night` currently uses public `LED-B4` and `LED-B3` priors for headlamp/streetlight contribution when measured emitter data is absent
-- the first fifty-four `P3` coverage-expansion batches raised `traffic_sign` from `18` to `82` standalone assets, `road_furniture` from `4` to `102`, `road_marking` from `4` to `69`, `road_surface` from `4` to `51`, and `traffic_light` from `5` to `54`
+- the first fifty-five `P3` coverage-expansion batches raised `traffic_sign` from `18` to `82` standalone assets, `road_furniture` from `4` to `102`, `road_marking` from `4` to `69`, `road_surface` from `4` to `57`, and `traffic_light` from `5` to `54`
 - traffic-light scenes now place standalone support-context assets including backplates, a mast hanger, side-mount hardware, cabinet variants, a junction box, beacon/warning heads, and lane-control or rail-specific heads
 - sign-focused scenes now place standalone sign backs and mounting brackets for representative sign families instead of implying that assembly depth only through the sign meshes
 - sign-focused scenes now also exercise weathered stop, speed-limit, and pedestrian-crossing variants plus English text-bearing one-way and detour panels instead of limiting the sign family to the original symbol-only starter set
@@ -86,7 +86,7 @@ Additional baseline facts:
 - the current validation scenes now also exercise red `NO PARK` and green `PERMIT` curbside-reservation boxes, `DROP OFF` and `KISS RIDE` school-dropoff stencils, and left/right separator-arrow panels instead of limiting the latest localized marking pass to earlier school-zone legends, queue boxes, curbside arrows, and generic separator buffers
 - the current validation scenes now also exercise roundabout truck-apron, outer-ring-edge, and bypass-slip-lane panels, retaining-wall cut, shoulder-shelf, and abutment transitions, plus deeper shoefly, staging-pad, laydown-bay, and temporary-access work-zone surfaces instead of limiting later roadway depth to ramp-gore, median-nose, and earlier crossover/chicane composites alone
 - the current validation scenes now also exercise bus-bay pullout, service-lane apron, curbside drop-off, alley-access, slip-lane pedestrian-island, and mountable-apron corner panels instead of limiting curbside roadway breadth to earlier gutter, curb-bulbout, and roundabout/bypass composites alone
-- the current validation scenes now also exercise floating bus-stop islands, transfer platforms, separator-island taper/refuge panels, and left-hand contraflow or detour-staging work-zone surfaces instead of limiting later roadway breadth to earlier curbside-access, mountable-apron, and generic staging-only composites
+- the current validation scenes now also exercise floating bus-stop islands, transfer platforms, transit-platform bulbouts and median islands, curbside loading/enforcement bays, separator-island taper/refuge/boarding-refuge/bus-bay-taper panels, and left-hand contraflow or detour-staging work-zone surfaces instead of limiting later roadway breadth to earlier curbside-access, mountable-apron, and generic staging-only composites
 
 ## Repository Structure
 

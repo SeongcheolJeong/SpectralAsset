@@ -1,6 +1,6 @@
 {
   "generated_at": "2026-04-16T10:10:40.000Z",
-  "files_checked": 362,
+  "files_checked": 368,
   "files_with_errors": 0,
   "files_with_warnings": 0,
   "results": [
@@ -1328,6 +1328,20 @@
       "messages": []
     },
     {
+      "file": "exports/gltf/road_curbside_enforcement_apron.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
+      "file": "exports/gltf/road_curbside_loading_bay.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
       "file": "exports/gltf/road_dirt_track_dual_rut.glb",
       "numErrors": 0,
       "numWarnings": 0,
@@ -1461,6 +1475,20 @@
       "messages": []
     },
     {
+      "file": "exports/gltf/road_separator_island_boarding_refuge.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
+      "file": "exports/gltf/road_separator_island_bus_bay_taper.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
       "file": "exports/gltf/road_separator_island_offset_refuge.glb",
       "numErrors": 0,
       "numWarnings": 0,
@@ -1490,6 +1518,20 @@
     },
     {
       "file": "exports/gltf/road_slip_lane_ped_island.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
+      "file": "exports/gltf/road_transit_platform_bulbout.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
+      "file": "exports/gltf/road_transit_platform_median_island.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
