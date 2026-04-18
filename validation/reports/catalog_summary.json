@@ -1304,6 +1304,12 @@
       "variant_key": "bike_white"
     },
     {
+      "id": "marking_tram_text_white",
+      "family": "road_marking",
+      "semantic_class": "marking.transit_platform",
+      "variant_key": "tram_white"
+    },
+    {
       "id": "marking_bus_only_box_white",
       "family": "road_marking",
       "semantic_class": "marking.word_legend_box",
@@ -1314,6 +1320,12 @@
       "family": "road_marking",
       "semantic_class": "marking.curbside_box",
       "variant_key": "bus_stop_box_white"
+    },
+    {
+      "id": "marking_tram_stop_box_white",
+      "family": "road_marking",
+      "semantic_class": "marking.transit_platform",
+      "variant_key": "tram_stop_box_white"
     },
     {
       "id": "marking_bike_box_white",
@@ -1328,6 +1340,12 @@
       "variant_key": "loading_zone_box_white"
     },
     {
+      "id": "marking_delivery_box_white",
+      "family": "road_marking",
+      "semantic_class": "marking.curbside_control",
+      "variant_key": "delivery_box_white"
+    },
+    {
       "id": "marking_school_bus_box_white",
       "family": "road_marking",
       "semantic_class": "marking.school_queue",
@@ -1338,6 +1356,12 @@
       "family": "road_marking",
       "semantic_class": "marking.curbside_reservation",
       "variant_key": "no_parking_box_red"
+    },
+    {
+      "id": "marking_no_stopping_box_red",
+      "family": "road_marking",
+      "semantic_class": "marking.curbside_control",
+      "variant_key": "no_stopping_box_red"
     },
     {
       "id": "marking_permit_only_box_green",
@@ -1428,6 +1452,18 @@
       "family": "road_marking",
       "semantic_class": "marking.separator_arrow",
       "variant_key": "right_white"
+    },
+    {
+      "id": "marking_separator_keep_left_white",
+      "family": "road_marking",
+      "semantic_class": "marking.separator_control",
+      "variant_key": "keep_left_white"
+    },
+    {
+      "id": "marking_separator_keep_right_white",
+      "family": "road_marking",
+      "semantic_class": "marking.separator_control",
+      "variant_key": "keep_right_white"
     },
     {
       "id": "marking_separator_chevron_left_white",

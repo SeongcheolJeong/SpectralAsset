@@ -67,6 +67,7 @@
 - fifty-first `P3` road-furniture batch with slim/aux cantilever controller boxes, pole-tail riser/service-loop hardware, and bus-stop notice/perch follow-up accessories
 - fifty-second `P3` traffic-light batch with bicycle-only lane-control, dual-horizontal pedestrian-wait, transit-priority T-face, bus/tram bar-style specialty heads, and cantilever service-conduit/splice-box detail
 - fifty-third `P3` road-furniture batch with shelter-power pedestals and inverter boxes, ticket-machine and platform-handrail stop utilities, plus signal-base handhole-cover and conduit-riser follow-up detail
+- fifty-fourth `P3` road-marking batch with `TRAM` and `TRAM STOP` transit-platform legends, `DELIVERY` and `NO STOP` curbside-control boxes, plus left/right `KEEP` separator-control panels
 
 ### Changed
 
@@ -130,7 +131,8 @@
 - existing validation scenes now place bus-only lane-control, bar-style transit-priority, diagonal dual-lunar preemption, compact vertical amber-warning, and compact bicycle lane-control heads plus cantilever arm-junction-box and end-cap detail so traffic-light scenes are broader than the earlier compact multimodal-control and backspan/brace-only cantilever follow-up batch
 - existing validation scenes now place slim/aux cantilever controller boxes, pole-tail riser/service-loop hardware, and bus-stop notice/perch follow-up pieces so roadside scenes are broader than the earlier arm-junction-box/end-cap and help-point/request-pole-only transit microsupport batch
 - existing validation scenes now place shelter-power pedestals and inverter boxes, ticket-machine and platform-handrail stop utilities, plus signal-base handhole/conduit detail so roadside scenes are broader than the earlier notice/perch and pole-tail-only support follow-up batch
-- backlog focus now moves from `road_furniture` shelter-power, stop-platform utility, and signal-base follow-up to `road_marking` transit-platform legends, curbside-control follow-up, and separator-bay nuance after the latest roadside-support batch
+- existing validation scenes now place `TRAM` and `TRAM STOP` transit-platform legends, `DELIVERY` and `NO STOP` curbside-control boxes, plus left/right `KEEP` separator panels so road-marking scenes are broader than the earlier bus/bike, curbside-reservation, and arrow/chevron-only separator follow-up batches
+- backlog focus now moves from `road_marking` transit-platform legends, curbside-control follow-up, and separator-bay nuance to `road_surface` transit-platform apron, curbside-control bay, and separator-island follow-up after the latest marking batch
 
 ### Validation
 
@@ -185,6 +187,7 @@
 - validation summary now reports `339` assets, including `94` `road_furniture` assets, `29` emissive profiles, and `343` GLB files after the first fifty-first `P3` expansion batch
 - validation summary now reports `346` assets, including `54` `traffic_light` assets, `96` `road_furniture` assets, `31` emissive profiles, and `350` GLB files after the first fifty-second `P3` expansion batch
 - validation summary now reports `352` assets, including `102` `road_furniture` assets, `31` emissive profiles, and `356` GLB files after the first fifty-third `P3` expansion batch
+- validation summary now reports `358` assets, including `69` `road_marking` assets, `31` emissive profiles, and `362` GLB files after the first fifty-fourth `P3` expansion batch
 - validation summary now includes `3` camera profiles and zero camera-profile validation errors
 - material quality summary now reports `3` `measured_standard`, `1` `measured_derivative`, `23` `project_proxy`, and `0` `vendor_derived` materials
 - emissive profile quality summary now distinguishes vendor-derived vehicle/protected-turn profiles from remaining proxy pedestrian/countdown profiles

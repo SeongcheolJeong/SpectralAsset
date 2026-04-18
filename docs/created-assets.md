@@ -6,7 +6,7 @@ This file explains what the generator actually creates in this repository and ho
 
 Current generated baseline:
 
-- `352` assets
+- `358` assets
 - `27` spectral materials
 - `31` emissive profiles
 - `3` camera profiles
