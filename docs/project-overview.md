@@ -22,23 +22,23 @@ This repository is not yet targeting release automation or measured replacement 
 
 Current truth from [../validation/reports/validation_summary.json](../validation/reports/validation_summary.json):
 
-- `326` assets
+- `333` assets
 - `27` spectral materials
-- `27` emissive profiles
+- `29` emissive profiles
 - `3` camera profiles
 - `4` scenario profiles
 - `4` validation scenes
 
 Additional baseline facts:
 
-- `330` GLB files currently validate with `0` errors and `0` warnings in [../validation/reports/gltf_validation.json](../validation/reports/gltf_validation.json)
+- `337` GLB files currently validate with `0` errors and `0` warnings in [../validation/reports/gltf_validation.json](../validation/reports/gltf_validation.json)
 - release gates currently pass for the generated baseline
 - raw-source ledger currently tracks `37` source entries
 - material quality summary currently reports `3` `measured_standard`, `1` `measured_derivative`, `23` `project_proxy`, and `0` `vendor_derived` materials
-- emissive-profile quality summary currently reports `15` `vendor_derived` and `12` `project_proxy` profiles
+- emissive-profile quality summary currently reports `16` `vendor_derived` and `13` `project_proxy` profiles
 - camera-profile quality summary currently reports `3` `vendor_derived` profiles, with `camera_reference_rgb_nir_v3` active in all scenarios
 - `urban_night` currently uses public `LED-B4` and `LED-B3` priors for headlamp/streetlight contribution when measured emitter data is absent
-- the first forty-nine `P3` coverage-expansion batches raised `traffic_sign` from `18` to `82` standalone assets, `road_furniture` from `4` to `86`, `road_marking` from `4` to `63`, `road_surface` from `4` to `51`, and `traffic_light` from `5` to `44`
+- the first fifty `P3` coverage-expansion batches raised `traffic_sign` from `18` to `82` standalone assets, `road_furniture` from `4` to `88`, `road_marking` from `4` to `63`, `road_surface` from `4` to `51`, and `traffic_light` from `5` to `49`
 - traffic-light scenes now place standalone support-context assets including backplates, a mast hanger, side-mount hardware, cabinet variants, a junction box, beacon/warning heads, and lane-control or rail-specific heads
 - sign-focused scenes now place standalone sign backs and mounting brackets for representative sign families instead of implying that assembly depth only through the sign meshes
 - sign-focused scenes now also exercise weathered stop, speed-limit, and pedestrian-crossing variants plus English text-bearing one-way and detour panels instead of limiting the sign family to the original symbol-only starter set
@@ -63,6 +63,7 @@ Additional baseline facts:
 - the current validation scenes now also exercise compact lane-control, single-amber school-warning, compact bus/tram-priority, and vertical dual-lunar preemption heads plus a curved cantilever mast and triple-dropper subtype instead of limiting the latest traffic-light depth to the earlier full-size specialty-control and single cantilever-frame subtype pass
 - the current validation scenes now also exercise vertical amber/red warning flashers, a quad-lunar preemption box head, and localized diamond-style bus/tram heads plus single and quad cantilever droppers instead of limiting the latest traffic-light depth to earlier compact specialty-control and dual-lunar edge-case passes
 - the current validation scenes now also exercise compact bicycle and pedestrian-bicycle heads, a transit-priority diamond head, a dual-amber warning box, and a dual-lunar preemption box plus cantilever backspan, diagonal-brace, and mount-plate follow-up hardware instead of limiting the latest traffic-light depth to earlier compact bus/tram-control, quad-lunar, and dropper-only cantilever follow-up passes
+- the current validation scenes now also exercise bus-only lane-control, bar-style transit-priority, diagonal dual-lunar preemption, compact vertical amber-warning, and compact bicycle lane-control heads plus cantilever arm-junction-box and end-cap detail instead of limiting the latest traffic-light depth to earlier compact multimodal-control, warning-box, and backspan/brace-only cantilever follow-up passes
 - the current validation scenes now also exercise secondary road-marking variants including worn crossings/stops, yellow centerline families, `ONLY` and `STOP` word legends, and white/yellow/bi-color raised-marker strips
 - the current validation scenes now also exercise bus/bike legends, hatched median/island panels, and right-turn or straight-right arrow variants instead of limiting road-marking depth to centerlines, merge arrows, and basic word legends alone
 - the current validation scenes now also exercise utility poles, smaller cabinet/junction variants, service disconnects, meter pedestals, battery-backup cabinets, pull boxes, pad-mount transformers, and explicit sign/signal attachment hardware
@@ -73,6 +74,7 @@ Additional baseline facts:
 - the current validation scenes now also exercise cantilever anchor-cage and footing-collar detail, rail power-disconnect and relay-case ancillaries, and validator-pedestal or timetable-blade transit microsupport instead of limiting the latest roadside follow-up to frame/dropper-only cantilever detail and earlier shelter/totem curbside context
 - the current validation scenes now also exercise cantilever service ladders/platforms, a rail bungalow and battery box, curbside queue-stanchion or boarding-guardrail support detail, and newer `WAIT`/`QUEUE`, `VALET`/`EV ONLY`, and separator-chevron marking follow-up instead of limiting the latest curbside depth to queue-rail-only support context or earlier `NO PARK`/`PERMIT` and separator-arrow-only markings
 - the current validation scenes now also exercise cantilever cable-tray and maintenance-hoist hardware, rail predictor/service-post ancillaries, and bus-stop help-point/request-pole microsupport instead of limiting the latest roadside follow-up to ladders/platforms, bungalow/battery-box detail, and validator/timetable-only curbside microsupport
+- the current validation scenes now also exercise cantilever arm-junction-box and end-cap detail so the newest signal-support follow-up no longer stops at cable-tray, maintenance-hoist, or backspan/brace-only cantilever hardware
 - the current validation scenes now also exercise boxed `BUS ONLY`, `BUS STOP`, `BIKE`, and `LOAD` legends plus red/green curbside lane panels, curb-color segments, loading zigzag delimiters, and red/green conflict-zone surfacing instead of limiting road-marking depth to unboxed word legends and monochrome striping
 - the current validation scenes now also exercise turn-pocket `ONLY` stencils, `SCHOOL` legends, `SCHOOL BUS` queue boxes, and curbside left/right arrows instead of limiting the latest curbside and school-zone marking depth to boxed legends and conflict-zone surfacing alone
 - the current validation scenes now also exercise `SLOW` and `XING` school-zone legends, white/green separator-buffer panels, and pick-up or taxi curbside boxes instead of limiting the latest localized marking pass to earlier school-bus, curbside-arrow, and generic colored-panel coverage

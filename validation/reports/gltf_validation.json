@@ -1,6 +1,6 @@
 {
   "generated_at": "2026-04-16T10:10:40.000Z",
-  "files_checked": 330,
+  "files_checked": 337,
   "files_with_errors": 0,
   "files_with_warnings": 0,
   "results": [
@@ -390,6 +390,13 @@
       "messages": []
     },
     {
+      "file": "exports/gltf/furniture_signal_cantilever_arm_junction_box.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
       "file": "exports/gltf/furniture_signal_cantilever_backspan_stub.glb",
       "numErrors": 0,
       "numWarnings": 0,
@@ -440,6 +447,13 @@
     },
     {
       "file": "exports/gltf/furniture_signal_cantilever_dropper_triple.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
+      "file": "exports/gltf/furniture_signal_cantilever_end_cap.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
@@ -2028,6 +2042,13 @@
       "messages": []
     },
     {
+      "file": "exports/gltf/signal_bicycle_lane_control_compact_2_aspect.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
       "file": "exports/gltf/signal_bicycle_vertical_3_aspect.glb",
       "numErrors": 0,
       "numWarnings": 0,
@@ -2078,6 +2099,13 @@
     },
     {
       "file": "exports/gltf/signal_directional_arrow_uturn_3_aspect.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
+      "file": "exports/gltf/signal_lane_control_bus_only_2_aspect.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
@@ -2141,6 +2169,13 @@
     },
     {
       "file": "exports/gltf/signal_preemption_beacon_dual_lunar_box.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
+      "file": "exports/gltf/signal_preemption_beacon_dual_lunar_diagonal.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
@@ -2245,6 +2280,13 @@
       "messages": []
     },
     {
+      "file": "exports/gltf/signal_transit_priority_bar_4_aspect.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
       "file": "exports/gltf/signal_transit_priority_diamond_3_aspect.glb",
       "numErrors": 0,
       "numWarnings": 0,
@@ -2281,6 +2323,13 @@
     },
     {
       "file": "exports/gltf/signal_warning_dual_amber_box.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
+      "file": "exports/gltf/signal_warning_dual_amber_compact_vertical.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,

@@ -758,6 +758,36 @@
       "variant_key": "tram_priority.diamond.3_aspect"
     },
     {
+      "id": "signal_lane_control_bus_only_2_aspect",
+      "family": "traffic_light",
+      "semantic_class": "traffic_light.lane_control_bus",
+      "variant_key": "lane_control.bus_only.2_aspect"
+    },
+    {
+      "id": "signal_transit_priority_bar_4_aspect",
+      "family": "traffic_light",
+      "semantic_class": "traffic_light.transit_priority_bar",
+      "variant_key": "transit_priority.bar.4_aspect"
+    },
+    {
+      "id": "signal_preemption_beacon_dual_lunar_diagonal",
+      "family": "traffic_light",
+      "semantic_class": "traffic_light.preemption_beacon",
+      "variant_key": "preemption.lunar.dual_diagonal"
+    },
+    {
+      "id": "signal_warning_dual_amber_compact_vertical",
+      "family": "traffic_light",
+      "semantic_class": "traffic_light.warning_flasher",
+      "variant_key": "warning_flasher.dual_amber.compact_vertical"
+    },
+    {
+      "id": "signal_bicycle_lane_control_compact_2_aspect",
+      "family": "traffic_light",
+      "semantic_class": "traffic_light.bicycle_lane_control",
+      "variant_key": "bicycle.lane_control.compact.2_aspect"
+    },
+    {
       "id": "road_asphalt_dry",
       "family": "road_surface",
       "semantic_class": "road.asphalt",
@@ -1656,6 +1686,18 @@
       "family": "road_furniture",
       "semantic_class": "furniture.signal_cantilever_service",
       "variant_key": "maintenance_hoist"
+    },
+    {
+      "id": "furniture_signal_cantilever_arm_junction_box",
+      "family": "road_furniture",
+      "semantic_class": "furniture.signal_cantilever_service",
+      "variant_key": "arm_junction_box"
+    },
+    {
+      "id": "furniture_signal_cantilever_end_cap",
+      "family": "road_furniture",
+      "semantic_class": "furniture.signal_cantilever_mount",
+      "variant_key": "arm_end_cap"
     },
     {
       "id": "furniture_signal_controller_cabinet",

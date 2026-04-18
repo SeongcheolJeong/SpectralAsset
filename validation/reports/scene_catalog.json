@@ -2367,6 +2367,26 @@
           "rotate_y": 180.0
         },
         {
+          "asset_id": "furniture_signal_cantilever_arm_junction_box",
+          "name": "cantilever_arm_junction_box_0",
+          "translate": [
+            6.48,
+            0.0,
+            -2.02
+          ],
+          "rotate_y": 180.0
+        },
+        {
+          "asset_id": "furniture_signal_cantilever_end_cap",
+          "name": "cantilever_end_cap_0",
+          "translate": [
+            18.02,
+            0.0,
+            -2.24
+          ],
+          "rotate_y": 180.0
+        },
+        {
           "asset_id": "furniture_signal_cantilever_dropper_triple",
           "name": "cantilever_dropper_triple_0",
           "translate": [
@@ -3147,6 +3167,46 @@
           "rotate_y": 0.0
         },
         {
+          "asset_id": "signal_lane_control_bus_only_2_aspect",
+          "name": "lane_control_bus_only_0",
+          "translate": [
+            18.92,
+            0.0,
+            -2.24
+          ],
+          "rotate_y": 0.0
+        },
+        {
+          "asset_id": "signal_transit_priority_bar_4_aspect",
+          "name": "transit_priority_bar_0",
+          "translate": [
+            19.86,
+            0.0,
+            -2.24
+          ],
+          "rotate_y": 0.0
+        },
+        {
+          "asset_id": "signal_preemption_beacon_dual_lunar_diagonal",
+          "name": "preemption_dual_diagonal_0",
+          "translate": [
+            20.84,
+            0.0,
+            -2.24
+          ],
+          "rotate_y": 0.0
+        },
+        {
+          "asset_id": "signal_warning_dual_amber_compact_vertical",
+          "name": "warning_amber_compact_vertical_0",
+          "translate": [
+            21.72,
+            0.0,
+            -2.24
+          ],
+          "rotate_y": 0.0
+        },
+        {
           "asset_id": "signal_bus_priority_compact_3_aspect",
           "name": "bus_priority_compact_0",
           "translate": [
@@ -3165,6 +3225,16 @@
             0.24
           ],
           "rotate_y": 90.0
+        },
+        {
+          "asset_id": "signal_bicycle_lane_control_compact_2_aspect",
+          "name": "bicycle_lane_control_compact_0",
+          "translate": [
+            4.82,
+            0.0,
+            1.34
+          ],
+          "rotate_y": 180.0
         },
         {
           "asset_id": "sign_overhead_truck_bypass_right",
@@ -3948,6 +4018,26 @@
           "rotate_y": 180.0
         },
         {
+          "asset_id": "furniture_signal_cantilever_arm_junction_box",
+          "name": "cantilever_arm_junction_box_0",
+          "translate": [
+            5.58,
+            0.0,
+            -1.32
+          ],
+          "rotate_y": 180.0
+        },
+        {
+          "asset_id": "furniture_signal_cantilever_end_cap",
+          "name": "cantilever_end_cap_0",
+          "translate": [
+            12.54,
+            0.0,
+            -1.54
+          ],
+          "rotate_y": 180.0
+        },
+        {
           "asset_id": "furniture_signal_hanger_clamp_pair",
           "name": "hanger_clamp_pair_0",
           "translate": [
@@ -4264,6 +4354,56 @@
             7.22,
             0.0,
             -1.54
+          ],
+          "rotate_y": 180.0
+        },
+        {
+          "asset_id": "signal_lane_control_bus_only_2_aspect",
+          "name": "lane_control_bus_only_0",
+          "translate": [
+            8.26,
+            0.0,
+            -1.54
+          ],
+          "rotate_y": 180.0
+        },
+        {
+          "asset_id": "signal_transit_priority_bar_4_aspect",
+          "name": "transit_priority_bar_0",
+          "translate": [
+            4.46,
+            0.0,
+            1.62
+          ],
+          "rotate_y": 180.0
+        },
+        {
+          "asset_id": "signal_preemption_beacon_dual_lunar_diagonal",
+          "name": "preemption_dual_diagonal_0",
+          "translate": [
+            0.02,
+            0.0,
+            1.46
+          ],
+          "rotate_y": 0.0
+        },
+        {
+          "asset_id": "signal_warning_dual_amber_compact_vertical",
+          "name": "warning_amber_compact_vertical_0",
+          "translate": [
+            -0.04,
+            0.0,
+            2.2
+          ],
+          "rotate_y": 0.0
+        },
+        {
+          "asset_id": "signal_bicycle_lane_control_compact_2_aspect",
+          "name": "bicycle_lane_control_compact_0",
+          "translate": [
+            4.96,
+            0.0,
+            1.62
           ],
           "rotate_y": 180.0
         },
@@ -4929,6 +5069,26 @@
           "rotate_y": 0.0
         },
         {
+          "asset_id": "furniture_signal_cantilever_arm_junction_box",
+          "name": "cantilever_arm_junction_box_0",
+          "translate": [
+            3.12,
+            0.0,
+            -1.62
+          ],
+          "rotate_y": 180.0
+        },
+        {
+          "asset_id": "furniture_signal_cantilever_end_cap",
+          "name": "cantilever_end_cap_0",
+          "translate": [
+            9.16,
+            0.0,
+            -1.86
+          ],
+          "rotate_y": 180.0
+        },
+        {
           "asset_id": "furniture_signal_cantilever_dropper_triple",
           "name": "cantilever_dropper_triple_0",
           "translate": [
@@ -5179,6 +5339,16 @@
           "rotate_y": 0.0
         },
         {
+          "asset_id": "signal_preemption_beacon_dual_lunar_diagonal",
+          "name": "preemption_dual_diagonal_0",
+          "translate": [
+            0.12,
+            0.0,
+            -0.8
+          ],
+          "rotate_y": 0.0
+        },
+        {
           "asset_id": "furniture_queue_rail_module",
           "name": "queue_rail_0",
           "translate": [
@@ -5319,6 +5489,16 @@
           "rotate_y": 180.0
         },
         {
+          "asset_id": "signal_lane_control_bus_only_2_aspect",
+          "name": "lane_control_bus_only_0",
+          "translate": [
+            2.92,
+            0.0,
+            1.02
+          ],
+          "rotate_y": 180.0
+        },
+        {
           "asset_id": "signal_transit_priority_horizontal_4_aspect",
           "name": "transit_priority_horizontal_0",
           "translate": [
@@ -5327,6 +5507,16 @@
             -1.38
           ],
           "rotate_y": 0.0
+        },
+        {
+          "asset_id": "signal_transit_priority_bar_4_aspect",
+          "name": "transit_priority_bar_0",
+          "translate": [
+            1.56,
+            0.0,
+            1.88
+          ],
+          "rotate_y": 180.0
         },
         {
           "asset_id": "signal_bus_priority_horizontal_4_aspect",
@@ -5369,6 +5559,16 @@
           "rotate_y": 180.0
         },
         {
+          "asset_id": "signal_bicycle_lane_control_compact_2_aspect",
+          "name": "bicycle_lane_control_compact_0",
+          "translate": [
+            3.6,
+            0.0,
+            1.28
+          ],
+          "rotate_y": 180.0
+        },
+        {
           "asset_id": "signal_school_warning_dual_amber_vertical",
           "name": "school_warning_0",
           "translate": [
@@ -5393,6 +5593,16 @@
           "name": "warning_amber_vertical_0",
           "translate": [
             8.52,
+            0.0,
+            -1.86
+          ],
+          "rotate_y": 180.0
+        },
+        {
+          "asset_id": "signal_warning_dual_amber_compact_vertical",
+          "name": "warning_amber_compact_vertical_0",
+          "translate": [
+            9.84,
             0.0,
             -1.86
           ],
