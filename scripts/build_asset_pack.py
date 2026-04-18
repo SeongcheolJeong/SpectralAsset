@@ -3765,6 +3765,8 @@ def road_asset_parts(asset_id: str, dimensions: Tuple[float, float, float]) -> D
         "furniture_signal_cantilever_maintenance_hoist": "mat_metal_galvanized",
         "furniture_signal_cantilever_arm_junction_box": "mat_signal_housing",
         "furniture_signal_cantilever_end_cap": "mat_metal_galvanized",
+        "furniture_signal_cantilever_slim_controller_box": "mat_signal_housing",
+        "furniture_signal_cantilever_aux_controller_box": "mat_signal_housing",
         "furniture_utility_pole_concrete": "mat_concrete",
         "furniture_utility_pole_steel": "mat_metal_galvanized",
         "furniture_sign_back_octagon": "mat_metal_galvanized",
@@ -3780,6 +3782,8 @@ def road_asset_parts(asset_id: str, dimensions: Tuple[float, float, float]) -> D
         "furniture_signal_band_clamp": "mat_metal_galvanized",
         "furniture_signal_service_disconnect": "mat_signal_housing",
         "furniture_signal_meter_pedestal": "mat_signal_housing",
+        "furniture_signal_pole_riser_guard": "mat_metal_galvanized",
+        "furniture_signal_pole_service_loop_guard": "mat_metal_galvanized",
         "furniture_signal_battery_backup_cabinet": "mat_signal_housing",
         "furniture_rail_gate_mast": "mat_metal_galvanized",
         "furniture_rail_gate_arm": "mat_sign_white",
@@ -3804,6 +3808,8 @@ def road_asset_parts(asset_id: str, dimensions: Tuple[float, float, float]) -> D
         "furniture_bus_stop_timetable_blade": "mat_sign_blue",
         "furniture_bus_stop_help_point": "mat_signal_housing",
         "furniture_bus_stop_request_pole": "mat_sign_blue",
+        "furniture_bus_stop_notice_case": "mat_sign_blue",
+        "furniture_bus_stop_perch_seat": "mat_metal_galvanized",
         "furniture_queue_rail_module": "mat_metal_galvanized",
         "furniture_queue_stanchion_pair": "mat_metal_galvanized",
         "furniture_boarding_edge_guardrail": "mat_metal_galvanized",
@@ -4169,6 +4175,40 @@ def road_asset_parts(asset_id: str, dimensions: Tuple[float, float, float]) -> D
             make_mesh_part("meter_head", box_triangles(0.24, 0.26, 0.14, (0.0, 0.98, 0.04)), "mat_signal_housing"),
         ]
         return {"LOD0": lod0, "LOD1": lod1}
+    if asset_id == "furniture_signal_pole_riser_guard":
+        lod0 = [
+            make_mesh_part("pad", box_triangles(0.24, 0.06, 0.18, (0.0, 0.03, 0.0)), "mat_concrete"),
+            make_mesh_part("rear_post", box_triangles(0.04, 0.96, 0.04, (-0.08, 0.54, 0.0)), "mat_metal_galvanized"),
+            make_mesh_part("front_channel", box_triangles(0.12, 1.02, 0.06, (0.02, 0.57, 0.0)), "mat_metal_galvanized"),
+            make_mesh_part("top_bail", box_triangles(0.18, 0.04, 0.08, (-0.02, 1.04, 0.0)), "mat_metal_galvanized"),
+            make_mesh_part("riser_conduit", box_triangles(0.04, 1.12, 0.04, (0.0, 0.62, 0.0)), "mat_metal_galvanized"),
+            make_mesh_part("elbow_stub", box_triangles(0.12, 0.04, 0.04, (0.04, 1.12, 0.0)), "mat_metal_galvanized"),
+        ]
+        lod1 = [
+            make_mesh_part("pad", box_triangles(0.24, 0.06, 0.18, (0.0, 0.03, 0.0)), "mat_concrete"),
+            make_mesh_part("front_channel", box_triangles(0.12, 1.02, 0.06, (0.02, 0.57, 0.0)), "mat_metal_galvanized"),
+            make_mesh_part("riser_conduit", box_triangles(0.04, 1.12, 0.04, (0.0, 0.62, 0.0)), "mat_metal_galvanized"),
+        ]
+        return {"LOD0": lod0, "LOD1": lod1}
+    if asset_id == "furniture_signal_pole_service_loop_guard":
+        lod0 = [
+            make_mesh_part("pad", box_triangles(0.34, 0.06, 0.22, (0.0, 0.03, 0.0)), "mat_concrete"),
+            make_mesh_part("left_post", box_triangles(0.04, 0.98, 0.04, (-0.12, 0.54, 0.0)), "mat_metal_galvanized"),
+            make_mesh_part("right_post", box_triangles(0.04, 0.98, 0.04, (0.12, 0.54, 0.0)), "mat_metal_galvanized"),
+            make_mesh_part("top_guard", box_triangles(0.28, 0.04, 0.08, (0.0, 1.02, 0.0)), "mat_metal_galvanized"),
+            make_mesh_part("mid_guard", box_triangles(0.28, 0.04, 0.08, (0.0, 0.66, 0.0)), "mat_metal_galvanized"),
+            oriented_box_part("service_loop_left", 0.42, 0.04, 0.04, (-0.02, 0.58, 0.04), "mat_metal_galvanized", -58.0),
+            oriented_box_part("service_loop_right", 0.42, 0.04, 0.04, (-0.02, 0.38, -0.04), "mat_metal_galvanized", 58.0),
+            make_mesh_part("terminal_box", box_triangles(0.12, 0.16, 0.08, (0.0, 0.24, 0.0)), "mat_signal_housing"),
+        ]
+        lod1 = [
+            make_mesh_part("pad", box_triangles(0.34, 0.06, 0.22, (0.0, 0.03, 0.0)), "mat_concrete"),
+            make_mesh_part("left_post", box_triangles(0.04, 0.98, 0.04, (-0.12, 0.54, 0.0)), "mat_metal_galvanized"),
+            make_mesh_part("right_post", box_triangles(0.04, 0.98, 0.04, (0.12, 0.54, 0.0)), "mat_metal_galvanized"),
+            make_mesh_part("top_guard", box_triangles(0.28, 0.04, 0.08, (0.0, 1.02, 0.0)), "mat_metal_galvanized"),
+            make_mesh_part("loop_bundle", box_triangles(0.18, 0.48, 0.08, (0.0, 0.48, 0.0)), "mat_metal_galvanized"),
+        ]
+        return {"LOD0": lod0, "LOD1": lod1}
     if asset_id == "furniture_signal_backplate_vertical":
         lod0 = [
             make_mesh_part("plate", box_triangles(0.54, 1.42, 0.05, (0.0, 1.78, -0.13)), "mat_signal_housing"),
@@ -4520,6 +4560,39 @@ def road_asset_parts(asset_id: str, dimensions: Tuple[float, float, float]) -> D
             make_mesh_part("end_cap_shell", box_triangles(0.22, 0.18, 0.16, (0.0, 0.14, 0.0)), "mat_metal_galvanized"),
             make_mesh_part("face_plate", box_triangles(0.04, 0.2, 0.18, (0.09, 0.14, 0.0)), "mat_metal_galvanized"),
             make_mesh_part("top_lip", box_triangles(0.18, 0.04, 0.18, (0.0, 0.24, 0.0)), "mat_metal_galvanized"),
+        ]
+        return {"LOD0": lod0, "LOD1": lod1}
+    if asset_id == "furniture_signal_cantilever_slim_controller_box":
+        lod0 = [
+            make_mesh_part("clamp_plate", box_triangles(0.16, 0.26, 0.04, (-0.22, 0.38, 0.0)), "mat_metal_galvanized"),
+            make_mesh_part("controller_body", box_triangles(0.24, 0.36, 0.16, (0.0, 0.34, 0.0)), "mat_signal_housing"),
+            make_mesh_part("door_face", box_triangles(0.18, 0.3, 0.02, (0.02, 0.34, 0.09)), "mat_metal_galvanized"),
+            make_mesh_part("visor_lip", box_triangles(0.28, 0.04, 0.18, (0.0, 0.56, 0.0)), "mat_metal_galvanized"),
+            oriented_box_part("conduit_drop", 0.34, 0.04, 0.04, (-0.06, 0.12, 0.0), "mat_metal_galvanized", -62.0),
+            make_mesh_part("status_lens", box_triangles(0.04, 0.08, 0.01, (0.08, 0.42, 0.091)), "mat_sign_green"),
+        ]
+        lod1 = [
+            make_mesh_part("clamp_plate", box_triangles(0.16, 0.26, 0.04, (-0.22, 0.38, 0.0)), "mat_metal_galvanized"),
+            make_mesh_part("controller_body", box_triangles(0.24, 0.36, 0.16, (0.0, 0.34, 0.0)), "mat_signal_housing"),
+            make_mesh_part("door_face", box_triangles(0.18, 0.3, 0.02, (0.02, 0.34, 0.09)), "mat_metal_galvanized"),
+            make_mesh_part("visor_lip", box_triangles(0.28, 0.04, 0.18, (0.0, 0.56, 0.0)), "mat_metal_galvanized"),
+        ]
+        return {"LOD0": lod0, "LOD1": lod1}
+    if asset_id == "furniture_signal_cantilever_aux_controller_box":
+        lod0 = [
+            make_mesh_part("mount_arm", box_triangles(0.18, 0.08, 0.08, (-0.2, 0.3, 0.0)), "mat_metal_galvanized"),
+            make_mesh_part("mount_plate", box_triangles(0.08, 0.28, 0.18, (-0.3, 0.34, 0.0)), "mat_metal_galvanized"),
+            make_mesh_part("controller_body", box_triangles(0.32, 0.28, 0.2, (0.04, 0.32, 0.0)), "mat_signal_housing"),
+            make_mesh_part("hinge_face", box_triangles(0.26, 0.22, 0.02, (0.06, 0.32, 0.11)), "mat_metal_galvanized"),
+            make_mesh_part("top_cap", box_triangles(0.36, 0.04, 0.24, (0.04, 0.48, 0.0)), "mat_metal_galvanized"),
+            make_mesh_part("terminal_stub", box_triangles(0.12, 0.08, 0.12, (0.24, 0.2, 0.0)), "mat_metal_galvanized"),
+            oriented_box_part("conduit_elbow", 0.28, 0.04, 0.04, (-0.04, 0.12, 0.06), "mat_metal_galvanized", -52.0),
+        ]
+        lod1 = [
+            make_mesh_part("mount_arm", box_triangles(0.18, 0.08, 0.08, (-0.2, 0.3, 0.0)), "mat_metal_galvanized"),
+            make_mesh_part("mount_plate", box_triangles(0.08, 0.28, 0.18, (-0.3, 0.34, 0.0)), "mat_metal_galvanized"),
+            make_mesh_part("controller_body", box_triangles(0.32, 0.28, 0.2, (0.04, 0.32, 0.0)), "mat_signal_housing"),
+            make_mesh_part("top_cap", box_triangles(0.36, 0.04, 0.24, (0.04, 0.48, 0.0)), "mat_metal_galvanized"),
         ]
         return {"LOD0": lod0, "LOD1": lod1}
     if asset_id == "furniture_signal_controller_cabinet":
@@ -4981,6 +5054,38 @@ def road_asset_parts(asset_id: str, dimensions: Tuple[float, float, float]) -> D
             make_mesh_part("post", box_triangles(0.06, 1.34, 0.06, (0.0, 0.71, 0.0)), "mat_metal_galvanized"),
             make_mesh_part("request_head", box_triangles(0.16, 0.26, 0.14, (0.0, 1.38, 0.02)), "mat_sign_blue"),
             make_mesh_part("request_face", box_triangles(0.1, 0.12, 0.01, (0.0, 1.38, 0.095)), "mat_sign_white"),
+        ]
+        return {"LOD0": lod0, "LOD1": lod1}
+    if asset_id == "furniture_bus_stop_notice_case":
+        lod0 = [
+            make_mesh_part("base", box_triangles(0.3, 0.08, 0.18, (0.0, 0.04, 0.0)), "mat_concrete"),
+            make_mesh_part("post", box_triangles(0.06, 1.72, 0.06, (0.0, 0.9, 0.0)), "mat_metal_galvanized"),
+            make_mesh_part("case_frame", box_triangles(0.34, 0.88, 0.12, (0.0, 1.56, 0.02)), "mat_sign_blue"),
+            make_mesh_part("case_face", box_triangles(0.26, 0.74, 0.01, (0.0, 1.54, 0.086)), "mat_sign_white"),
+            make_mesh_part("header_strip", box_triangles(0.24, 0.1, 0.02, (0.0, 1.94, 0.088)), "mat_sign_black"),
+            make_mesh_part("clip_rail", box_triangles(0.2, 0.04, 0.02, (0.0, 1.18, 0.088)), "mat_metal_galvanized"),
+        ]
+        lod1 = [
+            make_mesh_part("base", box_triangles(0.3, 0.08, 0.18, (0.0, 0.04, 0.0)), "mat_concrete"),
+            make_mesh_part("post", box_triangles(0.06, 1.72, 0.06, (0.0, 0.9, 0.0)), "mat_metal_galvanized"),
+            make_mesh_part("case_frame", box_triangles(0.34, 0.88, 0.12, (0.0, 1.56, 0.02)), "mat_sign_blue"),
+            make_mesh_part("case_face", box_triangles(0.26, 0.74, 0.01, (0.0, 1.54, 0.086)), "mat_sign_white"),
+        ]
+        return {"LOD0": lod0, "LOD1": lod1}
+    if asset_id == "furniture_bus_stop_perch_seat":
+        lod0 = [
+            make_mesh_part("base", box_triangles(0.32, 0.08, 0.24, (0.0, 0.04, 0.0)), "mat_concrete"),
+            make_mesh_part("post", box_triangles(0.08, 0.86, 0.08, (0.0, 0.47, 0.0)), "mat_metal_galvanized"),
+            make_mesh_part("seat_pan", box_triangles(0.34, 0.06, 0.18, (0.0, 0.82, 0.04)), "mat_metal_galvanized"),
+            make_mesh_part("seat_back", box_triangles(0.3, 0.22, 0.04, (0.0, 0.98, -0.03)), "mat_metal_galvanized"),
+            oriented_box_part("brace_left", 0.32, 0.04, 0.04, (-0.1, 0.72, 0.0), "mat_metal_galvanized", -58.0),
+            oriented_box_part("brace_right", 0.32, 0.04, 0.04, (0.1, 0.72, 0.0), "mat_metal_galvanized", 58.0),
+        ]
+        lod1 = [
+            make_mesh_part("base", box_triangles(0.32, 0.08, 0.24, (0.0, 0.04, 0.0)), "mat_concrete"),
+            make_mesh_part("post", box_triangles(0.08, 0.86, 0.08, (0.0, 0.47, 0.0)), "mat_metal_galvanized"),
+            make_mesh_part("seat_pan", box_triangles(0.34, 0.06, 0.18, (0.0, 0.82, 0.04)), "mat_metal_galvanized"),
+            make_mesh_part("seat_back", box_triangles(0.3, 0.22, 0.04, (0.0, 0.98, -0.03)), "mat_metal_galvanized"),
         ]
         return {"LOD0": lod0, "LOD1": lod1}
     if asset_id == "furniture_queue_rail_module":
@@ -8722,10 +8827,14 @@ def road_definitions() -> List[Dict]:
         {"id": "furniture_signal_cantilever_maintenance_hoist", "family": "road_furniture", "semantic_class": "furniture.signal_cantilever_service", "variant_key": "maintenance_hoist", "dimensions": (0.96, 1.36, 0.28)},
         {"id": "furniture_signal_cantilever_arm_junction_box", "family": "road_furniture", "semantic_class": "furniture.signal_cantilever_service", "variant_key": "arm_junction_box", "dimensions": (0.52, 0.44, 0.32)},
         {"id": "furniture_signal_cantilever_end_cap", "family": "road_furniture", "semantic_class": "furniture.signal_cantilever_mount", "variant_key": "arm_end_cap", "dimensions": (0.38, 0.28, 0.24)},
+        {"id": "furniture_signal_cantilever_slim_controller_box", "family": "road_furniture", "semantic_class": "furniture.signal_cantilever_service", "variant_key": "slim_controller_box", "dimensions": (0.54, 0.58, 0.24)},
+        {"id": "furniture_signal_cantilever_aux_controller_box", "family": "road_furniture", "semantic_class": "furniture.signal_cantilever_service", "variant_key": "aux_controller_box", "dimensions": (0.62, 0.56, 0.28)},
         {"id": "furniture_signal_controller_cabinet", "family": "road_furniture", "semantic_class": "furniture.signal_controller_cabinet", "variant_key": "double_door", "dimensions": (0.96, 1.6, 0.78)},
         {"id": "furniture_signal_controller_cabinet_single", "family": "road_furniture", "semantic_class": "furniture.signal_controller_cabinet", "variant_key": "single_door", "dimensions": (0.72, 1.31, 0.62)},
         {"id": "furniture_signal_battery_backup_cabinet", "family": "road_furniture", "semantic_class": "furniture.signal_battery_backup", "variant_key": "double_door_vented", "dimensions": (0.92, 1.44, 0.68)},
         {"id": "furniture_signal_junction_box", "family": "road_furniture", "semantic_class": "furniture.signal_junction_box", "variant_key": "pedestal", "dimensions": (0.46, 0.68, 0.46)},
+        {"id": "furniture_signal_pole_riser_guard", "family": "road_furniture", "semantic_class": "furniture.signal_pole_service", "variant_key": "riser_guard", "dimensions": (0.34, 1.34, 0.22)},
+        {"id": "furniture_signal_pole_service_loop_guard", "family": "road_furniture", "semantic_class": "furniture.signal_pole_service", "variant_key": "service_loop_guard", "dimensions": (0.46, 1.26, 0.28)},
         {"id": "furniture_rail_gate_mast", "family": "road_furniture", "semantic_class": "furniture.rail_gate_mast", "variant_key": "single_track_gate", "dimensions": (1.18, 5.54, 0.58)},
         {"id": "furniture_rail_gate_arm", "family": "road_furniture", "semantic_class": "furniture.rail_gate_arm", "variant_key": "striped_drop_arm", "dimensions": (5.28, 0.34, 0.18)},
         {"id": "furniture_rail_signal_bell_housing", "family": "road_furniture", "semantic_class": "furniture.rail_signal_bell", "variant_key": "round_bell_guard", "dimensions": (0.62, 1.14, 0.32)},
@@ -8749,6 +8858,8 @@ def road_definitions() -> List[Dict]:
         {"id": "furniture_bus_stop_timetable_blade", "family": "road_furniture", "semantic_class": "furniture.transit_stop_timetable", "variant_key": "freestanding_blade", "dimensions": (0.28, 2.0, 0.12)},
         {"id": "furniture_bus_stop_help_point", "family": "road_furniture", "semantic_class": "furniture.transit_stop_help_point", "variant_key": "audio_visual_help_point", "dimensions": (0.42, 2.12, 0.34)},
         {"id": "furniture_bus_stop_request_pole", "family": "road_furniture", "semantic_class": "furniture.transit_stop_request", "variant_key": "boarding_request_pole", "dimensions": (0.28, 1.54, 0.22)},
+        {"id": "furniture_bus_stop_notice_case", "family": "road_furniture", "semantic_class": "furniture.transit_stop_notice", "variant_key": "notice_case", "dimensions": (0.56, 1.84, 0.26)},
+        {"id": "furniture_bus_stop_perch_seat", "family": "road_furniture", "semantic_class": "furniture.transit_stop_seat", "variant_key": "perch_seat", "dimensions": (0.74, 0.96, 0.26)},
         {"id": "furniture_queue_rail_module", "family": "road_furniture", "semantic_class": "furniture.queue_rail", "variant_key": "pedestrian_channelizer", "dimensions": (1.68, 1.02, 0.18)},
         {"id": "furniture_queue_stanchion_pair", "family": "road_furniture", "semantic_class": "furniture.queue_stanchion", "variant_key": "belt_pair", "dimensions": (1.08, 1.02, 0.24)},
         {"id": "furniture_boarding_edge_guardrail", "family": "road_furniture", "semantic_class": "furniture.boarding_guardrail", "variant_key": "short_module", "dimensions": (1.86, 0.98, 0.22)},
@@ -10031,6 +10142,8 @@ def scene_definitions() -> List[Dict]:
                 {"asset_id": "furniture_signal_cantilever_maintenance_hoist", "name": "cantilever_maintenance_hoist_0", "translate": (10.82, 0.0, -1.58), "rotate_y": 180.0},
                 {"asset_id": "furniture_signal_cantilever_arm_junction_box", "name": "cantilever_arm_junction_box_0", "translate": (6.48, 0.0, -2.02), "rotate_y": 180.0},
                 {"asset_id": "furniture_signal_cantilever_end_cap", "name": "cantilever_end_cap_0", "translate": (18.02, 0.0, -2.24), "rotate_y": 180.0},
+                {"asset_id": "furniture_signal_cantilever_slim_controller_box", "name": "cantilever_slim_controller_0", "translate": (8.28, 0.0, -2.02), "rotate_y": 180.0},
+                {"asset_id": "furniture_signal_cantilever_aux_controller_box", "name": "cantilever_aux_controller_0", "translate": (14.86, 0.0, -2.02), "rotate_y": 180.0},
                 {"asset_id": "furniture_signal_cantilever_dropper_triple", "name": "cantilever_dropper_triple_0", "translate": (9.18, 0.0, -2.24), "rotate_y": 180.0},
                 {"asset_id": "furniture_signal_cantilever_dropper_single", "name": "cantilever_dropper_single_0", "translate": (11.78, 0.0, -2.24), "rotate_y": 180.0},
                 {"asset_id": "furniture_signal_cantilever_dropper_quad", "name": "cantilever_dropper_quad_0", "translate": (15.6, 0.0, -2.24), "rotate_y": 180.0},
@@ -10040,6 +10153,8 @@ def scene_definitions() -> List[Dict]:
                 {"asset_id": "furniture_signal_junction_box", "name": "junction_box_0", "translate": (-1.55, 0.0, -2.62), "rotate_y": 0.0},
                 {"asset_id": "furniture_signal_meter_pedestal", "name": "meter_pedestal_0", "translate": (-3.05, 0.0, -1.32), "rotate_y": 0.0},
                 {"asset_id": "furniture_signal_service_disconnect", "name": "service_disconnect_0", "translate": (-1.92, 0.0, -2.02), "rotate_y": 0.0},
+                {"asset_id": "furniture_signal_pole_riser_guard", "name": "pole_riser_guard_0", "translate": (-2.18, 0.0, -2.54), "rotate_y": 0.0},
+                {"asset_id": "furniture_signal_pole_service_loop_guard", "name": "pole_service_loop_guard_0", "translate": (-2.68, 0.0, -1.48), "rotate_y": 0.0},
                 {"asset_id": "furniture_utility_pull_box", "name": "pull_box_0", "translate": (-2.02, 0.0, -2.96), "rotate_y": 0.0},
                 {"asset_id": "furniture_signal_side_mount_bracket", "name": "side_mount_0", "translate": (1.72, 0.0, -1.18), "rotate_y": 180.0},
                 {"asset_id": "furniture_signal_band_clamp", "name": "signal_band_clamp_0", "translate": (1.72, 0.0, -1.18), "rotate_y": 180.0},
@@ -10054,6 +10169,8 @@ def scene_definitions() -> List[Dict]:
                 {"asset_id": "furniture_bus_stop_timetable_blade", "name": "bus_stop_timetable_0", "translate": (-2.22, 0.0, 0.06), "rotate_y": 90.0},
                 {"asset_id": "furniture_bus_stop_help_point", "name": "bus_stop_help_point_0", "translate": (-2.26, 0.0, 1.46), "rotate_y": 90.0},
                 {"asset_id": "furniture_bus_stop_request_pole", "name": "bus_stop_request_pole_0", "translate": (-1.82, 0.0, 0.46), "rotate_y": 90.0},
+                {"asset_id": "furniture_bus_stop_notice_case", "name": "bus_stop_notice_case_0", "translate": (-4.22, 0.0, 0.56), "rotate_y": 90.0},
+                {"asset_id": "furniture_bus_stop_perch_seat", "name": "bus_stop_perch_seat_0", "translate": (-3.02, 0.0, 0.48), "rotate_y": 90.0},
                 {"asset_id": "furniture_bus_stop_bench", "name": "bus_stop_bench_0", "translate": (-3.58, 0.0, 1.54), "rotate_y": 90.0},
                 {"asset_id": "furniture_queue_rail_module", "name": "queue_rail_0", "translate": (-2.88, 0.0, 0.62), "rotate_y": 90.0},
                 {"asset_id": "furniture_queue_stanchion_pair", "name": "queue_stanchion_0", "translate": (-2.58, 0.0, 1.12), "rotate_y": 90.0},
@@ -10201,7 +10318,11 @@ def scene_definitions() -> List[Dict]:
                 {"asset_id": "furniture_signal_cantilever_dropper_single", "name": "cantilever_dropper_single_0", "translate": (11.76, 0.0, -1.54), "rotate_y": 180.0},
                 {"asset_id": "furniture_signal_cantilever_arm_junction_box", "name": "cantilever_arm_junction_box_0", "translate": (5.58, 0.0, -1.32), "rotate_y": 180.0},
                 {"asset_id": "furniture_signal_cantilever_end_cap", "name": "cantilever_end_cap_0", "translate": (12.54, 0.0, -1.54), "rotate_y": 180.0},
+                {"asset_id": "furniture_signal_cantilever_slim_controller_box", "name": "cantilever_slim_controller_0", "translate": (6.76, 0.0, -1.32), "rotate_y": 180.0},
+                {"asset_id": "furniture_signal_cantilever_aux_controller_box", "name": "cantilever_aux_controller_0", "translate": (9.96, 0.0, -1.32), "rotate_y": 180.0},
                 {"asset_id": "furniture_signal_hanger_clamp_pair", "name": "hanger_clamp_pair_0", "translate": (2.52, 0.0, -1.54), "rotate_y": 180.0},
+                {"asset_id": "furniture_signal_pole_riser_guard", "name": "pole_riser_guard_0", "translate": (1.34, 0.0, -1.58), "rotate_y": 180.0},
+                {"asset_id": "furniture_signal_pole_service_loop_guard", "name": "pole_service_loop_guard_0", "translate": (0.74, 0.0, -1.72), "rotate_y": 180.0},
                 {"asset_id": "signal_warning_dual_red_horizontal", "name": "warning_red_0", "translate": (1.8, 0.0, -1.2), "rotate_y": 180.0},
                 {"asset_id": "signal_warning_dual_red_vertical", "name": "warning_red_vertical_0", "translate": (11.76, 0.0, -1.54), "rotate_y": 180.0},
                 {"asset_id": "signal_rail_crossing_dual_red_vertical", "name": "rail_vertical_0", "translate": (-2.25, 0.0, -0.1), "rotate_y": 0.0},
@@ -10311,6 +10432,8 @@ def scene_definitions() -> List[Dict]:
                 {"asset_id": "furniture_signal_cantilever_maintenance_hoist", "name": "cantilever_maintenance_hoist_0", "translate": (-0.62, 0.0, -1.2), "rotate_y": 0.0},
                 {"asset_id": "furniture_signal_cantilever_arm_junction_box", "name": "cantilever_arm_junction_box_0", "translate": (3.12, 0.0, -1.62), "rotate_y": 180.0},
                 {"asset_id": "furniture_signal_cantilever_end_cap", "name": "cantilever_end_cap_0", "translate": (9.16, 0.0, -1.86), "rotate_y": 180.0},
+                {"asset_id": "furniture_signal_cantilever_slim_controller_box", "name": "cantilever_slim_controller_0", "translate": (1.82, 0.0, -1.62), "rotate_y": 180.0},
+                {"asset_id": "furniture_signal_cantilever_aux_controller_box", "name": "cantilever_aux_controller_0", "translate": (6.18, 0.0, -1.62), "rotate_y": 180.0},
                 {"asset_id": "furniture_signal_cantilever_dropper_triple", "name": "cantilever_dropper_triple_0", "translate": (3.96, 0.0, -1.86), "rotate_y": 180.0},
                 {"asset_id": "furniture_signal_cantilever_dropper_single", "name": "cantilever_dropper_single_0", "translate": (8.52, 0.0, -1.86), "rotate_y": 180.0},
                 {"asset_id": "furniture_signal_controller_cabinet", "name": "cabinet_0", "translate": (-2.55, 0.0, -0.95), "rotate_y": 0.0},
@@ -10318,6 +10441,8 @@ def scene_definitions() -> List[Dict]:
                 {"asset_id": "furniture_signal_junction_box", "name": "junction_box_0", "translate": (-2.1, 0.0, -1.48), "rotate_y": 0.0},
                 {"asset_id": "furniture_signal_meter_pedestal", "name": "meter_pedestal_0", "translate": (-3.02, 0.0, -1.6), "rotate_y": 0.0},
                 {"asset_id": "furniture_signal_service_disconnect", "name": "service_disconnect_0", "translate": (-1.95, 0.0, -0.92), "rotate_y": 0.0},
+                {"asset_id": "furniture_signal_pole_riser_guard", "name": "pole_riser_guard_0", "translate": (-2.28, 0.0, -1.84), "rotate_y": 0.0},
+                {"asset_id": "furniture_signal_pole_service_loop_guard", "name": "pole_service_loop_guard_0", "translate": (-3.38, 0.0, -1.18), "rotate_y": 0.0},
                 {"asset_id": "furniture_utility_pole_steel", "name": "utility_pole_steel_0", "translate": (3.05, 0.0, 1.85), "rotate_y": 0.0},
                 {"asset_id": "furniture_utility_pull_box", "name": "pull_box_0", "translate": (-2.46, 0.0, -1.92), "rotate_y": 0.0},
                 {"asset_id": "furniture_utility_handhole_cluster", "name": "handhole_cluster_0", "translate": (-3.18, 0.0, -2.15), "rotate_y": 0.0},
@@ -10328,6 +10453,8 @@ def scene_definitions() -> List[Dict]:
                 {"asset_id": "furniture_bus_stop_timetable_blade", "name": "bus_stop_timetable_0", "translate": (3.78, 0.0, 1.58), "rotate_y": 180.0},
                 {"asset_id": "furniture_bus_stop_help_point", "name": "bus_stop_help_point_0", "translate": (3.2, 0.0, 2.12), "rotate_y": 180.0},
                 {"asset_id": "furniture_bus_stop_request_pole", "name": "bus_stop_request_pole_0", "translate": (2.86, 0.0, 1.22), "rotate_y": 180.0},
+                {"asset_id": "furniture_bus_stop_notice_case", "name": "bus_stop_notice_case_0", "translate": (4.08, 0.0, 1.22), "rotate_y": 180.0},
+                {"asset_id": "furniture_bus_stop_perch_seat", "name": "bus_stop_perch_seat_0", "translate": (2.46, 0.0, 2.02), "rotate_y": 180.0},
                 {"asset_id": "signal_lane_control_compact_2_aspect", "name": "lane_control_compact_0", "translate": (3.96, 0.0, -1.86), "rotate_y": 180.0},
                 {"asset_id": "signal_school_warning_single_amber_beacon", "name": "school_warning_single_0", "translate": (3.44, 0.0, 2.58), "rotate_y": 180.0},
                 {"asset_id": "signal_bus_priority_compact_3_aspect", "name": "bus_priority_compact_0", "translate": (2.46, 0.0, 1.82), "rotate_y": 180.0},

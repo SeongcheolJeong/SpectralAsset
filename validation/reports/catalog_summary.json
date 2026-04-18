@@ -1700,6 +1700,18 @@
       "variant_key": "arm_end_cap"
     },
     {
+      "id": "furniture_signal_cantilever_slim_controller_box",
+      "family": "road_furniture",
+      "semantic_class": "furniture.signal_cantilever_service",
+      "variant_key": "slim_controller_box"
+    },
+    {
+      "id": "furniture_signal_cantilever_aux_controller_box",
+      "family": "road_furniture",
+      "semantic_class": "furniture.signal_cantilever_service",
+      "variant_key": "aux_controller_box"
+    },
+    {
       "id": "furniture_signal_controller_cabinet",
       "family": "road_furniture",
       "semantic_class": "furniture.signal_controller_cabinet",
@@ -1722,6 +1734,18 @@
       "family": "road_furniture",
       "semantic_class": "furniture.signal_junction_box",
       "variant_key": "pedestal"
+    },
+    {
+      "id": "furniture_signal_pole_riser_guard",
+      "family": "road_furniture",
+      "semantic_class": "furniture.signal_pole_service",
+      "variant_key": "riser_guard"
+    },
+    {
+      "id": "furniture_signal_pole_service_loop_guard",
+      "family": "road_furniture",
+      "semantic_class": "furniture.signal_pole_service",
+      "variant_key": "service_loop_guard"
     },
     {
       "id": "furniture_rail_gate_mast",
@@ -1860,6 +1884,18 @@
       "family": "road_furniture",
       "semantic_class": "furniture.transit_stop_request",
       "variant_key": "boarding_request_pole"
+    },
+    {
+      "id": "furniture_bus_stop_notice_case",
+      "family": "road_furniture",
+      "semantic_class": "furniture.transit_stop_notice",
+      "variant_key": "notice_case"
+    },
+    {
+      "id": "furniture_bus_stop_perch_seat",
+      "family": "road_furniture",
+      "semantic_class": "furniture.transit_stop_seat",
+      "variant_key": "perch_seat"
     },
     {
       "id": "furniture_queue_rail_module",

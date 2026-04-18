@@ -454,6 +454,20 @@ def Xform "scene_wet_road_braking" {
         float xformOp:rotateY = 180.000000
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
     }
+    def Xform "cantilever_slim_controller_0" (
+        references = @../geometry/usd/furniture_signal_cantilever_slim_controller_box.usda@</furniture_signal_cantilever_slim_controller_box>
+    ) {
+        double3 xformOp:translate = (1.820000, 0.000000, -1.620000)
+        float xformOp:rotateY = 180.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
+    def Xform "cantilever_aux_controller_0" (
+        references = @../geometry/usd/furniture_signal_cantilever_aux_controller_box.usda@</furniture_signal_cantilever_aux_controller_box>
+    ) {
+        double3 xformOp:translate = (6.180000, 0.000000, -1.620000)
+        float xformOp:rotateY = 180.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
     def Xform "cantilever_dropper_triple_0" (
         references = @../geometry/usd/furniture_signal_cantilever_dropper_triple.usda@</furniture_signal_cantilever_dropper_triple>
     ) {
@@ -500,6 +514,20 @@ def Xform "scene_wet_road_braking" {
         references = @../geometry/usd/furniture_signal_service_disconnect.usda@</furniture_signal_service_disconnect>
     ) {
         double3 xformOp:translate = (-1.950000, 0.000000, -0.920000)
+        float xformOp:rotateY = 0.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
+    def Xform "pole_riser_guard_0" (
+        references = @../geometry/usd/furniture_signal_pole_riser_guard.usda@</furniture_signal_pole_riser_guard>
+    ) {
+        double3 xformOp:translate = (-2.280000, 0.000000, -1.840000)
+        float xformOp:rotateY = 0.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
+    def Xform "pole_service_loop_guard_0" (
+        references = @../geometry/usd/furniture_signal_pole_service_loop_guard.usda@</furniture_signal_pole_service_loop_guard>
+    ) {
+        double3 xformOp:translate = (-3.380000, 0.000000, -1.180000)
         float xformOp:rotateY = 0.000000
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
     }
@@ -570,6 +598,20 @@ def Xform "scene_wet_road_braking" {
         references = @../geometry/usd/furniture_bus_stop_request_pole.usda@</furniture_bus_stop_request_pole>
     ) {
         double3 xformOp:translate = (2.860000, 0.000000, 1.220000)
+        float xformOp:rotateY = 180.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
+    def Xform "bus_stop_notice_case_0" (
+        references = @../geometry/usd/furniture_bus_stop_notice_case.usda@</furniture_bus_stop_notice_case>
+    ) {
+        double3 xformOp:translate = (4.080000, 0.000000, 1.220000)
+        float xformOp:rotateY = 180.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
+    def Xform "bus_stop_perch_seat_0" (
+        references = @../geometry/usd/furniture_bus_stop_perch_seat.usda@</furniture_bus_stop_perch_seat>
+    ) {
+        double3 xformOp:translate = (2.460000, 0.000000, 2.020000)
         float xformOp:rotateY = 180.000000
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
     }

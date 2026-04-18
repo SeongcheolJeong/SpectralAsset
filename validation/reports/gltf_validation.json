@@ -1,6 +1,6 @@
 {
   "generated_at": "2026-04-16T10:10:40.000Z",
-  "files_checked": 337,
+  "files_checked": 343,
   "files_with_errors": 0,
   "files_with_warnings": 0,
   "results": [
@@ -48,6 +48,20 @@
     },
     {
       "file": "exports/gltf/furniture_bus_stop_help_point.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
+      "file": "exports/gltf/furniture_bus_stop_notice_case.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
+      "file": "exports/gltf/furniture_bus_stop_perch_seat.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
@@ -397,6 +411,13 @@
       "messages": []
     },
     {
+      "file": "exports/gltf/furniture_signal_cantilever_aux_controller_box.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
       "file": "exports/gltf/furniture_signal_cantilever_backspan_stub.glb",
       "numErrors": 0,
       "numWarnings": 0,
@@ -502,6 +523,13 @@
       "messages": []
     },
     {
+      "file": "exports/gltf/furniture_signal_cantilever_slim_controller_box.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
       "file": "exports/gltf/furniture_signal_controller_cabinet.glb",
       "numErrors": 0,
       "numWarnings": 0,
@@ -545,6 +573,20 @@
     },
     {
       "file": "exports/gltf/furniture_signal_pole.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
+      "file": "exports/gltf/furniture_signal_pole_riser_guard.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
+      "file": "exports/gltf/furniture_signal_pole_service_loop_guard.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
