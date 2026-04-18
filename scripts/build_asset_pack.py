@@ -2629,6 +2629,40 @@ def warning_worker_icon(center: Tuple[float, float], scale: float) -> List[List[
     return shapes
 
 
+def us_route_shield_polygon(width: float, height: float, inset: float = 0.0) -> List[Tuple[float, float]]:
+    half_w = width / 2.0 - inset
+    top_y = -height / 2.0 + inset
+    shoulder_y = -height * 0.1
+    bottom_tip_y = height / 2.0 - inset
+    return [
+        (-half_w * 0.76, top_y),
+        (half_w * 0.76, top_y),
+        (half_w, shoulder_y),
+        (half_w * 0.72, height * 0.28),
+        (0.0, bottom_tip_y),
+        (-half_w * 0.72, height * 0.28),
+        (-half_w, shoulder_y),
+    ]
+
+
+def interstate_shield_polygon(width: float, height: float, inset: float = 0.0) -> List[Tuple[float, float]]:
+    half_w = width / 2.0 - inset
+    top_y = -height / 2.0 + inset
+    lower_y = height * 0.12
+    bottom_y = height / 2.0 - inset
+    return [
+        (-half_w * 0.92, top_y),
+        (half_w * 0.92, top_y),
+        (half_w * 0.88, -height * 0.06),
+        (half_w * 0.66, lower_y),
+        (half_w * 0.42, bottom_y * 0.92),
+        (0.0, bottom_y),
+        (-half_w * 0.42, bottom_y * 0.92),
+        (-half_w * 0.66, lower_y),
+        (-half_w * 0.88, -height * 0.06),
+    ]
+
+
 def sign_layers(sign_type: str) -> List[Tuple[str, List[List[Tuple[float, float]]]]]:
     if sign_type == "stop":
         outer = regular_polygon(8, 0.48, 22.5)
@@ -2829,6 +2863,69 @@ def sign_layers(sign_type: str) -> List[Tuple[str, List[List[Tuple[float, float]
         return [
             ("mat_vms_panel", [rect_polygon(0.0, 0.0, 0.95, 0.54)]),
             ("mat_signal_countdown_amber_off", amber_pixels),
+        ]
+    if sign_type == "route_us_101_shield":
+        return [
+            ("mat_sign_black", [us_route_shield_polygon(0.82, 0.94, 0.0)]),
+            ("mat_sign_white", [us_route_shield_polygon(0.82, 0.94, 0.06)]),
+            ("mat_sign_black", glyph_rects("US", 0.22, 0.08, (0.0, -0.18)) + glyph_rects("101", 0.36, 0.16, (0.0, 0.12))),
+        ]
+    if sign_type == "route_interstate_5_shield":
+        return [
+            ("mat_sign_white", [interstate_shield_polygon(0.86, 0.96, 0.0)]),
+            ("mat_sign_blue", [interstate_shield_polygon(0.86, 0.96, 0.06)]),
+            ("mat_sign_stop_red", [rect_polygon(0.0, -0.28, 0.62, 0.2)]),
+            ("mat_sign_white", glyph_rects("I", 0.08, 0.08, (0.0, -0.28)) + glyph_rects("5", 0.24, 0.26, (0.0, 0.1))),
+        ]
+    if sign_type == "route_e45_shield":
+        return [
+            ("mat_sign_white", [rect_polygon(0.0, 0.0, 0.95, 0.38)]),
+            ("mat_sign_green", [rect_polygon(0.0, 0.0, 0.85, 0.28)]),
+            ("mat_sign_white", glyph_rects("E45", 0.46, 0.12, (0.0, 0.0))),
+        ]
+    if sign_type == "destination_stack_airport_centre_right":
+        return [
+            ("mat_sign_white", [rect_polygon(0.0, 0.0, 0.95, 0.7)]),
+            ("mat_sign_green", [rect_polygon(0.0, 0.0, 0.87, 0.62)]),
+            (
+                "mat_sign_white",
+                [
+                    line_segment_polygon((-0.38, 0.0), (0.38, 0.0), 0.03),
+                ]
+                + airplane_icon((-0.32, -0.17), 0.78)
+                + glyph_rects("AIRPORT", 0.42, 0.09, (0.04, -0.17))
+                + glyph_rects("CENTRE", 0.42, 0.09, (-0.08, 0.17))
+                + arrow_shapes((0.14, 0.17), (0.38, 0.17), 0.06, 0.11, 0.16),
+            ),
+        ]
+    if sign_type == "destination_stack_hotel_park_left":
+        return [
+            ("mat_sign_white", [rect_polygon(0.0, 0.0, 0.95, 0.7)]),
+            ("mat_sign_green", [rect_polygon(0.0, 0.0, 0.87, 0.62)]),
+            (
+                "mat_sign_white",
+                [
+                    line_segment_polygon((-0.38, 0.0), (0.38, 0.0), 0.03),
+                ]
+                + glyph_rects("HOTEL", 0.36, 0.09, (0.08, -0.17))
+                + glyph_rects("PARK", 0.3, 0.09, (0.1, 0.17))
+                + arrow_shapes((-0.12, 0.17), (-0.38, 0.17), 0.06, 0.11, 0.16),
+            ),
+        ]
+    if sign_type == "destination_stack_truck_bypass_ahead":
+        return [
+            ("mat_sign_white", [rect_polygon(0.0, 0.0, 0.95, 0.7)]),
+            ("mat_sign_green", [rect_polygon(0.0, 0.0, 0.87, 0.62)]),
+            (
+                "mat_sign_white",
+                [
+                    line_segment_polygon((-0.38, 0.0), (0.38, 0.0), 0.03),
+                ]
+                + truck_icon((-0.28, -0.17), 0.86)
+                + glyph_rects("TRUCK", 0.36, 0.09, (0.08, -0.17))
+                + glyph_rects("BYPASS", 0.42, 0.09, (-0.08, 0.17))
+                + arrow_shapes((0.28, 0.24), (0.28, 0.02), 0.06, 0.11, 0.16),
+            ),
         ]
     if sign_type == "stop_weathered":
         outer = regular_polygon(8, 0.48, 22.5)
@@ -4457,6 +4554,7 @@ def make_materials(
         "mat_sign_white_reflectance": clamp_list(interpolate([(350, 0.82), (700, 0.9), (1100, 0.82), (1700, 0.72)], MASTER_GRID)),
         "mat_sign_black_reflectance": clamp_list(interpolate([(350, 0.03), (1700, 0.04)], MASTER_GRID)),
         "mat_sign_blue_reflectance": clamp_list(interpolate([(350, 0.14), (430, 0.65), (480, 0.82), (560, 0.22), (700, 0.05), (1700, 0.04)], MASTER_GRID)),
+        "mat_sign_green_reflectance": clamp_list(interpolate([(350, 0.06), (430, 0.18), (500, 0.36), (540, 0.72), (620, 0.34), (700, 0.12), (1100, 0.08), (1700, 0.05)], MASTER_GRID)),
         "mat_sign_yellow_reflectance": clamp_list(interpolate([(350, 0.08), (420, 0.2), (520, 0.78), (600, 0.88), (700, 0.72), (1100, 0.48), (1700, 0.3)], MASTER_GRID)),
         "mat_sign_orange_reflectance": clamp_list(interpolate([(350, 0.06), (450, 0.16), (540, 0.52), (620, 0.82), (700, 0.72), (1100, 0.44), (1700, 0.26)], MASTER_GRID)),
         "mat_sign_weathered_film_reflectance": clamp_list(interpolate([(350, 0.14), (450, 0.18), (550, 0.24), (700, 0.28), (900, 0.26), (1100, 0.22), (1700, 0.18)], MASTER_GRID)),
@@ -4506,6 +4604,7 @@ def make_materials(
         ("mat_sign_white", "reflective", "reflectance", "dry", ["mat_sign_white_reflectance"], {"roughnessFactor": 0.82}),
         ("mat_sign_black", "reflective", "reflectance", "dry", ["mat_sign_black_reflectance"], {"roughnessFactor": 0.88}),
         ("mat_sign_blue", "reflective", "reflectance", "dry", ["mat_sign_blue_reflectance"], {"roughnessFactor": 0.8}),
+        ("mat_sign_green", "reflective", "reflectance", "dry", ["mat_sign_green_reflectance"], {"roughnessFactor": 0.8}),
         ("mat_sign_yellow", "reflective", "reflectance", "dry", ["mat_sign_yellow_reflectance"], {"roughnessFactor": 0.8}),
         ("mat_sign_orange", "reflective", "reflectance", "dry", ["mat_sign_orange_reflectance"], {"roughnessFactor": 0.8}),
         ("mat_sign_weathered_film", "reflective", "reflectance", "aged", ["mat_sign_weathered_film_reflectance"], {"roughnessFactor": 0.93}),
@@ -5156,6 +5255,12 @@ def sign_definitions() -> List[Dict]:
         {"id": "sign_hotel_arrow_left", "sign_type": "hotel_arrow_left", "size": (1.2, 0.42), "variant_key": "service.hotel.left", "semantic_class": "information.hotel"},
         {"id": "sign_airport_arrow_right", "sign_type": "airport_arrow_right", "size": (1.2, 0.42), "variant_key": "locale.eu.airport.right", "semantic_class": "information.airport"},
         {"id": "sign_truck_route_right", "sign_type": "truck_route_right", "size": (1.2, 0.42), "variant_key": "route.truck.right", "semantic_class": "information.truck_route"},
+        {"id": "sign_route_us_101_shield", "sign_type": "route_us_101_shield", "size": (0.76, 0.9), "variant_key": "route.us.us_101", "semantic_class": "information.route_shield"},
+        {"id": "sign_route_interstate_5_shield", "sign_type": "route_interstate_5_shield", "size": (0.82, 0.92), "variant_key": "route.us.interstate_5", "semantic_class": "information.route_shield"},
+        {"id": "sign_route_e45_shield", "sign_type": "route_e45_shield", "size": (0.9, 0.38), "variant_key": "route.eu.e_45", "semantic_class": "information.route_shield"},
+        {"id": "sign_destination_stack_airport_centre_right", "sign_type": "destination_stack_airport_centre_right", "size": (1.2, 0.74), "variant_key": "guide.airport_centre.right_stack", "semantic_class": "information.destination_guide"},
+        {"id": "sign_destination_stack_hotel_park_left", "sign_type": "destination_stack_hotel_park_left", "size": (1.2, 0.74), "variant_key": "guide.hotel_park.left_stack", "semantic_class": "information.destination_guide"},
+        {"id": "sign_destination_stack_truck_bypass_ahead", "sign_type": "destination_stack_truck_bypass_ahead", "size": (1.2, 0.74), "variant_key": "guide.truck_bypass.ahead_stack", "semantic_class": "information.destination_guide"},
         {"id": "sign_centre_left_text", "sign_type": "centre_left_text", "size": (1.2, 0.42), "variant_key": "locale.uk.centre.left_text", "semantic_class": "information.centre"},
         {"id": "sign_bypass_right_text", "sign_type": "bypass_right_text", "size": (1.2, 0.42), "variant_key": "locale.en.bypass.right_text", "semantic_class": "information.bypass"},
         {"id": "sign_priority_road", "sign_type": "priority_road", "size": (0.8, 0.8), "variant_key": "locale.eu.priority_road", "semantic_class": "regulatory.priority_road"},
@@ -6212,6 +6317,12 @@ def scene_definitions() -> List[Dict]:
                 {"asset_id": "furniture_sign_mount_bracket_single", "name": "sign_bracket_rect_8", "translate": (3.15, 0.0, -0.55), "rotate_y": 180.0},
                 {"asset_id": "furniture_sign_back_rectangle_wide", "name": "sign_back_rect_9", "translate": (3.15, 0.0, 0.55), "rotate_y": 180.0},
                 {"asset_id": "furniture_sign_mount_bracket_single", "name": "sign_bracket_rect_9", "translate": (3.15, 0.0, 0.55), "rotate_y": 180.0},
+                {"asset_id": "furniture_sign_back_rectangle_wide", "name": "sign_back_rect_10", "translate": (-4.4, 0.0, -2.75), "rotate_y": 0.0},
+                {"asset_id": "furniture_sign_mount_bracket_single", "name": "sign_bracket_rect_10", "translate": (-4.4, 0.0, -2.75), "rotate_y": 0.0},
+                {"asset_id": "furniture_sign_back_rectangle_wide", "name": "sign_back_rect_11", "translate": (-4.4, 0.0, -1.6), "rotate_y": 0.0},
+                {"asset_id": "furniture_sign_mount_bracket_single", "name": "sign_bracket_rect_11", "translate": (-4.4, 0.0, -1.6), "rotate_y": 0.0},
+                {"asset_id": "furniture_sign_back_rectangle_wide", "name": "sign_back_rect_12", "translate": (4.4, 0.0, -2.75), "rotate_y": 180.0},
+                {"asset_id": "furniture_sign_mount_bracket_single", "name": "sign_bracket_rect_12", "translate": (4.4, 0.0, -2.75), "rotate_y": 180.0},
                 {"asset_id": "sign_stop", "name": "sign_stop_0", "translate": (-1.8, 0.0, -1.0), "rotate_y": 0.0},
                 {"asset_id": "sign_speed_limit_50_weathered", "name": "sign_speed_0", "translate": (-1.8, 0.0, 0.4), "rotate_y": 0.0},
                 {"asset_id": "sign_pedestrian_crossing_weathered", "name": "sign_cross_0", "translate": (-1.8, 0.0, 1.8), "rotate_y": 0.0},
@@ -6219,6 +6330,11 @@ def scene_definitions() -> List[Dict]:
                 {"asset_id": "sign_hospital_arrow_right", "name": "sign_hospital_0", "translate": (-3.15, 0.0, -2.75), "rotate_y": 0.0},
                 {"asset_id": "sign_parking_arrow_left", "name": "sign_parking_dir_0", "translate": (-3.15, 0.0, -1.65), "rotate_y": 0.0},
                 {"asset_id": "sign_hotel_arrow_left", "name": "sign_hotel_0", "translate": (-3.15, 0.0, -0.55), "rotate_y": 0.0},
+                {"asset_id": "sign_destination_stack_airport_centre_right", "name": "sign_destination_stack_0", "translate": (-4.4, 0.0, -2.75), "rotate_y": 0.0},
+                {"asset_id": "sign_destination_stack_hotel_park_left", "name": "sign_destination_stack_1", "translate": (-4.4, 0.0, -1.6), "rotate_y": 0.0},
+                {"asset_id": "sign_route_us_101_shield", "name": "sign_route_us_101_0", "translate": (-4.4, 0.0, -0.4), "rotate_y": 0.0},
+                {"asset_id": "sign_route_interstate_5_shield", "name": "sign_route_i5_0", "translate": (-4.4, 0.0, 0.65), "rotate_y": 0.0},
+                {"asset_id": "sign_route_e45_shield", "name": "sign_route_e45_0", "translate": (-4.4, 0.0, 1.55), "rotate_y": 0.0},
                 {"asset_id": "sign_curve_left", "name": "sign_curve_0", "translate": (1.8, 0.0, -0.6), "rotate_y": 180.0},
                 {"asset_id": "sign_stop_ahead_text", "name": "sign_stop_ahead_0", "translate": (1.8, 0.0, -1.05), "rotate_y": 180.0},
                 {"asset_id": "sign_roundabout_mandatory", "name": "sign_roundabout_0", "translate": (1.8, 0.0, -2.15), "rotate_y": 180.0},
@@ -6230,6 +6346,10 @@ def scene_definitions() -> List[Dict]:
                 {"asset_id": "sign_bypass_right_text", "name": "sign_bypass_0", "translate": (3.15, 0.0, -1.65), "rotate_y": 180.0},
                 {"asset_id": "sign_centre_left_text", "name": "sign_centre_0", "translate": (3.15, 0.0, -0.55), "rotate_y": 180.0},
                 {"asset_id": "sign_truck_route_right", "name": "sign_truck_route_0", "translate": (3.15, 0.0, 0.55), "rotate_y": 180.0},
+                {"asset_id": "sign_destination_stack_truck_bypass_ahead", "name": "sign_destination_stack_2", "translate": (4.4, 0.0, -2.75), "rotate_y": 180.0},
+                {"asset_id": "sign_route_us_101_shield", "name": "sign_route_us_101_1", "translate": (4.4, 0.0, -1.55), "rotate_y": 180.0},
+                {"asset_id": "sign_route_interstate_5_shield", "name": "sign_route_i5_1", "translate": (4.4, 0.0, -0.45), "rotate_y": 180.0},
+                {"asset_id": "sign_route_e45_shield", "name": "sign_route_e45_1", "translate": (4.4, 0.0, 0.45), "rotate_y": 180.0},
             ],
         },
         {
@@ -6282,6 +6402,8 @@ def scene_definitions() -> List[Dict]:
                 {"asset_id": "furniture_sign_mount_bracket_single", "name": "sign_bracket_rect_0", "translate": (-3.2, 0.0, 2.18), "rotate_y": 90.0},
                 {"asset_id": "furniture_sign_back_rectangle_wide", "name": "sign_back_rect_1", "translate": (3.1, 0.0, 2.18), "rotate_y": 270.0},
                 {"asset_id": "furniture_sign_mount_bracket_single", "name": "sign_bracket_rect_1", "translate": (3.1, 0.0, 2.18), "rotate_y": 270.0},
+                {"asset_id": "furniture_sign_back_rectangle_wide", "name": "sign_back_rect_2", "translate": (-3.88, 0.0, 0.18), "rotate_y": 90.0},
+                {"asset_id": "furniture_sign_mount_bracket_single", "name": "sign_bracket_rect_2", "translate": (-3.88, 0.0, 0.18), "rotate_y": 90.0},
                 {"asset_id": "signal_beacon_amber_single", "name": "beacon_amber_0", "translate": (-2.65, 0.0, 1.3), "rotate_y": 90.0},
                 {"asset_id": "signal_warning_dual_amber_horizontal", "name": "warning_amber_0", "translate": (2.2, 0.0, 1.72), "rotate_y": 90.0},
                 {"asset_id": "signal_lane_control_overhead_3_aspect", "name": "lane_control_overhead_0", "translate": (0.3, 0.0, -2.35), "rotate_y": 0.0},
@@ -6294,6 +6416,7 @@ def scene_definitions() -> List[Dict]:
                 {"asset_id": "furniture_barricade_panel", "name": "barricade_0", "translate": (2.25, 0.0, 1.65), "rotate_y": 90.0},
                 {"asset_id": "sign_airport_arrow_right", "name": "sign_airport_0", "translate": (-3.2, 0.0, 2.18), "rotate_y": 90.0},
                 {"asset_id": "sign_bypass_right_text", "name": "sign_bypass_0", "translate": (3.1, 0.0, 2.18), "rotate_y": 270.0},
+                {"asset_id": "sign_destination_stack_airport_centre_right", "name": "sign_destination_stack_0", "translate": (-3.88, 0.0, 0.18), "rotate_y": 90.0},
                 {"asset_id": "signal_vehicle_vertical_3_aspect", "name": "signal_0", "translate": (-0.5, 0.0, -2.0), "rotate_y": 0.0},
                 {"asset_id": "signal_vehicle_horizontal_3_aspect", "name": "signal_1", "translate": (2.0, 0.0, -0.5), "rotate_y": 90.0},
                 {"asset_id": "signal_pedestrian_2_aspect", "name": "ped_signal_0", "translate": (1.8, 0.0, -1.2), "rotate_y": 180.0},

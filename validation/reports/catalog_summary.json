@@ -164,6 +164,42 @@
       "variant_key": "route.truck.right"
     },
     {
+      "id": "sign_route_us_101_shield",
+      "family": "traffic_sign",
+      "semantic_class": "information.route_shield",
+      "variant_key": "route.us.us_101"
+    },
+    {
+      "id": "sign_route_interstate_5_shield",
+      "family": "traffic_sign",
+      "semantic_class": "information.route_shield",
+      "variant_key": "route.us.interstate_5"
+    },
+    {
+      "id": "sign_route_e45_shield",
+      "family": "traffic_sign",
+      "semantic_class": "information.route_shield",
+      "variant_key": "route.eu.e_45"
+    },
+    {
+      "id": "sign_destination_stack_airport_centre_right",
+      "family": "traffic_sign",
+      "semantic_class": "information.destination_guide",
+      "variant_key": "guide.airport_centre.right_stack"
+    },
+    {
+      "id": "sign_destination_stack_hotel_park_left",
+      "family": "traffic_sign",
+      "semantic_class": "information.destination_guide",
+      "variant_key": "guide.hotel_park.left_stack"
+    },
+    {
+      "id": "sign_destination_stack_truck_bypass_ahead",
+      "family": "traffic_sign",
+      "semantic_class": "information.destination_guide",
+      "variant_key": "guide.truck_bypass.ahead_stack"
+    },
+    {
       "id": "sign_centre_left_text",
       "family": "traffic_sign",
       "semantic_class": "information.centre",

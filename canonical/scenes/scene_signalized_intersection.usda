@@ -328,6 +328,20 @@ def Xform "scene_signalized_intersection" {
         float xformOp:rotateY = 270.000000
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
     }
+    def Xform "sign_back_rect_2" (
+        references = @../geometry/usd/furniture_sign_back_rectangle_wide.usda@</furniture_sign_back_rectangle_wide>
+    ) {
+        double3 xformOp:translate = (-3.880000, 0.000000, 0.180000)
+        float xformOp:rotateY = 90.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
+    def Xform "sign_bracket_rect_2" (
+        references = @../geometry/usd/furniture_sign_mount_bracket_single.usda@</furniture_sign_mount_bracket_single>
+    ) {
+        double3 xformOp:translate = (-3.880000, 0.000000, 0.180000)
+        float xformOp:rotateY = 90.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
     def Xform "beacon_amber_0" (
         references = @../geometry/usd/signal_beacon_amber_single.usda@</signal_beacon_amber_single>
     ) {
@@ -410,6 +424,13 @@ def Xform "scene_signalized_intersection" {
     ) {
         double3 xformOp:translate = (3.100000, 0.000000, 2.180000)
         float xformOp:rotateY = 270.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
+    def Xform "sign_destination_stack_0" (
+        references = @../geometry/usd/sign_destination_stack_airport_centre_right.usda@</sign_destination_stack_airport_centre_right>
+    ) {
+        double3 xformOp:translate = (-3.880000, 0.000000, 0.180000)
+        float xformOp:rotateY = 90.000000
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
     }
     def Xform "signal_0" (

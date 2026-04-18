@@ -476,6 +476,66 @@
           "rotate_y": 180.0
         },
         {
+          "asset_id": "furniture_sign_back_rectangle_wide",
+          "name": "sign_back_rect_10",
+          "translate": [
+            -4.4,
+            0.0,
+            -2.75
+          ],
+          "rotate_y": 0.0
+        },
+        {
+          "asset_id": "furniture_sign_mount_bracket_single",
+          "name": "sign_bracket_rect_10",
+          "translate": [
+            -4.4,
+            0.0,
+            -2.75
+          ],
+          "rotate_y": 0.0
+        },
+        {
+          "asset_id": "furniture_sign_back_rectangle_wide",
+          "name": "sign_back_rect_11",
+          "translate": [
+            -4.4,
+            0.0,
+            -1.6
+          ],
+          "rotate_y": 0.0
+        },
+        {
+          "asset_id": "furniture_sign_mount_bracket_single",
+          "name": "sign_bracket_rect_11",
+          "translate": [
+            -4.4,
+            0.0,
+            -1.6
+          ],
+          "rotate_y": 0.0
+        },
+        {
+          "asset_id": "furniture_sign_back_rectangle_wide",
+          "name": "sign_back_rect_12",
+          "translate": [
+            4.4,
+            0.0,
+            -2.75
+          ],
+          "rotate_y": 180.0
+        },
+        {
+          "asset_id": "furniture_sign_mount_bracket_single",
+          "name": "sign_bracket_rect_12",
+          "translate": [
+            4.4,
+            0.0,
+            -2.75
+          ],
+          "rotate_y": 180.0
+        },
+        {
           "asset_id": "sign_stop",
           "name": "sign_stop_0",
           "translate": [
@@ -542,6 +602,56 @@
             -3.15,
             0.0,
             -0.55
+          ],
+          "rotate_y": 0.0
+        },
+        {
+          "asset_id": "sign_destination_stack_airport_centre_right",
+          "name": "sign_destination_stack_0",
+          "translate": [
+            -4.4,
+            0.0,
+            -2.75
+          ],
+          "rotate_y": 0.0
+        },
+        {
+          "asset_id": "sign_destination_stack_hotel_park_left",
+          "name": "sign_destination_stack_1",
+          "translate": [
+            -4.4,
+            0.0,
+            -1.6
+          ],
+          "rotate_y": 0.0
+        },
+        {
+          "asset_id": "sign_route_us_101_shield",
+          "name": "sign_route_us_101_0",
+          "translate": [
+            -4.4,
+            0.0,
+            -0.4
+          ],
+          "rotate_y": 0.0
+        },
+        {
+          "asset_id": "sign_route_interstate_5_shield",
+          "name": "sign_route_i5_0",
+          "translate": [
+            -4.4,
+            0.0,
+            0.65
+          ],
+          "rotate_y": 0.0
+        },
+        {
+          "asset_id": "sign_route_e45_shield",
+          "name": "sign_route_e45_0",
+          "translate": [
+            -4.4,
+            0.0,
+            1.55
           ],
           "rotate_y": 0.0
         },
@@ -652,6 +762,46 @@
             3.15,
             0.0,
             0.55
+          ],
+          "rotate_y": 180.0
+        },
+        {
+          "asset_id": "sign_destination_stack_truck_bypass_ahead",
+          "name": "sign_destination_stack_2",
+          "translate": [
+            4.4,
+            0.0,
+            -2.75
+          ],
+          "rotate_y": 180.0
+        },
+        {
+          "asset_id": "sign_route_us_101_shield",
+          "name": "sign_route_us_101_1",
+          "translate": [
+            4.4,
+            0.0,
+            -1.55
+          ],
+          "rotate_y": 180.0
+        },
+        {
+          "asset_id": "sign_route_interstate_5_shield",
+          "name": "sign_route_i5_1",
+          "translate": [
+            4.4,
+            0.0,
+            -0.45
+          ],
+          "rotate_y": 180.0
+        },
+        {
+          "asset_id": "sign_route_e45_shield",
+          "name": "sign_route_e45_1",
+          "translate": [
+            4.4,
+            0.0,
+            0.45
           ],
           "rotate_y": 180.0
         }
@@ -1127,6 +1277,26 @@
           "rotate_y": 270.0
         },
         {
+          "asset_id": "furniture_sign_back_rectangle_wide",
+          "name": "sign_back_rect_2",
+          "translate": [
+            -3.88,
+            0.0,
+            0.18
+          ],
+          "rotate_y": 90.0
+        },
+        {
+          "asset_id": "furniture_sign_mount_bracket_single",
+          "name": "sign_bracket_rect_2",
+          "translate": [
+            -3.88,
+            0.0,
+            0.18
+          ],
+          "rotate_y": 90.0
+        },
+        {
           "asset_id": "signal_beacon_amber_single",
           "name": "beacon_amber_0",
           "translate": [
@@ -1245,6 +1415,16 @@
             2.18
           ],
           "rotate_y": 270.0
+        },
+        {
+          "asset_id": "sign_destination_stack_airport_centre_right",
+          "name": "sign_destination_stack_0",
+          "translate": [
+            -3.88,
+            0.0,
+            0.18
+          ],
+          "rotate_y": 90.0
         },
         {
           "asset_id": "signal_vehicle_vertical_3_aspect",

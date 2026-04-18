@@ -6,8 +6,8 @@ This file explains what the generator actually creates in this repository and ho
 
 Current generated baseline:
 
-- `142` assets
-- `25` spectral materials
+- `148` assets
+- `26` spectral materials
 - `13` emissive profiles
 - `3` camera profiles
 - `4` scenario profiles
@@ -53,6 +53,12 @@ These are sign objects such as:
 - `sign_airport_arrow_right`
 - `sign_truck_route_right`
 - `sign_centre_left_text`
+- `sign_route_us_101_shield`
+- `sign_route_interstate_5_shield`
+- `sign_route_e45_shield`
+- `sign_destination_stack_airport_centre_right`
+- `sign_destination_stack_hotel_park_left`
+- `sign_destination_stack_truck_bypass_ahead`
 - `sign_one_way_text_left`
 - `sign_one_way_text_right`
 - `sign_detour_left_text`
@@ -73,6 +79,8 @@ The newer route/service additions now also include:
 - service-direction panels such as hospital, parking, and hotel
 - transport or logistics panels such as airport and truck-route signs
 - locale-style wayfinding panels such as `CENTRE` and `BYPASS`
+- route-shield panels such as U.S., interstate, and E-route markers
+- stacked destination-guide panels that combine multiple destinations and directional arrows on one sign face
 
 ### `traffic_light`
 

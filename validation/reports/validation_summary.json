@@ -1,7 +1,7 @@
 {
   "generated_at": "2026-04-16T10:10:40+00:00",
-  "asset_count": 142,
-  "material_count": 25,
+  "asset_count": 148,
+  "material_count": 26,
   "emissive_profile_count": 13,
   "camera_profile_count": 3,
   "active_camera_profile_id": "camera_reference_rgb_nir_v3",
@@ -111,12 +111,12 @@
   },
   "spectral_coverage_validation": {
     "status": "pass",
-    "materials_with_400_1100_coverage": 25
+    "materials_with_400_1100_coverage": 26
   },
   "material_quality_summary": {
     "measured_derivative": 1,
     "measured_standard": 3,
-    "project_proxy": 21,
+    "project_proxy": 22,
     "vendor_derived": 0
   },
   "emissive_profile_quality_summary": {
