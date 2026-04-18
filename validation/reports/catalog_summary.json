@@ -530,10 +530,22 @@
       "variant_key": "bicycle.vertical.3_aspect"
     },
     {
+      "id": "signal_bicycle_compact_2_aspect",
+      "family": "traffic_light",
+      "semantic_class": "traffic_light.bicycle",
+      "variant_key": "bicycle.compact.2_aspect"
+    },
+    {
       "id": "signal_pedestrian_bicycle_hybrid_4_aspect",
       "family": "traffic_light",
       "semantic_class": "traffic_light.pedestrian_bicycle",
       "variant_key": "pedestrian_bicycle.hybrid.4_aspect"
+    },
+    {
+      "id": "signal_pedestrian_bicycle_compact_3_aspect",
+      "family": "traffic_light",
+      "semantic_class": "traffic_light.pedestrian_bicycle",
+      "variant_key": "pedestrian_bicycle.compact.3_aspect"
     },
     {
       "id": "signal_beacon_amber_single",
@@ -558,6 +570,12 @@
       "family": "traffic_light",
       "semantic_class": "traffic_light.warning_flasher",
       "variant_key": "warning_flasher.dual_amber.vertical"
+    },
+    {
+      "id": "signal_warning_dual_amber_box",
+      "family": "traffic_light",
+      "semantic_class": "traffic_light.warning_flasher",
+      "variant_key": "warning_flasher.dual_amber.box"
     },
     {
       "id": "signal_warning_dual_red_horizontal",
@@ -600,6 +618,12 @@
       "family": "traffic_light",
       "semantic_class": "traffic_light.transit_priority",
       "variant_key": "transit_priority.horizontal.4_aspect"
+    },
+    {
+      "id": "signal_transit_priority_diamond_3_aspect",
+      "family": "traffic_light",
+      "semantic_class": "traffic_light.transit_priority",
+      "variant_key": "transit_priority.diamond.3_aspect"
     },
     {
       "id": "signal_bus_priority_vertical_4_aspect",
@@ -696,6 +720,12 @@
       "family": "traffic_light",
       "semantic_class": "traffic_light.preemption_beacon",
       "variant_key": "preemption.lunar.dual_vertical"
+    },
+    {
+      "id": "signal_preemption_beacon_dual_lunar_box",
+      "family": "traffic_light",
+      "semantic_class": "traffic_light.preemption_beacon",
+      "variant_key": "preemption.lunar.dual_box"
     },
     {
       "id": "signal_preemption_beacon_quad_lunar_box",
@@ -1596,6 +1626,24 @@
       "family": "road_furniture",
       "semantic_class": "furniture.signal_cantilever_service",
       "variant_key": "grated_platform"
+    },
+    {
+      "id": "furniture_signal_cantilever_diagonal_brace_pair",
+      "family": "road_furniture",
+      "semantic_class": "furniture.signal_cantilever_brace",
+      "variant_key": "diagonal_brace_pair"
+    },
+    {
+      "id": "furniture_signal_cantilever_backspan_stub",
+      "family": "road_furniture",
+      "semantic_class": "furniture.signal_cantilever_backspan",
+      "variant_key": "backspan_stub"
+    },
+    {
+      "id": "furniture_signal_cantilever_mount_plate_pair",
+      "family": "road_furniture",
+      "semantic_class": "furniture.signal_cantilever_mount",
+      "variant_key": "dual_mount_plate"
     },
     {
       "id": "furniture_signal_controller_cabinet",

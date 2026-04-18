@@ -1,0 +1,36 @@
+{
+  "id": "emissive_transit_priority_compact",
+  "spd_ref": {
+    "red": "canonical/spectra/spd_signal_red_vendor_ref.npz",
+    "white": "canonical/spectra/spd_led_pedestrian_white.npz"
+  },
+  "state_map": {
+    "off": {},
+    "transit_stop": {
+      "display_transit_stop": "spd_signal_red_vendor_ref"
+    },
+    "transit_go": {
+      "display_transit_go": "spd_led_pedestrian_white"
+    },
+    "transit_call": {
+      "display_transit_call": "spd_led_pedestrian_white"
+    }
+  },
+  "nominal_luminance_cd_m2": {
+    "red": 6200,
+    "white": 6100
+  },
+  "temperature_c": 25.0,
+  "driver_mode": "transit_priority_controller",
+  "source_quality": "project_proxy",
+  "source_ids": [],
+  "license": {
+    "spdx": "LicenseRef-ProjectGenerated"
+  },
+  "provenance": {
+    "generated_at": "2026-04-16T10:10:40+00:00",
+    "generated_by": "scripts/build_asset_pack.py",
+    "source_ids": [],
+    "note": "Compact transit-priority control profile using active vehicle red curves plus the project white LED proxy for go/call indications."
+  }
+}

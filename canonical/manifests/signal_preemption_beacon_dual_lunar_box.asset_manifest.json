@@ -1,0 +1,84 @@
+{
+  "id": "signal_preemption_beacon_dual_lunar_box",
+  "family": "traffic_light",
+  "semantic_class": "traffic_light.preemption_beacon",
+  "variant_key": "preemption.lunar.dual_box",
+  "dimensions_m": {
+    "width": 0.62,
+    "height": 1.72,
+    "depth": 0.18
+  },
+  "lods": [
+    {
+      "name": "LOD0",
+      "triangle_count": 216,
+      "usd_scope": "/signal_preemption_beacon_dual_lunar_box/LOD0",
+      "gltf_node_prefix": "LOD0"
+    },
+    {
+      "name": "LOD1",
+      "triangle_count": 152,
+      "usd_scope": "/signal_preemption_beacon_dual_lunar_box/LOD1",
+      "gltf_node_prefix": "LOD1"
+    }
+  ],
+  "collider": {
+    "type": "box",
+    "width": 0.62,
+    "height": 0.52,
+    "depth": 0.18
+  },
+  "anchor_points": {
+    "mount_point": {
+      "x": 0.0,
+      "y": 1.2,
+      "z": -0.08
+    },
+    "front_center": {
+      "x": 0.0,
+      "y": 1.46,
+      "z": 0.09
+    }
+  },
+  "materials": [
+    "mat_metal_galvanized",
+    "mat_signal_housing",
+    "mat_signal_ped_white_off"
+  ],
+  "states": {
+    "off": {
+      "emissive_profile": "emissive_preemption_beacon_dual_lunar",
+      "state_key": "off"
+    },
+    "preempt_left": {
+      "emissive_profile": "emissive_preemption_beacon_dual_lunar",
+      "state_key": "preempt_left"
+    },
+    "preempt_right": {
+      "emissive_profile": "emissive_preemption_beacon_dual_lunar",
+      "state_key": "preempt_right"
+    },
+    "preempt_pair": {
+      "emissive_profile": "emissive_preemption_beacon_dual_lunar",
+      "state_key": "preempt_pair"
+    },
+    "flashing_preempt_pair": {
+      "emissive_profile": "emissive_preemption_beacon_dual_lunar",
+      "state_key": "flashing_preempt_pair"
+    }
+  },
+  "export_targets": {
+    "usd_ascii": "canonical/geometry/usd/signal_preemption_beacon_dual_lunar_box.usda",
+    "usd_binary": "exports/usd/signal_preemption_beacon_dual_lunar_box.usdc",
+    "gltf_binary": "exports/gltf/signal_preemption_beacon_dual_lunar_box.glb"
+  },
+  "license": {
+    "spdx": "LicenseRef-ProjectGenerated",
+    "redistribution": "geometry, manifests, and templates generated in-repo"
+  },
+  "provenance": {
+    "generated_at": "2026-04-16T10:10:40+00:00",
+    "generated_by": "scripts/build_asset_pack.py",
+    "note": "Generated signal housing geometry with state-driven emissive profile bindings."
+  }
+}

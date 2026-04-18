@@ -2317,6 +2317,36 @@
           "rotate_y": 180.0
         },
         {
+          "asset_id": "furniture_signal_cantilever_backspan_stub",
+          "name": "cantilever_backspan_stub_0",
+          "translate": [
+            4.02,
+            0.0,
+            -2.24
+          ],
+          "rotate_y": 180.0
+        },
+        {
+          "asset_id": "furniture_signal_cantilever_diagonal_brace_pair",
+          "name": "cantilever_diagonal_brace_0",
+          "translate": [
+            7.76,
+            0.0,
+            -2.24
+          ],
+          "rotate_y": 180.0
+        },
+        {
+          "asset_id": "furniture_signal_cantilever_mount_plate_pair",
+          "name": "cantilever_mount_plate_0",
+          "translate": [
+            13.22,
+            0.0,
+            -2.24
+          ],
+          "rotate_y": 180.0
+        },
+        {
           "asset_id": "furniture_signal_cantilever_dropper_triple",
           "name": "cantilever_dropper_triple_0",
           "translate": [
@@ -2827,6 +2857,16 @@
           "rotate_y": 0.0
         },
         {
+          "asset_id": "signal_transit_priority_diamond_3_aspect",
+          "name": "transit_priority_diamond_0",
+          "translate": [
+            -1.28,
+            0.0,
+            1.92
+          ],
+          "rotate_y": 90.0
+        },
+        {
           "asset_id": "signal_bus_priority_vertical_4_aspect",
           "name": "bus_priority_vertical_0",
           "translate": [
@@ -2907,6 +2947,26 @@
           "rotate_y": 180.0
         },
         {
+          "asset_id": "signal_bicycle_compact_2_aspect",
+          "name": "bicycle_signal_compact_0",
+          "translate": [
+            3.7,
+            0.0,
+            1.34
+          ],
+          "rotate_y": 180.0
+        },
+        {
+          "asset_id": "signal_pedestrian_bicycle_compact_3_aspect",
+          "name": "ped_bike_compact_0",
+          "translate": [
+            4.26,
+            0.0,
+            1.34
+          ],
+          "rotate_y": 180.0
+        },
+        {
           "asset_id": "signal_school_warning_dual_amber_vertical",
           "name": "school_warning_0",
           "translate": [
@@ -2981,6 +3041,16 @@
           "name": "warning_red_vertical_0",
           "translate": [
             11.78,
+            0.0,
+            -2.24
+          ],
+          "rotate_y": 0.0
+        },
+        {
+          "asset_id": "signal_warning_dual_amber_box",
+          "name": "warning_amber_box_0",
+          "translate": [
+            12.9,
             0.0,
             -2.24
           ],
@@ -3992,6 +4062,16 @@
           "name": "preemption_dual_vertical_0",
           "translate": [
             -1.62,
+            0.0,
+            1.46
+          ],
+          "rotate_y": 0.0
+        },
+        {
+          "asset_id": "signal_preemption_beacon_dual_lunar_box",
+          "name": "preemption_dual_box_0",
+          "translate": [
+            -0.46,
             0.0,
             1.46
           ],
@@ -5195,6 +5275,16 @@
             3.58,
             0.0,
             1.88
+          ],
+          "rotate_y": 180.0
+        },
+        {
+          "asset_id": "signal_warning_dual_amber_box",
+          "name": "warning_amber_box_0",
+          "translate": [
+            9.18,
+            0.0,
+            -1.86
           ],
           "rotate_y": 180.0
         },

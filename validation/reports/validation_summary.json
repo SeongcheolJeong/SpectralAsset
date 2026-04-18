@@ -1,8 +1,8 @@
 {
   "generated_at": "2026-04-16T10:10:40+00:00",
-  "asset_count": 312,
+  "asset_count": 320,
   "material_count": 27,
-  "emissive_profile_count": 24,
+  "emissive_profile_count": 27,
   "camera_profile_count": 3,
   "active_camera_profile_id": "camera_reference_rgb_nir_v3",
   "camera_profile_activation_reason": "No frozen measured automotive sensor SRF source is available, so camera_reference_rgb_nir_v3 is active.",
@@ -122,8 +122,8 @@
   "emissive_profile_quality_summary": {
     "measured_derivative": 0,
     "measured_standard": 0,
-    "project_proxy": 9,
-    "vendor_derived": 15
+    "project_proxy": 11,
+    "vendor_derived": 16
   },
   "camera_profile_quality_summary": {
     "measured_derivative": 0,

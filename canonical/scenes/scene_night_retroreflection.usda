@@ -405,6 +405,13 @@ def Xform "scene_night_retroreflection" {
         float xformOp:rotateY = 0.000000
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
     }
+    def Xform "preemption_dual_box_0" (
+        references = @../geometry/usd/signal_preemption_beacon_dual_lunar_box.usda@</signal_preemption_beacon_dual_lunar_box>
+    ) {
+        double3 xformOp:translate = (-0.460000, 0.000000, 1.460000)
+        float xformOp:rotateY = 0.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
     def Xform "preemption_quad_0" (
         references = @../geometry/usd/signal_preemption_beacon_quad_lunar_box.usda@</signal_preemption_beacon_quad_lunar_box>
     ) {

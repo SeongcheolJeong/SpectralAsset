@@ -119,7 +119,8 @@
 - existing validation scenes now place roundabout outer-ring and bypass-slip-lane panels, retaining-wall shoulder-shelf and abutment transitions, plus laydown-bay and temporary-access work-zone surfaces so roadway scenes are broader than the earlier roundabout-apron, retaining-wall cut, and staging-pad follow-up batch
 - existing validation scenes now place `CENTRO`, `AEROPORTO`, and `METRO` service panels, a larger `CENTRO`/`HOTEL` destination stack, deeper `US 66`/`CA 17`/`A9` shield variants, and a larger overhead `AEROPORTO`/`CENTRO` split assembly so sign scenes are broader than the earlier localized-service, airport/parking, and first shield-depth follow-up batch
 - existing validation scenes now place compact lane-control, single-amber school-warning, compact bus/tram-priority, and vertical dual-lunar preemption heads plus a curved cantilever mast and triple-dropper subtype so traffic-light scenes are broader than the earlier full-size specialty-control and single cantilever-frame follow-up batch
-- backlog focus now moves from `traffic_sign` transfer-wayfinding, multilingual service, and larger guide follow-up work to `traffic_light` multimodal specialty-control, warning/preemption nuance, and cantilever-hardware continuation after the latest sign batch
+- existing validation scenes now place compact bicycle and pedestrian-bicycle heads, a transit-priority diamond head, a dual-amber warning box, and a dual-lunar preemption box plus cantilever backspan, diagonal-brace, and mount-plate hardware so traffic-light scenes are broader than the earlier compact bus/tram, quad-lunar, and dropper-only cantilever follow-up batch
+- backlog focus now moves from `traffic_light` multimodal specialty-control, warning/preemption nuance, and cantilever-hardware continuation to `road_furniture` cantilever maintenance/support-tail, rail-control ancillary, and transit microsupport follow-up after the latest signal batch
 
 ### Validation
 
@@ -168,6 +169,7 @@
 - validation summary now reports `298` assets, including `63` `road_marking` assets, `24` emissive profiles, and `302` GLB files after the first forty-fifth `P3` expansion batch
 - validation summary now reports `304` assets, including `51` `road_surface` assets, `24` emissive profiles, and `308` GLB files after the first forty-sixth `P3` expansion batch
 - validation summary now reports `312` assets, including `82` `traffic_sign` assets, `27` spectral materials, and `316` GLB files after the first forty-seventh `P3` expansion batch
+- validation summary now reports `320` assets, including `44` `traffic_light` assets, `80` `road_furniture` assets, `27` emissive profiles, and `324` GLB files after the first forty-eighth `P3` expansion batch
 - validation summary now includes `3` camera profiles and zero camera-profile validation errors
 - material quality summary now reports `3` `measured_standard`, `1` `measured_derivative`, `23` `project_proxy`, and `0` `vendor_derived` materials
 - emissive profile quality summary now distinguishes vendor-derived vehicle/protected-turn profiles from remaining proxy pedestrian/countdown profiles

@@ -727,6 +727,13 @@ def Xform "scene_wet_road_braking" {
         float xformOp:rotateY = 180.000000
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
     }
+    def Xform "warning_amber_box_0" (
+        references = @../geometry/usd/signal_warning_dual_amber_box.usda@</signal_warning_dual_amber_box>
+    ) {
+        double3 xformOp:translate = (9.180000, 0.000000, -1.860000)
+        float xformOp:rotateY = 180.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
     def Xform "warning_amber_vertical_0" (
         references = @../geometry/usd/signal_warning_dual_amber_vertical.usda@</signal_warning_dual_amber_vertical>
     ) {
