@@ -1,6 +1,6 @@
 {
   "generated_at": "2026-04-16T10:10:40.000Z",
-  "files_checked": 350,
+  "files_checked": 356,
   "files_with_errors": 0,
   "files_with_warnings": 0,
   "results": [
@@ -68,6 +68,13 @@
       "messages": []
     },
     {
+      "file": "exports/gltf/furniture_bus_stop_platform_handrail.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
       "file": "exports/gltf/furniture_bus_stop_request_pole.glb",
       "numErrors": 0,
       "numWarnings": 0,
@@ -76,6 +83,13 @@
     },
     {
       "file": "exports/gltf/furniture_bus_stop_shelter.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
+      "file": "exports/gltf/furniture_bus_stop_ticket_machine.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
@@ -285,6 +299,20 @@
       "messages": []
     },
     {
+      "file": "exports/gltf/furniture_shelter_lighting_inverter_box.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
+      "file": "exports/gltf/furniture_shelter_power_pedestal.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
       "file": "exports/gltf/furniture_shelter_route_map_case.glb",
       "numErrors": 0,
       "numWarnings": 0,
@@ -384,6 +412,20 @@
     },
     {
       "file": "exports/gltf/furniture_signal_band_clamp.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
+      "file": "exports/gltf/furniture_signal_base_conduit_riser.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
+      "file": "exports/gltf/furniture_signal_base_handhole_cover.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,

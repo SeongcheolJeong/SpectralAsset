@@ -1790,6 +1790,18 @@
       "variant_key": "service_loop_guard"
     },
     {
+      "id": "furniture_signal_base_handhole_cover",
+      "family": "road_furniture",
+      "semantic_class": "furniture.signal_base_service",
+      "variant_key": "handhole_cover"
+    },
+    {
+      "id": "furniture_signal_base_conduit_riser",
+      "family": "road_furniture",
+      "semantic_class": "furniture.signal_base_service",
+      "variant_key": "conduit_riser_pair"
+    },
+    {
       "id": "furniture_rail_gate_mast",
       "family": "road_furniture",
       "semantic_class": "furniture.rail_gate_mast",
@@ -1892,6 +1904,18 @@
       "variant_key": "freestanding_lightbox"
     },
     {
+      "id": "furniture_shelter_power_pedestal",
+      "family": "road_furniture",
+      "semantic_class": "furniture.shelter_power",
+      "variant_key": "power_pedestal_metered"
+    },
+    {
+      "id": "furniture_shelter_lighting_inverter_box",
+      "family": "road_furniture",
+      "semantic_class": "furniture.shelter_power",
+      "variant_key": "lighting_inverter_box"
+    },
+    {
       "id": "furniture_bus_stop_totem",
       "family": "road_furniture",
       "semantic_class": "furniture.transit_stop_marker",
@@ -1938,6 +1962,18 @@
       "family": "road_furniture",
       "semantic_class": "furniture.transit_stop_seat",
       "variant_key": "perch_seat"
+    },
+    {
+      "id": "furniture_bus_stop_ticket_machine",
+      "family": "road_furniture",
+      "semantic_class": "furniture.transit_stop_ticket_machine",
+      "variant_key": "compact_ticket_machine"
+    },
+    {
+      "id": "furniture_bus_stop_platform_handrail",
+      "family": "road_furniture",
+      "semantic_class": "furniture.transit_stop_platform",
+      "variant_key": "platform_handrail"
     },
     {
       "id": "furniture_queue_rail_module",

@@ -734,6 +734,20 @@ def Xform "scene_signalized_intersection" {
         float xformOp:rotateY = 0.000000
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
     }
+    def Xform "signal_base_handhole_0" (
+        references = @../geometry/usd/furniture_signal_base_handhole_cover.usda@</furniture_signal_base_handhole_cover>
+    ) {
+        double3 xformOp:translate = (-2.180000, 0.000000, -1.940000)
+        float xformOp:rotateY = 0.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
+    def Xform "signal_base_conduit_riser_0" (
+        references = @../geometry/usd/furniture_signal_base_conduit_riser.usda@</furniture_signal_base_conduit_riser>
+    ) {
+        double3 xformOp:translate = (-1.580000, 0.000000, -2.160000)
+        float xformOp:rotateY = 0.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
     def Xform "pull_box_0" (
         references = @../geometry/usd/furniture_utility_pull_box.usda@</furniture_utility_pull_box>
     ) {
@@ -797,6 +811,20 @@ def Xform "scene_signalized_intersection" {
         float xformOp:rotateY = 90.000000
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
     }
+    def Xform "shelter_power_pedestal_0" (
+        references = @../geometry/usd/furniture_shelter_power_pedestal.usda@</furniture_shelter_power_pedestal>
+    ) {
+        double3 xformOp:translate = (-4.340000, 0.000000, 0.940000)
+        float xformOp:rotateY = 90.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
+    def Xform "shelter_inverter_box_0" (
+        references = @../geometry/usd/furniture_shelter_lighting_inverter_box.usda@</furniture_shelter_lighting_inverter_box>
+    ) {
+        double3 xformOp:translate = (-4.260000, 0.000000, 1.960000)
+        float xformOp:rotateY = 90.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
     def Xform "bus_stop_totem_0" (
         references = @../geometry/usd/furniture_bus_stop_totem.usda@</furniture_bus_stop_totem>
     ) {
@@ -843,6 +871,20 @@ def Xform "scene_signalized_intersection" {
         references = @../geometry/usd/furniture_bus_stop_perch_seat.usda@</furniture_bus_stop_perch_seat>
     ) {
         double3 xformOp:translate = (-3.020000, 0.000000, 0.480000)
+        float xformOp:rotateY = 90.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
+    def Xform "bus_stop_ticket_machine_0" (
+        references = @../geometry/usd/furniture_bus_stop_ticket_machine.usda@</furniture_bus_stop_ticket_machine>
+    ) {
+        double3 xformOp:translate = (-1.920000, 0.000000, 1.820000)
+        float xformOp:rotateY = 90.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
+    def Xform "bus_stop_platform_handrail_0" (
+        references = @../geometry/usd/furniture_bus_stop_platform_handrail.usda@</furniture_bus_stop_platform_handrail>
+    ) {
+        double3 xformOp:translate = (-1.420000, 0.000000, 0.920000)
         float xformOp:rotateY = 90.000000
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
     }

@@ -2537,6 +2537,26 @@
           "rotate_y": 0.0
         },
         {
+          "asset_id": "furniture_signal_base_handhole_cover",
+          "name": "signal_base_handhole_0",
+          "translate": [
+            -2.18,
+            0.0,
+            -1.94
+          ],
+          "rotate_y": 0.0
+        },
+        {
+          "asset_id": "furniture_signal_base_conduit_riser",
+          "name": "signal_base_conduit_riser_0",
+          "translate": [
+            -1.58,
+            0.0,
+            -2.16
+          ],
+          "rotate_y": 0.0
+        },
+        {
           "asset_id": "furniture_utility_pull_box",
           "name": "pull_box_0",
           "translate": [
@@ -2627,6 +2647,26 @@
           "rotate_y": 90.0
         },
         {
+          "asset_id": "furniture_shelter_power_pedestal",
+          "name": "shelter_power_pedestal_0",
+          "translate": [
+            -4.34,
+            0.0,
+            0.94
+          ],
+          "rotate_y": 90.0
+        },
+        {
+          "asset_id": "furniture_shelter_lighting_inverter_box",
+          "name": "shelter_inverter_box_0",
+          "translate": [
+            -4.26,
+            0.0,
+            1.96
+          ],
+          "rotate_y": 90.0
+        },
+        {
           "asset_id": "furniture_bus_stop_totem",
           "name": "bus_stop_totem_0",
           "translate": [
@@ -2693,6 +2733,26 @@
             -3.02,
             0.0,
             0.48
+          ],
+          "rotate_y": 90.0
+        },
+        {
+          "asset_id": "furniture_bus_stop_ticket_machine",
+          "name": "bus_stop_ticket_machine_0",
+          "translate": [
+            -1.92,
+            0.0,
+            1.82
+          ],
+          "rotate_y": 90.0
+        },
+        {
+          "asset_id": "furniture_bus_stop_platform_handrail",
+          "name": "bus_stop_platform_handrail_0",
+          "translate": [
+            -1.42,
+            0.0,
+            0.92
           ],
           "rotate_y": 90.0
         },
@@ -4238,6 +4298,26 @@
           "rotate_y": 180.0
         },
         {
+          "asset_id": "furniture_signal_base_handhole_cover",
+          "name": "signal_base_handhole_0",
+          "translate": [
+            1.18,
+            0.0,
+            -1.18
+          ],
+          "rotate_y": 180.0
+        },
+        {
+          "asset_id": "furniture_signal_base_conduit_riser",
+          "name": "signal_base_conduit_riser_0",
+          "translate": [
+            0.36,
+            0.0,
+            -1.22
+          ],
+          "rotate_y": 180.0
+        },
+        {
           "asset_id": "signal_warning_dual_red_horizontal",
           "name": "warning_red_0",
           "translate": [
@@ -5459,6 +5539,26 @@
           "rotate_y": 0.0
         },
         {
+          "asset_id": "furniture_signal_base_handhole_cover",
+          "name": "signal_base_handhole_0",
+          "translate": [
+            -2.22,
+            0.0,
+            -1.18
+          ],
+          "rotate_y": 0.0
+        },
+        {
+          "asset_id": "furniture_signal_base_conduit_riser",
+          "name": "signal_base_conduit_riser_0",
+          "translate": [
+            -1.62,
+            0.0,
+            -1.38
+          ],
+          "rotate_y": 0.0
+        },
+        {
           "asset_id": "furniture_utility_pole_steel",
           "name": "utility_pole_steel_0",
           "translate": [
@@ -5575,6 +5675,26 @@
             2.46,
             0.0,
             2.02
+          ],
+          "rotate_y": 180.0
+        },
+        {
+          "asset_id": "furniture_bus_stop_ticket_machine",
+          "name": "bus_stop_ticket_machine_0",
+          "translate": [
+            3.72,
+            0.0,
+            2.18
+          ],
+          "rotate_y": 180.0
+        },
+        {
+          "asset_id": "furniture_bus_stop_platform_handrail",
+          "name": "bus_stop_platform_handrail_0",
+          "translate": [
+            2.26,
+            0.0,
+            1.62
           ],
           "rotate_y": 180.0
         },
@@ -5725,6 +5845,26 @@
             2.54,
             0.0,
             1.14
+          ],
+          "rotate_y": 180.0
+        },
+        {
+          "asset_id": "furniture_shelter_power_pedestal",
+          "name": "shelter_power_pedestal_0",
+          "translate": [
+            4.34,
+            0.0,
+            1.84
+          ],
+          "rotate_y": 180.0
+        },
+        {
+          "asset_id": "furniture_shelter_lighting_inverter_box",
+          "name": "shelter_inverter_box_0",
+          "translate": [
+            4.18,
+            0.0,
+            0.92
           ],
           "rotate_y": 180.0
         },
