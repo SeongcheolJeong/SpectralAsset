@@ -1,6 +1,6 @@
 {
   "generated_at": "2026-04-16T10:10:40.000Z",
-  "files_checked": 302,
+  "files_checked": 308,
   "files_with_errors": 0,
   "files_with_warnings": 0,
   "results": [
@@ -1132,6 +1132,13 @@
       "messages": []
     },
     {
+      "file": "exports/gltf/road_floating_bus_stop_island.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
       "file": "exports/gltf/road_gravel_shoulder.glb",
       "numErrors": 0,
       "numWarnings": 0,
@@ -1237,6 +1244,20 @@
       "messages": []
     },
     {
+      "file": "exports/gltf/road_separator_island_offset_refuge.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
+      "file": "exports/gltf/road_separator_island_taper.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
       "file": "exports/gltf/road_service_lane_apron.glb",
       "numErrors": 0,
       "numWarnings": 0,
@@ -1258,6 +1279,13 @@
       "messages": []
     },
     {
+      "file": "exports/gltf/road_transit_transfer_platform.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
       "file": "exports/gltf/road_workzone_barrier_chicane.glb",
       "numErrors": 0,
       "numWarnings": 0,
@@ -1266,6 +1294,20 @@
     },
     {
       "file": "exports/gltf/road_workzone_crossover_shift.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
+      "file": "exports/gltf/road_workzone_detour_staging_apron.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
+      "file": "exports/gltf/road_workzone_left_hand_contraflow.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,

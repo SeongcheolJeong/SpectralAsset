@@ -146,6 +146,66 @@
           "rotate_y": 0.0
         },
         {
+          "asset_id": "road_floating_bus_stop_island",
+          "name": "road_floating_bus_stop_island_0",
+          "translate": [
+            57.4,
+            0.0,
+            0.0
+          ],
+          "rotate_y": 0.0
+        },
+        {
+          "asset_id": "road_transit_transfer_platform",
+          "name": "road_transit_transfer_platform_0",
+          "translate": [
+            61.5,
+            0.0,
+            0.0
+          ],
+          "rotate_y": 0.0
+        },
+        {
+          "asset_id": "road_separator_island_taper",
+          "name": "road_separator_island_taper_0",
+          "translate": [
+            65.6,
+            0.0,
+            0.0
+          ],
+          "rotate_y": 0.0
+        },
+        {
+          "asset_id": "road_separator_island_offset_refuge",
+          "name": "road_separator_island_offset_refuge_0",
+          "translate": [
+            69.7,
+            0.0,
+            0.0
+          ],
+          "rotate_y": 0.0
+        },
+        {
+          "asset_id": "road_workzone_left_hand_contraflow",
+          "name": "road_workzone_left_hand_contraflow_0",
+          "translate": [
+            73.8,
+            0.0,
+            0.0
+          ],
+          "rotate_y": 0.0
+        },
+        {
+          "asset_id": "road_workzone_detour_staging_apron",
+          "name": "road_workzone_detour_staging_apron_0",
+          "translate": [
+            77.9,
+            0.0,
+            0.0
+          ],
+          "rotate_y": 0.0
+        },
+        {
           "asset_id": "marking_edge_line_white",
           "name": "edge_line_0",
           "translate": [
@@ -1515,6 +1575,66 @@
             -0.16
           ],
           "rotate_y": 0.0
+        },
+        {
+          "asset_id": "road_floating_bus_stop_island",
+          "name": "floating_bus_stop_island_0",
+          "translate": [
+            36.2,
+            0.0,
+            -0.18
+          ],
+          "rotate_y": 0.0
+        },
+        {
+          "asset_id": "road_transit_transfer_platform",
+          "name": "transit_transfer_platform_0",
+          "translate": [
+            40.2,
+            0.0,
+            -0.18
+          ],
+          "rotate_y": 0.0
+        },
+        {
+          "asset_id": "road_separator_island_taper",
+          "name": "separator_island_taper_0",
+          "translate": [
+            -28.2,
+            0.0,
+            0.88
+          ],
+          "rotate_y": 90.0
+        },
+        {
+          "asset_id": "road_separator_island_offset_refuge",
+          "name": "separator_island_offset_refuge_0",
+          "translate": [
+            -32.2,
+            0.0,
+            0.88
+          ],
+          "rotate_y": 90.0
+        },
+        {
+          "asset_id": "road_workzone_left_hand_contraflow",
+          "name": "workzone_left_hand_contraflow_0",
+          "translate": [
+            -36.2,
+            0.0,
+            0.82
+          ],
+          "rotate_y": 90.0
+        },
+        {
+          "asset_id": "road_workzone_detour_staging_apron",
+          "name": "workzone_detour_staging_apron_0",
+          "translate": [
+            -40.2,
+            0.0,
+            0.82
+          ],
+          "rotate_y": 90.0
         },
         {
           "asset_id": "marking_crosswalk",
@@ -4033,6 +4153,66 @@
           "name": "road_alley_access_apron_0",
           "translate": [
             44.8,
+            0.0,
+            0.0
+          ],
+          "rotate_y": 0.0
+        },
+        {
+          "asset_id": "road_floating_bus_stop_island",
+          "name": "road_floating_bus_stop_island_0",
+          "translate": [
+            48.0,
+            0.0,
+            0.0
+          ],
+          "rotate_y": 0.0
+        },
+        {
+          "asset_id": "road_transit_transfer_platform",
+          "name": "road_transit_transfer_platform_0",
+          "translate": [
+            51.2,
+            0.0,
+            0.0
+          ],
+          "rotate_y": 0.0
+        },
+        {
+          "asset_id": "road_separator_island_taper",
+          "name": "road_separator_island_taper_0",
+          "translate": [
+            54.4,
+            0.0,
+            0.0
+          ],
+          "rotate_y": 0.0
+        },
+        {
+          "asset_id": "road_separator_island_offset_refuge",
+          "name": "road_separator_island_offset_refuge_0",
+          "translate": [
+            57.6,
+            0.0,
+            0.0
+          ],
+          "rotate_y": 0.0
+        },
+        {
+          "asset_id": "road_workzone_left_hand_contraflow",
+          "name": "road_workzone_left_hand_contraflow_0",
+          "translate": [
+            60.8,
+            0.0,
+            0.0
+          ],
+          "rotate_y": 0.0
+        },
+        {
+          "asset_id": "road_workzone_detour_staging_apron",
+          "name": "road_workzone_detour_staging_apron_0",
+          "translate": [
+            64.0,
             0.0,
             0.0
           ],

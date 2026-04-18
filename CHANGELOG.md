@@ -59,6 +59,7 @@
 - thirty-eighth `P3` traffic-light batch with compact lane-control, compact bus/tram-priority, single-amber school-warning, and vertical dual-lunar preemption heads plus curved-mast cantilever and triple-dropper support variants
 - forty-fourth `P3` road-furniture batch with cantilever service ladders/platforms, rail bungalow and battery-box detail, plus curbside queue-stanchion and boarding-guardrail support follow-up
 - forty-fifth `P3` road-marking batch with `WAIT`/`QUEUE` curbside-queue boxes, `VALET`/`EV ONLY` curbside-reservation boxes, and left/right separator-chevron follow-up panels
+- forty-sixth `P3` road-surface batch with floating bus-stop islands, transfer platforms, separator-island taper/refuge panels, and left-hand contraflow plus detour-staging follow-up composites
 
 ### Changed
 
@@ -117,7 +118,7 @@
 - existing validation scenes now place roundabout outer-ring and bypass-slip-lane panels, retaining-wall shoulder-shelf and abutment transitions, plus laydown-bay and temporary-access work-zone surfaces so roadway scenes are broader than the earlier roundabout-apron, retaining-wall cut, and staging-pad follow-up batch
 - existing validation scenes now place `CENTRO`, `AEROPORTO`, and `METRO` service panels, a larger `CENTRO`/`HOTEL` destination stack, deeper `US 66`/`CA 17`/`A9` shield variants, and a larger overhead `AEROPORTO`/`CENTRO` split assembly so sign scenes are broader than the earlier localized-service, airport/parking, and first shield-depth follow-up batch
 - existing validation scenes now place compact lane-control, single-amber school-warning, compact bus/tram-priority, and vertical dual-lunar preemption heads plus a curved cantilever mast and triple-dropper subtype so traffic-light scenes are broader than the earlier full-size specialty-control and single cantilever-frame follow-up batch
-- backlog focus now moves from `road_marking` localized curbside-queue, reservation, and separator follow-up to `road_surface` curbside-transfer, separator-island, and locale-specific staging continuation work after the latest marking batch
+- backlog focus now moves from `road_surface` curbside-transfer, separator-island, and locale-specific staging continuation work to `traffic_sign` transfer-wayfinding, multilingual service, and larger guide follow-up after the latest surface batch
 
 ### Validation
 
@@ -164,6 +165,7 @@
 - validation summary now reports `286` assets, including `39` `traffic_light` assets, `24` emissive profiles, and `290` GLB files after the first forty-third `P3` expansion batch
 - validation summary now reports `292` assets, including `77` `road_furniture` assets, `24` emissive profiles, and `296` GLB files after the first forty-fourth `P3` expansion batch
 - validation summary now reports `298` assets, including `63` `road_marking` assets, `24` emissive profiles, and `302` GLB files after the first forty-fifth `P3` expansion batch
+- validation summary now reports `304` assets, including `51` `road_surface` assets, `24` emissive profiles, and `308` GLB files after the first forty-sixth `P3` expansion batch
 - validation summary now includes `3` camera profiles and zero camera-profile validation errors
 - material quality summary now reports `3` `measured_standard`, `1` `measured_derivative`, `23` `project_proxy`, and `0` `vendor_derived` materials
 - emissive profile quality summary now distinguishes vendor-derived vehicle/protected-turn profiles from remaining proxy pedestrian/countdown profiles

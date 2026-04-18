@@ -104,6 +104,48 @@ def Xform "scene_sign_test_lane" {
         float xformOp:rotateY = 0.000000
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
     }
+    def Xform "road_floating_bus_stop_island_0" (
+        references = @../geometry/usd/road_floating_bus_stop_island.usda@</road_floating_bus_stop_island>
+    ) {
+        double3 xformOp:translate = (57.400000, 0.000000, 0.000000)
+        float xformOp:rotateY = 0.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
+    def Xform "road_transit_transfer_platform_0" (
+        references = @../geometry/usd/road_transit_transfer_platform.usda@</road_transit_transfer_platform>
+    ) {
+        double3 xformOp:translate = (61.500000, 0.000000, 0.000000)
+        float xformOp:rotateY = 0.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
+    def Xform "road_separator_island_taper_0" (
+        references = @../geometry/usd/road_separator_island_taper.usda@</road_separator_island_taper>
+    ) {
+        double3 xformOp:translate = (65.600000, 0.000000, 0.000000)
+        float xformOp:rotateY = 0.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
+    def Xform "road_separator_island_offset_refuge_0" (
+        references = @../geometry/usd/road_separator_island_offset_refuge.usda@</road_separator_island_offset_refuge>
+    ) {
+        double3 xformOp:translate = (69.700000, 0.000000, 0.000000)
+        float xformOp:rotateY = 0.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
+    def Xform "road_workzone_left_hand_contraflow_0" (
+        references = @../geometry/usd/road_workzone_left_hand_contraflow.usda@</road_workzone_left_hand_contraflow>
+    ) {
+        double3 xformOp:translate = (73.800000, 0.000000, 0.000000)
+        float xformOp:rotateY = 0.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
+    def Xform "road_workzone_detour_staging_apron_0" (
+        references = @../geometry/usd/road_workzone_detour_staging_apron.usda@</road_workzone_detour_staging_apron>
+    ) {
+        double3 xformOp:translate = (77.900000, 0.000000, 0.000000)
+        float xformOp:rotateY = 0.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
     def Xform "edge_line_0" (
         references = @../geometry/usd/marking_edge_line_white.usda@</marking_edge_line_white>
     ) {

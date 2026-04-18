@@ -890,6 +890,42 @@
       "variant_key": "corner_mountable_apron"
     },
     {
+      "id": "road_floating_bus_stop_island",
+      "family": "road_surface",
+      "semantic_class": "road.curbside_transfer",
+      "variant_key": "floating_bus_stop_island"
+    },
+    {
+      "id": "road_transit_transfer_platform",
+      "family": "road_surface",
+      "semantic_class": "road.curbside_transfer",
+      "variant_key": "transfer_platform"
+    },
+    {
+      "id": "road_separator_island_taper",
+      "family": "road_surface",
+      "semantic_class": "road.separator_island",
+      "variant_key": "taper_nose"
+    },
+    {
+      "id": "road_separator_island_offset_refuge",
+      "family": "road_surface",
+      "semantic_class": "road.separator_island",
+      "variant_key": "offset_refuge"
+    },
+    {
+      "id": "road_workzone_left_hand_contraflow",
+      "family": "road_surface",
+      "semantic_class": "road.workzone_composite",
+      "variant_key": "left_hand_contraflow"
+    },
+    {
+      "id": "road_workzone_detour_staging_apron",
+      "family": "road_surface",
+      "semantic_class": "road.workzone_composite",
+      "variant_key": "detour_staging_apron"
+    },
+    {
       "id": "road_retaining_wall_cut_transition",
       "family": "road_surface",
       "semantic_class": "road.retaining_transition",
