@@ -200,6 +200,24 @@
       "variant_key": "locale.it.porto.right"
     },
     {
+      "id": "sign_ferry_arrow_right",
+      "family": "traffic_sign",
+      "semantic_class": "information.ferry",
+      "variant_key": "service.ferry.right"
+    },
+    {
+      "id": "sign_stazione_arrow_left",
+      "family": "traffic_sign",
+      "semantic_class": "information.station",
+      "variant_key": "locale.it.stazione.left"
+    },
+    {
+      "id": "sign_gare_arrow_left",
+      "family": "traffic_sign",
+      "semantic_class": "information.station",
+      "variant_key": "locale.fr.gare.left"
+    },
+    {
       "id": "sign_route_us_101_shield",
       "family": "traffic_sign",
       "semantic_class": "information.route_shield",
@@ -338,6 +356,24 @@
       "variant_key": "guide.metro_port.left_stack"
     },
     {
+      "id": "sign_destination_stack_station_ferry_left",
+      "family": "traffic_sign",
+      "semantic_class": "information.destination_guide",
+      "variant_key": "guide.station_ferry.left_stack"
+    },
+    {
+      "id": "sign_destination_stack_terminal_metro_right",
+      "family": "traffic_sign",
+      "semantic_class": "information.destination_guide",
+      "variant_key": "guide.terminal_metro.right_stack"
+    },
+    {
+      "id": "sign_destination_stack_bus_ferry_right",
+      "family": "traffic_sign",
+      "semantic_class": "information.destination_guide",
+      "variant_key": "guide.bus_ferry.right_stack"
+    },
+    {
       "id": "sign_overhead_airport_centre_split",
       "family": "traffic_sign",
       "semantic_class": "information.destination_guide",
@@ -378,6 +414,18 @@
       "family": "traffic_sign",
       "semantic_class": "information.destination_guide",
       "variant_key": "guide.overhead.metro_park.right"
+    },
+    {
+      "id": "sign_overhead_stazione_porto_split",
+      "family": "traffic_sign",
+      "semantic_class": "information.destination_guide",
+      "variant_key": "guide.overhead.stazione_porto.split"
+    },
+    {
+      "id": "sign_overhead_ferry_terminal_right",
+      "family": "traffic_sign",
+      "semantic_class": "information.destination_guide",
+      "variant_key": "guide.overhead.ferry_terminal.right"
     },
     {
       "id": "sign_centre_left_text",

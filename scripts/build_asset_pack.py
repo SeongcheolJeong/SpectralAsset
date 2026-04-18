@@ -2865,6 +2865,22 @@ def sign_layers(sign_type: str) -> List[Tuple[str, List[List[Tuple[float, float]
             ("mat_sign_blue", [rect_polygon(0.0, 0.0, 0.98, 0.4)]),
             ("mat_sign_white", glyph_rects("PORTO", 0.42, 0.1, (-0.14, 0.0)) + arrow_shapes((0.08, 0.0), (0.4, 0.0), 0.08, 0.14, 0.2)),
         ]
+    if sign_type == "ferry_arrow_right":
+        return [
+            ("mat_sign_blue", [rect_polygon(0.0, 0.0, 0.98, 0.4)]),
+            ("mat_sign_white", glyph_rects("FERRY", 0.42, 0.1, (-0.14, 0.0)) + arrow_shapes((0.08, 0.0), (0.4, 0.0), 0.08, 0.14, 0.2)),
+        ]
+    if sign_type == "stazione_arrow_left":
+        return [
+            ("mat_sign_white", [rect_polygon(0.0, 0.0, 0.98, 0.4)]),
+            ("mat_sign_green", [rect_polygon(0.0, 0.0, 0.9, 0.32)]),
+            ("mat_sign_white", arrow_shapes((-0.06, 0.0), (-0.4, 0.0), 0.08, 0.14, 0.2) + glyph_rects("STAZIONE", 0.58, 0.08, (0.14, 0.0))),
+        ]
+    if sign_type == "gare_arrow_left":
+        return [
+            ("mat_sign_blue", [rect_polygon(0.0, 0.0, 0.98, 0.4)]),
+            ("mat_sign_white", arrow_shapes((-0.08, 0.0), (-0.4, 0.0), 0.08, 0.14, 0.2) + glyph_rects("GARE", 0.34, 0.1, (0.14, 0.0))),
+        ]
     if sign_type == "centre_left_text":
         return [
             ("mat_sign_blue", [rect_polygon(0.0, 0.0, 0.95, 0.38)]),
@@ -3119,6 +3135,44 @@ def sign_layers(sign_type: str) -> List[Tuple[str, List[List[Tuple[float, float]
                 + arrow_shapes((-0.14, 0.18), (-0.4, 0.18), 0.06, 0.11, 0.16),
             ),
         ]
+    if sign_type == "destination_stack_station_ferry_left":
+        return [
+            ("mat_sign_white", [rect_polygon(0.0, 0.0, 0.95, 0.74)]),
+            ("mat_sign_green", [rect_polygon(0.0, 0.0, 0.89, 0.66)]),
+            (
+                "mat_sign_white",
+                [line_segment_polygon((-0.4, 0.0), (0.4, 0.0), 0.03)]
+                + glyph_rects("STATION", 0.42, 0.09, (0.04, -0.18))
+                + glyph_rects("FERRY", 0.34, 0.09, (0.08, 0.18))
+                + arrow_shapes((-0.14, 0.18), (-0.4, 0.18), 0.06, 0.11, 0.16),
+            ),
+        ]
+    if sign_type == "destination_stack_terminal_metro_right":
+        return [
+            ("mat_sign_white", [rect_polygon(0.0, 0.0, 0.95, 0.74)]),
+            ("mat_sign_green", [rect_polygon(0.0, 0.0, 0.89, 0.66)]),
+            (
+                "mat_sign_white",
+                [line_segment_polygon((-0.4, 0.0), (0.4, 0.0), 0.03)]
+                + glyph_rects("TERMINAL", 0.48, 0.08, (-0.02, -0.18))
+                + glyph_rects("M", 0.08, 0.14, (-0.31, 0.18))
+                + glyph_rects("METRO", 0.34, 0.09, (0.08, 0.18))
+                + arrow_shapes((0.14, 0.18), (0.4, 0.18), 0.06, 0.11, 0.16),
+            ),
+        ]
+    if sign_type == "destination_stack_bus_ferry_right":
+        return [
+            ("mat_sign_white", [rect_polygon(0.0, 0.0, 0.95, 0.74)]),
+            ("mat_sign_green", [rect_polygon(0.0, 0.0, 0.89, 0.66)]),
+            (
+                "mat_sign_white",
+                [line_segment_polygon((-0.4, 0.0), (0.4, 0.0), 0.03)]
+                + bus_icon((-0.3, -0.18), 0.72)
+                + glyph_rects("BUS", 0.18, 0.09, (0.04, -0.18))
+                + glyph_rects("FERRY", 0.34, 0.09, (0.08, 0.18))
+                + arrow_shapes((0.14, 0.18), (0.4, 0.18), 0.06, 0.11, 0.16),
+            ),
+        ]
     if sign_type == "overhead_airport_centre_split":
         return [
             ("mat_sign_white", [rect_polygon(0.0, 0.0, 0.96, 0.56)]),
@@ -3212,6 +3266,31 @@ def sign_layers(sign_type: str) -> List[Tuple[str, List[List[Tuple[float, float]
                 + glyph_rects("P", 0.1, 0.18, (-0.32, 0.12))
                 + glyph_rects("PARK", 0.24, 0.08, (-0.04, 0.12))
                 + arrow_shapes((0.16, 0.0), (0.44, 0.0), 0.05, 0.1, 0.14)
+                + arrow_shapes((0.34, -0.02), (0.34, 0.24), 0.05, 0.1, 0.14),
+            ),
+        ]
+    if sign_type == "overhead_stazione_porto_split":
+        return [
+            ("mat_sign_white", [rect_polygon(0.0, 0.0, 0.96, 0.56)]),
+            ("mat_sign_green", [rect_polygon(0.0, 0.0, 0.9, 0.5)]),
+            (
+                "mat_sign_white",
+                [line_segment_polygon((0.0, -0.22), (0.0, 0.22), 0.03)]
+                + glyph_rects("STAZIONE", 0.42, 0.08, (-0.22, -0.12))
+                + glyph_rects("PORTO", 0.28, 0.08, (0.24, -0.12))
+                + arrow_shapes((-0.22, 0.02), (-0.22, 0.23), 0.05, 0.1, 0.14)
+                + arrow_shapes((0.22, 0.02), (0.22, 0.23), 0.05, 0.1, 0.14),
+            ),
+        ]
+    if sign_type == "overhead_ferry_terminal_right":
+        return [
+            ("mat_sign_white", [rect_polygon(0.0, 0.0, 0.96, 0.56)]),
+            ("mat_sign_green", [rect_polygon(0.0, 0.0, 0.9, 0.5)]),
+            (
+                "mat_sign_white",
+                glyph_rects("FERRY", 0.26, 0.08, (-0.08, -0.12))
+                + glyph_rects("TERMINAL", 0.4, 0.08, (-0.02, 0.12))
+                + arrow_shapes((0.14, 0.0), (0.44, 0.0), 0.05, 0.1, 0.14)
                 + arrow_shapes((0.34, -0.02), (0.34, 0.24), 0.05, 0.1, 0.14),
             ),
         ]
@@ -7280,6 +7359,9 @@ def sign_definitions() -> List[Dict]:
         {"id": "sign_aeroporto_arrow_left", "sign_type": "aeroporto_arrow_left", "size": (1.28, 0.44), "variant_key": "locale.it.aeroporto.left", "semantic_class": "information.airport"},
         {"id": "sign_metro_arrow_left", "sign_type": "metro_arrow_left", "size": (1.2, 0.42), "variant_key": "locale.eu.metro.left", "semantic_class": "information.metro"},
         {"id": "sign_porto_arrow_right", "sign_type": "porto_arrow_right", "size": (1.22, 0.42), "variant_key": "locale.it.porto.right", "semantic_class": "information.port"},
+        {"id": "sign_ferry_arrow_right", "sign_type": "ferry_arrow_right", "size": (1.22, 0.42), "variant_key": "service.ferry.right", "semantic_class": "information.ferry"},
+        {"id": "sign_stazione_arrow_left", "sign_type": "stazione_arrow_left", "size": (1.34, 0.44), "variant_key": "locale.it.stazione.left", "semantic_class": "information.station"},
+        {"id": "sign_gare_arrow_left", "sign_type": "gare_arrow_left", "size": (1.18, 0.42), "variant_key": "locale.fr.gare.left", "semantic_class": "information.station"},
         {"id": "sign_route_us_101_shield", "sign_type": "route_us_101_shield", "size": (0.76, 0.9), "variant_key": "route.us.us_101", "semantic_class": "information.route_shield"},
         {"id": "sign_route_us_66_shield", "sign_type": "route_us_66_shield", "size": (0.76, 0.9), "variant_key": "route.us.us_66", "semantic_class": "information.route_shield"},
         {"id": "sign_route_us_50_shield", "sign_type": "route_us_50_shield", "size": (0.76, 0.9), "variant_key": "route.us.us_50", "semantic_class": "information.route_shield"},
@@ -7303,6 +7385,9 @@ def sign_definitions() -> List[Dict]:
         {"id": "sign_destination_stack_airport_parking_right", "sign_type": "destination_stack_airport_parking_right", "size": (1.2, 0.74), "variant_key": "guide.airport_parking.right_stack", "semantic_class": "information.destination_guide"},
         {"id": "sign_destination_stack_centro_hotel_left", "sign_type": "destination_stack_centro_hotel_left", "size": (1.34, 0.82), "variant_key": "guide.centro_hotel.left_stack", "semantic_class": "information.destination_guide"},
         {"id": "sign_destination_stack_metro_port_left", "sign_type": "destination_stack_metro_port_left", "size": (1.28, 0.78), "variant_key": "guide.metro_port.left_stack", "semantic_class": "information.destination_guide"},
+        {"id": "sign_destination_stack_station_ferry_left", "sign_type": "destination_stack_station_ferry_left", "size": (1.34, 0.82), "variant_key": "guide.station_ferry.left_stack", "semantic_class": "information.destination_guide"},
+        {"id": "sign_destination_stack_terminal_metro_right", "sign_type": "destination_stack_terminal_metro_right", "size": (1.34, 0.82), "variant_key": "guide.terminal_metro.right_stack", "semantic_class": "information.destination_guide"},
+        {"id": "sign_destination_stack_bus_ferry_right", "sign_type": "destination_stack_bus_ferry_right", "size": (1.34, 0.82), "variant_key": "guide.bus_ferry.right_stack", "semantic_class": "information.destination_guide"},
         {"id": "sign_overhead_airport_centre_split", "sign_type": "overhead_airport_centre_split", "size": (2.35, 0.9), "variant_key": "guide.overhead.airport_centre.split", "semantic_class": "information.destination_guide", "mount_style": "overhead_frame"},
         {"id": "sign_overhead_park_ride_left", "sign_type": "overhead_park_ride_left", "size": (2.2, 0.82), "variant_key": "guide.overhead.park_ride.left", "semantic_class": "information.destination_guide", "mount_style": "overhead_frame"},
         {"id": "sign_overhead_truck_bypass_right", "sign_type": "overhead_truck_bypass_right", "size": (2.2, 0.82), "variant_key": "guide.overhead.truck_bypass.right", "semantic_class": "information.destination_guide", "mount_style": "overhead_frame"},
@@ -7310,6 +7395,8 @@ def sign_definitions() -> List[Dict]:
         {"id": "sign_overhead_aeroporto_centro_split", "sign_type": "overhead_aeroporto_centro_split", "size": (2.55, 0.94), "variant_key": "guide.overhead.aeroporto_centro.split", "semantic_class": "information.destination_guide", "mount_style": "overhead_frame"},
         {"id": "sign_overhead_centrum_port_split", "sign_type": "overhead_centrum_port_split", "size": (2.55, 0.94), "variant_key": "guide.overhead.centrum_port.split", "semantic_class": "information.destination_guide", "mount_style": "overhead_frame"},
         {"id": "sign_overhead_metro_park_right", "sign_type": "overhead_metro_park_right", "size": (2.35, 0.86), "variant_key": "guide.overhead.metro_park.right", "semantic_class": "information.destination_guide", "mount_style": "overhead_frame"},
+        {"id": "sign_overhead_stazione_porto_split", "sign_type": "overhead_stazione_porto_split", "size": (2.7, 0.96), "variant_key": "guide.overhead.stazione_porto.split", "semantic_class": "information.destination_guide", "mount_style": "overhead_frame"},
+        {"id": "sign_overhead_ferry_terminal_right", "sign_type": "overhead_ferry_terminal_right", "size": (2.48, 0.9), "variant_key": "guide.overhead.ferry_terminal.right", "semantic_class": "information.destination_guide", "mount_style": "overhead_frame"},
         {"id": "sign_centre_left_text", "sign_type": "centre_left_text", "size": (1.2, 0.42), "variant_key": "locale.uk.centre.left_text", "semantic_class": "information.centre"},
         {"id": "sign_bypass_right_text", "sign_type": "bypass_right_text", "size": (1.2, 0.42), "variant_key": "locale.en.bypass.right_text", "semantic_class": "information.bypass"},
         {"id": "sign_priority_road", "sign_type": "priority_road", "size": (0.8, 0.8), "variant_key": "locale.eu.priority_road", "semantic_class": "regulatory.priority_road"},
@@ -9273,6 +9360,12 @@ def scene_definitions() -> List[Dict]:
                 {"asset_id": "sign_centrum_arrow_left", "name": "sign_centrum_0", "translate": (-8.15, 0.0, -2.75), "rotate_y": 0.0},
                 {"asset_id": "sign_porto_arrow_right", "name": "sign_porto_0", "translate": (-8.15, 0.0, -1.65), "rotate_y": 0.0},
                 {"asset_id": "sign_destination_stack_metro_port_left", "name": "sign_destination_stack_5", "translate": (-8.15, 0.0, -0.55), "rotate_y": 0.0},
+                {"asset_id": "sign_ferry_arrow_right", "name": "sign_ferry_0", "translate": (-9.4, 0.0, -2.75), "rotate_y": 0.0},
+                {"asset_id": "sign_stazione_arrow_left", "name": "sign_stazione_0", "translate": (-9.4, 0.0, -1.65), "rotate_y": 0.0},
+                {"asset_id": "sign_gare_arrow_left", "name": "sign_gare_0", "translate": (-9.4, 0.0, -0.55), "rotate_y": 0.0},
+                {"asset_id": "sign_destination_stack_station_ferry_left", "name": "sign_destination_stack_6", "translate": (-9.4, 0.0, 0.55), "rotate_y": 0.0},
+                {"asset_id": "sign_destination_stack_terminal_metro_right", "name": "sign_destination_stack_7", "translate": (-10.65, 0.0, -2.75), "rotate_y": 0.0},
+                {"asset_id": "sign_destination_stack_bus_ferry_right", "name": "sign_destination_stack_8", "translate": (-10.65, 0.0, -1.6), "rotate_y": 0.0},
                 {"asset_id": "sign_route_us_101_shield", "name": "sign_route_us_101_0", "translate": (-4.4, 0.0, -0.4), "rotate_y": 0.0},
                 {"asset_id": "sign_route_interstate_5_shield", "name": "sign_route_i5_0", "translate": (-4.4, 0.0, 0.65), "rotate_y": 0.0},
                 {"asset_id": "sign_route_interstate_405_shield", "name": "sign_route_i405_0", "translate": (-5.65, 0.0, -0.4), "rotate_y": 0.0},
@@ -9314,6 +9407,8 @@ def scene_definitions() -> List[Dict]:
                 {"asset_id": "sign_overhead_hospital_parking_split", "name": "sign_overhead_hospital_0", "translate": (-8.2, 0.0, -4.15), "rotate_y": 0.0},
                 {"asset_id": "sign_overhead_aeroporto_centro_split", "name": "sign_overhead_aeroporto_0", "translate": (16.4, 0.0, -4.15), "rotate_y": 0.0},
                 {"asset_id": "sign_overhead_metro_park_right", "name": "sign_overhead_metro_0", "translate": (24.6, 0.0, -4.15), "rotate_y": 0.0},
+                {"asset_id": "sign_overhead_stazione_porto_split", "name": "sign_overhead_stazione_0", "translate": (-24.6, 0.0, -4.15), "rotate_y": 0.0},
+                {"asset_id": "sign_overhead_ferry_terminal_right", "name": "sign_overhead_ferry_0", "translate": (32.8, 0.0, -4.15), "rotate_y": 0.0},
             ],
         },
         {
@@ -9486,11 +9581,17 @@ def scene_definitions() -> List[Dict]:
                 {"asset_id": "sign_metro_arrow_left", "name": "sign_metro_0", "translate": (-3.88, 0.0, 1.6), "rotate_y": 90.0},
                 {"asset_id": "sign_centrum_arrow_left", "name": "sign_centrum_0", "translate": (-3.88, 0.0, 2.28), "rotate_y": 90.0},
                 {"asset_id": "sign_porto_arrow_right", "name": "sign_porto_0", "translate": (-3.88, 0.0, 2.96), "rotate_y": 90.0},
+                {"asset_id": "sign_ferry_arrow_right", "name": "sign_ferry_0", "translate": (-3.88, 0.0, 3.64), "rotate_y": 90.0},
+                {"asset_id": "sign_stazione_arrow_left", "name": "sign_stazione_0", "translate": (-3.88, 0.0, 4.34), "rotate_y": 90.0},
+                {"asset_id": "sign_gare_arrow_left", "name": "sign_gare_0", "translate": (-3.88, 0.0, 5.04), "rotate_y": 90.0},
                 {"asset_id": "sign_bypass_right_text", "name": "sign_bypass_0", "translate": (3.1, 0.0, 2.18), "rotate_y": 270.0},
                 {"asset_id": "sign_destination_stack_airport_centre_right", "name": "sign_destination_stack_0", "translate": (-3.88, 0.0, 0.18), "rotate_y": 90.0},
                 {"asset_id": "sign_destination_stack_airport_parking_right", "name": "sign_destination_stack_1", "translate": (-3.88, 0.0, -0.52), "rotate_y": 90.0},
                 {"asset_id": "sign_destination_stack_centro_hotel_left", "name": "sign_destination_stack_2", "translate": (-3.88, 0.0, -1.22), "rotate_y": 90.0},
                 {"asset_id": "sign_destination_stack_metro_port_left", "name": "sign_destination_stack_5", "translate": (-3.88, 0.0, -1.92), "rotate_y": 90.0},
+                {"asset_id": "sign_destination_stack_station_ferry_left", "name": "sign_destination_stack_6", "translate": (-3.88, 0.0, -2.62), "rotate_y": 90.0},
+                {"asset_id": "sign_destination_stack_terminal_metro_right", "name": "sign_destination_stack_7", "translate": (-3.88, 0.0, -3.34), "rotate_y": 90.0},
+                {"asset_id": "sign_destination_stack_bus_ferry_right", "name": "sign_destination_stack_8", "translate": (-3.88, 0.0, -4.06), "rotate_y": 90.0},
                 {"asset_id": "sign_route_us_66_shield", "name": "sign_route_us_66_0", "translate": (3.18, 0.0, 2.9), "rotate_y": 270.0},
                 {"asset_id": "sign_route_a9_shield", "name": "sign_route_a9_0", "translate": (3.84, 0.0, 2.9), "rotate_y": 270.0},
                 {"asset_id": "sign_route_us_50_shield", "name": "sign_route_us_50_0", "translate": (4.5, 0.0, 2.9), "rotate_y": 270.0},
@@ -9501,6 +9602,8 @@ def scene_definitions() -> List[Dict]:
                 {"asset_id": "sign_overhead_centrum_port_split", "name": "sign_overhead_centrum_0", "translate": (-14.0, 0.0, -5.1), "rotate_y": 0.0},
                 {"asset_id": "sign_overhead_aeroporto_centro_split", "name": "sign_overhead_aeroporto_0", "translate": (14.0, 0.0, -5.1), "rotate_y": 0.0},
                 {"asset_id": "sign_overhead_metro_park_right", "name": "sign_overhead_metro_0", "translate": (21.0, 0.0, -5.1), "rotate_y": 0.0},
+                {"asset_id": "sign_overhead_stazione_porto_split", "name": "sign_overhead_stazione_0", "translate": (-21.0, 0.0, -5.1), "rotate_y": 0.0},
+                {"asset_id": "sign_overhead_ferry_terminal_right", "name": "sign_overhead_ferry_0", "translate": (28.0, 0.0, -5.1), "rotate_y": 0.0},
                 {"asset_id": "signal_vehicle_vertical_3_aspect", "name": "signal_0", "translate": (-0.5, 0.0, -2.0), "rotate_y": 0.0},
                 {"asset_id": "signal_vehicle_horizontal_3_aspect", "name": "signal_1", "translate": (2.0, 0.0, -0.5), "rotate_y": 90.0},
                 {"asset_id": "signal_pedestrian_2_aspect", "name": "ped_signal_0", "translate": (1.8, 0.0, -1.2), "rotate_y": 180.0},

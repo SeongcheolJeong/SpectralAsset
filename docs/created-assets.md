@@ -6,7 +6,7 @@ This file explains what the generator actually creates in this repository and ho
 
 Current generated baseline:
 
-- `298` assets
+- `312` assets
 - `27` spectral materials
 - `24` emissive profiles
 - `3` camera profiles
@@ -57,6 +57,9 @@ These are sign objects such as:
 - `sign_aeroporto_arrow_left`
 - `sign_metro_arrow_left`
 - `sign_porto_arrow_right`
+- `sign_ferry_arrow_right`
+- `sign_stazione_arrow_left`
+- `sign_gare_arrow_left`
 - `sign_truck_route_right`
 - `sign_centre_left_text`
 - `sign_route_us_101_shield`
@@ -82,9 +85,14 @@ These are sign objects such as:
 - `sign_destination_stack_airport_parking_right`
 - `sign_destination_stack_centro_hotel_left`
 - `sign_destination_stack_metro_port_left`
+- `sign_destination_stack_station_ferry_left`
+- `sign_destination_stack_terminal_metro_right`
+- `sign_destination_stack_bus_ferry_right`
 - `sign_overhead_airport_centre_split`
 - `sign_overhead_aeroporto_centro_split`
 - `sign_overhead_centrum_port_split`
+- `sign_overhead_stazione_porto_split`
+- `sign_overhead_ferry_terminal_right`
 - `sign_overhead_hospital_parking_split`
 - `sign_overhead_metro_park_right`
 - `sign_overhead_park_ride_left`
@@ -108,10 +116,10 @@ The newer route/service and overhead-guide additions now also include:
 
 - service-direction panels such as hospital, parking, and hotel
 - transport or logistics panels such as airport, bus-station, and truck-route signs
-- multilingual/localized service panels such as `CENTRO`, `CENTRUM`, `AEROPORTO`, `METRO`, and `PORTO` alongside earlier `CENTRE` and `BYPASS` wayfinding panels
+- multilingual/localized service panels such as `CENTRO`, `CENTRUM`, `AEROPORTO`, `METRO`, `PORTO`, `STAZIONE`, and `GARE` alongside earlier `CENTRE`, `BYPASS`, and newer `FERRY` transfer-wayfinding panels
 - route-shield panels such as U.S., interstate, E-route, California, UK motorway, German autobahn, and French autoroute markers, now including Interstate `405` and `80`, `US 66` and `50`, California `17`, `82`, and `280`, `E20` and `E75`, plus `A9` and `M1` follow-up variants
-- stacked destination-guide panels that combine multiple destinations and directional arrows on one sign face, now including airport/parking, larger `CENTRO`/`HOTEL`, and `METRO`/`PORT` follow-up stacks
-- self-contained overhead-guide assemblies that hang larger destination panels from generated galvanized frames instead of reusing the default single-post sign mount, now including hospital/parking, larger `AEROPORTO`/`CENTRO`, `CENTRUM`/`PORT`, and `METRO`/`PARK` split assemblies
+- stacked destination-guide panels that combine multiple destinations and directional arrows on one sign face, now including airport/parking, larger `CENTRO`/`HOTEL`, `METRO`/`PORT`, station/ferry, terminal/metro, and bus/ferry follow-up stacks
+- self-contained overhead-guide assemblies that hang larger destination panels from generated galvanized frames instead of reusing the default single-post sign mount, now including hospital/parking, larger `AEROPORTO`/`CENTRO`, `CENTRUM`/`PORT`, `METRO`/`PARK`, `STAZIONE`/`PORTO`, and `FERRY`/`TERMINAL` follow-up assemblies
 
 ### `traffic_light`
 

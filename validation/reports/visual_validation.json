@@ -199,6 +199,24 @@
       "30m": "pass",
       "60m": "pass"
     },
+    "sign_ferry_arrow_right": {
+      "5m": "pass",
+      "15m": "pass",
+      "30m": "pass",
+      "60m": "pass"
+    },
+    "sign_stazione_arrow_left": {
+      "5m": "pass",
+      "15m": "pass",
+      "30m": "pass",
+      "60m": "pass"
+    },
+    "sign_gare_arrow_left": {
+      "5m": "pass",
+      "15m": "pass",
+      "30m": "pass",
+      "60m": "pass"
+    },
     "sign_route_us_101_shield": {
       "5m": "pass",
       "15m": "pass",
@@ -337,6 +355,24 @@
       "30m": "pass",
       "60m": "pass"
     },
+    "sign_destination_stack_station_ferry_left": {
+      "5m": "pass",
+      "15m": "pass",
+      "30m": "pass",
+      "60m": "pass"
+    },
+    "sign_destination_stack_terminal_metro_right": {
+      "5m": "pass",
+      "15m": "pass",
+      "30m": "pass",
+      "60m": "pass"
+    },
+    "sign_destination_stack_bus_ferry_right": {
+      "5m": "pass",
+      "15m": "pass",
+      "30m": "pass",
+      "60m": "pass"
+    },
     "sign_overhead_airport_centre_split": {
       "5m": "pass",
       "15m": "pass",
@@ -374,6 +410,18 @@
       "60m": "pass"
     },
     "sign_overhead_metro_park_right": {
+      "5m": "pass",
+      "15m": "pass",
+      "30m": "pass",
+      "60m": "pass"
+    },
+    "sign_overhead_stazione_porto_split": {
+      "5m": "pass",
+      "15m": "pass",
+      "30m": "pass",
+      "60m": "pass"
+    },
+    "sign_overhead_ferry_terminal_right": {
       "5m": "pass",
       "15m": "pass",
       "30m": "pass",

@@ -1,6 +1,6 @@
 {
   "generated_at": "2026-04-16T10:10:40.000Z",
-  "files_checked": 308,
+  "files_checked": 316,
   "files_with_errors": 0,
   "files_with_warnings": 0,
   "results": [
@@ -1461,6 +1461,13 @@
       "messages": []
     },
     {
+      "file": "exports/gltf/sign_destination_stack_bus_ferry_right.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
       "file": "exports/gltf/sign_destination_stack_centro_hotel_left.glb",
       "numErrors": 0,
       "numWarnings": 0,
@@ -1482,6 +1489,20 @@
       "messages": []
     },
     {
+      "file": "exports/gltf/sign_destination_stack_station_ferry_left.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
+      "file": "exports/gltf/sign_destination_stack_terminal_metro_right.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
       "file": "exports/gltf/sign_destination_stack_truck_bypass_ahead.glb",
       "numErrors": 0,
       "numWarnings": 0,
@@ -1497,6 +1518,20 @@
     },
     {
       "file": "exports/gltf/sign_detour_right_text.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
+      "file": "exports/gltf/sign_ferry_arrow_right.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
+      "file": "exports/gltf/sign_gare_arrow_left.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
@@ -1601,6 +1636,13 @@
       "messages": []
     },
     {
+      "file": "exports/gltf/sign_overhead_ferry_terminal_right.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
       "file": "exports/gltf/sign_overhead_hospital_parking_split.glb",
       "numErrors": 0,
       "numWarnings": 0,
@@ -1616,6 +1658,13 @@
     },
     {
       "file": "exports/gltf/sign_overhead_park_ride_left.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
+      "file": "exports/gltf/sign_overhead_stazione_porto_split.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
@@ -1826,6 +1875,13 @@
     },
     {
       "file": "exports/gltf/sign_speed_limit_50_weathered.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
+      "file": "exports/gltf/sign_stazione_arrow_left.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
