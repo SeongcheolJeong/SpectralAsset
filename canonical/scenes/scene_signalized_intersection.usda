@@ -1224,6 +1224,13 @@ def Xform "scene_signalized_intersection" {
         float xformOp:rotateY = 90.000000
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
     }
+    def Xform "bus_platform_compact_0" (
+        references = @../geometry/usd/signal_bus_platform_compact_3_aspect.usda@</signal_bus_platform_compact_3_aspect>
+    ) {
+        double3 xformOp:translate = (-1.860000, 0.000000, 1.100000)
+        float xformOp:rotateY = 90.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
     def Xform "tram_priority_vertical_0" (
         references = @../geometry/usd/signal_tram_priority_vertical_4_aspect.usda@</signal_tram_priority_vertical_4_aspect>
     ) {
@@ -1242,6 +1249,13 @@ def Xform "scene_signalized_intersection" {
         references = @../geometry/usd/signal_tram_priority_bar_3_aspect.usda@</signal_tram_priority_bar_3_aspect>
     ) {
         double3 xformOp:translate = (-3.720000, 0.000000, 1.940000)
+        float xformOp:rotateY = 90.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
+    def Xform "tram_platform_compact_0" (
+        references = @../geometry/usd/signal_tram_platform_compact_3_aspect.usda@</signal_tram_platform_compact_3_aspect>
+    ) {
+        double3 xformOp:translate = (-4.160000, 0.000000, 1.940000)
         float xformOp:rotateY = 90.000000
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
     }
@@ -1291,6 +1305,13 @@ def Xform "scene_signalized_intersection" {
         references = @../geometry/usd/signal_pedestrian_bicycle_compact_3_aspect.usda@</signal_pedestrian_bicycle_compact_3_aspect>
     ) {
         double3 xformOp:translate = (4.260000, 0.000000, 1.340000)
+        float xformOp:rotateY = 180.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
+    def Xform "platform_ped_bike_compact_0" (
+        references = @../geometry/usd/signal_platform_pedestrian_bicycle_compact_3_aspect.usda@</signal_platform_pedestrian_bicycle_compact_3_aspect>
+    ) {
+        double3 xformOp:translate = (4.840000, 0.000000, 1.340000)
         float xformOp:rotateY = 180.000000
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
     }
@@ -1417,6 +1438,34 @@ def Xform "scene_signalized_intersection" {
         references = @../geometry/usd/signal_warning_dual_amber_compact_vertical.usda@</signal_warning_dual_amber_compact_vertical>
     ) {
         double3 xformOp:translate = (21.720000, 0.000000, -2.240000)
+        float xformOp:rotateY = 0.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
+    def Xform "lane_control_taxi_only_0" (
+        references = @../geometry/usd/signal_lane_control_taxi_only_2_aspect.usda@</signal_lane_control_taxi_only_2_aspect>
+    ) {
+        double3 xformOp:translate = (22.660000, 0.000000, -2.240000)
+        float xformOp:rotateY = 0.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
+    def Xform "lane_control_loading_only_0" (
+        references = @../geometry/usd/signal_lane_control_loading_only_2_aspect.usda@</signal_lane_control_loading_only_2_aspect>
+    ) {
+        double3 xformOp:translate = (23.580000, 0.000000, -2.240000)
+        float xformOp:rotateY = 0.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
+    def Xform "separator_arrow_left_signal_0" (
+        references = @../geometry/usd/signal_separator_arrow_left_2_aspect.usda@</signal_separator_arrow_left_2_aspect>
+    ) {
+        double3 xformOp:translate = (24.440000, 0.000000, -2.240000)
+        float xformOp:rotateY = 0.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
+    def Xform "separator_arrow_right_signal_0" (
+        references = @../geometry/usd/signal_separator_arrow_right_2_aspect.usda@</signal_separator_arrow_right_2_aspect>
+    ) {
+        double3 xformOp:translate = (25.300000, 0.000000, -2.240000)
         float xformOp:rotateY = 0.000000
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
     }

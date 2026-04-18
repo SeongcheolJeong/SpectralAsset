@@ -1,6 +1,6 @@
 {
   "generated_at": "2026-04-16T10:10:40.000Z",
-  "files_checked": 376,
+  "files_checked": 383,
   "files_with_errors": 0,
   "files_with_warnings": 0,
   "results": [
@@ -2294,6 +2294,13 @@
       "messages": []
     },
     {
+      "file": "exports/gltf/signal_bus_platform_compact_3_aspect.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
       "file": "exports/gltf/signal_bus_priority_bar_3_aspect.glb",
       "numErrors": 0,
       "numWarnings": 0,
@@ -2371,6 +2378,13 @@
       "messages": []
     },
     {
+      "file": "exports/gltf/signal_lane_control_loading_only_2_aspect.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
       "file": "exports/gltf/signal_lane_control_overhead_3_aspect.glb",
       "numErrors": 0,
       "numWarnings": 0,
@@ -2379,6 +2393,13 @@
     },
     {
       "file": "exports/gltf/signal_lane_control_reversible_2_aspect.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
+      "file": "exports/gltf/signal_lane_control_taxi_only_2_aspect.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
@@ -2421,6 +2442,13 @@
     },
     {
       "file": "exports/gltf/signal_pedestrian_wait_indicator_single.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
+      "file": "exports/gltf/signal_platform_pedestrian_bicycle_compact_3_aspect.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
@@ -2505,6 +2533,27 @@
     },
     {
       "file": "exports/gltf/signal_school_warning_single_amber_beacon.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
+      "file": "exports/gltf/signal_separator_arrow_left_2_aspect.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
+      "file": "exports/gltf/signal_separator_arrow_right_2_aspect.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
+      "file": "exports/gltf/signal_tram_platform_compact_3_aspect.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,

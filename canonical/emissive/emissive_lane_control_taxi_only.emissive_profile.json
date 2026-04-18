@@ -1,0 +1,36 @@
+{
+  "id": "emissive_lane_control_taxi_only",
+  "spd_ref": {
+    "red": "canonical/spectra/spd_signal_red_vendor_ref.npz",
+    "white": "canonical/spectra/spd_led_pedestrian_white.npz"
+  },
+  "state_map": {
+    "off": {},
+    "taxi_lane_closed": {
+      "display_red_x": "spd_signal_red_vendor_ref"
+    },
+    "taxi_lane_only": {
+      "display_taxi_only": "spd_led_pedestrian_white"
+    },
+    "flashing_taxi_lane_only": {
+      "display_taxi_only": "spd_led_pedestrian_white"
+    }
+  },
+  "nominal_luminance_cd_m2": {
+    "red": 6800,
+    "white": 6000
+  },
+  "temperature_c": 25.0,
+  "driver_mode": "lane_control_controller",
+  "source_quality": "project_proxy",
+  "source_ids": [],
+  "license": {
+    "spdx": "LicenseRef-ProjectGenerated"
+  },
+  "provenance": {
+    "generated_at": "2026-04-16T10:10:40+00:00",
+    "generated_by": "scripts/build_asset_pack.py",
+    "source_ids": [],
+    "note": "Taxi-only lane-control controller face using the active red vehicle curve plus the project white LED proxy for a taxi-lane release indication."
+  }
+}

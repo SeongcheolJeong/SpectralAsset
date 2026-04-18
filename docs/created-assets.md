@@ -6,9 +6,9 @@ This file explains what the generator actually creates in this repository and ho
 
 Current generated baseline:
 
-- `372` assets
+- `379` assets
 - `27` spectral materials
-- `31` emissive profiles
+- `33` emissive profiles
 - `3` camera profiles
 - `4` scenario profiles
 - `4` validation scenes
@@ -154,17 +154,24 @@ These are signal housings such as:
 - `signal_bus_priority_horizontal_4_aspect`
 - `signal_lane_control_bus_only_2_aspect`
 - `signal_lane_control_bicycle_only_2_aspect`
+- `signal_lane_control_taxi_only_2_aspect`
+- `signal_lane_control_loading_only_2_aspect`
 - `signal_bicycle_vertical_3_aspect`
 - `signal_bicycle_compact_2_aspect`
 - `signal_bicycle_lane_control_compact_2_aspect`
 - `signal_pedestrian_bicycle_hybrid_4_aspect`
 - `signal_pedestrian_bicycle_compact_3_aspect`
+- `signal_platform_pedestrian_bicycle_compact_3_aspect`
 - `signal_pedestrian_wait_indicator_dual_horizontal`
 - `signal_tram_priority_vertical_4_aspect`
 - `signal_tram_priority_horizontal_4_aspect`
+- `signal_bus_platform_compact_3_aspect`
+- `signal_tram_platform_compact_3_aspect`
 - `signal_transit_priority_t_3_aspect`
 - `signal_bus_priority_bar_3_aspect`
 - `signal_tram_priority_bar_3_aspect`
+- `signal_separator_arrow_left_2_aspect`
+- `signal_separator_arrow_right_2_aspect`
 - `signal_directional_arrow_left_3_aspect`
 - `signal_directional_arrow_right_3_aspect`
 - `signal_directional_arrow_uturn_3_aspect`
@@ -206,7 +213,7 @@ The newer specialized signal heads now also include:
 - bus-priority state maps for stop, caution, go, and call indications
 - pedestrian wait-indicator state maps for steady or flashing amber hold behavior
 - lunar preemption state maps for steady/flashing single-lens, paired dual-lunar, or quad-lunar preempt-call behavior
-- compact lane-control or bus/tram-control heads plus compact bicycle, compact pedestrian-bicycle, single-amber school-warning, dual-lunar preemption box, dual-amber warning box, vertical dual-lunar preemption, vertical dual-amber/red flasher, diamond-style transit/bus/tram specialty heads, bus-only and bicycle-only lane-control faces, a dual-horizontal pedestrian-wait face, a T-style transit-priority face, bus/tram bar-style controller faces, a bar-style transit-priority head, a diagonal dual-lunar preemption head, and a compact bicycle lane-control head for narrower regional signal coverage
+- compact lane-control or bus/tram-control heads plus compact bicycle, compact pedestrian-bicycle, single-amber school-warning, dual-lunar preemption box, dual-amber warning box, vertical dual-lunar preemption, vertical dual-amber/red flasher, diamond-style transit/bus/tram specialty heads, bus-only, taxi-only, loading-only, and bicycle-only lane-control faces, newer bus/tram-platform compact heads, a platform pedestrian-bicycle compact head, left/right separator-arrow control heads, a dual-horizontal pedestrian-wait face, a T-style transit-priority face, bus/tram bar-style controller faces, a bar-style transit-priority head, a diagonal dual-lunar preemption head, and a compact bicycle lane-control head for narrower regional signal coverage
 - cantilever-crossing scene context for hanger/dropper-mounted signal-head placement instead of only side-mount or mast-arm starter context, now including truss and curved-mast cantilever subtypes plus newer single and quad dropper variants, backspan stubs, diagonal braces, dual mount-plate follow-up hardware, and newer arm-junction-box, end-cap, service-conduit, and splice-box controller-tail detail
 
 ### `road_surface`

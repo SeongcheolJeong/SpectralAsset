@@ -866,6 +866,48 @@
       "variant_key": "tram_priority.bar.3_aspect"
     },
     {
+      "id": "signal_bus_platform_compact_3_aspect",
+      "family": "traffic_light",
+      "semantic_class": "traffic_light.bus_platform",
+      "variant_key": "bus_platform.compact.3_aspect"
+    },
+    {
+      "id": "signal_tram_platform_compact_3_aspect",
+      "family": "traffic_light",
+      "semantic_class": "traffic_light.tram_platform",
+      "variant_key": "tram_platform.compact.3_aspect"
+    },
+    {
+      "id": "signal_platform_pedestrian_bicycle_compact_3_aspect",
+      "family": "traffic_light",
+      "semantic_class": "traffic_light.platform_pedestrian_bicycle",
+      "variant_key": "platform_pedestrian_bicycle.compact.3_aspect"
+    },
+    {
+      "id": "signal_lane_control_taxi_only_2_aspect",
+      "family": "traffic_light",
+      "semantic_class": "traffic_light.lane_control_taxi",
+      "variant_key": "lane_control.taxi_only.2_aspect"
+    },
+    {
+      "id": "signal_lane_control_loading_only_2_aspect",
+      "family": "traffic_light",
+      "semantic_class": "traffic_light.lane_control_loading",
+      "variant_key": "lane_control.loading_only.2_aspect"
+    },
+    {
+      "id": "signal_separator_arrow_left_2_aspect",
+      "family": "traffic_light",
+      "semantic_class": "traffic_light.separator_control",
+      "variant_key": "separator_control.left.2_aspect"
+    },
+    {
+      "id": "signal_separator_arrow_right_2_aspect",
+      "family": "traffic_light",
+      "semantic_class": "traffic_light.separator_control",
+      "variant_key": "separator_control.right.2_aspect"
+    },
+    {
       "id": "road_asphalt_dry",
       "family": "road_surface",
       "semantic_class": "road.asphalt",
