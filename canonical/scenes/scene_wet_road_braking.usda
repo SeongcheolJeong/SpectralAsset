@@ -125,6 +125,20 @@ def Xform "scene_wet_road_braking" {
         float xformOp:rotateY = 90.000000
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
     }
+    def Xform "curb_red_0" (
+        references = @../geometry/usd/marking_curb_red_segment.usda@</marking_curb_red_segment>
+    ) {
+        double3 xformOp:translate = (-3.860000, 0.031000, -0.180000)
+        float xformOp:rotateY = 90.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
+    def Xform "loading_zone_zigzag_0" (
+        references = @../geometry/usd/marking_loading_zone_zigzag_white.usda@</marking_loading_zone_zigzag_white>
+    ) {
+        double3 xformOp:translate = (-3.060000, 0.030000, -0.840000)
+        float xformOp:rotateY = 90.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
     def Xform "backplate_vertical_0" (
         references = @../geometry/usd/furniture_signal_backplate_vertical.usda@</furniture_signal_backplate_vertical>
     ) {

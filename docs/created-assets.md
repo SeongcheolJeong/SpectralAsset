@@ -6,8 +6,8 @@ This file explains what the generator actually creates in this repository and ho
 
 Current generated baseline:
 
-- `163` assets
-- `26` spectral materials
+- `169` assets
+- `27` spectral materials
 - `16` emissive profiles
 - `3` camera profiles
 - `4` scenario profiles
@@ -189,8 +189,14 @@ These are markings such as:
 - `marking_loading_zone_box_white`
 - `marking_transit_lane_panel_red`
 - `marking_bike_lane_panel_green`
+- `marking_curb_red_segment`
+- `marking_curb_yellow_segment`
+- `marking_curb_blue_segment`
+- `marking_loading_zone_zigzag_white`
+- `marking_conflict_zone_panel_red`
+- `marking_conflict_zone_panel_green`
 
-They use retroreflective or reflective material definitions and are important for camera visibility tests. The newer specialization pass now also covers bus/bike lane legends, boxed curbside/transit legends, red/green colored lane panels, hatched median/island channelization, and right-turn follow-up arrow families.
+They use retroreflective or reflective material definitions and are important for camera visibility tests. The newer specialization passes now also cover bus/bike lane legends, boxed curbside/transit legends, red/green colored lane panels, curb-color segments, loading zigzag delimiters, red/green conflict-zone surfacing, hatched median/island channelization, and right-turn follow-up arrow families.
 
 ### `road_furniture`
 

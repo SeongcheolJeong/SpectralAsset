@@ -62,6 +62,7 @@ For deterministic rebuild review, the generator now preserves the previous track
 - the twenty-second `P3` expansion batch now adds milled-overlay, trench-cut, bridge-approach, barrier-taper, and curb-bulbout road-surface panels so the roadway family now covers heavier construction staging and curb/barrier transition composites beyond the earlier repair and rural-follow-up passes
 - the twenty-third `P3` expansion batch now adds bicycle, pedestrian-bicycle hybrid, and tram-priority signal heads so the traffic-light family now covers more locale-specific control variants beyond the earlier lane-control, transit-priority, and directional-arrow passes
 - the twenty-fourth `P3` expansion batch now adds bus-bay curb and island modules, passenger-information and real-time-arrival hardware, plus loading-zone sign/kiosk detail so curbside transit/loading scenes no longer stop at shelter-only context
+- the twenty-fifth `P3` expansion batch now adds curb-color segments, loading zigzag delimiters, and red/green conflict-zone panels so curbside/loading scenes no longer stop at boxed legends and simple colored lane fills
 - selected USGS v7 dry-material baselines are used for asphalt, concrete, and galvanized metal
 - wet asphalt is currently a measured-derived material built from the measured dry asphalt baseline plus the tracked wet modifier
 - vehicle and protected-turn traffic-signal emissive profiles now use vendor-derived public LED fits

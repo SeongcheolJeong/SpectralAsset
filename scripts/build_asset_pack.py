@@ -3288,6 +3288,12 @@ def road_asset_parts(asset_id: str, dimensions: Tuple[float, float, float]) -> D
         "marking_loading_zone_box_white": "mat_marking_white",
         "marking_transit_lane_panel_red": "mat_marking_red",
         "marking_bike_lane_panel_green": "mat_marking_green",
+        "marking_curb_red_segment": "mat_marking_red",
+        "marking_curb_yellow_segment": "mat_marking_yellow",
+        "marking_curb_blue_segment": "mat_marking_blue",
+        "marking_loading_zone_zigzag_white": "mat_marking_white",
+        "marking_conflict_zone_panel_red": "mat_marking_red",
+        "marking_conflict_zone_panel_green": "mat_marking_green",
         "marking_raised_marker_yellow": "mat_marking_yellow",
         "furniture_sign_pole": "mat_metal_galvanized",
         "furniture_signal_pole": "mat_metal_galvanized",
@@ -3412,6 +3418,30 @@ def road_asset_parts(asset_id: str, dimensions: Tuple[float, float, float]) -> D
             )
         )
         return parts
+
+    def curb_color_marking_parts(prefix: str, material_id: str) -> Dict[str, List[Dict]]:
+        lod0 = []
+        lod1 = []
+        for index, z_center in enumerate((-1.05, -0.63, -0.21, 0.21, 0.63, 1.05)):
+            lod0.append(make_mesh_part(f"{prefix}_{index}", box_triangles(0.18, 0.005, 0.3, (0.0, 0.0025, z_center)), material_id))
+        for index, z_center in enumerate((-0.86, -0.28, 0.28, 0.86)):
+            lod1.append(make_mesh_part(f"{prefix}_{index}", box_triangles(0.18, 0.005, 0.44, (0.0, 0.0025, z_center)), material_id))
+        return {"LOD0": lod0, "LOD1": lod1}
+
+    def conflict_zone_panel_parts(prefix: str, fill_material_id: str) -> Dict[str, List[Dict]]:
+        lod0 = [
+            make_mesh_part(f"{prefix}_fill", box_triangles(1.66, 0.004, 2.58, (0.0, 0.002, 0.0)), fill_material_id),
+            *rectangle_outline_parts(prefix, 1.82, 2.72, "mat_marking_white", 0.1, 0.006),
+        ]
+        lod1 = [
+            make_mesh_part(f"{prefix}_fill", box_triangles(1.58, 0.004, 2.46, (0.0, 0.002, 0.0)), fill_material_id),
+            *rectangle_outline_parts(prefix, 1.74, 2.58, "mat_marking_white", 0.1, 0.006),
+        ]
+        for index, x_center in enumerate((-0.62, -0.3, 0.02, 0.34, 0.66)):
+            lod0.append(oriented_box_part(f"{prefix}_hatch_{index}", 0.12, 0.006, 2.34, (x_center, 0.003, 0.0), "mat_marking_white", 34.0))
+        for index, x_center in enumerate((-0.48, -0.12, 0.24, 0.6)):
+            lod1.append(oriented_box_part(f"{prefix}_hatch_{index}", 0.12, 0.006, 2.14, (x_center, 0.003, 0.0), "mat_marking_white", 34.0))
+        return {"LOD0": lod0, "LOD1": lod1}
 
     if asset_id == "furniture_sign_pole":
         return {
@@ -4517,6 +4547,34 @@ def road_asset_parts(asset_id: str, dimensions: Tuple[float, float, float]) -> D
         lod0 = boxed_word_marking_parts("bike_lane_panel", "BIKE", 1.74, 3.04, "mat_marking_white", "mat_marking_white", "mat_marking_green", 0.09, 0.64, 0.34)
         lod1 = boxed_word_marking_parts("bike_lane_panel", "BIKE", 1.64, 2.9, "mat_marking_white", "mat_marking_white", "mat_marking_green", 0.09, 0.62, 0.32)
         return {"LOD0": lod0, "LOD1": lod1}
+    if asset_id == "marking_curb_red_segment":
+        return curb_color_marking_parts("curb_red", "mat_marking_red")
+    if asset_id == "marking_curb_yellow_segment":
+        return curb_color_marking_parts("curb_yellow", "mat_marking_yellow")
+    if asset_id == "marking_curb_blue_segment":
+        return curb_color_marking_parts("curb_blue", "mat_marking_blue")
+    if asset_id == "marking_loading_zone_zigzag_white":
+        lod0 = [
+            make_mesh_part("edge_line", box_triangles(0.09, 0.006, 2.56, (-0.18, 0.003, 0.0)), "mat_marking_white"),
+            make_mesh_part("cap_start", box_triangles(0.26, 0.006, 0.12, (-0.06, 0.003, -1.24)), "mat_marking_white"),
+            make_mesh_part("cap_end", box_triangles(0.26, 0.006, 0.12, (-0.06, 0.003, 1.24)), "mat_marking_white"),
+        ]
+        lod1 = [
+            make_mesh_part("edge_line", box_triangles(0.09, 0.006, 2.42, (-0.18, 0.003, 0.0)), "mat_marking_white"),
+        ]
+        for index, z_center in enumerate((-0.92, -0.46, 0.0, 0.46, 0.92)):
+            rotation = 48.0 if index % 2 == 0 else -48.0
+            x_center = 0.02 if index % 2 == 0 else -0.02
+            lod0.append(oriented_box_part(f"zigzag_{index}", 0.1, 0.006, 0.58, (x_center, 0.003, z_center), "mat_marking_white", rotation))
+        for index, z_center in enumerate((-0.7, -0.14, 0.42, 0.98)):
+            rotation = 48.0 if index % 2 == 0 else -48.0
+            x_center = 0.02 if index % 2 == 0 else -0.02
+            lod1.append(oriented_box_part(f"zigzag_{index}", 0.1, 0.006, 0.54, (x_center, 0.003, z_center - 0.14), "mat_marking_white", rotation))
+        return {"LOD0": lod0, "LOD1": lod1}
+    if asset_id == "marking_conflict_zone_panel_red":
+        return conflict_zone_panel_parts("conflict_red", "mat_marking_red")
+    if asset_id == "marking_conflict_zone_panel_green":
+        return conflict_zone_panel_parts("conflict_green", "mat_marking_green")
     if asset_id == "marking_raised_marker_white":
         lod0 = []
         lod1 = []
@@ -4776,6 +4834,7 @@ def make_materials(
         "mat_marking_yellow_reflectance": clamp_list(interpolate([(350, 0.08), (430, 0.18), (520, 0.72), (600, 0.82), (700, 0.64), (1100, 0.42), (1700, 0.28)], MASTER_GRID)),
         "mat_marking_red_reflectance": clamp_list(interpolate([(350, 0.04), (470, 0.06), (560, 0.16), (620, 0.74), (700, 0.68), (900, 0.44), (1700, 0.24)], MASTER_GRID)),
         "mat_marking_green_reflectance": clamp_list(interpolate([(350, 0.06), (430, 0.18), (500, 0.38), (540, 0.72), (600, 0.32), (700, 0.12), (1100, 0.08), (1700, 0.05)], MASTER_GRID)),
+        "mat_marking_blue_reflectance": clamp_list(interpolate([(350, 0.08), (410, 0.22), (460, 0.72), (500, 0.64), (560, 0.16), (700, 0.06), (1100, 0.04), (1700, 0.03)], MASTER_GRID)),
         "mat_metal_galvanized_reflectance": clamp_list(interpolate([(350, 0.38), (500, 0.46), (700, 0.52), (1100, 0.56), (1700, 0.48)], MASTER_GRID)),
         "mat_glass_lens_transmittance": clamp_list(interpolate([(350, 0.7), (420, 0.88), (700, 0.92), (900, 0.84), (1100, 0.72), (1700, 0.4)], MASTER_GRID)),
         "mat_retroreflective_gain": clamp_list(interpolate([(350, 1.0), (500, 1.1), (700, 1.18), (900, 1.12), (1100, 1.05), (1700, 0.9)], MASTER_GRID), 0.0, 2.0),
@@ -4826,6 +4885,7 @@ def make_materials(
         ("mat_marking_yellow", "retroreflective", "reflectance", "dry", ["mat_marking_yellow_reflectance", "mat_retroreflective_gain"], {"roughnessFactor": 0.42}),
         ("mat_marking_red", "retroreflective", "reflectance", "dry", ["mat_marking_red_reflectance", "mat_retroreflective_gain"], {"roughnessFactor": 0.42}),
         ("mat_marking_green", "retroreflective", "reflectance", "dry", ["mat_marking_green_reflectance", "mat_retroreflective_gain"], {"roughnessFactor": 0.42}),
+        ("mat_marking_blue", "retroreflective", "reflectance", "dry", ["mat_marking_blue_reflectance", "mat_retroreflective_gain"], {"roughnessFactor": 0.42}),
         ("mat_metal_galvanized", "reflective", "reflectance", "dry", ["mat_metal_galvanized_reflectance"], {"metallicFactor": 0.12, "roughnessFactor": 0.54}),
         ("mat_signal_housing", "reflective", "reflectance", "coated", ["mat_sign_black_reflectance"], {"roughnessFactor": 0.72}),
         ("mat_signal_lens_red_off", "transmissive", "transmittance", "coated", ["mat_glass_lens_transmittance", "mat_sign_stop_red_reflectance"], {"roughnessFactor": 0.12}),
@@ -4938,7 +4998,7 @@ def make_materials(
     if measured_retroreflective_capture is not None:
         measured_modifier = build_measured_retroreflective_curves(measured_retroreflective_capture)
         curves["mat_retroreflective_gain"] = measured_modifier["values"]
-        for material_id in ("mat_marking_white", "mat_marking_yellow", "mat_marking_red", "mat_marking_green"):
+        for material_id in ("mat_marking_white", "mat_marking_yellow", "mat_marking_red", "mat_marking_green", "mat_marking_blue"):
             material_source_meta[material_id] = {
                 "source_quality": "measured_derivative",
                 "source_ids": measured_retroreflective_capture["source_ids"],
@@ -5963,6 +6023,12 @@ def road_definitions() -> List[Dict]:
         {"id": "marking_loading_zone_box_white", "family": "road_marking", "semantic_class": "marking.curbside_box", "variant_key": "loading_zone_box_white", "dimensions": (1.62, 0.006, 2.06)},
         {"id": "marking_transit_lane_panel_red", "family": "road_marking", "semantic_class": "marking.colored_lane_panel", "variant_key": "transit_red", "dimensions": (1.74, 0.006, 3.04)},
         {"id": "marking_bike_lane_panel_green", "family": "road_marking", "semantic_class": "marking.colored_lane_panel", "variant_key": "bike_green", "dimensions": (1.74, 0.006, 3.04)},
+        {"id": "marking_curb_red_segment", "family": "road_marking", "semantic_class": "marking.curb_color", "variant_key": "red_segment", "dimensions": (0.18, 0.006, 2.6)},
+        {"id": "marking_curb_yellow_segment", "family": "road_marking", "semantic_class": "marking.curb_color", "variant_key": "yellow_segment", "dimensions": (0.18, 0.006, 2.6)},
+        {"id": "marking_curb_blue_segment", "family": "road_marking", "semantic_class": "marking.curb_color", "variant_key": "blue_segment", "dimensions": (0.18, 0.006, 2.6)},
+        {"id": "marking_loading_zone_zigzag_white", "family": "road_marking", "semantic_class": "marking.loading_delimiter", "variant_key": "zigzag_white", "dimensions": (0.44, 0.006, 2.56)},
+        {"id": "marking_conflict_zone_panel_red", "family": "road_marking", "semantic_class": "marking.conflict_zone", "variant_key": "red_crosshatch", "dimensions": (1.82, 0.006, 2.72)},
+        {"id": "marking_conflict_zone_panel_green", "family": "road_marking", "semantic_class": "marking.conflict_zone", "variant_key": "green_crosshatch", "dimensions": (1.82, 0.006, 2.72)},
         {"id": "marking_raised_marker_white", "family": "road_marking", "semantic_class": "marking.raised_marker", "variant_key": "white_centerline", "dimensions": (0.12, 0.03, 2.62)},
         {"id": "marking_raised_marker_yellow", "family": "road_marking", "semantic_class": "marking.raised_marker", "variant_key": "yellow_centerline", "dimensions": (0.12, 0.03, 2.62)},
         {"id": "marking_raised_marker_bicolor", "family": "road_marking", "semantic_class": "marking.raised_marker", "variant_key": "bicolor_centerline", "dimensions": (0.12, 0.03, 2.62)},
@@ -6772,6 +6838,10 @@ def scene_definitions() -> List[Dict]:
                 {"asset_id": "marking_bus_only_box_white", "name": "bus_only_box_0", "translate": (-1.58, 0.03, 2.42), "rotate_y": 0.0},
                 {"asset_id": "marking_bus_stop_box_white", "name": "bus_stop_box_0", "translate": (-2.62, 0.03, 0.98), "rotate_y": 90.0},
                 {"asset_id": "marking_transit_lane_panel_red", "name": "transit_lane_panel_0", "translate": (-1.52, 0.029, 1.14), "rotate_y": 0.0},
+                {"asset_id": "marking_curb_yellow_segment", "name": "curb_yellow_0", "translate": (-3.92, 0.031, 0.98), "rotate_y": 90.0},
+                {"asset_id": "marking_curb_blue_segment", "name": "curb_blue_0", "translate": (-3.92, 0.031, 1.82), "rotate_y": 90.0},
+                {"asset_id": "marking_conflict_zone_panel_red", "name": "conflict_zone_red_0", "translate": (-1.52, 0.029, 1.88), "rotate_y": 90.0},
+                {"asset_id": "marking_conflict_zone_panel_green", "name": "conflict_zone_green_0", "translate": (2.82, 0.029, 1.04), "rotate_y": 180.0},
                 {"asset_id": "marking_raised_marker_bicolor", "name": "raised_marker_bicolor_0", "translate": (1.42, 0.03, -0.2), "rotate_y": 0.0},
                 {"asset_id": "furniture_signal_pole", "name": "pole_0", "translate": (-2.0, 0.0, -2.0), "rotate_y": 0.0},
                 {"asset_id": "furniture_utility_pole_steel", "name": "utility_pole_steel_0", "translate": (-2.8, 0.0, 2.1), "rotate_y": 90.0},
@@ -6892,6 +6962,8 @@ def scene_definitions() -> List[Dict]:
                 {"asset_id": "marking_bike_box_white", "name": "bike_box_0", "translate": (2.98, 0.03, 0.92), "rotate_y": 180.0},
                 {"asset_id": "marking_bike_lane_panel_green", "name": "bike_lane_panel_0", "translate": (3.02, 0.029, 0.22), "rotate_y": 180.0},
                 {"asset_id": "marking_loading_zone_box_white", "name": "loading_zone_box_0", "translate": (-2.96, 0.03, -0.18), "rotate_y": 90.0},
+                {"asset_id": "marking_curb_red_segment", "name": "curb_red_0", "translate": (-3.86, 0.031, -0.18), "rotate_y": 90.0},
+                {"asset_id": "marking_loading_zone_zigzag_white", "name": "loading_zone_zigzag_0", "translate": (-3.06, 0.03, -0.84), "rotate_y": 90.0},
                 {"asset_id": "furniture_signal_backplate_vertical", "name": "backplate_vertical_0", "translate": (-1.6, 0.0, -0.8), "rotate_y": 0.0},
                 {"asset_id": "furniture_signal_controller_cabinet", "name": "cabinet_0", "translate": (-2.55, 0.0, -0.95), "rotate_y": 0.0},
                 {"asset_id": "furniture_signal_battery_backup_cabinet", "name": "battery_backup_0", "translate": (-3.16, 0.0, -0.82), "rotate_y": 0.0},

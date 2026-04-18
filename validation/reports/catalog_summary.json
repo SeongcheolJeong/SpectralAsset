@@ -710,6 +710,42 @@
       "variant_key": "bike_green"
     },
     {
+      "id": "marking_curb_red_segment",
+      "family": "road_marking",
+      "semantic_class": "marking.curb_color",
+      "variant_key": "red_segment"
+    },
+    {
+      "id": "marking_curb_yellow_segment",
+      "family": "road_marking",
+      "semantic_class": "marking.curb_color",
+      "variant_key": "yellow_segment"
+    },
+    {
+      "id": "marking_curb_blue_segment",
+      "family": "road_marking",
+      "semantic_class": "marking.curb_color",
+      "variant_key": "blue_segment"
+    },
+    {
+      "id": "marking_loading_zone_zigzag_white",
+      "family": "road_marking",
+      "semantic_class": "marking.loading_delimiter",
+      "variant_key": "zigzag_white"
+    },
+    {
+      "id": "marking_conflict_zone_panel_red",
+      "family": "road_marking",
+      "semantic_class": "marking.conflict_zone",
+      "variant_key": "red_crosshatch"
+    },
+    {
+      "id": "marking_conflict_zone_panel_green",
+      "family": "road_marking",
+      "semantic_class": "marking.conflict_zone",
+      "variant_key": "green_crosshatch"
+    },
+    {
       "id": "marking_raised_marker_white",
       "family": "road_marking",
       "semantic_class": "marking.raised_marker",

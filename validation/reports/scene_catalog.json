@@ -1057,6 +1057,46 @@
           "rotate_y": 0.0
         },
         {
+          "asset_id": "marking_curb_yellow_segment",
+          "name": "curb_yellow_0",
+          "translate": [
+            -3.92,
+            0.031,
+            0.98
+          ],
+          "rotate_y": 90.0
+        },
+        {
+          "asset_id": "marking_curb_blue_segment",
+          "name": "curb_blue_0",
+          "translate": [
+            -3.92,
+            0.031,
+            1.82
+          ],
+          "rotate_y": 90.0
+        },
+        {
+          "asset_id": "marking_conflict_zone_panel_red",
+          "name": "conflict_zone_red_0",
+          "translate": [
+            -1.52,
+            0.029,
+            1.88
+          ],
+          "rotate_y": 90.0
+        },
+        {
+          "asset_id": "marking_conflict_zone_panel_green",
+          "name": "conflict_zone_green_0",
+          "translate": [
+            2.82,
+            0.029,
+            1.04
+          ],
+          "rotate_y": 180.0
+        },
+        {
           "asset_id": "marking_raised_marker_bicolor",
           "name": "raised_marker_bicolor_0",
           "translate": [
@@ -2155,6 +2195,26 @@
             -2.96,
             0.03,
             -0.18
+          ],
+          "rotate_y": 90.0
+        },
+        {
+          "asset_id": "marking_curb_red_segment",
+          "name": "curb_red_0",
+          "translate": [
+            -3.86,
+            0.031,
+            -0.18
+          ],
+          "rotate_y": 90.0
+        },
+        {
+          "asset_id": "marking_loading_zone_zigzag_white",
+          "name": "loading_zone_zigzag_0",
+          "translate": [
+            -3.06,
+            0.03,
+            -0.84
           ],
           "rotate_y": 90.0
         },
