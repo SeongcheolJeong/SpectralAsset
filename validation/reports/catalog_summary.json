@@ -1280,6 +1280,18 @@
       "variant_key": "triple_dropper_pair"
     },
     {
+      "id": "furniture_signal_cantilever_anchor_cage",
+      "family": "road_furniture",
+      "semantic_class": "furniture.signal_cantilever_anchor",
+      "variant_key": "anchor_bolt_cage"
+    },
+    {
+      "id": "furniture_signal_cantilever_footing_collar",
+      "family": "road_furniture",
+      "semantic_class": "furniture.signal_cantilever_footing",
+      "variant_key": "footing_collar"
+    },
+    {
       "id": "furniture_signal_controller_cabinet",
       "family": "road_furniture",
       "semantic_class": "furniture.signal_controller_cabinet",
@@ -1326,6 +1338,18 @@
       "family": "road_furniture",
       "semantic_class": "furniture.rail_controller_cabinet",
       "variant_key": "vented_dual_door"
+    },
+    {
+      "id": "furniture_rail_crossing_power_disconnect",
+      "family": "road_furniture",
+      "semantic_class": "furniture.rail_power_disconnect",
+      "variant_key": "pole_mount_disconnect"
+    },
+    {
+      "id": "furniture_rail_crossing_relay_case",
+      "family": "road_furniture",
+      "semantic_class": "furniture.rail_relay_case",
+      "variant_key": "low_relay_case"
     },
     {
       "id": "furniture_utility_pull_box",
@@ -1380,6 +1404,18 @@
       "family": "road_furniture",
       "semantic_class": "furniture.transit_stop_bench",
       "variant_key": "slatted_metal"
+    },
+    {
+      "id": "furniture_bus_stop_validator_pedestal",
+      "family": "road_furniture",
+      "semantic_class": "furniture.transit_stop_validator",
+      "variant_key": "contactless_pedestal"
+    },
+    {
+      "id": "furniture_bus_stop_timetable_blade",
+      "family": "road_furniture",
+      "semantic_class": "furniture.transit_stop_timetable",
+      "variant_key": "freestanding_blade"
     },
     {
       "id": "furniture_queue_rail_module",

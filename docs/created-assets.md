@@ -290,6 +290,8 @@ These are support/context objects such as:
 - `furniture_signal_cantilever_curved_mast`
 - `furniture_signal_cantilever_dropper_pair`
 - `furniture_signal_cantilever_dropper_triple`
+- `furniture_signal_cantilever_anchor_cage`
+- `furniture_signal_cantilever_footing_collar`
 - `furniture_signal_controller_cabinet`
 - `furniture_signal_controller_cabinet_single`
 - `furniture_signal_battery_backup_cabinet`
@@ -298,12 +300,16 @@ These are support/context objects such as:
 - `furniture_rail_gate_arm`
 - `furniture_rail_signal_bell_housing`
 - `furniture_rail_crossing_controller_cabinet`
+- `furniture_rail_crossing_power_disconnect`
+- `furniture_rail_crossing_relay_case`
 - `furniture_utility_pull_box`
 - `furniture_utility_transformer_padmount`
 - `furniture_bus_stop_shelter`
 - `furniture_shelter_ad_panel`
 - `furniture_bus_stop_totem`
 - `furniture_bus_stop_bench`
+- `furniture_bus_stop_validator_pedestal`
+- `furniture_bus_stop_timetable_blade`
 - `furniture_queue_rail_module`
 - `furniture_bus_bay_curb_module`
 - `furniture_bus_bay_island_nose`
@@ -334,7 +340,7 @@ These are support/context objects such as:
 - `furniture_sign_band_clamp_pair`
 - `furniture_signal_band_clamp`
 
-The newest roadside-context passes now add bus-bay curb/island pieces, passenger-information hardware, loading-zone support detail, rail-gate mast/arm/bell/controller context, queue-rail, shelter-panel, curb-ramp, clamp-hardware follow-up assets, truss and curved-mast cantilever signal-frame/dropper detail, and shelter trash, route-map, lean-rail, curb-separator, and hanger-clamp follow-up pieces so scenes can place both curbside-transit assemblies and deeper attachment/crossing context instead of implying all of that through signs, poles, brackets, and generic cabinets alone.
+The newest roadside-context passes now add bus-bay curb/island pieces, passenger-information hardware, loading-zone support detail, rail-gate mast/arm/bell/controller context, queue-rail, shelter-panel, curb-ramp, clamp-hardware follow-up assets, truss and curved-mast cantilever signal-frame/dropper detail, cantilever anchor-cage and footing-collar pieces, rail-side power/relay ancillaries, validator/timetable microsupport, and shelter trash, route-map, lean-rail, curb-separator, and hanger-clamp follow-up pieces so scenes can place both curbside-transit assemblies and deeper attachment/crossing context instead of implying all of that through signs, poles, brackets, and generic cabinets alone.
 
 ## Other Generated Objects
 

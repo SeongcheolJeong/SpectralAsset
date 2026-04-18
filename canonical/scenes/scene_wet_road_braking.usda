@@ -244,8 +244,22 @@ def Xform "scene_wet_road_braking" {
         float xformOp:rotateY = 0.000000
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
     }
+    def Xform "cantilever_anchor_cage_0" (
+        references = @../geometry/usd/furniture_signal_cantilever_anchor_cage.usda@</furniture_signal_cantilever_anchor_cage>
+    ) {
+        double3 xformOp:translate = (-1.540000, 0.000000, -1.860000)
+        float xformOp:rotateY = 0.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
     def Xform "cantilever_curved_mast_0" (
         references = @../geometry/usd/furniture_signal_cantilever_curved_mast.usda@</furniture_signal_cantilever_curved_mast>
+    ) {
+        double3 xformOp:translate = (6.840000, 0.000000, -1.860000)
+        float xformOp:rotateY = 180.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
+    def Xform "cantilever_footing_collar_0" (
+        references = @../geometry/usd/furniture_signal_cantilever_footing_collar.usda@</furniture_signal_cantilever_footing_collar>
     ) {
         double3 xformOp:translate = (6.840000, 0.000000, -1.860000)
         float xformOp:rotateY = 180.000000
@@ -333,6 +347,20 @@ def Xform "scene_wet_road_braking" {
     ) {
         double3 xformOp:translate = (-3.140000, 0.000000, -0.740000)
         float xformOp:rotateY = 90.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
+    def Xform "bus_stop_validator_0" (
+        references = @../geometry/usd/furniture_bus_stop_validator_pedestal.usda@</furniture_bus_stop_validator_pedestal>
+    ) {
+        double3 xformOp:translate = (2.340000, 0.000000, 1.620000)
+        float xformOp:rotateY = 180.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
+    def Xform "bus_stop_timetable_0" (
+        references = @../geometry/usd/furniture_bus_stop_timetable_blade.usda@</furniture_bus_stop_timetable_blade>
+    ) {
+        double3 xformOp:translate = (3.780000, 0.000000, 1.580000)
+        float xformOp:rotateY = 180.000000
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
     }
     def Xform "lane_control_compact_0" (

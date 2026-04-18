@@ -1777,6 +1777,16 @@
           "rotate_y": 180.0
         },
         {
+          "asset_id": "furniture_signal_cantilever_anchor_cage",
+          "name": "cantilever_anchor_cage_0",
+          "translate": [
+            4.88,
+            0.0,
+            -2.24
+          ],
+          "rotate_y": 180.0
+        },
+        {
           "asset_id": "furniture_signal_cantilever_dropper_pair",
           "name": "cantilever_dropper_0",
           "translate": [
@@ -1789,6 +1799,16 @@
         {
           "asset_id": "furniture_signal_cantilever_curved_mast",
           "name": "cantilever_curved_mast_0",
+          "translate": [
+            12.08,
+            0.0,
+            -2.24
+          ],
+          "rotate_y": 180.0
+        },
+        {
+          "asset_id": "furniture_signal_cantilever_footing_collar",
+          "name": "cantilever_footing_collar_0",
           "translate": [
             12.08,
             0.0,
@@ -1963,6 +1983,26 @@
             -2.76,
             0.0,
             0.38
+          ],
+          "rotate_y": 90.0
+        },
+        {
+          "asset_id": "furniture_bus_stop_validator_pedestal",
+          "name": "bus_stop_validator_0",
+          "translate": [
+            -2.2,
+            0.0,
+            0.76
+          ],
+          "rotate_y": 90.0
+        },
+        {
+          "asset_id": "furniture_bus_stop_timetable_blade",
+          "name": "bus_stop_timetable_0",
+          "translate": [
+            -2.22,
+            0.0,
+            0.06
           ],
           "rotate_y": 90.0
         },
@@ -2958,8 +2998,28 @@
           "rotate_y": 180.0
         },
         {
+          "asset_id": "furniture_signal_cantilever_anchor_cage",
+          "name": "cantilever_anchor_cage_0",
+          "translate": [
+            4.72,
+            0.0,
+            -1.54
+          ],
+          "rotate_y": 180.0
+        },
+        {
           "asset_id": "furniture_signal_cantilever_curved_mast",
           "name": "cantilever_curved_mast_0",
+          "translate": [
+            10.12,
+            0.0,
+            -1.54
+          ],
+          "rotate_y": 180.0
+        },
+        {
+          "asset_id": "furniture_signal_cantilever_footing_collar",
+          "name": "cantilever_footing_collar_0",
           "translate": [
             10.12,
             0.0,
@@ -3054,6 +3114,26 @@
             -3.28,
             0.0,
             -0.46
+          ],
+          "rotate_y": 0.0
+        },
+        {
+          "asset_id": "furniture_rail_crossing_power_disconnect",
+          "name": "rail_power_disconnect_0",
+          "translate": [
+            -3.86,
+            0.0,
+            0.72
+          ],
+          "rotate_y": 0.0
+        },
+        {
+          "asset_id": "furniture_rail_crossing_relay_case",
+          "name": "rail_relay_case_0",
+          "translate": [
+            -3.62,
+            0.0,
+            0.06
           ],
           "rotate_y": 0.0
         },
@@ -3559,8 +3639,28 @@
           "rotate_y": 0.0
         },
         {
+          "asset_id": "furniture_signal_cantilever_anchor_cage",
+          "name": "cantilever_anchor_cage_0",
+          "translate": [
+            -1.54,
+            0.0,
+            -1.86
+          ],
+          "rotate_y": 0.0
+        },
+        {
           "asset_id": "furniture_signal_cantilever_curved_mast",
           "name": "cantilever_curved_mast_0",
+          "translate": [
+            6.84,
+            0.0,
+            -1.86
+          ],
+          "rotate_y": 180.0
+        },
+        {
+          "asset_id": "furniture_signal_cantilever_footing_collar",
+          "name": "cantilever_footing_collar_0",
           "translate": [
             6.84,
             0.0,
@@ -3687,6 +3787,26 @@
             -0.74
           ],
           "rotate_y": 90.0
+        },
+        {
+          "asset_id": "furniture_bus_stop_validator_pedestal",
+          "name": "bus_stop_validator_0",
+          "translate": [
+            2.34,
+            0.0,
+            1.62
+          ],
+          "rotate_y": 180.0
+        },
+        {
+          "asset_id": "furniture_bus_stop_timetable_blade",
+          "name": "bus_stop_timetable_0",
+          "translate": [
+            3.78,
+            0.0,
+            1.58
+          ],
+          "rotate_y": 180.0
         },
         {
           "asset_id": "signal_lane_control_compact_2_aspect",

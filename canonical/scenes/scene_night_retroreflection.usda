@@ -244,8 +244,22 @@ def Xform "scene_night_retroreflection" {
         float xformOp:rotateY = 180.000000
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
     }
+    def Xform "cantilever_anchor_cage_0" (
+        references = @../geometry/usd/furniture_signal_cantilever_anchor_cage.usda@</furniture_signal_cantilever_anchor_cage>
+    ) {
+        double3 xformOp:translate = (4.720000, 0.000000, -1.540000)
+        float xformOp:rotateY = 180.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
     def Xform "cantilever_curved_mast_0" (
         references = @../geometry/usd/furniture_signal_cantilever_curved_mast.usda@</furniture_signal_cantilever_curved_mast>
+    ) {
+        double3 xformOp:translate = (10.120000, 0.000000, -1.540000)
+        float xformOp:rotateY = 180.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
+    def Xform "cantilever_footing_collar_0" (
+        references = @../geometry/usd/furniture_signal_cantilever_footing_collar.usda@</furniture_signal_cantilever_footing_collar>
     ) {
         double3 xformOp:translate = (10.120000, 0.000000, -1.540000)
         float xformOp:rotateY = 180.000000
@@ -311,6 +325,20 @@ def Xform "scene_night_retroreflection" {
         references = @../geometry/usd/furniture_rail_crossing_controller_cabinet.usda@</furniture_rail_crossing_controller_cabinet>
     ) {
         double3 xformOp:translate = (-3.280000, 0.000000, -0.460000)
+        float xformOp:rotateY = 0.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
+    def Xform "rail_power_disconnect_0" (
+        references = @../geometry/usd/furniture_rail_crossing_power_disconnect.usda@</furniture_rail_crossing_power_disconnect>
+    ) {
+        double3 xformOp:translate = (-3.860000, 0.000000, 0.720000)
+        float xformOp:rotateY = 0.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
+    def Xform "rail_relay_case_0" (
+        references = @../geometry/usd/furniture_rail_crossing_relay_case.usda@</furniture_rail_crossing_relay_case>
+    ) {
+        double3 xformOp:translate = (-3.620000, 0.000000, 0.060000)
         float xformOp:rotateY = 0.000000
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
     }
