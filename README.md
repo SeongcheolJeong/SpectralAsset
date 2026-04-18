@@ -57,6 +57,7 @@ For deterministic rebuild review, the generator now preserves the previous track
 - the seventeenth `P3` expansion batch now adds a crowned rural lane, two dirt-track panels, a bridge expansion-joint panel, and a lane-drop transition panel so the road-surface family extends beyond the earlier urban repair and gravel-shoulder breadth pass
 - the eighteenth `P3` expansion batch now adds transit-priority and directional-arrow signal heads so the traffic-light family extends beyond the earlier beacon, lane-control, rail-crossing, and warning-flasher specialization passes
 - the nineteenth `P3` expansion batch now adds a bus-stop shelter, stop totem, bench, handhole cluster, and protective service-bollard pair so roadside context reaches curbside transit-stop and utility-service detail
+- the twentieth `P3` expansion batch now adds boxed curbside/transit legends and red/green colored lane panels so the road-marking family now covers boxed `BUS ONLY`, `BUS STOP`, `BIKE`, and `LOAD` treatments plus colored transit/bike surfacing
 - selected USGS v7 dry-material baselines are used for asphalt, concrete, and galvanized metal
 - wet asphalt is currently a measured-derived material built from the measured dry asphalt baseline plus the tracked wet modifier
 - vehicle and protected-turn traffic-signal emissive profiles now use vendor-derived public LED fits

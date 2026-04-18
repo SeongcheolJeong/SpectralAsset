@@ -6,8 +6,8 @@ This file explains what the generator actually creates in this repository and ho
 
 Current generated baseline:
 
-- `136` assets
-- `23` spectral materials
+- `142` assets
+- `25` spectral materials
 - `13` emissive profiles
 - `3` camera profiles
 - `4` scenario profiles
@@ -163,8 +163,14 @@ These are markings such as:
 - `marking_stop_text_white`
 - `marking_bus_text_white`
 - `marking_bike_text_white`
+- `marking_bus_only_box_white`
+- `marking_bus_stop_box_white`
+- `marking_bike_box_white`
+- `marking_loading_zone_box_white`
+- `marking_transit_lane_panel_red`
+- `marking_bike_lane_panel_green`
 
-They use retroreflective or reflective material definitions and are important for camera visibility tests. The newer specialization pass now also covers bus/bike lane legends, hatched median/island channelization, and right-turn follow-up arrow families.
+They use retroreflective or reflective material definitions and are important for camera visibility tests. The newer specialization pass now also covers bus/bike lane legends, boxed curbside/transit legends, red/green colored lane panels, hatched median/island channelization, and right-turn follow-up arrow families.
 
 ### `road_furniture`
 

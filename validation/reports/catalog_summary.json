@@ -584,6 +584,42 @@
       "variant_key": "bike_white"
     },
     {
+      "id": "marking_bus_only_box_white",
+      "family": "road_marking",
+      "semantic_class": "marking.word_legend_box",
+      "variant_key": "bus_only_box_white"
+    },
+    {
+      "id": "marking_bus_stop_box_white",
+      "family": "road_marking",
+      "semantic_class": "marking.curbside_box",
+      "variant_key": "bus_stop_box_white"
+    },
+    {
+      "id": "marking_bike_box_white",
+      "family": "road_marking",
+      "semantic_class": "marking.word_legend_box",
+      "variant_key": "bike_box_white"
+    },
+    {
+      "id": "marking_loading_zone_box_white",
+      "family": "road_marking",
+      "semantic_class": "marking.curbside_box",
+      "variant_key": "loading_zone_box_white"
+    },
+    {
+      "id": "marking_transit_lane_panel_red",
+      "family": "road_marking",
+      "semantic_class": "marking.colored_lane_panel",
+      "variant_key": "transit_red"
+    },
+    {
+      "id": "marking_bike_lane_panel_green",
+      "family": "road_marking",
+      "semantic_class": "marking.colored_lane_panel",
+      "variant_key": "bike_green"
+    },
+    {
       "id": "marking_raised_marker_white",
       "family": "road_marking",
       "semantic_class": "marking.raised_marker",

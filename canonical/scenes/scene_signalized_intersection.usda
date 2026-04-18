@@ -139,6 +139,27 @@ def Xform "scene_signalized_intersection" {
         float xformOp:rotateY = 0.000000
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
     }
+    def Xform "bus_only_box_0" (
+        references = @../geometry/usd/marking_bus_only_box_white.usda@</marking_bus_only_box_white>
+    ) {
+        double3 xformOp:translate = (-1.580000, 0.030000, 2.420000)
+        float xformOp:rotateY = 0.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
+    def Xform "bus_stop_box_0" (
+        references = @../geometry/usd/marking_bus_stop_box_white.usda@</marking_bus_stop_box_white>
+    ) {
+        double3 xformOp:translate = (-2.620000, 0.030000, 0.980000)
+        float xformOp:rotateY = 90.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
+    def Xform "transit_lane_panel_0" (
+        references = @../geometry/usd/marking_transit_lane_panel_red.usda@</marking_transit_lane_panel_red>
+    ) {
+        double3 xformOp:translate = (-1.520000, 0.029000, 1.140000)
+        float xformOp:rotateY = 0.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
     def Xform "raised_marker_bicolor_0" (
         references = @../geometry/usd/marking_raised_marker_bicolor.usda@</marking_raised_marker_bicolor>
     ) {

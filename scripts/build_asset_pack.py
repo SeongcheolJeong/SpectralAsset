@@ -3180,6 +3180,12 @@ def road_asset_parts(asset_id: str, dimensions: Tuple[float, float, float]) -> D
         "marking_stop_text_white": "mat_marking_white",
         "marking_bus_text_white": "mat_marking_white",
         "marking_bike_text_white": "mat_marking_white",
+        "marking_bus_only_box_white": "mat_marking_white",
+        "marking_bus_stop_box_white": "mat_marking_white",
+        "marking_bike_box_white": "mat_marking_white",
+        "marking_loading_zone_box_white": "mat_marking_white",
+        "marking_transit_lane_panel_red": "mat_marking_red",
+        "marking_bike_lane_panel_green": "mat_marking_green",
         "marking_raised_marker_yellow": "mat_marking_yellow",
         "furniture_sign_pole": "mat_metal_galvanized",
         "furniture_signal_pole": "mat_metal_galvanized",
@@ -3247,6 +3253,56 @@ def road_asset_parts(asset_id: str, dimensions: Tuple[float, float, float]) -> D
             cursor += len(glyph[0]) * cell_w
             if index < len(text) - 1:
                 cursor += cell_w
+        return parts
+
+    def rectangle_outline_parts(prefix: str, part_width: float, part_depth: float, material_id: str, border_thickness: float = 0.08, part_height: float = 0.005) -> List[Dict]:
+        half_width = part_width / 2.0
+        half_depth = part_depth / 2.0
+        return [
+            make_mesh_part(f"{prefix}_top", box_triangles(part_width, part_height, border_thickness, (0.0, part_height / 2.0, -half_depth + border_thickness / 2.0)), material_id),
+            make_mesh_part(f"{prefix}_bottom", box_triangles(part_width, part_height, border_thickness, (0.0, part_height / 2.0, half_depth - border_thickness / 2.0)), material_id),
+            make_mesh_part(f"{prefix}_left", box_triangles(border_thickness, part_height, max(0.1, part_depth - border_thickness * 2.0), (-half_width + border_thickness / 2.0, part_height / 2.0, 0.0)), material_id),
+            make_mesh_part(f"{prefix}_right", box_triangles(border_thickness, part_height, max(0.1, part_depth - border_thickness * 2.0), (half_width - border_thickness / 2.0, part_height / 2.0, 0.0)), material_id),
+        ]
+
+    def boxed_word_marking_parts(
+        prefix: str,
+        text: str,
+        part_width: float,
+        part_depth: float,
+        border_material_id: str,
+        text_material_id: str,
+        fill_material_id: Optional[str] = None,
+        border_thickness: float = 0.08,
+        text_width_scale: float = 0.62,
+        text_depth_scale: float = 0.46,
+    ) -> List[Dict]:
+        parts = []
+        if fill_material_id is not None:
+            parts.append(
+                make_mesh_part(
+                    f"{prefix}_fill",
+                    box_triangles(
+                        max(0.1, part_width - border_thickness * 1.4),
+                        0.004,
+                        max(0.1, part_depth - border_thickness * 1.4),
+                        (0.0, 0.002, 0.0),
+                    ),
+                    fill_material_id,
+                )
+            )
+        parts.extend(rectangle_outline_parts(prefix, part_width, part_depth, border_material_id, border_thickness))
+        parts.extend(
+            word_marking_parts(
+                prefix,
+                text,
+                part_width * text_width_scale,
+                part_depth * text_depth_scale,
+                (0.0, 0.0),
+                text_material_id,
+                0.006,
+            )
+        )
         return parts
 
     if asset_id == "furniture_sign_pole":
@@ -4131,6 +4187,30 @@ def road_asset_parts(asset_id: str, dimensions: Tuple[float, float, float]) -> D
         lod0 = word_marking_parts("bike", "BIKE", 1.22, 2.04, (0.0, 0.0), "mat_marking_white")
         lod1 = word_marking_parts("bike", "BIKE", 1.14, 1.92, (0.0, 0.0), "mat_marking_white")
         return {"LOD0": lod0, "LOD1": lod1}
+    if asset_id == "marking_bus_only_box_white":
+        lod0 = boxed_word_marking_parts("bus_only_box", "BUS ONLY", 1.72, 2.28, "mat_marking_white", "mat_marking_white", None, 0.09, 0.82, 0.42)
+        lod1 = boxed_word_marking_parts("bus_only_box", "BUS ONLY", 1.64, 2.18, "mat_marking_white", "mat_marking_white", None, 0.09, 0.8, 0.4)
+        return {"LOD0": lod0, "LOD1": lod1}
+    if asset_id == "marking_bus_stop_box_white":
+        lod0 = boxed_word_marking_parts("bus_stop_box", "BUS STOP", 1.84, 2.46, "mat_marking_white", "mat_marking_white", None, 0.09, 0.84, 0.42)
+        lod1 = boxed_word_marking_parts("bus_stop_box", "BUS STOP", 1.76, 2.32, "mat_marking_white", "mat_marking_white", None, 0.09, 0.82, 0.4)
+        return {"LOD0": lod0, "LOD1": lod1}
+    if asset_id == "marking_bike_box_white":
+        lod0 = boxed_word_marking_parts("bike_box", "BIKE", 1.54, 2.08, "mat_marking_white", "mat_marking_white", None, 0.09, 0.68, 0.44)
+        lod1 = boxed_word_marking_parts("bike_box", "BIKE", 1.46, 1.98, "mat_marking_white", "mat_marking_white", None, 0.09, 0.66, 0.42)
+        return {"LOD0": lod0, "LOD1": lod1}
+    if asset_id == "marking_loading_zone_box_white":
+        lod0 = boxed_word_marking_parts("loading_zone_box", "LOAD", 1.62, 2.06, "mat_marking_white", "mat_marking_white", None, 0.09, 0.66, 0.42)
+        lod1 = boxed_word_marking_parts("loading_zone_box", "LOAD", 1.54, 1.94, "mat_marking_white", "mat_marking_white", None, 0.09, 0.64, 0.4)
+        return {"LOD0": lod0, "LOD1": lod1}
+    if asset_id == "marking_transit_lane_panel_red":
+        lod0 = boxed_word_marking_parts("transit_lane_panel", "BUS", 1.74, 3.04, "mat_marking_white", "mat_marking_white", "mat_marking_red", 0.09, 0.58, 0.34)
+        lod1 = boxed_word_marking_parts("transit_lane_panel", "BUS", 1.64, 2.9, "mat_marking_white", "mat_marking_white", "mat_marking_red", 0.09, 0.56, 0.32)
+        return {"LOD0": lod0, "LOD1": lod1}
+    if asset_id == "marking_bike_lane_panel_green":
+        lod0 = boxed_word_marking_parts("bike_lane_panel", "BIKE", 1.74, 3.04, "mat_marking_white", "mat_marking_white", "mat_marking_green", 0.09, 0.64, 0.34)
+        lod1 = boxed_word_marking_parts("bike_lane_panel", "BIKE", 1.64, 2.9, "mat_marking_white", "mat_marking_white", "mat_marking_green", 0.09, 0.62, 0.32)
+        return {"LOD0": lod0, "LOD1": lod1}
     if asset_id == "marking_raised_marker_white":
         lod0 = []
         lod1 = []
@@ -4387,6 +4467,8 @@ def make_materials(
         "mat_gravel_compact_reflectance": clamp_list(interpolate([(350, 0.12), (450, 0.18), (550, 0.24), (700, 0.29), (900, 0.33), (1100, 0.34), (1700, 0.3)], MASTER_GRID)),
         "mat_marking_white_reflectance": clamp_list(interpolate([(350, 0.68), (500, 0.78), (700, 0.84), (900, 0.8), (1100, 0.74), (1700, 0.62)], MASTER_GRID)),
         "mat_marking_yellow_reflectance": clamp_list(interpolate([(350, 0.08), (430, 0.18), (520, 0.72), (600, 0.82), (700, 0.64), (1100, 0.42), (1700, 0.28)], MASTER_GRID)),
+        "mat_marking_red_reflectance": clamp_list(interpolate([(350, 0.04), (470, 0.06), (560, 0.16), (620, 0.74), (700, 0.68), (900, 0.44), (1700, 0.24)], MASTER_GRID)),
+        "mat_marking_green_reflectance": clamp_list(interpolate([(350, 0.06), (430, 0.18), (500, 0.38), (540, 0.72), (600, 0.32), (700, 0.12), (1100, 0.08), (1700, 0.05)], MASTER_GRID)),
         "mat_metal_galvanized_reflectance": clamp_list(interpolate([(350, 0.38), (500, 0.46), (700, 0.52), (1100, 0.56), (1700, 0.48)], MASTER_GRID)),
         "mat_glass_lens_transmittance": clamp_list(interpolate([(350, 0.7), (420, 0.88), (700, 0.92), (900, 0.84), (1100, 0.72), (1700, 0.4)], MASTER_GRID)),
         "mat_retroreflective_gain": clamp_list(interpolate([(350, 1.0), (500, 1.1), (700, 1.18), (900, 1.12), (1100, 1.05), (1700, 0.9)], MASTER_GRID), 0.0, 2.0),
@@ -4434,6 +4516,8 @@ def make_materials(
         ("mat_gravel_compact", "reflective", "reflectance", "dry", ["mat_gravel_compact_reflectance"], {"roughnessFactor": 0.98}),
         ("mat_marking_white", "retroreflective", "reflectance", "dry", ["mat_marking_white_reflectance", "mat_retroreflective_gain"], {"roughnessFactor": 0.42}),
         ("mat_marking_yellow", "retroreflective", "reflectance", "dry", ["mat_marking_yellow_reflectance", "mat_retroreflective_gain"], {"roughnessFactor": 0.42}),
+        ("mat_marking_red", "retroreflective", "reflectance", "dry", ["mat_marking_red_reflectance", "mat_retroreflective_gain"], {"roughnessFactor": 0.42}),
+        ("mat_marking_green", "retroreflective", "reflectance", "dry", ["mat_marking_green_reflectance", "mat_retroreflective_gain"], {"roughnessFactor": 0.42}),
         ("mat_metal_galvanized", "reflective", "reflectance", "dry", ["mat_metal_galvanized_reflectance"], {"metallicFactor": 0.12, "roughnessFactor": 0.54}),
         ("mat_signal_housing", "reflective", "reflectance", "coated", ["mat_sign_black_reflectance"], {"roughnessFactor": 0.72}),
         ("mat_signal_lens_red_off", "transmissive", "transmittance", "coated", ["mat_glass_lens_transmittance", "mat_sign_stop_red_reflectance"], {"roughnessFactor": 0.12}),
@@ -4546,7 +4630,7 @@ def make_materials(
     if measured_retroreflective_capture is not None:
         measured_modifier = build_measured_retroreflective_curves(measured_retroreflective_capture)
         curves["mat_retroreflective_gain"] = measured_modifier["values"]
-        for material_id in ("mat_marking_white", "mat_marking_yellow"):
+        for material_id in ("mat_marking_white", "mat_marking_yellow", "mat_marking_red", "mat_marking_green"):
             material_source_meta[material_id] = {
                 "source_quality": "measured_derivative",
                 "source_ids": measured_retroreflective_capture["source_ids"],
@@ -5466,6 +5550,12 @@ def road_definitions() -> List[Dict]:
         {"id": "marking_stop_text_white", "family": "road_marking", "semantic_class": "marking.word_legend", "variant_key": "stop_white", "dimensions": (1.02, 0.005, 2.34)},
         {"id": "marking_bus_text_white", "family": "road_marking", "semantic_class": "marking.word_legend", "variant_key": "bus_white", "dimensions": (1.02, 0.005, 1.74)},
         {"id": "marking_bike_text_white", "family": "road_marking", "semantic_class": "marking.word_legend", "variant_key": "bike_white", "dimensions": (1.22, 0.005, 2.04)},
+        {"id": "marking_bus_only_box_white", "family": "road_marking", "semantic_class": "marking.word_legend_box", "variant_key": "bus_only_box_white", "dimensions": (1.72, 0.006, 2.28)},
+        {"id": "marking_bus_stop_box_white", "family": "road_marking", "semantic_class": "marking.curbside_box", "variant_key": "bus_stop_box_white", "dimensions": (1.84, 0.006, 2.46)},
+        {"id": "marking_bike_box_white", "family": "road_marking", "semantic_class": "marking.word_legend_box", "variant_key": "bike_box_white", "dimensions": (1.54, 0.006, 2.08)},
+        {"id": "marking_loading_zone_box_white", "family": "road_marking", "semantic_class": "marking.curbside_box", "variant_key": "loading_zone_box_white", "dimensions": (1.62, 0.006, 2.06)},
+        {"id": "marking_transit_lane_panel_red", "family": "road_marking", "semantic_class": "marking.colored_lane_panel", "variant_key": "transit_red", "dimensions": (1.74, 0.006, 3.04)},
+        {"id": "marking_bike_lane_panel_green", "family": "road_marking", "semantic_class": "marking.colored_lane_panel", "variant_key": "bike_green", "dimensions": (1.74, 0.006, 3.04)},
         {"id": "marking_raised_marker_white", "family": "road_marking", "semantic_class": "marking.raised_marker", "variant_key": "white_centerline", "dimensions": (0.12, 0.03, 2.62)},
         {"id": "marking_raised_marker_yellow", "family": "road_marking", "semantic_class": "marking.raised_marker", "variant_key": "yellow_centerline", "dimensions": (0.12, 0.03, 2.62)},
         {"id": "marking_raised_marker_bicolor", "family": "road_marking", "semantic_class": "marking.raised_marker", "variant_key": "bicolor_centerline", "dimensions": (0.12, 0.03, 2.62)},
@@ -6165,6 +6255,9 @@ def scene_definitions() -> List[Dict]:
                 {"asset_id": "marking_stop_text_white", "name": "stop_text_0", "translate": (0.92, 0.03, -1.05), "rotate_y": 0.0},
                 {"asset_id": "marking_bus_text_white", "name": "bus_text_0", "translate": (-1.5, 0.03, 1.62), "rotate_y": 0.0},
                 {"asset_id": "marking_bike_text_white", "name": "bike_text_0", "translate": (1.45, 0.03, 1.58), "rotate_y": 0.0},
+                {"asset_id": "marking_bus_only_box_white", "name": "bus_only_box_0", "translate": (-1.58, 0.03, 2.42), "rotate_y": 0.0},
+                {"asset_id": "marking_bus_stop_box_white", "name": "bus_stop_box_0", "translate": (-2.62, 0.03, 0.98), "rotate_y": 90.0},
+                {"asset_id": "marking_transit_lane_panel_red", "name": "transit_lane_panel_0", "translate": (-1.52, 0.029, 1.14), "rotate_y": 0.0},
                 {"asset_id": "marking_raised_marker_bicolor", "name": "raised_marker_bicolor_0", "translate": (1.42, 0.03, -0.2), "rotate_y": 0.0},
                 {"asset_id": "furniture_signal_pole", "name": "pole_0", "translate": (-2.0, 0.0, -2.0), "rotate_y": 0.0},
                 {"asset_id": "furniture_utility_pole_steel", "name": "utility_pole_steel_0", "translate": (-2.8, 0.0, 2.1), "rotate_y": 90.0},
@@ -6267,6 +6360,9 @@ def scene_definitions() -> List[Dict]:
                 {"asset_id": "marking_edge_line_yellow", "name": "edge_line_yellow_0", "translate": (1.52, 0.03, -0.1), "rotate_y": 0.0},
                 {"asset_id": "marking_centerline_double_yellow", "name": "centerline_double_0", "translate": (0.0, 0.03, -0.4), "rotate_y": 0.0},
                 {"asset_id": "marking_arrow_straight_white", "name": "arrow_0", "translate": (0.85, 0.03, -0.25), "rotate_y": 0.0},
+                {"asset_id": "marking_bike_box_white", "name": "bike_box_0", "translate": (2.98, 0.03, 0.92), "rotate_y": 180.0},
+                {"asset_id": "marking_bike_lane_panel_green", "name": "bike_lane_panel_0", "translate": (3.02, 0.029, 0.22), "rotate_y": 180.0},
+                {"asset_id": "marking_loading_zone_box_white", "name": "loading_zone_box_0", "translate": (-2.96, 0.03, -0.18), "rotate_y": 90.0},
                 {"asset_id": "furniture_signal_backplate_vertical", "name": "backplate_vertical_0", "translate": (-1.6, 0.0, -0.8), "rotate_y": 0.0},
                 {"asset_id": "furniture_signal_controller_cabinet", "name": "cabinet_0", "translate": (-2.55, 0.0, -0.95), "rotate_y": 0.0},
                 {"asset_id": "furniture_signal_battery_backup_cabinet", "name": "battery_backup_0", "translate": (-3.16, 0.0, -0.82), "rotate_y": 0.0},

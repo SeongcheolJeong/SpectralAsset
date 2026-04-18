@@ -857,6 +857,36 @@
           "rotate_y": 0.0
         },
         {
+          "asset_id": "marking_bus_only_box_white",
+          "name": "bus_only_box_0",
+          "translate": [
+            -1.58,
+            0.03,
+            2.42
+          ],
+          "rotate_y": 0.0
+        },
+        {
+          "asset_id": "marking_bus_stop_box_white",
+          "name": "bus_stop_box_0",
+          "translate": [
+            -2.62,
+            0.03,
+            0.98
+          ],
+          "rotate_y": 90.0
+        },
+        {
+          "asset_id": "marking_transit_lane_panel_red",
+          "name": "transit_lane_panel_0",
+          "translate": [
+            -1.52,
+            0.029,
+            1.14
+          ],
+          "rotate_y": 0.0
+        },
+        {
           "asset_id": "marking_raised_marker_bicolor",
           "name": "raised_marker_bicolor_0",
           "translate": [
@@ -1777,6 +1807,36 @@
             -0.25
           ],
           "rotate_y": 0.0
+        },
+        {
+          "asset_id": "marking_bike_box_white",
+          "name": "bike_box_0",
+          "translate": [
+            2.98,
+            0.03,
+            0.92
+          ],
+          "rotate_y": 180.0
+        },
+        {
+          "asset_id": "marking_bike_lane_panel_green",
+          "name": "bike_lane_panel_0",
+          "translate": [
+            3.02,
+            0.029,
+            0.22
+          ],
+          "rotate_y": 180.0
+        },
+        {
+          "asset_id": "marking_loading_zone_box_white",
+          "name": "loading_zone_box_0",
+          "translate": [
+            -2.96,
+            0.03,
+            -0.18
+          ],
+          "rotate_y": 90.0
         },
         {
           "asset_id": "furniture_signal_backplate_vertical",
