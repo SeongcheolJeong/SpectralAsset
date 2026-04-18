@@ -2037,6 +2037,26 @@
           "rotate_y": 180.0
         },
         {
+          "asset_id": "furniture_signal_cantilever_service_ladder",
+          "name": "cantilever_service_ladder_0",
+          "translate": [
+            4.48,
+            0.0,
+            -1.86
+          ],
+          "rotate_y": 180.0
+        },
+        {
+          "asset_id": "furniture_signal_cantilever_service_platform",
+          "name": "cantilever_service_platform_0",
+          "translate": [
+            11.34,
+            0.0,
+            -1.86
+          ],
+          "rotate_y": 180.0
+        },
+        {
           "asset_id": "furniture_signal_cantilever_dropper_triple",
           "name": "cantilever_dropper_triple_0",
           "translate": [
@@ -2263,6 +2283,26 @@
             -2.88,
             0.0,
             0.62
+          ],
+          "rotate_y": 90.0
+        },
+        {
+          "asset_id": "furniture_queue_stanchion_pair",
+          "name": "queue_stanchion_0",
+          "translate": [
+            -2.58,
+            0.0,
+            1.12
+          ],
+          "rotate_y": 90.0
+        },
+        {
+          "asset_id": "furniture_boarding_edge_guardrail",
+          "name": "boarding_guardrail_0",
+          "translate": [
+            -1.56,
+            0.0,
+            1.32
           ],
           "rotate_y": 90.0
         },
@@ -3418,6 +3458,26 @@
           "rotate_y": 180.0
         },
         {
+          "asset_id": "furniture_signal_cantilever_service_ladder",
+          "name": "cantilever_service_ladder_0",
+          "translate": [
+            4.28,
+            0.0,
+            -1.16
+          ],
+          "rotate_y": 180.0
+        },
+        {
+          "asset_id": "furniture_signal_cantilever_service_platform",
+          "name": "cantilever_service_platform_0",
+          "translate": [
+            9.34,
+            0.0,
+            -1.14
+          ],
+          "rotate_y": 180.0
+        },
+        {
           "asset_id": "furniture_signal_cantilever_dropper_triple",
           "name": "cantilever_dropper_triple_0",
           "translate": [
@@ -3544,6 +3604,26 @@
             -3.62,
             0.0,
             0.06
+          ],
+          "rotate_y": 0.0
+        },
+        {
+          "asset_id": "furniture_rail_crossing_bungalow",
+          "name": "rail_bungalow_0",
+          "translate": [
+            -4.82,
+            0.0,
+            -0.34
+          ],
+          "rotate_y": 0.0
+        },
+        {
+          "asset_id": "furniture_rail_crossing_battery_box",
+          "name": "rail_battery_box_0",
+          "translate": [
+            -4.36,
+            0.0,
+            0.94
           ],
           "rotate_y": 0.0
         },
@@ -4209,6 +4289,26 @@
           "rotate_y": 180.0
         },
         {
+          "asset_id": "furniture_signal_cantilever_service_ladder",
+          "name": "cantilever_service_ladder_0",
+          "translate": [
+            -1.08,
+            0.0,
+            -1.46
+          ],
+          "rotate_y": 0.0
+        },
+        {
+          "asset_id": "furniture_signal_cantilever_service_platform",
+          "name": "cantilever_service_platform_0",
+          "translate": [
+            5.98,
+            0.0,
+            -1.46
+          ],
+          "rotate_y": 180.0
+        },
+        {
           "asset_id": "furniture_signal_cantilever_dropper_triple",
           "name": "cantilever_dropper_triple_0",
           "translate": [
@@ -4447,6 +4547,26 @@
             0.78
           ],
           "rotate_y": 90.0
+        },
+        {
+          "asset_id": "furniture_queue_stanchion_pair",
+          "name": "queue_stanchion_0",
+          "translate": [
+            2.96,
+            0.0,
+            1.26
+          ],
+          "rotate_y": 180.0
+        },
+        {
+          "asset_id": "furniture_boarding_edge_guardrail",
+          "name": "boarding_guardrail_0",
+          "translate": [
+            2.42,
+            0.0,
+            1.98
+          ],
+          "rotate_y": 180.0
         },
         {
           "asset_id": "furniture_shelter_trash_receptacle",

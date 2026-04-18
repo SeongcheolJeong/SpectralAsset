@@ -1466,6 +1466,18 @@
       "variant_key": "footing_collar"
     },
     {
+      "id": "furniture_signal_cantilever_service_ladder",
+      "family": "road_furniture",
+      "semantic_class": "furniture.signal_cantilever_service",
+      "variant_key": "mast_ladder"
+    },
+    {
+      "id": "furniture_signal_cantilever_service_platform",
+      "family": "road_furniture",
+      "semantic_class": "furniture.signal_cantilever_service",
+      "variant_key": "grated_platform"
+    },
+    {
       "id": "furniture_signal_controller_cabinet",
       "family": "road_furniture",
       "semantic_class": "furniture.signal_controller_cabinet",
@@ -1524,6 +1536,18 @@
       "family": "road_furniture",
       "semantic_class": "furniture.rail_relay_case",
       "variant_key": "low_relay_case"
+    },
+    {
+      "id": "furniture_rail_crossing_bungalow",
+      "family": "road_furniture",
+      "semantic_class": "furniture.rail_bungalow",
+      "variant_key": "signal_logic_bungalow"
+    },
+    {
+      "id": "furniture_rail_crossing_battery_box",
+      "family": "road_furniture",
+      "semantic_class": "furniture.rail_battery_box",
+      "variant_key": "vented_backup_box"
     },
     {
       "id": "furniture_utility_pull_box",
@@ -1596,6 +1620,18 @@
       "family": "road_furniture",
       "semantic_class": "furniture.queue_rail",
       "variant_key": "pedestrian_channelizer"
+    },
+    {
+      "id": "furniture_queue_stanchion_pair",
+      "family": "road_furniture",
+      "semantic_class": "furniture.queue_stanchion",
+      "variant_key": "belt_pair"
+    },
+    {
+      "id": "furniture_boarding_edge_guardrail",
+      "family": "road_furniture",
+      "semantic_class": "furniture.boarding_guardrail",
+      "variant_key": "short_module"
     },
     {
       "id": "furniture_curb_separator_flexpost_pair",

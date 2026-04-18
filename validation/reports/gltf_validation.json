@@ -1,11 +1,18 @@
 {
   "generated_at": "2026-04-16T10:10:40.000Z",
-  "files_checked": 290,
+  "files_checked": 296,
   "files_with_errors": 0,
   "files_with_warnings": 0,
   "results": [
     {
       "file": "exports/gltf/furniture_barricade_panel.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
+      "file": "exports/gltf/furniture_boarding_edge_guardrail.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
@@ -139,6 +146,27 @@
     },
     {
       "file": "exports/gltf/furniture_queue_rail_module.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
+      "file": "exports/gltf/furniture_queue_stanchion_pair.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
+      "file": "exports/gltf/furniture_rail_crossing_battery_box.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
+      "file": "exports/gltf/furniture_rail_crossing_bungalow.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
@@ -377,6 +405,20 @@
     },
     {
       "file": "exports/gltf/furniture_signal_cantilever_frame.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
+      "file": "exports/gltf/furniture_signal_cantilever_service_ladder.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
+      "file": "exports/gltf/furniture_signal_cantilever_service_platform.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,

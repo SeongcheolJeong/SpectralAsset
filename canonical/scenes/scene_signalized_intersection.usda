@@ -482,6 +482,20 @@ def Xform "scene_signalized_intersection" {
         float xformOp:rotateY = 180.000000
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
     }
+    def Xform "cantilever_service_ladder_0" (
+        references = @../geometry/usd/furniture_signal_cantilever_service_ladder.usda@</furniture_signal_cantilever_service_ladder>
+    ) {
+        double3 xformOp:translate = (4.480000, 0.000000, -1.860000)
+        float xformOp:rotateY = 180.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
+    def Xform "cantilever_service_platform_0" (
+        references = @../geometry/usd/furniture_signal_cantilever_service_platform.usda@</furniture_signal_cantilever_service_platform>
+    ) {
+        double3 xformOp:translate = (11.340000, 0.000000, -1.860000)
+        float xformOp:rotateY = 180.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
     def Xform "cantilever_dropper_triple_0" (
         references = @../geometry/usd/furniture_signal_cantilever_dropper_triple.usda@</furniture_signal_cantilever_dropper_triple>
     ) {
@@ -640,6 +654,20 @@ def Xform "scene_signalized_intersection" {
         references = @../geometry/usd/furniture_queue_rail_module.usda@</furniture_queue_rail_module>
     ) {
         double3 xformOp:translate = (-2.880000, 0.000000, 0.620000)
+        float xformOp:rotateY = 90.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
+    def Xform "queue_stanchion_0" (
+        references = @../geometry/usd/furniture_queue_stanchion_pair.usda@</furniture_queue_stanchion_pair>
+    ) {
+        double3 xformOp:translate = (-2.580000, 0.000000, 1.120000)
+        float xformOp:rotateY = 90.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
+    def Xform "boarding_guardrail_0" (
+        references = @../geometry/usd/furniture_boarding_edge_guardrail.usda@</furniture_boarding_edge_guardrail>
+    ) {
+        double3 xformOp:translate = (-1.560000, 0.000000, 1.320000)
         float xformOp:rotateY = 90.000000
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
     }
