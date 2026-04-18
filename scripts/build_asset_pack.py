@@ -3570,7 +3570,9 @@ def road_asset_parts(asset_id: str, dimensions: Tuple[float, float, float]) -> D
         "furniture_signal_pole": "mat_metal_galvanized",
         "furniture_signal_mast_hanger": "mat_metal_galvanized",
         "furniture_signal_cantilever_frame": "mat_metal_galvanized",
+        "furniture_signal_cantilever_curved_mast": "mat_metal_galvanized",
         "furniture_signal_cantilever_dropper_pair": "mat_metal_galvanized",
+        "furniture_signal_cantilever_dropper_triple": "mat_metal_galvanized",
         "furniture_utility_pole_concrete": "mat_concrete",
         "furniture_utility_pole_steel": "mat_metal_galvanized",
         "furniture_sign_back_octagon": "mat_metal_galvanized",
@@ -3998,6 +4000,29 @@ def road_asset_parts(asset_id: str, dimensions: Tuple[float, float, float]) -> D
             make_mesh_part("post_outer", box_triangles(0.08, 0.42, 0.08, (3.84, 5.75, 0.0)), "mat_metal_galvanized"),
         ]
         return {"LOD0": lod0, "LOD1": lod1}
+    if asset_id == "furniture_signal_cantilever_curved_mast":
+        lod0 = [
+            make_mesh_part("base_pad", box_triangles(1.02, 0.12, 1.02, (0.0, 0.06, 0.0)), "mat_concrete"),
+            make_mesh_part("mast", cylinder_triangles(0.11, 6.24, 18, (0.0, 3.12, 0.0)), "mat_metal_galvanized"),
+            make_mesh_part("arm_inner", box_triangles(2.02, 0.14, 0.14, (1.1, 5.56, 0.0)), "mat_metal_galvanized"),
+            make_mesh_part("arm_mid", box_triangles(2.12, 0.13, 0.13, (3.18, 5.76, 0.0)), "mat_metal_galvanized"),
+            make_mesh_part("arm_outer", box_triangles(1.86, 0.12, 0.12, (5.16, 5.98, 0.0)), "mat_metal_galvanized"),
+            make_mesh_part("lower_brace", box_triangles(4.82, 0.09, 0.09, (2.58, 5.24, 0.0)), "mat_metal_galvanized"),
+            make_mesh_part("joint_plate", box_triangles(0.32, 0.48, 0.18, (0.24, 5.5, 0.0)), "mat_metal_galvanized"),
+            make_mesh_part("dropper_mount_inner", box_triangles(0.32, 0.12, 0.18, (2.06, 5.44, 0.0)), "mat_metal_galvanized"),
+            make_mesh_part("dropper_mount_center", box_triangles(0.32, 0.12, 0.18, (3.74, 5.66, 0.0)), "mat_metal_galvanized"),
+            make_mesh_part("dropper_mount_outer", box_triangles(0.32, 0.12, 0.18, (5.38, 5.88, 0.0)), "mat_metal_galvanized"),
+            make_mesh_part("service_box", box_triangles(0.24, 0.34, 0.16, (0.18, 1.92, 0.14)), "mat_signal_housing"),
+        ]
+        lod1 = [
+            make_mesh_part("base_pad", box_triangles(1.02, 0.12, 1.02, (0.0, 0.06, 0.0)), "mat_concrete"),
+            make_mesh_part("mast", cylinder_triangles(0.11, 6.24, 12, (0.0, 3.12, 0.0)), "mat_metal_galvanized"),
+            make_mesh_part("arm_inner", box_triangles(2.02, 0.14, 0.14, (1.1, 5.56, 0.0)), "mat_metal_galvanized"),
+            make_mesh_part("arm_mid", box_triangles(2.12, 0.13, 0.13, (3.18, 5.76, 0.0)), "mat_metal_galvanized"),
+            make_mesh_part("arm_outer", box_triangles(1.86, 0.12, 0.12, (5.16, 5.98, 0.0)), "mat_metal_galvanized"),
+            make_mesh_part("lower_brace", box_triangles(4.82, 0.09, 0.09, (2.58, 5.24, 0.0)), "mat_metal_galvanized"),
+        ]
+        return {"LOD0": lod0, "LOD1": lod1}
     if asset_id == "furniture_signal_cantilever_dropper_pair":
         lod0 = [
             make_mesh_part("hanger_beam", box_triangles(2.18, 0.12, 0.12, (0.0, 4.78, 0.0)), "mat_metal_galvanized"),
@@ -4012,6 +4037,25 @@ def road_asset_parts(asset_id: str, dimensions: Tuple[float, float, float]) -> D
             make_mesh_part("dropper_left", box_triangles(0.08, 1.92, 0.08, (-0.66, 3.78, 0.0)), "mat_metal_galvanized"),
             make_mesh_part("dropper_right", box_triangles(0.08, 1.92, 0.08, (0.66, 3.78, 0.0)), "mat_metal_galvanized"),
             make_mesh_part("cross_tie", box_triangles(1.58, 0.08, 0.08, (0.0, 3.26, 0.0)), "mat_metal_galvanized"),
+        ]
+        return {"LOD0": lod0, "LOD1": lod1}
+    if asset_id == "furniture_signal_cantilever_dropper_triple":
+        lod0 = [
+            make_mesh_part("hanger_beam", box_triangles(3.08, 0.12, 0.12, (0.0, 4.82, 0.0)), "mat_metal_galvanized"),
+            make_mesh_part("dropper_left", box_triangles(0.08, 1.96, 0.08, (-0.98, 3.8, 0.0)), "mat_metal_galvanized"),
+            make_mesh_part("dropper_center", box_triangles(0.08, 2.04, 0.08, (0.0, 3.76, 0.0)), "mat_metal_galvanized"),
+            make_mesh_part("dropper_right", box_triangles(0.08, 1.96, 0.08, (0.98, 3.8, 0.0)), "mat_metal_galvanized"),
+            make_mesh_part("cross_tie", box_triangles(2.28, 0.08, 0.08, (0.0, 3.18, 0.0)), "mat_metal_galvanized"),
+            make_mesh_part("clamp_left", box_triangles(0.18, 0.18, 0.08, (-0.98, 4.86, 0.0)), "mat_metal_galvanized"),
+            make_mesh_part("clamp_center", box_triangles(0.18, 0.18, 0.08, (0.0, 4.86, 0.0)), "mat_metal_galvanized"),
+            make_mesh_part("clamp_right", box_triangles(0.18, 0.18, 0.08, (0.98, 4.86, 0.0)), "mat_metal_galvanized"),
+        ]
+        lod1 = [
+            make_mesh_part("hanger_beam", box_triangles(3.08, 0.12, 0.12, (0.0, 4.82, 0.0)), "mat_metal_galvanized"),
+            make_mesh_part("dropper_left", box_triangles(0.08, 1.96, 0.08, (-0.98, 3.8, 0.0)), "mat_metal_galvanized"),
+            make_mesh_part("dropper_center", box_triangles(0.08, 2.04, 0.08, (0.0, 3.76, 0.0)), "mat_metal_galvanized"),
+            make_mesh_part("dropper_right", box_triangles(0.08, 1.96, 0.08, (0.98, 3.8, 0.0)), "mat_metal_galvanized"),
+            make_mesh_part("cross_tie", box_triangles(2.28, 0.08, 0.08, (0.0, 3.18, 0.0)), "mat_metal_galvanized"),
         ]
         return {"LOD0": lod0, "LOD1": lod1}
     if asset_id == "furniture_signal_controller_cabinet":
@@ -7187,6 +7231,100 @@ def traffic_light_definitions() -> List[Dict]:
                 "flashing_preempt_pair": "flashing_preempt_pair",
             },
         },
+        {
+            "id": "signal_lane_control_compact_2_aspect",
+            "variant_key": "lane_control.compact.2_aspect",
+            "semantic_class": "traffic_light.lane_control",
+            "body_w": 0.46,
+            "body_h": 0.78,
+            "body_d": 0.18,
+            "lenses": [
+                {"name": "display_red_x", "x": 0.0, "y": 0.54, "shape": "box", "width": 0.24, "height": 0.16, "material_id": "mat_signal_lens_red_off"},
+                {"name": "display_green_arrow", "x": 0.0, "y": 0.2, "shape": "box", "width": 0.24, "height": 0.16, "material_id": "mat_signal_lens_green_off"},
+            ],
+            "emissive_profile": "emissive_lane_control_reversible",
+            "states": {
+                "off": "off",
+                "lane_closed": "lane_closed",
+                "lane_open": "lane_open",
+            },
+        },
+        {
+            "id": "signal_school_warning_single_amber_beacon",
+            "variant_key": "school_warning.single_amber.beacon",
+            "semantic_class": "traffic_light.school_warning",
+            "body_w": 0.34,
+            "body_h": 0.42,
+            "body_d": 0.2,
+            "lenses": [
+                {"name": "lens_school_amber", "x": 0.0, "y": 0.21, "radius": 0.11, "material_id": "mat_signal_lens_yellow_off"},
+            ],
+            "emissive_profile": "emissive_school_warning_single_amber",
+            "states": {
+                "off": "off",
+                "flashing_amber": "flashing_amber",
+            },
+        },
+        {
+            "id": "signal_preemption_beacon_dual_lunar_vertical",
+            "variant_key": "preemption.lunar.dual_vertical",
+            "semantic_class": "traffic_light.preemption_beacon",
+            "body_w": 0.38,
+            "body_h": 0.9,
+            "body_d": 0.18,
+            "lenses": [
+                {"name": "lens_preempt_left", "x": 0.0, "y": 0.66, "radius": 0.11, "material_id": "mat_signal_ped_white_off"},
+                {"name": "lens_preempt_right", "x": 0.0, "y": 0.26, "radius": 0.11, "material_id": "mat_signal_ped_white_off"},
+            ],
+            "emissive_profile": "emissive_preemption_beacon_dual_lunar",
+            "states": {
+                "off": "off",
+                "preempt_left": "preempt_left",
+                "preempt_right": "preempt_right",
+                "preempt_pair": "preempt_pair",
+                "flashing_preempt_pair": "flashing_preempt_pair",
+            },
+        },
+        {
+            "id": "signal_bus_priority_compact_3_aspect",
+            "variant_key": "bus_priority.compact.3_aspect",
+            "semantic_class": "traffic_light.bus_priority",
+            "body_w": 0.42,
+            "body_h": 0.98,
+            "body_d": 0.18,
+            "lenses": [
+                {"name": "display_bus_stop", "x": 0.0, "y": 0.76, "shape": "box", "width": 0.22, "height": 0.14, "material_id": "mat_signal_lens_red_off"},
+                {"name": "display_bus_go", "x": 0.0, "y": 0.44, "shape": "box", "width": 0.22, "height": 0.14, "material_id": "mat_signal_ped_white_off"},
+                {"name": "display_bus_call", "x": 0.0, "y": 0.14, "shape": "box", "width": 0.18, "height": 0.12, "material_id": "mat_signal_ped_white_off"},
+            ],
+            "emissive_profile": "emissive_bus_priority_standard",
+            "states": {
+                "off": "off",
+                "bus_stop": "bus_stop",
+                "bus_go": "bus_go",
+                "bus_call": "bus_call",
+            },
+        },
+        {
+            "id": "signal_tram_priority_compact_3_aspect",
+            "variant_key": "tram_priority.compact.3_aspect",
+            "semantic_class": "traffic_light.tram_priority",
+            "body_w": 0.36,
+            "body_h": 0.92,
+            "body_d": 0.16,
+            "lenses": [
+                {"name": "display_tram_stop", "x": 0.0, "y": 0.72, "shape": "box", "width": 0.18, "height": 0.12, "material_id": "mat_signal_ped_white_off"},
+                {"name": "display_tram_go", "x": 0.0, "y": 0.42, "shape": "box", "width": 0.18, "height": 0.12, "material_id": "mat_signal_ped_white_off"},
+                {"name": "display_tram_call", "x": 0.0, "y": 0.14, "shape": "box", "width": 0.14, "height": 0.1, "material_id": "mat_signal_ped_white_off"},
+            ],
+            "emissive_profile": "emissive_tram_priority_standard",
+            "states": {
+                "off": "off",
+                "active_tram_stop": "tram_stop",
+                "active_tram_go": "tram_go",
+                "active_tram_call": "tram_call",
+            },
+        },
     ]
 
 
@@ -7304,7 +7442,9 @@ def road_definitions() -> List[Dict]:
         {"id": "furniture_signal_backplate_horizontal", "family": "road_furniture", "semantic_class": "furniture.signal_backplate", "variant_key": "horizontal_3_aspect", "dimensions": (1.56, 1.76, 0.24)},
         {"id": "furniture_signal_mast_hanger", "family": "road_furniture", "semantic_class": "furniture.signal_hanger", "variant_key": "mast_arm_drop", "dimensions": (0.34, 4.78, 0.16)},
         {"id": "furniture_signal_cantilever_frame", "family": "road_furniture", "semantic_class": "furniture.signal_cantilever", "variant_key": "mast_arm_truss", "dimensions": (6.08, 6.18, 0.96)},
+        {"id": "furniture_signal_cantilever_curved_mast", "family": "road_furniture", "semantic_class": "furniture.signal_cantilever", "variant_key": "curved_mast", "dimensions": (6.42, 6.24, 1.02)},
         {"id": "furniture_signal_cantilever_dropper_pair", "family": "road_furniture", "semantic_class": "furniture.signal_dropper", "variant_key": "dual_dropper_pair", "dimensions": (2.18, 4.9, 0.12)},
+        {"id": "furniture_signal_cantilever_dropper_triple", "family": "road_furniture", "semantic_class": "furniture.signal_dropper", "variant_key": "triple_dropper_pair", "dimensions": (3.08, 4.9, 0.12)},
         {"id": "furniture_signal_controller_cabinet", "family": "road_furniture", "semantic_class": "furniture.signal_controller_cabinet", "variant_key": "double_door", "dimensions": (0.96, 1.6, 0.78)},
         {"id": "furniture_signal_controller_cabinet_single", "family": "road_furniture", "semantic_class": "furniture.signal_controller_cabinet", "variant_key": "single_door", "dimensions": (0.72, 1.31, 0.62)},
         {"id": "furniture_signal_battery_backup_cabinet", "family": "road_furniture", "semantic_class": "furniture.signal_battery_backup", "variant_key": "double_door_vented", "dimensions": (0.92, 1.44, 0.68)},
@@ -7993,6 +8133,28 @@ def write_emissive_profiles(signal_curves: Dict[str, Dict], signal_profile_meta:
             },
         },
         {
+            "id": "emissive_school_warning_single_amber",
+            "spd_ref": {
+                "amber": f"canonical/spectra/{signal_curves['yellow']['curve_name']}.npz",
+            },
+            "state_map": {
+                "off": {},
+                "flashing_amber": {"lens_school_amber": signal_curves["yellow"]["curve_name"]},
+            },
+            "nominal_luminance_cd_m2": {"amber": 6100},
+            "temperature_c": 25.0,
+            "driver_mode": "school_warning_controller",
+            "source_quality": vehicle_signal_source_quality,
+            "source_ids": vehicle_signal_source_ids,
+            "license": vehicle_signal_license,
+            "provenance": {
+                "generated_at": GENERATED_AT,
+                "generated_by": "scripts/build_asset_pack.py",
+                "source_ids": vehicle_signal_source_ids,
+                "note": vehicle_signal_note.replace("traffic-signal SPD", "single amber school-warning beacon SPD"),
+            },
+        },
+        {
             "id": "emissive_pedestrian_wait_indicator",
             "spd_ref": {
                 "wait": f"canonical/spectra/{signal_curves['yellow']['curve_name']}.npz",
@@ -8349,6 +8511,8 @@ def scene_definitions() -> List[Dict]:
                 {"asset_id": "furniture_signal_mast_hanger", "name": "mast_hanger_0", "translate": (2.0, 0.0, -0.5), "rotate_y": 90.0},
                 {"asset_id": "furniture_signal_cantilever_frame", "name": "cantilever_frame_0", "translate": (4.88, 0.0, -2.24), "rotate_y": 180.0},
                 {"asset_id": "furniture_signal_cantilever_dropper_pair", "name": "cantilever_dropper_0", "translate": (2.66, 0.0, -2.24), "rotate_y": 180.0},
+                {"asset_id": "furniture_signal_cantilever_curved_mast", "name": "cantilever_curved_mast_0", "translate": (12.08, 0.0, -2.24), "rotate_y": 180.0},
+                {"asset_id": "furniture_signal_cantilever_dropper_triple", "name": "cantilever_dropper_triple_0", "translate": (9.18, 0.0, -2.24), "rotate_y": 180.0},
                 {"asset_id": "furniture_signal_controller_cabinet", "name": "cabinet_0", "translate": (-2.6, 0.0, -2.25), "rotate_y": 0.0},
                 {"asset_id": "furniture_signal_controller_cabinet_single", "name": "cabinet_single_0", "translate": (2.68, 0.0, -1.45), "rotate_y": 180.0},
                 {"asset_id": "furniture_signal_battery_backup_cabinet", "name": "battery_backup_0", "translate": (-3.25, 0.0, -2.15), "rotate_y": 0.0},
@@ -8403,9 +8567,14 @@ def scene_definitions() -> List[Dict]:
                 {"asset_id": "signal_bicycle_vertical_3_aspect", "name": "bicycle_signal_0", "translate": (3.12, 0.0, 1.34), "rotate_y": 180.0},
                 {"asset_id": "signal_school_warning_dual_amber_vertical", "name": "school_warning_0", "translate": (-2.66, 0.0, 0.54), "rotate_y": 90.0},
                 {"asset_id": "signal_school_warning_dual_amber_horizontal", "name": "school_warning_horizontal_0", "translate": (-2.92, 0.0, -0.18), "rotate_y": 90.0},
+                {"asset_id": "signal_school_warning_single_amber_beacon", "name": "school_warning_single_0", "translate": (-2.24, 0.0, -0.82), "rotate_y": 90.0},
                 {"asset_id": "signal_pedestrian_wait_indicator_single", "name": "ped_wait_0", "translate": (1.36, 0.0, -1.18), "rotate_y": 180.0},
                 {"asset_id": "signal_preemption_beacon_lunar_single", "name": "preemption_0", "translate": (2.94, 0.0, -1.02), "rotate_y": 90.0},
                 {"asset_id": "signal_preemption_beacon_dual_lunar_horizontal", "name": "preemption_dual_0", "translate": (2.94, 0.0, -1.44), "rotate_y": 90.0},
+                {"asset_id": "signal_preemption_beacon_dual_lunar_vertical", "name": "preemption_dual_vertical_0", "translate": (3.46, 0.0, -1.12), "rotate_y": 90.0},
+                {"asset_id": "signal_lane_control_compact_2_aspect", "name": "lane_control_compact_0", "translate": (9.18, 0.0, -2.24), "rotate_y": 0.0},
+                {"asset_id": "signal_bus_priority_compact_3_aspect", "name": "bus_priority_compact_0", "translate": (-3.56, 0.0, 1.18), "rotate_y": 90.0},
+                {"asset_id": "signal_tram_priority_compact_3_aspect", "name": "tram_priority_compact_0", "translate": (-3.62, 0.0, 0.24), "rotate_y": 90.0},
                 {"asset_id": "sign_overhead_truck_bypass_right", "name": "sign_overhead_truck_bypass_0", "translate": (0.0, 0.0, -5.1), "rotate_y": 0.0},
                 {"asset_id": "sign_overhead_hospital_parking_split", "name": "sign_overhead_hospital_0", "translate": (7.0, 0.0, -5.1), "rotate_y": 0.0},
                 {"asset_id": "furniture_delineator_post", "name": "delineator_0", "translate": (-1.2, 0.0, -1.35), "rotate_y": 0.0},
@@ -8464,6 +8633,8 @@ def scene_definitions() -> List[Dict]:
                 {"asset_id": "furniture_signal_side_mount_bracket", "name": "side_mount_0", "translate": (1.72, 0.0, -1.18), "rotate_y": 180.0},
                 {"asset_id": "furniture_signal_band_clamp", "name": "signal_band_clamp_0", "translate": (1.72, 0.0, -1.18), "rotate_y": 180.0},
                 {"asset_id": "furniture_signal_cantilever_frame", "name": "cantilever_frame_0", "translate": (4.72, 0.0, -1.54), "rotate_y": 180.0},
+                {"asset_id": "furniture_signal_cantilever_curved_mast", "name": "cantilever_curved_mast_0", "translate": (10.12, 0.0, -1.54), "rotate_y": 180.0},
+                {"asset_id": "furniture_signal_cantilever_dropper_triple", "name": "cantilever_dropper_triple_0", "translate": (7.22, 0.0, -1.54), "rotate_y": 180.0},
                 {"asset_id": "furniture_signal_hanger_clamp_pair", "name": "hanger_clamp_pair_0", "translate": (2.52, 0.0, -1.54), "rotate_y": 180.0},
                 {"asset_id": "signal_warning_dual_red_horizontal", "name": "warning_red_0", "translate": (1.8, 0.0, -1.2), "rotate_y": 180.0},
                 {"asset_id": "signal_rail_crossing_dual_red_vertical", "name": "rail_vertical_0", "translate": (-2.25, 0.0, -0.1), "rotate_y": 0.0},
@@ -8474,11 +8645,16 @@ def scene_definitions() -> List[Dict]:
                 {"asset_id": "furniture_rail_crossing_controller_cabinet", "name": "rail_controller_0", "translate": (-3.28, 0.0, -0.46), "rotate_y": 0.0},
                 {"asset_id": "signal_preemption_beacon_lunar_single", "name": "preemption_0", "translate": (-2.68, 0.0, 1.46), "rotate_y": 0.0},
                 {"asset_id": "signal_preemption_beacon_dual_lunar_horizontal", "name": "preemption_dual_0", "translate": (-2.18, 0.0, 1.46), "rotate_y": 0.0},
+                {"asset_id": "signal_preemption_beacon_dual_lunar_vertical", "name": "preemption_dual_vertical_0", "translate": (-1.62, 0.0, 1.46), "rotate_y": 0.0},
                 {"asset_id": "signal_beacon_red_single", "name": "beacon_red_0", "translate": (-1.9, 0.0, 1.85), "rotate_y": 0.0},
                 {"asset_id": "signal_transit_priority_vertical_4_aspect", "name": "transit_priority_vertical_0", "translate": (2.42, 0.0, 1.62), "rotate_y": 180.0},
                 {"asset_id": "signal_bus_priority_vertical_4_aspect", "name": "bus_priority_vertical_0", "translate": (2.92, 0.0, 1.62), "rotate_y": 180.0},
+                {"asset_id": "signal_bus_priority_compact_3_aspect", "name": "bus_priority_compact_0", "translate": (3.42, 0.0, 1.62), "rotate_y": 180.0},
+                {"asset_id": "signal_tram_priority_compact_3_aspect", "name": "tram_priority_compact_0", "translate": (1.92, 0.0, 1.62), "rotate_y": 180.0},
                 {"asset_id": "signal_directional_arrow_left_3_aspect", "name": "directional_arrow_left_0", "translate": (2.22, 0.0, -1.2), "rotate_y": 180.0},
                 {"asset_id": "signal_school_warning_dual_amber_horizontal", "name": "school_warning_horizontal_0", "translate": (-1.72, 0.0, 2.2), "rotate_y": 0.0},
+                {"asset_id": "signal_school_warning_single_amber_beacon", "name": "school_warning_single_0", "translate": (-1.18, 0.0, 2.2), "rotate_y": 0.0},
+                {"asset_id": "signal_lane_control_compact_2_aspect", "name": "lane_control_compact_0", "translate": (7.22, 0.0, -1.54), "rotate_y": 180.0},
                 {"asset_id": "furniture_bollard_flexible", "name": "bollard_0", "translate": (1.25, 0.0, 1.05), "rotate_y": 0.0},
                 {"asset_id": "furniture_delineator_post", "name": "delineator_0", "translate": (-1.15, 0.0, 1.35), "rotate_y": 0.0},
                 {"asset_id": "signal_vehicle_vertical_3_aspect", "name": "signal_0", "translate": (1.8, 0.0, -1.2), "rotate_y": 180.0},
@@ -8522,6 +8698,8 @@ def scene_definitions() -> List[Dict]:
                 {"asset_id": "marking_loading_zone_zigzag_white", "name": "loading_zone_zigzag_0", "translate": (-3.06, 0.03, -0.84), "rotate_y": 90.0},
                 {"asset_id": "furniture_signal_backplate_vertical", "name": "backplate_vertical_0", "translate": (-1.6, 0.0, -0.8), "rotate_y": 0.0},
                 {"asset_id": "furniture_signal_cantilever_dropper_pair", "name": "cantilever_dropper_0", "translate": (-1.54, 0.0, -1.86), "rotate_y": 0.0},
+                {"asset_id": "furniture_signal_cantilever_curved_mast", "name": "cantilever_curved_mast_0", "translate": (6.84, 0.0, -1.86), "rotate_y": 180.0},
+                {"asset_id": "furniture_signal_cantilever_dropper_triple", "name": "cantilever_dropper_triple_0", "translate": (3.96, 0.0, -1.86), "rotate_y": 180.0},
                 {"asset_id": "furniture_signal_controller_cabinet", "name": "cabinet_0", "translate": (-2.55, 0.0, -0.95), "rotate_y": 0.0},
                 {"asset_id": "furniture_signal_battery_backup_cabinet", "name": "battery_backup_0", "translate": (-3.16, 0.0, -0.82), "rotate_y": 0.0},
                 {"asset_id": "furniture_signal_junction_box", "name": "junction_box_0", "translate": (-2.1, 0.0, -1.48), "rotate_y": 0.0},
@@ -8533,6 +8711,11 @@ def scene_definitions() -> List[Dict]:
                 {"asset_id": "furniture_service_bollard_pair", "name": "service_bollards_0", "translate": (3.32, 0.0, 1.2), "rotate_y": 0.0},
                 {"asset_id": "furniture_loading_zone_sign_post", "name": "loading_zone_sign_0", "translate": (-3.56, 0.0, -0.18), "rotate_y": 90.0},
                 {"asset_id": "furniture_loading_zone_kiosk", "name": "loading_zone_kiosk_0", "translate": (-3.14, 0.0, -0.74), "rotate_y": 90.0},
+                {"asset_id": "signal_lane_control_compact_2_aspect", "name": "lane_control_compact_0", "translate": (3.96, 0.0, -1.86), "rotate_y": 180.0},
+                {"asset_id": "signal_school_warning_single_amber_beacon", "name": "school_warning_single_0", "translate": (3.44, 0.0, 2.58), "rotate_y": 180.0},
+                {"asset_id": "signal_bus_priority_compact_3_aspect", "name": "bus_priority_compact_0", "translate": (2.46, 0.0, 1.82), "rotate_y": 180.0},
+                {"asset_id": "signal_tram_priority_compact_3_aspect", "name": "tram_priority_compact_0", "translate": (1.88, 0.0, 1.82), "rotate_y": 180.0},
+                {"asset_id": "signal_preemption_beacon_dual_lunar_vertical", "name": "preemption_dual_vertical_0", "translate": (-0.96, 0.0, -0.8), "rotate_y": 0.0},
                 {"asset_id": "furniture_queue_rail_module", "name": "queue_rail_0", "translate": (-2.46, 0.0, 0.78), "rotate_y": 90.0},
                 {"asset_id": "furniture_shelter_trash_receptacle", "name": "shelter_trash_0", "translate": (2.38, 0.0, 1.44), "rotate_y": 180.0},
                 {"asset_id": "furniture_shelter_route_map_case", "name": "shelter_route_map_0", "translate": (3.42, 0.0, 1.66), "rotate_y": 180.0},

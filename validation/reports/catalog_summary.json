@@ -560,6 +560,36 @@
       "variant_key": "preemption.lunar.dual_horizontal"
     },
     {
+      "id": "signal_lane_control_compact_2_aspect",
+      "family": "traffic_light",
+      "semantic_class": "traffic_light.lane_control",
+      "variant_key": "lane_control.compact.2_aspect"
+    },
+    {
+      "id": "signal_school_warning_single_amber_beacon",
+      "family": "traffic_light",
+      "semantic_class": "traffic_light.school_warning",
+      "variant_key": "school_warning.single_amber.beacon"
+    },
+    {
+      "id": "signal_preemption_beacon_dual_lunar_vertical",
+      "family": "traffic_light",
+      "semantic_class": "traffic_light.preemption_beacon",
+      "variant_key": "preemption.lunar.dual_vertical"
+    },
+    {
+      "id": "signal_bus_priority_compact_3_aspect",
+      "family": "traffic_light",
+      "semantic_class": "traffic_light.bus_priority",
+      "variant_key": "bus_priority.compact.3_aspect"
+    },
+    {
+      "id": "signal_tram_priority_compact_3_aspect",
+      "family": "traffic_light",
+      "semantic_class": "traffic_light.tram_priority",
+      "variant_key": "tram_priority.compact.3_aspect"
+    },
+    {
       "id": "road_asphalt_dry",
       "family": "road_surface",
       "semantic_class": "road.asphalt",
@@ -1232,10 +1262,22 @@
       "variant_key": "mast_arm_truss"
     },
     {
+      "id": "furniture_signal_cantilever_curved_mast",
+      "family": "road_furniture",
+      "semantic_class": "furniture.signal_cantilever",
+      "variant_key": "curved_mast"
+    },
+    {
       "id": "furniture_signal_cantilever_dropper_pair",
       "family": "road_furniture",
       "semantic_class": "furniture.signal_dropper",
       "variant_key": "dual_dropper_pair"
+    },
+    {
+      "id": "furniture_signal_cantilever_dropper_triple",
+      "family": "road_furniture",
+      "semantic_class": "furniture.signal_dropper",
+      "variant_key": "triple_dropper_pair"
     },
     {
       "id": "furniture_signal_controller_cabinet",

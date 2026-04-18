@@ -1,0 +1,41 @@
+{
+  "id": "emissive_school_warning_single_amber",
+  "spd_ref": {
+    "amber": "canonical/spectra/spd_signal_yellow_vendor_ref.npz"
+  },
+  "state_map": {
+    "off": {},
+    "flashing_amber": {
+      "lens_school_amber": "spd_signal_yellow_vendor_ref"
+    }
+  },
+  "nominal_luminance_cd_m2": {
+    "amber": 6100
+  },
+  "temperature_c": 25.0,
+  "driver_mode": "school_warning_controller",
+  "source_quality": "vendor_derived",
+  "source_ids": [
+    "osram_lr_q976_01_pdf",
+    "osram_ly_q976_01_pdf",
+    "osram_ltrb_rasf_01_pdf"
+  ],
+  "license": {
+    "spdx": "LicenseRef-VendorDerived",
+    "redistribution": "Derived traffic-signal SPD metadata and fitted curves from public ams-OSRAM datasheets."
+  },
+  "provenance": {
+    "generated_at": "2026-04-16T10:10:40+00:00",
+    "generated_by": "scripts/build_asset_pack.py",
+    "source_ids": [
+      "osram_lr_q976_01_pdf",
+      "osram_ly_q976_01_pdf",
+      "osram_ltrb_rasf_01_pdf"
+    ],
+    "note": "Vendor-derived single amber school-warning beacon SPD fit from public ams-OSRAM red, yellow, and true-green LED datasheets."
+  },
+  "derivation_method": {
+    "type": "public_doc_curve_fit",
+    "note": "Gaussian LED fits anchored to official public ams-OSRAM traffic-signal LED datasheets."
+  }
+}
