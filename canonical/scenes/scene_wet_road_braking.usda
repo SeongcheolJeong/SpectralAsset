@@ -139,6 +139,20 @@ def Xform "scene_wet_road_braking" {
         float xformOp:rotateY = 180.000000
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
     }
+    def Xform "slow_text_0" (
+        references = @../geometry/usd/marking_slow_text_white.usda@</marking_slow_text_white>
+    ) {
+        double3 xformOp:translate = (3.120000, 0.030000, 3.020000)
+        float xformOp:rotateY = 180.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
+    def Xform "xing_text_0" (
+        references = @../geometry/usd/marking_xing_text_white.usda@</marking_xing_text_white>
+    ) {
+        double3 xformOp:translate = (2.060000, 0.030000, 3.020000)
+        float xformOp:rotateY = 180.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
     def Xform "school_bus_box_0" (
         references = @../geometry/usd/marking_school_bus_box_white.usda@</marking_school_bus_box_white>
     ) {
@@ -151,6 +165,34 @@ def Xform "scene_wet_road_braking" {
     ) {
         double3 xformOp:translate = (-2.960000, 0.030000, -0.180000)
         float xformOp:rotateY = 90.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
+    def Xform "pick_up_box_0" (
+        references = @../geometry/usd/marking_pick_up_box_white.usda@</marking_pick_up_box_white>
+    ) {
+        double3 xformOp:translate = (-2.920000, 0.030000, 0.720000)
+        float xformOp:rotateY = 90.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
+    def Xform "taxi_box_0" (
+        references = @../geometry/usd/marking_taxi_box_white.usda@</marking_taxi_box_white>
+    ) {
+        double3 xformOp:translate = (-2.940000, 0.030000, 1.540000)
+        float xformOp:rotateY = 90.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
+    def Xform "separator_buffer_white_0" (
+        references = @../geometry/usd/marking_separator_buffer_white.usda@</marking_separator_buffer_white>
+    ) {
+        double3 xformOp:translate = (-2.420000, 0.029000, -0.860000)
+        float xformOp:rotateY = 90.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
+    def Xform "separator_buffer_green_0" (
+        references = @../geometry/usd/marking_separator_buffer_green.usda@</marking_separator_buffer_green>
+    ) {
+        double3 xformOp:translate = (3.040000, 0.029000, 0.620000)
+        float xformOp:rotateY = 180.000000
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
     }
     def Xform "curb_red_0" (

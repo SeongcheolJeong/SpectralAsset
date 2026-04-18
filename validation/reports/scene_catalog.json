@@ -1307,6 +1307,26 @@
           "rotate_y": 90.0
         },
         {
+          "asset_id": "marking_slow_text_white",
+          "name": "slow_text_0",
+          "translate": [
+            -1.54,
+            0.03,
+            2.22
+          ],
+          "rotate_y": 90.0
+        },
+        {
+          "asset_id": "marking_xing_text_white",
+          "name": "xing_text_0",
+          "translate": [
+            -3.0,
+            0.03,
+            2.18
+          ],
+          "rotate_y": 90.0
+        },
+        {
           "asset_id": "marking_bus_text_white",
           "name": "bus_text_0",
           "translate": [
@@ -1357,6 +1377,26 @@
           "rotate_y": 90.0
         },
         {
+          "asset_id": "marking_pick_up_box_white",
+          "name": "pick_up_box_0",
+          "translate": [
+            3.72,
+            0.03,
+            0.16
+          ],
+          "rotate_y": 270.0
+        },
+        {
+          "asset_id": "marking_taxi_box_white",
+          "name": "taxi_box_0",
+          "translate": [
+            -3.92,
+            0.03,
+            2.64
+          ],
+          "rotate_y": 90.0
+        },
+        {
           "asset_id": "marking_transit_lane_panel_red",
           "name": "transit_lane_panel_0",
           "translate": [
@@ -1365,6 +1405,26 @@
             1.14
           ],
           "rotate_y": 0.0
+        },
+        {
+          "asset_id": "marking_separator_buffer_white",
+          "name": "separator_buffer_white_0",
+          "translate": [
+            2.44,
+            0.029,
+            -0.72
+          ],
+          "rotate_y": 8.0
+        },
+        {
+          "asset_id": "marking_separator_buffer_green",
+          "name": "separator_buffer_green_0",
+          "translate": [
+            3.18,
+            0.029,
+            1.48
+          ],
+          "rotate_y": 180.0
         },
         {
           "asset_id": "marking_curb_yellow_segment",
@@ -2929,6 +2989,26 @@
           "rotate_y": 180.0
         },
         {
+          "asset_id": "marking_slow_text_white",
+          "name": "slow_text_0",
+          "translate": [
+            3.12,
+            0.03,
+            3.02
+          ],
+          "rotate_y": 180.0
+        },
+        {
+          "asset_id": "marking_xing_text_white",
+          "name": "xing_text_0",
+          "translate": [
+            2.06,
+            0.03,
+            3.02
+          ],
+          "rotate_y": 180.0
+        },
+        {
           "asset_id": "marking_school_bus_box_white",
           "name": "school_bus_box_0",
           "translate": [
@@ -2947,6 +3027,46 @@
             -0.18
           ],
           "rotate_y": 90.0
+        },
+        {
+          "asset_id": "marking_pick_up_box_white",
+          "name": "pick_up_box_0",
+          "translate": [
+            -2.92,
+            0.03,
+            0.72
+          ],
+          "rotate_y": 90.0
+        },
+        {
+          "asset_id": "marking_taxi_box_white",
+          "name": "taxi_box_0",
+          "translate": [
+            -2.94,
+            0.03,
+            1.54
+          ],
+          "rotate_y": 90.0
+        },
+        {
+          "asset_id": "marking_separator_buffer_white",
+          "name": "separator_buffer_white_0",
+          "translate": [
+            -2.42,
+            0.029,
+            -0.86
+          ],
+          "rotate_y": 90.0
+        },
+        {
+          "asset_id": "marking_separator_buffer_green",
+          "name": "separator_buffer_green_0",
+          "translate": [
+            3.04,
+            0.029,
+            0.62
+          ],
+          "rotate_y": 180.0
         },
         {
           "asset_id": "marking_curb_red_segment",

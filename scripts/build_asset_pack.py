@@ -3464,6 +3464,8 @@ def road_asset_parts(asset_id: str, dimensions: Tuple[float, float, float]) -> D
         "marking_only_text_white": "mat_marking_white",
         "marking_stop_text_white": "mat_marking_white",
         "marking_school_text_white": "mat_marking_white",
+        "marking_slow_text_white": "mat_marking_white",
+        "marking_xing_text_white": "mat_marking_white",
         "marking_bus_text_white": "mat_marking_white",
         "marking_bike_text_white": "mat_marking_white",
         "marking_bus_only_box_white": "mat_marking_white",
@@ -3471,8 +3473,12 @@ def road_asset_parts(asset_id: str, dimensions: Tuple[float, float, float]) -> D
         "marking_bike_box_white": "mat_marking_white",
         "marking_loading_zone_box_white": "mat_marking_white",
         "marking_school_bus_box_white": "mat_marking_white",
+        "marking_pick_up_box_white": "mat_marking_white",
+        "marking_taxi_box_white": "mat_marking_white",
         "marking_transit_lane_panel_red": "mat_marking_red",
         "marking_bike_lane_panel_green": "mat_marking_green",
+        "marking_separator_buffer_white": "mat_marking_white",
+        "marking_separator_buffer_green": "mat_marking_green",
         "marking_curb_red_segment": "mat_marking_red",
         "marking_curb_yellow_segment": "mat_marking_yellow",
         "marking_curb_blue_segment": "mat_marking_blue",
@@ -3693,6 +3699,34 @@ def road_asset_parts(asset_id: str, dimensions: Tuple[float, float, float]) -> D
             lod0.append(oriented_box_part(f"{prefix}_hatch_{index}", 0.12, 0.006, 2.34, (x_center, 0.003, 0.0), "mat_marking_white", 34.0))
         for index, x_center in enumerate((-0.48, -0.12, 0.24, 0.6)):
             lod1.append(oriented_box_part(f"{prefix}_hatch_{index}", 0.12, 0.006, 2.14, (x_center, 0.003, 0.0), "mat_marking_white", 34.0))
+        return {"LOD0": lod0, "LOD1": lod1}
+
+    def separator_buffer_parts(prefix: str, fill_material_id: Optional[str] = None) -> Dict[str, List[Dict]]:
+        lod0: List[Dict] = []
+        lod1: List[Dict] = []
+        if fill_material_id is not None:
+            lod0.append(make_mesh_part(f"{prefix}_fill", box_triangles(0.78, 0.004, 2.5, (0.0, 0.002, 0.0)), fill_material_id))
+            lod1.append(make_mesh_part(f"{prefix}_fill", box_triangles(0.72, 0.004, 2.36, (0.0, 0.002, 0.0)), fill_material_id))
+        lod0.extend(
+            [
+                make_mesh_part(f"{prefix}_edge_left", box_triangles(0.08, 0.006, 2.72, (-0.42, 0.003, 0.0)), "mat_marking_white"),
+                make_mesh_part(f"{prefix}_edge_right", box_triangles(0.08, 0.006, 2.72, (0.42, 0.003, 0.0)), "mat_marking_white"),
+            ]
+        )
+        lod1.extend(
+            [
+                make_mesh_part(f"{prefix}_edge_left", box_triangles(0.08, 0.006, 2.54, (-0.4, 0.003, 0.0)), "mat_marking_white"),
+                make_mesh_part(f"{prefix}_edge_right", box_triangles(0.08, 0.006, 2.54, (0.4, 0.003, 0.0)), "mat_marking_white"),
+            ]
+        )
+        for index, z_center in enumerate((-0.96, -0.44, 0.08, 0.6)):
+            rotation = 36.0 if index % 2 == 0 else -36.0
+            x_center = 0.02 if index % 2 == 0 else -0.02
+            lod0.append(oriented_box_part(f"{prefix}_diag_{index}", 0.12, 0.006, 0.76, (x_center, 0.003, z_center), "mat_marking_white", rotation))
+        for index, z_center in enumerate((-0.72, -0.08, 0.56)):
+            rotation = 36.0 if index % 2 == 0 else -36.0
+            x_center = 0.02 if index % 2 == 0 else -0.02
+            lod1.append(oriented_box_part(f"{prefix}_diag_{index}", 0.12, 0.006, 0.72, (x_center, 0.003, z_center), "mat_marking_white", rotation))
         return {"LOD0": lod0, "LOD1": lod1}
 
     if asset_id == "furniture_sign_pole":
@@ -5307,6 +5341,14 @@ def road_asset_parts(asset_id: str, dimensions: Tuple[float, float, float]) -> D
         lod0 = word_marking_parts("school", "SCHOOL", 1.62, 2.22, (0.0, 0.0), "mat_marking_white")
         lod1 = word_marking_parts("school", "SCHOOL", 1.52, 2.08, (0.0, 0.0), "mat_marking_white")
         return {"LOD0": lod0, "LOD1": lod1}
+    if asset_id == "marking_slow_text_white":
+        lod0 = word_marking_parts("slow", "SLOW", 1.18, 2.08, (0.0, 0.0), "mat_marking_white")
+        lod1 = word_marking_parts("slow", "SLOW", 1.1, 1.96, (0.0, 0.0), "mat_marking_white")
+        return {"LOD0": lod0, "LOD1": lod1}
+    if asset_id == "marking_xing_text_white":
+        lod0 = word_marking_parts("xing", "XING", 1.14, 1.86, (0.0, 0.0), "mat_marking_white")
+        lod1 = word_marking_parts("xing", "XING", 1.06, 1.74, (0.0, 0.0), "mat_marking_white")
+        return {"LOD0": lod0, "LOD1": lod1}
     if asset_id == "marking_bus_text_white":
         lod0 = word_marking_parts("bus", "BUS", 1.02, 1.74, (0.0, 0.0), "mat_marking_white")
         lod1 = word_marking_parts("bus", "BUS", 0.96, 1.64, (0.0, 0.0), "mat_marking_white")
@@ -5335,6 +5377,14 @@ def road_asset_parts(asset_id: str, dimensions: Tuple[float, float, float]) -> D
         lod0 = boxed_word_marking_parts("school_bus_box", "SCHOOL BUS", 2.32, 2.56, "mat_marking_white", "mat_marking_white", None, 0.09, 0.84, 0.38)
         lod1 = boxed_word_marking_parts("school_bus_box", "SCHOOL BUS", 2.2, 2.42, "mat_marking_white", "mat_marking_white", None, 0.09, 0.82, 0.36)
         return {"LOD0": lod0, "LOD1": lod1}
+    if asset_id == "marking_pick_up_box_white":
+        lod0 = boxed_word_marking_parts("pick_up_box", "PICK UP", 2.06, 2.24, "mat_marking_white", "mat_marking_white", None, 0.09, 0.86, 0.4)
+        lod1 = boxed_word_marking_parts("pick_up_box", "PICK UP", 1.96, 2.12, "mat_marking_white", "mat_marking_white", None, 0.09, 0.84, 0.38)
+        return {"LOD0": lod0, "LOD1": lod1}
+    if asset_id == "marking_taxi_box_white":
+        lod0 = boxed_word_marking_parts("taxi_box", "TAXI", 1.62, 2.0, "mat_marking_white", "mat_marking_white", None, 0.09, 0.68, 0.42)
+        lod1 = boxed_word_marking_parts("taxi_box", "TAXI", 1.52, 1.88, "mat_marking_white", "mat_marking_white", None, 0.09, 0.66, 0.4)
+        return {"LOD0": lod0, "LOD1": lod1}
     if asset_id == "marking_transit_lane_panel_red":
         lod0 = boxed_word_marking_parts("transit_lane_panel", "BUS", 1.74, 3.04, "mat_marking_white", "mat_marking_white", "mat_marking_red", 0.09, 0.58, 0.34)
         lod1 = boxed_word_marking_parts("transit_lane_panel", "BUS", 1.64, 2.9, "mat_marking_white", "mat_marking_white", "mat_marking_red", 0.09, 0.56, 0.32)
@@ -5343,6 +5393,10 @@ def road_asset_parts(asset_id: str, dimensions: Tuple[float, float, float]) -> D
         lod0 = boxed_word_marking_parts("bike_lane_panel", "BIKE", 1.74, 3.04, "mat_marking_white", "mat_marking_white", "mat_marking_green", 0.09, 0.64, 0.34)
         lod1 = boxed_word_marking_parts("bike_lane_panel", "BIKE", 1.64, 2.9, "mat_marking_white", "mat_marking_white", "mat_marking_green", 0.09, 0.62, 0.32)
         return {"LOD0": lod0, "LOD1": lod1}
+    if asset_id == "marking_separator_buffer_white":
+        return separator_buffer_parts("separator_buffer_white")
+    if asset_id == "marking_separator_buffer_green":
+        return separator_buffer_parts("separator_buffer_green", "mat_marking_green")
     if asset_id == "marking_curb_red_segment":
         return curb_color_marking_parts("curb_red", "mat_marking_red")
     if asset_id == "marking_curb_yellow_segment":
@@ -6998,6 +7052,8 @@ def road_definitions() -> List[Dict]:
         {"id": "marking_only_text_white", "family": "road_marking", "semantic_class": "marking.word_legend", "variant_key": "only_white", "dimensions": (0.94, 0.005, 1.98)},
         {"id": "marking_stop_text_white", "family": "road_marking", "semantic_class": "marking.word_legend", "variant_key": "stop_white", "dimensions": (1.02, 0.005, 2.34)},
         {"id": "marking_school_text_white", "family": "road_marking", "semantic_class": "marking.school_zone", "variant_key": "school_white", "dimensions": (1.62, 0.005, 2.22)},
+        {"id": "marking_slow_text_white", "family": "road_marking", "semantic_class": "marking.school_zone", "variant_key": "slow_white", "dimensions": (1.18, 0.005, 2.08)},
+        {"id": "marking_xing_text_white", "family": "road_marking", "semantic_class": "marking.school_zone", "variant_key": "xing_white", "dimensions": (1.14, 0.005, 1.86)},
         {"id": "marking_bus_text_white", "family": "road_marking", "semantic_class": "marking.word_legend", "variant_key": "bus_white", "dimensions": (1.02, 0.005, 1.74)},
         {"id": "marking_bike_text_white", "family": "road_marking", "semantic_class": "marking.word_legend", "variant_key": "bike_white", "dimensions": (1.22, 0.005, 2.04)},
         {"id": "marking_bus_only_box_white", "family": "road_marking", "semantic_class": "marking.word_legend_box", "variant_key": "bus_only_box_white", "dimensions": (1.72, 0.006, 2.28)},
@@ -7005,8 +7061,12 @@ def road_definitions() -> List[Dict]:
         {"id": "marking_bike_box_white", "family": "road_marking", "semantic_class": "marking.word_legend_box", "variant_key": "bike_box_white", "dimensions": (1.54, 0.006, 2.08)},
         {"id": "marking_loading_zone_box_white", "family": "road_marking", "semantic_class": "marking.curbside_box", "variant_key": "loading_zone_box_white", "dimensions": (1.62, 0.006, 2.06)},
         {"id": "marking_school_bus_box_white", "family": "road_marking", "semantic_class": "marking.school_queue", "variant_key": "school_bus_box_white", "dimensions": (2.32, 0.006, 2.56)},
+        {"id": "marking_pick_up_box_white", "family": "road_marking", "semantic_class": "marking.curbside_box", "variant_key": "pick_up_box_white", "dimensions": (2.06, 0.006, 2.24)},
+        {"id": "marking_taxi_box_white", "family": "road_marking", "semantic_class": "marking.curbside_box", "variant_key": "taxi_box_white", "dimensions": (1.62, 0.006, 2.0)},
         {"id": "marking_transit_lane_panel_red", "family": "road_marking", "semantic_class": "marking.colored_lane_panel", "variant_key": "transit_red", "dimensions": (1.74, 0.006, 3.04)},
         {"id": "marking_bike_lane_panel_green", "family": "road_marking", "semantic_class": "marking.colored_lane_panel", "variant_key": "bike_green", "dimensions": (1.74, 0.006, 3.04)},
+        {"id": "marking_separator_buffer_white", "family": "road_marking", "semantic_class": "marking.separator_buffer", "variant_key": "white_diagonal", "dimensions": (0.92, 0.006, 2.72)},
+        {"id": "marking_separator_buffer_green", "family": "road_marking", "semantic_class": "marking.separator_buffer", "variant_key": "green_diagonal", "dimensions": (0.92, 0.006, 2.72)},
         {"id": "marking_curb_red_segment", "family": "road_marking", "semantic_class": "marking.curb_color", "variant_key": "red_segment", "dimensions": (0.18, 0.006, 2.6)},
         {"id": "marking_curb_yellow_segment", "family": "road_marking", "semantic_class": "marking.curb_color", "variant_key": "yellow_segment", "dimensions": (0.18, 0.006, 2.6)},
         {"id": "marking_curb_blue_segment", "family": "road_marking", "semantic_class": "marking.curb_color", "variant_key": "blue_segment", "dimensions": (0.18, 0.006, 2.6)},
@@ -8036,12 +8096,18 @@ def scene_definitions() -> List[Dict]:
                 {"asset_id": "marking_only_text_white", "name": "only_text_0", "translate": (-0.92, 0.03, -0.15), "rotate_y": 0.0},
                 {"asset_id": "marking_stop_text_white", "name": "stop_text_0", "translate": (0.92, 0.03, -1.05), "rotate_y": 0.0},
                 {"asset_id": "marking_school_text_white", "name": "school_text_0", "translate": (-2.24, 0.03, 2.2), "rotate_y": 90.0},
+                {"asset_id": "marking_slow_text_white", "name": "slow_text_0", "translate": (-1.54, 0.03, 2.22), "rotate_y": 90.0},
+                {"asset_id": "marking_xing_text_white", "name": "xing_text_0", "translate": (-3.0, 0.03, 2.18), "rotate_y": 90.0},
                 {"asset_id": "marking_bus_text_white", "name": "bus_text_0", "translate": (-1.5, 0.03, 1.62), "rotate_y": 0.0},
                 {"asset_id": "marking_bike_text_white", "name": "bike_text_0", "translate": (1.45, 0.03, 1.58), "rotate_y": 0.0},
                 {"asset_id": "marking_bus_only_box_white", "name": "bus_only_box_0", "translate": (-1.58, 0.03, 2.42), "rotate_y": 0.0},
                 {"asset_id": "marking_bus_stop_box_white", "name": "bus_stop_box_0", "translate": (-2.62, 0.03, 0.98), "rotate_y": 90.0},
                 {"asset_id": "marking_school_bus_box_white", "name": "school_bus_box_0", "translate": (-2.72, 0.029, 2.06), "rotate_y": 90.0},
+                {"asset_id": "marking_pick_up_box_white", "name": "pick_up_box_0", "translate": (3.72, 0.03, 0.16), "rotate_y": 270.0},
+                {"asset_id": "marking_taxi_box_white", "name": "taxi_box_0", "translate": (-3.92, 0.03, 2.64), "rotate_y": 90.0},
                 {"asset_id": "marking_transit_lane_panel_red", "name": "transit_lane_panel_0", "translate": (-1.52, 0.029, 1.14), "rotate_y": 0.0},
+                {"asset_id": "marking_separator_buffer_white", "name": "separator_buffer_white_0", "translate": (2.44, 0.029, -0.72), "rotate_y": 8.0},
+                {"asset_id": "marking_separator_buffer_green", "name": "separator_buffer_green_0", "translate": (3.18, 0.029, 1.48), "rotate_y": 180.0},
                 {"asset_id": "marking_curb_yellow_segment", "name": "curb_yellow_0", "translate": (-3.92, 0.031, 0.98), "rotate_y": 90.0},
                 {"asset_id": "marking_curb_blue_segment", "name": "curb_blue_0", "translate": (-3.92, 0.031, 1.82), "rotate_y": 90.0},
                 {"asset_id": "marking_curbside_arrow_left_white", "name": "curbside_arrow_left_0", "translate": (-3.48, 0.03, 0.42), "rotate_y": 90.0},
@@ -8208,8 +8274,14 @@ def scene_definitions() -> List[Dict]:
                 {"asset_id": "marking_bike_box_white", "name": "bike_box_0", "translate": (2.98, 0.03, 0.92), "rotate_y": 180.0},
                 {"asset_id": "marking_bike_lane_panel_green", "name": "bike_lane_panel_0", "translate": (3.02, 0.029, 0.22), "rotate_y": 180.0},
                 {"asset_id": "marking_school_text_white", "name": "school_text_0", "translate": (3.08, 0.03, 2.22), "rotate_y": 180.0},
+                {"asset_id": "marking_slow_text_white", "name": "slow_text_0", "translate": (3.12, 0.03, 3.02), "rotate_y": 180.0},
+                {"asset_id": "marking_xing_text_white", "name": "xing_text_0", "translate": (2.06, 0.03, 3.02), "rotate_y": 180.0},
                 {"asset_id": "marking_school_bus_box_white", "name": "school_bus_box_0", "translate": (2.64, 0.029, 1.92), "rotate_y": 180.0},
                 {"asset_id": "marking_loading_zone_box_white", "name": "loading_zone_box_0", "translate": (-2.96, 0.03, -0.18), "rotate_y": 90.0},
+                {"asset_id": "marking_pick_up_box_white", "name": "pick_up_box_0", "translate": (-2.92, 0.03, 0.72), "rotate_y": 90.0},
+                {"asset_id": "marking_taxi_box_white", "name": "taxi_box_0", "translate": (-2.94, 0.03, 1.54), "rotate_y": 90.0},
+                {"asset_id": "marking_separator_buffer_white", "name": "separator_buffer_white_0", "translate": (-2.42, 0.029, -0.86), "rotate_y": 90.0},
+                {"asset_id": "marking_separator_buffer_green", "name": "separator_buffer_green_0", "translate": (3.04, 0.029, 0.62), "rotate_y": 180.0},
                 {"asset_id": "marking_curb_red_segment", "name": "curb_red_0", "translate": (-3.86, 0.031, -0.18), "rotate_y": 90.0},
                 {"asset_id": "marking_curbside_arrow_left_white", "name": "curbside_arrow_left_0", "translate": (-3.42, 0.03, -0.32), "rotate_y": 90.0},
                 {"asset_id": "marking_loading_zone_zigzag_white", "name": "loading_zone_zigzag_0", "translate": (-3.06, 0.03, -0.84), "rotate_y": 90.0},

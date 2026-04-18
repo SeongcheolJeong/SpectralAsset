@@ -1,6 +1,6 @@
 {
   "generated_at": "2026-04-16T10:10:40.000Z",
-  "files_checked": 228,
+  "files_checked": 234,
   "files_with_errors": 0,
   "files_with_warnings": 0,
   "results": [
@@ -656,6 +656,13 @@
       "messages": []
     },
     {
+      "file": "exports/gltf/marking_pick_up_box_white.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
       "file": "exports/gltf/marking_raised_marker_bicolor.glb",
       "numErrors": 0,
       "numWarnings": 0,
@@ -691,6 +698,27 @@
       "messages": []
     },
     {
+      "file": "exports/gltf/marking_separator_buffer_green.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
+      "file": "exports/gltf/marking_separator_buffer_white.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
+      "file": "exports/gltf/marking_slow_text_white.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
       "file": "exports/gltf/marking_stop_line.glb",
       "numErrors": 0,
       "numWarnings": 0,
@@ -719,6 +747,13 @@
       "messages": []
     },
     {
+      "file": "exports/gltf/marking_taxi_box_white.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
       "file": "exports/gltf/marking_transit_lane_panel_red.glb",
       "numErrors": 0,
       "numWarnings": 0,
@@ -734,6 +769,13 @@
     },
     {
       "file": "exports/gltf/marking_turn_right_only_box_white.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
+      "file": "exports/gltf/marking_xing_text_white.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,

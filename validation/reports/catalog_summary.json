@@ -866,6 +866,18 @@
       "variant_key": "school_white"
     },
     {
+      "id": "marking_slow_text_white",
+      "family": "road_marking",
+      "semantic_class": "marking.school_zone",
+      "variant_key": "slow_white"
+    },
+    {
+      "id": "marking_xing_text_white",
+      "family": "road_marking",
+      "semantic_class": "marking.school_zone",
+      "variant_key": "xing_white"
+    },
+    {
       "id": "marking_bus_text_white",
       "family": "road_marking",
       "semantic_class": "marking.word_legend",
@@ -908,6 +920,18 @@
       "variant_key": "school_bus_box_white"
     },
     {
+      "id": "marking_pick_up_box_white",
+      "family": "road_marking",
+      "semantic_class": "marking.curbside_box",
+      "variant_key": "pick_up_box_white"
+    },
+    {
+      "id": "marking_taxi_box_white",
+      "family": "road_marking",
+      "semantic_class": "marking.curbside_box",
+      "variant_key": "taxi_box_white"
+    },
+    {
       "id": "marking_transit_lane_panel_red",
       "family": "road_marking",
       "semantic_class": "marking.colored_lane_panel",
@@ -918,6 +942,18 @@
       "family": "road_marking",
       "semantic_class": "marking.colored_lane_panel",
       "variant_key": "bike_green"
+    },
+    {
+      "id": "marking_separator_buffer_white",
+      "family": "road_marking",
+      "semantic_class": "marking.separator_buffer",
+      "variant_key": "white_diagonal"
+    },
+    {
+      "id": "marking_separator_buffer_green",
+      "family": "road_marking",
+      "semantic_class": "marking.separator_buffer",
+      "variant_key": "green_diagonal"
     },
     {
       "id": "marking_curb_red_segment",
