@@ -428,6 +428,18 @@
       "variant_key": "construction_plate_patch"
     },
     {
+      "id": "road_construction_milled_overlay",
+      "family": "road_surface",
+      "semantic_class": "road.construction_staging",
+      "variant_key": "milled_overlay"
+    },
+    {
+      "id": "road_construction_trench_cut",
+      "family": "road_surface",
+      "semantic_class": "road.construction_staging",
+      "variant_key": "trench_cut"
+    },
+    {
       "id": "road_asphalt_pothole_distressed",
       "family": "road_surface",
       "semantic_class": "road.asphalt",
@@ -464,10 +476,28 @@
       "variant_key": "expansion_joint"
     },
     {
+      "id": "road_bridge_approach_slab",
+      "family": "road_surface",
+      "semantic_class": "road.bridge_approach",
+      "variant_key": "slab_transition"
+    },
+    {
       "id": "road_lane_drop_transition",
       "family": "road_surface",
       "semantic_class": "road.transition",
       "variant_key": "lane_drop_taper"
+    },
+    {
+      "id": "road_barrier_taper_transition",
+      "family": "road_surface",
+      "semantic_class": "road.transition",
+      "variant_key": "barrier_taper"
+    },
+    {
+      "id": "road_curb_bulbout_transition",
+      "family": "road_surface",
+      "semantic_class": "road.curb_transition",
+      "variant_key": "bulbout_apron"
     },
     {
       "id": "road_curb_segment",

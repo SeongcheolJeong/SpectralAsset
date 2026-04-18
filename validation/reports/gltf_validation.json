@@ -1,6 +1,6 @@
 {
   "generated_at": "2026-04-16T10:10:40.000Z",
-  "files_checked": 152,
+  "files_checked": 157,
   "files_with_errors": 0,
   "files_with_warnings": 0,
   "results": [
@@ -523,6 +523,20 @@
       "messages": []
     },
     {
+      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/road_barrier_taper_transition.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
+      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/road_bridge_approach_slab.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
       "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/road_bridge_expansion_joint.glb",
       "numErrors": 0,
       "numWarnings": 0,
@@ -544,7 +558,28 @@
       "messages": []
     },
     {
+      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/road_construction_milled_overlay.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
       "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/road_construction_plate_patch.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
+      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/road_construction_trench_cut.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
+      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/road_curb_bulbout_transition.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,

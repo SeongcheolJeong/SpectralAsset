@@ -6,7 +6,7 @@ This file explains what the generator actually creates in this repository and ho
 
 Current generated baseline:
 
-- `148` assets
+- `153` assets
 - `26` spectral materials
 - `13` emissive profiles
 - `3` camera profiles
@@ -130,16 +130,21 @@ These are reusable road or pavement surfaces such as:
 - `road_gravel_shoulder`
 - `road_asphalt_gravel_transition`
 - `road_construction_plate_patch`
+- `road_construction_milled_overlay`
+- `road_construction_trench_cut`
 - `road_asphalt_pothole_distressed`
 - `road_eroded_shoulder_edge`
 - `road_rural_crowned_lane`
 - `road_dirt_track_dual_rut`
 - `road_dirt_track_washout`
 - `road_bridge_expansion_joint`
+- `road_bridge_approach_slab`
 - `road_lane_drop_transition`
+- `road_barrier_taper_transition`
+- `road_curb_bulbout_transition`
 - `road_sidewalk_panel`
 
-They mainly depend on spectral material definitions rather than complex state logic, but the newer variants now mix asphalt, concrete, steel-plate, and gravel proxy materials to represent repairs, rural shoulders, crowned rural lanes, dirt-track ruts, bridge-joint panels, lane-drop tapers, pothole distress, and edge-dropoff conditions.
+They mainly depend on spectral material definitions rather than complex state logic, but the newer variants now mix asphalt, concrete, steel-plate, gravel proxy materials, and low-profile curb or barrier forms to represent repairs, construction staging, rural shoulders, crowned rural lanes, dirt-track ruts, bridge-joint and bridge-approach panels, lane-drop tapers, pothole distress, edge-dropoff conditions, and curbside/barrier transition composites.
 
 ### `road_marking`
 

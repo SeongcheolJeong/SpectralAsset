@@ -48,6 +48,20 @@ def Xform "scene_wet_road_braking" {
         float xformOp:rotateY = 0.000000
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
     }
+    def Xform "road_trench_cut_0" (
+        references = @../geometry/usd/road_construction_trench_cut.usda@</road_construction_trench_cut>
+    ) {
+        double3 xformOp:translate = (19.200000, 0.000000, 0.000000)
+        float xformOp:rotateY = 0.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
+    def Xform "road_curb_bulbout_0" (
+        references = @../geometry/usd/road_curb_bulbout_transition.usda@</road_curb_bulbout_transition>
+    ) {
+        double3 xformOp:translate = (22.400000, 0.000000, 0.000000)
+        float xformOp:rotateY = 0.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
     def Xform "crosswalk_0" (
         references = @../geometry/usd/marking_crosswalk_worn.usda@</marking_crosswalk_worn>
     ) {

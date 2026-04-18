@@ -847,12 +847,32 @@
           "rotate_y": 0.0
         },
         {
+          "asset_id": "road_construction_milled_overlay",
+          "name": "construction_milled_0",
+          "translate": [
+            8.2,
+            0.0,
+            -0.2
+          ],
+          "rotate_y": 0.0
+        },
+        {
           "asset_id": "road_lane_drop_transition",
           "name": "lane_drop_transition_0",
           "translate": [
             -4.2,
             0.0,
             0.3
+          ],
+          "rotate_y": 90.0
+        },
+        {
+          "asset_id": "road_barrier_taper_transition",
+          "name": "barrier_taper_0",
+          "translate": [
+            -8.1,
+            0.0,
+            0.95
           ],
           "rotate_y": 90.0
         },
@@ -1498,6 +1518,16 @@
           "rotate_y": 0.0
         },
         {
+          "asset_id": "road_bridge_approach_slab",
+          "name": "road_bridge_approach_0",
+          "translate": [
+            12.25,
+            0.0,
+            0.0
+          ],
+          "rotate_y": 0.0
+        },
+        {
           "asset_id": "sign_stop_weathered",
           "name": "sign_stop_0",
           "translate": [
@@ -1923,6 +1953,26 @@
           "name": "road_dirt_track_1",
           "translate": [
             16.0,
+            0.0,
+            0.0
+          ],
+          "rotate_y": 0.0
+        },
+        {
+          "asset_id": "road_construction_trench_cut",
+          "name": "road_trench_cut_0",
+          "translate": [
+            19.2,
+            0.0,
+            0.0
+          ],
+          "rotate_y": 0.0
+        },
+        {
+          "asset_id": "road_curb_bulbout_transition",
+          "name": "road_curb_bulbout_0",
+          "translate": [
+            22.4,
             0.0,
             0.0
           ],
