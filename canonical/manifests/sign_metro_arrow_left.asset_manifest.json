@@ -1,0 +1,67 @@
+{
+  "id": "sign_metro_arrow_left",
+  "family": "traffic_sign",
+  "semantic_class": "information.metro",
+  "variant_key": "locale.eu.metro.left",
+  "dimensions_m": {
+    "width": 1.2,
+    "height": 2.2,
+    "depth": 0.08
+  },
+  "lods": [
+    {
+      "name": "LOD0",
+      "triangle_count": 1304,
+      "usd_scope": "/sign_metro_arrow_left/LOD0",
+      "gltf_node_prefix": "LOD0"
+    },
+    {
+      "name": "LOD1",
+      "triangle_count": 680,
+      "usd_scope": "/sign_metro_arrow_left/LOD1",
+      "gltf_node_prefix": "LOD1"
+    }
+  ],
+  "collider": {
+    "type": "capsule",
+    "radius": 0.4,
+    "height": 2.2
+  },
+  "anchor_points": {
+    "base_center": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "plate_center": {
+      "x": 0.0,
+      "y": 1.75,
+      "z": 0.0
+    }
+  },
+  "materials": [
+    "mat_metal_galvanized",
+    "mat_sign_blue",
+    "mat_sign_white"
+  ],
+  "states": {
+    "default": {
+      "render_profile": "reflective_daytime"
+    }
+  },
+  "export_targets": {
+    "template_svg": "canonical/templates/signs/sign_metro_arrow_left.svg",
+    "usd_ascii": "canonical/geometry/usd/sign_metro_arrow_left.usda",
+    "usd_binary": "exports/usd/sign_metro_arrow_left.usdc",
+    "gltf_binary": "exports/gltf/sign_metro_arrow_left.glb"
+  },
+  "license": {
+    "spdx": "LicenseRef-ProjectGenerated",
+    "redistribution": "geometry, manifests, and templates generated in-repo"
+  },
+  "provenance": {
+    "generated_at": "2026-04-16T10:10:40+00:00",
+    "generated_by": "scripts/build_asset_pack.py",
+    "note": "SVG face template plus generated USD/GLB plate and pole geometry."
+  }
+}

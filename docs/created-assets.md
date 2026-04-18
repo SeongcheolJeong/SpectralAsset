@@ -6,7 +6,7 @@ This file explains what the generator actually creates in this repository and ho
 
 Current generated baseline:
 
-- `236` assets
+- `244` assets
 - `27` spectral materials
 - `22` emissive profiles
 - `3` camera profiles
@@ -52,22 +52,30 @@ These are sign objects such as:
 - `sign_hotel_arrow_left`
 - `sign_airport_arrow_right`
 - `sign_bus_station_arrow_right`
+- `sign_centro_arrow_right`
+- `sign_aeroporto_arrow_left`
+- `sign_metro_arrow_left`
 - `sign_truck_route_right`
 - `sign_centre_left_text`
 - `sign_route_us_101_shield`
+- `sign_route_us_66_shield`
 - `sign_route_interstate_5_shield`
 - `sign_route_interstate_405_shield`
 - `sign_route_e45_shield`
 - `sign_route_e20_shield`
 - `sign_route_ca_1_shield`
 - `sign_route_ca_82_shield`
+- `sign_route_ca_17_shield`
 - `sign_route_m25_shield`
+- `sign_route_a9_shield`
 - `sign_route_a7_shield`
 - `sign_destination_stack_airport_centre_right`
 - `sign_destination_stack_hotel_park_left`
 - `sign_destination_stack_truck_bypass_ahead`
 - `sign_destination_stack_airport_parking_right`
+- `sign_destination_stack_centro_hotel_left`
 - `sign_overhead_airport_centre_split`
+- `sign_overhead_aeroporto_centro_split`
 - `sign_overhead_hospital_parking_split`
 - `sign_overhead_park_ride_left`
 - `sign_overhead_truck_bypass_right`
@@ -90,10 +98,10 @@ The newer route/service and overhead-guide additions now also include:
 
 - service-direction panels such as hospital, parking, and hotel
 - transport or logistics panels such as airport, bus-station, and truck-route signs
-- locale-style wayfinding panels such as `CENTRE` and `BYPASS`
-- route-shield panels such as U.S., interstate, E-route, California, UK motorway, and French autoroute markers, now including Interstate `405`, `E20`, and California `82` follow-up variants
-- stacked destination-guide panels that combine multiple destinations and directional arrows on one sign face, now including an airport/parking follow-up stack
-- self-contained overhead-guide assemblies that hang larger destination panels from generated galvanized frames instead of reusing the default single-post sign mount, now including a hospital/parking split assembly
+- multilingual/localized service panels such as `CENTRO`, `AEROPORTO`, and `METRO` alongside earlier `CENTRE` and `BYPASS` wayfinding panels
+- route-shield panels such as U.S., interstate, E-route, California, UK motorway, German autobahn, and French autoroute markers, now including Interstate `405`, `US 66`, California `17`, `E20`, California `82`, and `A9` follow-up variants
+- stacked destination-guide panels that combine multiple destinations and directional arrows on one sign face, now including airport/parking and larger `CENTRO`/`HOTEL` follow-up stacks
+- self-contained overhead-guide assemblies that hang larger destination panels from generated galvanized frames instead of reusing the default single-post sign mount, now including hospital/parking and larger `AEROPORTO`/`CENTRO` split assemblies
 
 ### `traffic_light`
 

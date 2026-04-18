@@ -55,6 +55,7 @@
 - thirty-fourth `P3` road-furniture batch with shelter trash, route-map, and lean-rail accessories plus curb-separator flexpost/kerb modules and signal hanger-clamp pairs
 - thirty-fifth `P3` road-marking batch with `SLOW`/`XING` school-zone legends, white/green separator-buffer panels, and pick-up/taxi curbside box variants
 - thirty-sixth `P3` road-surface batch with roundabout outer-ring and bypass-slip-lane panels, retaining-wall shoulder-shelf and abutment transitions, plus laydown-bay and temporary-access work-zone surfaces
+- thirty-seventh `P3` traffic-sign batch with `CENTRO`, `AEROPORTO`, and `METRO` service panels, a larger `CENTRO`/`HOTEL` destination stack, deeper `US 66`/`CA 17`/`A9` shield variants, and a larger overhead `AEROPORTO`/`CENTRO` split assembly
 
 ### Changed
 
@@ -111,7 +112,8 @@
 - existing validation scenes now place shelter trash receptacles, route-map cases, lean rails, curb-separator flexpost/kerb modules, and signal hanger-clamp pairs so roadside scenes are broader than the earlier shelter-panel, curb-ramp, and clamp-hardware follow-up batch
 - existing validation scenes now place `SLOW`/`XING` school-zone legends, white/green separator-buffer panels, and pick-up/taxi curbside boxes so road-marking scenes are broader than the earlier school-bus, curbside-arrow, and generic boxed-curbside follow-up batch
 - existing validation scenes now place roundabout outer-ring and bypass-slip-lane panels, retaining-wall shoulder-shelf and abutment transitions, plus laydown-bay and temporary-access work-zone surfaces so roadway scenes are broader than the earlier roundabout-apron, retaining-wall cut, and staging-pad follow-up batch
-- backlog focus now moves from `road_surface` retaining-wall, roundabout-edge, and temporary-staging follow-up to `traffic_sign` multilingual service, larger specialty assembly, and route-shield-depth work after the latest surface batch
+- existing validation scenes now place `CENTRO`, `AEROPORTO`, and `METRO` service panels, a larger `CENTRO`/`HOTEL` destination stack, deeper `US 66`/`CA 17`/`A9` shield variants, and a larger overhead `AEROPORTO`/`CENTRO` split assembly so sign scenes are broader than the earlier localized-service, airport/parking, and first shield-depth follow-up batch
+- backlog focus now moves from `traffic_sign` multilingual service, larger specialty assembly, and route-shield-depth work to `traffic_light` narrower regional edge-case, cantilever-subtype, and specialty-control follow-up after the latest sign batch
 
 ### Validation
 
@@ -149,6 +151,7 @@
 - validation summary now reports `224` assets, including `61` `road_furniture` assets, `27` spectral materials, and `228` GLB files after the first thirty-fourth `P3` expansion batch
 - validation summary now reports `230` assets, including `51` `road_marking` assets, `27` spectral materials, and `234` GLB files after the first thirty-fifth `P3` expansion batch
 - validation summary now reports `236` assets, including `39` `road_surface` assets, `27` spectral materials, and `240` GLB files after the first thirty-sixth `P3` expansion batch
+- validation summary now reports `244` assets, including `64` `traffic_sign` assets, `27` spectral materials, and `248` GLB files after the first thirty-seventh `P3` expansion batch
 - validation summary now includes `3` camera profiles and zero camera-profile validation errors
 - material quality summary now reports `3` `measured_standard`, `1` `measured_derivative`, `23` `project_proxy`, and `0` `vendor_derived` materials
 - emissive profile quality summary now distinguishes vendor-derived vehicle/protected-turn profiles from remaining proxy pedestrian/countdown profiles

@@ -1,6 +1,6 @@
 {
   "generated_at": "2026-04-16T10:10:40.000Z",
-  "files_checked": 240,
+  "files_checked": 248,
   "files_with_errors": 0,
   "files_with_warnings": 0,
   "results": [
@@ -1090,6 +1090,13 @@
       "messages": []
     },
     {
+      "file": "exports/gltf/sign_aeroporto_arrow_left.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
       "file": "exports/gltf/sign_airport_arrow_right.glb",
       "numErrors": 0,
       "numWarnings": 0,
@@ -1125,6 +1132,13 @@
       "messages": []
     },
     {
+      "file": "exports/gltf/sign_centro_arrow_right.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
       "file": "exports/gltf/sign_construction_warning.glb",
       "numErrors": 0,
       "numWarnings": 0,
@@ -1154,6 +1168,13 @@
     },
     {
       "file": "exports/gltf/sign_destination_stack_airport_parking_right.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
+      "file": "exports/gltf/sign_destination_stack_centro_hotel_left.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
@@ -1223,6 +1244,13 @@
       "messages": []
     },
     {
+      "file": "exports/gltf/sign_metro_arrow_left.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
       "file": "exports/gltf/sign_no_entry.glb",
       "numErrors": 0,
       "numWarnings": 0,
@@ -1252,6 +1280,13 @@
     },
     {
       "file": "exports/gltf/sign_one_way_text_right.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
+      "file": "exports/gltf/sign_overhead_aeroporto_centro_split.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
@@ -1342,6 +1377,20 @@
       "messages": []
     },
     {
+      "file": "exports/gltf/sign_route_a9_shield.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
+      "file": "exports/gltf/sign_route_ca_17_shield.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
       "file": "exports/gltf/sign_route_ca_1_shield.glb",
       "numErrors": 0,
       "numWarnings": 0,
@@ -1392,6 +1441,13 @@
     },
     {
       "file": "exports/gltf/sign_route_us_101_shield.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
+      "file": "exports/gltf/sign_route_us_66_shield.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,

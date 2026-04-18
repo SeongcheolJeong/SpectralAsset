@@ -170,10 +170,34 @@
       "variant_key": "service.bus_station.right"
     },
     {
+      "id": "sign_centro_arrow_right",
+      "family": "traffic_sign",
+      "semantic_class": "information.centre",
+      "variant_key": "locale.es.centro.right"
+    },
+    {
+      "id": "sign_aeroporto_arrow_left",
+      "family": "traffic_sign",
+      "semantic_class": "information.airport",
+      "variant_key": "locale.it.aeroporto.left"
+    },
+    {
+      "id": "sign_metro_arrow_left",
+      "family": "traffic_sign",
+      "semantic_class": "information.metro",
+      "variant_key": "locale.eu.metro.left"
+    },
+    {
       "id": "sign_route_us_101_shield",
       "family": "traffic_sign",
       "semantic_class": "information.route_shield",
       "variant_key": "route.us.us_101"
+    },
+    {
+      "id": "sign_route_us_66_shield",
+      "family": "traffic_sign",
+      "semantic_class": "information.route_shield",
+      "variant_key": "route.us.us_66"
     },
     {
       "id": "sign_route_interstate_5_shield",
@@ -212,10 +236,22 @@
       "variant_key": "route.us.ca_82"
     },
     {
+      "id": "sign_route_ca_17_shield",
+      "family": "traffic_sign",
+      "semantic_class": "information.route_shield",
+      "variant_key": "route.us.ca_17"
+    },
+    {
       "id": "sign_route_m25_shield",
       "family": "traffic_sign",
       "semantic_class": "information.route_shield",
       "variant_key": "route.uk.m_25"
+    },
+    {
+      "id": "sign_route_a9_shield",
+      "family": "traffic_sign",
+      "semantic_class": "information.route_shield",
+      "variant_key": "route.de.a_9"
     },
     {
       "id": "sign_route_a7_shield",
@@ -248,6 +284,12 @@
       "variant_key": "guide.airport_parking.right_stack"
     },
     {
+      "id": "sign_destination_stack_centro_hotel_left",
+      "family": "traffic_sign",
+      "semantic_class": "information.destination_guide",
+      "variant_key": "guide.centro_hotel.left_stack"
+    },
+    {
       "id": "sign_overhead_airport_centre_split",
       "family": "traffic_sign",
       "semantic_class": "information.destination_guide",
@@ -270,6 +312,12 @@
       "family": "traffic_sign",
       "semantic_class": "information.destination_guide",
       "variant_key": "guide.overhead.hospital_parking.split"
+    },
+    {
+      "id": "sign_overhead_aeroporto_centro_split",
+      "family": "traffic_sign",
+      "semantic_class": "information.destination_guide",
+      "variant_key": "guide.overhead.aeroporto_centro.split"
     },
     {
       "id": "sign_centre_left_text",
