@@ -6,9 +6,9 @@ This file explains what the generator actually creates in this repository and ho
 
 Current generated baseline:
 
-- `312` assets
+- `326` assets
 - `27` spectral materials
-- `24` emissive profiles
+- `27` emissive profiles
 - `3` camera profiles
 - `4` scenario profiles
 - `4` validation scenes
@@ -351,6 +351,8 @@ These are support/context objects such as:
 - `furniture_signal_cantilever_diagonal_brace_pair`
 - `furniture_signal_cantilever_backspan_stub`
 - `furniture_signal_cantilever_mount_plate_pair`
+- `furniture_signal_cantilever_cable_tray`
+- `furniture_signal_cantilever_maintenance_hoist`
 - `furniture_signal_controller_cabinet`
 - `furniture_signal_controller_cabinet_single`
 - `furniture_signal_battery_backup_cabinet`
@@ -363,6 +365,8 @@ These are support/context objects such as:
 - `furniture_rail_crossing_relay_case`
 - `furniture_rail_crossing_bungalow`
 - `furniture_rail_crossing_battery_box`
+- `furniture_rail_crossing_predictor_case`
+- `furniture_rail_crossing_service_post`
 - `furniture_utility_pull_box`
 - `furniture_utility_transformer_padmount`
 - `furniture_bus_stop_shelter`
@@ -371,6 +375,8 @@ These are support/context objects such as:
 - `furniture_bus_stop_bench`
 - `furniture_bus_stop_validator_pedestal`
 - `furniture_bus_stop_timetable_blade`
+- `furniture_bus_stop_help_point`
+- `furniture_bus_stop_request_pole`
 - `furniture_queue_rail_module`
 - `furniture_queue_stanchion_pair`
 - `furniture_boarding_edge_guardrail`
@@ -403,7 +409,7 @@ These are support/context objects such as:
 - `furniture_sign_band_clamp_pair`
 - `furniture_signal_band_clamp`
 
-The newest roadside-context passes now add bus-bay curb/island pieces, passenger-information hardware, loading-zone support detail, rail-gate mast/arm/bell/controller context, queue-rail, shelter-panel, curb-ramp, clamp-hardware follow-up assets, truss and curved-mast cantilever signal-frame/dropper detail, newer single and quad dropper follow-up pieces, cantilever anchor-cage and footing-collar pieces, cantilever service ladders and grated platforms, cantilever diagonal-brace, backspan, and mount-plate follow-up hardware, rail-side power/relay ancillaries, a rail bungalow and battery box, validator/timetable microsupport, queue stanchions and boarding-edge guardrails, and shelter trash, route-map, lean-rail, curb-separator, and hanger-clamp follow-up pieces so scenes can place both curbside-transit assemblies and deeper attachment/crossing context instead of implying all of that through signs, poles, brackets, and generic cabinets alone.
+The newest roadside-context passes now add bus-bay curb/island pieces, passenger-information hardware, loading-zone support detail, rail-gate mast/arm/bell/controller context, queue-rail, shelter-panel, curb-ramp, clamp-hardware follow-up assets, truss and curved-mast cantilever signal-frame/dropper detail, newer single and quad dropper follow-up pieces, cantilever anchor-cage and footing-collar pieces, cantilever service ladders and grated platforms, cantilever diagonal-brace, backspan, mount-plate, cable-tray, and maintenance-hoist follow-up hardware, rail-side power/relay/predictor/service-post ancillaries, a rail bungalow and battery box, validator/timetable/help-point/request-pole transit microsupport, queue stanchions and boarding-edge guardrails, and shelter trash, route-map, lean-rail, curb-separator, and hanger-clamp follow-up pieces so scenes can place both curbside-transit assemblies and deeper attachment/crossing context instead of implying all of that through signs, poles, brackets, and generic cabinets alone.
 
 ## Other Generated Objects
 

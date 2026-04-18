@@ -2347,6 +2347,26 @@
           "rotate_y": 180.0
         },
         {
+          "asset_id": "furniture_signal_cantilever_cable_tray",
+          "name": "cantilever_cable_tray_0",
+          "translate": [
+            5.62,
+            0.0,
+            -2.02
+          ],
+          "rotate_y": 180.0
+        },
+        {
+          "asset_id": "furniture_signal_cantilever_maintenance_hoist",
+          "name": "cantilever_maintenance_hoist_0",
+          "translate": [
+            10.82,
+            0.0,
+            -1.58
+          ],
+          "rotate_y": 180.0
+        },
+        {
           "asset_id": "furniture_signal_cantilever_dropper_triple",
           "name": "cantilever_dropper_triple_0",
           "translate": [
@@ -2553,6 +2573,26 @@
             -2.22,
             0.0,
             0.06
+          ],
+          "rotate_y": 90.0
+        },
+        {
+          "asset_id": "furniture_bus_stop_help_point",
+          "name": "bus_stop_help_point_0",
+          "translate": [
+            -2.26,
+            0.0,
+            1.46
+          ],
+          "rotate_y": 90.0
+        },
+        {
+          "asset_id": "furniture_bus_stop_request_pole",
+          "name": "bus_stop_request_pole_0",
+          "translate": [
+            -1.82,
+            0.0,
+            0.46
           ],
           "rotate_y": 90.0
         },
@@ -4038,6 +4078,26 @@
           "rotate_y": 0.0
         },
         {
+          "asset_id": "furniture_rail_crossing_predictor_case",
+          "name": "rail_predictor_case_0",
+          "translate": [
+            -5.32,
+            0.0,
+            0.38
+          ],
+          "rotate_y": 0.0
+        },
+        {
+          "asset_id": "furniture_rail_crossing_service_post",
+          "name": "rail_service_post_0",
+          "translate": [
+            -3.06,
+            0.0,
+            1.22
+          ],
+          "rotate_y": 0.0
+        },
+        {
           "asset_id": "signal_preemption_beacon_lunar_single",
           "name": "preemption_0",
           "translate": [
@@ -4849,6 +4909,26 @@
           "rotate_y": 180.0
         },
         {
+          "asset_id": "furniture_signal_cantilever_cable_tray",
+          "name": "cantilever_cable_tray_0",
+          "translate": [
+            4.84,
+            0.0,
+            -1.62
+          ],
+          "rotate_y": 180.0
+        },
+        {
+          "asset_id": "furniture_signal_cantilever_maintenance_hoist",
+          "name": "cantilever_maintenance_hoist_0",
+          "translate": [
+            -0.62,
+            0.0,
+            -1.2
+          ],
+          "rotate_y": 0.0
+        },
+        {
           "asset_id": "furniture_signal_cantilever_dropper_triple",
           "name": "cantilever_dropper_triple_0",
           "translate": [
@@ -4995,6 +5075,26 @@
             3.78,
             0.0,
             1.58
+          ],
+          "rotate_y": 180.0
+        },
+        {
+          "asset_id": "furniture_bus_stop_help_point",
+          "name": "bus_stop_help_point_0",
+          "translate": [
+            3.2,
+            0.0,
+            2.12
+          ],
+          "rotate_y": 180.0
+        },
+        {
+          "asset_id": "furniture_bus_stop_request_pole",
+          "name": "bus_stop_request_pole_0",
+          "translate": [
+            2.86,
+            0.0,
+            1.22
           ],
           "rotate_y": 180.0
         },

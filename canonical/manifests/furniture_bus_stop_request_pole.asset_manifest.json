@@ -1,0 +1,65 @@
+{
+  "id": "furniture_bus_stop_request_pole",
+  "family": "road_furniture",
+  "semantic_class": "furniture.transit_stop_request",
+  "variant_key": "boarding_request_pole",
+  "dimensions_m": {
+    "width": 0.28,
+    "height": 1.54,
+    "depth": 0.22
+  },
+  "lods": [
+    {
+      "name": "LOD0",
+      "triangle_count": 72,
+      "usd_scope": "/furniture_bus_stop_request_pole/LOD0",
+      "gltf_node_prefix": "LOD0"
+    },
+    {
+      "name": "LOD1",
+      "triangle_count": 48,
+      "usd_scope": "/furniture_bus_stop_request_pole/LOD1",
+      "gltf_node_prefix": "LOD1"
+    }
+  ],
+  "collider": {
+    "type": "box",
+    "width": 0.28,
+    "height": 1.54,
+    "depth": 0.22
+  },
+  "anchor_points": {
+    "base_center": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    }
+  },
+  "materials": [
+    "mat_concrete",
+    "mat_metal_galvanized",
+    "mat_sign_black",
+    "mat_sign_blue",
+    "mat_sign_white",
+    "mat_sign_yellow"
+  ],
+  "states": {
+    "default": {
+      "render_profile": "static"
+    }
+  },
+  "export_targets": {
+    "usd_ascii": "canonical/geometry/usd/furniture_bus_stop_request_pole.usda",
+    "usd_binary": "exports/usd/furniture_bus_stop_request_pole.usdc",
+    "gltf_binary": "exports/gltf/furniture_bus_stop_request_pole.glb"
+  },
+  "license": {
+    "spdx": "LicenseRef-ProjectGenerated",
+    "redistribution": "geometry, manifests, and templates generated in-repo"
+  },
+  "provenance": {
+    "generated_at": "2026-04-16T10:10:40+00:00",
+    "generated_by": "scripts/build_asset_pack.py",
+    "note": "Generated reusable road surface, marking, or furniture primitive."
+  }
+}

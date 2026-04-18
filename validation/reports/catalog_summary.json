@@ -1646,6 +1646,18 @@
       "variant_key": "dual_mount_plate"
     },
     {
+      "id": "furniture_signal_cantilever_cable_tray",
+      "family": "road_furniture",
+      "semantic_class": "furniture.signal_cantilever_service",
+      "variant_key": "cable_tray"
+    },
+    {
+      "id": "furniture_signal_cantilever_maintenance_hoist",
+      "family": "road_furniture",
+      "semantic_class": "furniture.signal_cantilever_service",
+      "variant_key": "maintenance_hoist"
+    },
+    {
       "id": "furniture_signal_controller_cabinet",
       "family": "road_furniture",
       "semantic_class": "furniture.signal_controller_cabinet",
@@ -1718,6 +1730,18 @@
       "variant_key": "vented_backup_box"
     },
     {
+      "id": "furniture_rail_crossing_predictor_case",
+      "family": "road_furniture",
+      "semantic_class": "furniture.rail_predictor_case",
+      "variant_key": "track_predictor_case"
+    },
+    {
+      "id": "furniture_rail_crossing_service_post",
+      "family": "road_furniture",
+      "semantic_class": "furniture.rail_service_post",
+      "variant_key": "marker_service_post"
+    },
+    {
       "id": "furniture_utility_pull_box",
       "family": "road_furniture",
       "semantic_class": "furniture.utility_pull_box",
@@ -1782,6 +1806,18 @@
       "family": "road_furniture",
       "semantic_class": "furniture.transit_stop_timetable",
       "variant_key": "freestanding_blade"
+    },
+    {
+      "id": "furniture_bus_stop_help_point",
+      "family": "road_furniture",
+      "semantic_class": "furniture.transit_stop_help_point",
+      "variant_key": "audio_visual_help_point"
+    },
+    {
+      "id": "furniture_bus_stop_request_pole",
+      "family": "road_furniture",
+      "semantic_class": "furniture.transit_stop_request",
+      "variant_key": "boarding_request_pole"
     },
     {
       "id": "furniture_queue_rail_module",

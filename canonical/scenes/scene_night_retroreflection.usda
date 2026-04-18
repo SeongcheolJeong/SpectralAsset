@@ -384,6 +384,20 @@ def Xform "scene_night_retroreflection" {
         float xformOp:rotateY = 0.000000
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
     }
+    def Xform "rail_predictor_case_0" (
+        references = @../geometry/usd/furniture_rail_crossing_predictor_case.usda@</furniture_rail_crossing_predictor_case>
+    ) {
+        double3 xformOp:translate = (-5.320000, 0.000000, 0.380000)
+        float xformOp:rotateY = 0.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
+    def Xform "rail_service_post_0" (
+        references = @../geometry/usd/furniture_rail_crossing_service_post.usda@</furniture_rail_crossing_service_post>
+    ) {
+        double3 xformOp:translate = (-3.060000, 0.000000, 1.220000)
+        float xformOp:rotateY = 0.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
     def Xform "preemption_0" (
         references = @../geometry/usd/signal_preemption_beacon_lunar_single.usda@</signal_preemption_beacon_lunar_single>
     ) {

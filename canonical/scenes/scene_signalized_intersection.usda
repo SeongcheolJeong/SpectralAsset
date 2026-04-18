@@ -601,6 +601,20 @@ def Xform "scene_signalized_intersection" {
         float xformOp:rotateY = 180.000000
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
     }
+    def Xform "cantilever_cable_tray_0" (
+        references = @../geometry/usd/furniture_signal_cantilever_cable_tray.usda@</furniture_signal_cantilever_cable_tray>
+    ) {
+        double3 xformOp:translate = (5.620000, 0.000000, -2.020000)
+        float xformOp:rotateY = 180.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
+    def Xform "cantilever_maintenance_hoist_0" (
+        references = @../geometry/usd/furniture_signal_cantilever_maintenance_hoist.usda@</furniture_signal_cantilever_maintenance_hoist>
+    ) {
+        double3 xformOp:translate = (10.820000, 0.000000, -1.580000)
+        float xformOp:rotateY = 180.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
     def Xform "cantilever_dropper_triple_0" (
         references = @../geometry/usd/furniture_signal_cantilever_dropper_triple.usda@</furniture_signal_cantilever_dropper_triple>
     ) {
@@ -745,6 +759,20 @@ def Xform "scene_signalized_intersection" {
         references = @../geometry/usd/furniture_bus_stop_timetable_blade.usda@</furniture_bus_stop_timetable_blade>
     ) {
         double3 xformOp:translate = (-2.220000, 0.000000, 0.060000)
+        float xformOp:rotateY = 90.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
+    def Xform "bus_stop_help_point_0" (
+        references = @../geometry/usd/furniture_bus_stop_help_point.usda@</furniture_bus_stop_help_point>
+    ) {
+        double3 xformOp:translate = (-2.260000, 0.000000, 1.460000)
+        float xformOp:rotateY = 90.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
+    def Xform "bus_stop_request_pole_0" (
+        references = @../geometry/usd/furniture_bus_stop_request_pole.usda@</furniture_bus_stop_request_pole>
+    ) {
+        double3 xformOp:translate = (-1.820000, 0.000000, 0.460000)
         float xformOp:rotateY = 90.000000
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
     }
