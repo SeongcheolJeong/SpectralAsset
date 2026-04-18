@@ -48,6 +48,7 @@
 - twenty-seventh `P3` road-surface batch with ramp bridge-tie, ramp-gore, median-refuge-nose, and temporary crossover/barrier-chicane work-zone composite panels
 - twenty-eighth `P3` traffic-light batch with school-warning, pedestrian-wait, and lunar-preemption heads plus rail-gate mast, arm, bell, and controller-cabinet context
 - twenty-ninth `P3` road-furniture batch with queue rails, shelter ad panels, straight/corner curb-ramp modules, and sign/signal band-clamp hardware
+- thirtieth `P3` road-marking batch with turn-pocket `ONLY` stencils, `SCHOOL` legends, `SCHOOL BUS` queue boxes, and curbside left/right arrows
 
 ### Changed
 
@@ -97,7 +98,8 @@
 - existing validation scenes now place bicycle, pedestrian-bicycle hybrid, and tram-priority heads so signal context is broader than the earlier lane-control, transit-priority, and directional-arrow specialization batches
 - existing validation scenes now place school-warning, pedestrian-wait, and lunar-preemption heads plus rail-gate mast/arm/bell/controller context so signal scenes are broader than the earlier specialty-head-only rail/transit batches
 - existing validation scenes now place queue rails, shelter ad panels, straight/corner curb-ramp modules, and sign/signal band-clamp hardware so curbside scenes are broader than the earlier shelter-only transit and bracket-only attachment passes
-- backlog focus now moves from `road_furniture` queue-rail/shelter-panel/curb-ramp follow-up to `road_marking` turn-pocket stencil, school-bus queue, and curbside-arrow work after the latest furniture batch
+- existing validation scenes now place turn-pocket `ONLY` stencils, `SCHOOL` legends, `SCHOOL BUS` queue boxes, and curbside left/right arrows so road-marking scenes are broader than the earlier boxed curbside, conflict-zone, and generic-arrow follow-up passes
+- backlog focus now moves from `road_marking` turn-pocket stencil, school-bus queue, and curbside-arrow work to `road_surface` roundabout-apron, retaining-wall tie-in, and deeper temporary-staging follow-up after the latest marking batch
 
 ### Validation
 
@@ -128,6 +130,7 @@
 - validation summary now reports `180` assets, including `28` `road_surface` assets, `27` spectral materials, and `184` GLB files after the first twenty-seventh `P3` expansion batch
 - validation summary now reports `187` assets, including `24` `traffic_light` assets, `47` `road_furniture` assets, `19` emissive profiles, and `191` GLB files after the first twenty-eighth `P3` expansion batch
 - validation summary now reports `193` assets, including `53` `road_furniture` assets, `27` spectral materials, and `197` GLB files after the first twenty-ninth `P3` expansion batch
+- validation summary now reports `200` assets, including `45` `road_marking` assets, `27` spectral materials, and `204` GLB files after the first thirtieth `P3` expansion batch
 - validation summary now includes `3` camera profiles and zero camera-profile validation errors
 - material quality summary now reports `3` `measured_standard`, `1` `measured_derivative`, `23` `project_proxy`, and `0` `vendor_derived` materials
 - emissive profile quality summary now distinguishes vendor-derived vehicle/protected-turn profiles from remaining proxy pedestrian/countdown profiles

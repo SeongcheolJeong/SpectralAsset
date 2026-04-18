@@ -1,6 +1,6 @@
 {
   "generated_at": "2026-04-16T10:10:40.000Z",
-  "files_checked": 197,
+  "files_checked": 204,
   "files_with_errors": 0,
   "files_with_warnings": 0,
   "results": [
@@ -509,6 +509,20 @@
       "messages": []
     },
     {
+      "file": "exports/gltf/marking_curbside_arrow_left_white.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
+      "file": "exports/gltf/marking_curbside_arrow_right_white.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
       "file": "exports/gltf/marking_edge_line_white.glb",
       "numErrors": 0,
       "numWarnings": 0,
@@ -607,6 +621,20 @@
       "messages": []
     },
     {
+      "file": "exports/gltf/marking_school_bus_box_white.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
+      "file": "exports/gltf/marking_school_text_white.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
       "file": "exports/gltf/marking_stop_line.glb",
       "numErrors": 0,
       "numWarnings": 0,
@@ -628,7 +656,28 @@
       "messages": []
     },
     {
+      "file": "exports/gltf/marking_straight_only_box_white.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
       "file": "exports/gltf/marking_transit_lane_panel_red.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
+      "file": "exports/gltf/marking_turn_left_only_box_white.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
+      "file": "exports/gltf/marking_turn_right_only_box_white.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,

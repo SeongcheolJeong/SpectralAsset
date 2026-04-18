@@ -1,0 +1,60 @@
+{
+  "id": "marking_school_text_white",
+  "family": "road_marking",
+  "semantic_class": "marking.school_zone",
+  "variant_key": "school_white",
+  "dimensions_m": {
+    "width": 1.62,
+    "height": 0.005,
+    "depth": 2.22
+  },
+  "lods": [
+    {
+      "name": "LOD0",
+      "triangle_count": 1056,
+      "usd_scope": "/marking_school_text_white/LOD0",
+      "gltf_node_prefix": "LOD0"
+    },
+    {
+      "name": "LOD1",
+      "triangle_count": 1056,
+      "usd_scope": "/marking_school_text_white/LOD1",
+      "gltf_node_prefix": "LOD1"
+    }
+  ],
+  "collider": {
+    "type": "box",
+    "width": 1.62,
+    "height": 0.005,
+    "depth": 2.22
+  },
+  "anchor_points": {
+    "base_center": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    }
+  },
+  "materials": [
+    "mat_marking_white"
+  ],
+  "states": {
+    "default": {
+      "render_profile": "static"
+    }
+  },
+  "export_targets": {
+    "usd_ascii": "canonical/geometry/usd/marking_school_text_white.usda",
+    "usd_binary": "exports/usd/marking_school_text_white.usdc",
+    "gltf_binary": "exports/gltf/marking_school_text_white.glb"
+  },
+  "license": {
+    "spdx": "LicenseRef-ProjectGenerated",
+    "redistribution": "geometry, manifests, and templates generated in-repo"
+  },
+  "provenance": {
+    "generated_at": "2026-04-16T10:10:40+00:00",
+    "generated_by": "scripts/build_asset_pack.py",
+    "note": "Generated reusable road surface, marking, or furniture primitive."
+  }
+}

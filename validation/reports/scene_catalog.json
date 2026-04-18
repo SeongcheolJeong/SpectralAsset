@@ -146,6 +146,36 @@
           "rotate_y": 0.0
         },
         {
+          "asset_id": "marking_turn_left_only_box_white",
+          "name": "turn_left_only_box_0",
+          "translate": [
+            -1.05,
+            0.029,
+            1.96
+          ],
+          "rotate_y": 0.0
+        },
+        {
+          "asset_id": "marking_straight_only_box_white",
+          "name": "straight_only_box_0",
+          "translate": [
+            0.0,
+            0.029,
+            1.96
+          ],
+          "rotate_y": 0.0
+        },
+        {
+          "asset_id": "marking_turn_right_only_box_white",
+          "name": "turn_right_only_box_0",
+          "translate": [
+            1.05,
+            0.029,
+            1.96
+          ],
+          "rotate_y": 0.0
+        },
+        {
           "asset_id": "furniture_guardrail_segment",
           "name": "guardrail_0",
           "translate": [
@@ -1037,6 +1067,36 @@
           "rotate_y": 180.0
         },
         {
+          "asset_id": "marking_turn_left_only_box_white",
+          "name": "turn_left_only_box_0",
+          "translate": [
+            0.94,
+            0.029,
+            -0.92
+          ],
+          "rotate_y": 0.0
+        },
+        {
+          "asset_id": "marking_turn_right_only_box_white",
+          "name": "turn_right_only_box_0",
+          "translate": [
+            -0.98,
+            0.029,
+            1.08
+          ],
+          "rotate_y": 180.0
+        },
+        {
+          "asset_id": "marking_straight_only_box_white",
+          "name": "straight_only_box_0",
+          "translate": [
+            -0.02,
+            0.029,
+            0.88
+          ],
+          "rotate_y": 0.0
+        },
+        {
           "asset_id": "marking_merge_left_white",
           "name": "merge_left_0",
           "translate": [
@@ -1097,6 +1157,16 @@
           "rotate_y": 0.0
         },
         {
+          "asset_id": "marking_school_text_white",
+          "name": "school_text_0",
+          "translate": [
+            -2.24,
+            0.03,
+            2.2
+          ],
+          "rotate_y": 90.0
+        },
+        {
           "asset_id": "marking_bus_text_white",
           "name": "bus_text_0",
           "translate": [
@@ -1137,6 +1207,16 @@
           "rotate_y": 90.0
         },
         {
+          "asset_id": "marking_school_bus_box_white",
+          "name": "school_bus_box_0",
+          "translate": [
+            -2.72,
+            0.029,
+            2.06
+          ],
+          "rotate_y": 90.0
+        },
+        {
           "asset_id": "marking_transit_lane_panel_red",
           "name": "transit_lane_panel_0",
           "translate": [
@@ -1165,6 +1245,26 @@
             1.82
           ],
           "rotate_y": 90.0
+        },
+        {
+          "asset_id": "marking_curbside_arrow_left_white",
+          "name": "curbside_arrow_left_0",
+          "translate": [
+            -3.48,
+            0.03,
+            0.42
+          ],
+          "rotate_y": 90.0
+        },
+        {
+          "asset_id": "marking_curbside_arrow_right_white",
+          "name": "curbside_arrow_right_0",
+          "translate": [
+            3.2,
+            0.03,
+            0.88
+          ],
+          "rotate_y": 270.0
         },
         {
           "asset_id": "marking_conflict_zone_panel_red",
@@ -2459,6 +2559,26 @@
           "rotate_y": 180.0
         },
         {
+          "asset_id": "marking_school_text_white",
+          "name": "school_text_0",
+          "translate": [
+            3.08,
+            0.03,
+            2.22
+          ],
+          "rotate_y": 180.0
+        },
+        {
+          "asset_id": "marking_school_bus_box_white",
+          "name": "school_bus_box_0",
+          "translate": [
+            2.64,
+            0.029,
+            1.92
+          ],
+          "rotate_y": 180.0
+        },
+        {
           "asset_id": "marking_loading_zone_box_white",
           "name": "loading_zone_box_0",
           "translate": [
@@ -2475,6 +2595,16 @@
             -3.86,
             0.031,
             -0.18
+          ],
+          "rotate_y": 90.0
+        },
+        {
+          "asset_id": "marking_curbside_arrow_left_white",
+          "name": "curbside_arrow_left_0",
+          "translate": [
+            -3.42,
+            0.03,
+            -0.32
           ],
           "rotate_y": 90.0
         },

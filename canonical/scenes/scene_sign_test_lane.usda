@@ -104,6 +104,27 @@ def Xform "scene_sign_test_lane" {
         float xformOp:rotateY = 0.000000
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
     }
+    def Xform "turn_left_only_box_0" (
+        references = @../geometry/usd/marking_turn_left_only_box_white.usda@</marking_turn_left_only_box_white>
+    ) {
+        double3 xformOp:translate = (-1.050000, 0.029000, 1.960000)
+        float xformOp:rotateY = 0.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
+    def Xform "straight_only_box_0" (
+        references = @../geometry/usd/marking_straight_only_box_white.usda@</marking_straight_only_box_white>
+    ) {
+        double3 xformOp:translate = (0.000000, 0.029000, 1.960000)
+        float xformOp:rotateY = 0.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
+    def Xform "turn_right_only_box_0" (
+        references = @../geometry/usd/marking_turn_right_only_box_white.usda@</marking_turn_right_only_box_white>
+    ) {
+        double3 xformOp:translate = (1.050000, 0.029000, 1.960000)
+        float xformOp:rotateY = 0.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
     def Xform "guardrail_0" (
         references = @../geometry/usd/furniture_guardrail_segment.usda@</furniture_guardrail_segment>
     ) {

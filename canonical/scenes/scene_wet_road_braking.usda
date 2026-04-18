@@ -125,6 +125,20 @@ def Xform "scene_wet_road_braking" {
         float xformOp:rotateY = 180.000000
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
     }
+    def Xform "school_text_0" (
+        references = @../geometry/usd/marking_school_text_white.usda@</marking_school_text_white>
+    ) {
+        double3 xformOp:translate = (3.080000, 0.030000, 2.220000)
+        float xformOp:rotateY = 180.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
+    def Xform "school_bus_box_0" (
+        references = @../geometry/usd/marking_school_bus_box_white.usda@</marking_school_bus_box_white>
+    ) {
+        double3 xformOp:translate = (2.640000, 0.029000, 1.920000)
+        float xformOp:rotateY = 180.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
     def Xform "loading_zone_box_0" (
         references = @../geometry/usd/marking_loading_zone_box_white.usda@</marking_loading_zone_box_white>
     ) {
@@ -136,6 +150,13 @@ def Xform "scene_wet_road_braking" {
         references = @../geometry/usd/marking_curb_red_segment.usda@</marking_curb_red_segment>
     ) {
         double3 xformOp:translate = (-3.860000, 0.031000, -0.180000)
+        float xformOp:rotateY = 90.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
+    def Xform "curbside_arrow_left_0" (
+        references = @../geometry/usd/marking_curbside_arrow_left_white.usda@</marking_curbside_arrow_left_white>
+    ) {
+        double3 xformOp:translate = (-3.420000, 0.030000, -0.320000)
         float xformOp:rotateY = 90.000000
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
     }

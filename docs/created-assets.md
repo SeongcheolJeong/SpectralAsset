@@ -6,7 +6,7 @@ This file explains what the generator actually creates in this repository and ho
 
 Current generated baseline:
 
-- `193` assets
+- `200` assets
 - `27` spectral materials
 - `19` emissive profiles
 - `3` camera profiles
@@ -189,6 +189,9 @@ These are markings such as:
 - `marking_arrow_turn_left_white`
 - `marking_arrow_turn_right_white`
 - `marking_arrow_straight_right_white`
+- `marking_turn_left_only_box_white`
+- `marking_turn_right_only_box_white`
+- `marking_straight_only_box_white`
 - `marking_merge_left_white`
 - `marking_chevron_gore_white`
 - `marking_hatched_median_yellow`
@@ -199,22 +202,26 @@ These are markings such as:
 - `marking_raised_marker_bicolor`
 - `marking_only_text_white`
 - `marking_stop_text_white`
+- `marking_school_text_white`
 - `marking_bus_text_white`
 - `marking_bike_text_white`
 - `marking_bus_only_box_white`
 - `marking_bus_stop_box_white`
 - `marking_bike_box_white`
 - `marking_loading_zone_box_white`
+- `marking_school_bus_box_white`
 - `marking_transit_lane_panel_red`
 - `marking_bike_lane_panel_green`
 - `marking_curb_red_segment`
 - `marking_curb_yellow_segment`
 - `marking_curb_blue_segment`
+- `marking_curbside_arrow_left_white`
+- `marking_curbside_arrow_right_white`
 - `marking_loading_zone_zigzag_white`
 - `marking_conflict_zone_panel_red`
 - `marking_conflict_zone_panel_green`
 
-They use retroreflective or reflective material definitions and are important for camera visibility tests. The newer specialization passes now also cover bus/bike lane legends, boxed curbside/transit legends, red/green colored lane panels, curb-color segments, loading zigzag delimiters, red/green conflict-zone surfacing, hatched median/island channelization, and right-turn follow-up arrow families.
+They use retroreflective or reflective material definitions and are important for camera visibility tests. The newer specialization passes now also cover bus/bike lane legends, boxed curbside/transit legends, turn-pocket `ONLY` stencils, school-zone and school-bus queue markings, curbside arrows, red/green colored lane panels, curb-color segments, loading zigzag delimiters, red/green conflict-zone surfacing, hatched median/island channelization, and right-turn follow-up arrow families.
 
 ### `road_furniture`
 
