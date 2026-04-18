@@ -2486,6 +2486,7 @@ GLYPHS = {
     "I": ["11111", "00100", "00100", "00100", "00100", "00100", "11111"],
     "K": ["10001", "10010", "10100", "11000", "10100", "10010", "10001"],
     "L": ["10000", "10000", "10000", "10000", "10000", "10000", "11111"],
+    "M": ["10001", "11011", "10101", "10101", "10001", "10001", "10001"],
     "N": ["10001", "11001", "10101", "10011", "10001", "10001", "10001"],
     "O": ["01110", "10001", "10001", "10001", "10001", "10001", "01110"],
     "P": ["11110", "10001", "10001", "11110", "10000", "10000", "10000"],
@@ -2660,6 +2661,23 @@ def interstate_shield_polygon(width: float, height: float, inset: float = 0.0) -
         (-half_w * 0.42, bottom_y * 0.92),
         (-half_w * 0.66, lower_y),
         (-half_w * 0.88, -height * 0.06),
+    ]
+
+
+def state_route_shield_polygon(width: float, height: float, inset: float = 0.0) -> List[Tuple[float, float]]:
+    half_w = width / 2.0 - inset
+    top_y = -height / 2.0 + inset
+    shoulder_y = -height * 0.08
+    lower_y = height * 0.24
+    bottom_y = height / 2.0 - inset
+    return [
+        (-half_w * 0.72, top_y),
+        (half_w * 0.72, top_y),
+        (half_w, shoulder_y),
+        (half_w * 0.62, lower_y),
+        (0.0, bottom_y),
+        (-half_w * 0.62, lower_y),
+        (-half_w, shoulder_y),
     ]
 
 
@@ -2883,6 +2901,24 @@ def sign_layers(sign_type: str) -> List[Tuple[str, List[List[Tuple[float, float]
             ("mat_sign_green", [rect_polygon(0.0, 0.0, 0.85, 0.28)]),
             ("mat_sign_white", glyph_rects("E45", 0.46, 0.12, (0.0, 0.0))),
         ]
+    if sign_type == "route_ca_1_shield":
+        return [
+            ("mat_sign_white", [state_route_shield_polygon(0.84, 0.96, 0.0)]),
+            ("mat_sign_green", [state_route_shield_polygon(0.84, 0.96, 0.06)]),
+            ("mat_sign_white", glyph_rects("CA", 0.2, 0.08, (0.0, -0.18)) + glyph_rects("1", 0.14, 0.24, (0.0, 0.12))),
+        ]
+    if sign_type == "route_m25_shield":
+        return [
+            ("mat_sign_white", [rect_polygon(0.0, 0.0, 0.96, 0.4)]),
+            ("mat_sign_blue", [rect_polygon(0.0, 0.0, 0.88, 0.32)]),
+            ("mat_sign_white", glyph_rects("M25", 0.48, 0.13, (0.0, 0.0))),
+        ]
+    if sign_type == "route_a7_shield":
+        return [
+            ("mat_sign_white", [rect_polygon(0.0, 0.0, 0.96, 0.4)]),
+            ("mat_sign_stop_red", [rect_polygon(0.0, 0.0, 0.88, 0.32)]),
+            ("mat_sign_white", glyph_rects("A7", 0.36, 0.13, (0.0, 0.0))),
+        ]
     if sign_type == "destination_stack_airport_centre_right":
         return [
             ("mat_sign_white", [rect_polygon(0.0, 0.0, 0.95, 0.7)]),
@@ -2925,6 +2961,48 @@ def sign_layers(sign_type: str) -> List[Tuple[str, List[List[Tuple[float, float]
                 + glyph_rects("TRUCK", 0.36, 0.09, (0.08, -0.17))
                 + glyph_rects("BYPASS", 0.42, 0.09, (-0.08, 0.17))
                 + arrow_shapes((0.28, 0.24), (0.28, 0.02), 0.06, 0.11, 0.16),
+            ),
+        ]
+    if sign_type == "overhead_airport_centre_split":
+        return [
+            ("mat_sign_white", [rect_polygon(0.0, 0.0, 0.96, 0.56)]),
+            ("mat_sign_green", [rect_polygon(0.0, 0.0, 0.9, 0.5)]),
+            (
+                "mat_sign_white",
+                [
+                    line_segment_polygon((0.0, -0.22), (0.0, 0.22), 0.03),
+                ]
+                + airplane_icon((-0.32, -0.12), 0.62)
+                + glyph_rects("AIRPORT", 0.32, 0.07, (-0.12, -0.12))
+                + glyph_rects("CENTRE", 0.34, 0.08, (0.28, -0.12))
+                + arrow_shapes((-0.26, 0.02), (-0.26, 0.23), 0.05, 0.1, 0.14)
+                + arrow_shapes((0.26, 0.02), (0.26, 0.23), 0.05, 0.1, 0.14),
+            ),
+        ]
+    if sign_type == "overhead_park_ride_left":
+        return [
+            ("mat_sign_white", [rect_polygon(0.0, 0.0, 0.96, 0.56)]),
+            ("mat_sign_green", [rect_polygon(0.0, 0.0, 0.9, 0.5)]),
+            (
+                "mat_sign_white",
+                glyph_rects("P", 0.12, 0.18, (-0.36, -0.12))
+                + glyph_rects("PARK", 0.26, 0.08, (-0.04, -0.12))
+                + glyph_rects("RIDE", 0.24, 0.08, (-0.04, 0.1))
+                + arrow_shapes((-0.12, 0.0), (-0.42, 0.0), 0.05, 0.1, 0.14)
+                + arrow_shapes((0.34, -0.02), (0.34, 0.24), 0.05, 0.1, 0.14),
+            ),
+        ]
+    if sign_type == "overhead_truck_bypass_right":
+        return [
+            ("mat_sign_white", [rect_polygon(0.0, 0.0, 0.96, 0.56)]),
+            ("mat_sign_green", [rect_polygon(0.0, 0.0, 0.9, 0.5)]),
+            (
+                "mat_sign_white",
+                truck_icon((-0.34, -0.11), 0.7)
+                + glyph_rects("TRUCK", 0.28, 0.08, (-0.06, -0.11))
+                + glyph_rects("BYPASS", 0.34, 0.08, (-0.02, 0.11))
+                + arrow_shapes((0.18, 0.0), (0.46, 0.0), 0.05, 0.1, 0.14)
+                + arrow_shapes((0.34, -0.02), (0.34, 0.24), 0.05, 0.1, 0.14),
             ),
         ]
     if sign_type == "stop_weathered":
@@ -3130,7 +3208,7 @@ def layer_to_mesh_parts(layer_name: str, material_id: str, polygons: Sequence[Li
     return parts
 
 
-def sign_asset_parts(sign_type: str, width: float, height: float) -> Dict[str, List[Dict]]:
+def sign_asset_parts(sign_type: str, width: float, height: float, mount_style: str = "single_pole") -> Dict[str, List[Dict]]:
     layers = sign_layers(sign_type)
     lod0_parts = []
     lod1_parts = []
@@ -3145,18 +3223,54 @@ def sign_asset_parts(sign_type: str, width: float, height: float) -> Dict[str, L
         lod1_parts.extend(layer_to_mesh_parts(f"layer_{layer_index}", material_id, simplified, width, height, offset, offset - 0.001))
         offset += 0.0015
     lod1_parts.insert(0, make_mesh_part("plate_base_00", lod0_parts[0]["triangles"], lod0_parts[0]["material_id"]))
-    mount_height = max(height * 1.5 + 0.6, 2.2)
-    pole_center_y = mount_height / 2.0
-    pole_parts0 = [make_mesh_part("pole", cylinder_triangles(0.03, mount_height, 18, (0.0, pole_center_y, -0.03)), "mat_metal_galvanized")]
-    pole_parts1 = [make_mesh_part("pole", cylinder_triangles(0.03, mount_height, 12, (0.0, pole_center_y, -0.03)), "mat_metal_galvanized")]
-    sign_center_y = mount_height - 0.45
+    if mount_style == "overhead_frame":
+        mount_height = max(height + 4.1, 5.0)
+        pole_center_y = mount_height / 2.0
+        frame_half_span = width / 2.0 + 0.18
+        crossbar_y = mount_height - 0.18
+        sign_center_y = crossbar_y - height / 2.0 - 0.18
+        hanger_length = max(0.16, crossbar_y - (sign_center_y + height / 2.0))
+        hanger_center_y = crossbar_y - hanger_length / 2.0
+        hanger_offset_x = min(width * 0.28, 0.52)
+        pole_parts0 = [
+            make_mesh_part("pole_left", cylinder_triangles(0.05, mount_height, 18, (-frame_half_span, pole_center_y, -0.04)), "mat_metal_galvanized"),
+            make_mesh_part("pole_right", cylinder_triangles(0.05, mount_height, 18, (frame_half_span, pole_center_y, -0.04)), "mat_metal_galvanized"),
+            make_mesh_part("crossbar", box_triangles(width + 0.5, 0.09, 0.09, (0.0, crossbar_y, -0.05)), "mat_metal_galvanized"),
+            make_mesh_part("hanger_left", box_triangles(0.05, hanger_length, 0.05, (-hanger_offset_x, hanger_center_y, -0.05)), "mat_metal_galvanized"),
+            make_mesh_part("hanger_right", box_triangles(0.05, hanger_length, 0.05, (hanger_offset_x, hanger_center_y, -0.05)), "mat_metal_galvanized"),
+        ]
+        pole_parts1 = [
+            make_mesh_part("pole_left", cylinder_triangles(0.05, mount_height, 12, (-frame_half_span, pole_center_y, -0.04)), "mat_metal_galvanized"),
+            make_mesh_part("pole_right", cylinder_triangles(0.05, mount_height, 12, (frame_half_span, pole_center_y, -0.04)), "mat_metal_galvanized"),
+            make_mesh_part("crossbar", box_triangles(width + 0.5, 0.09, 0.09, (0.0, crossbar_y, -0.05)), "mat_metal_galvanized"),
+            make_mesh_part("hanger_left", box_triangles(0.05, hanger_length, 0.05, (-hanger_offset_x, hanger_center_y, -0.05)), "mat_metal_galvanized"),
+            make_mesh_part("hanger_right", box_triangles(0.05, hanger_length, 0.05, (hanger_offset_x, hanger_center_y, -0.05)), "mat_metal_galvanized"),
+        ]
+        assembly_width = width + 0.46
+        assembly_depth = 0.18
+    else:
+        mount_height = max(height * 1.5 + 0.6, 2.2)
+        pole_center_y = mount_height / 2.0
+        pole_parts0 = [make_mesh_part("pole", cylinder_triangles(0.03, mount_height, 18, (0.0, pole_center_y, -0.03)), "mat_metal_galvanized")]
+        pole_parts1 = [make_mesh_part("pole", cylinder_triangles(0.03, mount_height, 12, (0.0, pole_center_y, -0.03)), "mat_metal_galvanized")]
+        sign_center_y = mount_height - 0.45
+        assembly_width = width
+        assembly_depth = 0.08
     for part in lod0_parts:
         part["triangles"] = transform_points_in_triangles(part["triangles"], 0.0, sign_center_y, 0.0)
     for part in lod1_parts:
         part["triangles"] = transform_points_in_triangles(part["triangles"], 0.0, sign_center_y, 0.0)
     lod0_parts.extend(pole_parts0)
     lod1_parts.extend(pole_parts1)
-    return {"LOD0": lod0_parts, "LOD1": lod1_parts, "mount_height": mount_height, "sign_center_y": sign_center_y}
+    return {
+        "LOD0": lod0_parts,
+        "LOD1": lod1_parts,
+        "mount_height": mount_height,
+        "sign_center_y": sign_center_y,
+        "mount_style": mount_style,
+        "assembly_width": assembly_width,
+        "assembly_depth": assembly_depth,
+    }
 
 
 def transform_points_in_triangles(triangles, tx: float, ty: float, tz: float):
@@ -5527,9 +5641,15 @@ def sign_definitions() -> List[Dict]:
         {"id": "sign_route_us_101_shield", "sign_type": "route_us_101_shield", "size": (0.76, 0.9), "variant_key": "route.us.us_101", "semantic_class": "information.route_shield"},
         {"id": "sign_route_interstate_5_shield", "sign_type": "route_interstate_5_shield", "size": (0.82, 0.92), "variant_key": "route.us.interstate_5", "semantic_class": "information.route_shield"},
         {"id": "sign_route_e45_shield", "sign_type": "route_e45_shield", "size": (0.9, 0.38), "variant_key": "route.eu.e_45", "semantic_class": "information.route_shield"},
+        {"id": "sign_route_ca_1_shield", "sign_type": "route_ca_1_shield", "size": (0.78, 0.9), "variant_key": "route.us.ca_1", "semantic_class": "information.route_shield"},
+        {"id": "sign_route_m25_shield", "sign_type": "route_m25_shield", "size": (0.94, 0.38), "variant_key": "route.uk.m_25", "semantic_class": "information.route_shield"},
+        {"id": "sign_route_a7_shield", "sign_type": "route_a7_shield", "size": (0.94, 0.38), "variant_key": "route.fr.a_7", "semantic_class": "information.route_shield"},
         {"id": "sign_destination_stack_airport_centre_right", "sign_type": "destination_stack_airport_centre_right", "size": (1.2, 0.74), "variant_key": "guide.airport_centre.right_stack", "semantic_class": "information.destination_guide"},
         {"id": "sign_destination_stack_hotel_park_left", "sign_type": "destination_stack_hotel_park_left", "size": (1.2, 0.74), "variant_key": "guide.hotel_park.left_stack", "semantic_class": "information.destination_guide"},
         {"id": "sign_destination_stack_truck_bypass_ahead", "sign_type": "destination_stack_truck_bypass_ahead", "size": (1.2, 0.74), "variant_key": "guide.truck_bypass.ahead_stack", "semantic_class": "information.destination_guide"},
+        {"id": "sign_overhead_airport_centre_split", "sign_type": "overhead_airport_centre_split", "size": (2.35, 0.9), "variant_key": "guide.overhead.airport_centre.split", "semantic_class": "information.destination_guide", "mount_style": "overhead_frame"},
+        {"id": "sign_overhead_park_ride_left", "sign_type": "overhead_park_ride_left", "size": (2.2, 0.82), "variant_key": "guide.overhead.park_ride.left", "semantic_class": "information.destination_guide", "mount_style": "overhead_frame"},
+        {"id": "sign_overhead_truck_bypass_right", "sign_type": "overhead_truck_bypass_right", "size": (2.2, 0.82), "variant_key": "guide.overhead.truck_bypass.right", "semantic_class": "information.destination_guide", "mount_style": "overhead_frame"},
         {"id": "sign_centre_left_text", "sign_type": "centre_left_text", "size": (1.2, 0.42), "variant_key": "locale.uk.centre.left_text", "semantic_class": "information.centre"},
         {"id": "sign_bypass_right_text", "sign_type": "bypass_right_text", "size": (1.2, 0.42), "variant_key": "locale.en.bypass.right_text", "semantic_class": "information.bypass"},
         {"id": "sign_priority_road", "sign_type": "priority_road", "size": (0.8, 0.8), "variant_key": "locale.eu.priority_road", "semantic_class": "regulatory.priority_road"},
@@ -6109,18 +6229,29 @@ def build_assets(materials: Dict[str, Dict]) -> Tuple[List[Dict], Dict[str, Dict
 
     for sign in sign_definitions():
         width, height = sign["size"]
-        parts = sign_asset_parts(sign["sign_type"], width, height)
+        parts = sign_asset_parts(sign["sign_type"], width, height, sign.get("mount_style", "single_pole"))
         asset_meshes[sign["id"]] = {"LOD0": parts["LOD0"], "LOD1": parts["LOD1"]}
         svg_path = REPO_ROOT / "canonical" / "templates" / "signs" / f"{sign['id']}.svg"
         write_sign_svg(svg_path, sign["sign_type"], width, height, materials)
         material_ids = {part["material_id"] for part in parts["LOD0"] + parts["LOD1"]}
         triangle_counts = {lod: triangle_count(parts[lod]) for lod in ["LOD0", "LOD1"]}
+        if parts["mount_style"] == "overhead_frame":
+            collider = {
+                "type": "box",
+                "width": round(parts["assembly_width"], 4),
+                "height": round(parts["mount_height"], 4),
+                "depth": round(parts["assembly_depth"], 4),
+            }
+            provenance_note = "SVG face template plus generated USD/GLB overhead sign-frame geometry."
+        else:
+            collider = {"type": "capsule", "radius": 0.4, "height": round(parts["mount_height"], 4)}
+            provenance_note = "SVG face template plus generated USD/GLB plate and pole geometry."
         manifest = asset_manifest_common(
             sign["id"],
             "traffic_sign",
             sign["semantic_class"],
             sign["variant_key"],
-            (width, parts["mount_height"], 0.08),
+            (parts["assembly_width"], parts["mount_height"], parts["assembly_depth"]),
             list(material_ids),
             triangle_counts,
             {
@@ -6134,8 +6265,8 @@ def build_assets(materials: Dict[str, Dict]) -> Tuple[List[Dict], Dict[str, Dict
                 "base_center": {"x": 0.0, "y": 0.0, "z": 0.0},
                 "plate_center": {"x": 0.0, "y": round(parts["sign_center_y"], 4), "z": 0.0},
             },
-            {"type": "capsule", "radius": 0.4, "height": round(parts["mount_height"], 4)},
-            "SVG face template plus generated USD/GLB plate and pole geometry.",
+            collider,
+            provenance_note,
         )
         assets.append(manifest)
 
@@ -6793,6 +6924,7 @@ def scene_definitions() -> List[Dict]:
                 {"asset_id": "sign_route_us_101_shield", "name": "sign_route_us_101_0", "translate": (-4.4, 0.0, -0.4), "rotate_y": 0.0},
                 {"asset_id": "sign_route_interstate_5_shield", "name": "sign_route_i5_0", "translate": (-4.4, 0.0, 0.65), "rotate_y": 0.0},
                 {"asset_id": "sign_route_e45_shield", "name": "sign_route_e45_0", "translate": (-4.4, 0.0, 1.55), "rotate_y": 0.0},
+                {"asset_id": "sign_route_ca_1_shield", "name": "sign_route_ca_1_0", "translate": (-4.4, 0.0, 2.55), "rotate_y": 0.0},
                 {"asset_id": "sign_curve_left", "name": "sign_curve_0", "translate": (1.8, 0.0, -0.6), "rotate_y": 180.0},
                 {"asset_id": "sign_stop_ahead_text", "name": "sign_stop_ahead_0", "translate": (1.8, 0.0, -1.05), "rotate_y": 180.0},
                 {"asset_id": "sign_roundabout_mandatory", "name": "sign_roundabout_0", "translate": (1.8, 0.0, -2.15), "rotate_y": 180.0},
@@ -6808,6 +6940,10 @@ def scene_definitions() -> List[Dict]:
                 {"asset_id": "sign_route_us_101_shield", "name": "sign_route_us_101_1", "translate": (4.4, 0.0, -1.55), "rotate_y": 180.0},
                 {"asset_id": "sign_route_interstate_5_shield", "name": "sign_route_i5_1", "translate": (4.4, 0.0, -0.45), "rotate_y": 180.0},
                 {"asset_id": "sign_route_e45_shield", "name": "sign_route_e45_1", "translate": (4.4, 0.0, 0.45), "rotate_y": 180.0},
+                {"asset_id": "sign_route_m25_shield", "name": "sign_route_m25_0", "translate": (4.4, 0.0, 1.45), "rotate_y": 180.0},
+                {"asset_id": "sign_route_a7_shield", "name": "sign_route_a7_0", "translate": (4.4, 0.0, 2.35), "rotate_y": 180.0},
+                {"asset_id": "sign_overhead_airport_centre_split", "name": "sign_overhead_airport_0", "translate": (0.0, 0.0, -4.4), "rotate_y": 0.0},
+                {"asset_id": "sign_overhead_park_ride_left", "name": "sign_overhead_park_ride_0", "translate": (8.2, 0.0, -4.15), "rotate_y": 0.0},
             ],
         },
         {
@@ -6885,6 +7021,7 @@ def scene_definitions() -> List[Dict]:
                 {"asset_id": "signal_directional_arrow_left_3_aspect", "name": "directional_arrow_left_0", "translate": (-0.96, 0.0, -2.0), "rotate_y": 0.0},
                 {"asset_id": "signal_directional_arrow_right_3_aspect", "name": "directional_arrow_right_0", "translate": (2.64, 0.0, -0.5), "rotate_y": 90.0},
                 {"asset_id": "signal_bicycle_vertical_3_aspect", "name": "bicycle_signal_0", "translate": (3.12, 0.0, 1.34), "rotate_y": 180.0},
+                {"asset_id": "sign_overhead_truck_bypass_right", "name": "sign_overhead_truck_bypass_0", "translate": (0.0, 0.0, -5.1), "rotate_y": 0.0},
                 {"asset_id": "furniture_delineator_post", "name": "delineator_0", "translate": (-1.2, 0.0, -1.35), "rotate_y": 0.0},
                 {"asset_id": "furniture_barricade_panel", "name": "barricade_0", "translate": (2.25, 0.0, 1.65), "rotate_y": 90.0},
                 {"asset_id": "sign_airport_arrow_right", "name": "sign_airport_0", "translate": (-3.2, 0.0, 2.18), "rotate_y": 90.0},

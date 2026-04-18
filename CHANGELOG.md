@@ -44,6 +44,7 @@
 - twenty-third `P3` traffic-light batch with bicycle, pedestrian-bicycle hybrid, and tram-priority heads plus dedicated hybrid or specialty emissive profiles
 - twenty-fourth `P3` road-furniture batch with bus-bay curb and island modules, passenger-information and real-time-arrival hardware, plus loading-zone sign/kiosk detail
 - twenty-fifth `P3` road-marking batch with curb-color segments, loading zigzag delimiters, red/green conflict-zone panels, and a blue marking material
+- twenty-sixth `P3` traffic-sign batch with self-contained overhead destination assemblies plus California, UK motorway, and French autoroute shield follow-up variants
 
 ### Changed
 
@@ -116,8 +117,11 @@
 - validation summary now reports `148` assets, including `44` `traffic_sign` assets, `26` spectral materials, and `152` GLB files after the first twenty-first `P3` expansion batch
 - validation summary now reports `153` assets, including `23` `road_surface` assets, `26` spectral materials, and `157` GLB files after the first twenty-second `P3` expansion batch
 - validation summary now reports `157` assets, including `21` `traffic_light` assets, `16` emissive profiles, and `161` GLB files after the first twenty-third `P3` expansion batch
+- validation summary now reports `163` assets, including `43` `road_furniture` assets, `26` spectral materials, and `167` GLB files after the first twenty-fourth `P3` expansion batch
+- validation summary now reports `169` assets, including `38` `road_marking` assets, `27` spectral materials, and `173` GLB files after the first twenty-fifth `P3` expansion batch
+- validation summary now reports `175` assets, including `50` `traffic_sign` assets, `27` spectral materials, and `179` GLB files after the first twenty-sixth `P3` expansion batch
 - validation summary now includes `3` camera profiles and zero camera-profile validation errors
-- material quality summary now reports `3` `measured_standard`, `1` `measured_derivative`, `22` `project_proxy`, and `0` `vendor_derived` materials
+- material quality summary now reports `3` `measured_standard`, `1` `measured_derivative`, `23` `project_proxy`, and `0` `vendor_derived` materials
 - emissive profile quality summary now distinguishes vendor-derived vehicle/protected-turn profiles from remaining proxy pedestrian/countdown profiles
 - validation summary now distinguishes the active camera profile, per-scenario camera bindings, donor reference metadata for camera profiles, and public-data activation for `urban_night`
 

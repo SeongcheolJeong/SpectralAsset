@@ -181,6 +181,24 @@
       "30m": "pass",
       "60m": "pass"
     },
+    "sign_route_ca_1_shield": {
+      "5m": "pass",
+      "15m": "pass",
+      "30m": "pass",
+      "60m": "pass"
+    },
+    "sign_route_m25_shield": {
+      "5m": "pass",
+      "15m": "pass",
+      "30m": "pass",
+      "60m": "pass"
+    },
+    "sign_route_a7_shield": {
+      "5m": "pass",
+      "15m": "pass",
+      "30m": "pass",
+      "60m": "pass"
+    },
     "sign_destination_stack_airport_centre_right": {
       "5m": "pass",
       "15m": "pass",
@@ -194,6 +212,24 @@
       "60m": "pass"
     },
     "sign_destination_stack_truck_bypass_ahead": {
+      "5m": "pass",
+      "15m": "pass",
+      "30m": "pass",
+      "60m": "pass"
+    },
+    "sign_overhead_airport_centre_split": {
+      "5m": "pass",
+      "15m": "pass",
+      "30m": "pass",
+      "60m": "pass"
+    },
+    "sign_overhead_park_ride_left": {
+      "5m": "pass",
+      "15m": "pass",
+      "30m": "pass",
+      "60m": "pass"
+    },
+    "sign_overhead_truck_bypass_right": {
       "5m": "pass",
       "15m": "pass",
       "30m": "pass",

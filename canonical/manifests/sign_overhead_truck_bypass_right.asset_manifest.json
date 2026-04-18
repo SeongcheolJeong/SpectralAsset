@@ -1,0 +1,68 @@
+{
+  "id": "sign_overhead_truck_bypass_right",
+  "family": "traffic_sign",
+  "semantic_class": "information.destination_guide",
+  "variant_key": "guide.overhead.truck_bypass.right",
+  "dimensions_m": {
+    "width": 2.66,
+    "height": 5.0,
+    "depth": 0.18
+  },
+  "lods": [
+    {
+      "name": "LOD0",
+      "triangle_count": 2380,
+      "usd_scope": "/sign_overhead_truck_bypass_right/LOD0",
+      "gltf_node_prefix": "LOD0"
+    },
+    {
+      "name": "LOD1",
+      "triangle_count": 1228,
+      "usd_scope": "/sign_overhead_truck_bypass_right/LOD1",
+      "gltf_node_prefix": "LOD1"
+    }
+  ],
+  "collider": {
+    "type": "box",
+    "width": 2.66,
+    "height": 5.0,
+    "depth": 0.18
+  },
+  "anchor_points": {
+    "base_center": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "plate_center": {
+      "x": 0.0,
+      "y": 4.23,
+      "z": 0.0
+    }
+  },
+  "materials": [
+    "mat_metal_galvanized",
+    "mat_sign_green",
+    "mat_sign_white"
+  ],
+  "states": {
+    "default": {
+      "render_profile": "reflective_daytime"
+    }
+  },
+  "export_targets": {
+    "template_svg": "canonical/templates/signs/sign_overhead_truck_bypass_right.svg",
+    "usd_ascii": "canonical/geometry/usd/sign_overhead_truck_bypass_right.usda",
+    "usd_binary": "exports/usd/sign_overhead_truck_bypass_right.usdc",
+    "gltf_binary": "exports/gltf/sign_overhead_truck_bypass_right.glb"
+  },
+  "license": {
+    "spdx": "LicenseRef-ProjectGenerated",
+    "redistribution": "geometry, manifests, and templates generated in-repo"
+  },
+  "provenance": {
+    "generated_at": "2026-04-16T10:10:40+00:00",
+    "generated_by": "scripts/build_asset_pack.py",
+    "note": "SVG face template plus generated USD/GLB overhead sign-frame geometry."
+  }
+}

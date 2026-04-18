@@ -503,6 +503,13 @@ def Xform "scene_signalized_intersection" {
         float xformOp:rotateY = 180.000000
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
     }
+    def Xform "sign_overhead_truck_bypass_0" (
+        references = @../geometry/usd/sign_overhead_truck_bypass_right.usda@</sign_overhead_truck_bypass_right>
+    ) {
+        double3 xformOp:translate = (0.000000, 0.000000, -5.100000)
+        float xformOp:rotateY = 0.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
     def Xform "delineator_0" (
         references = @../geometry/usd/furniture_delineator_post.usda@</furniture_delineator_post>
     ) {

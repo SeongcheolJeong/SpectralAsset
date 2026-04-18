@@ -656,6 +656,16 @@
           "rotate_y": 0.0
         },
         {
+          "asset_id": "sign_route_ca_1_shield",
+          "name": "sign_route_ca_1_0",
+          "translate": [
+            -4.4,
+            0.0,
+            2.55
+          ],
+          "rotate_y": 0.0
+        },
+        {
           "asset_id": "sign_curve_left",
           "name": "sign_curve_0",
           "translate": [
@@ -804,6 +814,46 @@
             0.45
           ],
           "rotate_y": 180.0
+        },
+        {
+          "asset_id": "sign_route_m25_shield",
+          "name": "sign_route_m25_0",
+          "translate": [
+            4.4,
+            0.0,
+            1.45
+          ],
+          "rotate_y": 180.0
+        },
+        {
+          "asset_id": "sign_route_a7_shield",
+          "name": "sign_route_a7_0",
+          "translate": [
+            4.4,
+            0.0,
+            2.35
+          ],
+          "rotate_y": 180.0
+        },
+        {
+          "asset_id": "sign_overhead_airport_centre_split",
+          "name": "sign_overhead_airport_0",
+          "translate": [
+            0.0,
+            0.0,
+            -4.4
+          ],
+          "rotate_y": 0.0
+        },
+        {
+          "asset_id": "sign_overhead_park_ride_left",
+          "name": "sign_overhead_park_ride_0",
+          "translate": [
+            8.2,
+            0.0,
+            -4.15
+          ],
+          "rotate_y": 0.0
         }
       ],
       "export_targets": {
@@ -1525,6 +1575,16 @@
             1.34
           ],
           "rotate_y": 180.0
+        },
+        {
+          "asset_id": "sign_overhead_truck_bypass_right",
+          "name": "sign_overhead_truck_bypass_0",
+          "translate": [
+            0.0,
+            0.0,
+            -5.1
+          ],
+          "rotate_y": 0.0
         },
         {
           "asset_id": "furniture_delineator_post",

@@ -461,6 +461,13 @@ def Xform "scene_sign_test_lane" {
         float xformOp:rotateY = 0.000000
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
     }
+    def Xform "sign_route_ca_1_0" (
+        references = @../geometry/usd/sign_route_ca_1_shield.usda@</sign_route_ca_1_shield>
+    ) {
+        double3 xformOp:translate = (-4.400000, 0.000000, 2.550000)
+        float xformOp:rotateY = 0.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
     def Xform "sign_curve_0" (
         references = @../geometry/usd/sign_curve_left.usda@</sign_curve_left>
     ) {
@@ -564,6 +571,34 @@ def Xform "scene_sign_test_lane" {
     ) {
         double3 xformOp:translate = (4.400000, 0.000000, 0.450000)
         float xformOp:rotateY = 180.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
+    def Xform "sign_route_m25_0" (
+        references = @../geometry/usd/sign_route_m25_shield.usda@</sign_route_m25_shield>
+    ) {
+        double3 xformOp:translate = (4.400000, 0.000000, 1.450000)
+        float xformOp:rotateY = 180.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
+    def Xform "sign_route_a7_0" (
+        references = @../geometry/usd/sign_route_a7_shield.usda@</sign_route_a7_shield>
+    ) {
+        double3 xformOp:translate = (4.400000, 0.000000, 2.350000)
+        float xformOp:rotateY = 180.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
+    def Xform "sign_overhead_airport_0" (
+        references = @../geometry/usd/sign_overhead_airport_centre_split.usda@</sign_overhead_airport_centre_split>
+    ) {
+        double3 xformOp:translate = (0.000000, 0.000000, -4.400000)
+        float xformOp:rotateY = 0.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
+    def Xform "sign_overhead_park_ride_0" (
+        references = @../geometry/usd/sign_overhead_park_ride_left.usda@</sign_overhead_park_ride_left>
+    ) {
+        double3 xformOp:translate = (8.200000, 0.000000, -4.150000)
+        float xformOp:rotateY = 0.000000
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
     }
 }

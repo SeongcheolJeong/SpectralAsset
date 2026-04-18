@@ -22,8 +22,8 @@ This repository is not yet targeting release automation or measured replacement 
 
 Current truth from [../validation/reports/validation_summary.json](../validation/reports/validation_summary.json):
 
-- `157` assets
-- `26` spectral materials
+- `175` assets
+- `27` spectral materials
 - `16` emissive profiles
 - `3` camera profiles
 - `4` scenario profiles
@@ -31,20 +31,21 @@ Current truth from [../validation/reports/validation_summary.json](../validation
 
 Additional baseline facts:
 
-- `161` GLB files currently validate with `0` errors and `0` warnings in [../validation/reports/gltf_validation.json](../validation/reports/gltf_validation.json)
+- `179` GLB files currently validate with `0` errors and `0` warnings in [../validation/reports/gltf_validation.json](../validation/reports/gltf_validation.json)
 - release gates currently pass for the generated baseline
 - raw-source ledger currently tracks `37` source entries
 - material quality summary currently reports `3` `measured_standard`, `1` `measured_derivative`, `23` `project_proxy`, and `0` `vendor_derived` materials
 - emissive-profile quality summary currently reports `11` `vendor_derived` and `5` `project_proxy` profiles
 - camera-profile quality summary currently reports `3` `vendor_derived` profiles, with `camera_reference_rgb_nir_v3` active in all scenarios
 - `urban_night` currently uses public `LED-B4` and `LED-B3` priors for headlamp/streetlight contribution when measured emitter data is absent
-- the first twenty-five `P3` coverage-expansion batches raised `traffic_sign` from `18` to `44` standalone assets, `road_furniture` from `4` to `43`, `road_marking` from `4` to `38`, `road_surface` from `4` to `23`, and `traffic_light` from `5` to `21`
+- the first twenty-six `P3` coverage-expansion batches raised `traffic_sign` from `18` to `50` standalone assets, `road_furniture` from `4` to `43`, `road_marking` from `4` to `38`, `road_surface` from `4` to `23`, and `traffic_light` from `5` to `21`
 - traffic-light scenes now place standalone support-context assets including backplates, a mast hanger, side-mount hardware, cabinet variants, a junction box, beacon/warning heads, and lane-control or rail-specific heads
 - sign-focused scenes now place standalone sign backs and mounting brackets for representative sign families instead of implying that assembly depth only through the sign meshes
 - sign-focused scenes now also exercise weathered stop, speed-limit, and pedestrian-crossing variants plus English text-bearing one-way and detour panels instead of limiting the sign family to the original symbol-only starter set
 - sign-focused scenes now also exercise priority-road, roundabout, stop-ahead, detour-right, and heavier-weathered yield, no-entry, and construction variants instead of limiting deeper sign coverage to the earlier starter weathering pass
 - sign-focused scenes now also exercise hospital, parking, hotel, airport, truck-route, bypass, and centre wayfinding panels instead of limiting route/service depth to the earlier starter information set
 - sign-focused scenes now also exercise US-route, interstate, and E-route shields plus stacked airport/centre, hotel/park, and truck/bypass guide signs instead of limiting sign-route depth to flat single-destination wayfinding panels
+- sign-focused scenes now also exercise self-contained overhead airport/centre, park-and-ride, and truck-bypass guide assemblies plus California, UK motorway, and French autoroute shield follow-up variants instead of limiting sign-route depth to roadside shields and stacked ground-mounted guide panels
 - the current validation scenes now also exercise patched, distressed, and transition road-surface panels instead of only the original clean urban baseline
 - the current validation scenes now also exercise gravel-shoulder, asphalt-to-gravel transition, construction-plate, pothole-distress, and eroded-shoulder surface variants instead of limiting roadway breadth to urban repair panels alone
 - the current validation scenes now also exercise crowned rural-lane, dirt-track, bridge-joint, and lane-drop surface panels instead of limiting road-surface depth to the earlier urban and gravel-shoulder follow-up batches

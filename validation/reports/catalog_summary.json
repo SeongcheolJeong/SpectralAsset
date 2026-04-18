@@ -182,6 +182,24 @@
       "variant_key": "route.eu.e_45"
     },
     {
+      "id": "sign_route_ca_1_shield",
+      "family": "traffic_sign",
+      "semantic_class": "information.route_shield",
+      "variant_key": "route.us.ca_1"
+    },
+    {
+      "id": "sign_route_m25_shield",
+      "family": "traffic_sign",
+      "semantic_class": "information.route_shield",
+      "variant_key": "route.uk.m_25"
+    },
+    {
+      "id": "sign_route_a7_shield",
+      "family": "traffic_sign",
+      "semantic_class": "information.route_shield",
+      "variant_key": "route.fr.a_7"
+    },
+    {
       "id": "sign_destination_stack_airport_centre_right",
       "family": "traffic_sign",
       "semantic_class": "information.destination_guide",
@@ -198,6 +216,24 @@
       "family": "traffic_sign",
       "semantic_class": "information.destination_guide",
       "variant_key": "guide.truck_bypass.ahead_stack"
+    },
+    {
+      "id": "sign_overhead_airport_centre_split",
+      "family": "traffic_sign",
+      "semantic_class": "information.destination_guide",
+      "variant_key": "guide.overhead.airport_centre.split"
+    },
+    {
+      "id": "sign_overhead_park_ride_left",
+      "family": "traffic_sign",
+      "semantic_class": "information.destination_guide",
+      "variant_key": "guide.overhead.park_ride.left"
+    },
+    {
+      "id": "sign_overhead_truck_bypass_right",
+      "family": "traffic_sign",
+      "semantic_class": "information.destination_guide",
+      "variant_key": "guide.overhead.truck_bypass.right"
     },
     {
       "id": "sign_centre_left_text",
