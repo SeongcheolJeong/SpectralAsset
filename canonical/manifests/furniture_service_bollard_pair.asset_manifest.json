@@ -1,0 +1,63 @@
+{
+  "id": "furniture_service_bollard_pair",
+  "family": "road_furniture",
+  "semantic_class": "furniture.protective_bollard",
+  "variant_key": "service_pair_yellow",
+  "dimensions_m": {
+    "width": 1.12,
+    "height": 1.0,
+    "depth": 0.42
+  },
+  "lods": [
+    {
+      "name": "LOD0",
+      "triangle_count": 312,
+      "usd_scope": "/furniture_service_bollard_pair/LOD0",
+      "gltf_node_prefix": "LOD0"
+    },
+    {
+      "name": "LOD1",
+      "triangle_count": 120,
+      "usd_scope": "/furniture_service_bollard_pair/LOD1",
+      "gltf_node_prefix": "LOD1"
+    }
+  ],
+  "collider": {
+    "type": "box",
+    "width": 1.12,
+    "height": 1.0,
+    "depth": 0.42
+  },
+  "anchor_points": {
+    "base_center": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    }
+  },
+  "materials": [
+    "mat_concrete",
+    "mat_metal_galvanized",
+    "mat_sign_black",
+    "mat_sign_yellow"
+  ],
+  "states": {
+    "default": {
+      "render_profile": "static"
+    }
+  },
+  "export_targets": {
+    "usd_ascii": "canonical/geometry/usd/furniture_service_bollard_pair.usda",
+    "usd_binary": "exports/usd/furniture_service_bollard_pair.usdc",
+    "gltf_binary": "exports/gltf/furniture_service_bollard_pair.glb"
+  },
+  "license": {
+    "spdx": "LicenseRef-ProjectGenerated",
+    "redistribution": "geometry, manifests, and templates generated in-repo"
+  },
+  "provenance": {
+    "generated_at": "2026-04-16T10:10:40+00:00",
+    "generated_by": "scripts/build_asset_pack.py",
+    "note": "Generated reusable road surface, marking, or furniture primitive."
+  }
+}

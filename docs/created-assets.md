@@ -6,7 +6,7 @@ This file explains what the generator actually creates in this repository and ho
 
 Current generated baseline:
 
-- `131` assets
+- `136` assets
 - `23` spectral materials
 - `13` emissive profiles
 - `3` camera profiles
@@ -191,6 +191,11 @@ These are support/context objects such as:
 - `furniture_signal_junction_box`
 - `furniture_utility_pull_box`
 - `furniture_utility_transformer_padmount`
+- `furniture_bus_stop_shelter`
+- `furniture_bus_stop_totem`
+- `furniture_bus_stop_bench`
+- `furniture_utility_handhole_cluster`
+- `furniture_service_bollard_pair`
 - `furniture_utility_pole_concrete`
 - `furniture_utility_pole_steel`
 - `furniture_sign_back_octagon`
@@ -201,6 +206,8 @@ These are support/context objects such as:
 - `furniture_sign_mount_bracket_single`
 - `furniture_sign_mount_bracket_double`
 - `furniture_sign_overhead_bracket`
+
+The newest roadside-context pass adds transit-stop and curbside service detail so scenes can now place a shelter, stop marker, bench, grouped handholes, and protective service bollards instead of implying all curbside context through signs, poles, and cabinets alone.
 
 ## Other Generated Objects
 

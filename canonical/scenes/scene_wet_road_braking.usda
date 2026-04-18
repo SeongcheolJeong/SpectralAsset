@@ -146,6 +146,20 @@ def Xform "scene_wet_road_braking" {
         float xformOp:rotateY = 0.000000
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
     }
+    def Xform "handhole_cluster_0" (
+        references = @../geometry/usd/furniture_utility_handhole_cluster.usda@</furniture_utility_handhole_cluster>
+    ) {
+        double3 xformOp:translate = (-3.180000, 0.000000, -2.150000)
+        float xformOp:rotateY = 0.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
+    def Xform "service_bollards_0" (
+        references = @../geometry/usd/furniture_service_bollard_pair.usda@</furniture_service_bollard_pair>
+    ) {
+        double3 xformOp:translate = (3.320000, 0.000000, 1.200000)
+        float xformOp:rotateY = 0.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
     def Xform "signal_0" (
         references = @../geometry/usd/signal_vehicle_vertical_3_aspect.usda@</signal_vehicle_vertical_3_aspect>
     ) {

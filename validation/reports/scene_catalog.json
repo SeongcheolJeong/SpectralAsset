@@ -1007,6 +1007,56 @@
           "rotate_y": 0.0
         },
         {
+          "asset_id": "furniture_bus_stop_shelter",
+          "name": "bus_stop_shelter_0",
+          "translate": [
+            -3.62,
+            0.0,
+            0.96
+          ],
+          "rotate_y": 90.0
+        },
+        {
+          "asset_id": "furniture_bus_stop_totem",
+          "name": "bus_stop_totem_0",
+          "translate": [
+            -2.76,
+            0.0,
+            0.38
+          ],
+          "rotate_y": 90.0
+        },
+        {
+          "asset_id": "furniture_bus_stop_bench",
+          "name": "bus_stop_bench_0",
+          "translate": [
+            -3.58,
+            0.0,
+            1.54
+          ],
+          "rotate_y": 90.0
+        },
+        {
+          "asset_id": "furniture_utility_handhole_cluster",
+          "name": "handhole_cluster_0",
+          "translate": [
+            -2.86,
+            0.0,
+            -2.88
+          ],
+          "rotate_y": 0.0
+        },
+        {
+          "asset_id": "furniture_service_bollard_pair",
+          "name": "service_bollards_0",
+          "translate": [
+            -3.56,
+            0.0,
+            2.02
+          ],
+          "rotate_y": 90.0
+        },
+        {
           "asset_id": "furniture_sign_back_rectangle_wide",
           "name": "sign_back_rect_0",
           "translate": [
@@ -1805,6 +1855,26 @@
             -2.46,
             0.0,
             -1.92
+          ],
+          "rotate_y": 0.0
+        },
+        {
+          "asset_id": "furniture_utility_handhole_cluster",
+          "name": "handhole_cluster_0",
+          "translate": [
+            -3.18,
+            0.0,
+            -2.15
+          ],
+          "rotate_y": 0.0
+        },
+        {
+          "asset_id": "furniture_service_bollard_pair",
+          "name": "service_bollards_0",
+          "translate": [
+            3.32,
+            0.0,
+            1.2
           ],
           "rotate_y": 0.0
         },

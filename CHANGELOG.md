@@ -37,6 +37,7 @@
 - sixteenth `P3` traffic-sign batch with hospital, parking, hotel, airport, truck-route, bypass, and centre wayfinding panels
 - seventeenth `P3` road-surface batch with a crowned rural lane, two dirt-track panels, a bridge expansion-joint panel, and a lane-drop transition panel
 - eighteenth `P3` traffic-light batch with transit-priority and directional-arrow signal heads plus dedicated transit-priority and directional-arrow emissive profiles
+- nineteenth `P3` road-furniture batch with a bus-stop shelter, stop totem, bench, handhole cluster, and protective service-bollard pair
 
 ### Changed
 
@@ -79,7 +80,8 @@
 - existing validation scenes now place hospital, parking, hotel, airport, truck-route, bypass, and centre panels so sign depth is broader than the earlier regulatory/weathering and detour-only wayfinding passes
 - existing validation scenes now place crowned rural-lane, dirt-track, bridge-joint, and lane-drop surface panels so roadway breadth is broader than the earlier urban repair and gravel-shoulder follow-up batches
 - existing validation scenes now place transit-priority and directional-arrow signal heads so traffic-light specialization is broader than the earlier lane-control and rail-crossing batches
-- backlog focus now moves from broader `traffic_light` transit-priority and specialty-control depth to `road_furniture` transit-stop and roadside service detail after the latest signal batch
+- existing validation scenes now place a transit-stop shelter, stop totem, bench, grouped handholes, and protective service bollards so curbside context is broader than the earlier signal-control and support-hardware batches
+- backlog focus now moves from broader `road_furniture` transit-stop and roadside service detail to `road_marking` curbside/transit legend and colored-surfacing work after the latest furniture batch
 
 ### Validation
 
@@ -99,6 +101,7 @@
 - validation summary now reports `122` assets, including `38` `traffic_sign` assets, `23` spectral materials, and `126` GLB files after the first sixteen `P3` expansion batches
 - validation summary now reports `127` assets, including `18` `road_surface` assets, `23` spectral materials, and `131` GLB files after the first seventeen `P3` expansion batches
 - validation summary now reports `131` assets, including `17` `traffic_light` assets, `13` emissive profiles, and `135` GLB files after the first eighteenth `P3` expansion batch
+- validation summary now reports `136` assets, including `37` `road_furniture` assets, `13` emissive profiles, and `140` GLB files after the first nineteenth `P3` expansion batch
 - validation summary now includes `3` camera profiles and zero camera-profile validation errors
 - material quality summary now reports `3` `measured_standard`, `1` `measured_derivative`, `19` `project_proxy`, and `0` `vendor_derived` materials
 - emissive profile quality summary now distinguishes vendor-derived vehicle/protected-turn profiles from remaining proxy pedestrian/countdown profiles

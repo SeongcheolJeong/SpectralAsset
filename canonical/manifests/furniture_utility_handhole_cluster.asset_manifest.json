@@ -1,0 +1,61 @@
+{
+  "id": "furniture_utility_handhole_cluster",
+  "family": "road_furniture",
+  "semantic_class": "furniture.utility_handhole",
+  "variant_key": "double_cluster",
+  "dimensions_m": {
+    "width": 1.46,
+    "height": 0.24,
+    "depth": 0.64
+  },
+  "lods": [
+    {
+      "name": "LOD0",
+      "triangle_count": 84,
+      "usd_scope": "/furniture_utility_handhole_cluster/LOD0",
+      "gltf_node_prefix": "LOD0"
+    },
+    {
+      "name": "LOD1",
+      "triangle_count": 48,
+      "usd_scope": "/furniture_utility_handhole_cluster/LOD1",
+      "gltf_node_prefix": "LOD1"
+    }
+  ],
+  "collider": {
+    "type": "box",
+    "width": 1.46,
+    "height": 0.24,
+    "depth": 0.64
+  },
+  "anchor_points": {
+    "base_center": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    }
+  },
+  "materials": [
+    "mat_concrete",
+    "mat_metal_galvanized"
+  ],
+  "states": {
+    "default": {
+      "render_profile": "static"
+    }
+  },
+  "export_targets": {
+    "usd_ascii": "canonical/geometry/usd/furniture_utility_handhole_cluster.usda",
+    "usd_binary": "exports/usd/furniture_utility_handhole_cluster.usdc",
+    "gltf_binary": "exports/gltf/furniture_utility_handhole_cluster.glb"
+  },
+  "license": {
+    "spdx": "LicenseRef-ProjectGenerated",
+    "redistribution": "geometry, manifests, and templates generated in-repo"
+  },
+  "provenance": {
+    "generated_at": "2026-04-16T10:10:40+00:00",
+    "generated_by": "scripts/build_asset_pack.py",
+    "note": "Generated reusable road surface, marking, or furniture primitive."
+  }
+}

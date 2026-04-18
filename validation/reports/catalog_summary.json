@@ -746,6 +746,36 @@
       "variant_key": "padmount_single_phase"
     },
     {
+      "id": "furniture_bus_stop_shelter",
+      "family": "road_furniture",
+      "semantic_class": "furniture.transit_stop_shelter",
+      "variant_key": "urban_glass_shelter"
+    },
+    {
+      "id": "furniture_bus_stop_totem",
+      "family": "road_furniture",
+      "semantic_class": "furniture.transit_stop_marker",
+      "variant_key": "blue_route_totem"
+    },
+    {
+      "id": "furniture_bus_stop_bench",
+      "family": "road_furniture",
+      "semantic_class": "furniture.transit_stop_bench",
+      "variant_key": "slatted_metal"
+    },
+    {
+      "id": "furniture_utility_handhole_cluster",
+      "family": "road_furniture",
+      "semantic_class": "furniture.utility_handhole",
+      "variant_key": "double_cluster"
+    },
+    {
+      "id": "furniture_service_bollard_pair",
+      "family": "road_furniture",
+      "semantic_class": "furniture.protective_bollard",
+      "variant_key": "service_pair_yellow"
+    },
+    {
       "id": "furniture_guardrail_bollard_set",
       "family": "road_furniture",
       "semantic_class": "furniture.guardrail_bollard",
