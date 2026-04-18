@@ -42,6 +42,7 @@
 - twenty-first `P3` traffic-sign batch with U.S./interstate/E-route shields and stacked destination-guide panels plus scene coverage for the new route-context variants
 - twenty-second `P3` road-surface batch with milled-overlay, trench-cut, bridge-approach, barrier-taper, and curb-bulbout variants plus scene coverage for the new roadway-context panels
 - twenty-third `P3` traffic-light batch with bicycle, pedestrian-bicycle hybrid, and tram-priority heads plus dedicated hybrid or specialty emissive profiles
+- twenty-fourth `P3` road-furniture batch with bus-bay curb and island modules, passenger-information and real-time-arrival hardware, plus loading-zone sign/kiosk detail
 
 ### Changed
 

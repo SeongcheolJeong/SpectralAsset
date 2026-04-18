@@ -890,6 +890,42 @@
       "variant_key": "slatted_metal"
     },
     {
+      "id": "furniture_bus_bay_curb_module",
+      "family": "road_furniture",
+      "semantic_class": "furniture.bus_bay_curb",
+      "variant_key": "boarding_edge_module"
+    },
+    {
+      "id": "furniture_bus_bay_island_nose",
+      "family": "road_furniture",
+      "semantic_class": "furniture.bus_bay_island",
+      "variant_key": "rounded_nose"
+    },
+    {
+      "id": "furniture_passenger_info_kiosk",
+      "family": "road_furniture",
+      "semantic_class": "furniture.passenger_info_kiosk",
+      "variant_key": "route_map_panel"
+    },
+    {
+      "id": "furniture_real_time_arrival_display",
+      "family": "road_furniture",
+      "semantic_class": "furniture.arrival_display",
+      "variant_key": "pole_mount_led"
+    },
+    {
+      "id": "furniture_loading_zone_sign_post",
+      "family": "road_furniture",
+      "semantic_class": "furniture.loading_zone_sign",
+      "variant_key": "regulatory_dual_plate"
+    },
+    {
+      "id": "furniture_loading_zone_kiosk",
+      "family": "road_furniture",
+      "semantic_class": "furniture.loading_zone_kiosk",
+      "variant_key": "curbside_payment_terminal"
+    },
+    {
       "id": "furniture_utility_handhole_cluster",
       "family": "road_furniture",
       "semantic_class": "furniture.utility_handhole",

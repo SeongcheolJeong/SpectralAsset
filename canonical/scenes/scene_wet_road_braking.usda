@@ -195,6 +195,20 @@ def Xform "scene_wet_road_braking" {
         float xformOp:rotateY = 0.000000
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
     }
+    def Xform "loading_zone_sign_0" (
+        references = @../geometry/usd/furniture_loading_zone_sign_post.usda@</furniture_loading_zone_sign_post>
+    ) {
+        double3 xformOp:translate = (-3.560000, 0.000000, -0.180000)
+        float xformOp:rotateY = 90.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
+    def Xform "loading_zone_kiosk_0" (
+        references = @../geometry/usd/furniture_loading_zone_kiosk.usda@</furniture_loading_zone_kiosk>
+    ) {
+        double3 xformOp:translate = (-3.140000, 0.000000, -0.740000)
+        float xformOp:rotateY = 90.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
     def Xform "signal_0" (
         references = @../geometry/usd/signal_vehicle_vertical_3_aspect.usda@</signal_vehicle_vertical_3_aspect>
     ) {

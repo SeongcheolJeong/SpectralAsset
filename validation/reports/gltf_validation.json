@@ -1,1131 +1,1173 @@
 {
   "generated_at": "2026-04-16T10:10:40.000Z",
-  "files_checked": 161,
+  "files_checked": 167,
   "files_with_errors": 0,
   "files_with_warnings": 0,
   "results": [
     {
-      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/furniture_barricade_panel.glb",
+      "file": "exports/gltf/furniture_barricade_panel.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
       "messages": []
     },
     {
-      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/furniture_bollard_flexible.glb",
+      "file": "exports/gltf/furniture_bollard_flexible.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
       "messages": []
     },
     {
-      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/furniture_bus_stop_bench.glb",
+      "file": "exports/gltf/furniture_bus_bay_curb_module.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
       "messages": []
     },
     {
-      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/furniture_bus_stop_shelter.glb",
+      "file": "exports/gltf/furniture_bus_bay_island_nose.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
       "messages": []
     },
     {
-      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/furniture_bus_stop_totem.glb",
+      "file": "exports/gltf/furniture_bus_stop_bench.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
       "messages": []
     },
     {
-      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/furniture_delineator_post.glb",
+      "file": "exports/gltf/furniture_bus_stop_shelter.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
       "messages": []
     },
     {
-      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/furniture_guardrail_bollard_set.glb",
+      "file": "exports/gltf/furniture_bus_stop_totem.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
       "messages": []
     },
     {
-      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/furniture_guardrail_segment.glb",
+      "file": "exports/gltf/furniture_delineator_post.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
       "messages": []
     },
     {
-      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/furniture_service_bollard_pair.glb",
+      "file": "exports/gltf/furniture_guardrail_bollard_set.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
       "messages": []
     },
     {
-      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/furniture_sign_back_octagon.glb",
+      "file": "exports/gltf/furniture_guardrail_segment.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
       "messages": []
     },
     {
-      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/furniture_sign_back_rectangle_wide.glb",
+      "file": "exports/gltf/furniture_loading_zone_kiosk.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
       "messages": []
     },
     {
-      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/furniture_sign_back_round.glb",
+      "file": "exports/gltf/furniture_loading_zone_sign_post.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
       "messages": []
     },
     {
-      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/furniture_sign_back_square.glb",
+      "file": "exports/gltf/furniture_passenger_info_kiosk.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
       "messages": []
     },
     {
-      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/furniture_sign_back_triangle.glb",
+      "file": "exports/gltf/furniture_real_time_arrival_display.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
       "messages": []
     },
     {
-      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/furniture_sign_mount_bracket_double.glb",
+      "file": "exports/gltf/furniture_service_bollard_pair.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
       "messages": []
     },
     {
-      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/furniture_sign_mount_bracket_single.glb",
+      "file": "exports/gltf/furniture_sign_back_octagon.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
       "messages": []
     },
     {
-      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/furniture_sign_overhead_bracket.glb",
+      "file": "exports/gltf/furniture_sign_back_rectangle_wide.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
       "messages": []
     },
     {
-      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/furniture_sign_pole.glb",
+      "file": "exports/gltf/furniture_sign_back_round.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
       "messages": []
     },
     {
-      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/furniture_signal_backplate_horizontal.glb",
+      "file": "exports/gltf/furniture_sign_back_square.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
       "messages": []
     },
     {
-      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/furniture_signal_backplate_vertical.glb",
+      "file": "exports/gltf/furniture_sign_back_triangle.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
       "messages": []
     },
     {
-      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/furniture_signal_battery_backup_cabinet.glb",
+      "file": "exports/gltf/furniture_sign_mount_bracket_double.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
       "messages": []
     },
     {
-      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/furniture_signal_controller_cabinet.glb",
+      "file": "exports/gltf/furniture_sign_mount_bracket_single.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
       "messages": []
     },
     {
-      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/furniture_signal_controller_cabinet_single.glb",
+      "file": "exports/gltf/furniture_sign_overhead_bracket.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
       "messages": []
     },
     {
-      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/furniture_signal_junction_box.glb",
+      "file": "exports/gltf/furniture_sign_pole.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
       "messages": []
     },
     {
-      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/furniture_signal_mast_hanger.glb",
+      "file": "exports/gltf/furniture_signal_backplate_horizontal.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
       "messages": []
     },
     {
-      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/furniture_signal_meter_pedestal.glb",
+      "file": "exports/gltf/furniture_signal_backplate_vertical.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
       "messages": []
     },
     {
-      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/furniture_signal_pole.glb",
+      "file": "exports/gltf/furniture_signal_battery_backup_cabinet.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
       "messages": []
     },
     {
-      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/furniture_signal_service_disconnect.glb",
+      "file": "exports/gltf/furniture_signal_controller_cabinet.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
       "messages": []
     },
     {
-      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/furniture_signal_side_mount_bracket.glb",
+      "file": "exports/gltf/furniture_signal_controller_cabinet_single.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
       "messages": []
     },
     {
-      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/furniture_traffic_cone.glb",
+      "file": "exports/gltf/furniture_signal_junction_box.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
       "messages": []
     },
     {
-      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/furniture_utility_handhole_cluster.glb",
+      "file": "exports/gltf/furniture_signal_mast_hanger.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
       "messages": []
     },
     {
-      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/furniture_utility_pole_concrete.glb",
+      "file": "exports/gltf/furniture_signal_meter_pedestal.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
       "messages": []
     },
     {
-      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/furniture_utility_pole_steel.glb",
+      "file": "exports/gltf/furniture_signal_pole.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
       "messages": []
     },
     {
-      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/furniture_utility_pull_box.glb",
+      "file": "exports/gltf/furniture_signal_service_disconnect.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
       "messages": []
     },
     {
-      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/furniture_utility_transformer_padmount.glb",
+      "file": "exports/gltf/furniture_signal_side_mount_bracket.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
       "messages": []
     },
     {
-      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/furniture_water_barrier.glb",
+      "file": "exports/gltf/furniture_traffic_cone.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
       "messages": []
     },
     {
-      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/marking_arrow_straight_right_white.glb",
+      "file": "exports/gltf/furniture_utility_handhole_cluster.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
       "messages": []
     },
     {
-      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/marking_arrow_straight_white.glb",
+      "file": "exports/gltf/furniture_utility_pole_concrete.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
       "messages": []
     },
     {
-      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/marking_arrow_turn_left_white.glb",
+      "file": "exports/gltf/furniture_utility_pole_steel.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
       "messages": []
     },
     {
-      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/marking_arrow_turn_right_white.glb",
+      "file": "exports/gltf/furniture_utility_pull_box.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
       "messages": []
     },
     {
-      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/marking_bike_box_white.glb",
+      "file": "exports/gltf/furniture_utility_transformer_padmount.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
       "messages": []
     },
     {
-      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/marking_bike_lane_panel_green.glb",
+      "file": "exports/gltf/furniture_water_barrier.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
       "messages": []
     },
     {
-      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/marking_bike_text_white.glb",
+      "file": "exports/gltf/marking_arrow_straight_right_white.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
       "messages": []
     },
     {
-      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/marking_bus_only_box_white.glb",
+      "file": "exports/gltf/marking_arrow_straight_white.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
       "messages": []
     },
     {
-      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/marking_bus_stop_box_white.glb",
+      "file": "exports/gltf/marking_arrow_turn_left_white.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
       "messages": []
     },
     {
-      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/marking_bus_text_white.glb",
+      "file": "exports/gltf/marking_arrow_turn_right_white.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
       "messages": []
     },
     {
-      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/marking_centerline_double_yellow.glb",
+      "file": "exports/gltf/marking_bike_box_white.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
       "messages": []
     },
     {
-      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/marking_centerline_solid_dashed_yellow.glb",
+      "file": "exports/gltf/marking_bike_lane_panel_green.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
       "messages": []
     },
     {
-      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/marking_chevron_gore_white.glb",
+      "file": "exports/gltf/marking_bike_text_white.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
       "messages": []
     },
     {
-      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/marking_crosswalk.glb",
+      "file": "exports/gltf/marking_bus_only_box_white.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
       "messages": []
     },
     {
-      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/marking_crosswalk_worn.glb",
+      "file": "exports/gltf/marking_bus_stop_box_white.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
       "messages": []
     },
     {
-      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/marking_edge_line_white.glb",
+      "file": "exports/gltf/marking_bus_text_white.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
       "messages": []
     },
     {
-      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/marking_edge_line_yellow.glb",
+      "file": "exports/gltf/marking_centerline_double_yellow.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
       "messages": []
     },
     {
-      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/marking_hatched_island_white.glb",
+      "file": "exports/gltf/marking_centerline_solid_dashed_yellow.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
       "messages": []
     },
     {
-      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/marking_hatched_median_yellow.glb",
+      "file": "exports/gltf/marking_chevron_gore_white.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
       "messages": []
     },
     {
-      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/marking_lane_white.glb",
+      "file": "exports/gltf/marking_crosswalk.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
       "messages": []
     },
     {
-      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/marking_lane_white_worn.glb",
+      "file": "exports/gltf/marking_crosswalk_worn.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
       "messages": []
     },
     {
-      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/marking_lane_yellow.glb",
+      "file": "exports/gltf/marking_edge_line_white.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
       "messages": []
     },
     {
-      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/marking_loading_zone_box_white.glb",
+      "file": "exports/gltf/marking_edge_line_yellow.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
       "messages": []
     },
     {
-      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/marking_merge_left_white.glb",
+      "file": "exports/gltf/marking_hatched_island_white.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
       "messages": []
     },
     {
-      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/marking_only_text_white.glb",
+      "file": "exports/gltf/marking_hatched_median_yellow.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
       "messages": []
     },
     {
-      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/marking_raised_marker_bicolor.glb",
+      "file": "exports/gltf/marking_lane_white.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
       "messages": []
     },
     {
-      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/marking_raised_marker_white.glb",
+      "file": "exports/gltf/marking_lane_white_worn.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
       "messages": []
     },
     {
-      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/marking_raised_marker_yellow.glb",
+      "file": "exports/gltf/marking_lane_yellow.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
       "messages": []
     },
     {
-      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/marking_stop_line.glb",
+      "file": "exports/gltf/marking_loading_zone_box_white.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
       "messages": []
     },
     {
-      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/marking_stop_line_worn.glb",
+      "file": "exports/gltf/marking_merge_left_white.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
       "messages": []
     },
     {
-      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/marking_stop_text_white.glb",
+      "file": "exports/gltf/marking_only_text_white.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
       "messages": []
     },
     {
-      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/marking_transit_lane_panel_red.glb",
+      "file": "exports/gltf/marking_raised_marker_bicolor.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
       "messages": []
     },
     {
-      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/road_asphalt_concrete_transition.glb",
+      "file": "exports/gltf/marking_raised_marker_white.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
       "messages": []
     },
     {
-      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/road_asphalt_dry.glb",
+      "file": "exports/gltf/marking_raised_marker_yellow.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
       "messages": []
     },
     {
-      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/road_asphalt_gravel_transition.glb",
+      "file": "exports/gltf/marking_stop_line.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
       "messages": []
     },
     {
-      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/road_asphalt_patched.glb",
+      "file": "exports/gltf/marking_stop_line_worn.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
       "messages": []
     },
     {
-      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/road_asphalt_pothole_distressed.glb",
+      "file": "exports/gltf/marking_stop_text_white.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
       "messages": []
     },
     {
-      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/road_asphalt_wet.glb",
+      "file": "exports/gltf/marking_transit_lane_panel_red.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
       "messages": []
     },
     {
-      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/road_barrier_taper_transition.glb",
+      "file": "exports/gltf/road_asphalt_concrete_transition.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
       "messages": []
     },
     {
-      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/road_bridge_approach_slab.glb",
+      "file": "exports/gltf/road_asphalt_dry.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
       "messages": []
     },
     {
-      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/road_bridge_expansion_joint.glb",
+      "file": "exports/gltf/road_asphalt_gravel_transition.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
       "messages": []
     },
     {
-      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/road_concrete.glb",
+      "file": "exports/gltf/road_asphalt_patched.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
       "messages": []
     },
     {
-      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/road_concrete_distressed.glb",
+      "file": "exports/gltf/road_asphalt_pothole_distressed.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
       "messages": []
     },
     {
-      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/road_construction_milled_overlay.glb",
+      "file": "exports/gltf/road_asphalt_wet.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
       "messages": []
     },
     {
-      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/road_construction_plate_patch.glb",
+      "file": "exports/gltf/road_barrier_taper_transition.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
       "messages": []
     },
     {
-      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/road_construction_trench_cut.glb",
+      "file": "exports/gltf/road_bridge_approach_slab.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
       "messages": []
     },
     {
-      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/road_curb_bulbout_transition.glb",
+      "file": "exports/gltf/road_bridge_expansion_joint.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
       "messages": []
     },
     {
-      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/road_curb_segment.glb",
+      "file": "exports/gltf/road_concrete.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
       "messages": []
     },
     {
-      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/road_dirt_track_dual_rut.glb",
+      "file": "exports/gltf/road_concrete_distressed.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
       "messages": []
     },
     {
-      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/road_dirt_track_washout.glb",
+      "file": "exports/gltf/road_construction_milled_overlay.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
       "messages": []
     },
     {
-      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/road_eroded_shoulder_edge.glb",
+      "file": "exports/gltf/road_construction_plate_patch.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
       "messages": []
     },
     {
-      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/road_gravel_shoulder.glb",
+      "file": "exports/gltf/road_construction_trench_cut.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
       "messages": []
     },
     {
-      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/road_gutter_transition.glb",
+      "file": "exports/gltf/road_curb_bulbout_transition.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
       "messages": []
     },
     {
-      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/road_lane_drop_transition.glb",
+      "file": "exports/gltf/road_curb_segment.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
       "messages": []
     },
     {
-      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/road_rural_crowned_lane.glb",
+      "file": "exports/gltf/road_dirt_track_dual_rut.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
       "messages": []
     },
     {
-      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/road_sidewalk_panel.glb",
+      "file": "exports/gltf/road_dirt_track_washout.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
       "messages": []
     },
     {
-      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/scene_night_retroreflection.glb",
+      "file": "exports/gltf/road_eroded_shoulder_edge.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
       "messages": []
     },
     {
-      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/scene_sign_test_lane.glb",
+      "file": "exports/gltf/road_gravel_shoulder.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
       "messages": []
     },
     {
-      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/scene_signalized_intersection.glb",
+      "file": "exports/gltf/road_gutter_transition.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
       "messages": []
     },
     {
-      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/scene_wet_road_braking.glb",
+      "file": "exports/gltf/road_lane_drop_transition.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
       "messages": []
     },
     {
-      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/sign_airport_arrow_right.glb",
+      "file": "exports/gltf/road_rural_crowned_lane.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
       "messages": []
     },
     {
-      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/sign_bus_stop.glb",
+      "file": "exports/gltf/road_sidewalk_panel.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
       "messages": []
     },
     {
-      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/sign_bypass_right_text.glb",
+      "file": "exports/gltf/scene_night_retroreflection.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
       "messages": []
     },
     {
-      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/sign_centre_left_text.glb",
+      "file": "exports/gltf/scene_sign_test_lane.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
       "messages": []
     },
     {
-      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/sign_construction_warning.glb",
+      "file": "exports/gltf/scene_signalized_intersection.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
       "messages": []
     },
     {
-      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/sign_construction_weathered_heavy.glb",
+      "file": "exports/gltf/scene_wet_road_braking.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
       "messages": []
     },
     {
-      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/sign_curve_left.glb",
+      "file": "exports/gltf/sign_airport_arrow_right.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
       "messages": []
     },
     {
-      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/sign_destination_stack_airport_centre_right.glb",
+      "file": "exports/gltf/sign_bus_stop.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
       "messages": []
     },
     {
-      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/sign_destination_stack_hotel_park_left.glb",
+      "file": "exports/gltf/sign_bypass_right_text.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
       "messages": []
     },
     {
-      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/sign_destination_stack_truck_bypass_ahead.glb",
+      "file": "exports/gltf/sign_centre_left_text.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
       "messages": []
     },
     {
-      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/sign_detour_left_text.glb",
+      "file": "exports/gltf/sign_construction_warning.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
       "messages": []
     },
     {
-      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/sign_detour_right_text.glb",
+      "file": "exports/gltf/sign_construction_weathered_heavy.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
       "messages": []
     },
     {
-      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/sign_hospital_arrow_right.glb",
+      "file": "exports/gltf/sign_curve_left.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
       "messages": []
     },
     {
-      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/sign_hotel_arrow_left.glb",
+      "file": "exports/gltf/sign_destination_stack_airport_centre_right.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
       "messages": []
     },
     {
-      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/sign_lane_direction.glb",
+      "file": "exports/gltf/sign_destination_stack_hotel_park_left.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
       "messages": []
     },
     {
-      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/sign_mandatory_direction_right.glb",
+      "file": "exports/gltf/sign_destination_stack_truck_bypass_ahead.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
       "messages": []
     },
     {
-      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/sign_merge.glb",
+      "file": "exports/gltf/sign_detour_left_text.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
       "messages": []
     },
     {
-      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/sign_no_entry.glb",
+      "file": "exports/gltf/sign_detour_right_text.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
       "messages": []
     },
     {
-      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/sign_no_entry_weathered_heavy.glb",
+      "file": "exports/gltf/sign_hospital_arrow_right.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
       "messages": []
     },
     {
-      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/sign_one_way.glb",
+      "file": "exports/gltf/sign_hotel_arrow_left.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
       "messages": []
     },
     {
-      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/sign_one_way_text_left.glb",
+      "file": "exports/gltf/sign_lane_direction.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
       "messages": []
     },
     {
-      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/sign_one_way_text_right.glb",
+      "file": "exports/gltf/sign_mandatory_direction_right.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
       "messages": []
     },
     {
-      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/sign_parking.glb",
+      "file": "exports/gltf/sign_merge.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
       "messages": []
     },
     {
-      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/sign_parking_arrow_left.glb",
+      "file": "exports/gltf/sign_no_entry.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
       "messages": []
     },
     {
-      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/sign_pedestrian_crossing.glb",
+      "file": "exports/gltf/sign_no_entry_weathered_heavy.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
       "messages": []
     },
     {
-      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/sign_pedestrian_crossing_weathered.glb",
+      "file": "exports/gltf/sign_one_way.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
       "messages": []
     },
     {
-      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/sign_priority_road.glb",
+      "file": "exports/gltf/sign_one_way_text_left.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
       "messages": []
     },
     {
-      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/sign_railroad_warning.glb",
+      "file": "exports/gltf/sign_one_way_text_right.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
       "messages": []
     },
     {
-      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/sign_roundabout_mandatory.glb",
+      "file": "exports/gltf/sign_parking.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
       "messages": []
     },
     {
-      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/sign_route_e45_shield.glb",
+      "file": "exports/gltf/sign_parking_arrow_left.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
       "messages": []
     },
     {
-      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/sign_route_interstate_5_shield.glb",
+      "file": "exports/gltf/sign_pedestrian_crossing.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
       "messages": []
     },
     {
-      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/sign_route_us_101_shield.glb",
+      "file": "exports/gltf/sign_pedestrian_crossing_weathered.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
       "messages": []
     },
     {
-      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/sign_school_warning.glb",
+      "file": "exports/gltf/sign_priority_road.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
       "messages": []
     },
     {
-      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/sign_signal_ahead.glb",
+      "file": "exports/gltf/sign_railroad_warning.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
       "messages": []
     },
     {
-      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/sign_speed_limit_50.glb",
+      "file": "exports/gltf/sign_roundabout_mandatory.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
       "messages": []
     },
     {
-      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/sign_speed_limit_50_weathered.glb",
+      "file": "exports/gltf/sign_route_e45_shield.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
       "messages": []
     },
     {
-      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/sign_stop.glb",
+      "file": "exports/gltf/sign_route_interstate_5_shield.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
       "messages": []
     },
     {
-      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/sign_stop_ahead_text.glb",
+      "file": "exports/gltf/sign_route_us_101_shield.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
       "messages": []
     },
     {
-      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/sign_stop_weathered.glb",
+      "file": "exports/gltf/sign_school_warning.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
       "messages": []
     },
     {
-      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/sign_truck_route_right.glb",
+      "file": "exports/gltf/sign_signal_ahead.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
       "messages": []
     },
     {
-      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/sign_turn_restriction_left.glb",
+      "file": "exports/gltf/sign_speed_limit_50.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
       "messages": []
     },
     {
-      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/sign_variable_message.glb",
+      "file": "exports/gltf/sign_speed_limit_50_weathered.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
       "messages": []
     },
     {
-      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/sign_yield.glb",
+      "file": "exports/gltf/sign_stop.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
       "messages": []
     },
     {
-      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/sign_yield_weathered_heavy.glb",
+      "file": "exports/gltf/sign_stop_ahead_text.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
       "messages": []
     },
     {
-      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/signal_beacon_amber_single.glb",
+      "file": "exports/gltf/sign_stop_weathered.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
       "messages": []
     },
     {
-      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/signal_beacon_red_single.glb",
+      "file": "exports/gltf/sign_truck_route_right.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
       "messages": []
     },
     {
-      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/signal_bicycle_vertical_3_aspect.glb",
+      "file": "exports/gltf/sign_turn_restriction_left.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
       "messages": []
     },
     {
-      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/signal_directional_arrow_left_3_aspect.glb",
+      "file": "exports/gltf/sign_variable_message.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
       "messages": []
     },
     {
-      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/signal_directional_arrow_right_3_aspect.glb",
+      "file": "exports/gltf/sign_yield.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
       "messages": []
     },
     {
-      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/signal_lane_control_overhead_3_aspect.glb",
+      "file": "exports/gltf/sign_yield_weathered_heavy.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
       "messages": []
     },
     {
-      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/signal_lane_control_reversible_2_aspect.glb",
+      "file": "exports/gltf/signal_beacon_amber_single.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
       "messages": []
     },
     {
-      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/signal_pedestrian_2_aspect.glb",
+      "file": "exports/gltf/signal_beacon_red_single.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
       "messages": []
     },
     {
-      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/signal_pedestrian_bicycle_hybrid_4_aspect.glb",
+      "file": "exports/gltf/signal_bicycle_vertical_3_aspect.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
       "messages": []
     },
     {
-      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/signal_pedestrian_countdown_housing.glb",
+      "file": "exports/gltf/signal_directional_arrow_left_3_aspect.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
       "messages": []
     },
     {
-      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/signal_protected_turn_4_aspect.glb",
+      "file": "exports/gltf/signal_directional_arrow_right_3_aspect.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
       "messages": []
     },
     {
-      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/signal_rail_crossing_dual_red_horizontal.glb",
+      "file": "exports/gltf/signal_lane_control_overhead_3_aspect.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
       "messages": []
     },
     {
-      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/signal_rail_crossing_dual_red_vertical.glb",
+      "file": "exports/gltf/signal_lane_control_reversible_2_aspect.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
       "messages": []
     },
     {
-      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/signal_tram_priority_horizontal_4_aspect.glb",
+      "file": "exports/gltf/signal_pedestrian_2_aspect.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
       "messages": []
     },
     {
-      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/signal_tram_priority_vertical_4_aspect.glb",
+      "file": "exports/gltf/signal_pedestrian_bicycle_hybrid_4_aspect.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
       "messages": []
     },
     {
-      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/signal_transit_priority_horizontal_4_aspect.glb",
+      "file": "exports/gltf/signal_pedestrian_countdown_housing.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
       "messages": []
     },
     {
-      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/signal_transit_priority_vertical_4_aspect.glb",
+      "file": "exports/gltf/signal_protected_turn_4_aspect.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
       "messages": []
     },
     {
-      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/signal_vehicle_horizontal_3_aspect.glb",
+      "file": "exports/gltf/signal_rail_crossing_dual_red_horizontal.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
       "messages": []
     },
     {
-      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/signal_vehicle_vertical_3_aspect.glb",
+      "file": "exports/gltf/signal_rail_crossing_dual_red_vertical.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
       "messages": []
     },
     {
-      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/signal_warning_dual_amber_horizontal.glb",
+      "file": "exports/gltf/signal_tram_priority_horizontal_4_aspect.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
       "messages": []
     },
     {
-      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/signal_warning_dual_red_horizontal.glb",
+      "file": "exports/gltf/signal_tram_priority_vertical_4_aspect.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
+      "file": "exports/gltf/signal_transit_priority_horizontal_4_aspect.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
+      "file": "exports/gltf/signal_transit_priority_vertical_4_aspect.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
+      "file": "exports/gltf/signal_vehicle_horizontal_3_aspect.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
+      "file": "exports/gltf/signal_vehicle_vertical_3_aspect.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
+      "file": "exports/gltf/signal_warning_dual_amber_horizontal.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
+      "file": "exports/gltf/signal_warning_dual_red_horizontal.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,

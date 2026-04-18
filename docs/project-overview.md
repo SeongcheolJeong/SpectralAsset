@@ -38,7 +38,7 @@ Additional baseline facts:
 - emissive-profile quality summary currently reports `11` `vendor_derived` and `5` `project_proxy` profiles
 - camera-profile quality summary currently reports `3` `vendor_derived` profiles, with `camera_reference_rgb_nir_v3` active in all scenarios
 - `urban_night` currently uses public `LED-B4` and `LED-B3` priors for headlamp/streetlight contribution when measured emitter data is absent
-- the first twenty-three `P3` coverage-expansion batches raised `traffic_sign` from `18` to `44` standalone assets, `road_furniture` from `4` to `37`, `road_marking` from `4` to `32`, `road_surface` from `4` to `23`, and `traffic_light` from `5` to `21`
+- the first twenty-four `P3` coverage-expansion batches raised `traffic_sign` from `18` to `44` standalone assets, `road_furniture` from `4` to `43`, `road_marking` from `4` to `32`, `road_surface` from `4` to `23`, and `traffic_light` from `5` to `21`
 - traffic-light scenes now place standalone support-context assets including backplates, a mast hanger, side-mount hardware, cabinet variants, a junction box, beacon/warning heads, and lane-control or rail-specific heads
 - sign-focused scenes now place standalone sign backs and mounting brackets for representative sign families instead of implying that assembly depth only through the sign meshes
 - sign-focused scenes now also exercise weathered stop, speed-limit, and pedestrian-crossing variants plus English text-bearing one-way and detour panels instead of limiting the sign family to the original symbol-only starter set
@@ -56,6 +56,7 @@ Additional baseline facts:
 - the current validation scenes now also exercise bus/bike legends, hatched median/island panels, and right-turn or straight-right arrow variants instead of limiting road-marking depth to centerlines, merge arrows, and basic word legends alone
 - the current validation scenes now also exercise utility poles, smaller cabinet/junction variants, service disconnects, meter pedestals, battery-backup cabinets, pull boxes, pad-mount transformers, and explicit sign/signal attachment hardware
 - the current validation scenes now also exercise a transit-stop shelter, a stop totem, a bench, a handhole cluster, and protective service bollards instead of limiting roadside context to signal-control hardware and sign/signal supports alone
+- the current validation scenes now also exercise bus-bay curb and island modules, passenger-information and real-time-arrival hardware, plus loading-zone sign/kiosk detail instead of limiting curbside context to shelter-only transit furniture and generic curbside boxes
 - the current validation scenes now also exercise boxed `BUS ONLY`, `BUS STOP`, `BIKE`, and `LOAD` legends plus red/green curbside lane panels instead of limiting road-marking depth to unboxed word legends and monochrome striping
 
 ## Repository Structure
