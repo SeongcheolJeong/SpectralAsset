@@ -6,7 +6,7 @@ This file explains what the generator actually creates in this repository and ho
 
 Current generated baseline:
 
-- `187` assets
+- `193` assets
 - `27` spectral materials
 - `19` emissive profiles
 - `3` camera profiles
@@ -246,10 +246,14 @@ These are support/context objects such as:
 - `furniture_utility_pull_box`
 - `furniture_utility_transformer_padmount`
 - `furniture_bus_stop_shelter`
+- `furniture_shelter_ad_panel`
 - `furniture_bus_stop_totem`
 - `furniture_bus_stop_bench`
+- `furniture_queue_rail_module`
 - `furniture_bus_bay_curb_module`
 - `furniture_bus_bay_island_nose`
+- `furniture_curb_ramp_module`
+- `furniture_curb_ramp_corner_module`
 - `furniture_passenger_info_kiosk`
 - `furniture_real_time_arrival_display`
 - `furniture_loading_zone_sign_post`
@@ -266,8 +270,10 @@ These are support/context objects such as:
 - `furniture_sign_mount_bracket_single`
 - `furniture_sign_mount_bracket_double`
 - `furniture_sign_overhead_bracket`
+- `furniture_sign_band_clamp_pair`
+- `furniture_signal_band_clamp`
 
-The newest roadside-context passes now add bus-bay curb/island pieces, passenger-information hardware, loading-zone support detail, and rail-gate mast/arm/bell/controller context so scenes can now place both curbside-transit assemblies and explicit crossing-gate support hardware instead of implying all context through signs, poles, and generic cabinets alone.
+The newest roadside-context passes now add bus-bay curb/island pieces, passenger-information hardware, loading-zone support detail, rail-gate mast/arm/bell/controller context, and now queue-rail, shelter-panel, curb-ramp, and clamp-hardware follow-up assets so scenes can place both curbside-transit assemblies and deeper attachment/micromobility context instead of implying all of that through signs, poles, brackets, and generic cabinets alone.
 
 ## Other Generated Objects
 

@@ -3427,7 +3427,9 @@ def road_asset_parts(asset_id: str, dimensions: Tuple[float, float, float]) -> D
         "furniture_sign_mount_bracket_single": "mat_metal_galvanized",
         "furniture_sign_mount_bracket_double": "mat_metal_galvanized",
         "furniture_sign_overhead_bracket": "mat_metal_galvanized",
+        "furniture_sign_band_clamp_pair": "mat_metal_galvanized",
         "furniture_signal_side_mount_bracket": "mat_metal_galvanized",
+        "furniture_signal_band_clamp": "mat_metal_galvanized",
         "furniture_signal_service_disconnect": "mat_signal_housing",
         "furniture_signal_meter_pedestal": "mat_signal_housing",
         "furniture_signal_battery_backup_cabinet": "mat_signal_housing",
@@ -3438,10 +3440,14 @@ def road_asset_parts(asset_id: str, dimensions: Tuple[float, float, float]) -> D
         "furniture_utility_pull_box": "mat_concrete",
         "furniture_utility_transformer_padmount": "mat_signal_housing",
         "furniture_bus_stop_shelter": "mat_metal_galvanized",
+        "furniture_shelter_ad_panel": "mat_signal_housing",
         "furniture_bus_stop_totem": "mat_sign_blue",
         "furniture_bus_stop_bench": "mat_metal_galvanized",
+        "furniture_queue_rail_module": "mat_metal_galvanized",
         "furniture_bus_bay_curb_module": "mat_concrete",
         "furniture_bus_bay_island_nose": "mat_concrete",
+        "furniture_curb_ramp_module": "mat_concrete",
+        "furniture_curb_ramp_corner_module": "mat_concrete",
         "furniture_passenger_info_kiosk": "mat_signal_housing",
         "furniture_real_time_arrival_display": "mat_signal_housing",
         "furniture_loading_zone_sign_post": "mat_sign_white",
@@ -3918,6 +3924,27 @@ def road_asset_parts(asset_id: str, dimensions: Tuple[float, float, float]) -> D
             make_mesh_part("route_band", box_triangles(0.62, 0.22, 0.04, (0.0, 1.82, 0.44)), "mat_sign_blue"),
         ]
         return {"LOD0": lod0, "LOD1": lod1}
+    if asset_id == "furniture_shelter_ad_panel":
+        lod0 = [
+            make_mesh_part("base", box_triangles(0.82, 0.08, 0.26, (0.0, 0.04, 0.0)), "mat_concrete"),
+            make_mesh_part("frame_left", box_triangles(0.06, 1.82, 0.08, (-0.28, 1.0, 0.0)), "mat_metal_galvanized"),
+            make_mesh_part("frame_right", box_triangles(0.06, 1.82, 0.08, (0.28, 1.0, 0.0)), "mat_metal_galvanized"),
+            make_mesh_part("frame_top", box_triangles(0.62, 0.08, 0.08, (0.0, 1.92, 0.0)), "mat_metal_galvanized"),
+            make_mesh_part("frame_bottom", box_triangles(0.62, 0.08, 0.08, (0.0, 0.18, 0.0)), "mat_metal_galvanized"),
+            make_mesh_part("ad_body", box_triangles(0.52, 1.44, 0.04, (0.0, 1.0, 0.0)), "mat_signal_housing"),
+            make_mesh_part("poster_face", box_triangles(0.46, 1.32, 0.01, (0.0, 1.0, 0.026)), "mat_sign_white"),
+            make_mesh_part("ad_header", box_triangles(0.46, 0.18, 0.02, (0.0, 1.54, 0.03)), "mat_sign_blue"),
+            make_mesh_part("ad_footer", box_triangles(0.38, 0.12, 0.02, (0.0, 0.42, 0.03)), "mat_sign_black"),
+        ]
+        lod1 = [
+            make_mesh_part("base", box_triangles(0.82, 0.08, 0.26, (0.0, 0.04, 0.0)), "mat_concrete"),
+            make_mesh_part("frame_left", box_triangles(0.06, 1.82, 0.08, (-0.28, 1.0, 0.0)), "mat_metal_galvanized"),
+            make_mesh_part("frame_right", box_triangles(0.06, 1.82, 0.08, (0.28, 1.0, 0.0)), "mat_metal_galvanized"),
+            make_mesh_part("ad_body", box_triangles(0.52, 1.44, 0.04, (0.0, 1.0, 0.0)), "mat_signal_housing"),
+            make_mesh_part("poster_face", box_triangles(0.46, 1.32, 0.01, (0.0, 1.0, 0.026)), "mat_sign_white"),
+            make_mesh_part("ad_header", box_triangles(0.46, 0.18, 0.02, (0.0, 1.54, 0.03)), "mat_sign_blue"),
+        ]
+        return {"LOD0": lod0, "LOD1": lod1}
     if asset_id == "furniture_bus_stop_totem":
         lod0 = [
             make_mesh_part("base", box_triangles(0.42, 0.08, 0.26, (0.0, 0.04, 0.0)), "mat_concrete"),
@@ -3954,6 +3981,26 @@ def road_asset_parts(asset_id: str, dimensions: Tuple[float, float, float]) -> D
             make_mesh_part("leg_right", box_triangles(0.08, 0.46, 0.24, (0.48, 0.23, 0.0)), "mat_metal_galvanized"),
         ]
         return {"LOD0": lod0, "LOD1": lod1}
+    if asset_id == "furniture_queue_rail_module":
+        lod0 = [
+            make_mesh_part("pad", box_triangles(1.68, 0.06, 0.18, (0.0, 0.03, 0.0)), "mat_concrete"),
+            make_mesh_part("post_front_left", box_triangles(0.06, 1.02, 0.06, (-0.72, 0.54, 0.06)), "mat_metal_galvanized"),
+            make_mesh_part("post_back_left", box_triangles(0.06, 1.02, 0.06, (-0.72, 0.54, -0.06)), "mat_metal_galvanized"),
+            make_mesh_part("post_front_right", box_triangles(0.06, 1.02, 0.06, (0.72, 0.54, 0.06)), "mat_metal_galvanized"),
+            make_mesh_part("post_back_right", box_triangles(0.06, 1.02, 0.06, (0.72, 0.54, -0.06)), "mat_metal_galvanized"),
+            make_mesh_part("rail_upper_front", box_triangles(1.44, 0.06, 0.04, (0.0, 0.82, 0.07)), "mat_metal_galvanized"),
+            make_mesh_part("rail_mid_front", box_triangles(1.44, 0.06, 0.04, (0.0, 0.54, 0.07)), "mat_metal_galvanized"),
+            make_mesh_part("rail_upper_back", box_triangles(1.44, 0.06, 0.04, (0.0, 0.82, -0.07)), "mat_metal_galvanized"),
+            make_mesh_part("rail_mid_back", box_triangles(1.44, 0.06, 0.04, (0.0, 0.54, -0.07)), "mat_metal_galvanized"),
+        ]
+        lod1 = [
+            make_mesh_part("pad", box_triangles(1.68, 0.06, 0.18, (0.0, 0.03, 0.0)), "mat_concrete"),
+            make_mesh_part("post_left", box_triangles(0.06, 1.02, 0.18, (-0.72, 0.54, 0.0)), "mat_metal_galvanized"),
+            make_mesh_part("post_right", box_triangles(0.06, 1.02, 0.18, (0.72, 0.54, 0.0)), "mat_metal_galvanized"),
+            make_mesh_part("rail_upper", box_triangles(1.44, 0.06, 0.18, (0.0, 0.82, 0.0)), "mat_metal_galvanized"),
+            make_mesh_part("rail_mid", box_triangles(1.44, 0.06, 0.18, (0.0, 0.54, 0.0)), "mat_metal_galvanized"),
+        ]
+        return {"LOD0": lod0, "LOD1": lod1}
     if asset_id == "furniture_bus_bay_curb_module":
         lod0 = [
             make_mesh_part("platform", box_triangles(2.72, 0.08, 1.02, (0.0, 0.04, 0.0)), "mat_concrete"),
@@ -3969,6 +4016,48 @@ def road_asset_parts(asset_id: str, dimensions: Tuple[float, float, float]) -> D
             make_mesh_part("curb_front", box_triangles(2.72, 0.18, 0.18, (0.0, 0.13, 0.42)), "mat_concrete"),
             make_mesh_part("boarding_apron", box_triangles(2.26, 0.03, 0.58, (0.0, 0.095, -0.14)), "mat_concrete"),
             make_mesh_part("tactile_strip", box_triangles(2.32, 0.02, 0.16, (0.0, 0.19, 0.42)), "mat_sign_yellow"),
+        ]
+        return {"LOD0": lod0, "LOD1": lod1}
+    if asset_id == "furniture_curb_ramp_module":
+        lod0 = [
+            make_mesh_part("base", box_triangles(1.42, 0.06, 1.18, (0.0, 0.03, 0.0)), "mat_concrete"),
+            make_mesh_part("curb_left", box_triangles(0.16, 0.18, 0.92, (-0.63, 0.09, 0.08)), "mat_concrete"),
+            make_mesh_part("curb_right", box_triangles(0.16, 0.18, 0.92, (0.63, 0.09, 0.08)), "mat_concrete"),
+            make_mesh_part("landing", box_triangles(1.1, 0.04, 0.34, (0.0, 0.16, 0.4)), "mat_concrete"),
+            make_mesh_part("ramp_upper", box_triangles(1.1, 0.04, 0.28, (0.0, 0.12, 0.12)), "mat_concrete"),
+            make_mesh_part("ramp_mid", box_triangles(1.1, 0.03, 0.28, (0.0, 0.085, -0.16)), "mat_concrete"),
+            make_mesh_part("ramp_lower", box_triangles(1.1, 0.02, 0.22, (0.0, 0.055, -0.42)), "mat_concrete"),
+            make_mesh_part("tactile_strip", box_triangles(1.06, 0.015, 0.16, (0.0, 0.1875, 0.26)), "mat_sign_yellow"),
+            make_mesh_part("drain_slot", box_triangles(0.42, 0.01, 0.04, (0.36, 0.06, -0.52)), "mat_sign_black"),
+        ]
+        lod1 = [
+            make_mesh_part("base", box_triangles(1.42, 0.06, 1.18, (0.0, 0.03, 0.0)), "mat_concrete"),
+            make_mesh_part("curb_left", box_triangles(0.16, 0.18, 0.92, (-0.63, 0.09, 0.08)), "mat_concrete"),
+            make_mesh_part("curb_right", box_triangles(0.16, 0.18, 0.92, (0.63, 0.09, 0.08)), "mat_concrete"),
+            make_mesh_part("landing", box_triangles(1.1, 0.04, 0.34, (0.0, 0.16, 0.4)), "mat_concrete"),
+            make_mesh_part("ramp_body", box_triangles(1.1, 0.04, 0.72, (0.0, 0.09, -0.12)), "mat_concrete"),
+            make_mesh_part("tactile_strip", box_triangles(1.06, 0.015, 0.16, (0.0, 0.1875, 0.26)), "mat_sign_yellow"),
+        ]
+        return {"LOD0": lod0, "LOD1": lod1}
+    if asset_id == "furniture_curb_ramp_corner_module":
+        lod0 = [
+            make_mesh_part("base", box_triangles(1.46, 0.06, 1.46, (0.0, 0.03, 0.0)), "mat_concrete"),
+            make_mesh_part("landing", box_triangles(0.92, 0.05, 0.92, (-0.12, 0.095, -0.12)), "mat_concrete"),
+            make_mesh_part("curb_wing_street", box_triangles(1.46, 0.18, 0.18, (0.0, 0.13, 0.64)), "mat_concrete"),
+            make_mesh_part("curb_wing_side", box_triangles(0.18, 0.18, 1.46, (0.64, 0.13, 0.0)), "mat_concrete"),
+            make_mesh_part("ramp_street", box_triangles(0.82, 0.04, 0.98, (-0.34, 0.08, -0.18)), "mat_concrete"),
+            make_mesh_part("ramp_side", box_triangles(0.98, 0.04, 0.82, (-0.18, 0.08, -0.34)), "mat_concrete"),
+            make_mesh_part("tactile_street", box_triangles(0.76, 0.015, 0.16, (-0.18, 0.1875, 0.28)), "mat_sign_yellow"),
+            make_mesh_part("tactile_side", box_triangles(0.16, 0.015, 0.76, (0.28, 0.1875, -0.18)), "mat_sign_yellow"),
+            make_mesh_part("drain_slot", box_triangles(0.04, 0.01, 0.38, (-0.56, 0.06, -0.56)), "mat_sign_black"),
+        ]
+        lod1 = [
+            make_mesh_part("base", box_triangles(1.46, 0.06, 1.46, (0.0, 0.03, 0.0)), "mat_concrete"),
+            make_mesh_part("landing", box_triangles(0.92, 0.05, 0.92, (-0.12, 0.095, -0.12)), "mat_concrete"),
+            make_mesh_part("curb_wing_street", box_triangles(1.46, 0.18, 0.18, (0.0, 0.13, 0.64)), "mat_concrete"),
+            make_mesh_part("curb_wing_side", box_triangles(0.18, 0.18, 1.46, (0.64, 0.13, 0.0)), "mat_concrete"),
+            make_mesh_part("ramp_body", box_triangles(1.0, 0.04, 1.0, (-0.28, 0.08, -0.28)), "mat_concrete"),
+            make_mesh_part("tactile_strip", box_triangles(0.76, 0.015, 0.16, (-0.18, 0.1875, 0.28)), "mat_sign_yellow"),
         ]
         return {"LOD0": lod0, "LOD1": lod1}
     if asset_id == "furniture_bus_bay_island_nose":
@@ -4086,6 +4175,40 @@ def road_asset_parts(asset_id: str, dimensions: Tuple[float, float, float]) -> D
             make_mesh_part("bollard_left", cylinder_triangles(0.09, 0.96, 12, (-0.28, 0.56, 0.0)), "mat_sign_yellow"),
             make_mesh_part("bollard_right", cylinder_triangles(0.09, 0.96, 12, (0.28, 0.56, 0.0)), "mat_sign_yellow"),
             make_mesh_part("base_rail", box_triangles(0.72, 0.08, 0.08, (0.0, 0.18, 0.0)), "mat_metal_galvanized"),
+        ]
+        return {"LOD0": lod0, "LOD1": lod1}
+    if asset_id == "furniture_signal_band_clamp":
+        lod0 = [
+            make_mesh_part("lower_band", cylinder_triangles(0.09, 0.04, 16, (0.0, 0.2, 0.0)), "mat_metal_galvanized"),
+            make_mesh_part("upper_band", cylinder_triangles(0.09, 0.04, 16, (0.0, 0.44, 0.0)), "mat_metal_galvanized"),
+            make_mesh_part("standoff_arm", box_triangles(0.18, 0.08, 0.08, (0.0, 0.32, 0.08)), "mat_metal_galvanized"),
+            make_mesh_part("mount_plate", box_triangles(0.06, 0.34, 0.08, (0.0, 0.32, 0.14)), "mat_metal_galvanized"),
+            oriented_box_part("brace_left", 0.04, 0.22, 0.04, (-0.04, 0.36, 0.1), "mat_metal_galvanized", 12.0),
+            oriented_box_part("brace_right", 0.04, 0.22, 0.04, (0.04, 0.28, 0.1), "mat_metal_galvanized", -12.0),
+        ]
+        lod1 = [
+            make_mesh_part("lower_band", cylinder_triangles(0.09, 0.04, 12, (0.0, 0.2, 0.0)), "mat_metal_galvanized"),
+            make_mesh_part("upper_band", cylinder_triangles(0.09, 0.04, 12, (0.0, 0.44, 0.0)), "mat_metal_galvanized"),
+            make_mesh_part("mount_plate", box_triangles(0.06, 0.34, 0.08, (0.0, 0.32, 0.14)), "mat_metal_galvanized"),
+            make_mesh_part("standoff_arm", box_triangles(0.18, 0.08, 0.08, (0.0, 0.32, 0.08)), "mat_metal_galvanized"),
+        ]
+        return {"LOD0": lod0, "LOD1": lod1}
+    if asset_id == "furniture_sign_band_clamp_pair":
+        lod0 = [
+            make_mesh_part("lower_band", cylinder_triangles(0.055, 0.03, 16, (0.0, 0.28, 0.0)), "mat_metal_galvanized"),
+            make_mesh_part("upper_band", cylinder_triangles(0.055, 0.03, 16, (0.0, 0.58, 0.0)), "mat_metal_galvanized"),
+            make_mesh_part("standoff_lower", box_triangles(0.14, 0.04, 0.06, (0.0, 0.28, 0.06)), "mat_metal_galvanized"),
+            make_mesh_part("standoff_upper", box_triangles(0.14, 0.04, 0.06, (0.0, 0.58, 0.06)), "mat_metal_galvanized"),
+            make_mesh_part("channel_left", box_triangles(0.04, 0.54, 0.04, (-0.12, 0.43, 0.1)), "mat_metal_galvanized"),
+            make_mesh_part("channel_right", box_triangles(0.04, 0.54, 0.04, (0.12, 0.43, 0.1)), "mat_metal_galvanized"),
+            make_mesh_part("cross_tie", box_triangles(0.26, 0.04, 0.04, (0.0, 0.43, 0.1)), "mat_metal_galvanized"),
+        ]
+        lod1 = [
+            make_mesh_part("lower_band", cylinder_triangles(0.055, 0.03, 12, (0.0, 0.28, 0.0)), "mat_metal_galvanized"),
+            make_mesh_part("upper_band", cylinder_triangles(0.055, 0.03, 12, (0.0, 0.58, 0.0)), "mat_metal_galvanized"),
+            make_mesh_part("channel_left", box_triangles(0.04, 0.54, 0.04, (-0.12, 0.43, 0.1)), "mat_metal_galvanized"),
+            make_mesh_part("channel_right", box_triangles(0.04, 0.54, 0.04, (0.12, 0.43, 0.1)), "mat_metal_galvanized"),
+            make_mesh_part("cross_tie", box_triangles(0.26, 0.04, 0.04, (0.0, 0.43, 0.1)), "mat_metal_galvanized"),
         ]
         return {"LOD0": lod0, "LOD1": lod1}
     if asset_id == "furniture_guardrail_bollard_set":
@@ -6398,7 +6521,9 @@ def road_definitions() -> List[Dict]:
         {"id": "furniture_sign_mount_bracket_single", "family": "road_furniture", "semantic_class": "furniture.sign_mount_bracket", "variant_key": "single_post", "dimensions": (0.42, 2.0, 0.09)},
         {"id": "furniture_sign_mount_bracket_double", "family": "road_furniture", "semantic_class": "furniture.sign_mount_bracket", "variant_key": "double_post", "dimensions": (0.82, 2.0, 0.09)},
         {"id": "furniture_sign_overhead_bracket", "family": "road_furniture", "semantic_class": "furniture.sign_overhead_bracket", "variant_key": "double_hanger", "dimensions": (2.24, 5.0, 0.22)},
+        {"id": "furniture_sign_band_clamp_pair", "family": "road_furniture", "semantic_class": "furniture.sign_band_clamp", "variant_key": "dual_channel_pair", "dimensions": (0.26, 0.72, 0.14)},
         {"id": "furniture_signal_side_mount_bracket", "family": "road_furniture", "semantic_class": "furniture.signal_mount_bracket", "variant_key": "side_mount", "dimensions": (0.62, 0.8, 0.16)},
+        {"id": "furniture_signal_band_clamp", "family": "road_furniture", "semantic_class": "furniture.signal_band_clamp", "variant_key": "standoff_plate", "dimensions": (0.28, 0.54, 0.18)},
         {"id": "furniture_signal_service_disconnect", "family": "road_furniture", "semantic_class": "furniture.signal_service_disconnect", "variant_key": "pole_mount_metered", "dimensions": (0.52, 2.04, 0.2)},
         {"id": "furniture_signal_meter_pedestal", "family": "road_furniture", "semantic_class": "furniture.signal_meter_pedestal", "variant_key": "utility_meter", "dimensions": (0.34, 1.12, 0.34)},
         {"id": "furniture_signal_backplate_vertical", "family": "road_furniture", "semantic_class": "furniture.signal_backplate", "variant_key": "vertical_3_aspect", "dimensions": (0.76, 2.58, 0.24)},
@@ -6415,10 +6540,14 @@ def road_definitions() -> List[Dict]:
         {"id": "furniture_utility_pull_box", "family": "road_furniture", "semantic_class": "furniture.utility_pull_box", "variant_key": "rectangular_handhole", "dimensions": (0.84, 0.49, 0.6)},
         {"id": "furniture_utility_transformer_padmount", "family": "road_furniture", "semantic_class": "furniture.utility_transformer", "variant_key": "padmount_single_phase", "dimensions": (1.04, 1.28, 0.82)},
         {"id": "furniture_bus_stop_shelter", "family": "road_furniture", "semantic_class": "furniture.transit_stop_shelter", "variant_key": "urban_glass_shelter", "dimensions": (2.38, 2.28, 1.18)},
+        {"id": "furniture_shelter_ad_panel", "family": "road_furniture", "semantic_class": "furniture.shelter_ad_panel", "variant_key": "freestanding_lightbox", "dimensions": (0.82, 2.0, 0.26)},
         {"id": "furniture_bus_stop_totem", "family": "road_furniture", "semantic_class": "furniture.transit_stop_marker", "variant_key": "blue_route_totem", "dimensions": (0.42, 2.3, 0.26)},
         {"id": "furniture_bus_stop_bench", "family": "road_furniture", "semantic_class": "furniture.transit_stop_bench", "variant_key": "slatted_metal", "dimensions": (1.28, 0.91, 0.34)},
+        {"id": "furniture_queue_rail_module", "family": "road_furniture", "semantic_class": "furniture.queue_rail", "variant_key": "pedestrian_channelizer", "dimensions": (1.68, 1.02, 0.18)},
         {"id": "furniture_bus_bay_curb_module", "family": "road_furniture", "semantic_class": "furniture.bus_bay_curb", "variant_key": "boarding_edge_module", "dimensions": (2.72, 0.22, 1.02)},
         {"id": "furniture_bus_bay_island_nose", "family": "road_furniture", "semantic_class": "furniture.bus_bay_island", "variant_key": "rounded_nose", "dimensions": (1.12, 0.86, 1.48)},
+        {"id": "furniture_curb_ramp_module", "family": "road_furniture", "semantic_class": "furniture.curb_ramp", "variant_key": "straight_tactile", "dimensions": (1.42, 0.18, 1.18)},
+        {"id": "furniture_curb_ramp_corner_module", "family": "road_furniture", "semantic_class": "furniture.curb_ramp", "variant_key": "corner_return_tactile", "dimensions": (1.46, 0.18, 1.46)},
         {"id": "furniture_passenger_info_kiosk", "family": "road_furniture", "semantic_class": "furniture.passenger_info_kiosk", "variant_key": "route_map_panel", "dimensions": (0.76, 2.14, 0.52)},
         {"id": "furniture_real_time_arrival_display", "family": "road_furniture", "semantic_class": "furniture.arrival_display", "variant_key": "pole_mount_led", "dimensions": (0.48, 2.64, 0.34)},
         {"id": "furniture_loading_zone_sign_post", "family": "road_furniture", "semantic_class": "furniture.loading_zone_sign", "variant_key": "regulatory_dual_plate", "dimensions": (0.42, 2.46, 0.24)},
@@ -7307,12 +7436,17 @@ def scene_definitions() -> List[Dict]:
                 {"asset_id": "furniture_signal_service_disconnect", "name": "service_disconnect_0", "translate": (-1.92, 0.0, -2.02), "rotate_y": 0.0},
                 {"asset_id": "furniture_utility_pull_box", "name": "pull_box_0", "translate": (-2.02, 0.0, -2.96), "rotate_y": 0.0},
                 {"asset_id": "furniture_signal_side_mount_bracket", "name": "side_mount_0", "translate": (1.72, 0.0, -1.18), "rotate_y": 180.0},
+                {"asset_id": "furniture_signal_band_clamp", "name": "signal_band_clamp_0", "translate": (1.72, 0.0, -1.18), "rotate_y": 180.0},
                 {"asset_id": "furniture_utility_transformer_padmount", "name": "transformer_0", "translate": (-3.38, 0.0, 2.42), "rotate_y": 0.0},
                 {"asset_id": "furniture_bus_stop_shelter", "name": "bus_stop_shelter_0", "translate": (-3.62, 0.0, 0.96), "rotate_y": 90.0},
+                {"asset_id": "furniture_shelter_ad_panel", "name": "shelter_ad_panel_0", "translate": (-4.18, 0.0, 1.36), "rotate_y": 90.0},
                 {"asset_id": "furniture_bus_stop_totem", "name": "bus_stop_totem_0", "translate": (-2.76, 0.0, 0.38), "rotate_y": 90.0},
                 {"asset_id": "furniture_bus_stop_bench", "name": "bus_stop_bench_0", "translate": (-3.58, 0.0, 1.54), "rotate_y": 90.0},
+                {"asset_id": "furniture_queue_rail_module", "name": "queue_rail_0", "translate": (-2.88, 0.0, 0.62), "rotate_y": 90.0},
                 {"asset_id": "furniture_bus_bay_curb_module", "name": "bus_bay_curb_0", "translate": (-3.52, 0.0, 0.98), "rotate_y": 90.0},
                 {"asset_id": "furniture_bus_bay_island_nose", "name": "bus_bay_island_0", "translate": (-1.96, 0.0, 0.94), "rotate_y": 90.0},
+                {"asset_id": "furniture_curb_ramp_module", "name": "curb_ramp_0", "translate": (-3.92, 0.0, -0.64), "rotate_y": 90.0},
+                {"asset_id": "furniture_curb_ramp_corner_module", "name": "curb_ramp_corner_0", "translate": (3.58, 0.0, 1.94), "rotate_y": 270.0},
                 {"asset_id": "furniture_passenger_info_kiosk", "name": "passenger_info_kiosk_0", "translate": (-2.86, 0.0, 1.52), "rotate_y": 90.0},
                 {"asset_id": "furniture_real_time_arrival_display", "name": "arrival_display_0", "translate": (-2.22, 0.0, 1.58), "rotate_y": 90.0},
                 {"asset_id": "furniture_loading_zone_sign_post", "name": "loading_zone_sign_0", "translate": (3.48, 0.0, 1.6), "rotate_y": 270.0},
@@ -7325,6 +7459,7 @@ def scene_definitions() -> List[Dict]:
                 {"asset_id": "furniture_sign_mount_bracket_single", "name": "sign_bracket_rect_1", "translate": (3.1, 0.0, 2.18), "rotate_y": 270.0},
                 {"asset_id": "furniture_sign_back_rectangle_wide", "name": "sign_back_rect_2", "translate": (-3.88, 0.0, 0.18), "rotate_y": 90.0},
                 {"asset_id": "furniture_sign_mount_bracket_single", "name": "sign_bracket_rect_2", "translate": (-3.88, 0.0, 0.18), "rotate_y": 90.0},
+                {"asset_id": "furniture_sign_band_clamp_pair", "name": "sign_band_clamp_0", "translate": (-3.88, 0.0, 0.18), "rotate_y": 90.0},
                 {"asset_id": "signal_beacon_amber_single", "name": "beacon_amber_0", "translate": (-2.65, 0.0, 1.3), "rotate_y": 90.0},
                 {"asset_id": "signal_warning_dual_amber_horizontal", "name": "warning_amber_0", "translate": (2.2, 0.0, 1.72), "rotate_y": 90.0},
                 {"asset_id": "signal_lane_control_overhead_3_aspect", "name": "lane_control_overhead_0", "translate": (0.3, 0.0, -2.35), "rotate_y": 0.0},
@@ -7380,11 +7515,13 @@ def scene_definitions() -> List[Dict]:
                 {"asset_id": "furniture_utility_transformer_padmount", "name": "transformer_0", "translate": (3.32, 0.0, 1.05), "rotate_y": 0.0},
                 {"asset_id": "furniture_utility_pull_box", "name": "pull_box_0", "translate": (2.38, 0.0, 1.06), "rotate_y": 0.0},
                 {"asset_id": "furniture_sign_overhead_bracket", "name": "overhead_bracket_0", "translate": (1.48, 0.0, 0.0), "rotate_y": 180.0},
+                {"asset_id": "furniture_sign_band_clamp_pair", "name": "sign_band_clamp_0", "translate": (1.5, 0.0, 0.0), "rotate_y": 180.0},
                 {"asset_id": "marking_lane_white_worn", "name": "lane_0", "translate": (0.0, 0.03, 0.0), "rotate_y": 0.0},
                 {"asset_id": "marking_edge_line_white", "name": "edge_line_0", "translate": (1.55, 0.03, 0.0), "rotate_y": 0.0},
                 {"asset_id": "marking_raised_marker_white", "name": "raised_marker_0", "translate": (-0.25, 0.03, -0.15), "rotate_y": 0.0},
                 {"asset_id": "furniture_signal_backplate_vertical", "name": "backplate_vertical_0", "translate": (1.8, 0.0, -1.2), "rotate_y": 180.0},
                 {"asset_id": "furniture_signal_side_mount_bracket", "name": "side_mount_0", "translate": (1.72, 0.0, -1.18), "rotate_y": 180.0},
+                {"asset_id": "furniture_signal_band_clamp", "name": "signal_band_clamp_0", "translate": (1.72, 0.0, -1.18), "rotate_y": 180.0},
                 {"asset_id": "signal_warning_dual_red_horizontal", "name": "warning_red_0", "translate": (1.8, 0.0, -1.2), "rotate_y": 180.0},
                 {"asset_id": "signal_rail_crossing_dual_red_vertical", "name": "rail_vertical_0", "translate": (-2.25, 0.0, -0.1), "rotate_y": 0.0},
                 {"asset_id": "signal_rail_crossing_dual_red_horizontal", "name": "rail_horizontal_0", "translate": (-2.05, 0.0, 0.92), "rotate_y": 0.0},
@@ -7437,6 +7574,9 @@ def scene_definitions() -> List[Dict]:
                 {"asset_id": "furniture_service_bollard_pair", "name": "service_bollards_0", "translate": (3.32, 0.0, 1.2), "rotate_y": 0.0},
                 {"asset_id": "furniture_loading_zone_sign_post", "name": "loading_zone_sign_0", "translate": (-3.56, 0.0, -0.18), "rotate_y": 90.0},
                 {"asset_id": "furniture_loading_zone_kiosk", "name": "loading_zone_kiosk_0", "translate": (-3.14, 0.0, -0.74), "rotate_y": 90.0},
+                {"asset_id": "furniture_queue_rail_module", "name": "queue_rail_0", "translate": (-2.46, 0.0, 0.78), "rotate_y": 90.0},
+                {"asset_id": "furniture_curb_ramp_module", "name": "curb_ramp_0", "translate": (-3.86, 0.0, -0.18), "rotate_y": 90.0},
+                {"asset_id": "furniture_curb_ramp_corner_module", "name": "curb_ramp_corner_0", "translate": (2.84, 0.0, 1.32), "rotate_y": 180.0},
                 {"asset_id": "signal_vehicle_vertical_3_aspect", "name": "signal_0", "translate": (-1.6, 0.0, -0.8), "rotate_y": 0.0},
                 {"asset_id": "signal_beacon_amber_single", "name": "beacon_amber_0", "translate": (1.65, 0.0, 1.55), "rotate_y": 180.0},
                 {"asset_id": "signal_lane_control_reversible_2_aspect", "name": "lane_control_reversible_0", "translate": (2.45, 0.0, 1.02), "rotate_y": 180.0},

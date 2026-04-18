@@ -920,10 +920,22 @@
       "variant_key": "double_hanger"
     },
     {
+      "id": "furniture_sign_band_clamp_pair",
+      "family": "road_furniture",
+      "semantic_class": "furniture.sign_band_clamp",
+      "variant_key": "dual_channel_pair"
+    },
+    {
       "id": "furniture_signal_side_mount_bracket",
       "family": "road_furniture",
       "semantic_class": "furniture.signal_mount_bracket",
       "variant_key": "side_mount"
+    },
+    {
+      "id": "furniture_signal_band_clamp",
+      "family": "road_furniture",
+      "semantic_class": "furniture.signal_band_clamp",
+      "variant_key": "standoff_plate"
     },
     {
       "id": "furniture_signal_service_disconnect",
@@ -1022,6 +1034,12 @@
       "variant_key": "urban_glass_shelter"
     },
     {
+      "id": "furniture_shelter_ad_panel",
+      "family": "road_furniture",
+      "semantic_class": "furniture.shelter_ad_panel",
+      "variant_key": "freestanding_lightbox"
+    },
+    {
       "id": "furniture_bus_stop_totem",
       "family": "road_furniture",
       "semantic_class": "furniture.transit_stop_marker",
@@ -1034,6 +1052,12 @@
       "variant_key": "slatted_metal"
     },
     {
+      "id": "furniture_queue_rail_module",
+      "family": "road_furniture",
+      "semantic_class": "furniture.queue_rail",
+      "variant_key": "pedestrian_channelizer"
+    },
+    {
       "id": "furniture_bus_bay_curb_module",
       "family": "road_furniture",
       "semantic_class": "furniture.bus_bay_curb",
@@ -1044,6 +1068,18 @@
       "family": "road_furniture",
       "semantic_class": "furniture.bus_bay_island",
       "variant_key": "rounded_nose"
+    },
+    {
+      "id": "furniture_curb_ramp_module",
+      "family": "road_furniture",
+      "semantic_class": "furniture.curb_ramp",
+      "variant_key": "straight_tactile"
+    },
+    {
+      "id": "furniture_curb_ramp_corner_module",
+      "family": "road_furniture",
+      "semantic_class": "furniture.curb_ramp",
+      "variant_key": "corner_return_tactile"
     },
     {
       "id": "furniture_passenger_info_kiosk",

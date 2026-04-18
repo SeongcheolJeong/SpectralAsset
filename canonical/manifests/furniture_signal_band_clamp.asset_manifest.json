@@ -1,0 +1,60 @@
+{
+  "id": "furniture_signal_band_clamp",
+  "family": "road_furniture",
+  "semantic_class": "furniture.signal_band_clamp",
+  "variant_key": "standoff_plate",
+  "dimensions_m": {
+    "width": 0.28,
+    "height": 0.54,
+    "depth": 0.18
+  },
+  "lods": [
+    {
+      "name": "LOD0",
+      "triangle_count": 176,
+      "usd_scope": "/furniture_signal_band_clamp/LOD0",
+      "gltf_node_prefix": "LOD0"
+    },
+    {
+      "name": "LOD1",
+      "triangle_count": 120,
+      "usd_scope": "/furniture_signal_band_clamp/LOD1",
+      "gltf_node_prefix": "LOD1"
+    }
+  ],
+  "collider": {
+    "type": "box",
+    "width": 0.28,
+    "height": 0.54,
+    "depth": 0.18
+  },
+  "anchor_points": {
+    "base_center": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    }
+  },
+  "materials": [
+    "mat_metal_galvanized"
+  ],
+  "states": {
+    "default": {
+      "render_profile": "static"
+    }
+  },
+  "export_targets": {
+    "usd_ascii": "canonical/geometry/usd/furniture_signal_band_clamp.usda",
+    "usd_binary": "exports/usd/furniture_signal_band_clamp.usdc",
+    "gltf_binary": "exports/gltf/furniture_signal_band_clamp.glb"
+  },
+  "license": {
+    "spdx": "LicenseRef-ProjectGenerated",
+    "redistribution": "geometry, manifests, and templates generated in-repo"
+  },
+  "provenance": {
+    "generated_at": "2026-04-16T10:10:40+00:00",
+    "generated_by": "scripts/build_asset_pack.py",
+    "note": "Generated reusable road surface, marking, or furniture primitive."
+  }
+}

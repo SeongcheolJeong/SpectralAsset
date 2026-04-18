@@ -230,6 +230,27 @@ def Xform "scene_wet_road_braking" {
         float xformOp:rotateY = 90.000000
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
     }
+    def Xform "queue_rail_0" (
+        references = @../geometry/usd/furniture_queue_rail_module.usda@</furniture_queue_rail_module>
+    ) {
+        double3 xformOp:translate = (-2.460000, 0.000000, 0.780000)
+        float xformOp:rotateY = 90.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
+    def Xform "curb_ramp_0" (
+        references = @../geometry/usd/furniture_curb_ramp_module.usda@</furniture_curb_ramp_module>
+    ) {
+        double3 xformOp:translate = (-3.860000, 0.000000, -0.180000)
+        float xformOp:rotateY = 90.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
+    def Xform "curb_ramp_corner_0" (
+        references = @../geometry/usd/furniture_curb_ramp_corner_module.usda@</furniture_curb_ramp_corner_module>
+    ) {
+        double3 xformOp:translate = (2.840000, 0.000000, 1.320000)
+        float xformOp:rotateY = 180.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
     def Xform "signal_0" (
         references = @../geometry/usd/signal_vehicle_vertical_3_aspect.usda@</signal_vehicle_vertical_3_aspect>
     ) {

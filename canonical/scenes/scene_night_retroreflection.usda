@@ -188,6 +188,13 @@ def Xform "scene_night_retroreflection" {
         float xformOp:rotateY = 180.000000
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
     }
+    def Xform "sign_band_clamp_0" (
+        references = @../geometry/usd/furniture_sign_band_clamp_pair.usda@</furniture_sign_band_clamp_pair>
+    ) {
+        double3 xformOp:translate = (1.500000, 0.000000, 0.000000)
+        float xformOp:rotateY = 180.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
     def Xform "lane_0" (
         references = @../geometry/usd/marking_lane_white_worn.usda@</marking_lane_white_worn>
     ) {
@@ -218,6 +225,13 @@ def Xform "scene_night_retroreflection" {
     }
     def Xform "side_mount_0" (
         references = @../geometry/usd/furniture_signal_side_mount_bracket.usda@</furniture_signal_side_mount_bracket>
+    ) {
+        double3 xformOp:translate = (1.720000, 0.000000, -1.180000)
+        float xformOp:rotateY = 180.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
+    def Xform "signal_band_clamp_0" (
+        references = @../geometry/usd/furniture_signal_band_clamp.usda@</furniture_signal_band_clamp>
     ) {
         double3 xformOp:translate = (1.720000, 0.000000, -1.180000)
         float xformOp:rotateY = 180.000000

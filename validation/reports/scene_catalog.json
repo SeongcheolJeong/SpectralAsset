@@ -1327,6 +1327,16 @@
           "rotate_y": 180.0
         },
         {
+          "asset_id": "furniture_signal_band_clamp",
+          "name": "signal_band_clamp_0",
+          "translate": [
+            1.72,
+            0.0,
+            -1.18
+          ],
+          "rotate_y": 180.0
+        },
+        {
           "asset_id": "furniture_utility_transformer_padmount",
           "name": "transformer_0",
           "translate": [
@@ -1343,6 +1353,16 @@
             -3.62,
             0.0,
             0.96
+          ],
+          "rotate_y": 90.0
+        },
+        {
+          "asset_id": "furniture_shelter_ad_panel",
+          "name": "shelter_ad_panel_0",
+          "translate": [
+            -4.18,
+            0.0,
+            1.36
           ],
           "rotate_y": 90.0
         },
@@ -1367,6 +1387,16 @@
           "rotate_y": 90.0
         },
         {
+          "asset_id": "furniture_queue_rail_module",
+          "name": "queue_rail_0",
+          "translate": [
+            -2.88,
+            0.0,
+            0.62
+          ],
+          "rotate_y": 90.0
+        },
+        {
           "asset_id": "furniture_bus_bay_curb_module",
           "name": "bus_bay_curb_0",
           "translate": [
@@ -1385,6 +1415,26 @@
             0.94
           ],
           "rotate_y": 90.0
+        },
+        {
+          "asset_id": "furniture_curb_ramp_module",
+          "name": "curb_ramp_0",
+          "translate": [
+            -3.92,
+            0.0,
+            -0.64
+          ],
+          "rotate_y": 90.0
+        },
+        {
+          "asset_id": "furniture_curb_ramp_corner_module",
+          "name": "curb_ramp_corner_0",
+          "translate": [
+            3.58,
+            0.0,
+            1.94
+          ],
+          "rotate_y": 270.0
         },
         {
           "asset_id": "furniture_passenger_info_kiosk",
@@ -1499,6 +1549,16 @@
         {
           "asset_id": "furniture_sign_mount_bracket_single",
           "name": "sign_bracket_rect_2",
+          "translate": [
+            -3.88,
+            0.0,
+            0.18
+          ],
+          "rotate_y": 90.0
+        },
+        {
+          "asset_id": "furniture_sign_band_clamp_pair",
+          "name": "sign_band_clamp_0",
           "translate": [
             -3.88,
             0.0,
@@ -2008,6 +2068,16 @@
           "rotate_y": 180.0
         },
         {
+          "asset_id": "furniture_sign_band_clamp_pair",
+          "name": "sign_band_clamp_0",
+          "translate": [
+            1.5,
+            0.0,
+            0.0
+          ],
+          "rotate_y": 180.0
+        },
+        {
           "asset_id": "marking_lane_white_worn",
           "name": "lane_0",
           "translate": [
@@ -2050,6 +2120,16 @@
         {
           "asset_id": "furniture_signal_side_mount_bracket",
           "name": "side_mount_0",
+          "translate": [
+            1.72,
+            0.0,
+            -1.18
+          ],
+          "rotate_y": 180.0
+        },
+        {
+          "asset_id": "furniture_signal_band_clamp",
+          "name": "signal_band_clamp_0",
           "translate": [
             1.72,
             0.0,
@@ -2527,6 +2607,36 @@
             -0.74
           ],
           "rotate_y": 90.0
+        },
+        {
+          "asset_id": "furniture_queue_rail_module",
+          "name": "queue_rail_0",
+          "translate": [
+            -2.46,
+            0.0,
+            0.78
+          ],
+          "rotate_y": 90.0
+        },
+        {
+          "asset_id": "furniture_curb_ramp_module",
+          "name": "curb_ramp_0",
+          "translate": [
+            -3.86,
+            0.0,
+            -0.18
+          ],
+          "rotate_y": 90.0
+        },
+        {
+          "asset_id": "furniture_curb_ramp_corner_module",
+          "name": "curb_ramp_corner_0",
+          "translate": [
+            2.84,
+            0.0,
+            1.32
+          ],
+          "rotate_y": 180.0
         },
         {
           "asset_id": "signal_vehicle_vertical_3_aspect",

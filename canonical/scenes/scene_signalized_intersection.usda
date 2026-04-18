@@ -314,6 +314,13 @@ def Xform "scene_signalized_intersection" {
         float xformOp:rotateY = 180.000000
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
     }
+    def Xform "signal_band_clamp_0" (
+        references = @../geometry/usd/furniture_signal_band_clamp.usda@</furniture_signal_band_clamp>
+    ) {
+        double3 xformOp:translate = (1.720000, 0.000000, -1.180000)
+        float xformOp:rotateY = 180.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
     def Xform "transformer_0" (
         references = @../geometry/usd/furniture_utility_transformer_padmount.usda@</furniture_utility_transformer_padmount>
     ) {
@@ -325,6 +332,13 @@ def Xform "scene_signalized_intersection" {
         references = @../geometry/usd/furniture_bus_stop_shelter.usda@</furniture_bus_stop_shelter>
     ) {
         double3 xformOp:translate = (-3.620000, 0.000000, 0.960000)
+        float xformOp:rotateY = 90.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
+    def Xform "shelter_ad_panel_0" (
+        references = @../geometry/usd/furniture_shelter_ad_panel.usda@</furniture_shelter_ad_panel>
+    ) {
+        double3 xformOp:translate = (-4.180000, 0.000000, 1.360000)
         float xformOp:rotateY = 90.000000
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
     }
@@ -342,6 +356,13 @@ def Xform "scene_signalized_intersection" {
         float xformOp:rotateY = 90.000000
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
     }
+    def Xform "queue_rail_0" (
+        references = @../geometry/usd/furniture_queue_rail_module.usda@</furniture_queue_rail_module>
+    ) {
+        double3 xformOp:translate = (-2.880000, 0.000000, 0.620000)
+        float xformOp:rotateY = 90.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
     def Xform "bus_bay_curb_0" (
         references = @../geometry/usd/furniture_bus_bay_curb_module.usda@</furniture_bus_bay_curb_module>
     ) {
@@ -354,6 +375,20 @@ def Xform "scene_signalized_intersection" {
     ) {
         double3 xformOp:translate = (-1.960000, 0.000000, 0.940000)
         float xformOp:rotateY = 90.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
+    def Xform "curb_ramp_0" (
+        references = @../geometry/usd/furniture_curb_ramp_module.usda@</furniture_curb_ramp_module>
+    ) {
+        double3 xformOp:translate = (-3.920000, 0.000000, -0.640000)
+        float xformOp:rotateY = 90.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
+    def Xform "curb_ramp_corner_0" (
+        references = @../geometry/usd/furniture_curb_ramp_corner_module.usda@</furniture_curb_ramp_corner_module>
+    ) {
+        double3 xformOp:translate = (3.580000, 0.000000, 1.940000)
+        float xformOp:rotateY = 270.000000
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
     }
     def Xform "passenger_info_kiosk_0" (
@@ -435,6 +470,13 @@ def Xform "scene_signalized_intersection" {
     }
     def Xform "sign_bracket_rect_2" (
         references = @../geometry/usd/furniture_sign_mount_bracket_single.usda@</furniture_sign_mount_bracket_single>
+    ) {
+        double3 xformOp:translate = (-3.880000, 0.000000, 0.180000)
+        float xformOp:rotateY = 90.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
+    def Xform "sign_band_clamp_0" (
+        references = @../geometry/usd/furniture_sign_band_clamp_pair.usda@</furniture_sign_band_clamp_pair>
     ) {
         double3 xformOp:translate = (-3.880000, 0.000000, 0.180000)
         float xformOp:rotateY = 90.000000
