@@ -158,6 +158,7 @@
 - validation summary now reports `257` assets, including `69` `road_furniture` assets, `23` emissive profiles, and `261` GLB files after the first thirty-ninth `P3` expansion batch
 - validation summary now reports `263` assets, including `57` `road_marking` assets, `23` emissive profiles, and `267` GLB files after the fortieth `P3` expansion batch
 - validation summary now reports `269` assets, including `45` `road_surface` assets, `27` spectral materials, and `273` GLB files after the first forty-first `P3` expansion batch
+- validation summary now reports `279` assets, including `74` `traffic_sign` assets, `27` spectral materials, and `283` GLB files after the first forty-second `P3` expansion batch
 - validation summary now includes `3` camera profiles and zero camera-profile validation errors
 - material quality summary now reports `3` `measured_standard`, `1` `measured_derivative`, `23` `project_proxy`, and `0` `vendor_derived` materials
 - emissive profile quality summary now distinguishes vendor-derived vehicle/protected-turn profiles from remaining proxy pedestrian/countdown profiles

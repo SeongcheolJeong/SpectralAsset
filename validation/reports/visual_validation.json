@@ -175,6 +175,12 @@
       "30m": "pass",
       "60m": "pass"
     },
+    "sign_centrum_arrow_left": {
+      "5m": "pass",
+      "15m": "pass",
+      "30m": "pass",
+      "60m": "pass"
+    },
     "sign_aeroporto_arrow_left": {
       "5m": "pass",
       "15m": "pass",
@@ -182,6 +188,12 @@
       "60m": "pass"
     },
     "sign_metro_arrow_left": {
+      "5m": "pass",
+      "15m": "pass",
+      "30m": "pass",
+      "60m": "pass"
+    },
+    "sign_porto_arrow_right": {
       "5m": "pass",
       "15m": "pass",
       "30m": "pass",
@@ -199,7 +211,19 @@
       "30m": "pass",
       "60m": "pass"
     },
+    "sign_route_us_50_shield": {
+      "5m": "pass",
+      "15m": "pass",
+      "30m": "pass",
+      "60m": "pass"
+    },
     "sign_route_interstate_5_shield": {
+      "5m": "pass",
+      "15m": "pass",
+      "30m": "pass",
+      "60m": "pass"
+    },
+    "sign_route_interstate_80_shield": {
       "5m": "pass",
       "15m": "pass",
       "30m": "pass",
@@ -223,6 +247,12 @@
       "30m": "pass",
       "60m": "pass"
     },
+    "sign_route_e75_shield": {
+      "5m": "pass",
+      "15m": "pass",
+      "30m": "pass",
+      "60m": "pass"
+    },
     "sign_route_ca_1_shield": {
       "5m": "pass",
       "15m": "pass",
@@ -241,7 +271,19 @@
       "30m": "pass",
       "60m": "pass"
     },
+    "sign_route_ca_280_shield": {
+      "5m": "pass",
+      "15m": "pass",
+      "30m": "pass",
+      "60m": "pass"
+    },
     "sign_route_m25_shield": {
+      "5m": "pass",
+      "15m": "pass",
+      "30m": "pass",
+      "60m": "pass"
+    },
+    "sign_route_m1_shield": {
       "5m": "pass",
       "15m": "pass",
       "30m": "pass",
@@ -289,6 +331,12 @@
       "30m": "pass",
       "60m": "pass"
     },
+    "sign_destination_stack_metro_port_left": {
+      "5m": "pass",
+      "15m": "pass",
+      "30m": "pass",
+      "60m": "pass"
+    },
     "sign_overhead_airport_centre_split": {
       "5m": "pass",
       "15m": "pass",
@@ -314,6 +362,18 @@
       "60m": "pass"
     },
     "sign_overhead_aeroporto_centro_split": {
+      "5m": "pass",
+      "15m": "pass",
+      "30m": "pass",
+      "60m": "pass"
+    },
+    "sign_overhead_centrum_port_split": {
+      "5m": "pass",
+      "15m": "pass",
+      "30m": "pass",
+      "60m": "pass"
+    },
+    "sign_overhead_metro_park_right": {
       "5m": "pass",
       "15m": "pass",
       "30m": "pass",

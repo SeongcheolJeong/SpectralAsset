@@ -176,6 +176,12 @@
       "variant_key": "locale.es.centro.right"
     },
     {
+      "id": "sign_centrum_arrow_left",
+      "family": "traffic_sign",
+      "semantic_class": "information.centre",
+      "variant_key": "locale.eu.centrum.left"
+    },
+    {
       "id": "sign_aeroporto_arrow_left",
       "family": "traffic_sign",
       "semantic_class": "information.airport",
@@ -186,6 +192,12 @@
       "family": "traffic_sign",
       "semantic_class": "information.metro",
       "variant_key": "locale.eu.metro.left"
+    },
+    {
+      "id": "sign_porto_arrow_right",
+      "family": "traffic_sign",
+      "semantic_class": "information.port",
+      "variant_key": "locale.it.porto.right"
     },
     {
       "id": "sign_route_us_101_shield",
@@ -200,10 +212,22 @@
       "variant_key": "route.us.us_66"
     },
     {
+      "id": "sign_route_us_50_shield",
+      "family": "traffic_sign",
+      "semantic_class": "information.route_shield",
+      "variant_key": "route.us.us_50"
+    },
+    {
       "id": "sign_route_interstate_5_shield",
       "family": "traffic_sign",
       "semantic_class": "information.route_shield",
       "variant_key": "route.us.interstate_5"
+    },
+    {
+      "id": "sign_route_interstate_80_shield",
+      "family": "traffic_sign",
+      "semantic_class": "information.route_shield",
+      "variant_key": "route.us.interstate_80"
     },
     {
       "id": "sign_route_interstate_405_shield",
@@ -224,6 +248,12 @@
       "variant_key": "route.eu.e_20"
     },
     {
+      "id": "sign_route_e75_shield",
+      "family": "traffic_sign",
+      "semantic_class": "information.route_shield",
+      "variant_key": "route.eu.e_75"
+    },
+    {
       "id": "sign_route_ca_1_shield",
       "family": "traffic_sign",
       "semantic_class": "information.route_shield",
@@ -242,10 +272,22 @@
       "variant_key": "route.us.ca_17"
     },
     {
+      "id": "sign_route_ca_280_shield",
+      "family": "traffic_sign",
+      "semantic_class": "information.route_shield",
+      "variant_key": "route.us.ca_280"
+    },
+    {
       "id": "sign_route_m25_shield",
       "family": "traffic_sign",
       "semantic_class": "information.route_shield",
       "variant_key": "route.uk.m_25"
+    },
+    {
+      "id": "sign_route_m1_shield",
+      "family": "traffic_sign",
+      "semantic_class": "information.route_shield",
+      "variant_key": "route.uk.m_1"
     },
     {
       "id": "sign_route_a9_shield",
@@ -290,6 +332,12 @@
       "variant_key": "guide.centro_hotel.left_stack"
     },
     {
+      "id": "sign_destination_stack_metro_port_left",
+      "family": "traffic_sign",
+      "semantic_class": "information.destination_guide",
+      "variant_key": "guide.metro_port.left_stack"
+    },
+    {
       "id": "sign_overhead_airport_centre_split",
       "family": "traffic_sign",
       "semantic_class": "information.destination_guide",
@@ -318,6 +366,18 @@
       "family": "traffic_sign",
       "semantic_class": "information.destination_guide",
       "variant_key": "guide.overhead.aeroporto_centro.split"
+    },
+    {
+      "id": "sign_overhead_centrum_port_split",
+      "family": "traffic_sign",
+      "semantic_class": "information.destination_guide",
+      "variant_key": "guide.overhead.centrum_port.split"
+    },
+    {
+      "id": "sign_overhead_metro_park_right",
+      "family": "traffic_sign",
+      "semantic_class": "information.destination_guide",
+      "variant_key": "guide.overhead.metro_park.right"
     },
     {
       "id": "sign_centre_left_text",
