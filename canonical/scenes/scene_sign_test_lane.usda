@@ -489,6 +489,20 @@ def Xform "scene_sign_test_lane" {
         float xformOp:rotateY = 0.000000
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
     }
+    def Xform "sign_bus_station_0" (
+        references = @../geometry/usd/sign_bus_station_arrow_right.usda@</sign_bus_station_arrow_right>
+    ) {
+        double3 xformOp:translate = (-5.650000, 0.000000, -2.750000)
+        float xformOp:rotateY = 0.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
+    def Xform "sign_destination_stack_3" (
+        references = @../geometry/usd/sign_destination_stack_airport_parking_right.usda@</sign_destination_stack_airport_parking_right>
+    ) {
+        double3 xformOp:translate = (-5.650000, 0.000000, -1.600000)
+        float xformOp:rotateY = 0.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
     def Xform "sign_route_us_101_0" (
         references = @../geometry/usd/sign_route_us_101_shield.usda@</sign_route_us_101_shield>
     ) {
@@ -503,6 +517,13 @@ def Xform "scene_sign_test_lane" {
         float xformOp:rotateY = 0.000000
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
     }
+    def Xform "sign_route_i405_0" (
+        references = @../geometry/usd/sign_route_interstate_405_shield.usda@</sign_route_interstate_405_shield>
+    ) {
+        double3 xformOp:translate = (-5.650000, 0.000000, -0.400000)
+        float xformOp:rotateY = 0.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
     def Xform "sign_route_e45_0" (
         references = @../geometry/usd/sign_route_e45_shield.usda@</sign_route_e45_shield>
     ) {
@@ -510,10 +531,24 @@ def Xform "scene_sign_test_lane" {
         float xformOp:rotateY = 0.000000
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
     }
+    def Xform "sign_route_e20_0" (
+        references = @../geometry/usd/sign_route_e20_shield.usda@</sign_route_e20_shield>
+    ) {
+        double3 xformOp:translate = (-5.650000, 0.000000, 0.600000)
+        float xformOp:rotateY = 0.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
     def Xform "sign_route_ca_1_0" (
         references = @../geometry/usd/sign_route_ca_1_shield.usda@</sign_route_ca_1_shield>
     ) {
         double3 xformOp:translate = (-4.400000, 0.000000, 2.550000)
+        float xformOp:rotateY = 0.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
+    def Xform "sign_route_ca_82_0" (
+        references = @../geometry/usd/sign_route_ca_82_shield.usda@</sign_route_ca_82_shield>
+    ) {
+        double3 xformOp:translate = (-5.650000, 0.000000, 1.650000)
         float xformOp:rotateY = 0.000000
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
     }
@@ -636,6 +671,27 @@ def Xform "scene_sign_test_lane" {
         float xformOp:rotateY = 180.000000
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
     }
+    def Xform "sign_route_i405_1" (
+        references = @../geometry/usd/sign_route_interstate_405_shield.usda@</sign_route_interstate_405_shield>
+    ) {
+        double3 xformOp:translate = (5.650000, 0.000000, -1.550000)
+        float xformOp:rotateY = 180.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
+    def Xform "sign_route_e20_1" (
+        references = @../geometry/usd/sign_route_e20_shield.usda@</sign_route_e20_shield>
+    ) {
+        double3 xformOp:translate = (5.650000, 0.000000, -0.550000)
+        float xformOp:rotateY = 180.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
+    def Xform "sign_route_ca_82_1" (
+        references = @../geometry/usd/sign_route_ca_82_shield.usda@</sign_route_ca_82_shield>
+    ) {
+        double3 xformOp:translate = (5.650000, 0.000000, 0.550000)
+        float xformOp:rotateY = 180.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
     def Xform "sign_overhead_airport_0" (
         references = @../geometry/usd/sign_overhead_airport_centre_split.usda@</sign_overhead_airport_centre_split>
     ) {
@@ -647,6 +703,13 @@ def Xform "scene_sign_test_lane" {
         references = @../geometry/usd/sign_overhead_park_ride_left.usda@</sign_overhead_park_ride_left>
     ) {
         double3 xformOp:translate = (8.200000, 0.000000, -4.150000)
+        float xformOp:rotateY = 0.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
+    def Xform "sign_overhead_hospital_0" (
+        references = @../geometry/usd/sign_overhead_hospital_parking_split.usda@</sign_overhead_hospital_parking_split>
+    ) {
+        double3 xformOp:translate = (-8.200000, 0.000000, -4.150000)
         float xformOp:rotateY = 0.000000
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
     }

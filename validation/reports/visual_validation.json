@@ -163,6 +163,12 @@
       "30m": "pass",
       "60m": "pass"
     },
+    "sign_bus_station_arrow_right": {
+      "5m": "pass",
+      "15m": "pass",
+      "30m": "pass",
+      "60m": "pass"
+    },
     "sign_route_us_101_shield": {
       "5m": "pass",
       "15m": "pass",
@@ -175,13 +181,31 @@
       "30m": "pass",
       "60m": "pass"
     },
+    "sign_route_interstate_405_shield": {
+      "5m": "pass",
+      "15m": "pass",
+      "30m": "pass",
+      "60m": "pass"
+    },
     "sign_route_e45_shield": {
       "5m": "pass",
       "15m": "pass",
       "30m": "pass",
       "60m": "pass"
     },
+    "sign_route_e20_shield": {
+      "5m": "pass",
+      "15m": "pass",
+      "30m": "pass",
+      "60m": "pass"
+    },
     "sign_route_ca_1_shield": {
+      "5m": "pass",
+      "15m": "pass",
+      "30m": "pass",
+      "60m": "pass"
+    },
+    "sign_route_ca_82_shield": {
       "5m": "pass",
       "15m": "pass",
       "30m": "pass",
@@ -217,6 +241,12 @@
       "30m": "pass",
       "60m": "pass"
     },
+    "sign_destination_stack_airport_parking_right": {
+      "5m": "pass",
+      "15m": "pass",
+      "30m": "pass",
+      "60m": "pass"
+    },
     "sign_overhead_airport_centre_split": {
       "5m": "pass",
       "15m": "pass",
@@ -230,6 +260,12 @@
       "60m": "pass"
     },
     "sign_overhead_truck_bypass_right": {
+      "5m": "pass",
+      "15m": "pass",
+      "30m": "pass",
+      "60m": "pass"
+    },
+    "sign_overhead_hospital_parking_split": {
       "5m": "pass",
       "15m": "pass",
       "30m": "pass",

@@ -2816,6 +2816,16 @@ def sign_layers(sign_type: str) -> List[Tuple[str, List[List[Tuple[float, float]
             ("mat_sign_blue", [rect_polygon(0.0, 0.0, 0.95, 0.38)]),
             ("mat_sign_white", truck_icon((-0.18, 0.0), 1.0) + arrow_shapes((0.02, 0.0), (0.38, 0.0), 0.08, 0.14, 0.2)),
         ]
+    if sign_type == "bus_station_arrow_right":
+        return [
+            ("mat_sign_blue", [rect_polygon(0.0, 0.0, 0.95, 0.38)]),
+            (
+                "mat_sign_white",
+                bus_icon((-0.26, 0.0), 0.9)
+                + glyph_rects("STATION", 0.34, 0.08, (-0.02, 0.0))
+                + arrow_shapes((0.18, 0.0), (0.4, 0.0), 0.08, 0.14, 0.2),
+            ),
+        ]
     if sign_type == "centre_left_text":
         return [
             ("mat_sign_blue", [rect_polygon(0.0, 0.0, 0.95, 0.38)]),
@@ -2895,17 +2905,36 @@ def sign_layers(sign_type: str) -> List[Tuple[str, List[List[Tuple[float, float]
             ("mat_sign_stop_red", [rect_polygon(0.0, -0.28, 0.62, 0.2)]),
             ("mat_sign_white", glyph_rects("I", 0.08, 0.08, (0.0, -0.28)) + glyph_rects("5", 0.24, 0.26, (0.0, 0.1))),
         ]
+    if sign_type == "route_interstate_405_shield":
+        return [
+            ("mat_sign_white", [interstate_shield_polygon(0.9, 0.96, 0.0)]),
+            ("mat_sign_blue", [interstate_shield_polygon(0.9, 0.96, 0.06)]),
+            ("mat_sign_stop_red", [rect_polygon(0.0, -0.28, 0.68, 0.2)]),
+            ("mat_sign_white", glyph_rects("I", 0.08, 0.08, (0.0, -0.28)) + glyph_rects("405", 0.42, 0.22, (0.0, 0.1))),
+        ]
     if sign_type == "route_e45_shield":
         return [
             ("mat_sign_white", [rect_polygon(0.0, 0.0, 0.95, 0.38)]),
             ("mat_sign_green", [rect_polygon(0.0, 0.0, 0.85, 0.28)]),
             ("mat_sign_white", glyph_rects("E45", 0.46, 0.12, (0.0, 0.0))),
         ]
+    if sign_type == "route_e20_shield":
+        return [
+            ("mat_sign_white", [rect_polygon(0.0, 0.0, 0.95, 0.38)]),
+            ("mat_sign_green", [rect_polygon(0.0, 0.0, 0.85, 0.28)]),
+            ("mat_sign_white", glyph_rects("E20", 0.46, 0.12, (0.0, 0.0))),
+        ]
     if sign_type == "route_ca_1_shield":
         return [
             ("mat_sign_white", [state_route_shield_polygon(0.84, 0.96, 0.0)]),
             ("mat_sign_green", [state_route_shield_polygon(0.84, 0.96, 0.06)]),
             ("mat_sign_white", glyph_rects("CA", 0.2, 0.08, (0.0, -0.18)) + glyph_rects("1", 0.14, 0.24, (0.0, 0.12))),
+        ]
+    if sign_type == "route_ca_82_shield":
+        return [
+            ("mat_sign_white", [state_route_shield_polygon(0.88, 0.96, 0.0)]),
+            ("mat_sign_green", [state_route_shield_polygon(0.88, 0.96, 0.06)]),
+            ("mat_sign_white", glyph_rects("CA", 0.2, 0.08, (0.0, -0.18)) + glyph_rects("82", 0.26, 0.22, (0.0, 0.12))),
         ]
     if sign_type == "route_m25_shield":
         return [
@@ -2963,6 +2992,20 @@ def sign_layers(sign_type: str) -> List[Tuple[str, List[List[Tuple[float, float]
                 + arrow_shapes((0.28, 0.24), (0.28, 0.02), 0.06, 0.11, 0.16),
             ),
         ]
+    if sign_type == "destination_stack_airport_parking_right":
+        return [
+            ("mat_sign_white", [rect_polygon(0.0, 0.0, 0.95, 0.7)]),
+            ("mat_sign_green", [rect_polygon(0.0, 0.0, 0.87, 0.62)]),
+            (
+                "mat_sign_white",
+                [line_segment_polygon((-0.38, 0.0), (0.38, 0.0), 0.03)]
+                + airplane_icon((-0.32, -0.17), 0.78)
+                + glyph_rects("AIRPORT", 0.42, 0.09, (0.04, -0.17))
+                + glyph_rects("P", 0.1, 0.17, (-0.34, 0.17))
+                + glyph_rects("PARKING", 0.42, 0.09, (0.02, 0.17))
+                + arrow_shapes((0.2, 0.17), (0.38, 0.17), 0.06, 0.11, 0.16),
+            ),
+        ]
     if sign_type == "overhead_airport_centre_split":
         return [
             ("mat_sign_white", [rect_polygon(0.0, 0.0, 0.96, 0.56)]),
@@ -3003,6 +3046,19 @@ def sign_layers(sign_type: str) -> List[Tuple[str, List[List[Tuple[float, float]
                 + glyph_rects("BYPASS", 0.34, 0.08, (-0.02, 0.11))
                 + arrow_shapes((0.18, 0.0), (0.46, 0.0), 0.05, 0.1, 0.14)
                 + arrow_shapes((0.34, -0.02), (0.34, 0.24), 0.05, 0.1, 0.14),
+            ),
+        ]
+    if sign_type == "overhead_hospital_parking_split":
+        return [
+            ("mat_sign_white", [rect_polygon(0.0, 0.0, 0.96, 0.56)]),
+            ("mat_sign_green", [rect_polygon(0.0, 0.0, 0.9, 0.5)]),
+            (
+                "mat_sign_white",
+                [line_segment_polygon((0.0, -0.22), (0.0, 0.22), 0.03)]
+                + glyph_rects("HOSPITAL", 0.28, 0.07, (-0.22, -0.12))
+                + glyph_rects("PARKING", 0.28, 0.07, (0.22, -0.12))
+                + arrow_shapes((-0.22, -0.02), (-0.22, 0.23), 0.05, 0.1, 0.14)
+                + arrow_shapes((0.22, -0.02), (0.22, 0.23), 0.05, 0.1, 0.14),
             ),
         ]
     if sign_type == "stop_weathered":
@@ -6112,18 +6168,24 @@ def sign_definitions() -> List[Dict]:
         {"id": "sign_hotel_arrow_left", "sign_type": "hotel_arrow_left", "size": (1.2, 0.42), "variant_key": "service.hotel.left", "semantic_class": "information.hotel"},
         {"id": "sign_airport_arrow_right", "sign_type": "airport_arrow_right", "size": (1.2, 0.42), "variant_key": "locale.eu.airport.right", "semantic_class": "information.airport"},
         {"id": "sign_truck_route_right", "sign_type": "truck_route_right", "size": (1.2, 0.42), "variant_key": "route.truck.right", "semantic_class": "information.truck_route"},
+        {"id": "sign_bus_station_arrow_right", "sign_type": "bus_station_arrow_right", "size": (1.2, 0.42), "variant_key": "service.bus_station.right", "semantic_class": "information.bus_station"},
         {"id": "sign_route_us_101_shield", "sign_type": "route_us_101_shield", "size": (0.76, 0.9), "variant_key": "route.us.us_101", "semantic_class": "information.route_shield"},
         {"id": "sign_route_interstate_5_shield", "sign_type": "route_interstate_5_shield", "size": (0.82, 0.92), "variant_key": "route.us.interstate_5", "semantic_class": "information.route_shield"},
+        {"id": "sign_route_interstate_405_shield", "sign_type": "route_interstate_405_shield", "size": (0.9, 0.92), "variant_key": "route.us.interstate_405", "semantic_class": "information.route_shield"},
         {"id": "sign_route_e45_shield", "sign_type": "route_e45_shield", "size": (0.9, 0.38), "variant_key": "route.eu.e_45", "semantic_class": "information.route_shield"},
+        {"id": "sign_route_e20_shield", "sign_type": "route_e20_shield", "size": (0.94, 0.38), "variant_key": "route.eu.e_20", "semantic_class": "information.route_shield"},
         {"id": "sign_route_ca_1_shield", "sign_type": "route_ca_1_shield", "size": (0.78, 0.9), "variant_key": "route.us.ca_1", "semantic_class": "information.route_shield"},
+        {"id": "sign_route_ca_82_shield", "sign_type": "route_ca_82_shield", "size": (0.84, 0.9), "variant_key": "route.us.ca_82", "semantic_class": "information.route_shield"},
         {"id": "sign_route_m25_shield", "sign_type": "route_m25_shield", "size": (0.94, 0.38), "variant_key": "route.uk.m_25", "semantic_class": "information.route_shield"},
         {"id": "sign_route_a7_shield", "sign_type": "route_a7_shield", "size": (0.94, 0.38), "variant_key": "route.fr.a_7", "semantic_class": "information.route_shield"},
         {"id": "sign_destination_stack_airport_centre_right", "sign_type": "destination_stack_airport_centre_right", "size": (1.2, 0.74), "variant_key": "guide.airport_centre.right_stack", "semantic_class": "information.destination_guide"},
         {"id": "sign_destination_stack_hotel_park_left", "sign_type": "destination_stack_hotel_park_left", "size": (1.2, 0.74), "variant_key": "guide.hotel_park.left_stack", "semantic_class": "information.destination_guide"},
         {"id": "sign_destination_stack_truck_bypass_ahead", "sign_type": "destination_stack_truck_bypass_ahead", "size": (1.2, 0.74), "variant_key": "guide.truck_bypass.ahead_stack", "semantic_class": "information.destination_guide"},
+        {"id": "sign_destination_stack_airport_parking_right", "sign_type": "destination_stack_airport_parking_right", "size": (1.2, 0.74), "variant_key": "guide.airport_parking.right_stack", "semantic_class": "information.destination_guide"},
         {"id": "sign_overhead_airport_centre_split", "sign_type": "overhead_airport_centre_split", "size": (2.35, 0.9), "variant_key": "guide.overhead.airport_centre.split", "semantic_class": "information.destination_guide", "mount_style": "overhead_frame"},
         {"id": "sign_overhead_park_ride_left", "sign_type": "overhead_park_ride_left", "size": (2.2, 0.82), "variant_key": "guide.overhead.park_ride.left", "semantic_class": "information.destination_guide", "mount_style": "overhead_frame"},
         {"id": "sign_overhead_truck_bypass_right", "sign_type": "overhead_truck_bypass_right", "size": (2.2, 0.82), "variant_key": "guide.overhead.truck_bypass.right", "semantic_class": "information.destination_guide", "mount_style": "overhead_frame"},
+        {"id": "sign_overhead_hospital_parking_split", "sign_type": "overhead_hospital_parking_split", "size": (2.2, 0.82), "variant_key": "guide.overhead.hospital_parking.split", "semantic_class": "information.destination_guide", "mount_style": "overhead_frame"},
         {"id": "sign_centre_left_text", "sign_type": "centre_left_text", "size": (1.2, 0.42), "variant_key": "locale.uk.centre.left_text", "semantic_class": "information.centre"},
         {"id": "sign_bypass_right_text", "sign_type": "bypass_right_text", "size": (1.2, 0.42), "variant_key": "locale.en.bypass.right_text", "semantic_class": "information.bypass"},
         {"id": "sign_priority_road", "sign_type": "priority_road", "size": (0.8, 0.8), "variant_key": "locale.eu.priority_road", "semantic_class": "regulatory.priority_road"},
@@ -7555,10 +7617,15 @@ def scene_definitions() -> List[Dict]:
                 {"asset_id": "sign_hotel_arrow_left", "name": "sign_hotel_0", "translate": (-3.15, 0.0, -0.55), "rotate_y": 0.0},
                 {"asset_id": "sign_destination_stack_airport_centre_right", "name": "sign_destination_stack_0", "translate": (-4.4, 0.0, -2.75), "rotate_y": 0.0},
                 {"asset_id": "sign_destination_stack_hotel_park_left", "name": "sign_destination_stack_1", "translate": (-4.4, 0.0, -1.6), "rotate_y": 0.0},
+                {"asset_id": "sign_bus_station_arrow_right", "name": "sign_bus_station_0", "translate": (-5.65, 0.0, -2.75), "rotate_y": 0.0},
+                {"asset_id": "sign_destination_stack_airport_parking_right", "name": "sign_destination_stack_3", "translate": (-5.65, 0.0, -1.6), "rotate_y": 0.0},
                 {"asset_id": "sign_route_us_101_shield", "name": "sign_route_us_101_0", "translate": (-4.4, 0.0, -0.4), "rotate_y": 0.0},
                 {"asset_id": "sign_route_interstate_5_shield", "name": "sign_route_i5_0", "translate": (-4.4, 0.0, 0.65), "rotate_y": 0.0},
+                {"asset_id": "sign_route_interstate_405_shield", "name": "sign_route_i405_0", "translate": (-5.65, 0.0, -0.4), "rotate_y": 0.0},
                 {"asset_id": "sign_route_e45_shield", "name": "sign_route_e45_0", "translate": (-4.4, 0.0, 1.55), "rotate_y": 0.0},
+                {"asset_id": "sign_route_e20_shield", "name": "sign_route_e20_0", "translate": (-5.65, 0.0, 0.6), "rotate_y": 0.0},
                 {"asset_id": "sign_route_ca_1_shield", "name": "sign_route_ca_1_0", "translate": (-4.4, 0.0, 2.55), "rotate_y": 0.0},
+                {"asset_id": "sign_route_ca_82_shield", "name": "sign_route_ca_82_0", "translate": (-5.65, 0.0, 1.65), "rotate_y": 0.0},
                 {"asset_id": "sign_curve_left", "name": "sign_curve_0", "translate": (1.8, 0.0, -0.6), "rotate_y": 180.0},
                 {"asset_id": "sign_stop_ahead_text", "name": "sign_stop_ahead_0", "translate": (1.8, 0.0, -1.05), "rotate_y": 180.0},
                 {"asset_id": "sign_roundabout_mandatory", "name": "sign_roundabout_0", "translate": (1.8, 0.0, -2.15), "rotate_y": 180.0},
@@ -7576,8 +7643,12 @@ def scene_definitions() -> List[Dict]:
                 {"asset_id": "sign_route_e45_shield", "name": "sign_route_e45_1", "translate": (4.4, 0.0, 0.45), "rotate_y": 180.0},
                 {"asset_id": "sign_route_m25_shield", "name": "sign_route_m25_0", "translate": (4.4, 0.0, 1.45), "rotate_y": 180.0},
                 {"asset_id": "sign_route_a7_shield", "name": "sign_route_a7_0", "translate": (4.4, 0.0, 2.35), "rotate_y": 180.0},
+                {"asset_id": "sign_route_interstate_405_shield", "name": "sign_route_i405_1", "translate": (5.65, 0.0, -1.55), "rotate_y": 180.0},
+                {"asset_id": "sign_route_e20_shield", "name": "sign_route_e20_1", "translate": (5.65, 0.0, -0.55), "rotate_y": 180.0},
+                {"asset_id": "sign_route_ca_82_shield", "name": "sign_route_ca_82_1", "translate": (5.65, 0.0, 0.55), "rotate_y": 180.0},
                 {"asset_id": "sign_overhead_airport_centre_split", "name": "sign_overhead_airport_0", "translate": (0.0, 0.0, -4.4), "rotate_y": 0.0},
                 {"asset_id": "sign_overhead_park_ride_left", "name": "sign_overhead_park_ride_0", "translate": (8.2, 0.0, -4.15), "rotate_y": 0.0},
+                {"asset_id": "sign_overhead_hospital_parking_split", "name": "sign_overhead_hospital_0", "translate": (-8.2, 0.0, -4.15), "rotate_y": 0.0},
             ],
         },
         {
@@ -7677,11 +7748,14 @@ def scene_definitions() -> List[Dict]:
                 {"asset_id": "signal_pedestrian_wait_indicator_single", "name": "ped_wait_0", "translate": (1.36, 0.0, -1.18), "rotate_y": 180.0},
                 {"asset_id": "signal_preemption_beacon_lunar_single", "name": "preemption_0", "translate": (2.94, 0.0, -1.02), "rotate_y": 90.0},
                 {"asset_id": "sign_overhead_truck_bypass_right", "name": "sign_overhead_truck_bypass_0", "translate": (0.0, 0.0, -5.1), "rotate_y": 0.0},
+                {"asset_id": "sign_overhead_hospital_parking_split", "name": "sign_overhead_hospital_0", "translate": (7.0, 0.0, -5.1), "rotate_y": 0.0},
                 {"asset_id": "furniture_delineator_post", "name": "delineator_0", "translate": (-1.2, 0.0, -1.35), "rotate_y": 0.0},
                 {"asset_id": "furniture_barricade_panel", "name": "barricade_0", "translate": (2.25, 0.0, 1.65), "rotate_y": 90.0},
                 {"asset_id": "sign_airport_arrow_right", "name": "sign_airport_0", "translate": (-3.2, 0.0, 2.18), "rotate_y": 90.0},
+                {"asset_id": "sign_bus_station_arrow_right", "name": "sign_bus_station_0", "translate": (-3.88, 0.0, -1.18), "rotate_y": 90.0},
                 {"asset_id": "sign_bypass_right_text", "name": "sign_bypass_0", "translate": (3.1, 0.0, 2.18), "rotate_y": 270.0},
                 {"asset_id": "sign_destination_stack_airport_centre_right", "name": "sign_destination_stack_0", "translate": (-3.88, 0.0, 0.18), "rotate_y": 90.0},
+                {"asset_id": "sign_destination_stack_airport_parking_right", "name": "sign_destination_stack_1", "translate": (-3.88, 0.0, -0.52), "rotate_y": 90.0},
                 {"asset_id": "signal_vehicle_vertical_3_aspect", "name": "signal_0", "translate": (-0.5, 0.0, -2.0), "rotate_y": 0.0},
                 {"asset_id": "signal_vehicle_horizontal_3_aspect", "name": "signal_1", "translate": (2.0, 0.0, -0.5), "rotate_y": 90.0},
                 {"asset_id": "signal_pedestrian_2_aspect", "name": "ped_signal_0", "translate": (1.8, 0.0, -1.2), "rotate_y": 180.0},

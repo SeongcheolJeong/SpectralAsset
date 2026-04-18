@@ -69,6 +69,7 @@ For deterministic rebuild review, the generator now preserves the previous track
 - the twenty-ninth `P3` expansion batch now adds queue rails, shelter ad panels, curb-ramp modules, and sign/signal band-clamp hardware so curbside transit and attachment-depth scenes no longer stop at shelter-only furniture and earlier bracket-only mounting context
 - the thirtieth `P3` expansion batch now adds turn-pocket `ONLY` stencils, `SCHOOL` legends, `SCHOOL BUS` queue boxes, and curbside left/right arrows so the road-marking family no longer stops at boxed curbside legends, conflict-zone panels, and generic directional arrows
 - the thirty-first `P3` expansion batch now adds roundabout truck-apron and splitter-island panels, a retaining-wall cut transition, and deeper shoefly/staging-pad work-zone surfaces so the road-surface family no longer stops at ramp-gore, median-nose, and earlier crossover/chicane composites
+- the thirty-second `P3` expansion batch now adds a bus-station service panel, an airport/parking stacked guide, a hospital/parking overhead assembly, and Interstate-405, E20, and California-82 shield follow-up signs so the sign family no longer stops at the earlier overhead-destination and first shield-follow-up pass
 - selected USGS v7 dry-material baselines are used for asphalt, concrete, and galvanized metal
 - wet asphalt is currently a measured-derived material built from the measured dry asphalt baseline plus the tracked wet modifier
 - vehicle and protected-turn traffic-signal emissive profiles now use vendor-derived public LED fits

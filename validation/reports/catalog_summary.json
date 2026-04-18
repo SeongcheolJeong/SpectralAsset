@@ -164,6 +164,12 @@
       "variant_key": "route.truck.right"
     },
     {
+      "id": "sign_bus_station_arrow_right",
+      "family": "traffic_sign",
+      "semantic_class": "information.bus_station",
+      "variant_key": "service.bus_station.right"
+    },
+    {
       "id": "sign_route_us_101_shield",
       "family": "traffic_sign",
       "semantic_class": "information.route_shield",
@@ -176,16 +182,34 @@
       "variant_key": "route.us.interstate_5"
     },
     {
+      "id": "sign_route_interstate_405_shield",
+      "family": "traffic_sign",
+      "semantic_class": "information.route_shield",
+      "variant_key": "route.us.interstate_405"
+    },
+    {
       "id": "sign_route_e45_shield",
       "family": "traffic_sign",
       "semantic_class": "information.route_shield",
       "variant_key": "route.eu.e_45"
     },
     {
+      "id": "sign_route_e20_shield",
+      "family": "traffic_sign",
+      "semantic_class": "information.route_shield",
+      "variant_key": "route.eu.e_20"
+    },
+    {
       "id": "sign_route_ca_1_shield",
       "family": "traffic_sign",
       "semantic_class": "information.route_shield",
       "variant_key": "route.us.ca_1"
+    },
+    {
+      "id": "sign_route_ca_82_shield",
+      "family": "traffic_sign",
+      "semantic_class": "information.route_shield",
+      "variant_key": "route.us.ca_82"
     },
     {
       "id": "sign_route_m25_shield",
@@ -218,6 +242,12 @@
       "variant_key": "guide.truck_bypass.ahead_stack"
     },
     {
+      "id": "sign_destination_stack_airport_parking_right",
+      "family": "traffic_sign",
+      "semantic_class": "information.destination_guide",
+      "variant_key": "guide.airport_parking.right_stack"
+    },
+    {
       "id": "sign_overhead_airport_centre_split",
       "family": "traffic_sign",
       "semantic_class": "information.destination_guide",
@@ -234,6 +264,12 @@
       "family": "traffic_sign",
       "semantic_class": "information.destination_guide",
       "variant_key": "guide.overhead.truck_bypass.right"
+    },
+    {
+      "id": "sign_overhead_hospital_parking_split",
+      "family": "traffic_sign",
+      "semantic_class": "information.destination_guide",
+      "variant_key": "guide.overhead.hospital_parking.split"
     },
     {
       "id": "sign_centre_left_text",

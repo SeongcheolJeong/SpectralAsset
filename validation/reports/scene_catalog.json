@@ -696,6 +696,26 @@
           "rotate_y": 0.0
         },
         {
+          "asset_id": "sign_bus_station_arrow_right",
+          "name": "sign_bus_station_0",
+          "translate": [
+            -5.65,
+            0.0,
+            -2.75
+          ],
+          "rotate_y": 0.0
+        },
+        {
+          "asset_id": "sign_destination_stack_airport_parking_right",
+          "name": "sign_destination_stack_3",
+          "translate": [
+            -5.65,
+            0.0,
+            -1.6
+          ],
+          "rotate_y": 0.0
+        },
+        {
           "asset_id": "sign_route_us_101_shield",
           "name": "sign_route_us_101_0",
           "translate": [
@@ -716,6 +736,16 @@
           "rotate_y": 0.0
         },
         {
+          "asset_id": "sign_route_interstate_405_shield",
+          "name": "sign_route_i405_0",
+          "translate": [
+            -5.65,
+            0.0,
+            -0.4
+          ],
+          "rotate_y": 0.0
+        },
+        {
           "asset_id": "sign_route_e45_shield",
           "name": "sign_route_e45_0",
           "translate": [
@@ -726,12 +756,32 @@
           "rotate_y": 0.0
         },
         {
+          "asset_id": "sign_route_e20_shield",
+          "name": "sign_route_e20_0",
+          "translate": [
+            -5.65,
+            0.0,
+            0.6
+          ],
+          "rotate_y": 0.0
+        },
+        {
           "asset_id": "sign_route_ca_1_shield",
           "name": "sign_route_ca_1_0",
           "translate": [
             -4.4,
             0.0,
             2.55
+          ],
+          "rotate_y": 0.0
+        },
+        {
+          "asset_id": "sign_route_ca_82_shield",
+          "name": "sign_route_ca_82_0",
+          "translate": [
+            -5.65,
+            0.0,
+            1.65
           ],
           "rotate_y": 0.0
         },
@@ -906,6 +956,36 @@
           "rotate_y": 180.0
         },
         {
+          "asset_id": "sign_route_interstate_405_shield",
+          "name": "sign_route_i405_1",
+          "translate": [
+            5.65,
+            0.0,
+            -1.55
+          ],
+          "rotate_y": 180.0
+        },
+        {
+          "asset_id": "sign_route_e20_shield",
+          "name": "sign_route_e20_1",
+          "translate": [
+            5.65,
+            0.0,
+            -0.55
+          ],
+          "rotate_y": 180.0
+        },
+        {
+          "asset_id": "sign_route_ca_82_shield",
+          "name": "sign_route_ca_82_1",
+          "translate": [
+            5.65,
+            0.0,
+            0.55
+          ],
+          "rotate_y": 180.0
+        },
+        {
           "asset_id": "sign_overhead_airport_centre_split",
           "name": "sign_overhead_airport_0",
           "translate": [
@@ -920,6 +1000,16 @@
           "name": "sign_overhead_park_ride_0",
           "translate": [
             8.2,
+            0.0,
+            -4.15
+          ],
+          "rotate_y": 0.0
+        },
+        {
+          "asset_id": "sign_overhead_hospital_parking_split",
+          "name": "sign_overhead_hospital_0",
+          "translate": [
+            -8.2,
             0.0,
             -4.15
           ],
@@ -1867,6 +1957,16 @@
           "rotate_y": 0.0
         },
         {
+          "asset_id": "sign_overhead_hospital_parking_split",
+          "name": "sign_overhead_hospital_0",
+          "translate": [
+            7.0,
+            0.0,
+            -5.1
+          ],
+          "rotate_y": 0.0
+        },
+        {
           "asset_id": "furniture_delineator_post",
           "name": "delineator_0",
           "translate": [
@@ -1897,6 +1997,16 @@
           "rotate_y": 90.0
         },
         {
+          "asset_id": "sign_bus_station_arrow_right",
+          "name": "sign_bus_station_0",
+          "translate": [
+            -3.88,
+            0.0,
+            -1.18
+          ],
+          "rotate_y": 90.0
+        },
+        {
           "asset_id": "sign_bypass_right_text",
           "name": "sign_bypass_0",
           "translate": [
@@ -1913,6 +2023,16 @@
             -3.88,
             0.0,
             0.18
+          ],
+          "rotate_y": 90.0
+        },
+        {
+          "asset_id": "sign_destination_stack_airport_parking_right",
+          "name": "sign_destination_stack_1",
+          "translate": [
+            -3.88,
+            0.0,
+            -0.52
           ],
           "rotate_y": 90.0
         },

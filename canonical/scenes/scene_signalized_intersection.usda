@@ -657,6 +657,13 @@ def Xform "scene_signalized_intersection" {
         float xformOp:rotateY = 0.000000
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
     }
+    def Xform "sign_overhead_hospital_0" (
+        references = @../geometry/usd/sign_overhead_hospital_parking_split.usda@</sign_overhead_hospital_parking_split>
+    ) {
+        double3 xformOp:translate = (7.000000, 0.000000, -5.100000)
+        float xformOp:rotateY = 0.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
     def Xform "delineator_0" (
         references = @../geometry/usd/furniture_delineator_post.usda@</furniture_delineator_post>
     ) {
@@ -678,6 +685,13 @@ def Xform "scene_signalized_intersection" {
         float xformOp:rotateY = 90.000000
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
     }
+    def Xform "sign_bus_station_0" (
+        references = @../geometry/usd/sign_bus_station_arrow_right.usda@</sign_bus_station_arrow_right>
+    ) {
+        double3 xformOp:translate = (-3.880000, 0.000000, -1.180000)
+        float xformOp:rotateY = 90.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
     def Xform "sign_bypass_0" (
         references = @../geometry/usd/sign_bypass_right_text.usda@</sign_bypass_right_text>
     ) {
@@ -689,6 +703,13 @@ def Xform "scene_signalized_intersection" {
         references = @../geometry/usd/sign_destination_stack_airport_centre_right.usda@</sign_destination_stack_airport_centre_right>
     ) {
         double3 xformOp:translate = (-3.880000, 0.000000, 0.180000)
+        float xformOp:rotateY = 90.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
+    def Xform "sign_destination_stack_1" (
+        references = @../geometry/usd/sign_destination_stack_airport_parking_right.usda@</sign_destination_stack_airport_parking_right>
+    ) {
+        double3 xformOp:translate = (-3.880000, 0.000000, -0.520000)
         float xformOp:rotateY = 90.000000
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
     }

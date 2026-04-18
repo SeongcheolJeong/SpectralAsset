@@ -6,7 +6,7 @@ This file explains what the generator actually creates in this repository and ho
 
 Current generated baseline:
 
-- `205` assets
+- `211` assets
 - `27` spectral materials
 - `19` emissive profiles
 - `3` camera profiles
@@ -51,18 +51,24 @@ These are sign objects such as:
 - `sign_parking_arrow_left`
 - `sign_hotel_arrow_left`
 - `sign_airport_arrow_right`
+- `sign_bus_station_arrow_right`
 - `sign_truck_route_right`
 - `sign_centre_left_text`
 - `sign_route_us_101_shield`
 - `sign_route_interstate_5_shield`
+- `sign_route_interstate_405_shield`
 - `sign_route_e45_shield`
+- `sign_route_e20_shield`
 - `sign_route_ca_1_shield`
+- `sign_route_ca_82_shield`
 - `sign_route_m25_shield`
 - `sign_route_a7_shield`
 - `sign_destination_stack_airport_centre_right`
 - `sign_destination_stack_hotel_park_left`
 - `sign_destination_stack_truck_bypass_ahead`
+- `sign_destination_stack_airport_parking_right`
 - `sign_overhead_airport_centre_split`
+- `sign_overhead_hospital_parking_split`
 - `sign_overhead_park_ride_left`
 - `sign_overhead_truck_bypass_right`
 - `sign_one_way_text_left`
@@ -83,11 +89,11 @@ Each sign usually has:
 The newer route/service and overhead-guide additions now also include:
 
 - service-direction panels such as hospital, parking, and hotel
-- transport or logistics panels such as airport and truck-route signs
+- transport or logistics panels such as airport, bus-station, and truck-route signs
 - locale-style wayfinding panels such as `CENTRE` and `BYPASS`
-- route-shield panels such as U.S., interstate, E-route, California, UK motorway, and French autoroute markers
-- stacked destination-guide panels that combine multiple destinations and directional arrows on one sign face
-- self-contained overhead-guide assemblies that hang larger destination panels from generated galvanized frames instead of reusing the default single-post sign mount
+- route-shield panels such as U.S., interstate, E-route, California, UK motorway, and French autoroute markers, now including Interstate `405`, `E20`, and California `82` follow-up variants
+- stacked destination-guide panels that combine multiple destinations and directional arrows on one sign face, now including an airport/parking follow-up stack
+- self-contained overhead-guide assemblies that hang larger destination panels from generated galvanized frames instead of reusing the default single-post sign mount, now including a hospital/parking split assembly
 
 ### `traffic_light`
 

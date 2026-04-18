@@ -1,6 +1,6 @@
 {
   "generated_at": "2026-04-16T10:10:40.000Z",
-  "files_checked": 209,
+  "files_checked": 215,
   "files_with_errors": 0,
   "files_with_warnings": 0,
   "results": [
@@ -957,6 +957,13 @@
       "messages": []
     },
     {
+      "file": "exports/gltf/sign_bus_station_arrow_right.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
       "file": "exports/gltf/sign_bus_stop.glb",
       "numErrors": 0,
       "numWarnings": 0,
@@ -1000,6 +1007,13 @@
     },
     {
       "file": "exports/gltf/sign_destination_stack_airport_centre_right.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
+      "file": "exports/gltf/sign_destination_stack_airport_parking_right.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
@@ -1111,6 +1125,13 @@
       "messages": []
     },
     {
+      "file": "exports/gltf/sign_overhead_hospital_parking_split.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
       "file": "exports/gltf/sign_overhead_park_ride_left.glb",
       "numErrors": 0,
       "numWarnings": 0,
@@ -1188,7 +1209,28 @@
       "messages": []
     },
     {
+      "file": "exports/gltf/sign_route_ca_82_shield.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
+      "file": "exports/gltf/sign_route_e20_shield.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
       "file": "exports/gltf/sign_route_e45_shield.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
+      "file": "exports/gltf/sign_route_interstate_405_shield.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
