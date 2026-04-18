@@ -1172,6 +1172,30 @@
       "variant_key": "permit_only_box_green"
     },
     {
+      "id": "marking_wait_here_box_white",
+      "family": "road_marking",
+      "semantic_class": "marking.curbside_queue",
+      "variant_key": "wait_here_box_white"
+    },
+    {
+      "id": "marking_queue_box_white",
+      "family": "road_marking",
+      "semantic_class": "marking.curbside_queue",
+      "variant_key": "queue_box_white"
+    },
+    {
+      "id": "marking_valet_box_white",
+      "family": "road_marking",
+      "semantic_class": "marking.curbside_reservation",
+      "variant_key": "valet_box_white"
+    },
+    {
+      "id": "marking_ev_only_box_green",
+      "family": "road_marking",
+      "semantic_class": "marking.curbside_reservation",
+      "variant_key": "ev_only_box_green"
+    },
+    {
       "id": "marking_drop_off_box_white",
       "family": "road_marking",
       "semantic_class": "marking.school_dropoff",
@@ -1229,6 +1253,18 @@
       "id": "marking_separator_arrow_right_white",
       "family": "road_marking",
       "semantic_class": "marking.separator_arrow",
+      "variant_key": "right_white"
+    },
+    {
+      "id": "marking_separator_chevron_left_white",
+      "family": "road_marking",
+      "semantic_class": "marking.separator_chevron",
+      "variant_key": "left_white"
+    },
+    {
+      "id": "marking_separator_chevron_right_white",
+      "family": "road_marking",
+      "semantic_class": "marking.separator_chevron",
       "variant_key": "right_white"
     },
     {

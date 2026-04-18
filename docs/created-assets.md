@@ -6,7 +6,7 @@ This file explains what the generator actually creates in this repository and ho
 
 Current generated baseline:
 
-- `292` assets
+- `298` assets
 - `27` spectral materials
 - `24` emissive profiles
 - `3` camera profiles
@@ -273,6 +273,10 @@ These are markings such as:
 - `marking_school_bus_box_white`
 - `marking_no_parking_box_red`
 - `marking_permit_only_box_green`
+- `marking_wait_here_box_white`
+- `marking_queue_box_white`
+- `marking_valet_box_white`
+- `marking_ev_only_box_green`
 - `marking_drop_off_box_white`
 - `marking_kiss_ride_box_white`
 - `marking_pick_up_box_white`
@@ -283,6 +287,8 @@ These are markings such as:
 - `marking_separator_buffer_green`
 - `marking_separator_arrow_left_white`
 - `marking_separator_arrow_right_white`
+- `marking_separator_chevron_left_white`
+- `marking_separator_chevron_right_white`
 - `marking_curb_red_segment`
 - `marking_curb_yellow_segment`
 - `marking_curb_blue_segment`
@@ -292,7 +298,7 @@ These are markings such as:
 - `marking_conflict_zone_panel_red`
 - `marking_conflict_zone_panel_green`
 
-They use retroreflective or reflective material definitions and are important for camera visibility tests. The newer specialization passes now also cover bus/bike lane legends, boxed curbside/transit legends, turn-pocket `ONLY` stencils, school-zone and school-bus queue markings, `SLOW`/`XING` school-zone legends, curbside arrows, red `NO PARK` and green `PERMIT` reservation boxes, `DROP OFF` and `KISS RIDE` school-dropoff stencils, pick-up/taxi curbside boxes, white/green separator-buffer panels, left/right separator-arrow panels, red/green colored lane panels, curb-color segments, loading zigzag delimiters, red/green conflict-zone surfacing, hatched median/island channelization, and right-turn follow-up arrow families.
+They use retroreflective or reflective material definitions and are important for camera visibility tests. The newer specialization passes now also cover bus/bike lane legends, boxed curbside/transit legends, turn-pocket `ONLY` stencils, school-zone and school-bus queue markings, `SLOW`/`XING` school-zone legends, curbside arrows, red `NO PARK`, green `PERMIT`, white `VALET`, and green `EV ONLY` reservation boxes, white `WAIT` and `QUEUE` curbside-queue boxes, `DROP OFF` and `KISS RIDE` school-dropoff stencils, pick-up/taxi curbside boxes, white/green separator-buffer panels, left/right separator-arrow and separator-chevron panels, red/green colored lane panels, curb-color segments, loading zigzag delimiters, red/green conflict-zone surfacing, hatched median/island channelization, and right-turn follow-up arrow families.
 
 ### `road_furniture`
 

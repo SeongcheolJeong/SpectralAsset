@@ -1,6 +1,6 @@
 {
   "generated_at": "2026-04-16T10:10:40.000Z",
-  "files_checked": 296,
+  "files_checked": 302,
   "files_with_errors": 0,
   "files_with_warnings": 0,
   "results": [
@@ -712,6 +712,13 @@
       "messages": []
     },
     {
+      "file": "exports/gltf/marking_ev_only_box_green.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
       "file": "exports/gltf/marking_hatched_island_white.glb",
       "numErrors": 0,
       "numWarnings": 0,
@@ -803,6 +810,13 @@
       "messages": []
     },
     {
+      "file": "exports/gltf/marking_queue_box_white.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
       "file": "exports/gltf/marking_raised_marker_bicolor.glb",
       "numErrors": 0,
       "numWarnings": 0,
@@ -866,6 +880,20 @@
       "messages": []
     },
     {
+      "file": "exports/gltf/marking_separator_chevron_left_white.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
+      "file": "exports/gltf/marking_separator_chevron_right_white.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
       "file": "exports/gltf/marking_slow_text_white.glb",
       "numErrors": 0,
       "numWarnings": 0,
@@ -923,6 +951,20 @@
     },
     {
       "file": "exports/gltf/marking_turn_right_only_box_white.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
+      "file": "exports/gltf/marking_valet_box_white.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
+      "file": "exports/gltf/marking_wait_here_box_white.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,

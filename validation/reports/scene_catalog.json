@@ -1757,6 +1757,26 @@
           "rotate_y": 90.0
         },
         {
+          "asset_id": "marking_wait_here_box_white",
+          "name": "wait_here_box_0",
+          "translate": [
+            -6.08,
+            0.029,
+            0.94
+          ],
+          "rotate_y": 90.0
+        },
+        {
+          "asset_id": "marking_queue_box_white",
+          "name": "queue_box_0",
+          "translate": [
+            -6.08,
+            0.029,
+            1.92
+          ],
+          "rotate_y": 90.0
+        },
+        {
           "asset_id": "marking_drop_off_box_white",
           "name": "drop_off_box_0",
           "translate": [
@@ -1817,6 +1837,26 @@
           "rotate_y": 270.0
         },
         {
+          "asset_id": "marking_valet_box_white",
+          "name": "valet_box_0",
+          "translate": [
+            3.78,
+            0.029,
+            2.96
+          ],
+          "rotate_y": 270.0
+        },
+        {
+          "asset_id": "marking_ev_only_box_green",
+          "name": "ev_only_box_0",
+          "translate": [
+            3.78,
+            0.029,
+            3.86
+          ],
+          "rotate_y": 270.0
+        },
+        {
           "asset_id": "marking_transit_lane_panel_red",
           "name": "transit_lane_panel_0",
           "translate": [
@@ -1863,6 +1903,26 @@
             3.12,
             0.029,
             0.92
+          ],
+          "rotate_y": 180.0
+        },
+        {
+          "asset_id": "marking_separator_chevron_left_white",
+          "name": "separator_chevron_left_0",
+          "translate": [
+            2.48,
+            0.029,
+            -1.42
+          ],
+          "rotate_y": 8.0
+        },
+        {
+          "asset_id": "marking_separator_chevron_right_white",
+          "name": "separator_chevron_right_0",
+          "translate": [
+            3.22,
+            0.029,
+            1.84
           ],
           "rotate_y": 180.0
         },
@@ -4099,6 +4159,26 @@
           "rotate_y": 180.0
         },
         {
+          "asset_id": "marking_wait_here_box_white",
+          "name": "wait_here_box_0",
+          "translate": [
+            5.06,
+            0.029,
+            2.42
+          ],
+          "rotate_y": 180.0
+        },
+        {
+          "asset_id": "marking_queue_box_white",
+          "name": "queue_box_0",
+          "translate": [
+            6.16,
+            0.029,
+            2.42
+          ],
+          "rotate_y": 180.0
+        },
+        {
           "asset_id": "marking_drop_off_box_white",
           "name": "drop_off_box_0",
           "translate": [
@@ -4169,6 +4249,26 @@
           "rotate_y": 90.0
         },
         {
+          "asset_id": "marking_valet_box_white",
+          "name": "valet_box_0",
+          "translate": [
+            -3.14,
+            0.029,
+            3.16
+          ],
+          "rotate_y": 90.0
+        },
+        {
+          "asset_id": "marking_ev_only_box_green",
+          "name": "ev_only_box_0",
+          "translate": [
+            -3.14,
+            0.029,
+            4.06
+          ],
+          "rotate_y": 90.0
+        },
+        {
           "asset_id": "marking_separator_buffer_white",
           "name": "separator_buffer_white_0",
           "translate": [
@@ -4205,6 +4305,26 @@
             3.34,
             0.029,
             0.12
+          ],
+          "rotate_y": 180.0
+        },
+        {
+          "asset_id": "marking_separator_chevron_left_white",
+          "name": "separator_chevron_left_0",
+          "translate": [
+            -1.72,
+            0.029,
+            -1.88
+          ],
+          "rotate_y": 90.0
+        },
+        {
+          "asset_id": "marking_separator_chevron_right_white",
+          "name": "separator_chevron_right_0",
+          "translate": [
+            3.42,
+            0.029,
+            1.02
           ],
           "rotate_y": 180.0
         },
