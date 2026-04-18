@@ -1,6 +1,6 @@
 {
   "generated_at": "2026-04-16T10:10:40.000Z",
-  "files_checked": 267,
+  "files_checked": 273,
   "files_with_errors": 0,
   "files_with_warnings": 0,
   "results": [
@@ -880,6 +880,13 @@
       "messages": []
     },
     {
+      "file": "exports/gltf/road_alley_access_apron.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
       "file": "exports/gltf/road_asphalt_concrete_transition.glb",
       "numErrors": 0,
       "numWarnings": 0,
@@ -943,6 +950,13 @@
       "messages": []
     },
     {
+      "file": "exports/gltf/road_bus_bay_pullout_lane.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
       "file": "exports/gltf/road_concrete.glb",
       "numErrors": 0,
       "numWarnings": 0,
@@ -992,6 +1006,13 @@
       "messages": []
     },
     {
+      "file": "exports/gltf/road_curbside_dropoff_apron.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
       "file": "exports/gltf/road_dirt_track_dual_rut.glb",
       "numErrors": 0,
       "numWarnings": 0,
@@ -1035,6 +1056,13 @@
     },
     {
       "file": "exports/gltf/road_median_refuge_nose.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
+      "file": "exports/gltf/road_mountable_apron_corner.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
@@ -1111,7 +1139,21 @@
       "messages": []
     },
     {
+      "file": "exports/gltf/road_service_lane_apron.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
       "file": "exports/gltf/road_sidewalk_panel.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
+      "file": "exports/gltf/road_slip_lane_ped_island.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,

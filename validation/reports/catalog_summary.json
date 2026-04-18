@@ -764,6 +764,42 @@
       "variant_key": "slip_lane_entry"
     },
     {
+      "id": "road_bus_bay_pullout_lane",
+      "family": "road_surface",
+      "semantic_class": "road.curbside_access",
+      "variant_key": "bus_bay_pullout"
+    },
+    {
+      "id": "road_service_lane_apron",
+      "family": "road_surface",
+      "semantic_class": "road.service_lane",
+      "variant_key": "service_lane_apron"
+    },
+    {
+      "id": "road_curbside_dropoff_apron",
+      "family": "road_surface",
+      "semantic_class": "road.curb_transition",
+      "variant_key": "dropoff_apron"
+    },
+    {
+      "id": "road_alley_access_apron",
+      "family": "road_surface",
+      "semantic_class": "road.access_apron",
+      "variant_key": "alley_access_ramp"
+    },
+    {
+      "id": "road_slip_lane_ped_island",
+      "family": "road_surface",
+      "semantic_class": "road.channelized_slip_lane",
+      "variant_key": "ped_island"
+    },
+    {
+      "id": "road_mountable_apron_corner",
+      "family": "road_surface",
+      "semantic_class": "road.mountable_apron",
+      "variant_key": "corner_mountable_apron"
+    },
+    {
       "id": "road_retaining_wall_cut_transition",
       "family": "road_surface",
       "semantic_class": "road.retaining_transition",

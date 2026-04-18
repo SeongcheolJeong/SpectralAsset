@@ -90,6 +90,27 @@ def Xform "scene_wet_road_braking" {
         float xformOp:rotateY = 0.000000
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
     }
+    def Xform "road_curbside_dropoff_0" (
+        references = @../geometry/usd/road_curbside_dropoff_apron.usda@</road_curbside_dropoff_apron>
+    ) {
+        double3 xformOp:translate = (38.400000, 0.000000, 0.000000)
+        float xformOp:rotateY = 0.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
+    def Xform "road_mountable_apron_corner_0" (
+        references = @../geometry/usd/road_mountable_apron_corner.usda@</road_mountable_apron_corner>
+    ) {
+        double3 xformOp:translate = (41.600000, 0.000000, 0.000000)
+        float xformOp:rotateY = 0.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
+    def Xform "road_alley_access_apron_0" (
+        references = @../geometry/usd/road_alley_access_apron.usda@</road_alley_access_apron>
+    ) {
+        double3 xformOp:translate = (44.800000, 0.000000, 0.000000)
+        float xformOp:rotateY = 0.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
     def Xform "crosswalk_0" (
         references = @../geometry/usd/marking_crosswalk_worn.usda@</marking_crosswalk_worn>
     ) {

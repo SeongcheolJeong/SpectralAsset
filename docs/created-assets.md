@@ -6,7 +6,7 @@ This file explains what the generator actually creates in this repository and ho
 
 Current generated baseline:
 
-- `251` assets
+- `269` assets
 - `27` spectral materials
 - `23` emissive profiles
 - `3` camera profiles
@@ -196,6 +196,12 @@ These are reusable road or pavement surfaces such as:
 - `road_roundabout_splitter_island`
 - `road_roundabout_outer_ring_edge`
 - `road_roundabout_bypass_slip_lane`
+- `road_bus_bay_pullout_lane`
+- `road_service_lane_apron`
+- `road_curbside_dropoff_apron`
+- `road_alley_access_apron`
+- `road_slip_lane_ped_island`
+- `road_mountable_apron_corner`
 - `road_retaining_wall_cut_transition`
 - `road_retaining_wall_shoulder_shelf`
 - `road_retaining_wall_abutment_transition`
@@ -207,7 +213,7 @@ These are reusable road or pavement surfaces such as:
 - `road_workzone_temporary_access_pad`
 - `road_sidewalk_panel`
 
-They mainly depend on spectral material definitions rather than complex state logic, but the newer variants now mix asphalt, concrete, steel-plate, gravel proxy materials, and low-profile curb or barrier forms to represent repairs, construction staging, rural shoulders, crowned rural lanes, dirt-track ruts, bridge-joint and bridge-approach panels, lane-drop tapers, pothole distress, edge-dropoff conditions, curbside/barrier transition composites, ramp bridge-tie and ramp-gore transitions, median-refuge noses, roundabout truck-apron, outer-ring-edge, and bypass-slip-lane panels, retaining-wall cut, shoulder-shelf, and abutment transitions, plus deeper shoefly, staging-pad, material-laydown, and temporary-access work-zone composites.
+They mainly depend on spectral material definitions rather than complex state logic, but the newer variants now mix asphalt, concrete, steel-plate, gravel proxy materials, and low-profile curb or barrier forms to represent repairs, construction staging, rural shoulders, crowned rural lanes, dirt-track ruts, bridge-joint and bridge-approach panels, lane-drop tapers, pothole distress, edge-dropoff conditions, curbside/barrier transition composites, ramp bridge-tie and ramp-gore transitions, median-refuge noses, roundabout truck-apron, outer-ring-edge, and bypass-slip-lane panels, bus-bay pullouts, service-lane aprons, curbside drop-off aprons, alley-access ramps, slip-lane pedestrian-island composites, mountable-apron corners, retaining-wall cut, shoulder-shelf, and abutment transitions, plus deeper shoefly, staging-pad, material-laydown, and temporary-access work-zone composites.
 
 ### `road_marking`
 

@@ -83,6 +83,27 @@ def Xform "scene_sign_test_lane" {
         float xformOp:rotateY = 0.000000
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
     }
+    def Xform "road_bus_bay_pullout_0" (
+        references = @../geometry/usd/road_bus_bay_pullout_lane.usda@</road_bus_bay_pullout_lane>
+    ) {
+        double3 xformOp:translate = (45.100000, 0.000000, 0.000000)
+        float xformOp:rotateY = 0.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
+    def Xform "road_service_lane_apron_0" (
+        references = @../geometry/usd/road_service_lane_apron.usda@</road_service_lane_apron>
+    ) {
+        double3 xformOp:translate = (49.200000, 0.000000, 0.000000)
+        float xformOp:rotateY = 0.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
+    def Xform "road_alley_access_apron_0" (
+        references = @../geometry/usd/road_alley_access_apron.usda@</road_alley_access_apron>
+    ) {
+        double3 xformOp:translate = (53.300000, 0.000000, 0.000000)
+        float xformOp:rotateY = 0.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
     def Xform "edge_line_0" (
         references = @../geometry/usd/marking_edge_line_white.usda@</marking_edge_line_white>
     ) {

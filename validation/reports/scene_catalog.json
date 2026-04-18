@@ -116,6 +116,36 @@
           "rotate_y": 0.0
         },
         {
+          "asset_id": "road_bus_bay_pullout_lane",
+          "name": "road_bus_bay_pullout_0",
+          "translate": [
+            45.1,
+            0.0,
+            0.0
+          ],
+          "rotate_y": 0.0
+        },
+        {
+          "asset_id": "road_service_lane_apron",
+          "name": "road_service_lane_apron_0",
+          "translate": [
+            49.2,
+            0.0,
+            0.0
+          ],
+          "rotate_y": 0.0
+        },
+        {
+          "asset_id": "road_alley_access_apron",
+          "name": "road_alley_access_apron_0",
+          "translate": [
+            53.3,
+            0.0,
+            0.0
+          ],
+          "rotate_y": 0.0
+        },
+        {
           "asset_id": "marking_edge_line_white",
           "name": "edge_line_0",
           "translate": [
@@ -1353,6 +1383,36 @@
             20.2,
             0.0,
             -0.24
+          ],
+          "rotate_y": 0.0
+        },
+        {
+          "asset_id": "road_bus_bay_pullout_lane",
+          "name": "bus_bay_pullout_0",
+          "translate": [
+            24.2,
+            0.0,
+            -0.26
+          ],
+          "rotate_y": 0.0
+        },
+        {
+          "asset_id": "road_service_lane_apron",
+          "name": "service_lane_apron_0",
+          "translate": [
+            28.2,
+            0.0,
+            -0.24
+          ],
+          "rotate_y": 0.0
+        },
+        {
+          "asset_id": "road_slip_lane_ped_island",
+          "name": "slip_lane_ped_island_0",
+          "translate": [
+            32.2,
+            0.0,
+            -0.16
           ],
           "rotate_y": 0.0
         },
@@ -3473,6 +3533,36 @@
           "name": "road_retaining_abutment_0",
           "translate": [
             35.2,
+            0.0,
+            0.0
+          ],
+          "rotate_y": 0.0
+        },
+        {
+          "asset_id": "road_curbside_dropoff_apron",
+          "name": "road_curbside_dropoff_0",
+          "translate": [
+            38.4,
+            0.0,
+            0.0
+          ],
+          "rotate_y": 0.0
+        },
+        {
+          "asset_id": "road_mountable_apron_corner",
+          "name": "road_mountable_apron_corner_0",
+          "translate": [
+            41.6,
+            0.0,
+            0.0
+          ],
+          "rotate_y": 0.0
+        },
+        {
+          "asset_id": "road_alley_access_apron",
+          "name": "road_alley_access_apron_0",
+          "translate": [
+            44.8,
             0.0,
             0.0
           ],
