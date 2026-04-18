@@ -1,6 +1,6 @@
 {
   "generated_at": "2026-04-16T10:10:40.000Z",
-  "files_checked": 261,
+  "files_checked": 267,
   "files_with_errors": 0,
   "files_with_warnings": 0,
   "results": [
@@ -635,6 +635,13 @@
       "messages": []
     },
     {
+      "file": "exports/gltf/marking_drop_off_box_white.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
       "file": "exports/gltf/marking_edge_line_white.glb",
       "numErrors": 0,
       "numWarnings": 0,
@@ -657,6 +664,13 @@
     },
     {
       "file": "exports/gltf/marking_hatched_median_yellow.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
+      "file": "exports/gltf/marking_kiss_ride_box_white.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
@@ -705,7 +719,21 @@
       "messages": []
     },
     {
+      "file": "exports/gltf/marking_no_parking_box_red.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
       "file": "exports/gltf/marking_only_text_white.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
+      "file": "exports/gltf/marking_permit_only_box_green.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
@@ -748,6 +776,20 @@
     },
     {
       "file": "exports/gltf/marking_school_text_white.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
+      "file": "exports/gltf/marking_separator_arrow_left_white.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
+      "file": "exports/gltf/marking_separator_arrow_right_white.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,

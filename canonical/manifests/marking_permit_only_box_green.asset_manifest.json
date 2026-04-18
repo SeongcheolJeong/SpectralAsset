@@ -1,0 +1,61 @@
+{
+  "id": "marking_permit_only_box_green",
+  "family": "road_marking",
+  "semantic_class": "marking.curbside_reservation",
+  "variant_key": "permit_only_box_green",
+  "dimensions_m": {
+    "width": 1.88,
+    "height": 0.006,
+    "depth": 2.18
+  },
+  "lods": [
+    {
+      "name": "LOD0",
+      "triangle_count": 1200,
+      "usd_scope": "/marking_permit_only_box_green/LOD0",
+      "gltf_node_prefix": "LOD0"
+    },
+    {
+      "name": "LOD1",
+      "triangle_count": 1200,
+      "usd_scope": "/marking_permit_only_box_green/LOD1",
+      "gltf_node_prefix": "LOD1"
+    }
+  ],
+  "collider": {
+    "type": "box",
+    "width": 1.88,
+    "height": 0.006,
+    "depth": 2.18
+  },
+  "anchor_points": {
+    "base_center": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    }
+  },
+  "materials": [
+    "mat_marking_green",
+    "mat_marking_white"
+  ],
+  "states": {
+    "default": {
+      "render_profile": "static"
+    }
+  },
+  "export_targets": {
+    "usd_ascii": "canonical/geometry/usd/marking_permit_only_box_green.usda",
+    "usd_binary": "exports/usd/marking_permit_only_box_green.usdc",
+    "gltf_binary": "exports/gltf/marking_permit_only_box_green.glb"
+  },
+  "license": {
+    "spdx": "LicenseRef-ProjectGenerated",
+    "redistribution": "geometry, manifests, and templates generated in-repo"
+  },
+  "provenance": {
+    "generated_at": "2026-04-16T10:10:40+00:00",
+    "generated_by": "scripts/build_asset_pack.py",
+    "note": "Generated reusable road surface, marking, or furniture primitive."
+  }
+}
