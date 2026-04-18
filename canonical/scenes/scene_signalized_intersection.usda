@@ -27,6 +27,13 @@ def Xform "scene_signalized_intersection" {
         float xformOp:rotateY = 0.000000
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
     }
+    def Xform "lane_drop_transition_0" (
+        references = @../geometry/usd/road_lane_drop_transition.usda@</road_lane_drop_transition>
+    ) {
+        double3 xformOp:translate = (-4.200000, 0.000000, 0.300000)
+        float xformOp:rotateY = 90.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
     def Xform "crosswalk_0" (
         references = @../geometry/usd/marking_crosswalk.usda@</marking_crosswalk>
     ) {

@@ -1,6 +1,6 @@
 {
   "generated_at": "2026-04-16T10:10:40.000Z",
-  "files_checked": 126,
+  "files_checked": 131,
   "files_with_errors": 0,
   "files_with_warnings": 0,
   "results": [
@@ -446,6 +446,13 @@
       "messages": []
     },
     {
+      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/road_bridge_expansion_joint.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
       "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/road_concrete.glb",
       "numErrors": 0,
       "numWarnings": 0,
@@ -474,6 +481,20 @@
       "messages": []
     },
     {
+      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/road_dirt_track_dual_rut.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
+      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/road_dirt_track_washout.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
       "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/road_eroded_shoulder_edge.glb",
       "numErrors": 0,
       "numWarnings": 0,
@@ -489,6 +510,20 @@
     },
     {
       "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/road_gutter_transition.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
+      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/road_lane_drop_transition.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
+      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/road_rural_crowned_lane.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,

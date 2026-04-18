@@ -380,6 +380,36 @@
       "variant_key": "eroded_edge"
     },
     {
+      "id": "road_rural_crowned_lane",
+      "family": "road_surface",
+      "semantic_class": "road.rural_lane",
+      "variant_key": "crowned_panel"
+    },
+    {
+      "id": "road_dirt_track_dual_rut",
+      "family": "road_surface",
+      "semantic_class": "road.unsealed_track",
+      "variant_key": "dual_rut"
+    },
+    {
+      "id": "road_dirt_track_washout",
+      "family": "road_surface",
+      "semantic_class": "road.unsealed_track",
+      "variant_key": "washout_rill"
+    },
+    {
+      "id": "road_bridge_expansion_joint",
+      "family": "road_surface",
+      "semantic_class": "road.bridge_deck",
+      "variant_key": "expansion_joint"
+    },
+    {
+      "id": "road_lane_drop_transition",
+      "family": "road_surface",
+      "semantic_class": "road.transition",
+      "variant_key": "lane_drop_taper"
+    },
+    {
       "id": "road_curb_segment",
       "family": "road_furniture",
       "semantic_class": "road.curb",

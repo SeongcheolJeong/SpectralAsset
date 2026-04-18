@@ -26,6 +26,16 @@
           "rotate_y": 0.0
         },
         {
+          "asset_id": "road_rural_crowned_lane",
+          "name": "road_rural_0",
+          "translate": [
+            8.2,
+            0.0,
+            0.0
+          ],
+          "rotate_y": 0.0
+        },
+        {
           "asset_id": "marking_edge_line_white",
           "name": "edge_line_0",
           "translate": [
@@ -687,6 +697,16 @@
           "rotate_y": 0.0
         },
         {
+          "asset_id": "road_lane_drop_transition",
+          "name": "lane_drop_transition_0",
+          "translate": [
+            -4.2,
+            0.0,
+            0.3
+          ],
+          "rotate_y": 90.0
+        },
+        {
           "asset_id": "marking_crosswalk",
           "name": "crosswalk_0",
           "translate": [
@@ -1168,6 +1188,16 @@
           "rotate_y": 0.0
         },
         {
+          "asset_id": "road_bridge_expansion_joint",
+          "name": "road_bridge_joint_0",
+          "translate": [
+            8.2,
+            0.0,
+            0.0
+          ],
+          "rotate_y": 0.0
+        },
+        {
           "asset_id": "sign_stop_weathered",
           "name": "sign_stop_0",
           "translate": [
@@ -1553,6 +1583,26 @@
           "name": "road_edge_dropoff_0",
           "translate": [
             9.6,
+            0.0,
+            0.0
+          ],
+          "rotate_y": 0.0
+        },
+        {
+          "asset_id": "road_dirt_track_dual_rut",
+          "name": "road_dirt_track_0",
+          "translate": [
+            12.8,
+            0.0,
+            0.0
+          ],
+          "rotate_y": 0.0
+        },
+        {
+          "asset_id": "road_dirt_track_washout",
+          "name": "road_dirt_track_1",
+          "translate": [
+            16.0,
             0.0,
             0.0
           ],

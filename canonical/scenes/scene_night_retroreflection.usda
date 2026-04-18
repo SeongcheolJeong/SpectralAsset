@@ -20,6 +20,13 @@ def Xform "scene_night_retroreflection" {
         float xformOp:rotateY = 0.000000
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
     }
+    def Xform "road_bridge_joint_0" (
+        references = @../geometry/usd/road_bridge_expansion_joint.usda@</road_bridge_expansion_joint>
+    ) {
+        double3 xformOp:translate = (8.200000, 0.000000, 0.000000)
+        float xformOp:rotateY = 0.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
     def Xform "sign_stop_0" (
         references = @../geometry/usd/sign_stop_weathered.usda@</sign_stop_weathered>
     ) {

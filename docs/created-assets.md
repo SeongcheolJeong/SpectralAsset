@@ -6,7 +6,7 @@ This file explains what the generator actually creates in this repository and ho
 
 Current generated baseline:
 
-- `122` assets
+- `127` assets
 - `23` spectral materials
 - `11` emissive profiles
 - `3` camera profiles
@@ -118,9 +118,14 @@ These are reusable road or pavement surfaces such as:
 - `road_construction_plate_patch`
 - `road_asphalt_pothole_distressed`
 - `road_eroded_shoulder_edge`
+- `road_rural_crowned_lane`
+- `road_dirt_track_dual_rut`
+- `road_dirt_track_washout`
+- `road_bridge_expansion_joint`
+- `road_lane_drop_transition`
 - `road_sidewalk_panel`
 
-They mainly depend on spectral material definitions rather than complex state logic, but the newer variants now mix asphalt, concrete, steel-plate, and gravel proxy materials to represent repairs, rural shoulders, unsealed transitions, pothole distress, and edge-dropoff conditions.
+They mainly depend on spectral material definitions rather than complex state logic, but the newer variants now mix asphalt, concrete, steel-plate, and gravel proxy materials to represent repairs, rural shoulders, crowned rural lanes, dirt-track ruts, bridge-joint panels, lane-drop tapers, pothole distress, and edge-dropoff conditions.
 
 ### `road_marking`
 

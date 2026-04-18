@@ -20,6 +20,13 @@ def Xform "scene_sign_test_lane" {
         float xformOp:rotateY = 0.000000
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
     }
+    def Xform "road_rural_0" (
+        references = @../geometry/usd/road_rural_crowned_lane.usda@</road_rural_crowned_lane>
+    ) {
+        double3 xformOp:translate = (8.200000, 0.000000, 0.000000)
+        float xformOp:rotateY = 0.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
     def Xform "edge_line_0" (
         references = @../geometry/usd/marking_edge_line_white.usda@</marking_edge_line_white>
     ) {
