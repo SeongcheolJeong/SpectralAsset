@@ -6,9 +6,9 @@ This file explains what the generator actually creates in this repository and ho
 
 Current generated baseline:
 
-- `180` assets
+- `187` assets
 - `27` spectral materials
-- `16` emissive profiles
+- `19` emissive profiles
 - `3` camera profiles
 - `4` scenario profiles
 - `4` validation scenes
@@ -112,6 +112,9 @@ These are signal housings such as:
 - `signal_directional_arrow_right_3_aspect`
 - `signal_rail_crossing_dual_red_vertical`
 - `signal_rail_crossing_dual_red_horizontal`
+- `signal_school_warning_dual_amber_vertical`
+- `signal_pedestrian_wait_indicator_single`
+- `signal_preemption_beacon_lunar_single`
 
 Each signal usually has:
 
@@ -129,6 +132,9 @@ The newer specialized signal heads now also include:
 - tram-priority state maps for locale-style stop, caution, go, and call indications
 - directional-arrow state maps for red, yellow, green, and flashing yellow arrow behavior
 - rail-crossing state maps for left, right, or paired red flashing behavior
+- school-warning state maps for alternating or paired amber flashing behavior
+- pedestrian wait-indicator state maps for steady or flashing amber hold behavior
+- lunar preemption state maps for steady or flashing white preempt-call behavior
 
 ### `road_surface`
 
@@ -233,6 +239,10 @@ These are support/context objects such as:
 - `furniture_signal_controller_cabinet_single`
 - `furniture_signal_battery_backup_cabinet`
 - `furniture_signal_junction_box`
+- `furniture_rail_gate_mast`
+- `furniture_rail_gate_arm`
+- `furniture_rail_signal_bell_housing`
+- `furniture_rail_crossing_controller_cabinet`
 - `furniture_utility_pull_box`
 - `furniture_utility_transformer_padmount`
 - `furniture_bus_stop_shelter`
@@ -257,7 +267,7 @@ These are support/context objects such as:
 - `furniture_sign_mount_bracket_double`
 - `furniture_sign_overhead_bracket`
 
-The newest roadside-context pass adds bus-bay curb/island pieces, passenger-information hardware, and loading-zone support detail so scenes can now place a shelter, stop marker, bench, curb module, arrival display, loading sign, and payment kiosk instead of implying all curbside context through signs, poles, and cabinets alone.
+The newest roadside-context passes now add bus-bay curb/island pieces, passenger-information hardware, loading-zone support detail, and rail-gate mast/arm/bell/controller context so scenes can now place both curbside-transit assemblies and explicit crossing-gate support hardware instead of implying all context through signs, poles, and generic cabinets alone.
 
 ## Other Generated Objects
 
@@ -293,6 +303,9 @@ Current specialized additions include:
 - `emissive_transit_priority_standard`
 - `emissive_directional_arrow_standard`
 - `emissive_rail_crossing_dual_red`
+- `emissive_school_warning_dual_amber_vertical`
+- `emissive_pedestrian_wait_indicator`
+- `emissive_preemption_beacon_lunar`
 
 ### Camera profiles
 

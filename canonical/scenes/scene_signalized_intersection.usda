@@ -517,6 +517,27 @@ def Xform "scene_signalized_intersection" {
         float xformOp:rotateY = 180.000000
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
     }
+    def Xform "school_warning_0" (
+        references = @../geometry/usd/signal_school_warning_dual_amber_vertical.usda@</signal_school_warning_dual_amber_vertical>
+    ) {
+        double3 xformOp:translate = (-2.660000, 0.000000, 0.540000)
+        float xformOp:rotateY = 90.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
+    def Xform "ped_wait_0" (
+        references = @../geometry/usd/signal_pedestrian_wait_indicator_single.usda@</signal_pedestrian_wait_indicator_single>
+    ) {
+        double3 xformOp:translate = (1.360000, 0.000000, -1.180000)
+        float xformOp:rotateY = 180.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
+    def Xform "preemption_0" (
+        references = @../geometry/usd/signal_preemption_beacon_lunar_single.usda@</signal_preemption_beacon_lunar_single>
+    ) {
+        double3 xformOp:translate = (2.940000, 0.000000, -1.020000)
+        float xformOp:rotateY = 90.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
     def Xform "sign_overhead_truck_bypass_0" (
         references = @../geometry/usd/sign_overhead_truck_bypass_right.usda@</sign_overhead_truck_bypass_right>
     ) {

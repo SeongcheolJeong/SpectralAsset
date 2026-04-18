@@ -65,6 +65,7 @@ For deterministic rebuild review, the generator now preserves the previous track
 - the twenty-fifth `P3` expansion batch now adds curb-color segments, loading zigzag delimiters, and red/green conflict-zone panels so curbside/loading scenes no longer stop at boxed legends and simple colored lane fills
 - the twenty-sixth `P3` expansion batch now adds self-contained overhead destination assemblies plus California, UK motorway, and French autoroute shield follow-up variants so the sign family no longer stops at roadside route shields and stacked ground-mounted guide panels
 - the twenty-seventh `P3` expansion batch now adds ramp bridge-tie panels, ramp-gore and median-refuge noses, plus temporary crossover/barrier-chicane work-zone composites so the road-surface family no longer stops at repair, bridge-approach, and curb/barrier transition panels
+- the twenty-eighth `P3` expansion batch now adds school-warning, pedestrian-wait, and lunar-preemption heads plus rail-gate mast, arm, bell, and controller-cabinet context so the traffic-light family no longer stops at standalone rail/transit/bicycle specialty heads without broader crossing-gate or edge-case controller detail
 - selected USGS v7 dry-material baselines are used for asphalt, concrete, and galvanized metal
 - wet asphalt is currently a measured-derived material built from the measured dry asphalt baseline plus the tracked wet modifier
 - vehicle and protected-turn traffic-signal emissive profiles now use vendor-derived public LED fits

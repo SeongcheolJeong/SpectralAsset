@@ -1,0 +1,76 @@
+{
+  "id": "signal_preemption_beacon_lunar_single",
+  "family": "traffic_light",
+  "semantic_class": "traffic_light.preemption_beacon",
+  "variant_key": "preemption.lunar.single",
+  "dimensions_m": {
+    "width": 0.34,
+    "height": 1.62,
+    "depth": 0.18
+  },
+  "lods": [
+    {
+      "name": "LOD0",
+      "triangle_count": 120,
+      "usd_scope": "/signal_preemption_beacon_lunar_single/LOD0",
+      "gltf_node_prefix": "LOD0"
+    },
+    {
+      "name": "LOD1",
+      "triangle_count": 88,
+      "usd_scope": "/signal_preemption_beacon_lunar_single/LOD1",
+      "gltf_node_prefix": "LOD1"
+    }
+  ],
+  "collider": {
+    "type": "box",
+    "width": 0.34,
+    "height": 0.42,
+    "depth": 0.18
+  },
+  "anchor_points": {
+    "mount_point": {
+      "x": 0.0,
+      "y": 1.2,
+      "z": -0.08
+    },
+    "front_center": {
+      "x": 0.0,
+      "y": 1.41,
+      "z": 0.09
+    }
+  },
+  "materials": [
+    "mat_metal_galvanized",
+    "mat_signal_housing",
+    "mat_signal_ped_white_off"
+  ],
+  "states": {
+    "off": {
+      "emissive_profile": "emissive_preemption_beacon_lunar",
+      "state_key": "off"
+    },
+    "active_preempt": {
+      "emissive_profile": "emissive_preemption_beacon_lunar",
+      "state_key": "preempt"
+    },
+    "flashing_preempt": {
+      "emissive_profile": "emissive_preemption_beacon_lunar",
+      "state_key": "flashing_preempt"
+    }
+  },
+  "export_targets": {
+    "usd_ascii": "canonical/geometry/usd/signal_preemption_beacon_lunar_single.usda",
+    "usd_binary": "exports/usd/signal_preemption_beacon_lunar_single.usdc",
+    "gltf_binary": "exports/gltf/signal_preemption_beacon_lunar_single.glb"
+  },
+  "license": {
+    "spdx": "LicenseRef-ProjectGenerated",
+    "redistribution": "geometry, manifests, and templates generated in-repo"
+  },
+  "provenance": {
+    "generated_at": "2026-04-16T10:10:40+00:00",
+    "generated_by": "scripts/build_asset_pack.py",
+    "note": "Generated signal housing geometry with state-driven emissive profile bindings."
+  }
+}

@@ -244,6 +244,41 @@ def Xform "scene_night_retroreflection" {
         float xformOp:rotateY = 0.000000
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
     }
+    def Xform "rail_gate_mast_0" (
+        references = @../geometry/usd/furniture_rail_gate_mast.usda@</furniture_rail_gate_mast>
+    ) {
+        double3 xformOp:translate = (-2.420000, 0.000000, -0.080000)
+        float xformOp:rotateY = 0.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
+    def Xform "rail_gate_arm_0" (
+        references = @../geometry/usd/furniture_rail_gate_arm.usda@</furniture_rail_gate_arm>
+    ) {
+        double3 xformOp:translate = (-0.100000, 0.000000, 0.580000)
+        float xformOp:rotateY = -8.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
+    def Xform "rail_bell_0" (
+        references = @../geometry/usd/furniture_rail_signal_bell_housing.usda@</furniture_rail_signal_bell_housing>
+    ) {
+        double3 xformOp:translate = (-2.520000, 0.000000, 0.520000)
+        float xformOp:rotateY = 0.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
+    def Xform "rail_controller_0" (
+        references = @../geometry/usd/furniture_rail_crossing_controller_cabinet.usda@</furniture_rail_crossing_controller_cabinet>
+    ) {
+        double3 xformOp:translate = (-3.280000, 0.000000, -0.460000)
+        float xformOp:rotateY = 0.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
+    def Xform "preemption_0" (
+        references = @../geometry/usd/signal_preemption_beacon_lunar_single.usda@</signal_preemption_beacon_lunar_single>
+    ) {
+        double3 xformOp:translate = (-2.680000, 0.000000, 1.460000)
+        float xformOp:rotateY = 0.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
     def Xform "beacon_red_0" (
         references = @../geometry/usd/signal_beacon_red_single.usda@</signal_beacon_red_single>
     ) {

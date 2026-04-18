@@ -1,0 +1,76 @@
+{
+  "id": "signal_pedestrian_wait_indicator_single",
+  "family": "traffic_light",
+  "semantic_class": "traffic_light.pedestrian_wait_indicator",
+  "variant_key": "pedestrian.wait_indicator.single",
+  "dimensions_m": {
+    "width": 0.34,
+    "height": 1.6,
+    "depth": 0.16
+  },
+  "lods": [
+    {
+      "name": "LOD0",
+      "triangle_count": 36,
+      "usd_scope": "/signal_pedestrian_wait_indicator_single/LOD0",
+      "gltf_node_prefix": "LOD0"
+    },
+    {
+      "name": "LOD1",
+      "triangle_count": 36,
+      "usd_scope": "/signal_pedestrian_wait_indicator_single/LOD1",
+      "gltf_node_prefix": "LOD1"
+    }
+  ],
+  "collider": {
+    "type": "box",
+    "width": 0.34,
+    "height": 0.4,
+    "depth": 0.16
+  },
+  "anchor_points": {
+    "mount_point": {
+      "x": 0.0,
+      "y": 1.2,
+      "z": -0.08
+    },
+    "front_center": {
+      "x": 0.0,
+      "y": 1.4,
+      "z": 0.08
+    }
+  },
+  "materials": [
+    "mat_metal_galvanized",
+    "mat_signal_housing",
+    "mat_signal_lens_yellow_off"
+  ],
+  "states": {
+    "off": {
+      "emissive_profile": "emissive_pedestrian_wait_indicator",
+      "state_key": "off"
+    },
+    "active_wait": {
+      "emissive_profile": "emissive_pedestrian_wait_indicator",
+      "state_key": "wait"
+    },
+    "flashing_wait": {
+      "emissive_profile": "emissive_pedestrian_wait_indicator",
+      "state_key": "flashing_wait"
+    }
+  },
+  "export_targets": {
+    "usd_ascii": "canonical/geometry/usd/signal_pedestrian_wait_indicator_single.usda",
+    "usd_binary": "exports/usd/signal_pedestrian_wait_indicator_single.usdc",
+    "gltf_binary": "exports/gltf/signal_pedestrian_wait_indicator_single.glb"
+  },
+  "license": {
+    "spdx": "LicenseRef-ProjectGenerated",
+    "redistribution": "geometry, manifests, and templates generated in-repo"
+  },
+  "provenance": {
+    "generated_at": "2026-04-16T10:10:40+00:00",
+    "generated_by": "scripts/build_asset_pack.py",
+    "note": "Generated signal housing geometry with state-driven emissive profile bindings."
+  }
+}

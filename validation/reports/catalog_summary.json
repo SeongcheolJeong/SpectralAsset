@@ -428,6 +428,24 @@
       "variant_key": "rail_crossing.dual_red.horizontal"
     },
     {
+      "id": "signal_school_warning_dual_amber_vertical",
+      "family": "traffic_light",
+      "semantic_class": "traffic_light.school_warning",
+      "variant_key": "school_warning.dual_amber.vertical"
+    },
+    {
+      "id": "signal_pedestrian_wait_indicator_single",
+      "family": "traffic_light",
+      "semantic_class": "traffic_light.pedestrian_wait_indicator",
+      "variant_key": "pedestrian.wait_indicator.single"
+    },
+    {
+      "id": "signal_preemption_beacon_lunar_single",
+      "family": "traffic_light",
+      "semantic_class": "traffic_light.preemption_beacon",
+      "variant_key": "preemption.lunar.single"
+    },
+    {
       "id": "road_asphalt_dry",
       "family": "road_surface",
       "semantic_class": "road.asphalt",
@@ -960,6 +978,30 @@
       "family": "road_furniture",
       "semantic_class": "furniture.signal_junction_box",
       "variant_key": "pedestal"
+    },
+    {
+      "id": "furniture_rail_gate_mast",
+      "family": "road_furniture",
+      "semantic_class": "furniture.rail_gate_mast",
+      "variant_key": "single_track_gate"
+    },
+    {
+      "id": "furniture_rail_gate_arm",
+      "family": "road_furniture",
+      "semantic_class": "furniture.rail_gate_arm",
+      "variant_key": "striped_drop_arm"
+    },
+    {
+      "id": "furniture_rail_signal_bell_housing",
+      "family": "road_furniture",
+      "semantic_class": "furniture.rail_signal_bell",
+      "variant_key": "round_bell_guard"
+    },
+    {
+      "id": "furniture_rail_crossing_controller_cabinet",
+      "family": "road_furniture",
+      "semantic_class": "furniture.rail_controller_cabinet",
+      "variant_key": "vented_dual_door"
     },
     {
       "id": "furniture_utility_pull_box",

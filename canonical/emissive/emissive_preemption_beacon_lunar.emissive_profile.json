@@ -1,0 +1,31 @@
+{
+  "id": "emissive_preemption_beacon_lunar",
+  "spd_ref": {
+    "lunar": "canonical/spectra/spd_led_pedestrian_white.npz"
+  },
+  "state_map": {
+    "off": {},
+    "preempt": {
+      "lens_preempt_lunar": "spd_led_pedestrian_white"
+    },
+    "flashing_preempt": {
+      "lens_preempt_lunar": "spd_led_pedestrian_white"
+    }
+  },
+  "nominal_luminance_cd_m2": {
+    "lunar": 5900
+  },
+  "temperature_c": 25.0,
+  "driver_mode": "preemption_controller",
+  "source_quality": "project_proxy",
+  "source_ids": [],
+  "license": {
+    "spdx": "LicenseRef-ProjectGenerated"
+  },
+  "provenance": {
+    "generated_at": "2026-04-16T10:10:40+00:00",
+    "generated_by": "scripts/build_asset_pack.py",
+    "source_ids": [],
+    "note": "Project white-LED proxy for a lunar preemption beacon edge-case signal head."
+  }
+}

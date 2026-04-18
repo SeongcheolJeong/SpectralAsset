@@ -1,0 +1,63 @@
+{
+  "id": "furniture_rail_gate_arm",
+  "family": "road_furniture",
+  "semantic_class": "furniture.rail_gate_arm",
+  "variant_key": "striped_drop_arm",
+  "dimensions_m": {
+    "width": 5.28,
+    "height": 0.34,
+    "depth": 0.18
+  },
+  "lods": [
+    {
+      "name": "LOD0",
+      "triangle_count": 216,
+      "usd_scope": "/furniture_rail_gate_arm/LOD0",
+      "gltf_node_prefix": "LOD0"
+    },
+    {
+      "name": "LOD1",
+      "triangle_count": 36,
+      "usd_scope": "/furniture_rail_gate_arm/LOD1",
+      "gltf_node_prefix": "LOD1"
+    }
+  ],
+  "collider": {
+    "type": "box",
+    "width": 5.28,
+    "height": 0.34,
+    "depth": 0.18
+  },
+  "anchor_points": {
+    "base_center": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    }
+  },
+  "materials": [
+    "mat_metal_galvanized",
+    "mat_sign_stop_red",
+    "mat_sign_white",
+    "mat_signal_lens_red_off"
+  ],
+  "states": {
+    "default": {
+      "render_profile": "static"
+    }
+  },
+  "export_targets": {
+    "usd_ascii": "canonical/geometry/usd/furniture_rail_gate_arm.usda",
+    "usd_binary": "exports/usd/furniture_rail_gate_arm.usdc",
+    "gltf_binary": "exports/gltf/furniture_rail_gate_arm.glb"
+  },
+  "license": {
+    "spdx": "LicenseRef-ProjectGenerated",
+    "redistribution": "geometry, manifests, and templates generated in-repo"
+  },
+  "provenance": {
+    "generated_at": "2026-04-16T10:10:40+00:00",
+    "generated_by": "scripts/build_asset_pack.py",
+    "note": "Generated reusable road surface, marking, or furniture primitive."
+  }
+}

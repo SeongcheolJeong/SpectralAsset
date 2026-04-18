@@ -3431,6 +3431,10 @@ def road_asset_parts(asset_id: str, dimensions: Tuple[float, float, float]) -> D
         "furniture_signal_service_disconnect": "mat_signal_housing",
         "furniture_signal_meter_pedestal": "mat_signal_housing",
         "furniture_signal_battery_backup_cabinet": "mat_signal_housing",
+        "furniture_rail_gate_mast": "mat_metal_galvanized",
+        "furniture_rail_gate_arm": "mat_sign_white",
+        "furniture_rail_signal_bell_housing": "mat_metal_galvanized",
+        "furniture_rail_crossing_controller_cabinet": "mat_signal_housing",
         "furniture_utility_pull_box": "mat_concrete",
         "furniture_utility_transformer_padmount": "mat_signal_housing",
         "furniture_bus_stop_shelter": "mat_metal_galvanized",
@@ -3791,6 +3795,74 @@ def road_asset_parts(asset_id: str, dimensions: Tuple[float, float, float]) -> D
             make_mesh_part("pad", box_triangles(0.46, 0.06, 0.46, (0.0, 0.03, 0.0)), "mat_concrete"),
             make_mesh_part("box", box_triangles(0.3, 0.58, 0.28, (0.0, 0.35, 0.0)), "mat_signal_housing"),
             make_mesh_part("lid", box_triangles(0.36, 0.04, 0.34, (0.0, 0.66, 0.0)), "mat_metal_galvanized"),
+        ]
+        return {"LOD0": lod0, "LOD1": lod1}
+    if asset_id == "furniture_rail_gate_mast":
+        lod0 = [
+            make_mesh_part("base_pad", box_triangles(0.78, 0.08, 0.78, (0.0, 0.04, 0.0)), "mat_concrete"),
+            make_mesh_part("mast", cylinder_triangles(0.1, 5.24, 20, (0.0, 2.66, 0.0)), "mat_metal_galvanized"),
+            make_mesh_part("hinge_box", box_triangles(0.34, 0.42, 0.24, (0.18, 1.2, 0.0)), "mat_signal_housing"),
+            make_mesh_part("signal_mount", box_triangles(0.18, 0.92, 0.12, (0.34, 2.12, 0.0)), "mat_metal_galvanized"),
+            make_mesh_part("counterweight", box_triangles(0.22, 0.68, 0.18, (-0.18, 1.0, 0.0)), "mat_metal_galvanized"),
+            oriented_box_part("brace", 0.08, 0.92, 0.08, (0.18, 0.8, 0.0), "mat_metal_galvanized", -28.0),
+        ]
+        lod1 = [
+            make_mesh_part("base_pad", box_triangles(0.78, 0.08, 0.78, (0.0, 0.04, 0.0)), "mat_concrete"),
+            make_mesh_part("mast", cylinder_triangles(0.1, 5.24, 14, (0.0, 2.66, 0.0)), "mat_metal_galvanized"),
+            make_mesh_part("hinge_box", box_triangles(0.34, 0.42, 0.24, (0.18, 1.2, 0.0)), "mat_signal_housing"),
+            make_mesh_part("signal_mount", box_triangles(0.18, 0.92, 0.12, (0.34, 2.12, 0.0)), "mat_metal_galvanized"),
+        ]
+        return {"LOD0": lod0, "LOD1": lod1}
+    if asset_id == "furniture_rail_gate_arm":
+        lod0 = [
+            make_mesh_part("pivot", box_triangles(0.26, 0.2, 0.18, (-2.48, 0.11, 0.0)), "mat_metal_galvanized"),
+        ]
+        stripe_centers = (-1.9, -1.3, -0.7, -0.1, 0.5, 1.1, 1.7, 2.3)
+        for index, x_center in enumerate(stripe_centers):
+            stripe_material = "mat_sign_stop_red" if index % 2 else "mat_sign_white"
+            lod0.append(make_mesh_part(f"arm_segment_{index}", box_triangles(0.56, 0.14, 0.12, (x_center, 0.12, 0.0)), stripe_material))
+        lod0.extend(
+            [
+                make_mesh_part("tip_panel", box_triangles(0.24, 0.18, 0.14, (2.62, 0.12, 0.0)), "mat_sign_stop_red"),
+                make_mesh_part("tip_lamp_left", cylinder_triangles(0.04, 0.03, 12, (2.7, 0.16, 0.08)), "mat_signal_lens_red_off"),
+                make_mesh_part("tip_lamp_right", cylinder_triangles(0.04, 0.03, 12, (2.7, 0.08, 0.08)), "mat_signal_lens_red_off"),
+            ]
+        )
+        lod1 = [
+            make_mesh_part("pivot", box_triangles(0.26, 0.2, 0.18, (-2.48, 0.11, 0.0)), "mat_metal_galvanized"),
+            make_mesh_part("arm_main", box_triangles(4.96, 0.14, 0.12, (0.02, 0.12, 0.0)), "mat_sign_white"),
+            make_mesh_part("tip_panel", box_triangles(0.24, 0.18, 0.14, (2.62, 0.12, 0.0)), "mat_sign_stop_red"),
+        ]
+        return {"LOD0": lod0, "LOD1": lod1}
+    if asset_id == "furniture_rail_signal_bell_housing":
+        lod0 = [
+            make_mesh_part("mount_plate", box_triangles(0.18, 0.82, 0.08, (0.0, 1.52, -0.02)), "mat_metal_galvanized"),
+            make_mesh_part("bell_can", cylinder_triangles(0.14, 0.18, 18, (0.0, 1.7, 0.06)), "mat_signal_housing"),
+            make_mesh_part("bell_mouth", cylinder_triangles(0.18, 0.06, 18, (0.0, 1.62, 0.12)), "mat_metal_galvanized"),
+            make_mesh_part("hood", box_triangles(0.36, 0.12, 0.18, (0.0, 1.96, 0.02)), "mat_signal_housing"),
+            make_mesh_part("junction_stub", box_triangles(0.14, 0.18, 0.12, (0.0, 1.26, 0.0)), "mat_metal_galvanized"),
+        ]
+        lod1 = [
+            make_mesh_part("mount_plate", box_triangles(0.18, 0.82, 0.08, (0.0, 1.52, -0.02)), "mat_metal_galvanized"),
+            make_mesh_part("bell_can", cylinder_triangles(0.14, 0.18, 12, (0.0, 1.7, 0.06)), "mat_signal_housing"),
+            make_mesh_part("hood", box_triangles(0.36, 0.12, 0.18, (0.0, 1.96, 0.02)), "mat_signal_housing"),
+        ]
+        return {"LOD0": lod0, "LOD1": lod1}
+    if asset_id == "furniture_rail_crossing_controller_cabinet":
+        lod0 = [
+            make_mesh_part("pad", box_triangles(1.08, 0.08, 0.86, (0.0, 0.04, 0.0)), "mat_concrete"),
+            make_mesh_part("cabinet", box_triangles(0.8, 1.5, 0.54, (0.0, 0.83, 0.0)), "mat_signal_housing"),
+            make_mesh_part("roof_cap", box_triangles(0.88, 0.05, 0.62, (0.0, 1.605, 0.0)), "mat_metal_galvanized"),
+            make_mesh_part("door_left", box_triangles(0.36, 1.32, 0.02, (-0.2, 0.83, 0.28)), "mat_metal_galvanized"),
+            make_mesh_part("door_right", box_triangles(0.36, 1.32, 0.02, (0.2, 0.83, 0.28)), "mat_metal_galvanized"),
+            make_mesh_part("vent_upper", box_triangles(0.42, 0.08, 0.01, (0.0, 1.16, 0.28)), "mat_metal_galvanized"),
+            make_mesh_part("service_box", box_triangles(0.18, 0.28, 0.14, (0.46, 0.72, 0.08)), "mat_metal_galvanized"),
+        ]
+        lod1 = [
+            make_mesh_part("pad", box_triangles(1.08, 0.08, 0.86, (0.0, 0.04, 0.0)), "mat_concrete"),
+            make_mesh_part("cabinet", box_triangles(0.8, 1.5, 0.54, (0.0, 0.83, 0.0)), "mat_signal_housing"),
+            make_mesh_part("roof_cap", box_triangles(0.88, 0.05, 0.62, (0.0, 1.605, 0.0)), "mat_metal_galvanized"),
+            make_mesh_part("service_box", box_triangles(0.18, 0.28, 0.14, (0.46, 0.72, 0.08)), "mat_metal_galvanized"),
         ]
         return {"LOD0": lod0, "LOD1": lod1}
     if asset_id == "furniture_utility_pull_box":
@@ -6189,6 +6261,59 @@ def traffic_light_definitions() -> List[Dict]:
                 "flashing_red_pair": "flashing_red_pair",
             },
         },
+        {
+            "id": "signal_school_warning_dual_amber_vertical",
+            "variant_key": "school_warning.dual_amber.vertical",
+            "semantic_class": "traffic_light.school_warning",
+            "body_w": 0.38,
+            "body_h": 0.92,
+            "body_d": 0.2,
+            "lenses": [
+                {"name": "lens_school_upper", "x": 0.0, "y": 0.66, "radius": 0.11, "material_id": "mat_signal_lens_yellow_off"},
+                {"name": "lens_school_lower", "x": 0.0, "y": 0.26, "radius": 0.11, "material_id": "mat_signal_lens_yellow_off"},
+            ],
+            "emissive_profile": "emissive_school_warning_dual_amber_vertical",
+            "states": {
+                "off": "off",
+                "flashing_amber_upper": "flashing_amber_upper",
+                "flashing_amber_lower": "flashing_amber_lower",
+                "flashing_amber_pair": "flashing_amber_pair",
+            },
+        },
+        {
+            "id": "signal_pedestrian_wait_indicator_single",
+            "variant_key": "pedestrian.wait_indicator.single",
+            "semantic_class": "traffic_light.pedestrian_wait_indicator",
+            "body_w": 0.34,
+            "body_h": 0.4,
+            "body_d": 0.16,
+            "lenses": [
+                {"name": "display_wait", "x": 0.0, "y": 0.2, "shape": "box", "width": 0.22, "height": 0.14, "material_id": "mat_signal_lens_yellow_off"},
+            ],
+            "emissive_profile": "emissive_pedestrian_wait_indicator",
+            "states": {
+                "off": "off",
+                "active_wait": "wait",
+                "flashing_wait": "flashing_wait",
+            },
+        },
+        {
+            "id": "signal_preemption_beacon_lunar_single",
+            "variant_key": "preemption.lunar.single",
+            "semantic_class": "traffic_light.preemption_beacon",
+            "body_w": 0.34,
+            "body_h": 0.42,
+            "body_d": 0.18,
+            "lenses": [
+                {"name": "lens_preempt_lunar", "x": 0.0, "y": 0.21, "radius": 0.11, "material_id": "mat_signal_ped_white_off"},
+            ],
+            "emissive_profile": "emissive_preemption_beacon_lunar",
+            "states": {
+                "off": "off",
+                "active_preempt": "preempt",
+                "flashing_preempt": "flashing_preempt",
+            },
+        },
     ]
 
 
@@ -6283,6 +6408,10 @@ def road_definitions() -> List[Dict]:
         {"id": "furniture_signal_controller_cabinet_single", "family": "road_furniture", "semantic_class": "furniture.signal_controller_cabinet", "variant_key": "single_door", "dimensions": (0.72, 1.31, 0.62)},
         {"id": "furniture_signal_battery_backup_cabinet", "family": "road_furniture", "semantic_class": "furniture.signal_battery_backup", "variant_key": "double_door_vented", "dimensions": (0.92, 1.44, 0.68)},
         {"id": "furniture_signal_junction_box", "family": "road_furniture", "semantic_class": "furniture.signal_junction_box", "variant_key": "pedestal", "dimensions": (0.46, 0.68, 0.46)},
+        {"id": "furniture_rail_gate_mast", "family": "road_furniture", "semantic_class": "furniture.rail_gate_mast", "variant_key": "single_track_gate", "dimensions": (1.18, 5.54, 0.58)},
+        {"id": "furniture_rail_gate_arm", "family": "road_furniture", "semantic_class": "furniture.rail_gate_arm", "variant_key": "striped_drop_arm", "dimensions": (5.28, 0.34, 0.18)},
+        {"id": "furniture_rail_signal_bell_housing", "family": "road_furniture", "semantic_class": "furniture.rail_signal_bell", "variant_key": "round_bell_guard", "dimensions": (0.62, 1.14, 0.32)},
+        {"id": "furniture_rail_crossing_controller_cabinet", "family": "road_furniture", "semantic_class": "furniture.rail_controller_cabinet", "variant_key": "vented_dual_door", "dimensions": (1.08, 1.68, 0.86)},
         {"id": "furniture_utility_pull_box", "family": "road_furniture", "semantic_class": "furniture.utility_pull_box", "variant_key": "rectangular_handhole", "dimensions": (0.84, 0.49, 0.6)},
         {"id": "furniture_utility_transformer_padmount", "family": "road_furniture", "semantic_class": "furniture.utility_transformer", "variant_key": "padmount_single_phase", "dimensions": (1.04, 1.28, 0.82)},
         {"id": "furniture_bus_stop_shelter", "family": "road_furniture", "semantic_class": "furniture.transit_stop_shelter", "variant_key": "urban_glass_shelter", "dimensions": (2.38, 2.28, 1.18)},
@@ -6871,6 +7000,79 @@ def write_emissive_profiles(signal_curves: Dict[str, Dict], signal_profile_meta:
                 "note": vehicle_signal_note.replace("traffic-signal SPD", "rail-crossing dual-red signal SPD"),
             },
         },
+        {
+            "id": "emissive_school_warning_dual_amber_vertical",
+            "spd_ref": {
+                "amber": f"canonical/spectra/{signal_curves['yellow']['curve_name']}.npz",
+            },
+            "state_map": {
+                "off": {},
+                "flashing_amber_upper": {"lens_school_upper": signal_curves["yellow"]["curve_name"]},
+                "flashing_amber_lower": {"lens_school_lower": signal_curves["yellow"]["curve_name"]},
+                "flashing_amber_pair": {
+                    "lens_school_upper": signal_curves["yellow"]["curve_name"],
+                    "lens_school_lower": signal_curves["yellow"]["curve_name"],
+                },
+            },
+            "nominal_luminance_cd_m2": {"amber": 6200},
+            "temperature_c": 25.0,
+            "driver_mode": "school_warning_controller",
+            "source_quality": vehicle_signal_source_quality,
+            "source_ids": vehicle_signal_source_ids,
+            "license": vehicle_signal_license,
+            "provenance": {
+                "generated_at": GENERATED_AT,
+                "generated_by": "scripts/build_asset_pack.py",
+                "source_ids": vehicle_signal_source_ids,
+                "note": vehicle_signal_note.replace("traffic-signal SPD", "vertical school-warning amber signal SPD"),
+            },
+        },
+        {
+            "id": "emissive_pedestrian_wait_indicator",
+            "spd_ref": {
+                "wait": f"canonical/spectra/{signal_curves['yellow']['curve_name']}.npz",
+            },
+            "state_map": {
+                "off": {},
+                "wait": {"display_wait": signal_curves["yellow"]["curve_name"]},
+                "flashing_wait": {"display_wait": signal_curves["yellow"]["curve_name"]},
+            },
+            "nominal_luminance_cd_m2": {"wait": 5200},
+            "temperature_c": 25.0,
+            "driver_mode": "pedestrian_phase_controller",
+            "source_quality": vehicle_signal_source_quality,
+            "source_ids": vehicle_signal_source_ids,
+            "license": vehicle_signal_license,
+            "provenance": {
+                "generated_at": GENERATED_AT,
+                "generated_by": "scripts/build_asset_pack.py",
+                "source_ids": vehicle_signal_source_ids,
+                "note": vehicle_signal_note.replace("traffic-signal SPD", "pedestrian wait-indicator amber SPD"),
+            },
+        },
+        {
+            "id": "emissive_preemption_beacon_lunar",
+            "spd_ref": {
+                "lunar": "canonical/spectra/spd_led_pedestrian_white.npz",
+            },
+            "state_map": {
+                "off": {},
+                "preempt": {"lens_preempt_lunar": "spd_led_pedestrian_white"},
+                "flashing_preempt": {"lens_preempt_lunar": "spd_led_pedestrian_white"},
+            },
+            "nominal_luminance_cd_m2": {"lunar": 5900},
+            "temperature_c": 25.0,
+            "driver_mode": "preemption_controller",
+            "source_quality": "project_proxy",
+            "source_ids": [],
+            "license": {"spdx": "LicenseRef-ProjectGenerated"},
+            "provenance": {
+                "generated_at": GENERATED_AT,
+                "generated_by": "scripts/build_asset_pack.py",
+                "source_ids": [],
+                "note": "Project white-LED proxy for a lunar preemption beacon edge-case signal head.",
+            },
+        },
     ]
     optional_reference_curve_refs = signal_profile_meta.get("reference_curve_refs")
     optional_derivation_method = signal_profile_meta.get("derivation_method")
@@ -7134,6 +7336,9 @@ def scene_definitions() -> List[Dict]:
                 {"asset_id": "signal_directional_arrow_left_3_aspect", "name": "directional_arrow_left_0", "translate": (-0.96, 0.0, -2.0), "rotate_y": 0.0},
                 {"asset_id": "signal_directional_arrow_right_3_aspect", "name": "directional_arrow_right_0", "translate": (2.64, 0.0, -0.5), "rotate_y": 90.0},
                 {"asset_id": "signal_bicycle_vertical_3_aspect", "name": "bicycle_signal_0", "translate": (3.12, 0.0, 1.34), "rotate_y": 180.0},
+                {"asset_id": "signal_school_warning_dual_amber_vertical", "name": "school_warning_0", "translate": (-2.66, 0.0, 0.54), "rotate_y": 90.0},
+                {"asset_id": "signal_pedestrian_wait_indicator_single", "name": "ped_wait_0", "translate": (1.36, 0.0, -1.18), "rotate_y": 180.0},
+                {"asset_id": "signal_preemption_beacon_lunar_single", "name": "preemption_0", "translate": (2.94, 0.0, -1.02), "rotate_y": 90.0},
                 {"asset_id": "sign_overhead_truck_bypass_right", "name": "sign_overhead_truck_bypass_0", "translate": (0.0, 0.0, -5.1), "rotate_y": 0.0},
                 {"asset_id": "furniture_delineator_post", "name": "delineator_0", "translate": (-1.2, 0.0, -1.35), "rotate_y": 0.0},
                 {"asset_id": "furniture_barricade_panel", "name": "barricade_0", "translate": (2.25, 0.0, 1.65), "rotate_y": 90.0},
@@ -7183,6 +7388,11 @@ def scene_definitions() -> List[Dict]:
                 {"asset_id": "signal_warning_dual_red_horizontal", "name": "warning_red_0", "translate": (1.8, 0.0, -1.2), "rotate_y": 180.0},
                 {"asset_id": "signal_rail_crossing_dual_red_vertical", "name": "rail_vertical_0", "translate": (-2.25, 0.0, -0.1), "rotate_y": 0.0},
                 {"asset_id": "signal_rail_crossing_dual_red_horizontal", "name": "rail_horizontal_0", "translate": (-2.05, 0.0, 0.92), "rotate_y": 0.0},
+                {"asset_id": "furniture_rail_gate_mast", "name": "rail_gate_mast_0", "translate": (-2.42, 0.0, -0.08), "rotate_y": 0.0},
+                {"asset_id": "furniture_rail_gate_arm", "name": "rail_gate_arm_0", "translate": (-0.1, 0.0, 0.58), "rotate_y": -8.0},
+                {"asset_id": "furniture_rail_signal_bell_housing", "name": "rail_bell_0", "translate": (-2.52, 0.0, 0.52), "rotate_y": 0.0},
+                {"asset_id": "furniture_rail_crossing_controller_cabinet", "name": "rail_controller_0", "translate": (-3.28, 0.0, -0.46), "rotate_y": 0.0},
+                {"asset_id": "signal_preemption_beacon_lunar_single", "name": "preemption_0", "translate": (-2.68, 0.0, 1.46), "rotate_y": 0.0},
                 {"asset_id": "signal_beacon_red_single", "name": "beacon_red_0", "translate": (-1.9, 0.0, 1.85), "rotate_y": 0.0},
                 {"asset_id": "signal_transit_priority_vertical_4_aspect", "name": "transit_priority_vertical_0", "translate": (2.42, 0.0, 1.62), "rotate_y": 180.0},
                 {"asset_id": "signal_directional_arrow_left_3_aspect", "name": "directional_arrow_left_0", "translate": (2.22, 0.0, -1.2), "rotate_y": 180.0},
@@ -7233,6 +7443,8 @@ def scene_definitions() -> List[Dict]:
                 {"asset_id": "signal_transit_priority_horizontal_4_aspect", "name": "transit_priority_horizontal_0", "translate": (-1.52, 0.0, -1.38), "rotate_y": 0.0},
                 {"asset_id": "signal_directional_arrow_right_3_aspect", "name": "directional_arrow_right_0", "translate": (2.05, 0.0, 1.02), "rotate_y": 180.0},
                 {"asset_id": "signal_pedestrian_bicycle_hybrid_4_aspect", "name": "ped_bike_hybrid_0", "translate": (3.06, 0.0, 1.28), "rotate_y": 180.0},
+                {"asset_id": "signal_school_warning_dual_amber_vertical", "name": "school_warning_0", "translate": (3.58, 0.0, 1.88), "rotate_y": 180.0},
+                {"asset_id": "signal_pedestrian_wait_indicator_single", "name": "ped_wait_0", "translate": (-2.02, 0.0, -0.82), "rotate_y": 0.0},
                 {"asset_id": "furniture_traffic_cone", "name": "cone_0", "translate": (0.92, 0.0, -0.55), "rotate_y": 0.0},
                 {"asset_id": "furniture_water_barrier", "name": "barrier_0", "translate": (-1.9, 0.0, 1.35), "rotate_y": 90.0},
                 {"asset_id": "furniture_sign_back_triangle", "name": "sign_back_triangle_0", "translate": (1.8, 0.0, 1.4), "rotate_y": 180.0},

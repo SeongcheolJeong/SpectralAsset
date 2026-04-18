@@ -1617,6 +1617,36 @@
           "rotate_y": 180.0
         },
         {
+          "asset_id": "signal_school_warning_dual_amber_vertical",
+          "name": "school_warning_0",
+          "translate": [
+            -2.66,
+            0.0,
+            0.54
+          ],
+          "rotate_y": 90.0
+        },
+        {
+          "asset_id": "signal_pedestrian_wait_indicator_single",
+          "name": "ped_wait_0",
+          "translate": [
+            1.36,
+            0.0,
+            -1.18
+          ],
+          "rotate_y": 180.0
+        },
+        {
+          "asset_id": "signal_preemption_beacon_lunar_single",
+          "name": "preemption_0",
+          "translate": [
+            2.94,
+            0.0,
+            -1.02
+          ],
+          "rotate_y": 90.0
+        },
+        {
           "asset_id": "sign_overhead_truck_bypass_right",
           "name": "sign_overhead_truck_bypass_0",
           "translate": [
@@ -2054,6 +2084,56 @@
             -2.05,
             0.0,
             0.92
+          ],
+          "rotate_y": 0.0
+        },
+        {
+          "asset_id": "furniture_rail_gate_mast",
+          "name": "rail_gate_mast_0",
+          "translate": [
+            -2.42,
+            0.0,
+            -0.08
+          ],
+          "rotate_y": 0.0
+        },
+        {
+          "asset_id": "furniture_rail_gate_arm",
+          "name": "rail_gate_arm_0",
+          "translate": [
+            -0.1,
+            0.0,
+            0.58
+          ],
+          "rotate_y": -8.0
+        },
+        {
+          "asset_id": "furniture_rail_signal_bell_housing",
+          "name": "rail_bell_0",
+          "translate": [
+            -2.52,
+            0.0,
+            0.52
+          ],
+          "rotate_y": 0.0
+        },
+        {
+          "asset_id": "furniture_rail_crossing_controller_cabinet",
+          "name": "rail_controller_0",
+          "translate": [
+            -3.28,
+            0.0,
+            -0.46
+          ],
+          "rotate_y": 0.0
+        },
+        {
+          "asset_id": "signal_preemption_beacon_lunar_single",
+          "name": "preemption_0",
+          "translate": [
+            -2.68,
+            0.0,
+            1.46
           ],
           "rotate_y": 0.0
         },
@@ -2507,6 +2587,26 @@
             1.28
           ],
           "rotate_y": 180.0
+        },
+        {
+          "asset_id": "signal_school_warning_dual_amber_vertical",
+          "name": "school_warning_0",
+          "translate": [
+            3.58,
+            0.0,
+            1.88
+          ],
+          "rotate_y": 180.0
+        },
+        {
+          "asset_id": "signal_pedestrian_wait_indicator_single",
+          "name": "ped_wait_0",
+          "translate": [
+            -2.02,
+            0.0,
+            -0.82
+          ],
+          "rotate_y": 0.0
         },
         {
           "asset_id": "furniture_traffic_cone",
