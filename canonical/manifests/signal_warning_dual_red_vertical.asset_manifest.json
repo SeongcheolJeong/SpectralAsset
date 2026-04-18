@@ -1,0 +1,72 @@
+{
+  "id": "signal_warning_dual_red_vertical",
+  "family": "traffic_light",
+  "semantic_class": "traffic_light.warning_flasher",
+  "variant_key": "warning_flasher.dual_red.vertical",
+  "dimensions_m": {
+    "width": 0.38,
+    "height": 2.12,
+    "depth": 0.2
+  },
+  "lods": [
+    {
+      "name": "LOD0",
+      "triangle_count": 216,
+      "usd_scope": "/signal_warning_dual_red_vertical/LOD0",
+      "gltf_node_prefix": "LOD0"
+    },
+    {
+      "name": "LOD1",
+      "triangle_count": 152,
+      "usd_scope": "/signal_warning_dual_red_vertical/LOD1",
+      "gltf_node_prefix": "LOD1"
+    }
+  ],
+  "collider": {
+    "type": "box",
+    "width": 0.38,
+    "height": 0.92,
+    "depth": 0.2
+  },
+  "anchor_points": {
+    "mount_point": {
+      "x": 0.0,
+      "y": 1.2,
+      "z": -0.08
+    },
+    "front_center": {
+      "x": 0.0,
+      "y": 1.66,
+      "z": 0.1
+    }
+  },
+  "materials": [
+    "mat_metal_galvanized",
+    "mat_signal_housing",
+    "mat_signal_lens_red_off"
+  ],
+  "states": {
+    "off": {
+      "emissive_profile": "emissive_warning_dual_red",
+      "state_key": "off"
+    },
+    "flashing_red_pair": {
+      "emissive_profile": "emissive_warning_dual_red",
+      "state_key": "flashing_red_pair"
+    }
+  },
+  "export_targets": {
+    "usd_ascii": "canonical/geometry/usd/signal_warning_dual_red_vertical.usda",
+    "usd_binary": "exports/usd/signal_warning_dual_red_vertical.usdc",
+    "gltf_binary": "exports/gltf/signal_warning_dual_red_vertical.glb"
+  },
+  "license": {
+    "spdx": "LicenseRef-ProjectGenerated",
+    "redistribution": "geometry, manifests, and templates generated in-repo"
+  },
+  "provenance": {
+    "generated_at": "2026-04-16T10:10:40+00:00",
+    "generated_by": "scripts/build_asset_pack.py",
+    "note": "Generated signal housing geometry with state-driven emissive profile bindings."
+  }
+}

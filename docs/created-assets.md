@@ -6,9 +6,9 @@ This file explains what the generator actually creates in this repository and ho
 
 Current generated baseline:
 
-- `279` assets
+- `286` assets
 - `27` spectral materials
-- `23` emissive profiles
+- `24` emissive profiles
 - `3` camera profiles
 - `4` scenario profiles
 - `4` validation scenes
@@ -123,7 +123,9 @@ These are signal housings such as:
 - `signal_beacon_amber_single`
 - `signal_beacon_red_single`
 - `signal_warning_dual_amber_horizontal`
+- `signal_warning_dual_amber_vertical`
 - `signal_warning_dual_red_horizontal`
+- `signal_warning_dual_red_vertical`
 - `signal_lane_control_overhead_3_aspect`
 - `signal_lane_control_reversible_2_aspect`
 - `signal_transit_priority_vertical_4_aspect`
@@ -144,11 +146,14 @@ These are signal housings such as:
 - `signal_pedestrian_wait_indicator_single`
 - `signal_preemption_beacon_lunar_single`
 - `signal_preemption_beacon_dual_lunar_horizontal`
+- `signal_preemption_beacon_quad_lunar_box`
 - `signal_lane_control_compact_2_aspect`
 - `signal_school_warning_single_amber_beacon`
 - `signal_preemption_beacon_dual_lunar_vertical`
 - `signal_bus_priority_compact_3_aspect`
+- `signal_bus_priority_diamond_3_aspect`
 - `signal_tram_priority_compact_3_aspect`
+- `signal_tram_priority_diamond_3_aspect`
 
 Each signal usually has:
 
@@ -169,9 +174,9 @@ The newer specialized signal heads now also include:
 - school-warning state maps for alternating or paired amber flashing behavior
 - bus-priority state maps for stop, caution, go, and call indications
 - pedestrian wait-indicator state maps for steady or flashing amber hold behavior
-- lunar preemption state maps for steady/flashing single-lens or paired dual-lunar preempt-call behavior
-- compact lane-control or bus/tram-control heads plus single-amber school-warning and vertical dual-lunar preemption edge-case heads for narrower regional signal coverage
-- cantilever-crossing scene context for hanger/dropper-mounted signal-head placement instead of only side-mount or mast-arm starter context, now including both truss and curved-mast cantilever subtypes
+- lunar preemption state maps for steady/flashing single-lens, paired dual-lunar, or quad-lunar preempt-call behavior
+- compact lane-control or bus/tram-control heads plus single-amber school-warning, vertical dual-lunar preemption, vertical dual-amber/red flasher, and diamond-style bus/tram specialty heads for narrower regional signal coverage
+- cantilever-crossing scene context for hanger/dropper-mounted signal-head placement instead of only side-mount or mast-arm starter context, now including truss and curved-mast cantilever subtypes plus newer single and quad dropper variants
 
 ### `road_surface`
 
@@ -310,8 +315,10 @@ These are support/context objects such as:
 - `furniture_signal_mast_hanger`
 - `furniture_signal_cantilever_frame`
 - `furniture_signal_cantilever_curved_mast`
+- `furniture_signal_cantilever_dropper_single`
 - `furniture_signal_cantilever_dropper_pair`
 - `furniture_signal_cantilever_dropper_triple`
+- `furniture_signal_cantilever_dropper_quad`
 - `furniture_signal_cantilever_anchor_cage`
 - `furniture_signal_cantilever_footing_collar`
 - `furniture_signal_controller_cabinet`
@@ -362,7 +369,7 @@ These are support/context objects such as:
 - `furniture_sign_band_clamp_pair`
 - `furniture_signal_band_clamp`
 
-The newest roadside-context passes now add bus-bay curb/island pieces, passenger-information hardware, loading-zone support detail, rail-gate mast/arm/bell/controller context, queue-rail, shelter-panel, curb-ramp, clamp-hardware follow-up assets, truss and curved-mast cantilever signal-frame/dropper detail, cantilever anchor-cage and footing-collar pieces, rail-side power/relay ancillaries, validator/timetable microsupport, and shelter trash, route-map, lean-rail, curb-separator, and hanger-clamp follow-up pieces so scenes can place both curbside-transit assemblies and deeper attachment/crossing context instead of implying all of that through signs, poles, brackets, and generic cabinets alone.
+The newest roadside-context passes now add bus-bay curb/island pieces, passenger-information hardware, loading-zone support detail, rail-gate mast/arm/bell/controller context, queue-rail, shelter-panel, curb-ramp, clamp-hardware follow-up assets, truss and curved-mast cantilever signal-frame/dropper detail, newer single and quad dropper follow-up pieces, cantilever anchor-cage and footing-collar pieces, rail-side power/relay ancillaries, validator/timetable microsupport, and shelter trash, route-map, lean-rail, curb-separator, and hanger-clamp follow-up pieces so scenes can place both curbside-transit assemblies and deeper attachment/crossing context instead of implying all of that through signs, poles, brackets, and generic cabinets alone.
 
 ## Other Generated Objects
 
@@ -404,6 +411,7 @@ Current specialized additions include:
 - `emissive_pedestrian_wait_indicator`
 - `emissive_preemption_beacon_lunar`
 - `emissive_preemption_beacon_dual_lunar`
+- `emissive_preemption_beacon_quad_lunar`
 
 ### Camera profiles
 

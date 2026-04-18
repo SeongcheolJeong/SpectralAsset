@@ -272,6 +272,13 @@ def Xform "scene_night_retroreflection" {
         float xformOp:rotateY = 180.000000
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
     }
+    def Xform "cantilever_dropper_single_0" (
+        references = @../geometry/usd/furniture_signal_cantilever_dropper_single.usda@</furniture_signal_cantilever_dropper_single>
+    ) {
+        double3 xformOp:translate = (11.760000, 0.000000, -1.540000)
+        float xformOp:rotateY = 180.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
     def Xform "hanger_clamp_pair_0" (
         references = @../geometry/usd/furniture_signal_hanger_clamp_pair.usda@</furniture_signal_hanger_clamp_pair>
     ) {
@@ -283,6 +290,13 @@ def Xform "scene_night_retroreflection" {
         references = @../geometry/usd/signal_warning_dual_red_horizontal.usda@</signal_warning_dual_red_horizontal>
     ) {
         double3 xformOp:translate = (1.800000, 0.000000, -1.200000)
+        float xformOp:rotateY = 180.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
+    def Xform "warning_red_vertical_0" (
+        references = @../geometry/usd/signal_warning_dual_red_vertical.usda@</signal_warning_dual_red_vertical>
+    ) {
+        double3 xformOp:translate = (11.760000, 0.000000, -1.540000)
         float xformOp:rotateY = 180.000000
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
     }
@@ -363,6 +377,13 @@ def Xform "scene_night_retroreflection" {
         float xformOp:rotateY = 0.000000
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
     }
+    def Xform "preemption_quad_0" (
+        references = @../geometry/usd/signal_preemption_beacon_quad_lunar_box.usda@</signal_preemption_beacon_quad_lunar_box>
+    ) {
+        double3 xformOp:translate = (-1.040000, 0.000000, 1.460000)
+        float xformOp:rotateY = 0.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
     def Xform "beacon_red_0" (
         references = @../geometry/usd/signal_beacon_red_single.usda@</signal_beacon_red_single>
     ) {
@@ -391,10 +412,24 @@ def Xform "scene_night_retroreflection" {
         float xformOp:rotateY = 180.000000
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
     }
+    def Xform "bus_priority_diamond_0" (
+        references = @../geometry/usd/signal_bus_priority_diamond_3_aspect.usda@</signal_bus_priority_diamond_3_aspect>
+    ) {
+        double3 xformOp:translate = (3.960000, 0.000000, 1.620000)
+        float xformOp:rotateY = 180.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
     def Xform "tram_priority_compact_0" (
         references = @../geometry/usd/signal_tram_priority_compact_3_aspect.usda@</signal_tram_priority_compact_3_aspect>
     ) {
         double3 xformOp:translate = (1.920000, 0.000000, 1.620000)
+        float xformOp:rotateY = 180.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
+    def Xform "tram_priority_diamond_0" (
+        references = @../geometry/usd/signal_tram_priority_diamond_3_aspect.usda@</signal_tram_priority_diamond_3_aspect>
+    ) {
+        double3 xformOp:translate = (1.420000, 0.000000, 1.620000)
         float xformOp:rotateY = 180.000000
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
     }
@@ -416,6 +451,13 @@ def Xform "scene_night_retroreflection" {
         references = @../geometry/usd/signal_school_warning_single_amber_beacon.usda@</signal_school_warning_single_amber_beacon>
     ) {
         double3 xformOp:translate = (-1.180000, 0.000000, 2.200000)
+        float xformOp:rotateY = 0.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
+    def Xform "warning_amber_vertical_0" (
+        references = @../geometry/usd/signal_warning_dual_amber_vertical.usda@</signal_warning_dual_amber_vertical>
+    ) {
+        double3 xformOp:translate = (-0.620000, 0.000000, 2.200000)
         float xformOp:rotateY = 0.000000
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
     }

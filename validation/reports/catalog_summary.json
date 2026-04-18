@@ -506,10 +506,22 @@
       "variant_key": "warning_flasher.dual_amber.horizontal"
     },
     {
+      "id": "signal_warning_dual_amber_vertical",
+      "family": "traffic_light",
+      "semantic_class": "traffic_light.warning_flasher",
+      "variant_key": "warning_flasher.dual_amber.vertical"
+    },
+    {
       "id": "signal_warning_dual_red_horizontal",
       "family": "traffic_light",
       "semantic_class": "traffic_light.warning_flasher",
       "variant_key": "warning_flasher.dual_red.horizontal"
+    },
+    {
+      "id": "signal_warning_dual_red_vertical",
+      "family": "traffic_light",
+      "semantic_class": "traffic_light.warning_flasher",
+      "variant_key": "warning_flasher.dual_red.vertical"
     },
     {
       "id": "signal_lane_control_overhead_3_aspect",
@@ -638,16 +650,34 @@
       "variant_key": "preemption.lunar.dual_vertical"
     },
     {
+      "id": "signal_preemption_beacon_quad_lunar_box",
+      "family": "traffic_light",
+      "semantic_class": "traffic_light.preemption_beacon",
+      "variant_key": "preemption.lunar.quad_box"
+    },
+    {
       "id": "signal_bus_priority_compact_3_aspect",
       "family": "traffic_light",
       "semantic_class": "traffic_light.bus_priority",
       "variant_key": "bus_priority.compact.3_aspect"
     },
     {
+      "id": "signal_bus_priority_diamond_3_aspect",
+      "family": "traffic_light",
+      "semantic_class": "traffic_light.bus_priority",
+      "variant_key": "bus_priority.diamond.3_aspect"
+    },
+    {
       "id": "signal_tram_priority_compact_3_aspect",
       "family": "traffic_light",
       "semantic_class": "traffic_light.tram_priority",
       "variant_key": "tram_priority.compact.3_aspect"
+    },
+    {
+      "id": "signal_tram_priority_diamond_3_aspect",
+      "family": "traffic_light",
+      "semantic_class": "traffic_light.tram_priority",
+      "variant_key": "tram_priority.diamond.3_aspect"
     },
     {
       "id": "road_asphalt_dry",
@@ -1400,6 +1430,12 @@
       "variant_key": "curved_mast"
     },
     {
+      "id": "furniture_signal_cantilever_dropper_single",
+      "family": "road_furniture",
+      "semantic_class": "furniture.signal_dropper",
+      "variant_key": "single_dropper"
+    },
+    {
       "id": "furniture_signal_cantilever_dropper_pair",
       "family": "road_furniture",
       "semantic_class": "furniture.signal_dropper",
@@ -1410,6 +1446,12 @@
       "family": "road_furniture",
       "semantic_class": "furniture.signal_dropper",
       "variant_key": "triple_dropper_pair"
+    },
+    {
+      "id": "furniture_signal_cantilever_dropper_quad",
+      "family": "road_furniture",
+      "semantic_class": "furniture.signal_dropper",
+      "variant_key": "quad_dropper_pair"
     },
     {
       "id": "furniture_signal_cantilever_anchor_cage",

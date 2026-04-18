@@ -2047,6 +2047,26 @@
           "rotate_y": 180.0
         },
         {
+          "asset_id": "furniture_signal_cantilever_dropper_single",
+          "name": "cantilever_dropper_single_0",
+          "translate": [
+            11.78,
+            0.0,
+            -2.24
+          ],
+          "rotate_y": 180.0
+        },
+        {
+          "asset_id": "furniture_signal_cantilever_dropper_quad",
+          "name": "cantilever_dropper_quad_0",
+          "translate": [
+            15.6,
+            0.0,
+            -2.24
+          ],
+          "rotate_y": 180.0
+        },
+        {
           "asset_id": "furniture_signal_controller_cabinet",
           "name": "cabinet_0",
           "translate": [
@@ -2655,6 +2675,56 @@
             -1.12
           ],
           "rotate_y": 90.0
+        },
+        {
+          "asset_id": "signal_warning_dual_red_vertical",
+          "name": "warning_red_vertical_0",
+          "translate": [
+            11.78,
+            0.0,
+            -2.24
+          ],
+          "rotate_y": 0.0
+        },
+        {
+          "asset_id": "signal_warning_dual_amber_vertical",
+          "name": "warning_amber_vertical_0",
+          "translate": [
+            14.18,
+            0.0,
+            -2.24
+          ],
+          "rotate_y": 0.0
+        },
+        {
+          "asset_id": "signal_preemption_beacon_quad_lunar_box",
+          "name": "preemption_quad_0",
+          "translate": [
+            15.12,
+            0.0,
+            -2.24
+          ],
+          "rotate_y": 0.0
+        },
+        {
+          "asset_id": "signal_bus_priority_diamond_3_aspect",
+          "name": "bus_priority_diamond_0",
+          "translate": [
+            16.08,
+            0.0,
+            -2.24
+          ],
+          "rotate_y": 0.0
+        },
+        {
+          "asset_id": "signal_tram_priority_diamond_3_aspect",
+          "name": "tram_priority_diamond_0",
+          "translate": [
+            17.02,
+            0.0,
+            -2.24
+          ],
+          "rotate_y": 0.0
         },
         {
           "asset_id": "signal_lane_control_compact_2_aspect",
@@ -3358,6 +3428,16 @@
           "rotate_y": 180.0
         },
         {
+          "asset_id": "furniture_signal_cantilever_dropper_single",
+          "name": "cantilever_dropper_single_0",
+          "translate": [
+            11.76,
+            0.0,
+            -1.54
+          ],
+          "rotate_y": 180.0
+        },
+        {
           "asset_id": "furniture_signal_hanger_clamp_pair",
           "name": "hanger_clamp_pair_0",
           "translate": [
@@ -3374,6 +3454,16 @@
             1.8,
             0.0,
             -1.2
+          ],
+          "rotate_y": 180.0
+        },
+        {
+          "asset_id": "signal_warning_dual_red_vertical",
+          "name": "warning_red_vertical_0",
+          "translate": [
+            11.76,
+            0.0,
+            -1.54
           ],
           "rotate_y": 180.0
         },
@@ -3488,6 +3578,16 @@
           "rotate_y": 0.0
         },
         {
+          "asset_id": "signal_preemption_beacon_quad_lunar_box",
+          "name": "preemption_quad_0",
+          "translate": [
+            -1.04,
+            0.0,
+            1.46
+          ],
+          "rotate_y": 0.0
+        },
+        {
           "asset_id": "signal_beacon_red_single",
           "name": "beacon_red_0",
           "translate": [
@@ -3528,10 +3628,30 @@
           "rotate_y": 180.0
         },
         {
+          "asset_id": "signal_bus_priority_diamond_3_aspect",
+          "name": "bus_priority_diamond_0",
+          "translate": [
+            3.96,
+            0.0,
+            1.62
+          ],
+          "rotate_y": 180.0
+        },
+        {
           "asset_id": "signal_tram_priority_compact_3_aspect",
           "name": "tram_priority_compact_0",
           "translate": [
             1.92,
+            0.0,
+            1.62
+          ],
+          "rotate_y": 180.0
+        },
+        {
+          "asset_id": "signal_tram_priority_diamond_3_aspect",
+          "name": "tram_priority_diamond_0",
+          "translate": [
+            1.42,
             0.0,
             1.62
           ],
@@ -3562,6 +3682,16 @@
           "name": "school_warning_single_0",
           "translate": [
             -1.18,
+            0.0,
+            2.2
+          ],
+          "rotate_y": 0.0
+        },
+        {
+          "asset_id": "signal_warning_dual_amber_vertical",
+          "name": "warning_amber_vertical_0",
+          "translate": [
+            -0.62,
             0.0,
             2.2
           ],
@@ -4089,6 +4219,16 @@
           "rotate_y": 180.0
         },
         {
+          "asset_id": "furniture_signal_cantilever_dropper_single",
+          "name": "cantilever_dropper_single_0",
+          "translate": [
+            8.52,
+            0.0,
+            -1.86
+          ],
+          "rotate_y": 180.0
+        },
+        {
           "asset_id": "furniture_signal_controller_cabinet",
           "name": "cabinet_0",
           "translate": [
@@ -4249,6 +4389,16 @@
           "rotate_y": 180.0
         },
         {
+          "asset_id": "signal_bus_priority_diamond_3_aspect",
+          "name": "bus_priority_diamond_0",
+          "translate": [
+            2.22,
+            0.0,
+            1.88
+          ],
+          "rotate_y": 180.0
+        },
+        {
           "asset_id": "signal_tram_priority_compact_3_aspect",
           "name": "tram_priority_compact_0",
           "translate": [
@@ -4259,10 +4409,30 @@
           "rotate_y": 180.0
         },
         {
+          "asset_id": "signal_tram_priority_diamond_3_aspect",
+          "name": "tram_priority_diamond_0",
+          "translate": [
+            1.52,
+            0.0,
+            1.88
+          ],
+          "rotate_y": 180.0
+        },
+        {
           "asset_id": "signal_preemption_beacon_dual_lunar_vertical",
           "name": "preemption_dual_vertical_0",
           "translate": [
             -0.96,
+            0.0,
+            -0.8
+          ],
+          "rotate_y": 0.0
+        },
+        {
+          "asset_id": "signal_preemption_beacon_quad_lunar_box",
+          "name": "preemption_quad_0",
+          "translate": [
+            -0.42,
             0.0,
             -0.8
           ],
@@ -4445,6 +4615,16 @@
             3.58,
             0.0,
             1.88
+          ],
+          "rotate_y": 180.0
+        },
+        {
+          "asset_id": "signal_warning_dual_amber_vertical",
+          "name": "warning_amber_vertical_0",
+          "translate": [
+            8.52,
+            0.0,
+            -1.86
           ],
           "rotate_y": 180.0
         },
