@@ -1377,6 +1377,26 @@
           "rotate_y": 0.0
         },
         {
+          "asset_id": "signal_tram_priority_vertical_4_aspect",
+          "name": "tram_priority_vertical_0",
+          "translate": [
+            -3.22,
+            0.0,
+            1.94
+          ],
+          "rotate_y": 90.0
+        },
+        {
+          "asset_id": "signal_tram_priority_horizontal_4_aspect",
+          "name": "tram_priority_horizontal_0",
+          "translate": [
+            -3.42,
+            0.0,
+            0.62
+          ],
+          "rotate_y": 90.0
+        },
+        {
           "asset_id": "signal_directional_arrow_left_3_aspect",
           "name": "directional_arrow_left_0",
           "translate": [
@@ -1395,6 +1415,16 @@
             -0.5
           ],
           "rotate_y": 90.0
+        },
+        {
+          "asset_id": "signal_bicycle_vertical_3_aspect",
+          "name": "bicycle_signal_0",
+          "translate": [
+            3.12,
+            0.0,
+            1.34
+          ],
+          "rotate_y": 180.0
         },
         {
           "asset_id": "furniture_delineator_post",
@@ -2215,6 +2245,16 @@
             2.05,
             0.0,
             1.02
+          ],
+          "rotate_y": 180.0
+        },
+        {
+          "asset_id": "signal_pedestrian_bicycle_hybrid_4_aspect",
+          "name": "ped_bike_hybrid_0",
+          "translate": [
+            3.06,
+            0.0,
+            1.28
           ],
           "rotate_y": 180.0
         },

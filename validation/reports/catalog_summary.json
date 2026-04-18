@@ -296,6 +296,18 @@
       "variant_key": "pedestrian.countdown"
     },
     {
+      "id": "signal_bicycle_vertical_3_aspect",
+      "family": "traffic_light",
+      "semantic_class": "traffic_light.bicycle",
+      "variant_key": "bicycle.vertical.3_aspect"
+    },
+    {
+      "id": "signal_pedestrian_bicycle_hybrid_4_aspect",
+      "family": "traffic_light",
+      "semantic_class": "traffic_light.pedestrian_bicycle",
+      "variant_key": "pedestrian_bicycle.hybrid.4_aspect"
+    },
+    {
       "id": "signal_beacon_amber_single",
       "family": "traffic_light",
       "semantic_class": "traffic_light.beacon",
@@ -338,10 +350,22 @@
       "variant_key": "transit_priority.vertical.4_aspect"
     },
     {
+      "id": "signal_tram_priority_vertical_4_aspect",
+      "family": "traffic_light",
+      "semantic_class": "traffic_light.tram_priority",
+      "variant_key": "tram_priority.vertical.4_aspect"
+    },
+    {
       "id": "signal_transit_priority_horizontal_4_aspect",
       "family": "traffic_light",
       "semantic_class": "traffic_light.transit_priority",
       "variant_key": "transit_priority.horizontal.4_aspect"
+    },
+    {
+      "id": "signal_tram_priority_horizontal_4_aspect",
+      "family": "traffic_light",
+      "semantic_class": "traffic_light.tram_priority",
+      "variant_key": "tram_priority.horizontal.4_aspect"
     },
     {
       "id": "signal_directional_arrow_left_3_aspect",

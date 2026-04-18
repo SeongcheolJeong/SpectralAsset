@@ -1,0 +1,37 @@
+{
+  "id": "emissive_tram_priority_standard",
+  "spd_ref": {
+    "white": "canonical/spectra/spd_led_pedestrian_white.npz"
+  },
+  "state_map": {
+    "off": {},
+    "tram_stop": {
+      "display_tram_stop": "spd_led_pedestrian_white"
+    },
+    "tram_caution": {
+      "display_tram_caution": "spd_led_pedestrian_white"
+    },
+    "tram_go": {
+      "display_tram_go": "spd_led_pedestrian_white"
+    },
+    "tram_call": {
+      "display_tram_call": "spd_led_pedestrian_white"
+    }
+  },
+  "nominal_luminance_cd_m2": {
+    "white": 6000
+  },
+  "temperature_c": 25.0,
+  "driver_mode": "tram_priority_controller",
+  "source_quality": "project_proxy",
+  "source_ids": [],
+  "license": {
+    "spdx": "LicenseRef-ProjectGenerated"
+  },
+  "provenance": {
+    "generated_at": "2026-04-16T10:10:40+00:00",
+    "generated_by": "scripts/build_asset_pack.py",
+    "source_ids": [],
+    "note": "Locale-style tram-priority control profile using the project white LED proxy for dedicated tram bar/call indications."
+  }
+}

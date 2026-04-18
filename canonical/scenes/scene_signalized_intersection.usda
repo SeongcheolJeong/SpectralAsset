@@ -398,6 +398,20 @@ def Xform "scene_signalized_intersection" {
         float xformOp:rotateY = 0.000000
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
     }
+    def Xform "tram_priority_vertical_0" (
+        references = @../geometry/usd/signal_tram_priority_vertical_4_aspect.usda@</signal_tram_priority_vertical_4_aspect>
+    ) {
+        double3 xformOp:translate = (-3.220000, 0.000000, 1.940000)
+        float xformOp:rotateY = 90.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
+    def Xform "tram_priority_horizontal_0" (
+        references = @../geometry/usd/signal_tram_priority_horizontal_4_aspect.usda@</signal_tram_priority_horizontal_4_aspect>
+    ) {
+        double3 xformOp:translate = (-3.420000, 0.000000, 0.620000)
+        float xformOp:rotateY = 90.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
     def Xform "directional_arrow_left_0" (
         references = @../geometry/usd/signal_directional_arrow_left_3_aspect.usda@</signal_directional_arrow_left_3_aspect>
     ) {
@@ -410,6 +424,13 @@ def Xform "scene_signalized_intersection" {
     ) {
         double3 xformOp:translate = (2.640000, 0.000000, -0.500000)
         float xformOp:rotateY = 90.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
+    def Xform "bicycle_signal_0" (
+        references = @../geometry/usd/signal_bicycle_vertical_3_aspect.usda@</signal_bicycle_vertical_3_aspect>
+    ) {
+        double3 xformOp:translate = (3.120000, 0.000000, 1.340000)
+        float xformOp:rotateY = 180.000000
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
     }
     def Xform "delineator_0" (

@@ -1,0 +1,47 @@
+{
+  "id": "emissive_pedestrian_bicycle_hybrid",
+  "spd_ref": {
+    "ped_red": "canonical/spectra/spd_led_red.npz",
+    "ped_white": "canonical/spectra/spd_led_pedestrian_white.npz",
+    "bike_yellow": "canonical/spectra/spd_signal_yellow_vendor_ref.npz",
+    "bike_green": "canonical/spectra/spd_signal_green_vendor_ref.npz"
+  },
+  "state_map": {
+    "off": {},
+    "ped_stop": {
+      "display_ped_red": "spd_led_red"
+    },
+    "ped_walk": {
+      "display_ped_white": "spd_led_pedestrian_white"
+    },
+    "bike_wait": {
+      "display_bike_yellow": "spd_signal_yellow_vendor_ref"
+    },
+    "bike_go": {
+      "display_bike_green": "spd_signal_green_vendor_ref"
+    },
+    "shared_go": {
+      "display_ped_white": "spd_led_pedestrian_white",
+      "display_bike_green": "spd_signal_green_vendor_ref"
+    }
+  },
+  "nominal_luminance_cd_m2": {
+    "ped_red": 5200,
+    "ped_white": 6000,
+    "bike_yellow": 5200,
+    "bike_green": 6100
+  },
+  "temperature_c": 25.0,
+  "driver_mode": "pedestrian_bicycle_controller",
+  "source_quality": "project_proxy",
+  "source_ids": [],
+  "license": {
+    "spdx": "LicenseRef-ProjectGenerated"
+  },
+  "provenance": {
+    "generated_at": "2026-04-16T10:10:40+00:00",
+    "generated_by": "scripts/build_asset_pack.py",
+    "source_ids": [],
+    "note": "Hybrid pedestrian-bicycle control profile using the project pedestrian red/white proxies plus active yellow/green traffic-signal curves."
+  }
+}

@@ -230,6 +230,13 @@ def Xform "scene_wet_road_braking" {
         float xformOp:rotateY = 180.000000
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
     }
+    def Xform "ped_bike_hybrid_0" (
+        references = @../geometry/usd/signal_pedestrian_bicycle_hybrid_4_aspect.usda@</signal_pedestrian_bicycle_hybrid_4_aspect>
+    ) {
+        double3 xformOp:translate = (3.060000, 0.000000, 1.280000)
+        float xformOp:rotateY = 180.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
     def Xform "cone_0" (
         references = @../geometry/usd/furniture_traffic_cone.usda@</furniture_traffic_cone>
     ) {

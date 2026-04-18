@@ -1,6 +1,6 @@
 {
   "generated_at": "2026-04-16T10:10:40.000Z",
-  "files_checked": 157,
+  "files_checked": 161,
   "files_with_errors": 0,
   "files_with_warnings": 0,
   "results": [
@@ -999,6 +999,13 @@
       "messages": []
     },
     {
+      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/signal_bicycle_vertical_3_aspect.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
       "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/signal_directional_arrow_left_3_aspect.glb",
       "numErrors": 0,
       "numWarnings": 0,
@@ -1034,6 +1041,13 @@
       "messages": []
     },
     {
+      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/signal_pedestrian_bicycle_hybrid_4_aspect.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
       "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/signal_pedestrian_countdown_housing.glb",
       "numErrors": 0,
       "numWarnings": 0,
@@ -1056,6 +1070,20 @@
     },
     {
       "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/signal_rail_crossing_dual_red_vertical.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
+      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/signal_tram_priority_horizontal_4_aspect.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
+      "file": "/Users/seongcheoljeong/Documents/SpectralAsset/exports/gltf/signal_tram_priority_vertical_4_aspect.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,

@@ -1,0 +1,86 @@
+{
+  "id": "signal_bicycle_vertical_3_aspect",
+  "family": "traffic_light",
+  "semantic_class": "traffic_light.bicycle",
+  "variant_key": "bicycle.vertical.3_aspect",
+  "dimensions_m": {
+    "width": 0.38,
+    "height": 2.22,
+    "depth": 0.18
+  },
+  "lods": [
+    {
+      "name": "LOD0",
+      "triangle_count": 60,
+      "usd_scope": "/signal_bicycle_vertical_3_aspect/LOD0",
+      "gltf_node_prefix": "LOD0"
+    },
+    {
+      "name": "LOD1",
+      "triangle_count": 60,
+      "usd_scope": "/signal_bicycle_vertical_3_aspect/LOD1",
+      "gltf_node_prefix": "LOD1"
+    }
+  ],
+  "collider": {
+    "type": "box",
+    "width": 0.38,
+    "height": 1.02,
+    "depth": 0.18
+  },
+  "anchor_points": {
+    "mount_point": {
+      "x": 0.0,
+      "y": 1.2,
+      "z": -0.08
+    },
+    "front_center": {
+      "x": 0.0,
+      "y": 1.71,
+      "z": 0.09
+    }
+  },
+  "materials": [
+    "mat_metal_galvanized",
+    "mat_signal_housing",
+    "mat_signal_lens_green_off",
+    "mat_signal_lens_red_off",
+    "mat_signal_lens_yellow_off"
+  ],
+  "states": {
+    "off": {
+      "emissive_profile": "emissive_bicycle_standard",
+      "state_key": "off"
+    },
+    "active_bike_stop": {
+      "emissive_profile": "emissive_bicycle_standard",
+      "state_key": "bike_stop"
+    },
+    "active_bike_caution": {
+      "emissive_profile": "emissive_bicycle_standard",
+      "state_key": "bike_caution"
+    },
+    "active_bike_go": {
+      "emissive_profile": "emissive_bicycle_standard",
+      "state_key": "bike_go"
+    },
+    "flashing_bike_caution": {
+      "emissive_profile": "emissive_bicycle_standard",
+      "state_key": "flashing_bike_caution"
+    }
+  },
+  "export_targets": {
+    "usd_ascii": "canonical/geometry/usd/signal_bicycle_vertical_3_aspect.usda",
+    "usd_binary": "exports/usd/signal_bicycle_vertical_3_aspect.usdc",
+    "gltf_binary": "exports/gltf/signal_bicycle_vertical_3_aspect.glb"
+  },
+  "license": {
+    "spdx": "LicenseRef-ProjectGenerated",
+    "redistribution": "geometry, manifests, and templates generated in-repo"
+  },
+  "provenance": {
+    "generated_at": "2026-04-16T10:10:40+00:00",
+    "generated_by": "scripts/build_asset_pack.py",
+    "note": "Generated signal housing geometry with state-driven emissive profile bindings."
+  }
+}

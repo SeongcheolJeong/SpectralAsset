@@ -5,7 +5,7 @@
 Current generated catalog:
 
 - `traffic_sign`: `44` assets
-- `traffic_light`: `17` assets
+- `traffic_light`: `21` assets
 - `road_surface`: `23` assets
 - `road_marking`: `32` assets
 - `road_furniture`: `37` assets
@@ -15,7 +15,7 @@ Current scenario and validation support:
 - `4` scenario profiles
 - `4` validation scenes
 - `26` spectral materials
-- `13` emissive profiles
+- `16` emissive profiles
 - `3` camera profiles
 
 ## Naming Conventions
