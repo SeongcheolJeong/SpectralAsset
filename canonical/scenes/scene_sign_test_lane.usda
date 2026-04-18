@@ -55,6 +55,34 @@ def Xform "scene_sign_test_lane" {
         float xformOp:rotateY = 0.000000
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
     }
+    def Xform "road_roundabout_outer_ring_0" (
+        references = @../geometry/usd/road_roundabout_outer_ring_edge.usda@</road_roundabout_outer_ring_edge>
+    ) {
+        double3 xformOp:translate = (28.700000, 0.000000, 0.000000)
+        float xformOp:rotateY = 0.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
+    def Xform "road_roundabout_bypass_0" (
+        references = @../geometry/usd/road_roundabout_bypass_slip_lane.usda@</road_roundabout_bypass_slip_lane>
+    ) {
+        double3 xformOp:translate = (32.800000, 0.000000, 0.000000)
+        float xformOp:rotateY = 0.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
+    def Xform "road_retaining_wall_shelf_0" (
+        references = @../geometry/usd/road_retaining_wall_shoulder_shelf.usda@</road_retaining_wall_shoulder_shelf>
+    ) {
+        double3 xformOp:translate = (36.900000, 0.000000, 0.000000)
+        float xformOp:rotateY = 0.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
+    def Xform "road_retaining_abutment_0" (
+        references = @../geometry/usd/road_retaining_wall_abutment_transition.usda@</road_retaining_wall_abutment_transition>
+    ) {
+        double3 xformOp:translate = (41.000000, 0.000000, 0.000000)
+        float xformOp:rotateY = 0.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
     def Xform "edge_line_0" (
         references = @../geometry/usd/marking_edge_line_white.usda@</marking_edge_line_white>
     ) {

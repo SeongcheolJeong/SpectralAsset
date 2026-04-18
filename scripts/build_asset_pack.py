@@ -3431,11 +3431,17 @@ def road_asset_parts(asset_id: str, dimensions: Tuple[float, float, float]) -> D
         "road_median_refuge_nose": "mat_asphalt_dry",
         "road_roundabout_truck_apron": "mat_asphalt_dry",
         "road_roundabout_splitter_island": "mat_asphalt_dry",
+        "road_roundabout_outer_ring_edge": "mat_asphalt_dry",
+        "road_roundabout_bypass_slip_lane": "mat_asphalt_dry",
         "road_retaining_wall_cut_transition": "mat_asphalt_dry",
+        "road_retaining_wall_shoulder_shelf": "mat_asphalt_dry",
+        "road_retaining_wall_abutment_transition": "mat_asphalt_dry",
         "road_workzone_crossover_shift": "mat_asphalt_dry",
         "road_workzone_barrier_chicane": "mat_asphalt_dry",
         "road_workzone_shoefly_shift": "mat_asphalt_dry",
         "road_workzone_staging_pad": "mat_asphalt_dry",
+        "road_workzone_material_laydown_bay": "mat_asphalt_dry",
+        "road_workzone_temporary_access_pad": "mat_asphalt_dry",
         "road_curb_segment": "mat_concrete",
         "road_sidewalk_panel": "mat_concrete",
         "marking_lane_white": "mat_marking_white",
@@ -5040,6 +5046,42 @@ def road_asset_parts(asset_id: str, dimensions: Tuple[float, float, float]) -> D
             make_mesh_part("apron_right", box_triangles(0.24, 0.034, 2.42, (0.56, 0.017, 0.28)), "mat_concrete"),
         ]
         return {"LOD0": lod0, "LOD1": lod1}
+    if asset_id == "road_roundabout_outer_ring_edge":
+        lod0 = [
+            make_mesh_part("circulatory_lane", box_triangles(2.02, 0.04, depth, (-0.98, 0.02, 0.0)), "mat_asphalt_dry"),
+            oriented_box_part("outer_ring_shoulder", 0.92, 0.032, 3.26, (0.78, 0.016, -0.1), "mat_concrete", -12.0),
+            oriented_box_part("truck_overrun_edge", 0.38, 0.034, 2.22, (1.36, 0.017, 0.64), "mat_concrete", 18.0),
+            make_mesh_part("mountable_curb", box_triangles(0.16, 0.12, 2.54, (1.78, 0.06, 0.52)), "mat_concrete"),
+            oriented_box_part("landscape_wedge", 0.48, 0.05, 2.8, (2.06, 0.025, -0.06), "mat_gravel_compact", 4.0),
+            make_mesh_part("edge_band", box_triangles(0.08, 0.006, 2.64, (0.44, 0.029, 0.22)), "mat_marking_yellow"),
+            oriented_box_part("patch_strip", 0.22, 0.008, 1.18, (-0.64, 0.024, -1.0), "mat_concrete", -14.0),
+        ]
+        lod1 = [
+            make_mesh_part("circulatory_lane", box_triangles(2.02, 0.04, depth, (-0.98, 0.02, 0.0)), "mat_asphalt_dry"),
+            oriented_box_part("outer_ring_shoulder", 0.92, 0.032, 3.26, (0.78, 0.016, -0.1), "mat_concrete", -12.0),
+            oriented_box_part("truck_overrun_edge", 0.38, 0.034, 2.22, (1.36, 0.017, 0.64), "mat_concrete", 18.0),
+            make_mesh_part("mountable_curb", box_triangles(0.16, 0.12, 2.54, (1.78, 0.06, 0.52)), "mat_concrete"),
+            make_mesh_part("edge_band", box_triangles(0.08, 0.006, 2.64, (0.44, 0.029, 0.22)), "mat_marking_yellow"),
+        ]
+        return {"LOD0": lod0, "LOD1": lod1}
+    if asset_id == "road_roundabout_bypass_slip_lane":
+        lod0 = [
+            make_mesh_part("mainline_entry", box_triangles(1.86, 0.04, depth, (-1.08, 0.02, 0.0)), "mat_asphalt_dry"),
+            oriented_box_part("slip_lane", 1.02, 0.036, 3.34, (0.92, 0.018, -0.16), "mat_asphalt_dry", -18.0),
+            oriented_box_part("separator_apron", 0.54, 0.034, 2.26, (0.26, 0.017, 0.54), "mat_concrete", 14.0),
+            make_mesh_part("splitter_nub", box_triangles(0.34, 0.13, 0.9, (0.56, 0.065, 1.34)), "mat_concrete"),
+            oriented_box_part("outer_shoulder", 0.28, 0.024, 3.12, (1.94, 0.024, -0.08), "mat_gravel_compact", -6.0),
+            make_mesh_part("bypass_band", box_triangles(0.08, 0.006, 2.28, (0.18, 0.029, 0.28)), "mat_marking_yellow"),
+            oriented_box_part("repair_band", 0.18, 0.008, 1.24, (-0.84, 0.024, -1.02), "mat_concrete", 12.0),
+        ]
+        lod1 = [
+            make_mesh_part("mainline_entry", box_triangles(1.86, 0.04, depth, (-1.08, 0.02, 0.0)), "mat_asphalt_dry"),
+            oriented_box_part("slip_lane", 1.02, 0.036, 3.34, (0.92, 0.018, -0.16), "mat_asphalt_dry", -18.0),
+            oriented_box_part("separator_apron", 0.54, 0.034, 2.26, (0.26, 0.017, 0.54), "mat_concrete", 14.0),
+            make_mesh_part("splitter_nub", box_triangles(0.34, 0.13, 0.9, (0.56, 0.065, 1.34)), "mat_concrete"),
+            make_mesh_part("bypass_band", box_triangles(0.08, 0.006, 2.28, (0.18, 0.029, 0.28)), "mat_marking_yellow"),
+        ]
+        return {"LOD0": lod0, "LOD1": lod1}
     if asset_id == "road_retaining_wall_cut_transition":
         lod0 = [
             make_mesh_part("travel_lane", box_triangles(2.18, 0.04, depth, (-0.92, 0.02, 0.0)), "mat_asphalt_dry"),
@@ -5057,6 +5099,45 @@ def road_asset_parts(asset_id: str, dimensions: Tuple[float, float, float]) -> D
             make_mesh_part("retaining_wall", box_triangles(0.58, 0.26, 3.26, (1.46, 0.13, 0.0)), "mat_concrete"),
             oriented_box_part("wall_return", 0.42, 0.24, 1.18, (1.04, 0.12, 1.08), "mat_concrete", 26.0),
             oriented_box_part("cut_slope_fill", 0.42, 0.06, 3.18, (1.98, 0.03, -0.04), "mat_gravel_compact", 5.0),
+        ]
+        return {"LOD0": lod0, "LOD1": lod1}
+    if asset_id == "road_retaining_wall_shoulder_shelf":
+        lod0 = [
+            make_mesh_part("travel_lane", box_triangles(2.04, 0.04, depth, (-1.06, 0.02, 0.0)), "mat_asphalt_dry"),
+            make_mesh_part("shoulder_shelf", box_triangles(0.72, 0.034, depth, (0.42, 0.017, 0.0)), "mat_concrete"),
+            make_mesh_part("retaining_wall", box_triangles(0.46, 0.24, 3.28, (1.28, 0.12, 0.0)), "mat_concrete"),
+            oriented_box_part("wall_cap", 0.18, 0.04, 3.12, (1.46, 0.23, 0.0), "mat_concrete", 2.0),
+            oriented_box_part("drainage_shelf", 0.22, 0.018, 3.08, (0.94, 0.029, 0.02), "mat_sign_black", 2.0),
+            oriented_box_part("slope_fill", 0.42, 0.05, 3.18, (1.88, 0.025, -0.02), "mat_gravel_compact", 3.0),
+            make_mesh_part("edge_band", box_triangles(0.08, 0.006, 3.18, (0.1, 0.029, 0.0)), "mat_marking_yellow"),
+            oriented_box_part("patch_panel", 0.24, 0.008, 1.08, (-0.92, 0.024, -1.02), "mat_concrete", 9.0),
+        ]
+        lod1 = [
+            make_mesh_part("travel_lane", box_triangles(2.04, 0.04, depth, (-1.06, 0.02, 0.0)), "mat_asphalt_dry"),
+            make_mesh_part("shoulder_shelf", box_triangles(0.72, 0.034, depth, (0.42, 0.017, 0.0)), "mat_concrete"),
+            make_mesh_part("retaining_wall", box_triangles(0.46, 0.24, 3.28, (1.28, 0.12, 0.0)), "mat_concrete"),
+            oriented_box_part("wall_cap", 0.18, 0.04, 3.12, (1.46, 0.23, 0.0), "mat_concrete", 2.0),
+            make_mesh_part("edge_band", box_triangles(0.08, 0.006, 3.18, (0.1, 0.029, 0.0)), "mat_marking_yellow"),
+        ]
+        return {"LOD0": lod0, "LOD1": lod1}
+    if asset_id == "road_retaining_wall_abutment_transition":
+        lod0 = [
+            make_mesh_part("approach_lane", box_triangles(2.08, 0.04, depth, (-1.02, 0.02, 0.0)), "mat_asphalt_dry"),
+            make_mesh_part("abutment_slab", box_triangles(0.84, 0.05, depth, (0.52, 0.025, 0.0)), "mat_concrete"),
+            make_mesh_part("joint_gap", box_triangles(0.08, 0.012, depth, (0.02, 0.026, 0.0)), "mat_sign_black"),
+            make_mesh_part("retaining_abutment", box_triangles(0.52, 0.26, 3.24, (1.42, 0.13, 0.0)), "mat_concrete"),
+            oriented_box_part("wing_wall", 0.36, 0.24, 1.18, (1.08, 0.12, 1.06), "mat_concrete", 24.0),
+            oriented_box_part("embankment_fill", 0.44, 0.05, 3.12, (1.92, 0.025, -0.04), "mat_gravel_compact", -4.0),
+            make_mesh_part("edge_band", box_triangles(0.08, 0.006, 3.08, (-0.18, 0.029, 0.0)), "mat_marking_yellow"),
+            oriented_box_part("patch_strip", 0.22, 0.008, 1.16, (-1.04, 0.024, -0.98), "mat_concrete", -11.0),
+        ]
+        lod1 = [
+            make_mesh_part("approach_lane", box_triangles(2.08, 0.04, depth, (-1.02, 0.02, 0.0)), "mat_asphalt_dry"),
+            make_mesh_part("abutment_slab", box_triangles(0.84, 0.05, depth, (0.52, 0.025, 0.0)), "mat_concrete"),
+            make_mesh_part("joint_gap", box_triangles(0.08, 0.012, depth, (0.02, 0.026, 0.0)), "mat_sign_black"),
+            make_mesh_part("retaining_abutment", box_triangles(0.52, 0.26, 3.24, (1.42, 0.13, 0.0)), "mat_concrete"),
+            oriented_box_part("wing_wall", 0.36, 0.24, 1.18, (1.08, 0.12, 1.06), "mat_concrete", 24.0),
+            make_mesh_part("edge_band", box_triangles(0.08, 0.006, 3.08, (-0.18, 0.029, 0.0)), "mat_marking_yellow"),
         ]
         return {"LOD0": lod0, "LOD1": lod1}
     if asset_id == "road_workzone_crossover_shift":
@@ -5137,6 +5218,44 @@ def road_asset_parts(asset_id: str, dimensions: Tuple[float, float, float]) -> D
             make_mesh_part("steel_plate", box_triangles(0.92, 0.02, 1.18, (-0.92, 0.031, 0.96)), "mat_metal_galvanized"),
             make_mesh_part("temporary_edge", box_triangles(0.08, 0.006, 3.16, (-1.36, 0.029, 0.0)), "mat_marking_yellow"),
             oriented_box_part("windrow", 0.18, 0.022, 2.44, (1.96, 0.03, 0.0), "mat_gravel_compact", 4.0),
+        ]
+        return {"LOD0": lod0, "LOD1": lod1}
+    if asset_id == "road_workzone_material_laydown_bay":
+        lod0 = [
+            make_mesh_part("base", box_triangles(width, 0.04, depth, (0.0, 0.02, 0.0)), "mat_asphalt_dry"),
+            make_mesh_part("laydown_pad", box_triangles(1.42, 0.022, 2.98, (0.72, 0.031, 0.0)), "mat_concrete"),
+            make_mesh_part("stockpile_strip", box_triangles(0.34, 0.05, 2.18, (1.84, 0.045, -0.08)), "mat_gravel_compact"),
+            make_mesh_part("temporary_edge", box_triangles(0.08, 0.006, 3.22, (-1.34, 0.029, 0.0)), "mat_marking_yellow"),
+            make_mesh_part("steel_plate", box_triangles(0.82, 0.02, 1.2, (-0.88, 0.031, 1.02)), "mat_metal_galvanized"),
+            oriented_box_part("windrow_left", 0.18, 0.024, 2.42, (2.08, 0.03, -0.04), "mat_gravel_compact", 4.0),
+            oriented_box_part("windrow_right", 0.16, 0.022, 1.86, (1.92, 0.029, 0.84), "mat_gravel_compact", -8.0),
+            oriented_box_part("cold_patch", 0.22, 0.008, 1.22, (0.08, 0.025, -1.08), "mat_concrete", 11.0),
+        ]
+        lod1 = [
+            make_mesh_part("base", box_triangles(width, 0.04, depth, (0.0, 0.02, 0.0)), "mat_asphalt_dry"),
+            make_mesh_part("laydown_pad", box_triangles(1.42, 0.022, 2.98, (0.72, 0.031, 0.0)), "mat_concrete"),
+            make_mesh_part("stockpile_strip", box_triangles(0.34, 0.05, 2.18, (1.84, 0.045, -0.08)), "mat_gravel_compact"),
+            make_mesh_part("temporary_edge", box_triangles(0.08, 0.006, 3.22, (-1.34, 0.029, 0.0)), "mat_marking_yellow"),
+            make_mesh_part("steel_plate", box_triangles(0.82, 0.02, 1.2, (-0.88, 0.031, 1.02)), "mat_metal_galvanized"),
+        ]
+        return {"LOD0": lod0, "LOD1": lod1}
+    if asset_id == "road_workzone_temporary_access_pad":
+        lod0 = [
+            make_mesh_part("base", box_triangles(width, 0.04, depth, (0.0, 0.02, 0.0)), "mat_asphalt_dry"),
+            oriented_box_part("access_pad", 1.08, 0.02, 3.08, (0.48, 0.03, 0.02), "mat_concrete", 10.0),
+            oriented_box_part("shoulder_fill", 0.32, 0.024, 3.0, (1.76, 0.024, -0.06), "mat_gravel_compact", 3.0),
+            make_mesh_part("temporary_edge_left", box_triangles(0.08, 0.006, 3.18, (-1.36, 0.029, 0.0)), "mat_marking_yellow"),
+            make_mesh_part("temporary_edge_right", box_triangles(0.08, 0.006, 3.02, (1.22, 0.029, 0.08)), "mat_marking_yellow"),
+            make_mesh_part("steel_plate", box_triangles(0.74, 0.02, 1.06, (-0.96, 0.031, -0.98)), "mat_metal_galvanized"),
+            oriented_box_part("cold_patch", 0.2, 0.008, 1.14, (0.26, 0.025, 1.04), "mat_concrete", -13.0),
+            oriented_box_part("gravel_windrow", 0.16, 0.02, 2.24, (1.98, 0.028, 0.0), "mat_gravel_compact", -5.0),
+        ]
+        lod1 = [
+            make_mesh_part("base", box_triangles(width, 0.04, depth, (0.0, 0.02, 0.0)), "mat_asphalt_dry"),
+            oriented_box_part("access_pad", 1.08, 0.02, 3.08, (0.48, 0.03, 0.02), "mat_concrete", 10.0),
+            make_mesh_part("temporary_edge_left", box_triangles(0.08, 0.006, 3.18, (-1.36, 0.029, 0.0)), "mat_marking_yellow"),
+            make_mesh_part("temporary_edge_right", box_triangles(0.08, 0.006, 3.02, (1.22, 0.029, 0.08)), "mat_marking_yellow"),
+            make_mesh_part("steel_plate", box_triangles(0.74, 0.02, 1.06, (-0.96, 0.031, -0.98)), "mat_metal_galvanized"),
         ]
         return {"LOD0": lod0, "LOD1": lod1}
     if asset_id == "marking_crosswalk":
@@ -7020,11 +7139,17 @@ def road_definitions() -> List[Dict]:
         {"id": "road_median_refuge_nose", "family": "road_surface", "semantic_class": "road.median_nose", "variant_key": "channelized_refuge", "dimensions": (4.0, 0.16, 4.0)},
         {"id": "road_roundabout_truck_apron", "family": "road_surface", "semantic_class": "road.roundabout_apron", "variant_key": "truck_apron", "dimensions": (4.0, 0.16, 4.0)},
         {"id": "road_roundabout_splitter_island", "family": "road_surface", "semantic_class": "road.roundabout_splitter", "variant_key": "entry_splitter", "dimensions": (4.0, 0.14, 4.0)},
+        {"id": "road_roundabout_outer_ring_edge", "family": "road_surface", "semantic_class": "road.roundabout_edge", "variant_key": "outer_ring_shoulder", "dimensions": (4.0, 0.16, 4.0)},
+        {"id": "road_roundabout_bypass_slip_lane", "family": "road_surface", "semantic_class": "road.roundabout_bypass", "variant_key": "slip_lane_entry", "dimensions": (4.0, 0.14, 4.0)},
         {"id": "road_retaining_wall_cut_transition", "family": "road_surface", "semantic_class": "road.retaining_transition", "variant_key": "cut_slope_wall", "dimensions": (4.0, 0.26, 4.0)},
+        {"id": "road_retaining_wall_shoulder_shelf", "family": "road_surface", "semantic_class": "road.retaining_transition", "variant_key": "shoulder_shelf", "dimensions": (4.0, 0.24, 4.0)},
+        {"id": "road_retaining_wall_abutment_transition", "family": "road_surface", "semantic_class": "road.retaining_transition", "variant_key": "abutment_bridge_tie", "dimensions": (4.0, 0.28, 4.0)},
         {"id": "road_workzone_crossover_shift", "family": "road_surface", "semantic_class": "road.workzone_composite", "variant_key": "temporary_crossover", "dimensions": (4.0, 0.05, 4.0)},
         {"id": "road_workzone_barrier_chicane", "family": "road_surface", "semantic_class": "road.workzone_composite", "variant_key": "barrier_chicane", "dimensions": (4.0, 0.22, 4.0)},
         {"id": "road_workzone_shoefly_shift", "family": "road_surface", "semantic_class": "road.workzone_composite", "variant_key": "shoefly_shift", "dimensions": (4.0, 0.05, 4.0)},
         {"id": "road_workzone_staging_pad", "family": "road_surface", "semantic_class": "road.workzone_composite", "variant_key": "staging_pad", "dimensions": (4.0, 0.06, 4.0)},
+        {"id": "road_workzone_material_laydown_bay", "family": "road_surface", "semantic_class": "road.workzone_composite", "variant_key": "material_laydown_bay", "dimensions": (4.0, 0.08, 4.0)},
+        {"id": "road_workzone_temporary_access_pad", "family": "road_surface", "semantic_class": "road.workzone_composite", "variant_key": "temporary_access_pad", "dimensions": (4.0, 0.08, 4.0)},
         {"id": "road_curb_segment", "family": "road_furniture", "semantic_class": "road.curb", "variant_key": "default", "dimensions": (2.0, 0.18, 0.4)},
         {"id": "road_sidewalk_panel", "family": "road_surface", "semantic_class": "road.sidewalk", "variant_key": "default", "dimensions": (2.4, 0.06, 2.4)},
         {"id": "marking_lane_white", "family": "road_marking", "semantic_class": "marking.lane", "variant_key": "white", "dimensions": (0.16, 0.005, 2.0)},
@@ -7968,6 +8093,10 @@ def scene_definitions() -> List[Dict]:
                 {"asset_id": "road_median_refuge_nose", "name": "road_median_refuge_0", "translate": (16.4, 0.0, 0.0), "rotate_y": 0.0},
                 {"asset_id": "road_roundabout_truck_apron", "name": "road_roundabout_truck_apron_0", "translate": (20.5, 0.0, 0.0), "rotate_y": 0.0},
                 {"asset_id": "road_retaining_wall_cut_transition", "name": "road_retaining_wall_0", "translate": (24.6, 0.0, 0.0), "rotate_y": 0.0},
+                {"asset_id": "road_roundabout_outer_ring_edge", "name": "road_roundabout_outer_ring_0", "translate": (28.7, 0.0, 0.0), "rotate_y": 0.0},
+                {"asset_id": "road_roundabout_bypass_slip_lane", "name": "road_roundabout_bypass_0", "translate": (32.8, 0.0, 0.0), "rotate_y": 0.0},
+                {"asset_id": "road_retaining_wall_shoulder_shelf", "name": "road_retaining_wall_shelf_0", "translate": (36.9, 0.0, 0.0), "rotate_y": 0.0},
+                {"asset_id": "road_retaining_wall_abutment_transition", "name": "road_retaining_abutment_0", "translate": (41.0, 0.0, 0.0), "rotate_y": 0.0},
                 {"asset_id": "marking_edge_line_white", "name": "edge_line_0", "translate": (-1.58, 0.03, 0.0), "rotate_y": 0.0},
                 {"asset_id": "marking_edge_line_yellow", "name": "edge_line_yellow_0", "translate": (1.58, 0.03, 0.0), "rotate_y": 0.0},
                 {"asset_id": "marking_lane_white", "name": "lane_0", "translate": (-0.9, 0.03, 0.0), "rotate_y": 0.0},
@@ -8079,6 +8208,8 @@ def scene_definitions() -> List[Dict]:
                 {"asset_id": "road_workzone_barrier_chicane", "name": "workzone_barrier_chicane_0", "translate": (-12.2, 0.0, 1.05), "rotate_y": 90.0},
                 {"asset_id": "road_workzone_shoefly_shift", "name": "workzone_shoefly_0", "translate": (-16.2, 0.0, 0.88), "rotate_y": 90.0},
                 {"asset_id": "road_workzone_staging_pad", "name": "workzone_staging_0", "translate": (-20.2, 0.0, 0.82), "rotate_y": 90.0},
+                {"asset_id": "road_workzone_material_laydown_bay", "name": "workzone_laydown_0", "translate": (-24.2, 0.0, 0.84), "rotate_y": 90.0},
+                {"asset_id": "road_roundabout_bypass_slip_lane", "name": "roundabout_bypass_0", "translate": (20.2, 0.0, -0.24), "rotate_y": 0.0},
                 {"asset_id": "marking_crosswalk", "name": "crosswalk_0", "translate": (0.0, 0.03, -1.1), "rotate_y": 90.0},
                 {"asset_id": "marking_stop_line", "name": "stopline_0", "translate": (0.0, 0.03, -1.7), "rotate_y": 0.0},
                 {"asset_id": "marking_stop_line_worn", "name": "stopline_worn_0", "translate": (0.0, 0.03, 1.62), "rotate_y": 180.0},
@@ -8265,6 +8396,8 @@ def scene_definitions() -> List[Dict]:
                 {"asset_id": "road_curb_bulbout_transition", "name": "road_curb_bulbout_0", "translate": (22.4, 0.0, 0.0), "rotate_y": 0.0},
                 {"asset_id": "road_ramp_gore_transition", "name": "road_ramp_gore_0", "translate": (25.6, 0.0, 0.0), "rotate_y": 0.0},
                 {"asset_id": "road_workzone_staging_pad", "name": "road_workzone_staging_0", "translate": (28.8, 0.0, 0.0), "rotate_y": 0.0},
+                {"asset_id": "road_workzone_temporary_access_pad", "name": "road_workzone_access_0", "translate": (32.0, 0.0, 0.0), "rotate_y": 0.0},
+                {"asset_id": "road_retaining_wall_abutment_transition", "name": "road_retaining_abutment_0", "translate": (35.2, 0.0, 0.0), "rotate_y": 0.0},
                 {"asset_id": "marking_crosswalk_worn", "name": "crosswalk_0", "translate": (0.0, 0.03, 0.8), "rotate_y": 90.0},
                 {"asset_id": "marking_stop_line_worn", "name": "stopline_0", "translate": (0.0, 0.03, 0.2), "rotate_y": 0.0},
                 {"asset_id": "marking_edge_line_white", "name": "edge_line_0", "translate": (-1.5, 0.03, -0.1), "rotate_y": 0.0},

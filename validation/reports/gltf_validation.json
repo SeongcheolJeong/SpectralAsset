@@ -1,6 +1,6 @@
 {
   "generated_at": "2026-04-16T10:10:40.000Z",
-  "files_checked": 234,
+  "files_checked": 240,
   "files_with_errors": 0,
   "files_with_warnings": 0,
   "results": [
@@ -957,7 +957,35 @@
       "messages": []
     },
     {
+      "file": "exports/gltf/road_retaining_wall_abutment_transition.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
       "file": "exports/gltf/road_retaining_wall_cut_transition.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
+      "file": "exports/gltf/road_retaining_wall_shoulder_shelf.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
+      "file": "exports/gltf/road_roundabout_bypass_slip_lane.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
+      "file": "exports/gltf/road_roundabout_outer_ring_edge.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
@@ -1006,6 +1034,13 @@
       "messages": []
     },
     {
+      "file": "exports/gltf/road_workzone_material_laydown_bay.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
       "file": "exports/gltf/road_workzone_shoefly_shift.glb",
       "numErrors": 0,
       "numWarnings": 0,
@@ -1014,6 +1049,13 @@
     },
     {
       "file": "exports/gltf/road_workzone_staging_pad.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
+      "file": "exports/gltf/road_workzone_temporary_access_pad.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,

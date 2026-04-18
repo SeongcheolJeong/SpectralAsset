@@ -6,7 +6,7 @@ This file explains what the generator actually creates in this repository and ho
 
 Current generated baseline:
 
-- `230` assets
+- `236` assets
 - `27` spectral materials
 - `22` emissive profiles
 - `3` camera profiles
@@ -180,14 +180,20 @@ These are reusable road or pavement surfaces such as:
 - `road_median_refuge_nose`
 - `road_roundabout_truck_apron`
 - `road_roundabout_splitter_island`
+- `road_roundabout_outer_ring_edge`
+- `road_roundabout_bypass_slip_lane`
 - `road_retaining_wall_cut_transition`
+- `road_retaining_wall_shoulder_shelf`
+- `road_retaining_wall_abutment_transition`
 - `road_workzone_crossover_shift`
 - `road_workzone_barrier_chicane`
 - `road_workzone_shoefly_shift`
 - `road_workzone_staging_pad`
+- `road_workzone_material_laydown_bay`
+- `road_workzone_temporary_access_pad`
 - `road_sidewalk_panel`
 
-They mainly depend on spectral material definitions rather than complex state logic, but the newer variants now mix asphalt, concrete, steel-plate, gravel proxy materials, and low-profile curb or barrier forms to represent repairs, construction staging, rural shoulders, crowned rural lanes, dirt-track ruts, bridge-joint and bridge-approach panels, lane-drop tapers, pothole distress, edge-dropoff conditions, curbside/barrier transition composites, ramp bridge-tie and ramp-gore transitions, median-refuge noses, roundabout truck-apron and splitter-island panels, retaining-wall cut transitions, and deeper shoefly or staging-pad work-zone composites.
+They mainly depend on spectral material definitions rather than complex state logic, but the newer variants now mix asphalt, concrete, steel-plate, gravel proxy materials, and low-profile curb or barrier forms to represent repairs, construction staging, rural shoulders, crowned rural lanes, dirt-track ruts, bridge-joint and bridge-approach panels, lane-drop tapers, pothole distress, edge-dropoff conditions, curbside/barrier transition composites, ramp bridge-tie and ramp-gore transitions, median-refuge noses, roundabout truck-apron, outer-ring-edge, and bypass-slip-lane panels, retaining-wall cut, shoulder-shelf, and abutment transitions, plus deeper shoefly, staging-pad, material-laydown, and temporary-access work-zone composites.
 
 ### `road_marking`
 

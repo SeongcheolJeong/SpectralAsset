@@ -1,0 +1,64 @@
+{
+  "id": "road_retaining_wall_shoulder_shelf",
+  "family": "road_surface",
+  "semantic_class": "road.retaining_transition",
+  "variant_key": "shoulder_shelf",
+  "dimensions_m": {
+    "width": 4.0,
+    "height": 0.24,
+    "depth": 4.0
+  },
+  "lods": [
+    {
+      "name": "LOD0",
+      "triangle_count": 96,
+      "usd_scope": "/road_retaining_wall_shoulder_shelf/LOD0",
+      "gltf_node_prefix": "LOD0"
+    },
+    {
+      "name": "LOD1",
+      "triangle_count": 60,
+      "usd_scope": "/road_retaining_wall_shoulder_shelf/LOD1",
+      "gltf_node_prefix": "LOD1"
+    }
+  ],
+  "collider": {
+    "type": "box",
+    "width": 4.0,
+    "height": 0.24,
+    "depth": 4.0
+  },
+  "anchor_points": {
+    "base_center": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    }
+  },
+  "materials": [
+    "mat_asphalt_dry",
+    "mat_concrete",
+    "mat_gravel_compact",
+    "mat_marking_yellow",
+    "mat_sign_black"
+  ],
+  "states": {
+    "default": {
+      "render_profile": "static"
+    }
+  },
+  "export_targets": {
+    "usd_ascii": "canonical/geometry/usd/road_retaining_wall_shoulder_shelf.usda",
+    "usd_binary": "exports/usd/road_retaining_wall_shoulder_shelf.usdc",
+    "gltf_binary": "exports/gltf/road_retaining_wall_shoulder_shelf.glb"
+  },
+  "license": {
+    "spdx": "LicenseRef-ProjectGenerated",
+    "redistribution": "geometry, manifests, and templates generated in-repo"
+  },
+  "provenance": {
+    "generated_at": "2026-04-16T10:10:40+00:00",
+    "generated_by": "scripts/build_asset_pack.py",
+    "note": "Generated reusable road surface, marking, or furniture primitive."
+  }
+}

@@ -76,6 +76,46 @@
           "rotate_y": 0.0
         },
         {
+          "asset_id": "road_roundabout_outer_ring_edge",
+          "name": "road_roundabout_outer_ring_0",
+          "translate": [
+            28.7,
+            0.0,
+            0.0
+          ],
+          "rotate_y": 0.0
+        },
+        {
+          "asset_id": "road_roundabout_bypass_slip_lane",
+          "name": "road_roundabout_bypass_0",
+          "translate": [
+            32.8,
+            0.0,
+            0.0
+          ],
+          "rotate_y": 0.0
+        },
+        {
+          "asset_id": "road_retaining_wall_shoulder_shelf",
+          "name": "road_retaining_wall_shelf_0",
+          "translate": [
+            36.9,
+            0.0,
+            0.0
+          ],
+          "rotate_y": 0.0
+        },
+        {
+          "asset_id": "road_retaining_wall_abutment_transition",
+          "name": "road_retaining_abutment_0",
+          "translate": [
+            41.0,
+            0.0,
+            0.0
+          ],
+          "rotate_y": 0.0
+        },
+        {
           "asset_id": "marking_edge_line_white",
           "name": "edge_line_0",
           "translate": [
@@ -1135,6 +1175,26 @@
             0.82
           ],
           "rotate_y": 90.0
+        },
+        {
+          "asset_id": "road_workzone_material_laydown_bay",
+          "name": "workzone_laydown_0",
+          "translate": [
+            -24.2,
+            0.0,
+            0.84
+          ],
+          "rotate_y": 90.0
+        },
+        {
+          "asset_id": "road_roundabout_bypass_slip_lane",
+          "name": "roundabout_bypass_0",
+          "translate": [
+            20.2,
+            0.0,
+            -0.24
+          ],
+          "rotate_y": 0.0
         },
         {
           "asset_id": "marking_crosswalk",
@@ -2893,6 +2953,26 @@
           "name": "road_workzone_staging_0",
           "translate": [
             28.8,
+            0.0,
+            0.0
+          ],
+          "rotate_y": 0.0
+        },
+        {
+          "asset_id": "road_workzone_temporary_access_pad",
+          "name": "road_workzone_access_0",
+          "translate": [
+            32.0,
+            0.0,
+            0.0
+          ],
+          "rotate_y": 0.0
+        },
+        {
+          "asset_id": "road_retaining_wall_abutment_transition",
+          "name": "road_retaining_abutment_0",
+          "translate": [
+            35.2,
             0.0,
             0.0
           ],

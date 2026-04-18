@@ -674,10 +674,34 @@
       "variant_key": "entry_splitter"
     },
     {
+      "id": "road_roundabout_outer_ring_edge",
+      "family": "road_surface",
+      "semantic_class": "road.roundabout_edge",
+      "variant_key": "outer_ring_shoulder"
+    },
+    {
+      "id": "road_roundabout_bypass_slip_lane",
+      "family": "road_surface",
+      "semantic_class": "road.roundabout_bypass",
+      "variant_key": "slip_lane_entry"
+    },
+    {
       "id": "road_retaining_wall_cut_transition",
       "family": "road_surface",
       "semantic_class": "road.retaining_transition",
       "variant_key": "cut_slope_wall"
+    },
+    {
+      "id": "road_retaining_wall_shoulder_shelf",
+      "family": "road_surface",
+      "semantic_class": "road.retaining_transition",
+      "variant_key": "shoulder_shelf"
+    },
+    {
+      "id": "road_retaining_wall_abutment_transition",
+      "family": "road_surface",
+      "semantic_class": "road.retaining_transition",
+      "variant_key": "abutment_bridge_tie"
     },
     {
       "id": "road_workzone_crossover_shift",
@@ -702,6 +726,18 @@
       "family": "road_surface",
       "semantic_class": "road.workzone_composite",
       "variant_key": "staging_pad"
+    },
+    {
+      "id": "road_workzone_material_laydown_bay",
+      "family": "road_surface",
+      "semantic_class": "road.workzone_composite",
+      "variant_key": "material_laydown_bay"
+    },
+    {
+      "id": "road_workzone_temporary_access_pad",
+      "family": "road_surface",
+      "semantic_class": "road.workzone_composite",
+      "variant_key": "temporary_access_pad"
     },
     {
       "id": "road_curb_segment",

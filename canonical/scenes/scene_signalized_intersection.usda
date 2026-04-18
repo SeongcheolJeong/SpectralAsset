@@ -83,6 +83,20 @@ def Xform "scene_signalized_intersection" {
         float xformOp:rotateY = 90.000000
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
     }
+    def Xform "workzone_laydown_0" (
+        references = @../geometry/usd/road_workzone_material_laydown_bay.usda@</road_workzone_material_laydown_bay>
+    ) {
+        double3 xformOp:translate = (-24.200000, 0.000000, 0.840000)
+        float xformOp:rotateY = 90.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
+    def Xform "roundabout_bypass_0" (
+        references = @../geometry/usd/road_roundabout_bypass_slip_lane.usda@</road_roundabout_bypass_slip_lane>
+    ) {
+        double3 xformOp:translate = (20.200000, 0.000000, -0.240000)
+        float xformOp:rotateY = 0.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
     def Xform "crosswalk_0" (
         references = @../geometry/usd/marking_crosswalk.usda@</marking_crosswalk>
     ) {
