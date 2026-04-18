@@ -41,6 +41,13 @@ def Xform "scene_signalized_intersection" {
         float xformOp:rotateY = 0.000000
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
     }
+    def Xform "roundabout_splitter_0" (
+        references = @../geometry/usd/road_roundabout_splitter_island.usda@</road_roundabout_splitter_island>
+    ) {
+        double3 xformOp:translate = (16.200000, 0.000000, -0.280000)
+        float xformOp:rotateY = 0.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
     def Xform "lane_drop_transition_0" (
         references = @../geometry/usd/road_lane_drop_transition.usda@</road_lane_drop_transition>
     ) {
@@ -59,6 +66,20 @@ def Xform "scene_signalized_intersection" {
         references = @../geometry/usd/road_workzone_barrier_chicane.usda@</road_workzone_barrier_chicane>
     ) {
         double3 xformOp:translate = (-12.200000, 0.000000, 1.050000)
+        float xformOp:rotateY = 90.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
+    def Xform "workzone_shoefly_0" (
+        references = @../geometry/usd/road_workzone_shoefly_shift.usda@</road_workzone_shoefly_shift>
+    ) {
+        double3 xformOp:translate = (-16.200000, 0.000000, 0.880000)
+        float xformOp:rotateY = 90.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
+    def Xform "workzone_staging_0" (
+        references = @../geometry/usd/road_workzone_staging_pad.usda@</road_workzone_staging_pad>
+    ) {
+        double3 xformOp:translate = (-20.200000, 0.000000, 0.820000)
         float xformOp:rotateY = 90.000000
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
     }

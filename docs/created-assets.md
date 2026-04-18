@@ -6,7 +6,7 @@ This file explains what the generator actually creates in this repository and ho
 
 Current generated baseline:
 
-- `200` assets
+- `205` assets
 - `27` spectral materials
 - `19` emissive profiles
 - `3` camera profiles
@@ -165,11 +165,16 @@ These are reusable road or pavement surfaces such as:
 - `road_ramp_bridge_tie_transition`
 - `road_ramp_gore_transition`
 - `road_median_refuge_nose`
+- `road_roundabout_truck_apron`
+- `road_roundabout_splitter_island`
+- `road_retaining_wall_cut_transition`
 - `road_workzone_crossover_shift`
 - `road_workzone_barrier_chicane`
+- `road_workzone_shoefly_shift`
+- `road_workzone_staging_pad`
 - `road_sidewalk_panel`
 
-They mainly depend on spectral material definitions rather than complex state logic, but the newer variants now mix asphalt, concrete, steel-plate, gravel proxy materials, and low-profile curb or barrier forms to represent repairs, construction staging, rural shoulders, crowned rural lanes, dirt-track ruts, bridge-joint and bridge-approach panels, lane-drop tapers, pothole distress, edge-dropoff conditions, curbside/barrier transition composites, ramp bridge-tie and ramp-gore transitions, median-refuge noses, and temporary crossover/barrier-chicane work-zone composites.
+They mainly depend on spectral material definitions rather than complex state logic, but the newer variants now mix asphalt, concrete, steel-plate, gravel proxy materials, and low-profile curb or barrier forms to represent repairs, construction staging, rural shoulders, crowned rural lanes, dirt-track ruts, bridge-joint and bridge-approach panels, lane-drop tapers, pothole distress, edge-dropoff conditions, curbside/barrier transition composites, ramp bridge-tie and ramp-gore transitions, median-refuge noses, roundabout truck-apron and splitter-island panels, retaining-wall cut transitions, and deeper shoefly or staging-pad work-zone composites.
 
 ### `road_marking`
 

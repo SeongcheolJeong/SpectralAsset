@@ -22,7 +22,7 @@ This repository is not yet targeting release automation or measured replacement 
 
 Current truth from [../validation/reports/validation_summary.json](../validation/reports/validation_summary.json):
 
-- `200` assets
+- `205` assets
 - `27` spectral materials
 - `19` emissive profiles
 - `3` camera profiles
@@ -31,14 +31,14 @@ Current truth from [../validation/reports/validation_summary.json](../validation
 
 Additional baseline facts:
 
-- `204` GLB files currently validate with `0` errors and `0` warnings in [../validation/reports/gltf_validation.json](../validation/reports/gltf_validation.json)
+- `209` GLB files currently validate with `0` errors and `0` warnings in [../validation/reports/gltf_validation.json](../validation/reports/gltf_validation.json)
 - release gates currently pass for the generated baseline
 - raw-source ledger currently tracks `37` source entries
 - material quality summary currently reports `3` `measured_standard`, `1` `measured_derivative`, `23` `project_proxy`, and `0` `vendor_derived` materials
 - emissive-profile quality summary currently reports `13` `vendor_derived` and `6` `project_proxy` profiles
 - camera-profile quality summary currently reports `3` `vendor_derived` profiles, with `camera_reference_rgb_nir_v3` active in all scenarios
 - `urban_night` currently uses public `LED-B4` and `LED-B3` priors for headlamp/streetlight contribution when measured emitter data is absent
-- the first thirty `P3` coverage-expansion batches raised `traffic_sign` from `18` to `50` standalone assets, `road_furniture` from `4` to `53`, `road_marking` from `4` to `45`, `road_surface` from `4` to `28`, and `traffic_light` from `5` to `24`
+- the first thirty-one `P3` coverage-expansion batches raised `traffic_sign` from `18` to `50` standalone assets, `road_furniture` from `4` to `53`, `road_marking` from `4` to `45`, `road_surface` from `4` to `33`, and `traffic_light` from `5` to `24`
 - traffic-light scenes now place standalone support-context assets including backplates, a mast hanger, side-mount hardware, cabinet variants, a junction box, beacon/warning heads, and lane-control or rail-specific heads
 - sign-focused scenes now place standalone sign backs and mounting brackets for representative sign families instead of implying that assembly depth only through the sign meshes
 - sign-focused scenes now also exercise weathered stop, speed-limit, and pedestrian-crossing variants plus English text-bearing one-way and detour panels instead of limiting the sign family to the original symbol-only starter set
@@ -63,6 +63,7 @@ Additional baseline facts:
 - the current validation scenes now also exercise queue rails, shelter ad panels, straight and corner curb-ramp modules, and sign/signal band-clamp hardware instead of limiting curbside/attachment depth to shelter-only transit furniture and earlier bracket-only mounting context
 - the current validation scenes now also exercise boxed `BUS ONLY`, `BUS STOP`, `BIKE`, and `LOAD` legends plus red/green curbside lane panels, curb-color segments, loading zigzag delimiters, and red/green conflict-zone surfacing instead of limiting road-marking depth to unboxed word legends and monochrome striping
 - the current validation scenes now also exercise turn-pocket `ONLY` stencils, `SCHOOL` legends, `SCHOOL BUS` queue boxes, and curbside left/right arrows instead of limiting the latest curbside and school-zone marking depth to boxed legends and conflict-zone surfacing alone
+- the current validation scenes now also exercise roundabout truck-apron and splitter-island panels, retaining-wall cut transitions, and deeper shoefly or staging-pad work-zone surfaces instead of limiting later roadway depth to ramp-gore, median-nose, and earlier crossover/chicane composites alone
 
 ## Repository Structure
 

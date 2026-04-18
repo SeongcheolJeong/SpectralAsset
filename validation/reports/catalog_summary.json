@@ -596,6 +596,24 @@
       "variant_key": "channelized_refuge"
     },
     {
+      "id": "road_roundabout_truck_apron",
+      "family": "road_surface",
+      "semantic_class": "road.roundabout_apron",
+      "variant_key": "truck_apron"
+    },
+    {
+      "id": "road_roundabout_splitter_island",
+      "family": "road_surface",
+      "semantic_class": "road.roundabout_splitter",
+      "variant_key": "entry_splitter"
+    },
+    {
+      "id": "road_retaining_wall_cut_transition",
+      "family": "road_surface",
+      "semantic_class": "road.retaining_transition",
+      "variant_key": "cut_slope_wall"
+    },
+    {
       "id": "road_workzone_crossover_shift",
       "family": "road_surface",
       "semantic_class": "road.workzone_composite",
@@ -606,6 +624,18 @@
       "family": "road_surface",
       "semantic_class": "road.workzone_composite",
       "variant_key": "barrier_chicane"
+    },
+    {
+      "id": "road_workzone_shoefly_shift",
+      "family": "road_surface",
+      "semantic_class": "road.workzone_composite",
+      "variant_key": "shoefly_shift"
+    },
+    {
+      "id": "road_workzone_staging_pad",
+      "family": "road_surface",
+      "semantic_class": "road.workzone_composite",
+      "variant_key": "staging_pad"
     },
     {
       "id": "road_curb_segment",

@@ -56,6 +56,26 @@
           "rotate_y": 0.0
         },
         {
+          "asset_id": "road_roundabout_truck_apron",
+          "name": "road_roundabout_truck_apron_0",
+          "translate": [
+            20.5,
+            0.0,
+            0.0
+          ],
+          "rotate_y": 0.0
+        },
+        {
+          "asset_id": "road_retaining_wall_cut_transition",
+          "name": "road_retaining_wall_0",
+          "translate": [
+            24.6,
+            0.0,
+            0.0
+          ],
+          "rotate_y": 0.0
+        },
+        {
           "asset_id": "marking_edge_line_white",
           "name": "edge_line_0",
           "translate": [
@@ -967,6 +987,16 @@
           "rotate_y": 0.0
         },
         {
+          "asset_id": "road_roundabout_splitter_island",
+          "name": "roundabout_splitter_0",
+          "translate": [
+            16.2,
+            0.0,
+            -0.28
+          ],
+          "rotate_y": 0.0
+        },
+        {
           "asset_id": "road_lane_drop_transition",
           "name": "lane_drop_transition_0",
           "translate": [
@@ -993,6 +1023,26 @@
             -12.2,
             0.0,
             1.05
+          ],
+          "rotate_y": 90.0
+        },
+        {
+          "asset_id": "road_workzone_shoefly_shift",
+          "name": "workzone_shoefly_0",
+          "translate": [
+            -16.2,
+            0.0,
+            0.88
+          ],
+          "rotate_y": 90.0
+        },
+        {
+          "asset_id": "road_workzone_staging_pad",
+          "name": "workzone_staging_0",
+          "translate": [
+            -20.2,
+            0.0,
+            0.82
           ],
           "rotate_y": 90.0
         },
@@ -2473,6 +2523,16 @@
           "name": "road_ramp_gore_0",
           "translate": [
             25.6,
+            0.0,
+            0.0
+          ],
+          "rotate_y": 0.0
+        },
+        {
+          "asset_id": "road_workzone_staging_pad",
+          "name": "road_workzone_staging_0",
+          "translate": [
+            28.8,
             0.0,
             0.0
           ],

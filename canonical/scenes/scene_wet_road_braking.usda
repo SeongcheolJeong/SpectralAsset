@@ -69,6 +69,13 @@ def Xform "scene_wet_road_braking" {
         float xformOp:rotateY = 0.000000
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
     }
+    def Xform "road_workzone_staging_0" (
+        references = @../geometry/usd/road_workzone_staging_pad.usda@</road_workzone_staging_pad>
+    ) {
+        double3 xformOp:translate = (28.800000, 0.000000, 0.000000)
+        float xformOp:rotateY = 0.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
     def Xform "crosswalk_0" (
         references = @../geometry/usd/marking_crosswalk_worn.usda@</marking_crosswalk_worn>
     ) {
