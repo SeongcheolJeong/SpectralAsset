@@ -1,0 +1,63 @@
+{
+  "id": "furniture_curb_separator_flexpost_pair",
+  "family": "road_furniture",
+  "semantic_class": "furniture.curb_separator",
+  "variant_key": "flexpost_pair",
+  "dimensions_m": {
+    "width": 1.12,
+    "height": 0.88,
+    "depth": 0.26
+  },
+  "lods": [
+    {
+      "name": "LOD0",
+      "triangle_count": 324,
+      "usd_scope": "/furniture_curb_separator_flexpost_pair/LOD0",
+      "gltf_node_prefix": "LOD0"
+    },
+    {
+      "name": "LOD1",
+      "triangle_count": 204,
+      "usd_scope": "/furniture_curb_separator_flexpost_pair/LOD1",
+      "gltf_node_prefix": "LOD1"
+    }
+  ],
+  "collider": {
+    "type": "box",
+    "width": 1.12,
+    "height": 0.88,
+    "depth": 0.26
+  },
+  "anchor_points": {
+    "base_center": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    }
+  },
+  "materials": [
+    "mat_metal_galvanized",
+    "mat_sign_black",
+    "mat_sign_orange",
+    "mat_sign_white"
+  ],
+  "states": {
+    "default": {
+      "render_profile": "static"
+    }
+  },
+  "export_targets": {
+    "usd_ascii": "canonical/geometry/usd/furniture_curb_separator_flexpost_pair.usda",
+    "usd_binary": "exports/usd/furniture_curb_separator_flexpost_pair.usdc",
+    "gltf_binary": "exports/gltf/furniture_curb_separator_flexpost_pair.glb"
+  },
+  "license": {
+    "spdx": "LicenseRef-ProjectGenerated",
+    "redistribution": "geometry, manifests, and templates generated in-repo"
+  },
+  "provenance": {
+    "generated_at": "2026-04-16T10:10:40+00:00",
+    "generated_by": "scripts/build_asset_pack.py",
+    "note": "Generated reusable road surface, marking, or furniture primitive."
+  }
+}

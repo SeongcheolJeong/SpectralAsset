@@ -1,0 +1,65 @@
+{
+  "id": "furniture_shelter_route_map_case",
+  "family": "road_furniture",
+  "semantic_class": "furniture.shelter_accessory",
+  "variant_key": "route_map_case",
+  "dimensions_m": {
+    "width": 0.52,
+    "height": 1.78,
+    "depth": 0.24
+  },
+  "lods": [
+    {
+      "name": "LOD0",
+      "triangle_count": 96,
+      "usd_scope": "/furniture_shelter_route_map_case/LOD0",
+      "gltf_node_prefix": "LOD0"
+    },
+    {
+      "name": "LOD1",
+      "triangle_count": 72,
+      "usd_scope": "/furniture_shelter_route_map_case/LOD1",
+      "gltf_node_prefix": "LOD1"
+    }
+  ],
+  "collider": {
+    "type": "box",
+    "width": 0.52,
+    "height": 1.78,
+    "depth": 0.24
+  },
+  "anchor_points": {
+    "base_center": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    }
+  },
+  "materials": [
+    "mat_concrete",
+    "mat_metal_galvanized",
+    "mat_sign_black",
+    "mat_sign_blue",
+    "mat_sign_white",
+    "mat_signal_housing"
+  ],
+  "states": {
+    "default": {
+      "render_profile": "static"
+    }
+  },
+  "export_targets": {
+    "usd_ascii": "canonical/geometry/usd/furniture_shelter_route_map_case.usda",
+    "usd_binary": "exports/usd/furniture_shelter_route_map_case.usdc",
+    "gltf_binary": "exports/gltf/furniture_shelter_route_map_case.glb"
+  },
+  "license": {
+    "spdx": "LicenseRef-ProjectGenerated",
+    "redistribution": "geometry, manifests, and templates generated in-repo"
+  },
+  "provenance": {
+    "generated_at": "2026-04-16T10:10:40+00:00",
+    "generated_by": "scripts/build_asset_pack.py",
+    "note": "Generated reusable road surface, marking, or furniture primitive."
+  }
+}

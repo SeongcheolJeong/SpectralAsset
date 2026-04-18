@@ -52,6 +52,7 @@
 - thirty-first `P3` road-surface batch with roundabout truck-apron and splitter-island panels, a retaining-wall cut transition, and deeper shoefly/staging-pad work-zone surfaces
 - thirty-second `P3` traffic-sign batch with a bus-station service panel, an airport/parking destination stack, a hospital/parking overhead assembly, and Interstate-405, E20, and California-82 shield follow-up variants
 - thirty-third `P3` traffic-light batch with bus-priority, U-turn-arrow, horizontal school-warning, and dual-lunar preemption heads plus cantilever frame/dropper support detail
+- thirty-fourth `P3` road-furniture batch with shelter trash, route-map, and lean-rail accessories plus curb-separator flexpost/kerb modules and signal hanger-clamp pairs
 
 ### Changed
 
@@ -105,7 +106,8 @@
 - existing validation scenes now place roundabout truck-apron and splitter-island panels, a retaining-wall cut transition, and deeper shoefly/staging-pad work-zone surfaces so roadway scenes are broader than the earlier ramp-gore, median-nose, and temporary crossover/chicane follow-up passes
 - existing validation scenes now place bus-station service panels, airport/parking destination stacks, a hospital/parking overhead assembly, and Interstate-405, E20, and California-82 shield follow-up variants so sign scenes are broader than the earlier overhead-destination and first route-shield follow-up batch
 - existing validation scenes now place bus-priority, U-turn-arrow, horizontal school-warning, and dual-lunar preemption heads plus cantilever frame/dropper support detail so traffic-light scenes are broader than the earlier rail-gate/controller-nuance follow-up that still relied on simpler side-mount or starter mast-arm context
-- backlog focus now moves from `traffic_light` cantilever-crossing and locale-specific specialty-head follow-up to `road_furniture` shelter-accessory, curb-separator, and microscale attachment follow-up after the latest traffic-light batch
+- existing validation scenes now place shelter trash receptacles, route-map cases, lean rails, curb-separator flexpost/kerb modules, and signal hanger-clamp pairs so roadside scenes are broader than the earlier shelter-panel, curb-ramp, and clamp-hardware follow-up batch
+- backlog focus now moves from `road_furniture` shelter-accessory, curb-separator, and microscale attachment follow-up to `road_marking` locale-specific school-zone, separator, and curbside follow-up after the latest roadside-support batch
 
 ### Validation
 
@@ -140,6 +142,7 @@
 - validation summary now reports `205` assets, including `33` `road_surface` assets, `27` spectral materials, and `209` GLB files after the first thirty-first `P3` expansion batch
 - validation summary now reports `211` assets, including `56` `traffic_sign` assets, `27` spectral materials, and `215` GLB files after the first thirty-second `P3` expansion batch
 - validation summary now reports `218` assets, including `29` `traffic_light` assets, `55` `road_furniture` assets, `22` emissive profiles, and `222` GLB files after the first thirty-third `P3` expansion batch
+- validation summary now reports `224` assets, including `61` `road_furniture` assets, `27` spectral materials, and `228` GLB files after the first thirty-fourth `P3` expansion batch
 - validation summary now includes `3` camera profiles and zero camera-profile validation errors
 - material quality summary now reports `3` `measured_standard`, `1` `measured_derivative`, `23` `project_proxy`, and `0` `vendor_derived` materials
 - emissive profile quality summary now distinguishes vendor-derived vehicle/protected-turn profiles from remaining proxy pedestrian/countdown profiles

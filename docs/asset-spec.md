@@ -8,7 +8,7 @@ Current generated catalog:
 - `traffic_light`: `29` assets
 - `road_surface`: `33` assets
 - `road_marking`: `45` assets
-- `road_furniture`: `55` assets
+- `road_furniture`: `61` assets
 
 Current scenario and validation support:
 

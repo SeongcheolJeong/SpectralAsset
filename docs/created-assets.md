@@ -6,7 +6,7 @@ This file explains what the generator actually creates in this repository and ho
 
 Current generated baseline:
 
-- `218` assets
+- `224` assets
 - `27` spectral materials
 - `22` emissive profiles
 - `3` camera profiles
@@ -281,6 +281,12 @@ These are support/context objects such as:
 - `furniture_bus_bay_island_nose`
 - `furniture_curb_ramp_module`
 - `furniture_curb_ramp_corner_module`
+- `furniture_shelter_trash_receptacle`
+- `furniture_shelter_route_map_case`
+- `furniture_shelter_lean_rail`
+- `furniture_curb_separator_flexpost_pair`
+- `furniture_curb_separator_modular_kerb`
+- `furniture_signal_hanger_clamp_pair`
 - `furniture_passenger_info_kiosk`
 - `furniture_real_time_arrival_display`
 - `furniture_loading_zone_sign_post`
@@ -300,7 +306,7 @@ These are support/context objects such as:
 - `furniture_sign_band_clamp_pair`
 - `furniture_signal_band_clamp`
 
-The newest roadside-context passes now add bus-bay curb/island pieces, passenger-information hardware, loading-zone support detail, rail-gate mast/arm/bell/controller context, queue-rail, shelter-panel, curb-ramp, clamp-hardware follow-up assets, and now cantilevered signal-frame/dropper detail so scenes can place both curbside-transit assemblies and deeper attachment/crossing context instead of implying all of that through signs, poles, brackets, and generic cabinets alone.
+The newest roadside-context passes now add bus-bay curb/island pieces, passenger-information hardware, loading-zone support detail, rail-gate mast/arm/bell/controller context, queue-rail, shelter-panel, curb-ramp, clamp-hardware follow-up assets, cantilevered signal-frame/dropper detail, and now shelter trash, route-map, lean-rail, curb-separator, and hanger-clamp follow-up pieces so scenes can place both curbside-transit assemblies and deeper attachment/crossing context instead of implying all of that through signs, poles, brackets, and generic cabinets alone.
 
 ## Other Generated Objects
 

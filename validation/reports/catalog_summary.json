@@ -1184,6 +1184,24 @@
       "variant_key": "urban_glass_shelter"
     },
     {
+      "id": "furniture_shelter_trash_receptacle",
+      "family": "road_furniture",
+      "semantic_class": "furniture.shelter_accessory",
+      "variant_key": "trash_receptacle"
+    },
+    {
+      "id": "furniture_shelter_route_map_case",
+      "family": "road_furniture",
+      "semantic_class": "furniture.shelter_accessory",
+      "variant_key": "route_map_case"
+    },
+    {
+      "id": "furniture_shelter_lean_rail",
+      "family": "road_furniture",
+      "semantic_class": "furniture.shelter_accessory",
+      "variant_key": "lean_rail"
+    },
+    {
       "id": "furniture_shelter_ad_panel",
       "family": "road_furniture",
       "semantic_class": "furniture.shelter_ad_panel",
@@ -1206,6 +1224,18 @@
       "family": "road_furniture",
       "semantic_class": "furniture.queue_rail",
       "variant_key": "pedestrian_channelizer"
+    },
+    {
+      "id": "furniture_curb_separator_flexpost_pair",
+      "family": "road_furniture",
+      "semantic_class": "furniture.curb_separator",
+      "variant_key": "flexpost_pair"
+    },
+    {
+      "id": "furniture_curb_separator_modular_kerb",
+      "family": "road_furniture",
+      "semantic_class": "furniture.curb_separator",
+      "variant_key": "modular_kerb"
     },
     {
       "id": "furniture_bus_bay_curb_module",
@@ -1266,6 +1296,12 @@
       "family": "road_furniture",
       "semantic_class": "furniture.protective_bollard",
       "variant_key": "service_pair_yellow"
+    },
+    {
+      "id": "furniture_signal_hanger_clamp_pair",
+      "family": "road_furniture",
+      "semantic_class": "furniture.signal_hanger_clamp",
+      "variant_key": "dual_band_standoff"
     },
     {
       "id": "furniture_guardrail_bollard_set",
