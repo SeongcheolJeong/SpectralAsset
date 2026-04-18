@@ -22,23 +22,23 @@ This repository is not yet targeting release automation or measured replacement 
 
 Current truth from [../validation/reports/validation_summary.json](../validation/reports/validation_summary.json):
 
-- `211` assets
+- `218` assets
 - `27` spectral materials
-- `19` emissive profiles
+- `22` emissive profiles
 - `3` camera profiles
 - `4` scenario profiles
 - `4` validation scenes
 
 Additional baseline facts:
 
-- `215` GLB files currently validate with `0` errors and `0` warnings in [../validation/reports/gltf_validation.json](../validation/reports/gltf_validation.json)
+- `222` GLB files currently validate with `0` errors and `0` warnings in [../validation/reports/gltf_validation.json](../validation/reports/gltf_validation.json)
 - release gates currently pass for the generated baseline
 - raw-source ledger currently tracks `37` source entries
 - material quality summary currently reports `3` `measured_standard`, `1` `measured_derivative`, `23` `project_proxy`, and `0` `vendor_derived` materials
-- emissive-profile quality summary currently reports `13` `vendor_derived` and `6` `project_proxy` profiles
+- emissive-profile quality summary currently reports `14` `vendor_derived` and `8` `project_proxy` profiles
 - camera-profile quality summary currently reports `3` `vendor_derived` profiles, with `camera_reference_rgb_nir_v3` active in all scenarios
 - `urban_night` currently uses public `LED-B4` and `LED-B3` priors for headlamp/streetlight contribution when measured emitter data is absent
-- the first thirty-two `P3` coverage-expansion batches raised `traffic_sign` from `18` to `56` standalone assets, `road_furniture` from `4` to `53`, `road_marking` from `4` to `45`, `road_surface` from `4` to `33`, and `traffic_light` from `5` to `24`
+- the first thirty-three `P3` coverage-expansion batches raised `traffic_sign` from `18` to `56` standalone assets, `road_furniture` from `4` to `55`, `road_marking` from `4` to `45`, `road_surface` from `4` to `33`, and `traffic_light` from `5` to `29`
 - traffic-light scenes now place standalone support-context assets including backplates, a mast hanger, side-mount hardware, cabinet variants, a junction box, beacon/warning heads, and lane-control or rail-specific heads
 - sign-focused scenes now place standalone sign backs and mounting brackets for representative sign families instead of implying that assembly depth only through the sign meshes
 - sign-focused scenes now also exercise weathered stop, speed-limit, and pedestrian-crossing variants plus English text-bearing one-way and detour panels instead of limiting the sign family to the original symbol-only starter set
@@ -56,6 +56,7 @@ Additional baseline facts:
 - the current validation scenes now also exercise transit-priority and directional-arrow signal heads instead of limiting traffic-light specialization to the earlier lane-control and rail-crossing batches
 - the current validation scenes now also exercise bicycle, pedestrian-bicycle hybrid, and tram-priority heads instead of limiting traffic-light specialization to vehicle, pedestrian, lane-control, and transit-only variants
 - the current validation scenes now also exercise pedestrian-wait, school-warning, and lunar-preemption heads plus rail-gate mast/arm/bell/controller context instead of limiting the traffic-light family to signal heads without broader rail-gate or edge-case controller detail
+- the current validation scenes now also exercise bus-priority, U-turn-arrow, horizontal school-warning, and dual-lunar preemption heads plus cantilever frame/dropper support detail instead of limiting the latest traffic-light depth to earlier specialty heads mounted only with side brackets, backplates, or starter mast-arm context
 - the current validation scenes now also exercise secondary road-marking variants including worn crossings/stops, yellow centerline families, `ONLY` and `STOP` word legends, and white/yellow/bi-color raised-marker strips
 - the current validation scenes now also exercise bus/bike legends, hatched median/island panels, and right-turn or straight-right arrow variants instead of limiting road-marking depth to centerlines, merge arrows, and basic word legends alone
 - the current validation scenes now also exercise utility poles, smaller cabinet/junction variants, service disconnects, meter pedestals, battery-backup cabinets, pull boxes, pad-mount transformers, and explicit sign/signal attachment hardware

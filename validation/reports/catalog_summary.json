@@ -434,6 +434,18 @@
       "variant_key": "transit_priority.horizontal.4_aspect"
     },
     {
+      "id": "signal_bus_priority_vertical_4_aspect",
+      "family": "traffic_light",
+      "semantic_class": "traffic_light.bus_priority",
+      "variant_key": "bus_priority.vertical.4_aspect"
+    },
+    {
+      "id": "signal_bus_priority_horizontal_4_aspect",
+      "family": "traffic_light",
+      "semantic_class": "traffic_light.bus_priority",
+      "variant_key": "bus_priority.horizontal.4_aspect"
+    },
+    {
       "id": "signal_tram_priority_horizontal_4_aspect",
       "family": "traffic_light",
       "semantic_class": "traffic_light.tram_priority",
@@ -450,6 +462,12 @@
       "family": "traffic_light",
       "semantic_class": "traffic_light.directional_arrow",
       "variant_key": "directional_arrow.right.3_aspect"
+    },
+    {
+      "id": "signal_directional_arrow_uturn_3_aspect",
+      "family": "traffic_light",
+      "semantic_class": "traffic_light.directional_arrow_uturn",
+      "variant_key": "directional_arrow.uturn.3_aspect"
     },
     {
       "id": "signal_rail_crossing_dual_red_vertical",
@@ -470,6 +488,12 @@
       "variant_key": "school_warning.dual_amber.vertical"
     },
     {
+      "id": "signal_school_warning_dual_amber_horizontal",
+      "family": "traffic_light",
+      "semantic_class": "traffic_light.school_warning",
+      "variant_key": "school_warning.dual_amber.horizontal"
+    },
+    {
       "id": "signal_pedestrian_wait_indicator_single",
       "family": "traffic_light",
       "semantic_class": "traffic_light.pedestrian_wait_indicator",
@@ -480,6 +504,12 @@
       "family": "traffic_light",
       "semantic_class": "traffic_light.preemption_beacon",
       "variant_key": "preemption.lunar.single"
+    },
+    {
+      "id": "signal_preemption_beacon_dual_lunar_horizontal",
+      "family": "traffic_light",
+      "semantic_class": "traffic_light.preemption_beacon",
+      "variant_key": "preemption.lunar.dual_horizontal"
     },
     {
       "id": "road_asphalt_dry",
@@ -1074,6 +1104,18 @@
       "family": "road_furniture",
       "semantic_class": "furniture.signal_hanger",
       "variant_key": "mast_arm_drop"
+    },
+    {
+      "id": "furniture_signal_cantilever_frame",
+      "family": "road_furniture",
+      "semantic_class": "furniture.signal_cantilever",
+      "variant_key": "mast_arm_truss"
+    },
+    {
+      "id": "furniture_signal_cantilever_dropper_pair",
+      "family": "road_furniture",
+      "semantic_class": "furniture.signal_dropper",
+      "variant_key": "dual_dropper_pair"
     },
     {
       "id": "furniture_signal_controller_cabinet",

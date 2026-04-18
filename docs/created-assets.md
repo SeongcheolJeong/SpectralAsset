@@ -6,9 +6,9 @@ This file explains what the generator actually creates in this repository and ho
 
 Current generated baseline:
 
-- `211` assets
+- `218` assets
 - `27` spectral materials
-- `19` emissive profiles
+- `22` emissive profiles
 - `3` camera profiles
 - `4` scenario profiles
 - `4` validation scenes
@@ -110,17 +110,22 @@ These are signal housings such as:
 - `signal_lane_control_reversible_2_aspect`
 - `signal_transit_priority_vertical_4_aspect`
 - `signal_transit_priority_horizontal_4_aspect`
+- `signal_bus_priority_vertical_4_aspect`
+- `signal_bus_priority_horizontal_4_aspect`
 - `signal_bicycle_vertical_3_aspect`
 - `signal_pedestrian_bicycle_hybrid_4_aspect`
 - `signal_tram_priority_vertical_4_aspect`
 - `signal_tram_priority_horizontal_4_aspect`
 - `signal_directional_arrow_left_3_aspect`
 - `signal_directional_arrow_right_3_aspect`
+- `signal_directional_arrow_uturn_3_aspect`
 - `signal_rail_crossing_dual_red_vertical`
 - `signal_rail_crossing_dual_red_horizontal`
 - `signal_school_warning_dual_amber_vertical`
+- `signal_school_warning_dual_amber_horizontal`
 - `signal_pedestrian_wait_indicator_single`
 - `signal_preemption_beacon_lunar_single`
+- `signal_preemption_beacon_dual_lunar_horizontal`
 
 Each signal usually has:
 
@@ -139,8 +144,10 @@ The newer specialized signal heads now also include:
 - directional-arrow state maps for red, yellow, green, and flashing yellow arrow behavior
 - rail-crossing state maps for left, right, or paired red flashing behavior
 - school-warning state maps for alternating or paired amber flashing behavior
+- bus-priority state maps for stop, caution, go, and call indications
 - pedestrian wait-indicator state maps for steady or flashing amber hold behavior
-- lunar preemption state maps for steady or flashing white preempt-call behavior
+- lunar preemption state maps for steady/flashing single-lens or paired dual-lunar preempt-call behavior
+- cantilever-crossing scene context for hanger/dropper-mounted signal-head placement instead of only side-mount or mast-arm starter context
 
 ### `road_surface`
 
@@ -253,6 +260,8 @@ These are support/context objects such as:
 - `furniture_signal_service_disconnect`
 - `furniture_signal_meter_pedestal`
 - `furniture_signal_mast_hanger`
+- `furniture_signal_cantilever_frame`
+- `furniture_signal_cantilever_dropper_pair`
 - `furniture_signal_controller_cabinet`
 - `furniture_signal_controller_cabinet_single`
 - `furniture_signal_battery_backup_cabinet`
@@ -291,7 +300,7 @@ These are support/context objects such as:
 - `furniture_sign_band_clamp_pair`
 - `furniture_signal_band_clamp`
 
-The newest roadside-context passes now add bus-bay curb/island pieces, passenger-information hardware, loading-zone support detail, rail-gate mast/arm/bell/controller context, and now queue-rail, shelter-panel, curb-ramp, and clamp-hardware follow-up assets so scenes can place both curbside-transit assemblies and deeper attachment/micromobility context instead of implying all of that through signs, poles, brackets, and generic cabinets alone.
+The newest roadside-context passes now add bus-bay curb/island pieces, passenger-information hardware, loading-zone support detail, rail-gate mast/arm/bell/controller context, queue-rail, shelter-panel, curb-ramp, clamp-hardware follow-up assets, and now cantilevered signal-frame/dropper detail so scenes can place both curbside-transit assemblies and deeper attachment/crossing context instead of implying all of that through signs, poles, brackets, and generic cabinets alone.
 
 ## Other Generated Objects
 
@@ -325,11 +334,14 @@ Current specialized additions include:
 - `emissive_lane_control_standard`
 - `emissive_lane_control_reversible`
 - `emissive_transit_priority_standard`
+- `emissive_bus_priority_standard`
 - `emissive_directional_arrow_standard`
 - `emissive_rail_crossing_dual_red`
 - `emissive_school_warning_dual_amber_vertical`
+- `emissive_school_warning_dual_amber_horizontal`
 - `emissive_pedestrian_wait_indicator`
 - `emissive_preemption_beacon_lunar`
+- `emissive_preemption_beacon_dual_lunar`
 
 ### Camera profiles
 
