@@ -629,6 +629,20 @@ def Xform "scene_signalized_intersection" {
         float xformOp:rotateY = 180.000000
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
     }
+    def Xform "cantilever_service_conduit_0" (
+        references = @../geometry/usd/furniture_signal_cantilever_service_conduit.usda@</furniture_signal_cantilever_service_conduit>
+    ) {
+        double3 xformOp:translate = (7.340000, 0.000000, -2.020000)
+        float xformOp:rotateY = 180.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
+    def Xform "cantilever_splice_box_0" (
+        references = @../geometry/usd/furniture_signal_cantilever_splice_box.usda@</furniture_signal_cantilever_splice_box>
+    ) {
+        double3 xformOp:translate = (12.980000, 0.000000, -2.020000)
+        float xformOp:rotateY = 180.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
     def Xform "cantilever_slim_controller_0" (
         references = @../geometry/usd/furniture_signal_cantilever_slim_controller_box.usda@</furniture_signal_cantilever_slim_controller_box>
     ) {
@@ -1028,6 +1042,13 @@ def Xform "scene_signalized_intersection" {
         float xformOp:rotateY = 90.000000
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
     }
+    def Xform "lane_control_bicycle_only_0" (
+        references = @../geometry/usd/signal_lane_control_bicycle_only_2_aspect.usda@</signal_lane_control_bicycle_only_2_aspect>
+    ) {
+        double3 xformOp:translate = (10.220000, 0.000000, -2.240000)
+        float xformOp:rotateY = 180.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
     def Xform "transit_priority_vertical_0" (
         references = @../geometry/usd/signal_transit_priority_vertical_4_aspect.usda@</signal_transit_priority_vertical_4_aspect>
     ) {
@@ -1049,6 +1070,13 @@ def Xform "scene_signalized_intersection" {
         float xformOp:rotateY = 90.000000
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
     }
+    def Xform "transit_priority_t_0" (
+        references = @../geometry/usd/signal_transit_priority_t_3_aspect.usda@</signal_transit_priority_t_3_aspect>
+    ) {
+        double3 xformOp:translate = (-0.420000, 0.000000, 1.920000)
+        float xformOp:rotateY = 90.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
     def Xform "bus_priority_vertical_0" (
         references = @../geometry/usd/signal_bus_priority_vertical_4_aspect.usda@</signal_bus_priority_vertical_4_aspect>
     ) {
@@ -1061,6 +1089,13 @@ def Xform "scene_signalized_intersection" {
     ) {
         double3 xformOp:translate = (2.660000, 0.000000, -2.240000)
         float xformOp:rotateY = 0.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
+    def Xform "bus_priority_bar_0" (
+        references = @../geometry/usd/signal_bus_priority_bar_3_aspect.usda@</signal_bus_priority_bar_3_aspect>
+    ) {
+        double3 xformOp:translate = (-2.480000, 0.000000, 1.100000)
+        float xformOp:rotateY = 90.000000
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
     }
     def Xform "tram_priority_vertical_0" (
@@ -1077,10 +1112,24 @@ def Xform "scene_signalized_intersection" {
         float xformOp:rotateY = 90.000000
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
     }
+    def Xform "tram_priority_bar_0" (
+        references = @../geometry/usd/signal_tram_priority_bar_3_aspect.usda@</signal_tram_priority_bar_3_aspect>
+    ) {
+        double3 xformOp:translate = (-3.720000, 0.000000, 1.940000)
+        float xformOp:rotateY = 90.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
     def Xform "directional_arrow_left_0" (
         references = @../geometry/usd/signal_directional_arrow_left_3_aspect.usda@</signal_directional_arrow_left_3_aspect>
     ) {
         double3 xformOp:translate = (-0.960000, 0.000000, -2.000000)
+        float xformOp:rotateY = 0.000000
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
+    }
+    def Xform "ped_wait_dual_0" (
+        references = @../geometry/usd/signal_pedestrian_wait_indicator_dual_horizontal.usda@</signal_pedestrian_wait_indicator_dual_horizontal>
+    ) {
+        double3 xformOp:translate = (-0.460000, 0.000000, 2.180000)
         float xformOp:rotateY = 0.000000
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateY"]
     }

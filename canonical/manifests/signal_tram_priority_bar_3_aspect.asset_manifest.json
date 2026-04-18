@@ -1,0 +1,80 @@
+{
+  "id": "signal_tram_priority_bar_3_aspect",
+  "family": "traffic_light",
+  "semantic_class": "traffic_light.tram_priority",
+  "variant_key": "tram_priority.bar.3_aspect",
+  "dimensions_m": {
+    "width": 0.38,
+    "height": 2.08,
+    "depth": 0.16
+  },
+  "lods": [
+    {
+      "name": "LOD0",
+      "triangle_count": 60,
+      "usd_scope": "/signal_tram_priority_bar_3_aspect/LOD0",
+      "gltf_node_prefix": "LOD0"
+    },
+    {
+      "name": "LOD1",
+      "triangle_count": 60,
+      "usd_scope": "/signal_tram_priority_bar_3_aspect/LOD1",
+      "gltf_node_prefix": "LOD1"
+    }
+  ],
+  "collider": {
+    "type": "box",
+    "width": 0.38,
+    "height": 0.88,
+    "depth": 0.16
+  },
+  "anchor_points": {
+    "mount_point": {
+      "x": 0.0,
+      "y": 1.2,
+      "z": -0.08
+    },
+    "front_center": {
+      "x": 0.0,
+      "y": 1.64,
+      "z": 0.08
+    }
+  },
+  "materials": [
+    "mat_metal_galvanized",
+    "mat_signal_housing",
+    "mat_signal_ped_white_off"
+  ],
+  "states": {
+    "off": {
+      "emissive_profile": "emissive_tram_priority_standard",
+      "state_key": "off"
+    },
+    "active_tram_stop": {
+      "emissive_profile": "emissive_tram_priority_standard",
+      "state_key": "tram_stop"
+    },
+    "active_tram_go": {
+      "emissive_profile": "emissive_tram_priority_standard",
+      "state_key": "tram_go"
+    },
+    "active_tram_call": {
+      "emissive_profile": "emissive_tram_priority_standard",
+      "state_key": "tram_call"
+    }
+  },
+  "export_targets": {
+    "usd_ascii": "canonical/geometry/usd/signal_tram_priority_bar_3_aspect.usda",
+    "usd_binary": "exports/usd/signal_tram_priority_bar_3_aspect.usdc",
+    "gltf_binary": "exports/gltf/signal_tram_priority_bar_3_aspect.glb"
+  },
+  "license": {
+    "spdx": "LicenseRef-ProjectGenerated",
+    "redistribution": "geometry, manifests, and templates generated in-repo"
+  },
+  "provenance": {
+    "generated_at": "2026-04-16T10:10:40+00:00",
+    "generated_by": "scripts/build_asset_pack.py",
+    "note": "Generated signal housing geometry with state-driven emissive profile bindings."
+  }
+}

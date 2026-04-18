@@ -1,0 +1,81 @@
+{
+  "id": "signal_lane_control_bicycle_only_2_aspect",
+  "family": "traffic_light",
+  "semantic_class": "traffic_light.bicycle_lane_control",
+  "variant_key": "lane_control.bicycle_only.2_aspect",
+  "dimensions_m": {
+    "width": 0.38,
+    "height": 1.94,
+    "depth": 0.18
+  },
+  "lods": [
+    {
+      "name": "LOD0",
+      "triangle_count": 48,
+      "usd_scope": "/signal_lane_control_bicycle_only_2_aspect/LOD0",
+      "gltf_node_prefix": "LOD0"
+    },
+    {
+      "name": "LOD1",
+      "triangle_count": 48,
+      "usd_scope": "/signal_lane_control_bicycle_only_2_aspect/LOD1",
+      "gltf_node_prefix": "LOD1"
+    }
+  ],
+  "collider": {
+    "type": "box",
+    "width": 0.38,
+    "height": 0.74,
+    "depth": 0.18
+  },
+  "anchor_points": {
+    "mount_point": {
+      "x": 0.0,
+      "y": 1.2,
+      "z": -0.08
+    },
+    "front_center": {
+      "x": 0.0,
+      "y": 1.57,
+      "z": 0.09
+    }
+  },
+  "materials": [
+    "mat_metal_galvanized",
+    "mat_signal_housing",
+    "mat_signal_lens_green_off",
+    "mat_signal_lens_red_off"
+  ],
+  "states": {
+    "off": {
+      "emissive_profile": "emissive_lane_control_bicycle_only",
+      "state_key": "off"
+    },
+    "bike_lane_closed": {
+      "emissive_profile": "emissive_lane_control_bicycle_only",
+      "state_key": "bike_lane_closed"
+    },
+    "bike_lane_only": {
+      "emissive_profile": "emissive_lane_control_bicycle_only",
+      "state_key": "bike_lane_only"
+    },
+    "flashing_bike_lane_only": {
+      "emissive_profile": "emissive_lane_control_bicycle_only",
+      "state_key": "flashing_bike_lane_only"
+    }
+  },
+  "export_targets": {
+    "usd_ascii": "canonical/geometry/usd/signal_lane_control_bicycle_only_2_aspect.usda",
+    "usd_binary": "exports/usd/signal_lane_control_bicycle_only_2_aspect.usdc",
+    "gltf_binary": "exports/gltf/signal_lane_control_bicycle_only_2_aspect.glb"
+  },
+  "license": {
+    "spdx": "LicenseRef-ProjectGenerated",
+    "redistribution": "geometry, manifests, and templates generated in-repo"
+  },
+  "provenance": {
+    "generated_at": "2026-04-16T10:10:40+00:00",
+    "generated_by": "scripts/build_asset_pack.py",
+    "note": "Generated signal housing geometry with state-driven emissive profile bindings."
+  }
+}

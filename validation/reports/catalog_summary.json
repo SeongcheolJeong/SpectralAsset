@@ -788,6 +788,36 @@
       "variant_key": "bicycle.lane_control.compact.2_aspect"
     },
     {
+      "id": "signal_lane_control_bicycle_only_2_aspect",
+      "family": "traffic_light",
+      "semantic_class": "traffic_light.bicycle_lane_control",
+      "variant_key": "lane_control.bicycle_only.2_aspect"
+    },
+    {
+      "id": "signal_pedestrian_wait_indicator_dual_horizontal",
+      "family": "traffic_light",
+      "semantic_class": "traffic_light.pedestrian_wait",
+      "variant_key": "pedestrian_wait.dual_horizontal"
+    },
+    {
+      "id": "signal_transit_priority_t_3_aspect",
+      "family": "traffic_light",
+      "semantic_class": "traffic_light.transit_priority_t",
+      "variant_key": "transit_priority.t.3_aspect"
+    },
+    {
+      "id": "signal_bus_priority_bar_3_aspect",
+      "family": "traffic_light",
+      "semantic_class": "traffic_light.bus_priority",
+      "variant_key": "bus_priority.bar.3_aspect"
+    },
+    {
+      "id": "signal_tram_priority_bar_3_aspect",
+      "family": "traffic_light",
+      "semantic_class": "traffic_light.tram_priority",
+      "variant_key": "tram_priority.bar.3_aspect"
+    },
+    {
       "id": "road_asphalt_dry",
       "family": "road_surface",
       "semantic_class": "road.asphalt",
@@ -1698,6 +1728,18 @@
       "family": "road_furniture",
       "semantic_class": "furniture.signal_cantilever_mount",
       "variant_key": "arm_end_cap"
+    },
+    {
+      "id": "furniture_signal_cantilever_service_conduit",
+      "family": "road_furniture",
+      "semantic_class": "furniture.signal_cantilever_service",
+      "variant_key": "service_conduit_bundle"
+    },
+    {
+      "id": "furniture_signal_cantilever_splice_box",
+      "family": "road_furniture",
+      "semantic_class": "furniture.signal_cantilever_service",
+      "variant_key": "splice_box"
     },
     {
       "id": "furniture_signal_cantilever_slim_controller_box",

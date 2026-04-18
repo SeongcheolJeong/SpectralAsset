@@ -2387,6 +2387,26 @@
           "rotate_y": 180.0
         },
         {
+          "asset_id": "furniture_signal_cantilever_service_conduit",
+          "name": "cantilever_service_conduit_0",
+          "translate": [
+            7.34,
+            0.0,
+            -2.02
+          ],
+          "rotate_y": 180.0
+        },
+        {
+          "asset_id": "furniture_signal_cantilever_splice_box",
+          "name": "cantilever_splice_box_0",
+          "translate": [
+            12.98,
+            0.0,
+            -2.02
+          ],
+          "rotate_y": 180.0
+        },
+        {
           "asset_id": "furniture_signal_cantilever_slim_controller_box",
           "name": "cantilever_slim_controller_0",
           "translate": [
@@ -2957,6 +2977,16 @@
           "rotate_y": 90.0
         },
         {
+          "asset_id": "signal_lane_control_bicycle_only_2_aspect",
+          "name": "lane_control_bicycle_only_0",
+          "translate": [
+            10.22,
+            0.0,
+            -2.24
+          ],
+          "rotate_y": 180.0
+        },
+        {
           "asset_id": "signal_transit_priority_vertical_4_aspect",
           "name": "transit_priority_vertical_0",
           "translate": [
@@ -2987,6 +3017,16 @@
           "rotate_y": 90.0
         },
         {
+          "asset_id": "signal_transit_priority_t_3_aspect",
+          "name": "transit_priority_t_0",
+          "translate": [
+            -0.42,
+            0.0,
+            1.92
+          ],
+          "rotate_y": 90.0
+        },
+        {
           "asset_id": "signal_bus_priority_vertical_4_aspect",
           "name": "bus_priority_vertical_0",
           "translate": [
@@ -3005,6 +3045,16 @@
             -2.24
           ],
           "rotate_y": 0.0
+        },
+        {
+          "asset_id": "signal_bus_priority_bar_3_aspect",
+          "name": "bus_priority_bar_0",
+          "translate": [
+            -2.48,
+            0.0,
+            1.1
+          ],
+          "rotate_y": 90.0
         },
         {
           "asset_id": "signal_tram_priority_vertical_4_aspect",
@@ -3027,12 +3077,32 @@
           "rotate_y": 90.0
         },
         {
+          "asset_id": "signal_tram_priority_bar_3_aspect",
+          "name": "tram_priority_bar_0",
+          "translate": [
+            -3.72,
+            0.0,
+            1.94
+          ],
+          "rotate_y": 90.0
+        },
+        {
           "asset_id": "signal_directional_arrow_left_3_aspect",
           "name": "directional_arrow_left_0",
           "translate": [
             -0.96,
             0.0,
             -2.0
+          ],
+          "rotate_y": 0.0
+        },
+        {
+          "asset_id": "signal_pedestrian_wait_indicator_dual_horizontal",
+          "name": "ped_wait_dual_0",
+          "translate": [
+            -0.46,
+            0.0,
+            2.18
           ],
           "rotate_y": 0.0
         },
@@ -4098,6 +4168,26 @@
           "rotate_y": 180.0
         },
         {
+          "asset_id": "furniture_signal_cantilever_service_conduit",
+          "name": "cantilever_service_conduit_0",
+          "translate": [
+            8.34,
+            0.0,
+            -1.32
+          ],
+          "rotate_y": 180.0
+        },
+        {
+          "asset_id": "furniture_signal_cantilever_splice_box",
+          "name": "cantilever_splice_box_0",
+          "translate": [
+            11.16,
+            0.0,
+            -1.32
+          ],
+          "rotate_y": 180.0
+        },
+        {
           "asset_id": "furniture_signal_cantilever_slim_controller_box",
           "name": "cantilever_slim_controller_0",
           "translate": [
@@ -4388,6 +4478,16 @@
           "rotate_y": 180.0
         },
         {
+          "asset_id": "signal_bus_priority_bar_3_aspect",
+          "name": "bus_priority_bar_0",
+          "translate": [
+            4.52,
+            0.0,
+            1.62
+          ],
+          "rotate_y": 180.0
+        },
+        {
           "asset_id": "signal_tram_priority_compact_3_aspect",
           "name": "tram_priority_compact_0",
           "translate": [
@@ -4404,6 +4504,26 @@
             1.42,
             0.0,
             1.62
+          ],
+          "rotate_y": 180.0
+        },
+        {
+          "asset_id": "signal_tram_priority_bar_3_aspect",
+          "name": "tram_priority_bar_0",
+          "translate": [
+            0.92,
+            0.0,
+            1.62
+          ],
+          "rotate_y": 180.0
+        },
+        {
+          "asset_id": "signal_transit_priority_t_3_aspect",
+          "name": "transit_priority_t_0",
+          "translate": [
+            4.98,
+            0.0,
+            1.22
           ],
           "rotate_y": 180.0
         },
@@ -4468,6 +4588,16 @@
           "rotate_y": 180.0
         },
         {
+          "asset_id": "signal_lane_control_bicycle_only_2_aspect",
+          "name": "lane_control_bicycle_only_0",
+          "translate": [
+            9.28,
+            0.0,
+            -1.54
+          ],
+          "rotate_y": 180.0
+        },
+        {
           "asset_id": "signal_transit_priority_bar_4_aspect",
           "name": "transit_priority_bar_0",
           "translate": [
@@ -4506,6 +4636,16 @@
             1.62
           ],
           "rotate_y": 180.0
+        },
+        {
+          "asset_id": "signal_pedestrian_wait_indicator_dual_horizontal",
+          "name": "ped_wait_dual_0",
+          "translate": [
+            0.56,
+            0.0,
+            2.2
+          ],
+          "rotate_y": 0.0
         },
         {
           "asset_id": "furniture_bollard_flexible",
@@ -5189,6 +5329,26 @@
           "rotate_y": 180.0
         },
         {
+          "asset_id": "furniture_signal_cantilever_service_conduit",
+          "name": "cantilever_service_conduit_0",
+          "translate": [
+            4.62,
+            0.0,
+            -1.62
+          ],
+          "rotate_y": 180.0
+        },
+        {
+          "asset_id": "furniture_signal_cantilever_splice_box",
+          "name": "cantilever_splice_box_0",
+          "translate": [
+            6.94,
+            0.0,
+            -1.62
+          ],
+          "rotate_y": 180.0
+        },
+        {
           "asset_id": "furniture_signal_cantilever_slim_controller_box",
           "name": "cantilever_slim_controller_0",
           "translate": [
@@ -5659,6 +5819,16 @@
           "rotate_y": 180.0
         },
         {
+          "asset_id": "signal_lane_control_bicycle_only_2_aspect",
+          "name": "lane_control_bicycle_only_0",
+          "translate": [
+            3.38,
+            0.0,
+            1.02
+          ],
+          "rotate_y": 180.0
+        },
+        {
           "asset_id": "signal_transit_priority_horizontal_4_aspect",
           "name": "transit_priority_horizontal_0",
           "translate": [
@@ -5679,6 +5849,16 @@
           "rotate_y": 180.0
         },
         {
+          "asset_id": "signal_transit_priority_t_3_aspect",
+          "name": "transit_priority_t_0",
+          "translate": [
+            1.06,
+            0.0,
+            1.88
+          ],
+          "rotate_y": 180.0
+        },
+        {
           "asset_id": "signal_bus_priority_horizontal_4_aspect",
           "name": "bus_priority_horizontal_0",
           "translate": [
@@ -5687,6 +5867,26 @@
             -1.84
           ],
           "rotate_y": 0.0
+        },
+        {
+          "asset_id": "signal_bus_priority_bar_3_aspect",
+          "name": "bus_priority_bar_0",
+          "translate": [
+            0.86,
+            0.0,
+            1.82
+          ],
+          "rotate_y": 180.0
+        },
+        {
+          "asset_id": "signal_tram_priority_bar_3_aspect",
+          "name": "tram_priority_bar_0",
+          "translate": [
+            0.46,
+            0.0,
+            1.82
+          ],
+          "rotate_y": 180.0
         },
         {
           "asset_id": "signal_directional_arrow_right_3_aspect",
@@ -5773,6 +5973,16 @@
           "name": "ped_wait_0",
           "translate": [
             -2.02,
+            0.0,
+            -0.82
+          ],
+          "rotate_y": 0.0
+        },
+        {
+          "asset_id": "signal_pedestrian_wait_indicator_dual_horizontal",
+          "name": "ped_wait_dual_0",
+          "translate": [
+            -2.58,
             0.0,
             -0.82
           ],

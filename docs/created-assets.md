@@ -6,9 +6,9 @@ This file explains what the generator actually creates in this repository and ho
 
 Current generated baseline:
 
-- `339` assets
+- `346` assets
 - `27` spectral materials
-- `29` emissive profiles
+- `31` emissive profiles
 - `3` camera profiles
 - `4` scenario profiles
 - `4` validation scenes
@@ -145,13 +145,18 @@ These are signal housings such as:
 - `signal_bus_priority_vertical_4_aspect`
 - `signal_bus_priority_horizontal_4_aspect`
 - `signal_lane_control_bus_only_2_aspect`
+- `signal_lane_control_bicycle_only_2_aspect`
 - `signal_bicycle_vertical_3_aspect`
 - `signal_bicycle_compact_2_aspect`
 - `signal_bicycle_lane_control_compact_2_aspect`
 - `signal_pedestrian_bicycle_hybrid_4_aspect`
 - `signal_pedestrian_bicycle_compact_3_aspect`
+- `signal_pedestrian_wait_indicator_dual_horizontal`
 - `signal_tram_priority_vertical_4_aspect`
 - `signal_tram_priority_horizontal_4_aspect`
+- `signal_transit_priority_t_3_aspect`
+- `signal_bus_priority_bar_3_aspect`
+- `signal_tram_priority_bar_3_aspect`
 - `signal_directional_arrow_left_3_aspect`
 - `signal_directional_arrow_right_3_aspect`
 - `signal_directional_arrow_uturn_3_aspect`
@@ -193,8 +198,8 @@ The newer specialized signal heads now also include:
 - bus-priority state maps for stop, caution, go, and call indications
 - pedestrian wait-indicator state maps for steady or flashing amber hold behavior
 - lunar preemption state maps for steady/flashing single-lens, paired dual-lunar, or quad-lunar preempt-call behavior
-- compact lane-control or bus/tram-control heads plus compact bicycle, compact pedestrian-bicycle, single-amber school-warning, dual-lunar preemption box, dual-amber warning box, vertical dual-lunar preemption, vertical dual-amber/red flasher, diamond-style transit/bus/tram specialty heads, bus-only lane-control faces, a bar-style transit-priority head, a diagonal dual-lunar preemption head, and a compact bicycle lane-control head for narrower regional signal coverage
-- cantilever-crossing scene context for hanger/dropper-mounted signal-head placement instead of only side-mount or mast-arm starter context, now including truss and curved-mast cantilever subtypes plus newer single and quad dropper variants, backspan stubs, diagonal braces, dual mount-plate follow-up hardware, and newer arm-junction-box and end-cap controller-tail detail
+- compact lane-control or bus/tram-control heads plus compact bicycle, compact pedestrian-bicycle, single-amber school-warning, dual-lunar preemption box, dual-amber warning box, vertical dual-lunar preemption, vertical dual-amber/red flasher, diamond-style transit/bus/tram specialty heads, bus-only and bicycle-only lane-control faces, a dual-horizontal pedestrian-wait face, a T-style transit-priority face, bus/tram bar-style controller faces, a bar-style transit-priority head, a diagonal dual-lunar preemption head, and a compact bicycle lane-control head for narrower regional signal coverage
+- cantilever-crossing scene context for hanger/dropper-mounted signal-head placement instead of only side-mount or mast-arm starter context, now including truss and curved-mast cantilever subtypes plus newer single and quad dropper variants, backspan stubs, diagonal braces, dual mount-plate follow-up hardware, and newer arm-junction-box, end-cap, service-conduit, and splice-box controller-tail detail
 
 ### `road_surface`
 
@@ -360,6 +365,8 @@ These are support/context objects such as:
 - `furniture_signal_cantilever_maintenance_hoist`
 - `furniture_signal_cantilever_arm_junction_box`
 - `furniture_signal_cantilever_end_cap`
+- `furniture_signal_cantilever_service_conduit`
+- `furniture_signal_cantilever_splice_box`
 - `furniture_signal_cantilever_slim_controller_box`
 - `furniture_signal_cantilever_aux_controller_box`
 - `furniture_signal_controller_cabinet`
@@ -422,7 +429,7 @@ These are support/context objects such as:
 - `furniture_sign_band_clamp_pair`
 - `furniture_signal_band_clamp`
 
-The newest roadside-context passes now add bus-bay curb/island pieces, passenger-information hardware, loading-zone support detail, rail-gate mast/arm/bell/controller context, queue-rail, shelter-panel, curb-ramp, clamp-hardware follow-up assets, truss and curved-mast cantilever signal-frame/dropper detail, newer single and quad dropper follow-up pieces, cantilever anchor-cage and footing-collar pieces, cantilever service ladders and grated platforms, cantilever diagonal-brace, backspan, mount-plate, cable-tray, maintenance-hoist, arm-junction-box, end-cap, slim/aux controller-box, and pole-tail riser/service-loop follow-up hardware, rail-side power/relay/predictor/service-post ancillaries, a rail bungalow and battery box, validator/timetable/help-point/request-pole transit microsupport, bus-stop notice/perch accessories, queue stanchions and boarding-edge guardrails, and shelter trash, route-map, lean-rail, curb-separator, and hanger-clamp follow-up pieces so scenes can place both curbside-transit assemblies and deeper attachment/crossing context instead of implying all of that through signs, poles, brackets, and generic cabinets alone.
+The newest roadside-context passes now add bus-bay curb/island pieces, passenger-information hardware, loading-zone support detail, rail-gate mast/arm/bell/controller context, queue-rail, shelter-panel, curb-ramp, clamp-hardware follow-up assets, truss and curved-mast cantilever signal-frame/dropper detail, newer single and quad dropper follow-up pieces, cantilever anchor-cage and footing-collar pieces, cantilever service ladders and grated platforms, cantilever diagonal-brace, backspan, mount-plate, cable-tray, maintenance-hoist, arm-junction-box, end-cap, service-conduit, splice-box, slim/aux controller-box, and pole-tail riser/service-loop follow-up hardware, rail-side power/relay/predictor/service-post ancillaries, a rail bungalow and battery box, validator/timetable/help-point/request-pole transit microsupport, bus-stop notice/perch accessories, queue stanchions and boarding-edge guardrails, and shelter trash, route-map, lean-rail, curb-separator, and hanger-clamp follow-up pieces so scenes can place both curbside-transit assemblies and deeper attachment/crossing context instead of implying all of that through signs, poles, brackets, and generic cabinets alone.
 
 ## Other Generated Objects
 

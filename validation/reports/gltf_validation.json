@@ -1,6 +1,6 @@
 {
   "generated_at": "2026-04-16T10:10:40.000Z",
-  "files_checked": 343,
+  "files_checked": 350,
   "files_with_errors": 0,
   "files_with_warnings": 0,
   "results": [
@@ -509,6 +509,13 @@
       "messages": []
     },
     {
+      "file": "exports/gltf/furniture_signal_cantilever_service_conduit.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
       "file": "exports/gltf/furniture_signal_cantilever_service_ladder.glb",
       "numErrors": 0,
       "numWarnings": 0,
@@ -524,6 +531,13 @@
     },
     {
       "file": "exports/gltf/furniture_signal_cantilever_slim_controller_box.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
+      "file": "exports/gltf/furniture_signal_cantilever_splice_box.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
@@ -2098,6 +2112,13 @@
       "messages": []
     },
     {
+      "file": "exports/gltf/signal_bus_priority_bar_3_aspect.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
       "file": "exports/gltf/signal_bus_priority_compact_3_aspect.glb",
       "numErrors": 0,
       "numWarnings": 0,
@@ -2141,6 +2162,13 @@
     },
     {
       "file": "exports/gltf/signal_directional_arrow_uturn_3_aspect.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
+      "file": "exports/gltf/signal_lane_control_bicycle_only_2_aspect.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
@@ -2197,6 +2225,13 @@
     },
     {
       "file": "exports/gltf/signal_pedestrian_countdown_housing.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
+      "file": "exports/gltf/signal_pedestrian_wait_indicator_dual_horizontal.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
@@ -2294,6 +2329,13 @@
       "messages": []
     },
     {
+      "file": "exports/gltf/signal_tram_priority_bar_3_aspect.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
       "file": "exports/gltf/signal_tram_priority_compact_3_aspect.glb",
       "numErrors": 0,
       "numWarnings": 0,
@@ -2337,6 +2379,13 @@
     },
     {
       "file": "exports/gltf/signal_transit_priority_horizontal_4_aspect.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
+      "file": "exports/gltf/signal_transit_priority_t_3_aspect.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
