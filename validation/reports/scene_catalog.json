@@ -36,6 +36,26 @@
           "rotate_y": 0.0
         },
         {
+          "asset_id": "road_ramp_bridge_tie_transition",
+          "name": "road_ramp_bridge_tie_0",
+          "translate": [
+            12.3,
+            0.0,
+            0.0
+          ],
+          "rotate_y": 0.0
+        },
+        {
+          "asset_id": "road_median_refuge_nose",
+          "name": "road_median_refuge_0",
+          "translate": [
+            16.4,
+            0.0,
+            0.0
+          ],
+          "rotate_y": 0.0
+        },
+        {
           "asset_id": "marking_edge_line_white",
           "name": "edge_line_0",
           "translate": [
@@ -907,6 +927,16 @@
           "rotate_y": 0.0
         },
         {
+          "asset_id": "road_workzone_crossover_shift",
+          "name": "workzone_crossover_0",
+          "translate": [
+            12.2,
+            0.0,
+            -0.35
+          ],
+          "rotate_y": 0.0
+        },
+        {
           "asset_id": "road_lane_drop_transition",
           "name": "lane_drop_transition_0",
           "translate": [
@@ -923,6 +953,16 @@
             -8.1,
             0.0,
             0.95
+          ],
+          "rotate_y": 90.0
+        },
+        {
+          "asset_id": "road_workzone_barrier_chicane",
+          "name": "workzone_barrier_chicane_0",
+          "translate": [
+            -12.2,
+            0.0,
+            1.05
           ],
           "rotate_y": 90.0
         },
@@ -2163,6 +2203,16 @@
           "name": "road_curb_bulbout_0",
           "translate": [
             22.4,
+            0.0,
+            0.0
+          ],
+          "rotate_y": 0.0
+        },
+        {
+          "asset_id": "road_ramp_gore_transition",
+          "name": "road_ramp_gore_0",
+          "translate": [
+            25.6,
             0.0,
             0.0
           ],

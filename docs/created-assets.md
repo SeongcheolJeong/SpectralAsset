@@ -6,7 +6,7 @@ This file explains what the generator actually creates in this repository and ho
 
 Current generated baseline:
 
-- `175` assets
+- `180` assets
 - `27` spectral materials
 - `16` emissive profiles
 - `3` camera profiles
@@ -156,9 +156,14 @@ These are reusable road or pavement surfaces such as:
 - `road_lane_drop_transition`
 - `road_barrier_taper_transition`
 - `road_curb_bulbout_transition`
+- `road_ramp_bridge_tie_transition`
+- `road_ramp_gore_transition`
+- `road_median_refuge_nose`
+- `road_workzone_crossover_shift`
+- `road_workzone_barrier_chicane`
 - `road_sidewalk_panel`
 
-They mainly depend on spectral material definitions rather than complex state logic, but the newer variants now mix asphalt, concrete, steel-plate, gravel proxy materials, and low-profile curb or barrier forms to represent repairs, construction staging, rural shoulders, crowned rural lanes, dirt-track ruts, bridge-joint and bridge-approach panels, lane-drop tapers, pothole distress, edge-dropoff conditions, and curbside/barrier transition composites.
+They mainly depend on spectral material definitions rather than complex state logic, but the newer variants now mix asphalt, concrete, steel-plate, gravel proxy materials, and low-profile curb or barrier forms to represent repairs, construction staging, rural shoulders, crowned rural lanes, dirt-track ruts, bridge-joint and bridge-approach panels, lane-drop tapers, pothole distress, edge-dropoff conditions, curbside/barrier transition composites, ramp bridge-tie and ramp-gore transitions, median-refuge noses, and temporary crossover/barrier-chicane work-zone composites.
 
 ### `road_marking`
 

@@ -560,6 +560,36 @@
       "variant_key": "bulbout_apron"
     },
     {
+      "id": "road_ramp_bridge_tie_transition",
+      "family": "road_surface",
+      "semantic_class": "road.ramp_transition",
+      "variant_key": "bridge_tie"
+    },
+    {
+      "id": "road_ramp_gore_transition",
+      "family": "road_surface",
+      "semantic_class": "road.ramp_transition",
+      "variant_key": "gore_split"
+    },
+    {
+      "id": "road_median_refuge_nose",
+      "family": "road_surface",
+      "semantic_class": "road.median_nose",
+      "variant_key": "channelized_refuge"
+    },
+    {
+      "id": "road_workzone_crossover_shift",
+      "family": "road_surface",
+      "semantic_class": "road.workzone_composite",
+      "variant_key": "temporary_crossover"
+    },
+    {
+      "id": "road_workzone_barrier_chicane",
+      "family": "road_surface",
+      "semantic_class": "road.workzone_composite",
+      "variant_key": "barrier_chicane"
+    },
+    {
       "id": "road_curb_segment",
       "family": "road_furniture",
       "semantic_class": "road.curb",

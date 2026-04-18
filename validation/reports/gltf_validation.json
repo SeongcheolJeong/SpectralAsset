@@ -1,6 +1,6 @@
 {
   "generated_at": "2026-04-16T10:10:40.000Z",
-  "files_checked": 179,
+  "files_checked": 184,
   "files_with_errors": 0,
   "files_with_warnings": 0,
   "results": [
@@ -719,6 +719,27 @@
       "messages": []
     },
     {
+      "file": "exports/gltf/road_median_refuge_nose.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
+      "file": "exports/gltf/road_ramp_bridge_tie_transition.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
+      "file": "exports/gltf/road_ramp_gore_transition.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
       "file": "exports/gltf/road_rural_crowned_lane.glb",
       "numErrors": 0,
       "numWarnings": 0,
@@ -727,6 +748,20 @@
     },
     {
       "file": "exports/gltf/road_sidewalk_panel.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
+      "file": "exports/gltf/road_workzone_barrier_chicane.glb",
+      "numErrors": 0,
+      "numWarnings": 0,
+      "numInfos": 0,
+      "messages": []
+    },
+    {
+      "file": "exports/gltf/road_workzone_crossover_shift.glb",
       "numErrors": 0,
       "numWarnings": 0,
       "numInfos": 0,
