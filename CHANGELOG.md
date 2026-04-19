@@ -5,6 +5,7 @@
 ### Added
 
 - project-management doc set under `docs/`
+- internal project status report summarizing the current baseline, validation state, and open measured-data blockers
 - local-first git workflow definition
 - phase roadmap and task backlog for long-running work
 - explanation docs for generated assets and file formats

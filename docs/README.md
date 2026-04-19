@@ -5,6 +5,7 @@ This directory is the management layer for the autonomous-driving camera simulat
 ## Document Map
 
 - [project-overview.md](project-overview.md): stable snapshot of current scope, repo state, constraints, and validation status
+- [status-report.md](status-report.md): internal project-status snapshot focused on current baseline, blockers, and next steps
 - [roadmap.md](roadmap.md): phase-level delivery plan from repo governance through release hardening
 - [task-backlog.md](task-backlog.md): live backlog with task IDs, priorities, dependencies, and done criteria
 - [asset-spec.md](asset-spec.md): naming, catalog, manifest, and asset-acceptance contract
@@ -29,6 +30,7 @@ This directory is the management layer for the autonomous-driving camera simulat
 ## Update Rules
 
 - Update [project-overview.md](project-overview.md) when counts, constraints, or repo-state assumptions change.
+- Update [status-report.md](status-report.md) when a new internal status snapshot is intentionally refreshed.
 - Update [roadmap.md](roadmap.md) only when phase boundaries, goals, or dependency order change.
 - Update [task-backlog.md](task-backlog.md) for all task status changes. This is the only live task board.
 - Update [asset-spec.md](asset-spec.md) before changing naming rules, manifest contracts, or asset acceptance rules.
