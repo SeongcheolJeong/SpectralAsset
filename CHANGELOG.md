@@ -6,6 +6,8 @@
 
 - project-management doc set under `docs/`
 - internal project status report summarizing the current baseline, validation state, and open measured-data blockers
+- external/demo progress-report slide outline using diagram-heavy structure and real repo asset references
+- standalone HTML presentation deck for the external/demo progress report
 - local-first git workflow definition
 - phase roadmap and task backlog for long-running work
 - explanation docs for generated assets and file formats

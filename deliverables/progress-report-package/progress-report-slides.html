@@ -1,0 +1,926 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>진행 보고서 - Autonomous Driving Camera Simulation Asset Pack</title>
+    <style>
+      :root {
+        --bg: #f4f1e8;
+        --paper: #fffdf8;
+        --ink: #1f252b;
+        --muted: #5f6a72;
+        --accent: #0d4c73;
+        --accent-soft: #dbeaf2;
+        --accent-2: #cc5a2b;
+        --line: #d6d0c2;
+        --good: #1d6b46;
+        --warn: #9a5b00;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        background: radial-gradient(circle at top, #f8f5ee 0%, var(--bg) 65%);
+        color: var(--ink);
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      }
+
+      body {
+        counter-reset: slide;
+      }
+
+      .deck {
+        display: flex;
+        flex-direction: column;
+        gap: 28px;
+        padding: 28px;
+      }
+
+      .slide {
+        position: relative;
+        min-height: 100vh;
+        padding: 48px 56px 64px;
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(251, 248, 241, 0.98));
+        border: 1px solid rgba(31, 37, 43, 0.08);
+        border-radius: 28px;
+        box-shadow: 0 18px 48px rgba(31, 37, 43, 0.08);
+        overflow: hidden;
+      }
+
+      .slide::before {
+        counter-increment: slide;
+        content: counter(slide, decimal-leading-zero);
+        position: absolute;
+        top: 28px;
+        right: 34px;
+        color: rgba(13, 76, 115, 0.18);
+        font-size: 72px;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+      }
+
+      .slide::after {
+        content: "";
+        position: absolute;
+        inset: auto 0 0 0;
+        height: 8px;
+        background: linear-gradient(90deg, var(--accent), var(--accent-2));
+      }
+
+      h1,
+      h2,
+      h3 {
+        margin: 0 0 16px;
+        line-height: 1.05;
+      }
+
+      h1 {
+        font-size: 56px;
+        letter-spacing: -0.03em;
+      }
+
+      h2 {
+        font-size: 38px;
+        letter-spacing: -0.02em;
+      }
+
+      h3 {
+        font-size: 20px;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: var(--accent);
+      }
+
+      p,
+      li,
+      td,
+      th,
+      a,
+      figcaption,
+      .small {
+        font-size: 20px;
+        line-height: 1.5;
+      }
+
+      p,
+      ul,
+      ol,
+      table,
+      figure,
+      .grid,
+      .hero,
+      .metrics {
+        margin: 0;
+      }
+
+      ul {
+        padding-left: 24px;
+      }
+
+      li + li {
+        margin-top: 10px;
+      }
+
+      code {
+        padding: 0.08em 0.32em;
+        background: rgba(13, 76, 115, 0.08);
+        border-radius: 6px;
+        font-family: "SFMono-Regular", Menlo, Consolas, monospace;
+        font-size: 0.92em;
+      }
+
+      a {
+        color: var(--accent);
+        text-decoration-thickness: 0.08em;
+        text-underline-offset: 0.14em;
+      }
+
+      .eyebrow {
+        font-size: 15px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.14em;
+        color: var(--accent);
+        margin-bottom: 12px;
+      }
+
+      .lead {
+        font-size: 24px;
+        line-height: 1.45;
+        color: var(--muted);
+        max-width: 980px;
+      }
+
+      .hero {
+        display: grid;
+        grid-template-columns: 1.15fr 0.85fr;
+        gap: 28px;
+        align-items: end;
+        margin-top: 28px;
+      }
+
+      .hero-card,
+      .note,
+      .panel,
+      .diagram,
+      .stat-card {
+        background: var(--paper);
+        border: 1px solid var(--line);
+        border-radius: 20px;
+        padding: 22px 24px;
+      }
+
+      .hero-card strong {
+        display: block;
+        font-size: 18px;
+        color: var(--accent);
+        margin-bottom: 8px;
+      }
+
+      .hero-card p {
+        font-size: 22px;
+      }
+
+      .grid-2 {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+      }
+
+      .grid-3 {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 18px;
+      }
+
+      .grid-4 {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 18px;
+      }
+
+      .metrics {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 16px;
+        margin-top: 24px;
+      }
+
+      .stat-card .label {
+        font-size: 15px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: var(--muted);
+      }
+
+      .stat-card .value {
+        margin-top: 8px;
+        font-size: 34px;
+        font-weight: 800;
+        color: var(--accent);
+      }
+
+      .diagram {
+        margin-top: 20px;
+        padding: 24px;
+      }
+
+      .flow {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        gap: 14px;
+        align-items: stretch;
+      }
+
+      .flow .node,
+      .growth .node {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        min-height: 110px;
+        padding: 12px;
+        border-radius: 18px;
+        background: linear-gradient(180deg, #f4f9fc, #e3eef5);
+        border: 1px solid #bfd2dd;
+        font-weight: 700;
+      }
+
+      .flow .arrow,
+      .growth .arrow {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--accent);
+        font-size: 30px;
+        font-weight: 800;
+      }
+
+      .growth {
+        display: grid;
+        grid-template-columns: 1.2fr 0.3fr 1.2fr 0.3fr 1.6fr;
+        gap: 12px;
+        margin-top: 18px;
+      }
+
+      .growth .node small {
+        display: block;
+        margin-top: 6px;
+        font-size: 15px;
+        color: var(--muted);
+        font-weight: 600;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+      }
+
+      th,
+      td {
+        padding: 12px 14px;
+        border-bottom: 1px solid var(--line);
+        text-align: left;
+        vertical-align: top;
+      }
+
+      th {
+        font-size: 16px;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: var(--muted);
+      }
+
+      .gallery {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+        margin-top: 24px;
+      }
+
+      .model-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 18px;
+        margin-top: 24px;
+      }
+
+      figure.model-card {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        padding: 18px;
+        background: var(--paper);
+        border: 1px solid var(--line);
+        border-radius: 20px;
+      }
+
+      .model-card img {
+        width: 100%;
+        height: 220px;
+        object-fit: contain;
+        background: radial-gradient(circle at top, #ffffff 0%, #edf3f6 100%);
+        border: 1px solid rgba(31, 37, 43, 0.08);
+        border-radius: 14px;
+        padding: 14px;
+      }
+
+      figure.asset {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        padding: 18px;
+        background: var(--paper);
+        border: 1px solid var(--line);
+        border-radius: 20px;
+      }
+
+      .asset img {
+        width: 100%;
+        max-height: 260px;
+        object-fit: contain;
+        background: linear-gradient(180deg, #ffffff, #f2f5f7);
+        border: 1px solid rgba(31, 37, 43, 0.08);
+        border-radius: 14px;
+        padding: 16px;
+      }
+
+      figcaption strong {
+        display: block;
+        margin-bottom: 6px;
+        color: var(--accent);
+      }
+
+      .pill-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 18px;
+      }
+
+      .pill {
+        padding: 10px 14px;
+        border-radius: 999px;
+        background: var(--accent-soft);
+        color: var(--accent);
+        font-size: 16px;
+        font-weight: 700;
+      }
+
+      .status-good {
+        color: var(--good);
+        font-weight: 700;
+      }
+
+      .status-warn {
+        color: var(--warn);
+        font-weight: 700;
+      }
+
+      .two-col {
+        display: grid;
+        grid-template-columns: 1.1fr 0.9fr;
+        gap: 22px;
+        margin-top: 20px;
+      }
+
+      .footer-note {
+        margin-top: 16px;
+        color: var(--muted);
+        font-size: 17px;
+      }
+
+      .kbd {
+        display: inline-block;
+        padding: 2px 8px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: #faf8f2;
+        font-size: 16px;
+      }
+
+      @media (max-width: 1200px) {
+        .slide {
+          min-height: auto;
+          padding: 36px 32px 52px;
+        }
+
+        .hero,
+        .two-col,
+        .gallery,
+        .model-grid,
+        .grid-2,
+        .grid-3,
+        .grid-4,
+        .metrics,
+        .flow,
+        .growth {
+          grid-template-columns: 1fr;
+        }
+
+        .flow .arrow,
+        .growth .arrow {
+          transform: rotate(90deg);
+          min-height: 42px;
+        }
+      }
+
+      @media print {
+        body {
+          background: #fff;
+        }
+
+        .deck {
+          gap: 0;
+          padding: 0;
+        }
+
+        .slide {
+          min-height: 100vh;
+          page-break-after: always;
+          border-radius: 0;
+          box-shadow: none;
+          border: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="deck">
+      <section class="slide">
+        <div class="eyebrow">Progress Report</div>
+        <h1>진행 보고서</h1>
+        <p class="lead">
+          <code>Autonomous Driving Camera Simulation Asset Pack</code>의 현재 baseline, 실제 자산 예시, 검증
+          상태, 남은 리스크, 다음 단계를 외부 데모 관점에서 요약한 발표용 슬라이드입니다.
+        </p>
+        <div class="hero">
+          <div class="hero-card">
+            <strong>한 줄 요약</strong>
+            <p>검증 가능한 자산 팩 기반이 안정화되었고, 현재 병목은 자산 수가 아니라 측정 데이터 확보입니다.</p>
+          </div>
+          <div class="hero-card">
+            <strong>스냅샷</strong>
+            <p><code>2026년 4월 26일</code></p>
+            <p class="small">외부/데모용 standalone HTML slide deck</p>
+          </div>
+        </div>
+        <div class="pill-row">
+          <span class="pill">379 assets</span>
+          <span class="pill">383 GLBs validated</span>
+          <span class="pill">0 errors / 0 warnings</span>
+          <span class="pill">Active camera: <code>camera_reference_rgb_nir_v3</code></span>
+        </div>
+      </section>
+
+      <section class="slide">
+        <div class="eyebrow">Slide 2</div>
+        <h2>소스는 어디서 오나</h2>
+        <p class="lead">
+          이 프로젝트는 source를 바로 쓰지 않고 provenance가 있는 상태로 먼저 <code>raw/</code>에 동결합니다.
+          origin, classification, checksum, blocked fetch status가 모두 추적됩니다.
+        </p>
+        <div class="pill-row">
+          <span class="pill">origin_type: <code>url</code></span>
+          <span class="pill">origin_type: <code>local_path</code></span>
+          <span class="pill"><code>fetch_failed</code>도 ledger에 유지</span>
+        </div>
+        <div class="grid-2" style="margin-top: 20px">
+          <div class="panel">
+            <p>
+              <strong>공개 수치 데이터</strong><br />
+              <code>cie_d65_csv</code>, <code>cie_led_illuminants_csv</code>, <code>astm_g173_zip</code><br />
+              illuminant, night-emitter, daylight baseline
+            </p>
+          </div>
+          <div class="panel">
+            <p>
+              <strong>동결된 material subset</strong><br />
+              <code>usgs_splib07_selected/</code><br />
+              <code>mat_asphalt_dry</code>, <code>mat_concrete</code>, <code>mat_metal_galvanized</code> 기준선
+            </p>
+          </div>
+          <div class="panel">
+            <p>
+              <strong>vendor / official reference</strong><br />
+              <code>balluff_imx900_emva_report_pdf</code>, <code>onsemi_mt9m034_pdf</code>, <code>osram_*</code>,
+              <code>fhwa_*</code><br />
+              camera <code>v3</code>, signal SPD, night priors context
+            </p>
+          </div>
+          <div class="panel">
+            <p>
+              <strong>taxonomy / help reference</strong><br />
+              <code>osm_traffic_sign_wiki</code>, <code>unece_road_signs_page</code>, <code>mapillary_*</code><br />
+              sign family reference, provenance, fallback docs
+            </p>
+          </div>
+        </div>
+        <p class="footer-note">
+          현재 truth source는
+          <a href="./references/raw/source_ledger.json"><code>raw/source_ledger.json</code></a>
+          과
+          <a href="./references/docs/source-policy.md"><code>docs/source-policy.md</code></a>
+          입니다. blocked <code>403</code> source도 숨기지 않고 ledger에 남깁니다.
+        </p>
+      </section>
+
+      <section class="slide">
+        <div class="eyebrow">Slide 3</div>
+        <h2>어떻게 asset을 만드는가</h2>
+        <p class="lead">
+          source는 바로 runtime asset이 되지 않습니다. generator rule을 거쳐 canonical asset, export, validation까지
+          같은 baseline 안에서 만들어집니다.
+        </p>
+        <div class="diagram">
+          <div class="flow">
+            <div class="node">Frozen Sources<br /><small><code>raw/sources/</code> + <code>source_ledger.json</code></small></div>
+            <div class="arrow">→</div>
+            <div class="node">Generator<br /><small><code>scripts/build_asset_pack.py</code></small></div>
+            <div class="arrow">→</div>
+            <div class="node">Canonical Assets<br /><small><code>templates / geometry / profiles / manifests</code></small></div>
+            <div class="arrow">→</div>
+            <div class="node">Runtime Exports<br /><small><code>exports/gltf/</code> + <code>exports/usd/</code></small></div>
+            <div class="arrow">→</div>
+            <div class="node">Scenes / Scenarios<br /><small><code>canonical/scenes/</code></small></div>
+            <div class="arrow">→</div>
+            <div class="node">Validation Reports<br /><small><code>validation/reports/</code></small></div>
+          </div>
+        </div>
+        <div class="grid-3" style="margin-top: 20px">
+          <div class="panel">
+            <strong>3D sign example</strong>
+            <p>
+              taxonomy reference → <code>canonical/templates/signs/*.svg</code> →
+              <code>canonical/geometry/usd/</code> + <code>canonical/manifests/</code> →
+              <code>exports/gltf/*.glb</code>
+            </p>
+          </div>
+          <div class="panel">
+            <strong>Spectral / camera example</strong>
+            <p>
+              CIE / USGS / vendor docs → <code>canonical/spectra/</code> →
+              <code>canonical/materials/</code>, <code>canonical/emissive/</code>,
+              <code>canonical/camera/</code>
+            </p>
+          </div>
+          <div class="panel">
+            <strong>Final check</strong>
+            <p>
+              scenes + exports를 함께 돌려 <code>validation_summary.json</code>과
+              <code>gltf_validation.json</code>에 현재 truth를 남깁니다.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="slide">
+        <div class="eyebrow">Slide 4</div>
+        <h2>현재 기준선 Snapshot</h2>
+        <div class="metrics">
+          <div class="stat-card"><div class="label">Total Assets</div><div class="value">379</div></div>
+          <div class="stat-card"><div class="label">Traffic Sign</div><div class="value">90</div></div>
+          <div class="stat-card"><div class="label">Traffic Light</div><div class="value">61</div></div>
+          <div class="stat-card"><div class="label">Road Furniture</div><div class="value">102</div></div>
+          <div class="stat-card"><div class="label">Road Surface</div><div class="value">57</div></div>
+          <div class="stat-card"><div class="label">Road Marking</div><div class="value">69</div></div>
+          <div class="stat-card"><div class="label">Materials</div><div class="value">27</div></div>
+          <div class="stat-card"><div class="label">Emissive Profiles</div><div class="value">33</div></div>
+        </div>
+        <table>
+          <thead>
+            <tr>
+              <th>항목</th>
+              <th>현재 값</th>
+              <th>비고</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Camera profiles</td><td><code>3</code></td><td>active: <code>camera_reference_rgb_nir_v3</code></td></tr>
+            <tr><td>Scenario profiles</td><td><code>4</code></td><td>all scenarios use one active camera baseline</td></tr>
+            <tr><td>Validation scenes</td><td><code>4</code></td><td>sign, intersection, night, wet-road coverage</td></tr>
+            <tr><td>Checked GLBs</td><td><code>383</code></td><td class="status-good">0 errors / 0 warnings</td></tr>
+            <tr><td>Release gates</td><td><code>pass</code></td><td class="status-good">current baseline healthy</td></tr>
+          </tbody>
+        </table>
+        <p class="footer-note">
+          현재 baseline은 깨끗하게 검증되며, active camera는 measured가 아닌 public-data
+          <code>vendor_derived</code> 기준선입니다.
+        </p>
+      </section>
+
+      <section class="slide">
+        <div class="eyebrow">Slide 5</div>
+        <h2>얼마나 확장되었는가</h2>
+        <p class="lead">
+          starter baseline 대비 자산 패밀리 breadth가 크게 늘었습니다. 지금의 핵심 병목은 starter asset 부족이 아니라
+          <code>depth / fidelity / measured data</code>입니다.
+        </p>
+        <div class="diagram">
+          <div class="growth">
+            <div class="node"><div><strong><code>traffic_sign</code></strong><small>18 → 90</small></div></div>
+            <div class="arrow">→</div>
+            <div class="node"><div><strong><code>traffic_light</code></strong><small>5 → 61</small></div></div>
+            <div class="arrow">→</div>
+            <div class="node"><div><strong>Count-expanded baseline</strong><small>starter set을 넘어 breadth 확보</small></div></div>
+          </div>
+          <div class="growth" style="margin-top: 12px">
+            <div class="node"><div><strong><code>road_surface</code></strong><small>4 → 57</small></div></div>
+            <div class="arrow">→</div>
+            <div class="node"><div><strong><code>road_marking</code></strong><small>4 → 69</small></div></div>
+            <div class="arrow">→</div>
+            <div class="node"><div><strong>현재 병목</strong><small>measured data / fidelity / support-tail depth</small></div></div>
+          </div>
+          <div class="growth" style="margin-top: 12px">
+            <div class="node"><div><strong><code>road_furniture</code></strong><small>4 → 102</small></div></div>
+            <div class="arrow">→</div>
+            <div class="node"><div><strong>`P3` first 57 batches</strong><small>실제 breadth를 형성한 주된 workstream</small></div></div>
+            <div class="arrow">→</div>
+            <div class="node"><div><strong>Next value question</strong><small>더 늘릴지, fidelity를 높일지 선택 단계</small></div></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="slide">
+        <div class="eyebrow">Slide 6</div>
+        <h2>실제 자산 예시: Sign face gallery</h2>
+        <p class="lead">이 슬라이드는 실제 repo에 추적된 SVG sign template만 사용합니다.</p>
+        <div class="gallery">
+          <figure class="asset">
+            <img src="./assets/progress-report/sign_stop.svg.png" alt="sign_stop" />
+            <figcaption>
+              <strong>규제 표지</strong>
+              <span><code>sign_stop.svg</code></span><br />
+              <a href="./references/templates/signs/sign_stop.svg">파일 열기</a>
+            </figcaption>
+          </figure>
+          <figure class="asset">
+            <img src="./assets/progress-report/sign_route_interstate_5_shield.svg.png" alt="sign_route_interstate_5_shield" />
+            <figcaption>
+              <strong>Route shield</strong>
+              <span><code>sign_route_interstate_5_shield.svg</code></span><br />
+              <a href="./references/templates/signs/sign_route_interstate_5_shield.svg">파일 열기</a>
+            </figcaption>
+          </figure>
+          <figure class="asset">
+            <img src="./assets/progress-report/sign_ferry_arrow_right.svg.png" alt="sign_ferry_arrow_right" />
+            <figcaption>
+              <strong>Service / wayfinding</strong>
+              <span><code>sign_ferry_arrow_right.svg</code></span><br />
+              <a href="./references/templates/signs/sign_ferry_arrow_right.svg">파일 열기</a>
+            </figcaption>
+          </figure>
+          <figure class="asset">
+            <img src="./assets/progress-report/sign_overhead_platform_refuge_split.svg.png" alt="sign_overhead_platform_refuge_split" />
+            <figcaption>
+              <strong>Overhead guide</strong>
+              <span><code>sign_overhead_platform_refuge_split.svg</code></span><br />
+              <a href="./references/templates/signs/sign_overhead_platform_refuge_split.svg">파일 열기</a>
+            </figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="slide">
+        <div class="eyebrow">Slide 7</div>
+        <h2>실제 자산 예시: 3D asset coverage</h2>
+        <div class="model-grid">
+          <figure class="model-card">
+            <img
+              src="./assets/progress-report/3d-renders/sign_priority_road_render.png"
+              alt="sign_priority_road rendered preview"
+            />
+            <figcaption>
+              <strong><code>traffic_sign</code></strong>
+              <span><code>sign_priority_road.glb</code></span>
+            </figcaption>
+          </figure>
+          <figure class="model-card">
+            <img
+              src="./assets/progress-report/3d-renders/signal_vehicle_vertical_3_aspect_render.png"
+              alt="signal_vehicle_vertical_3_aspect rendered preview"
+            />
+            <figcaption>
+              <strong><code>traffic_light</code></strong>
+              <span><code>signal_vehicle_vertical_3_aspect.glb</code></span>
+            </figcaption>
+          </figure>
+          <figure class="model-card">
+            <img
+              src="./assets/progress-report/3d-renders/road_transit_platform_bulbout_render.png"
+              alt="road_transit_platform_bulbout rendered preview"
+            />
+            <figcaption>
+              <strong><code>road_surface</code></strong>
+              <span><code>road_transit_platform_bulbout.glb</code></span>
+            </figcaption>
+          </figure>
+          <figure class="model-card">
+            <img
+              src="./assets/progress-report/3d-renders/furniture_bus_stop_shelter_render.png"
+              alt="furniture_bus_stop_shelter rendered preview"
+            />
+            <figcaption>
+              <strong><code>road_furniture</code></strong>
+              <span><code>furniture_bus_stop_shelter.glb</code></span>
+            </figcaption>
+          </figure>
+        </div>
+        <table>
+          <thead>
+            <tr>
+              <th>Family</th>
+              <th>Representative asset</th>
+              <th>File link</th>
+              <th>Why it matters</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>traffic_sign</code></td>
+              <td><code>sign_stop</code></td>
+              <td><a href="./references/exports/gltf/sign_stop.glb"><code>sign_stop.glb</code></a></td>
+              <td>기본 규제 표지 자산이 실제 export로 존재함</td>
+            </tr>
+            <tr>
+              <td><code>traffic_sign</code></td>
+              <td><code>sign_overhead_platform_refuge_split</code></td>
+              <td><a href="./references/exports/gltf/sign_overhead_platform_refuge_split.glb"><code>sign_overhead_platform_refuge_split.glb</code></a></td>
+              <td>overhead assembly까지 독립 자산으로 관리됨</td>
+            </tr>
+            <tr>
+              <td><code>traffic_light</code></td>
+              <td><code>signal_vehicle_vertical_3_aspect</code></td>
+              <td><a href="./references/exports/gltf/signal_vehicle_vertical_3_aspect.glb"><code>signal_vehicle_vertical_3_aspect.glb</code></a></td>
+              <td>vehicle head 기준선</td>
+            </tr>
+            <tr>
+              <td><code>traffic_light</code></td>
+              <td><code>signal_bus_platform_compact_3_aspect</code></td>
+              <td><a href="./references/exports/gltf/signal_bus_platform_compact_3_aspect.glb"><code>signal_bus_platform_compact_3_aspect.glb</code></a></td>
+              <td>multimodal / platform follow-up 반영</td>
+            </tr>
+            <tr>
+              <td><code>road_surface</code></td>
+              <td><code>road_transit_platform_bulbout</code></td>
+              <td><a href="./references/exports/gltf/road_transit_platform_bulbout.glb"><code>road_transit_platform_bulbout.glb</code></a></td>
+              <td>urban starter set을 넘어선 roadway breadth</td>
+            </tr>
+            <tr>
+              <td><code>road_marking</code></td>
+              <td><code>marking_bus_only_box_white</code></td>
+              <td><a href="./references/exports/gltf/marking_bus_only_box_white.glb"><code>marking_bus_only_box_white.glb</code></a></td>
+              <td>curbside / transit marking depth</td>
+            </tr>
+            <tr>
+              <td><code>road_furniture</code></td>
+              <td><code>furniture_bus_stop_shelter</code></td>
+              <td><a href="./references/exports/gltf/furniture_bus_stop_shelter.glb"><code>furniture_bus_stop_shelter.glb</code></a></td>
+              <td>support-tail asset이 독립 자산으로 관리됨</td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="footer-note">
+          상단 이미지는 공유 호환성을 위해 deck에 포함한 정적 PNG preview이고, 전체 확인은 아래의 실제 export
+          <code>GLB</code> 파일 링크를 사용합니다.
+        </p>
+      </section>
+
+      <section class="slide">
+        <div class="eyebrow">Slide 8</div>
+        <h2>Scene integration and validation</h2>
+        <div class="two-col">
+          <table>
+            <thead>
+              <tr>
+                <th>Scene</th>
+                <th>역할</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><a href="./references/scenes/scene_sign_test_lane.usda"><code>scene_sign_test_lane.usda</code></a></td>
+                <td>sign / lane marking coverage 확인</td>
+              </tr>
+              <tr>
+                <td><a href="./references/scenes/scene_signalized_intersection.usda"><code>scene_signalized_intersection.usda</code></a></td>
+                <td>multimodal intersection coverage 확인</td>
+              </tr>
+              <tr>
+                <td><a href="./references/scenes/scene_night_retroreflection.usda"><code>scene_night_retroreflection.usda</code></a></td>
+                <td>night / retroreflection context 확인</td>
+              </tr>
+              <tr>
+                <td><a href="./references/scenes/scene_wet_road_braking.usda"><code>scene_wet_road_braking.usda</code></a></td>
+                <td>wet-road behavior context 확인</td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="panel">
+            <h3>Validation summary</h3>
+            <ul>
+              <li><strong><code>383</code></strong> GLB checked</li>
+              <li class="status-good"><strong><code>0</code></strong> errors</li>
+              <li class="status-good"><strong><code>0</code></strong> warnings</li>
+              <li class="status-good">release gates <code>pass</code></li>
+            </ul>
+            <p class="footer-note">
+              자산은 개별 파일로만 존재하는 것이 아니라, validation scene 안에서 실제 조합과 문맥까지 함께 검증됩니다.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="slide">
+        <div class="eyebrow">Slide 9</div>
+        <h2>남은 리스크와 현재 fallback</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Gap</th>
+              <th>Status</th>
+              <th>Current fallback</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>measured automotive SRF</td>
+              <td class="status-warn"><code>blocked</code></td>
+              <td><code>camera_reference_rgb_nir_v3</code></td>
+            </tr>
+            <tr>
+              <td>measured traffic-signal/headlamp SPD</td>
+              <td class="status-warn"><code>blocked</code></td>
+              <td>vendor-derived signal SPDs + public night priors</td>
+            </tr>
+            <tr>
+              <td>measured retroreflective sheeting</td>
+              <td class="status-warn"><code>blocked</code></td>
+              <td>proxy shared gain curve</td>
+            </tr>
+            <tr>
+              <td>measured wet-road data</td>
+              <td class="status-warn"><code>blocked</code></td>
+              <td>simplified measured-derived wet path</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="grid-2" style="margin-top: 20px">
+          <div class="note">일부 upstream source는 여전히 <code>403</code> 상태입니다.</div>
+          <div class="note">retroreflective / wet-road 모델은 아직 full angle-aware BRDF가 아닙니다.</div>
+        </div>
+        <p class="footer-note">
+          현재 fallback path는 모두 구현되어 있지만, fidelity ceiling은 여전히 measured data 확보에 의해 결정됩니다.
+        </p>
+      </section>
+
+      <section class="slide">
+        <div class="eyebrow">Slide 10</div>
+        <h2>다음 단계</h2>
+        <div class="grid-3">
+          <div class="panel">
+            <h3>Immediate</h3>
+            <p><code>P3-T061</code></p>
+            <p class="small">
+              `road_furniture`의 transit-platform controller microsupport, curbside-priority attachments,
+              separator-island hardware follow-up
+            </p>
+          </div>
+          <div class="panel">
+            <h3>Near-term recommendation</h3>
+            <p class="small">support-tail 확장이 실제 데모 가치가 있는 경우에만 계속</p>
+          </div>
+          <div class="panel">
+            <h3>Strategic recommendation</h3>
+            <p class="small">가장 큰 fidelity unlock은 measured-data acquisition</p>
+          </div>
+        </div>
+        <div class="hero" style="margin-top: 28px">
+          <div class="hero-card">
+            <strong>명시할 메시지</strong>
+            <p>intake tooling은 이미 존재하지만, measured backlog는 아직 열려 있습니다.</p>
+          </div>
+          <div class="hero-card">
+            <strong>발표자 메모</strong>
+            <p>
+              “더 많은 자산 수”보다 “어떤 자산이 데모 가치를 실제로 올리는지”와 “어떤 measured data가 fidelity를
+              크게 올리는지”를 기준으로 다음 단계를 선택해야 합니다.
+            </p>
+          </div>
+        </div>
+        <p class="footer-note">
+          이 HTML deck은 브라우저에서 바로 열 수 있으며, 인쇄 시 slide-by-slide 출력도 가능하도록 구성되어 있습니다.
+          발표 시에는 <span class="kbd">Space</span>, <span class="kbd">PgDn</span>, 또는 스크롤로 이동하면 됩니다.
+        </p>
+      </section>
+    </main>
+  </body>
+</html>

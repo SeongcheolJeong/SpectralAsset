@@ -6,6 +6,8 @@ This directory is the management layer for the autonomous-driving camera simulat
 
 - [project-overview.md](project-overview.md): stable snapshot of current scope, repo state, constraints, and validation status
 - [status-report.md](status-report.md): internal project-status snapshot focused on current baseline, blockers, and next steps
+- [progress-report-slides.md](progress-report-slides.md): external/demo progress-report slide outline focused on diagrams and real repo asset references
+- [progress-report-slides.html](progress-report-slides.html): presentation-ready standalone HTML slide deck for the external/demo progress report
 - [roadmap.md](roadmap.md): phase-level delivery plan from repo governance through release hardening
 - [task-backlog.md](task-backlog.md): live backlog with task IDs, priorities, dependencies, and done criteria
 - [asset-spec.md](asset-spec.md): naming, catalog, manifest, and asset-acceptance contract
@@ -31,6 +33,8 @@ This directory is the management layer for the autonomous-driving camera simulat
 
 - Update [project-overview.md](project-overview.md) when counts, constraints, or repo-state assumptions change.
 - Update [status-report.md](status-report.md) when a new internal status snapshot is intentionally refreshed.
+- Update [progress-report-slides.md](progress-report-slides.md) when a presentation-oriented progress report is intentionally refreshed.
+- Update [progress-report-slides.html](progress-report-slides.html) when the presentation deck layout or styling is intentionally refreshed.
 - Update [roadmap.md](roadmap.md) only when phase boundaries, goals, or dependency order change.
 - Update [task-backlog.md](task-backlog.md) for all task status changes. This is the only live task board.
 - Update [asset-spec.md](asset-spec.md) before changing naming rules, manifest contracts, or asset acceptance rules.
